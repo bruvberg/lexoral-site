@@ -1212,65 +1212,84 @@ footer{
     </div>
 
 </section>
-
 <section class="cta" id="contact">
 
     <div class="container">
 
+        <div class="section-kicker" style="color:#b7c3d8;">
+            Transmission sécurisée
+        </div>
+
         <h2>
-            Prêt à soumettre un enregistrement?
+            Commencez une demande de transcription confidentielle.
         </h2>
 
         <p>
-            Réception sécurisée avec confirmation rapide et estimation de délai dans l’heure.
+            Transmettez les détails de votre dossier de façon sécurisée. Confirmation d’ouverture et délai estimé généralement transmis dans l’heure.
         </p>
 
-        <div class="intake-box">
+        <form 
+            action="https://formspree.io/f/VOTRE_ID_FORM"
+            method="POST"
+            class="intake-form"
+        >
 
             <div class="intake-grid">
 
-                <input type="text" placeholder="Cabinet / Organisation">
+                <input 
+                    type="text" 
+                    name="organisation"
+                    placeholder="Cabinet / Organisation"
+                    required
+                >
 
-                <select>
+                <input 
+                    type="email" 
+                    name="email"
+                    placeholder="Courriel professionnel"
+                    required
+                >
+
+                <select name="procedure">
                     <option>Type de procédure</option>
                     <option>Déposition</option>
                     <option>Arbitrage</option>
-                    <option>Audience</option>
+                    <option>Audience administrative</option>
                     <option>Litige</option>
                 </select>
 
-                <select>
+                <select name="langue">
                     <option>Langue</option>
                     <option>Français</option>
                     <option>Anglais</option>
                     <option>Bilingue FR–EN</option>
                 </select>
 
-                <select>
-                    <option>Délai</option>
-                    <option>24 heures</option>
-                    <option>48 heures</option>
-                    <option>72 heures</option>
-                </select>
+            </div>
+
+            <textarea 
+                name="message"
+                placeholder="Décrivez brièvement la procédure, les exigences de transcription, les délais ou les détails du mandat."
+                required
+            ></textarea>
+
+            <div class="cta-bottom">
+
+                <div class="cta-note">
+                    Transmission confidentielle • Traitement sécurisé • Format juridique
+                </div>
+
+                <button type="submit" class="btn">
+                    Commencer la transmission
+                </button>
 
             </div>
 
-            <div class="upload">
-                Déposez vos fichiers audio/vidéo de façon sécurisée
-            </div>
-
-            <div style="margin-top:1.5rem;">
-                <a href="mailto:secure@lexoral.ca" class="btn">
-                    Commencer la soumission
-                </a>
-            </div>
-
-        </div>
+        </form>
 
     </div>
 
 </section>
-
 <footer>
 
     <div class="container">
