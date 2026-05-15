@@ -1,64 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
 <link rel="icon" href="favicon.ico"><meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="icon" href="favicon.ico">
-<title>Lexoral | Certified Bilingual Legal Transcription</title>
-
+<title>Lexoral | Transcription Légale Bilingue Certifiée</title>
 <meta
   name="description"
-  content="Certified French-English legal transcription services for Québec law firms, arbitration proceedings, tribunals, hearings, and cross-border litigation."
+  content="Services de transcription légale certifiée français-anglais pour cabinets d'avocats du Québec, arbitrages, tribunaux, audiences et litiges transfrontaliers."
 />
-
 <meta name="theme-color" content="#0b1220" />
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
+
 <style>
-
 :root{
-
     --navy:#0b1220;
     --navy-2:#111c30;
-
     --blue:#10263f;
     --blue-deep:#091a2d;
-
     --paper:#faf8f4;
     --paper-2:#f2eee8;
-
     --text:#111827;
     --muted:#5d6777;
-
     --line:#d8dde5;
-
     --gold:#8c734d;
-
     --shadow:0 10px 40px rgba(10,15,25,.06);
 }
-
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-}/* ========================= */
-/* ADD THIS CSS */
-/* ========================= */
-
+}
 .testimonials{
     background:white;
 }
-
 .testimonials-grid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
     gap:2rem;
 }
-
 .testimonial-card{
     background:var(--paper);
     border:1px solid var(--line);
@@ -66,12 +49,10 @@
     position:relative;
     transition:.25s ease;
 }
-
 .testimonial-card:hover{
     transform:translateY(-4px);
     box-shadow:0 18px 40px rgba(15,23,42,.06);
 }
-
 .quote-mark{
     font-family:'Libre Baskerville',serif;
     font-size:4rem;
@@ -79,38 +60,30 @@
     color:var(--gold);
     margin-bottom:1rem;
 }
-
 .testimonial-text{
     font-size:1.08rem;
     line-height:1.9;
     color:var(--text);
     margin-bottom:2rem;
 }
-
 .testimonial-author{
     font-weight:800;
     color:var(--navy);
     letter-spacing:-0.02em;
 }
-
 .testimonial-role{
     margin-top:.4rem;
     font-size:.9rem;
     color:var(--muted);
 }
-
 @media (max-width:980px){
-
     .testimonials-grid{
         grid-template-columns:1fr;
     }
-
 }
-
 html{
     scroll-behavior:smooth;
 }
-
 body{
     font-family:'Inter',sans-serif;
     background:var(--paper);
@@ -119,54 +92,44 @@ body{
     line-height:1.7;
     -webkit-font-smoothing:antialiased;
 }
-
 img{
     display:block;
     max-width:100%;
 }
-
 a{
     text-decoration:none;
     color:inherit;
 }
-
 .container{
     width:min(1200px,92%);
     margin:auto;
 }
-
 section{
     padding:7rem 0;
     position:relative;
 }
-
 h1,h2,h3{
     font-family:'Cormorant Garamond',serif;
     font-weight:700;
     letter-spacing:-0.04em;
     color:var(--navy);
 }
-
 h1{
     font-size:clamp(4rem,8vw,7rem);
     line-height:.92;
     max-width:10ch;
 }
-
 h2{
     font-size:clamp(2.4rem,5vw,4rem);
     line-height:1;
 }
-
 h3{
     font-size:1.5rem;
 }
-
 p{
     color:var(--muted);
     max-width:68ch;
 }
-
 header{
     position:sticky;
     top:0;
@@ -175,20 +138,17 @@ header{
     backdrop-filter:blur(14px);
     border-bottom:1px solid var(--line);
 }
-
 .header-inner{
     display:flex;
     align-items:center;
     justify-content:space-between;
     padding:1.2rem 0;
 }
-
 .logo-wrap{
     display:flex;
     align-items:center;
     gap:1rem;
 }
-
 .logo-mark{
     width:44px;
     height:44px;
@@ -202,26 +162,22 @@ header{
     color:var(--navy);
     background:white;
 }
-
 .logo{
     font-family:'Cormorant Garamond',serif;
     font-size:2rem;
     letter-spacing:-0.05em;
     color:var(--navy);
 }
-
 .nav-group{
     display:flex;
     align-items:center;
     gap:2rem;
 }
-
 nav{
     display:flex;
     align-items:center;
     gap:2rem;
 }
-
 nav a{
     font-size:.82rem;
     font-weight:700;
@@ -229,7 +185,6 @@ nav a{
     letter-spacing:.14em;
     color:var(--muted);
 }
-
 nav a:hover{
     color:var(--navy);
 }
@@ -237,7 +192,6 @@ nav a:hover{
     display:flex;
     border:1px solid var(--line);
 }
-
 .lang-btn{
     padding:9px 13px;
     font-size:.74rem;
@@ -246,25 +200,20 @@ nav a:hover{
     color:var(--muted);
     transition:.2s ease;
 }
-
 .lang-btn:hover{
     background:var(--paper-2);
 }
-
 .lang-btn.active{
     background:var(--navy);
     color:white;
 }
-
 .mobile-menu{
     display:none;
 }
-
 .hero{
     overflow:hidden;
     padding:8rem 0 6rem;
 }
-
 .hero::before{
     content:"";
     position:absolute;
@@ -274,7 +223,6 @@ nav a:hover{
         radial-gradient(circle at bottom right, rgba(12,24,45,.08), transparent 40%);
     pointer-events:none;
 }
-
 .hero-grid{
     display:grid;
     grid-template-columns:1.15fr .85fr;
@@ -283,7 +231,6 @@ nav a:hover{
     position:relative;
     z-index:2;
 }
-
 .hero-eyebrow{
     color:var(--gold);
     text-transform:uppercase;
@@ -292,19 +239,16 @@ nav a:hover{
     font-weight:700;
     margin-bottom:1.5rem;
 }
-
 .hero p{
     margin-top:2rem;
     font-size:1.2rem;
 }
-
 .hero-actions{
     display:flex;
     gap:1rem;
     margin-top:2.5rem;
     flex-wrap:wrap;
 }
-
 .btn{
     display:inline-flex;
     align-items:center;
@@ -317,29 +261,24 @@ nav a:hover{
     transition:.25s ease;
     font-size:.95rem;
 }
-
 .btn:hover{
     background:var(--blue-deep);
     transform:translateY(-2px);
 }
-
 .btn-secondary{
     background:white;
     color:var(--navy);
     border:1px solid var(--line);
 }
-
 .btn-secondary:hover{
     background:var(--paper-2);
 }
-
 .trust-inline{
     display:flex;
     flex-wrap:wrap;
     gap:12px;
     margin-top:2rem;
 }
-
 .trust-inline span{
     padding:10px 14px;
     border:1px solid var(--line);
@@ -349,7 +288,6 @@ nav a:hover{
     letter-spacing:.08em;
     font-weight:700;
 }
-
 .transcript-card{
     background:white;
     border:1px solid var(--line);
@@ -357,9 +295,8 @@ nav a:hover{
     box-shadow:var(--shadow);
     position:relative;
 }
-
 .transcript-card::before{
-    content:"CONFIDENTIAL";
+    content:"CONFIDENTIEL";
     position:absolute;
     top:18px;
     right:18px;
@@ -368,7 +305,6 @@ nav a:hover{
     color:var(--gold);
     font-weight:800;
 }
-
 .transcript-top{
     padding-bottom:1rem;
     margin-bottom:1.5rem;
@@ -379,7 +315,6 @@ nav a:hover{
     color:var(--muted);
     font-weight:700;
 }
-
 .line{
     display:grid;
     grid-template-columns:42px 1fr;
@@ -388,17 +323,14 @@ nav a:hover{
     font-family:'IBM Plex Mono',monospace;
     font-size:.86rem;
 }
-
 .line-number{
     text-align:right;
     color:#8792a4;
 }
-
 .speaker{
     color:var(--blue);
     font-weight:700;
 }
-
 .transcript-bottom{
     margin-top:2rem;
     padding-top:1rem;
@@ -408,14 +340,12 @@ nav a:hover{
     text-transform:uppercase;
     color:var(--muted);
 }
-
 .authority-strip{
     padding:1.2rem 0;
     border-top:1px solid var(--line);
     border-bottom:1px solid var(--line);
     background:white;
 }
-
 .authority-inner{
     display:flex;
     justify-content:center;
@@ -427,7 +357,6 @@ nav a:hover{
     color:var(--muted);
     font-weight:700;
 }
-
 .section-head{
     display:grid;
     grid-template-columns:.8fr 1.2fr;
@@ -435,7 +364,6 @@ nav a:hover{
     margin-bottom:4rem;
     align-items:end;
 }
-
 .section-kicker{
     color:var(--gold);
     text-transform:uppercase;
@@ -444,46 +372,38 @@ nav a:hover{
     font-weight:700;
     margin-bottom:1rem;
 }
-
 .services-grid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
     gap:3rem;
 }
-
 .service{
     padding:2rem;
     background:white;
     border:1px solid var(--line);
     transition:.3s ease;
 }
-
 .service:hover{
     transform:translateY(-6px);
     border-color:var(--blue);
     box-shadow:var(--shadow);
 }
-
 .service p{
     margin-top:1rem;
 }
-
 .process{
     background:var(--paper-2);
 }
-
 .process-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:2rem;
 }
-
 .step{
     background:white;
     padding:2rem;
     border:1px solid var(--line);
 }
-
 .step-number{
     width:54px;
     height:54px;
@@ -495,18 +415,15 @@ nav a:hover{
     font-weight:800;
     color:var(--navy);
 }
-
 .step p{
     margin-top:1rem;
 }
-
 .timeline{
     margin-top:4rem;
     display:grid;
     grid-template-columns:repeat(4,1fr);
     border:1px solid var(--line);
 }
-
 .timeline div{
     padding:1.5rem;
     background:white;
@@ -517,23 +434,19 @@ nav a:hover{
     letter-spacing:.12em;
     font-weight:700;
 }
-
 .timeline div:last-child{
     border-right:none;
 }
-
 .trust-band{
     background:var(--navy);
     color:white;
     padding:3rem 0;
 }
-
 .trust-grid{
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:2rem;
 }
-
 .trust-item{
     font-size:.78rem;
     text-transform:uppercase;
@@ -541,14 +454,12 @@ nav a:hover{
     line-height:1.8;
     opacity:.92;
 }
-
 .clients-grid{
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:2rem;
     margin-top:3rem;
 }
-
 .client-card{
     border:1px solid var(--line);
     background:white;
@@ -557,50 +468,42 @@ nav a:hover{
     font-weight:700;
     color:var(--navy);
 }
-
 .why-list{
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:1.5rem 3rem;
     margin-top:3rem;
 }
-
 .why-item{
     border-top:1px solid var(--line);
     padding-top:1rem;
     color:var(--muted);
 }
-
 .stats{
     margin-top:4rem;
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:2rem;
 }
-
 .stat{
     background:white;
     border:1px solid var(--line);
     padding:2rem;
 }
-
 .stat strong{
     display:block;
     font-size:2.4rem;
     color:var(--navy);
     font-family:'Cormorant Garamond',serif;
 }
-
 .faq{
     max-width:900px;
     margin:auto;
 }
-
 .faq-item{
     border-top:1px solid var(--line);
     padding:1.5rem 0;
 }
-
 .faq-question{
     display:flex;
     justify-content:space-between;
@@ -608,233 +511,95 @@ nav a:hover{
     cursor:pointer;
     font-weight:700;
 }
-
 .faq-icon{
     font-size:1.5rem;
     color:var(--gold);
 }
-
 .faq-answer{
     max-height:0;
     overflow:hidden;
     transition:max-height .35s ease;
 }
-
 .faq-answer p{
     padding-top:1rem;
 }
-
 .faq-item.active .faq-answer{
     max-height:240px;
 }
-
 .cta{
     background:var(--navy);
     color:white;
     text-align:center;
 }
-
 .cta h2{
     color:white;
     max-width:10ch;
     margin:auto;
 }
-
 .cta p{
     margin:2rem auto 0;
     color:rgba(255,255,255,.75);
 }
-
-.intake-box{
+.intake-form{
     margin-top:3rem;
-    padding:2rem;
-    border:1px solid rgba(255,255,255,.15);
-    max-width:700px; 
+    background:white;
+    border:1px solid rgba(255,255,255,.1);
+    padding:2.5rem;
+    max-width:820px;
     margin-inline:auto;
+    text-align:left;
 }
-
-.intake-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:1rem;
-}
-
-.intake-box input,
-.intake-box select{
-    width:100%;background-color: lightgrey;
-    padding:15px; color: black;
+.intake-form input,
+.intake-form select,
+.intake-form textarea{
+    width:100%;
+    padding:16px;
     border:1px solid var(--line);
+    background:white;
     font-family:'Inter',sans-serif;
+    font-size:.95rem;
+    color:var(--text);
+    transition:.2s ease;
 }
-/* =========================
-   COURT DOSSIER (LEXORAL)
-   ========================= */
-
-.filing{
-    background: var(--paper);
-    color: var(--text);
-    padding: 6rem 0;
+.intake-form input:focus,
+.intake-form select:focus,
+.intake-form textarea:focus{
+    outline:none;
+    border-color:var(--blue);
 }
-
-/* HEADER CARD */
-.filing-header{
-    background: white;
-    border: 1px solid var(--line);
-    padding: 2.5rem;
-    position: relative;
-    box-shadow: var(--shadow);
-}
-
-.filing-header::before{
-    content: "CONFIDENTIAL FILING";
-    position: absolute;
-    top: 18px;
-    right: 18px;
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
-    color: var(--gold);
-}
-
-.court-title{
-    font-family: "Cormorant Garamond", serif;
-    font-size: 1.8rem;
-    letter-spacing: -0.02em;
-    color: var(--navy);
-    margin-bottom: 1rem;
-}
-
-.filing-meta{
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 0.85rem;
-    line-height: 1.8;
-    color: var(--muted);
-}
-
-/* FORM STRUCTURE */
-.filing-form{
-    margin-top: 2rem;
-}
-
-.section-title{
-    margin: 3rem 0 1rem;
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 0.75rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    border-bottom: 1px solid var(--line);
-    padding-bottom: 0.6rem;
-}
-
-/* GRID */
-.grid{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-}
-
-/* FIELD BLOCKS */
-.field label{
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 0.5rem;
-}
-
-/* INPUTS */
-input, select, textarea{
-    width: 100%;
-    padding: 14px 16px;
-    border: 1px solid var(--line);
-    background: white;
-    font-family: "Inter", sans-serif;
-    font-size: 1rem;
-    color: var(--text);
-    transition: all .2s ease;
-}
-
-input:focus,
-select:focus,
-textarea:focus{
-    outline: none;
-    border-color: var(--navy);
-    box-shadow: 0 0 0 3px rgba(16,38,63,.08);
-}
-
-/* TEXTAREA = “STATEMENT OF FACTS” */
-textarea{
-    min-height: 180px;
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 0.95rem;
-    line-height: 1.6;
-}
-
-/* DECLARATION BLOCK */
-.declaration{
-    margin-top: 2rem;
-    padding: 1.5rem;
-    border-left: 3px solid var(--gold);
-    background: white;
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 0.85rem;
-    line-height: 1.7;
-    color: var(--muted);
-}
-
-/* SUBMIT BUTTON */
-button{
-    margin-top: 2.5rem;
-    width: 100%;
-    padding: 16px;
-    background: var(--navy);
-    color: white;
-    border: 1px solid var(--navy);
-    font-family: "IBM Plex Mono", monospace;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    cursor: pointer;
-    transition: .25s ease;
-}
-
-button:hover{
-    background: var(--blue-deep);
-    transform: translateY(-2px);
-}
-
-/* RESPONSIVE */
-@media (max-width: 800px){
-    .grid{
-        grid-template-columns: 1fr;
-    }
-}
-/* RESPONSIVE */
-@media (max-width: 800px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
-}
-.upload{
-    border:1px dashed var(--line);
-    padding:2rem;
+.intake-form textarea{
+    min-height:180px;
+    resize:vertical;
     margin-top:1rem;
+    line-height:1.7;
+}
+.cta-bottom{
+    margin-top:1.5rem;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:1rem;
+    flex-wrap:wrap;
+}
+.cta-note{
     color:var(--muted);
+    font-size:.78rem;
+    text-transform:uppercase;
+    letter-spacing:.12em;
+    font-weight:700;
 }
 
+/* ==================== FOOTER CSS (IMPORTANT) ==================== */
 footer{
     background:#070d17;
     color:white;
     padding:5rem 0 2rem;
 }
-
 .footer-grid{
     display:grid;
     grid-template-columns:2fr 1fr 1fr 1fr;
     gap:3rem;
 }
-
 .footer-title{
     margin-bottom:1rem;
     text-transform:uppercase;
@@ -842,17 +607,14 @@ footer{
     font-size:.76rem;
     color:#a9b5c7;
 }
-
 .footer-links{
     display:flex;
     flex-direction:column;
     gap:.7rem;
 }
-
 .footer-links a{
     color:#d7deea;
 }
-
 .footer-bottom{
     margin-top:4rem;
     padding-top:2rem;
@@ -860,27 +622,22 @@ footer{
     color:#8d9cb2;
     font-size:.92rem;
 }
-
 .disclaimer{
     margin-top:1rem;
     font-size:.84rem;
     color:#7d8ba0;
     max-width:700px;
 }
-
 .reveal{
     opacity:0;
     transform:translateY(30px);
     transition:all .8s ease;
 }
-
 .reveal.active{
     opacity:1;
     transform:none;
 }
-
 @media (max-width:980px){
-
     .hero-grid,
     .services-grid,
     .process-grid,
@@ -894,871 +651,569 @@ footer{
     .intake-grid{
         grid-template-columns:1fr;
     }
-
     h1{
         max-width:none;
     }
-
     .timeline div{
         border-right:none;
         border-bottom:1px solid var(--line);
     }
 }
-
 @media (max-width:768px){
-
     body{
         font-size:16px;
     }
-
     section{
         padding:5rem 0;
     }
-
     nav{
         display:none;
     }
-
     .mobile-menu{
         display:block;
         font-size:1.6rem;
     }
-
     .hero{
         padding:5rem 0;
     }
-
     .hero-grid{
         gap:3rem;
     }
-
     .hero-actions{
         flex-direction:column;
     }
-
     .btn{
         width:100%;
     }
-
     .transcript-card{
         overflow:auto;
     }
 }
-.intake-form{
-    margin-top:3rem;
-    background:white;
-    border:1px solid rgba(255,255,255,.1);
-    padding:2.5rem;
-    max-width:820px;
-    margin-inline:auto;
-    text-align:left;
-}
-
-.intake-form input,
-.intake-form select,
-.intake-form textarea{
-    width:100%;
-    padding:16px;
-    border:1px solid var(--line);
-    background:white;
-    font-family:'Inter',sans-serif;
-    font-size:.95rem;
-    color:var(--text);
-    transition:.2s ease;
-}
-
-.intake-form input:focus,
-.intake-form select:focus,
-.intake-form textarea:focus{
-    outline:none;
-    border-color:var(--blue);
-}
-
-.intake-form textarea{
-    min-height:180px;
-    resize:vertical;
-    margin-top:1rem;
-    line-height:1.7;
-}
-
-.cta-bottom{
-    margin-top:1.5rem;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:1rem;
-    flex-wrap:wrap;
-}
-
-.cta-note{
-    color:var(--muted);
-    font-size:.78rem;
-    text-transform:uppercase;
-    letter-spacing:.12em;
-    font-weight:700;
-}
-
-@media (max-width:768px){
-
-    .intake-form{
-        padding:1.5rem;
-    }
-
-    .cta-bottom{
-        flex-direction:column;
-        align-items:stretch;
-    }
-}
 </style>
+
+
 </head>
-
 <body>
-
 <header>
-
     <div class="container header-inner">
-
         <div class="logo-wrap">
-
             <div class="logo-mark">
                 LX
             </div>
-
             <div class="logo">
                 Lexoral
             </div>
-
         </div>
-
         <div class="nav-group">
-
             <nav>
                 <a href="#services">Services</a>
-                <a href="#process">Process</a>
-                <a href="#clients">Who We Serve</a>
+                <a href="#process">Processus</a>
+                <a href="#clients">Qui Nous Servons</a>
                 <a href="#faq">FAQ</a>
-                <a href="#contact">Secure Intake</a>
+                <a href="#contact">Intake Sécurisé</a>
             </nav>
-<div class="lang-switch">
-    <a href="index.html" class="lang-btn active">EN</a>
-    <a href="fr.html" class="lang-btn">FR</a>
-</div>
-
+            <div class="lang-switch">
+                <a href="index.html" class="lang-btn">EN</a>
+                <a href="fr.html" class="lang-btn active">FR</a>
+            </div>
             <div class="mobile-menu">
                 ☰
             </div>
-
         </div>
-
     </div>
-
 </header>
 
 <section class="hero">
-
     <div class="container hero-grid">
-
         <div class="reveal">
-
             <div class="hero-eyebrow">
-                Québec • Canada • United States
+                Québec • Canada • États-Unis
             </div>
-
             <h1>
-                We're on the record
+                Nous sommes sur l'enregistrement
             </h1>
-
             <p>
-                Certified French–English legal transcription for litigation, arbitration, tribunals, hearings, and cross-border proceedings.
+                Transcription légale certifiée français–anglais pour litiges, arbitrages, tribunaux, audiences et procédures transfrontalières.
             </p>
-
             <div class="trust-inline">
-                <span>Certified FR–EN</span>
-                <span>Encrypted Intake</span>
-                <span>Court-Compliant</span>
-                <span>24–72h Turnaround</span>
+                <span>Certifié FR–EN</span>
+                <span>Intake Chiffré</span>
+                <span>Conforme aux Tribunaux</span>
+                <span>Délai 24–72h</span>
             </div>
-
             <div class="hero-actions">
-
                 <a href="#contact" class="btn">
-                    Submit Securely
+                    Soumettre en toute sécurité
                 </a>
-
                 <a href="#services" class="btn btn-secondary">
-                    Explore Services
+                    Découvrir nos services
                 </a>
-
             </div>
-
         </div>
-
         <div class="transcript-card reveal">
-
             <div class="transcript-top">
-                Superior Court of Québec — Transcript Excerpt
+                Cour Supérieure du Québec — Extrait de transcription
             </div>
-
             <div class="line">
                 <div class="line-number">184</div>
                 <div>
-                    <span class="speaker">THE COURT:</span>
+                    <span class="speaker">LA COUR :</span>
                     Nous sommes de retour à l'audience.
                 </div>
             </div>
-
             <div class="line">
                 <div class="line-number">185</div>
                 <div>
-                    <span class="speaker">MR. TREMBLAY:</span>
-                    Did you receive the disclosure package on January 12th?
+                    <span class="speaker">Me TREMBLAY :</span>
+                    Avez-vous reçu le paquet de divulgation le 12 janvier ?
                 </div>
             </div>
-
             <div class="line">
                 <div class="line-number">186</div>
                 <div>
-                    <span class="speaker">MS. PATEL:</span>
+                    <span class="speaker">Me PATEL :</span>
                     Oui, mais l'annexe C était manquante.
                 </div>
             </div>
-
             <div class="transcript-bottom">
-                Evidentiary Formatting • Audit Trail • Secure Handling
+                Formatage Probant • Piste d'Audit • Gestion Sécurisée
             </div>
-
         </div>
-
     </div>
-
 </section>
 
 <section class="authority-strip">
-
     <div class="container authority-inner">
-        <span>Québec Litigation</span>
-        <span>Arbitration Proceedings</span>
-        <span>Bilingual Hearings</span>
-        <span>Cross-Border Matters</span>
+        <span>Litige Québec</span>
+        <span>Procédures d'Arbitrage</span>
+        <span>Audiences Bilingues</span>
+        <span>Dossiers Transfrontaliers</span>
     </div>
-
 </section>
 
 <section id="services">
-
     <div class="container">
-
         <div class="section-head">
-
             <div>
-
                 <div class="section-kicker">
                     Services
                 </div>
-
                 <h2>
-                    Legal transcription built for evidentiary standards.
+                    Transcription légale conforme aux normes probantes.
                 </h2>
-
             </div>
-
             <div>
-
                 <p>
-                    Lexoral provides institutional-grade bilingual transcription services tailored to legal proceedings requiring precision, confidentiality, and defensible formatting standards.
+                    Lexoral offre des services de transcription bilingue de qualité institutionnelle adaptés aux procédures judiciaires exigeant précision, confidentialité et standards de formatage défendables.
                 </p>
-
             </div>
-
         </div>
-
         <div class="services-grid">
-
             <div class="service reveal">
-                <h3>Depositions & Examinations</h3>
+                <h3>Dépositions & Interrogatoires</h3>
                 <p>
-                    Verbatim bilingual transcripts with timestamps, objections, speaker identification, and line numbering.
+                    Transcriptions bilingues verbatim avec horodatage, objections, identification des locuteurs et numérotation des lignes.
                 </p>
             </div>
-
             <div class="service reveal">
-                <h3>Arbitration & Mediation</h3>
+                <h3>Arbitrage & Médiation</h3>
                 <p>
-                    Court-style formatting for private hearings, panels, institutional proceedings, and complex disputes.
+                    Formatage style tribunal pour audiences privées, panels, procédures institutionnelles et litiges complexes.
                 </p>
             </div>
-
             <div class="service reveal">
-                <h3>Certified FR–EN Proceedings</h3>
+                <h3>Procédures Certifiées FR–EN</h3>
                 <p>
-                    Precise bilingual terminology across Québec Civil Law and Common Law systems.
+                    Terminologie juridique précise dans les systèmes de droit civil québécois et de common law.
                 </p>
             </div>
-
             <div class="service reveal">
-                <h3>Cross-Border Litigation Support</h3>
+                <h3>Soutien aux Litiges Transfrontaliers</h3>
                 <p>
-                    U.S. deposition standards combined with Canadian bilingual legal expertise.
+                    Normes américaines de dépositions combinées à l'expertise juridique bilingue canadienne.
                 </p>
             </div>
-
         </div>
-
     </div>
-
 </section>
 
 <section id="process" class="process">
-
     <div class="container">
-
         <div class="section-head">
-
             <div>
-
                 <div class="section-kicker">
-                    Process
+                    Processus
                 </div>
-
                 <h2>
-                    Designed for defensibility.
+                    Conçu pour la défendabilité.
                 </h2>
-
             </div>
-
             <div>
-
                 <p>
-                    Every recording follows a documented workflow built around confidentiality, formatting consistency, and legal-grade review procedures.
+                    Chaque enregistrement suit un flux de travail documenté centré sur la confidentialité, la cohérence du formatage et des procédures de révision de qualité juridique.
                 </p>
-
             </div>
-
         </div>
-
         <div class="process-grid">
-
             <div class="step reveal">
-
                 <div class="step-number">
                     01
                 </div>
-
                 <h3>
-                    Secure Intake
+                    Intake Sécurisé
                 </h3>
-
                 <p>
-                    Encrypted submission, timestamp verification, and chain-of-custody documentation.
+                    Soumission chiffrée, vérification des horodatages et documentation de la chaîne de possession.
                 </p>
-
             </div>
-
             <div class="step reveal">
-
                 <div class="step-number">
                     02
                 </div>
-
                 <h3>
-                    Dual Legal Review
+                    Révision Juridique Double
                 </h3>
-
                 <p>
-                    Speaker verification, terminology normalization, formatting review, and QA validation.
+                    Vérification des locuteurs, normalisation de la terminologie, révision du formatage et validation QA.
                 </p>
-
             </div>
-
             <div class="step reveal">
-
                 <div class="step-number">
                     03
                 </div>
-
                 <h3>
-                    Certified Delivery
+                    Livraison Certifiée
                 </h3>
-
                 <p>
-                    Delivered in searchable PDF and editable Word formats with court-ready structure.
+                    Livré en PDF searchable et Word modifiable avec structure prête pour le tribunal.
                 </p>
-
             </div>
-
         </div>
-
         <div class="timeline reveal">
-
             <div>Upload</div>
-            <div>Review</div>
+            <div>Révision</div>
             <div>Certification</div>
-            <div>Delivery</div>
-
+            <div>Livraison</div>
         </div>
-
     </div>
-
 </section>
 
 <div class="trust-band">
-
     <div class="container">
-
         <div class="trust-grid">
-
             <div class="trust-item">
-                Encrypted Transfer Protocols
+                Protocoles de Transfert Chiffrés
             </div>
-
             <div class="trust-item">
-                Confidential Legal Handling
+                Traitement Confidentiel Juridique
             </div>
-
             <div class="trust-item">
-                Audit-Ready Documentation
+                Documentation Prête pour Audit
             </div>
-
             <div class="trust-item">
-                Bilingual Evidentiary Standards
+                Normes Probantes Bilingues
             </div>
-
         </div>
-
     </div>
-
 </div>
 
 <section id="clients">
-
     <div class="container">
-
         <div class="section-head">
-
             <div>
-
                 <div class="section-kicker">
-                    Who We Serve
+                    Qui Nous Servons
                 </div>
-
                 <h2>
-                    Built for modern legal proceedings.
+                    Conçu pour les procédures judiciaires modernes.
                 </h2>
-
             </div>
-
             <div>
-
                 <p>
-                    Lexoral supports litigation professionals, institutions, and legal departments across bilingual and cross-border matters.
+                    Lexoral accompagne les professionnels du litige, les institutions et les services juridiques dans les dossiers bilingues et transfrontaliers.
                 </p>
-
             </div>
-
         </div>
-
         <div class="clients-grid">
-
             <div class="client-card reveal">
-                Law Firms
+                Cabinets d'Avocats
             </div>
-
             <div class="client-card reveal">
-                Arbitrators
+                Arbitres
             </div>
-
             <div class="client-card reveal">
-                Government Hearings
+                Audiences Gouvernementales
             </div>
-
             <div class="client-card reveal">
-                Corporate Legal Teams
+                Services Juridiques d'Entreprise
             </div>
-
             <div class="client-card reveal">
-                Labour Proceedings
+                Procédures de Travail
             </div>
-
             <div class="client-card reveal">
-                Civil Litigation
+                Litige Civil
             </div>
-
             <div class="client-card reveal">
-                Immigration Hearings
+                Audiences d'Immigration
             </div>
-
             <div class="client-card reveal">
-                Insurance Defense
+                Défense en Assurance
             </div>
-
         </div>
-
     </div>
-
 </section>
 
 <section>
-
     <div class="container">
-
         <div class="section-head">
-
             <div>
-
                 <div class="section-kicker">
-                    Why Lexoral
+                    Pourquoi Lexoral
                 </div>
-
                 <h2>
-                    Trusted by litigation professionals.
+                    La référence des professionnels du litige.
                 </h2>
-
             </div>
-
             <div>
-
                 <p>
-                    Institutional-grade process discipline combined with bilingual legal transcription expertise.
+                    Discipline de processus de niveau institutionnel combinée à une expertise en transcription juridique bilingue.
                 </p>
-
             </div>
-
         </div>
-
         <div class="why-list">
-
             <div class="why-item">
-                99.8%+ internal accuracy benchmarks
+                Précision interne supérieure à 99,8 %
             </div>
-
             <div class="why-item">
-                Québec Civil Law terminology expertise
+                Expertise en terminologie du droit civil québécois
             </div>
-
             <div class="why-item">
-                Court-ready formatting standards
+                Standards de formatage prêts pour le tribunal
             </div>
-
             <div class="why-item">
-                Searchable PDF and editable Word delivery
+                Livraison en PDF searchable et Word modifiable
             </div>
-
             <div class="why-item">
-                Fast turnaround for urgent proceedings
+                Délais rapides pour audiences urgentes
             </div>
-
             <div class="why-item">
-                Strict confidentiality handling protocols
+                Protocoles stricts de confidentialité
             </div>
-
         </div>
-
         <div class="stats">
-
             <div class="stat reveal">
-                <strong>12,000+</strong>
-                Recorded minutes processed
+                <strong>12 000+</strong>
+                Minutes enregistrées traitées
             </div>
-
             <div class="stat reveal">
                 <strong>240+</strong>
-                Proceedings supported
+                Procédures accompagnées
             </div>
-
             <div class="stat reveal">
                 <strong>FR–EN</strong>
-                Bilingual legal specialization
+                Spécialisation juridique bilingue
             </div>
-
         </div>
-
     </div>
-
 </section>
 
 <section id="testimonials" class="testimonials">
-
     <div class="container">
-
         <div class="section-head">
-
             <div>
                 <div class="section-kicker">
-                    Testimonials
+                    Témoignages
                 </div>
-
                 <h2>
-                    Trusted in high-pressure legal environments.
+                    Apprécié dans les environnements juridiques à haute pression.
                 </h2>
             </div>
-
             <div>
                 <p>
-                    Litigation professionals, bilingual clients, and legal teams rely on precision, discretion, and consistency when the record matters most.
+                    Les professionnels du litige, clients bilingues et équipes juridiques comptent sur la précision, la discrétion et la constance lorsque l'enregistrement compte le plus.
                 </p>
             </div>
-
         </div>
-
         <div class="testimonials-grid">
-
             <div class="testimonial-card">
-
                 <div class="quote-mark">
                     “
                 </div>
-
                 <p class="testimonial-text">
-            Lexoral delivered bilingual legal transcription with the level of precision and reliability high-pressure defense work demands. Fast turnaround, meticulous formatting, and exceptional professionalism throughout the process.
+                    Lexoral a livré une transcription légale bilingue avec le niveau de précision et de fiabilité qu'exige le travail de défense à haute pression. Délai rapide, formatage méticuleux et professionnalisme exceptionnel tout au long du processus.
                 </p>
-
                 <div class="testimonial-author">
-                    Metropolitan Public Defender — Portland, Oregon
+                    Défenseur Public Métropolitain — Portland, Oregon
                 </div>
-
                 <div class="testimonial-role">
-                    Public Defense & Litigation Support
+                    Défense Publique & Soutien au Litige
                 </div>
-
             </div>
-
             <div class="testimonial-card">
-
                 <div class="quote-mark">
                     “
                 </div>
-
                 <p class="testimonial-text">
-            One of the most conscientious legal transcription services we’ve worked with. Lexoral combines accuracy, discretion, and deep French–English legal fluency in a way that significantly reduces friction for Canadian legal matters.
+                    L'un des services de transcription légale les plus consciencieux avec lesquels nous avons travaillé. Lexoral combine exactitude, discrétion et maîtrise approfondie du français–anglais juridique, ce qui réduit considérablement les frictions dans les dossiers canadiens.
                 </p>
-
                 <div class="testimonial-author">
                     Raymond Carby Samuels
                 </div>
-
                 <div class="testimonial-role">
-                    Canadian Linguistic Rights Advocate
+                    Défenseur des Droits Linguistiques Canadiens
                 </div>
-
             </div>
-
         </div>
-
     </div>
-
 </section>
+
 <section id="faq">
-
     <div class="container">
-
         <div class="section-head">
-
             <div>
-
                 <div class="section-kicker">
                     FAQ
                 </div>
-
                 <h2>
-                    Frequently asked questions.
+                    Questions fréquemment posées.
                 </h2>
-
             </div>
-
             <div>
-
                 <p>
-                    Clear answers for litigation teams and legal departments.
+                    Réponses claires pour les équipes de litige et les services juridiques.
                 </p>
-
             </div>
-
         </div>
-
         <div class="faq">
-
             <div class="faq-item">
-
                 <div class="faq-question">
-                    <span>Do you provide line-numbered transcripts?</span>
+                    <span>Fournissez-vous des transcriptions avec numérotation des lignes ?</span>
                     <span class="faq-icon">+</span>
                 </div>
-
                 <div class="faq-answer">
                     <p>
-                        Yes. All transcripts include professional legal formatting with line numbering and structured pagination.
+                        Oui. Toutes les transcriptions incluent un formatage professionnel avec numérotation des lignes et pagination structurée.
                     </p>
                 </div>
-
             </div>
-
             <div class="faq-item">
-
                 <div class="faq-question">
-                    <span>Can you handle bilingual hearings?</span>
+                    <span>Pouvez-vous traiter les audiences bilingues ?</span>
                     <span class="faq-icon">+</span>
                 </div>
-
                 <div class="faq-answer">
                     <p>
-                        Yes. Lexoral specializes in French–English legal proceedings across Québec and cross-border matters.
+                        Oui. Lexoral se spécialise dans les procédures juridiques français–anglais au Québec et dans les dossiers transfrontaliers.
                     </p>
                 </div>
-
             </div>
-
-<div class="faq-item">
-
-    <div class="faq-question">
-        <span>Are uploaded recordings used to train AI models?</span>
-        <span class="faq-icon">+</span>
-    </div>
-
-    <div class="faq-answer">
-        <p>
-            No. Client recordings, transcripts, and documents are never used to train public AI models or shared with third parties.
-        </p>
-    </div>
-
-</div>
-
-
-<div class="faq-item">
-
-    <div class="faq-question">
-        <span>Can recordings and transcripts be permanently deleted?</span>
-        <span class="faq-icon">+</span>
-    </div>
-
-    <div class="faq-answer">
-        <p>
-            Yes. Clients may request permanent deletion of recordings and transcripts at any time in accordance with retention and confidentiality protocols.
-        </p>
-    </div>
-
-</div>
-
-
-<div class="faq-item">
-
-    <div class="faq-question">
-        <span>How does Lexoral handle confidentiality?</span>
-        <span class="faq-icon">+</span>
-    </div>
-
-    <div class="faq-answer">
-        <p>
-            All files are handled through restricted-access workflows with encrypted transfer protocols and confidential processing standards designed for legal proceedings.
-        </p>
-    </div>
-
-</div>
-
-
             <div class="faq-item">
-
                 <div class="faq-question">
-                    <span>What formats are delivered?</span>
+                    <span>Les enregistrements uploadés sont-ils utilisés pour entraîner des modèles d'IA ?</span>
                     <span class="faq-icon">+</span>
                 </div>
-
                 <div class="faq-answer">
                     <p>
-                        Searchable PDF, editable Word, and archival-ready formats are available depending on proceeding requirements.
+                        Non. Les enregistrements, transcriptions et documents des clients ne sont jamais utilisés pour entraîner des modèles d'IA publics ni partagés avec des tiers.
                     </p>
                 </div>
-
             </div>
-
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Les enregistrements et transcriptions peuvent-ils être supprimés définitivement ?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>
+                        Oui. Les clients peuvent demander la suppression définitive des enregistrements et transcriptions à tout moment conformément aux protocoles de conservation et de confidentialité.
+                    </p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Comment Lexoral gère-t-il la confidentialité ?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>
+                        Tous les fichiers sont traités via des flux de travail à accès restreint avec protocoles de transfert chiffrés et standards de traitement confidentiel conçus pour les procédures judiciaires.
+                    </p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Quels formats sont livrés ?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>
+                        PDF searchable, Word modifiable et formats d'archivage sont disponibles selon les exigences de la procédure.
+                    </p>
+                </div>
+            </div>
         </div>
-
     </div>
-
 </section>
 
-
 <section class="cta" id="contact">
-
     <div class="container">
-
         <div class="section-kicker" style="color:#b7c3d8;">
-            Secure Intake
+            Intake Sécurisé
         </div>
-
         <h2>
-            Start a new secure request.
+            Démarrer une nouvelle demande sécurisée.
         </h2>
-
         <p>
-            Send proceeding details securely. Intake confirmation and estimated turnaround are typically provided within the hour.
+            Envoyez les détails de la procédure en toute sécurité. Confirmation et délai estimé généralement fournis dans l'heure.
         </p>
-
-        <!-- FORM -->
-        <form 
+        <form
             action="https://formspree.io/f/xojrobbv"
             method="POST"
             class="intake-form"
         >
-
             <div class="intake-grid">
-
-                <input 
-                    type="text" 
+                <input
+                    type="text"
                     name="organization"
-                    placeholder="Law Firm / Organization"
+                    placeholder="Cabinet / Organisation"
                     required
                 >
-
-                <input 
-                    type="email" 
+                <input
+                    type="email"
                     name="email"
-                    placeholder="Professional Email"
+                    placeholder="Adresse courriel professionnelle"
                     required
                 >
-
                 <select name="proceeding">
-                    <option>Proceeding Type</option>
-                    <option>Deposition</option>
-                    <option>Arbitration</option>
-                    <option>Tribunal Hearing</option>
-                    <option>Litigation</option>
+                    <option>Type de procédure</option>
+                    <option>Déposition</option>
+                    <option>Arbitrage</option>
+                    <option>Audience de tribunal</option>
+                    <option>Litige</option>
                 </select>
-
                 <select name="language">
-                    <option>Language</option>
-                    <option>French</option>
-                    <option>English</option>
-                    <option>Bilingual FR–EN</option>
+                    <option>Langue</option>
+                    <option>Français</option>
+                    <option>Anglais</option>
+                    <option>Bilingue FR–EN</option>
                 </select>
-
             </div>
-
-            <textarea 
+            <textarea
                 name="message"
-                placeholder="Briefly describe the proceeding, transcript requirements, deadlines, or intake details."
+                placeholder="Décrivez brièvement la procédure, les exigences de transcription, les délais ou les détails d'intake."
                 required
             ></textarea>
-
             <div class="cta-bottom">
-
                 <div class="cta-note">
-                    Confidential intake • Encrypted handling • Court-ready workflow
+                    Intake confidentiel • Traitement chiffré • Processus prêt pour le tribunal
                 </div>
-
                 <button type="submit" class="btn">
-                    Begin Secure Intake
+                    Commencer l'Intake Sécurisé
                 </button>
-
             </div>
-
         </form>
-
     </div>
-
 </section>
-
-
-
 
 <script>
 function generateTicket() {
@@ -1766,11 +1221,8 @@ function generateTicket() {
   const date = Date.now().toString().slice(-5);
   return "LX-" + date + "-" + rand;
 }
-
-// créer ticket avant submit
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector("form");
-
   form.addEventListener("submit", () => {
     const ticket = generateTicket();
     sessionStorage.setItem("lexoral_ticket", ticket);
@@ -1779,146 +1231,89 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 
+
+
 <footer>
-
     <div class="container">
-
         <div class="footer-grid">
-
             <div>
-
                 <div class="logo-wrap">
-
                     <div class="logo-mark">
                         LX
                     </div>
-
                     <div class="logo">
                         Lexoral
                     </div>
-
                 </div>
-
                 <p style="margin-top:1.5rem;color:#b6c0d1;">
-                    Certified bilingual legal transcription for Québec, Canadian, and U.S. proceedings.
+                    Transcription légale bilingue certifiée pour les procédures au Québec, au Canada et aux États-Unis.
                 </p>
-
                 <div class="disclaimer">
-                    Lexoral is an independent legal transcription provider and does not offer legal advice.
+                    Lexoral est un fournisseur indépendant de transcription légale et ne fournit pas de conseils juridiques.
                 </div>
-
             </div>
-
             <div>
-
                 <div class="footer-title">
                     Services
                 </div>
-
                 <div class="footer-links">
-                    <a href="#">Legal Transcription</a>
-                    <a href="#">Depositions</a>
-                    <a href="#">Arbitration</a>
-                    <a href="#">Bilingual Hearings</a>
+                    <a href="#">Transcription Légale</a>
+                    <a href="#">Dépositions</a>
+                    <a href="#">Arbitrage</a>
+                    <a href="#">Audiences Bilingues</a>
                 </div>
-
             </div>
-
             <div>
-
                 <div class="footer-title">
-                    Compliance
+                    Conformité
                 </div>
-
                 <div class="footer-links">
-               <a href="privacy.html">Privacy Policy</a>
-<a href="retention.html">Retention Policy</a>
-<a href="#faq">Confidentiality</a>
-<a href="#faq">Secure Transfer</a>
+                    <a href="privacy.html">Politique de Confidentialité</a>
+                    <a href="retention.html">Politique de Conservation</a>
+                    <a href="#faq">Confidentialité</a>
+                    <a href="#faq">Transfert Sécurisé</a>
                 </div>
-
             </div>
-
             <div>
-
                 <div class="footer-title">
                     Contact
                 </div>
-
                 <div class="footer-links">
-
-                  
-
-                    <a href="mailto:contact@lexoral.org">
-    contact@lexoral.org
-</a>
-
-  <a href="mailto:secure@lexoral.org">
-                        secure@lexoral.org
-                    </a>
-
-<a href="tel:+33683358160">
-    +33 6 83 35 81 60
-</a>
-
-                    <span style="color:#d7deea;">
-                        Montréal, Québec
-                    </span>
-
+                    <a href="mailto:contact@lexoral.org">contact@lexoral.org</a>
+                    <a href="mailto:secure@lexoral.org">secure@lexoral.org</a>
+                    <a href="tel:+33683358160">+33 6 83 35 81 60</a>
+                    <span style="color:#d7deea;">Montréal, Québec</span>
                 </div>
-
             </div>
-
         </div>
-
         <div class="footer-bottom">
-            © 2026 Lexoral — Evidentiary Precision • Confidential Handling • Court-Ready Formatting
+            © 2026 Lexoral — Précision Probante • Gestion Confidentielle • Formatage Prêt pour le Tribunal
         </div>
-
     </div>
-
 </footer>
-
 <script>
-
 const faqItems = document.querySelectorAll('.faq-item');
-
 faqItems.forEach(item => {
-
     const question = item.querySelector('.faq-question');
     const icon = item.querySelector('.faq-icon');
-
     question.addEventListener('click', () => {
-
         item.classList.toggle('active');
-
         icon.textContent = item.classList.contains('active')
             ? '−'
             : '+';
-
     });
-
 });
-
 const reveals = document.querySelectorAll('.reveal');
-
 const observer = new IntersectionObserver(entries => {
-
     entries.forEach(entry => {
-
         if(entry.isIntersecting){
             entry.target.classList.add('active');
         }
-
     });
-
 },{
     threshold:0.15
 });
-
 reveals.forEach(el => observer.observe(el));
-
 </script>
-
 </body>
 </html>
