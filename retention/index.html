@@ -4,72 +4,146 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Retention Policy | Lexoral</title>
+<link rel="icon" href="favicon.ico">
 
 <style>
+:root{
+    --navy:#0b1220;
+    --navy-2:#111c30;
+    --blue:#10263f;
+    --paper:#faf8f4;
+    --text:#111827;
+    --muted:#5d6777;
+    --line:#d8dde5;
+    --gold:#8c734d;
+}
 body{
-    font-family:Arial,sans-serif;
-    max-width:900px;
-    margin:auto;
-    padding:60px 20px;
+    font-family:'Inter',sans-serif;
+    background:var(--paper);
+    color:var(--text);
     line-height:1.8;
-    color:#111827;
+    max-width:860px;
+    margin:auto;
+    padding:80px 20px 120px;
+    font-size:18px;
 }
-h1,h2{
-    color:#0b1220;
+.container{
+    max-width:860px;
+    margin:auto;
 }
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: white;
+    color: var(--muted);
+    text-decoration: none;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 3rem;
+    transition: all 0.25s ease;
+}
+.back-button:hover {
+    background: var(--navy);
+    color: white;
+    border-color: var(--navy);
+}
+
 h1{
-    margin-bottom:2rem;
+    font-family:'Cormorant Garamond',serif;
+    font-size:3.2rem;
+    line-height:1.1;
+    color:var(--navy);
+    margin-bottom:1.5rem;
 }
 h2{
-    margin-top:3rem;
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.85rem;
+    color:var(--navy);
+    margin:3rem 0 1.25rem;
 }
-p{
-    color:#374151;
+p, li{
+    color:var(--muted);
+    max-width:68ch;
+}
+.last-updated{
+    color:#8c734d;
+    font-weight:500;
+    margin-bottom:2.5rem;
+}
+.section{
+    margin-bottom:3rem;
+}
+ul{
+    padding-left:1.4rem;
+}
+a{
+    color:var(--navy);
+    text-decoration:underline;
+}
+a:hover{
+    color:#8c734d;
 }
 </style>
 </head>
-
 <body>
 
-<h1>Retention Policy</h1>
+<div class="container">
 
-<p>
-Last updated: May 2026
-</p>
+    <a href="lexoral.org" class="back-button">
+        ← Back to Home
+    </a>
 
-<h2>Purpose</h2>
+    <h1>Retention Policy</h1>
+    <p class="last-updated">Last updated: May 2026</p>
 
-<p>
-Lexoral maintains temporary retention of files and transcripts for operational continuity, quality assurance, and client support purposes.
-</p>
+    <p>Lexoral is committed to balancing operational needs with the principle of data minimization. We retain client materials only as long as necessary to deliver our services and meet professional and legal obligations.</p>
 
-<h2>Retention Period</h2>
+    <h2>1. Purpose of Retention</h2>
+    <p>We retain recordings, transcripts, and related files for the following legitimate purposes:</p>
+    <ul>
+        <li>Service delivery and quality assurance review</li>
+        <li>Client support and dispute resolution</li>
+        <li>Professional liability protection</li>
+        <li>Compliance with legal or regulatory requirements</li>
+    </ul>
 
-<p>
-Unless otherwise agreed in writing, submitted recordings and transcripts may be retained for a limited operational period.
-</p>
+    <h2>2. Default Retention Periods</h2>
+    <p>Unless otherwise agreed in writing with the client:</p>
+    <ul>
+        <li><strong>Audio Recordings:</strong> Retained for up to 90 days after delivery of the final transcript.</li>
+        <li><strong>Transcripts & Final Deliverables:</strong> Retained for up to 12 months after delivery.</li>
+        <li><strong>Client Account & Contact Information:</strong> Retained for the duration of the business relationship plus 2 years.</li>
+    </ul>
 
-<h2>Deletion Requests</h2>
+    <h2>3. Client Requests for Deletion</h2>
+    <p>Clients may request the **permanent deletion** of any recordings, transcripts, or related materials at any time. We will process such requests promptly and confirm deletion in writing, subject only to overriding legal obligations.</p>
 
-<p>
-Clients may request permanent deletion of recordings, transcripts, and related files at any time.
-</p>
+    <h2>4. Exceptions to Deletion</h2>
+    <p>We may be required to retain certain information longer than the standard period if:</p>
+    <ul>
+        <li>Retained by law, court order, or regulatory requirement</li>
+        <li>Necessary for the establishment, exercise, or defense of legal claims</li>
+    </ul>
 
-<h2>Confidential Handling</h2>
+    <h2>5. Secure Handling During Retention</h2>
+    <p>All retained materials remain subject to strict confidentiality protocols, encrypted storage, and restricted access. Only authorized personnel with confidentiality obligations may access client files.</p>
 
-<p>
-All retained materials are handled through restricted-access confidentiality procedures.
-</p>
+    <h2>6. Automatic Deletion</h2>
+    <p>After the applicable retention period expires, we will securely and permanently delete client files unless a longer retention period has been requested or is legally required.</p>
 
-<h2>Contact</h2>
+    <h2>Contact Us</h2>
+    <p>
+        For any retention or deletion requests, please contact:<br><br>
+        <strong>Lexoral</strong><br>
+        <a href="mailto:contact@lexoral.org">contact@lexoral.org</a><br>
+        Montréal, Québec
+    </p>
 
-<p>
-For retention or deletion requests, contact:
-</p>
-
-<p>
-contact@lexoral.org
-</p>
+</div>
 
 </body>
 </html>
