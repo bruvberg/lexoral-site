@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demande reçue | Lexoral</title>
+<link rel="icon" href="favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+    --navy:#0b1220;
+    --blue:#10263f;
+    --paper:#faf8f4;
+    --text:#111827;
+    --muted:#5d6777;
+    --line:#d8dde5;
+    --gold:#8c734d;
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+body{
+    font-family:'Inter',sans-serif;
+    background:var(--paper);
+    color:var(--text);
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:40px 20px;
+}
+.container{
+    width:min(760px,100%);
+}
+.card{
+    background:white;
+    border:1px solid var(--line);
+    padding:4rem;
+}
+.kicker{
+    color:var(--gold);
+    text-transform:uppercase;
+    letter-spacing:.16em;
+    font-size:.78rem;
+    font-weight:700;
+    margin-bottom:1.5rem;
+}
+h1{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(3rem,7vw,5rem);
+    line-height:.95;
+    color:var(--navy);
+    margin-bottom:2rem;
+}
+.lead{
+    color:var(--muted);
+    font-size:1.1rem;
+    line-height:1.9;
+    max-width:60ch;
+}
+.ticket{
+    margin-top:3rem;
+    padding:1.5rem;
+    border:1px solid var(--line);
+    background:#fafafa;
+}
+.ticket-label{
+    font-size:.75rem;
+    text-transform:uppercase;
+    letter-spacing:.14em;
+    color:var(--muted);
+    font-weight:700;
+    margin-bottom:.6rem;
+}
+.ticket-number{
+    font-size:1.4rem;
+    font-weight:800;
+    color:var(--navy);
+}
+.steps{
+    margin-top:3rem;
+    display:grid;
+    gap:1rem;
+}
+.step{
+    padding:1.25rem;
+    border-top:1px solid var(--line);
+    color:var(--muted);
+}
+.step strong{
+    color:var(--navy);
+    display:block;
+    margin-bottom:.4rem;
+}
+.actions{
+    margin-top:3rem;
+    display:flex;
+    gap:1rem;
+    flex-wrap:wrap;
+}
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:15px 24px;
+    border:1px solid var(--blue);
+    background:var(--blue);
+    color:white;
+    text-decoration:none;
+    font-weight:700;
+    transition:.25s ease;
+}
+.btn:hover{
+    background:var(--navy);
+}
+.btn-secondary{
+    background:white;
+    color:var(--navy);
+    border:1px solid var(--line);
+}
+.btn-secondary:hover{
+    background:#f3f3f3;
+}
+.footer-note{
+    margin-top:2.5rem;
+    color:var(--muted);
+    font-size:.9rem;
+    line-height:1.8;
+}
+@media(max-width:768px){
+    .card{
+        padding:2.5rem;
+    }
+    .actions{
+        flex-direction:column;
+    }
+    .btn{
+        width:100%;
+    }
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="card">
+        <div class="kicker">
+            Réception Sécurisée
+        </div>
+        <h1>
+            Votre demande a été reçue.
+        </h1>
+        <p class="lead">
+            Merci de nous avoir contactés. Votre demande de transcription juridique a été transmise en toute sécurité et est maintenant en cours d’examen par notre équipe.
+        </p>
+        <div class="ticket">
+            <div class="ticket-label">
+                Numéro de Référence
+            </div>
+            <div class="ticket-number" id="ticket">
+                LX-2026
+            </div>
+        </div>
+        <div class="steps">
+            <div class="step">
+                <strong>1. Vérification Sécurisée</strong>
+                Vos informations et données soumises sont en cours de vérification sécurisée.
+            </div>
+            <div class="step">
+                <strong>2. Évaluation du Dossier</strong>
+                Notre équipe évalue l’ampleur de la transcription, les exigences linguistiques et les délais attendus.
+            </div>
+            <div class="step">
+                <strong>3. Confirmation</strong>
+                Une réponse avec les prochaines étapes et le délai estimé est généralement envoyée dans l’heure qui suit.
+            </div>
+        </div>
+        <div class="actions">
+            <a href="https://lexoral.org/fr/" class="btn">
+                Retour à l'accueil
+            </a>
+            <a href="https://lexoral.org/fr/#contact" class="btn btn-secondary">
+                Soumettre une autre demande
+            </a>
+        </div>
+        <div class="footer-note">
+            Tous les fichiers et communications sont traités conformément à nos protocoles de confidentialité et de traitement sécurisé.
+        </div>
+    </div>
+</div>
+<script>
+const savedTicket = sessionStorage.getItem("lexoral_ticket");
+if(savedTicket){
+    document.getElementById("ticket").textContent = savedTicket;
+}
+</script>
+</body>
+</html>
