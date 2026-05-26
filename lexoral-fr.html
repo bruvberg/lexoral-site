@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Lexoral — Transcription juridique certifiée français–anglais</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Mono:wght@300;400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&display=swap" rel="stylesheet"/>
+<style>
+:root{--navy:#1a2744;--navy-deep:#0d1a35;--navy-mid:#243358;--cream:#f7f4ed;--cream-dark:#ede9df;--gold:#b8943a;--gold-light:#d4ae62;--gold-pale:#f2e8cc;--ink:#1c1c1c;--ink-muted:#6b6b6b;--rule:#c8bfa8;--white:#ffffff;--mono:'DM Mono',monospace;--serif:'Playfair Display',serif;--body:'Source Serif 4',serif;--max:1280px}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:var(--body);line-height:1.75;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+.container{width:min(100% - 48px,var(--max));margin-inline:auto}
+nav{position:sticky;top:0;z-index:1000;background:var(--navy-deep);border-bottom:3px solid var(--gold)}
+.nav-inner{height:72px;display:flex;align-items:center;justify-content:space-between;gap:32px}
+.logo{font-family:var(--serif);font-size:1.9rem;font-weight:900;color:var(--white);letter-spacing:-0.02em}
+.logo span{color:var(--gold)}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{color:rgba(255,255,255,0.72);font-family:var(--mono);font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;transition:color 0.2s}
+.nav-links a:hover{color:var(--gold-light)}
+.nav-lang{display:flex;gap:4px;align-items:center;border:1px solid rgba(255,255,255,0.2);border-radius:2px;padding:4px 10px;font-family:var(--mono);font-size:0.72rem;letter-spacing:0.1em}
+.nav-lang a{color:rgba(255,255,255,0.5)}
+.nav-lang a.active{color:var(--gold-light);font-weight:500}
+.nav-lang span{color:rgba(255,255,255,0.2);margin:0 2px}
+.nav-cta{background:var(--gold);color:var(--navy-deep);font-family:var(--mono);font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;padding:11px 24px;border-radius:2px;font-weight:500;transition:background 0.2s}
+.nav-cta:hover{background:var(--gold-light)}
+.hero{background:var(--navy-deep);min-height:92vh;display:grid;grid-template-rows:1fr;position:relative;overflow:hidden}
+.hero-bg-rule{position:absolute;top:0;left:33.33%;width:1px;height:100%;background:rgba(184,148,58,0.12);pointer-events:none}
+.hero-bg-rule2{position:absolute;top:0;left:66.66%;width:1px;height:100%;background:rgba(184,148,58,0.07);pointer-events:none}
+.hero-bg-rule-h{position:absolute;top:33%;left:0;width:100%;height:1px;background:rgba(184,148,58,0.07);pointer-events:none}
+.hero-inner{display:grid;grid-template-columns:1fr 1px 1fr;min-height:92vh}
+.hero-left{padding:80px 64px 80px 0;display:flex;flex-direction:column;justify-content:space-between;border-right:1px solid rgba(184,148,58,0.2)}
+.hero-right{padding:80px 0 80px 64px;display:flex;flex-direction:column;justify-content:center}
+.hero-eyebrow{font-family:var(--mono);font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:32px;display:flex;align-items:center;gap:12px}
+.hero-eyebrow::before{content:'';display:inline-block;width:24px;height:1px;background:var(--gold)}
+.hero-h1{font-family:var(--serif);font-size:clamp(3.8rem,7vw,6.5rem);line-height:0.9;letter-spacing:-0.04em;color:var(--white);font-weight:900;margin-bottom:40px}
+.hero-h1 em{color:var(--gold-light);font-style:italic;display:block}
+.hero-sub{font-family:var(--body);font-size:1.15rem;color:rgba(255,255,255,0.6);line-height:1.8;max-width:44ch;margin-bottom:48px;font-weight:300}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap}
+.btn-hero-primary{background:var(--gold);color:var(--navy-deep);font-family:var(--mono);font-size:0.76rem;letter-spacing:0.12em;text-transform:uppercase;padding:17px 34px;border-radius:2px;font-weight:500;transition:all 0.25s;display:inline-flex;align-items:center;gap:10px}
+.btn-hero-primary:hover{background:var(--gold-light);transform:translateY(-2px)}
+.btn-hero-outline{border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.72);font-family:var(--mono);font-size:0.76rem;letter-spacing:0.12em;text-transform:uppercase;padding:17px 34px;border-radius:2px;transition:all 0.25s;display:inline-flex;align-items:center}
+.btn-hero-outline:hover{border-color:var(--gold);color:var(--gold-light)}
+.tl{display:flex;gap:0;margin-bottom:24px;font-size:1.02rem;line-height:1.65}
+.tl-num{font-family:var(--mono);font-size:0.6rem;color:rgba(255,255,255,0.18);width:36px;flex-shrink:0;padding-top:4px;text-align:right;margin-right:20px;letter-spacing:0.04em}
+.tl-body{color:rgba(255,255,255,0.75)}
+.tl-speaker{font-family:var(--mono);font-size:0.68rem;font-weight:500;letter-spacing:0.06em;color:var(--gold-light);display:block;margin-bottom:3px}
+.hero-stats{background:var(--navy);border-top:1px solid rgba(184,148,58,0.2)}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat-item{padding:36px 28px;border-right:1px solid rgba(184,148,58,0.12);text-align:center}
+.stat-item:last-child{border-right:none}
+.stat-num{font-family:var(--serif);font-size:3rem;font-weight:700;color:var(--gold-light);line-height:1;display:block;margin-bottom:6px}
+.stat-lab{font-family:var(--mono);font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.4);line-height:1.5}
+.trust-bar{background:var(--navy);border-top:1px solid rgba(184,148,58,0.2);border-bottom:1px solid rgba(184,148,58,0.2)}
+.trust-inner{display:grid;grid-template-columns:repeat(5,1fr);gap:0}
+.trust-item{padding:24px 28px;border-right:1px solid rgba(184,148,58,0.12);text-align:center}
+.trust-item:last-child{border-right:none}
+.trust-top{font-family:var(--mono);font-size:0.8rem;letter-spacing:0.05em;color:var(--gold-light);font-weight:500;display:block;margin-bottom:3px}
+.trust-bot{font-family:var(--mono);font-size:0.64rem;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.28)}
+.section{padding:100px 0}
+.section-header{margin-bottom:64px}
+.section-tag{font-family:var(--mono);font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.section-tag::before{content:'';display:inline-block;width:20px;height:1px;background:var(--gold)}
+.section-h2{font-family:var(--serif);font-size:clamp(2.8rem,5vw,4.2rem);line-height:0.95;letter-spacing:-0.04em;max-width:900px;font-weight:900}
+.section-intro{color:var(--ink-muted);font-size:1.12rem;max-width:62ch;margin-top:22px;line-height:1.85;font-style:italic;font-weight:300}
+.services-section{background:var(--cream)}
+.services-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.service-card{background:var(--white);padding:52px 48px;transition:background 0.3s}
+.service-card:hover{background:var(--gold-pale)}
+.service-num{font-family:var(--mono);font-size:0.72rem;letter-spacing:0.16em;color:var(--gold);display:block;margin-bottom:20px}
+.service-h3{font-family:var(--serif);font-size:1.9rem;line-height:1.05;letter-spacing:-0.03em;margin-bottom:18px;font-weight:700}
+.service-p{color:var(--ink-muted);font-size:1.02rem;line-height:1.85}
+.service-link{font-family:var(--mono);font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--navy);display:inline-flex;align-items:center;gap:8px;margin-top:28px;border-bottom:1px solid var(--navy);padding-bottom:2px;transition:color 0.2s,border-color 0.2s}
+.service-link:hover{color:var(--gold);border-color:var(--gold)}
+.service-link::after{content:'→'}
+.services-top{display:grid;grid-template-columns:2fr 1fr;gap:60px;align-items:end;padding:80px 0 0}
+.services-callout{background:var(--navy);color:var(--white);padding:48px;position:relative;overflow:hidden}
+.services-callout::before{content:'§';position:absolute;bottom:-20px;right:16px;font-family:var(--serif);font-size:14rem;color:rgba(255,255,255,0.04);line-height:1;pointer-events:none}
+.sc-label{font-family:var(--mono);font-size:0.7rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.sc-quote{font-family:var(--serif);font-size:1.25rem;font-style:italic;line-height:1.6;color:rgba(255,255,255,0.85)}
+.sc-attr{font-family:var(--mono);font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-top:20px}
+.dark-section{background:var(--navy-deep);color:var(--white)}
+.dark-section .section-h2{color:var(--white)}
+.dark-section .section-intro{color:rgba(255,255,255,0.55)}
+.cross-layout{display:grid;grid-template-columns:5fr 7fr;gap:80px;align-items:start;margin-top:70px}
+.cross-body{font-size:1.12rem;color:rgba(255,255,255,0.65);line-height:1.85;font-style:italic}
+.cross-body p+p{margin-top:22px}
+.cross-cta{margin-top:36px;background:var(--gold);color:var(--navy-deep);font-family:var(--mono);font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;padding:17px 30px;border-radius:2px;font-weight:500;display:inline-flex;align-items:center;gap:8px;transition:background 0.2s}
+.cross-cta:hover{background:var(--gold-light)}
+.jur-table{border:1px solid rgba(184,148,58,0.2);border-collapse:collapse;width:100%}
+.jur-table th{font-family:var(--mono);font-size:0.66rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.35);padding:12px 16px;text-align:left;border-bottom:1px solid rgba(184,148,58,0.2);background:rgba(184,148,58,0.05)}
+.jur-table td{padding:14px 16px;border-bottom:1px solid rgba(255,255,255,0.05);font-size:0.92rem;color:rgba(255,255,255,0.7);vertical-align:top;line-height:1.55}
+.jur-table td:first-child{font-family:var(--mono);font-size:0.68rem;letter-spacing:0.06em;color:var(--gold);white-space:nowrap;width:110px}
+.jur-table tr:last-child td{border-bottom:none}
+.process-section{background:var(--cream-dark)}
+.process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--rule)}
+.process-card{background:var(--white);padding:52px 42px;border-right:1px solid var(--rule);position:relative}
+.process-card:last-child{border-right:none}
+.process-card::after{content:attr(data-num);position:absolute;bottom:24px;right:24px;font-family:var(--serif);font-size:5rem;color:rgba(26,39,68,0.04);line-height:1;pointer-events:none;font-weight:900}
+.process-step-label{font-family:var(--mono);font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:18px}
+.process-h3{font-family:var(--serif);font-size:2rem;line-height:1;letter-spacing:-0.03em;margin-bottom:20px;font-weight:700}
+.process-p{color:var(--ink-muted);font-size:1rem;line-height:1.85;margin-bottom:24px}
+.process-tags{display:flex;flex-direction:column;gap:8px}
+.ptag{font-family:var(--mono);font-size:0.68rem;letter-spacing:0.06em;color:var(--ink-muted);display:flex;align-items:center;gap:10px}
+.ptag::before{content:'';width:5px;height:5px;background:var(--gold);border-radius:50%;flex-shrink:0}
+.clients-section{background:var(--white)}
+.clients-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:64px}
+.client-card{background:var(--cream);padding:28px 24px;transition:background 0.25s}
+.client-card:hover{background:var(--gold-pale)}
+.client-name{font-family:var(--serif);font-size:1.18rem;font-weight:700;color:var(--navy);margin-bottom:6px;line-height:1.2}
+.client-desc{font-family:var(--mono);font-size:0.66rem;letter-spacing:0.07em;text-transform:uppercase;color:var(--ink-muted);line-height:1.7}
+.pullquote-band{background:var(--navy);padding:0}
+.pq-inner{display:grid;grid-template-columns:2fr 1fr;min-height:340px}
+.pq-left{border-right:1px solid rgba(184,148,58,0.2);padding:72px 72px 72px 0;display:flex;flex-direction:column;justify-content:center}
+.pq-right{padding:48px 0 48px 60px;display:flex;flex-direction:column;justify-content:space-between;gap:24px}
+blockquote.pq{font-family:var(--serif);font-size:clamp(1.4rem,2.2vw,2rem);font-style:italic;line-height:1.45;color:var(--white);position:relative;padding-left:2.5rem}
+blockquote.pq::before{content:'\201C';position:absolute;left:-0.2rem;top:-1rem;font-size:6rem;color:var(--gold);line-height:1;opacity:0.35;font-style:normal}
+.pq-attr{font-family:var(--mono);font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-top:24px}
+.pq-aside-card{border:1px solid rgba(184,148,58,0.2);padding:20px 24px}
+.pq-aside-title{font-family:var(--body);font-size:1rem;font-weight:600;color:var(--white);margin-bottom:4px}
+.pq-aside-sub{font-family:var(--mono);font-size:0.65rem;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.3)}
+.pricing-section{background:var(--cream)}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--rule);margin-top:70px}
+.pricing-card{background:var(--white);padding:52px 44px;border-right:1px solid var(--rule)}
+.pricing-card:last-child{border-right:none}
+.pricing-card.featured{background:var(--navy-deep);color:var(--white)}
+.price-tier{font-family:var(--mono);font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:20px}
+.pricing-card.featured .price-tier{color:var(--gold-light)}
+.price-num{font-family:var(--serif);font-size:4rem;line-height:1;font-weight:900;display:block;margin-bottom:6px;color:var(--navy)}
+.pricing-card.featured .price-num{color:var(--white)}
+.price-sub{font-family:var(--mono);font-size:0.7rem;letter-spacing:0.07em;color:var(--ink-muted);margin-bottom:36px;display:block}
+.pricing-card.featured .price-sub{color:rgba(255,255,255,0.4)}
+.pricing-ul{list-style:none;margin-bottom:40px}
+.pricing-ul li{margin-bottom:12px;font-size:1rem;color:var(--ink-muted);display:flex;gap:12px;align-items:baseline;line-height:1.5}
+.pricing-card.featured .pricing-ul li{color:rgba(255,255,255,0.65)}
+.pricing-ul li::before{content:'—';font-family:var(--mono);font-size:0.72rem;color:var(--gold);flex-shrink:0}
+.pricing-card.featured .pricing-ul li::before{color:var(--gold-light)}
+.btn-pricing{display:block;text-align:center;padding:15px;border-radius:2px;font-family:var(--mono);font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;transition:all 0.25s}
+.btn-p-outline{border:1px solid var(--navy);color:var(--navy)}
+.btn-p-outline:hover{background:var(--navy);color:var(--white)}
+.btn-p-gold{background:var(--gold);color:var(--navy-deep);border:1px solid var(--gold)}
+.btn-p-gold:hover{background:var(--gold-light)}
+.btn-p-outline-w{border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.8)}
+.btn-p-outline-w:hover{border-color:var(--gold-light);color:var(--gold-light)}
+.faq-section{background:var(--white)}
+.faq-layout{display:grid;grid-template-columns:1fr 2fr;gap:100px;margin-top:70px}
+.faq-sticky{position:sticky;top:90px;align-self:start}
+.faq-contact{margin-top:32px;font-size:1rem;color:var(--ink-muted);line-height:1.85}
+.faq-contact a{color:var(--navy);border-bottom:1px solid var(--rule);transition:border-color 0.2s}
+.faq-btn{display:inline-flex;align-items:center;gap:8px;margin-top:28px;background:var(--navy);color:var(--white);font-family:var(--mono);font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;padding:15px 26px;border-radius:2px;transition:background 0.2s}
+.faq-btn:hover{background:var(--navy-mid)}
+.faq-list{border-top:1px solid var(--rule)}
+.faq-item{border-bottom:1px solid var(--rule)}
+.faq-q{display:flex;justify-content:space-between;align-items:baseline;padding:22px 0;gap:24px;cursor:pointer}
+.faq-q-text{font-family:var(--body);font-size:1.05rem;font-weight:600;color:var(--ink);line-height:1.4;transition:color 0.2s}
+.faq-toggle{font-family:var(--mono);font-size:1.1rem;color:var(--gold);flex-shrink:0;transition:transform 0.25s;font-weight:300}
+.faq-a{display:none;padding-bottom:24px}
+.faq-a-text{font-size:1rem;color:var(--ink-muted);line-height:1.85;max-width:60ch;font-style:italic}
+.faq-item.open .faq-toggle{transform:rotate(45deg)}
+.faq-item.open .faq-a{display:block}
+.faq-item:hover .faq-q-text{color:var(--gold)}
+.intake-section{background:var(--navy-deep);color:var(--white);padding:100px 0}
+.intake-layout{display:grid;grid-template-columns:5fr 7fr;gap:80px;align-items:start}
+.intake-h2{font-family:var(--serif);font-size:clamp(2.2rem,3.5vw,3.2rem);line-height:1.05;letter-spacing:-0.04em;color:var(--white);margin-bottom:24px;font-weight:900}
+.intake-body{color:rgba(255,255,255,0.55);font-size:1rem;line-height:1.85;margin-bottom:40px;font-style:italic}
+.contact-item{margin-bottom:28px}
+.ci-label{font-family:var(--mono);font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;display:block}
+.ci-val{font-size:1.02rem;color:rgba(255,255,255,0.75)}
+.ci-val a{color:rgba(255,255,255,0.75);border-bottom:1px solid rgba(255,255,255,0.2);transition:border-color 0.2s}
+.ci-val a:hover{border-color:var(--gold)}
+.intake-right{border-left:1px solid rgba(184,148,58,0.2);padding-left:80px}
+.contact-option+.contact-option{margin-top:36px;padding-top:36px;border-top:1px solid rgba(184,148,58,0.15)}
+.co-title{font-family:var(--mono);font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.co-title::before{content:'';display:inline-block;width:16px;height:1px;background:var(--gold)}
+.co-body{color:rgba(255,255,255,0.55);font-size:0.97rem;line-height:1.8;font-style:italic}
+.co-body a{color:rgba(255,255,255,0.7);border-bottom:1px solid rgba(255,255,255,0.2)}
+footer{background:var(--navy-deep);border-top:3px solid var(--gold);padding:72px 0 48px}
+.footer-inner{display:grid;grid-template-columns:2.5fr 1fr 1fr 1fr;gap:60px;margin-bottom:60px}
+.footer-logo{font-family:var(--serif);font-size:2rem;font-weight:900;color:var(--white);letter-spacing:-0.03em;margin-bottom:14px}
+.footer-logo span{color:var(--gold)}
+.footer-mission{color:rgba(255,255,255,0.35);font-size:0.82rem;line-height:1.7;max-width:28ch;font-family:var(--mono);letter-spacing:0.04em}
+.footer-col-title{font-family:var(--mono);font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:block}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-links a{color:rgba(255,255,255,0.45);font-size:0.95rem;transition:color 0.2s;line-height:1.4}
+.footer-links a:hover{color:var(--white)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-legal{color:rgba(255,255,255,0.3);font-family:var(--mono);font-size:0.68rem;letter-spacing:0.06em}
+.footer-badges{display:flex;gap:10px;flex-wrap:wrap}
+.footer-badge{font-family:var(--mono);font-size:0.64rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.3);border:1px solid rgba(255,255,255,0.1);padding:5px 14px;border-radius:1px}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media(max-width:1100px){.hero-inner{grid-template-columns:1fr}.hero-left{padding:60px 0;border-right:none;border-bottom:1px solid rgba(184,148,58,0.15)}.hero-right{padding:40px 0 60px}.services-top{grid-template-columns:1fr}.cross-layout{grid-template-columns:1fr}.process-grid{grid-template-columns:1fr}.process-card{border-right:none;border-bottom:1px solid var(--rule)}.clients-grid{grid-template-columns:repeat(2,1fr)}.pq-inner{grid-template-columns:1fr}.pq-left{border-right:none;padding:60px 0}.pq-right{padding:0 0 60px}.pricing-grid{grid-template-columns:1fr}.pricing-card{border-right:none;border-bottom:1px solid var(--rule)}.faq-layout{grid-template-columns:1fr;gap:48px}.faq-sticky{position:static}.intake-layout{grid-template-columns:1fr}.intake-right{border-left:none;padding-left:0;border-top:1px solid rgba(184,148,58,0.15);padding-top:48px}.footer-inner{grid-template-columns:1fr 1fr;gap:40px}.trust-inner{grid-template-columns:repeat(3,1fr)}.stats-row{grid-template-columns:repeat(2,1fr)}.services-grid{grid-template-columns:1fr}}
+@media(max-width:760px){.nav-links{display:none}.hero-h1{font-size:3.2rem}.footer-inner{grid-template-columns:1fr}.clients-grid{grid-template-columns:1fr 1fr}.trust-inner{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="container nav-inner">
+    <div class="logo">Lex<span>oral</span></div>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#transfrontalier">Transfrontalier</a>
+      <a href="#processus">Processus</a>
+      <a href="#tarifs">Tarifs</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div style="display:flex;gap:14px;align-items:center">
+      <div class="nav-lang">
+        <a href="lexoral.html">EN</a>
+        <span>·</span>
+        <a href="#" class="active">FR</a>
+      </div>
+      <a href="#contact" class="nav-cta">Dépôt sécurisé</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg-rule"></div><div class="hero-bg-rule2"></div><div class="hero-bg-rule-h"></div>
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div>
+          <div class="hero-eyebrow">Transcription juridique certifiée français–anglais</div>
+          <h1 class="hero-h1">Nous sommes<br/><em>le dossier.</em></h1>
+          <p class="hero-sub">Transcriptions bilingues homologuées pour litiges, arbitrages, tribunaux et procédures transfrontalières. Produites à des fins probatoires avec des contrôles stricts de mise en forme et de confidentialité.</p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn-hero-primary">Soumettre une procédure →</a>
+            <a href="#services" class="btn-hero-outline">Nos services</a>
+          </div>
+        </div>
+        <div style="margin-top:60px;padding-top:40px;border-top:1px solid rgba(184,148,58,0.15)">
+          <p style="font-family:var(--mono);font-size:0.58rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:12px">Au service de</p>
+          <div style="display:flex;gap:20px;flex-wrap:wrap">
+            <span style="font-family:var(--mono);font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.45)">Tribunaux québécois</span>
+            <span style="color:rgba(255,255,255,0.2)">·</span>
+            <span style="font-family:var(--mono);font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.45)">Cours fédérales É.-U.</span>
+            <span style="color:rgba(255,255,255,0.2)">·</span>
+            <span style="font-family:var(--mono);font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.45)">CCI / AAA</span>
+            <span style="color:rgba(255,255,255,0.2)">·</span>
+            <span style="font-family:var(--mono);font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.45)">Tribunaux administratifs</span>
+          </div>
+        </div>
+      </div>
+      <div style="width:1px"></div>
+      <div class="hero-right">
+        <div style="display:flex;flex-direction:column;justify-content:center;height:100%">
+          <div class="tl"><span class="tl-num">183</span><div class="tl-body"><span class="tl-speaker">LA COUR :</span> Nous sommes de retour à l'audience. Maître Tremblay, vous pouvez continuer.</div></div>
+          <div class="tl"><span class="tl-num">184</span><div class="tl-body"><span class="tl-speaker">Me TREMBLAY :</span> Thank you. Ms. Patel — did you receive the disclosure package on January 12th?</div></div>
+          <div class="tl"><span class="tl-num">185</span><div class="tl-body"><span class="tl-speaker">Mme PATEL :</span> Oui, mais l'annexe C était manquante de l'envoi.</div></div>
+          <div class="tl"><span class="tl-num">186</span><div class="tl-body"><span class="tl-speaker">Me TREMBLAY :</span> And you communicated that to opposing counsel?</div></div>
+          <div class="tl" style="margin-top:8px"><span class="tl-num">187</span><div class="tl-body" style="color:rgba(255,255,255,0.3);font-style:italic"><span class="tl-speaker" style="color:rgba(184,148,58,0.4)">LA COUR :</span> [Objection notée. Suite à la ligne 188.]</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="hero-stats">
+  <div class="container">
+    <div class="stats-row">
+      <div class="stat-item"><span class="stat-num">47</span><span class="stat-lab">procédures livrées</span></div>
+      <div class="stat-item">
+    <span class="stat-num">100%</span>
+    <span class="stat-lab">Révision humaine<br/>à chaque étape</span></div>
+      <div class="stat-item"><span class="stat-num">2</span><span class="stat-lab">Juridictions<br/>FR + EN bilingue</span></div>
+      <div class="stat-item"><span class="stat-num">24h</span><span class="stat-lab">Délai prioritaire<br/>disponible</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="trust-bar">
+  <div class="container">
+    <div class="trust-inner">
+      <div class="trust-item"><span class="trust-top">FR–EN Bilingue</span><span class="trust-bot">Alternance verbatim</span></div>
+      <div class="trust-item"><span class="trust-top">Loi 25 Conforme</span><span class="trust-bot">Protection vie privée Québec</span></div>
+      <div class="trust-item"><span class="trust-top">Aligné RGPD</span><span class="trust-bot">Normes européennes</span></div>
+      <div class="trust-item"><span class="trust-top">FRCP + CPC</span><span class="trust-bot">Format double juridiction</span></div>
+      <div class="trust-item"><span class="trust-top">Zéro IA</span><span class="trust-bot">Révision humaine à chaque étape</span></div>
+    </div>
+  </div>
+</div>
+
+<section class="services-section" id="services">
+  <div class="container">
+    <div class="services-top">
+      <div>
+        <div class="section-tag">Ce que nous faisons</div>
+        <h2 class="section-h2">Conçu pour les normes probatoires.</h2>
+        <p class="section-intro">Chaque transcription fait l'objet d'une vérification des intervenants, d'une normalisation terminologique bilingue, d'une révision de mise en forme et d'un contrôle qualité structuré avant certification.</p>
+      </div>
+     
+  </div>
+  <div class="container" style="padding-top:48px">
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <span class="service-num">01</span>
+        <h3 class="service-h3">Dépositions &amp; Interrogatoires</h3>
+        <p class="service-p">Transcriptions bilingues verbatim avec identification des intervenants, horodatage, numérotation des lignes et notation des objections. Formatées pour dépôt immédiat ou communication en justice.</p>
+        <a href="#contact" class="service-link">Soumettre une demande</a>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-num">02</span>
+        <h3 class="service-h3">Arbitrage &amp; Médiation</h3>
+        <p class="service-p">Mise en forme judiciaire pour panels privés, arbitrages institutionnels et litiges multipartites complexes. Procédures CCI, AAA, ADRIC et CIAC acceptées.</p>
+        <a href="#contact" class="service-link">Soumettre une demande</a>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-num">03</span>
+        <h3 class="service-h3">Tribunaux &amp; Audiences réglementaires</h3>
+        <p class="service-p">Tribunaux administratifs, commissions du travail, audiences d'immigration et procédures gouvernementales — formatées selon les exigences documentaires de chaque organisme.</p>
+        <a href="#contact" class="service-link">Soumettre une demande</a>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-num">04</span>
+        <h3 class="service-h3">Soutien aux litiges transfrontaliers</h3>
+        <p class="service-p">Normes américaines de déposition combinées à l'expertise bilingue du droit québécois. Le seul service qui relie les FRCP et le CPC dans un seul dossier bilingue certifié.</p>
+        <a href="#transfrontalier" class="service-link">En savoir plus</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section dark-section" id="transfrontalier">
+  <div class="container">
+    <div class="section-tag" style="color:var(--gold)">Excellence transfrontalière</div>
+    <h2 class="section-h2">Deux systèmes juridiques.<br/>Un dossier défendable.</h2>
+    <p class="section-intro">Lorsque le témoignage d'un déposant montréalais est produit devant une juridiction fédérale américaine — ou qu'une partie américaine soumet une preuve à la Cour supérieure du Québec — la transcription doit satisfaire simultanément deux cadres procéduraux distincts.</p>
+    <div class="cross-layout">
+      <div>
+        <p class="cross-body">Lexoral est spécifiquement structuré pour les litiges bilingues, les témoignages en alternance de codes et les exigences de double juridiction. Nous naviguons les Federal Rules of Civil Procedure et le Code de procédure civile du Québec — dans les deux langues — pour que votre dossier soit défendable des deux côtés de la frontière.</p>
+        <p class="cross-body">Aucun interprète requis. Aucun reformatage. Une seule transcription bilingue certifiée, valable partout où l'affaire est entendue.</p>
+        <a href="#contact" class="cross-cta">Soumettre un dossier transfrontalier →</a>
+      </div>
+      <div class="reveal">
+        <table class="jur-table">
+          <thead><tr><th>Matière</th><th>Québec / Canada</th><th>États-Unis</th></tr></thead>
+          <tbody>
+            <tr><td>Procédure</td><td>Code de procédure civile (CPC)</td><td>FRCP</td></tr>
+            <tr><td>Langue</td><td>Français · Anglais (bilingue)</td><td>Anglais ; interprète pour le FR</td></tr>
+            <tr><td>Format</td><td>Normes Cour supérieure</td><td>Format AAERT / NVRA</td></tr>
+            <tr><td>Certification</td><td>Déclaration d'exactitude signée</td><td>Sténographe certifié ou équivalent</td></tr>
+            <tr><td>Probatoire</td><td>Dépôt direct — procédures québécoises</td><td>Dossier de communication ; conforme Rule 30(b)(6)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section process-section" id="processus">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Comment ça fonctionne</div>
+      <h2 class="section-h2">Conçu pour la défendabilité.</h2>
+    </div>
+    <div class="process-grid">
+      <div class="process-card reveal" data-num="01">
+        <span class="process-step-label">Étape 01</span>
+        <h3 class="process-h3">Dépôt sécurisé</h3>
+        <p class="process-p">Soumettez les détails de votre procédure via notre canal chiffré. Recevez une confirmation et une estimation du délai dans l'heure. Aucun enregistrement ne quitte votre garde sans vérification.</p>
+        <div class="process-tags">
+          <span class="ptag">Soumission chiffrée de bout en bout</span>
+          <span class="ptag">Vérification d'horodatage</span>
+          <span class="ptag">Documentation de chaîne de custody</span>
+          <span class="ptag">Traitement conforme à la Loi 25</span>
+        </div>
+      </div>
+      <div class="process-card reveal" data-num="02">
+        <span class="process-step-label">Étape 02</span>
+        <h3 class="process-h3">Révision juridique double</h3>
+        <p class="process-p">Chaque transcription passe par une vérification des intervenants, une normalisation terminologique bilingue, une révision de mise en forme et un contrôle qualité complet avant certification. Zéro IA.</p>
+        <div class="process-tags">
+          <span class="ptag">Identification et vérification des intervenants</span>
+          <span class="ptag">Audit terminologique bilingue</span>
+          <span class="ptag">Révision des normes de mise en forme</span>
+          <span class="ptag">Aucune IA à aucune étape</span>
+        </div>
+      </div>
+      <div class="process-card reveal" data-num="03">
+        <span class="process-step-label">Étape 03</span>
+        <h3 class="process-h3">Livraison certifiée</h3>
+        <p class="process-p">Livrée en PDF consultable et Word modifiable, avec structure prête pour le dépôt, déclaration d'exactitude signée et documentation d'audit. Suppression permanente disponible sur demande.</p>
+        <div class="process-tags">
+          <span class="ptag">PDF consultable et Word modifiable</span>
+          <span class="ptag">Déclaration d'exactitude signée</span>
+          <span class="ptag">Documentation prête pour audit</span>
+          <span class="ptag">Suppression permanente sur demande</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section clients-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Qui nous servons</div>
+      <h2 class="section-h2">Pour les procédures juridiques modernes.</h2>
+    </div>
+    <div class="clients-grid">
+      <div class="client-card reveal"><p class="client-name">Cabinets de contentieux</p><p class="client-desc">Québec · Ontario · New York · Fédéral</p></div>
+      <div class="client-card reveal"><p class="client-name">Panels d'arbitrage</p><p class="client-desc">CCI · AAA · ADRIC · CIAC · Ad hoc</p></div>
+      <div class="client-card reveal"><p class="client-name">Gouvernement &amp; Tribunaux</p><p class="client-desc">Administratif · Travail · Immigration</p></div>
+      <div class="client-card reveal"><p class="client-name">Directions juridiques</p><p class="client-desc">Juristes internes · Transactions transfrontalières</p></div>
+      <div class="client-card reveal"><p class="client-name">Défense des assureurs</p><p class="client-desc">Examens sous serment · Litiges de couverture</p></div>
+      <div class="client-card reveal"><p class="client-name">Soutien au contentieux civil</p><p class="client-desc">Communication · Avant procès · Appel</p></div>
+      <div class="client-card reveal"><p class="client-name">Défense publique &amp; Aide juridique</p><p class="client-desc">Procédures pénales · Droits linguistiques</p></div>
+      <div class="client-card reveal"><p class="client-name">Académique &amp; Recherche</p><p class="client-desc">Facultés de droit · Linguistique · Politique</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="pullquote-band">
+  <div class="container">
+    <div class="pq-inner">
+      <div class="pq-left">
+        <blockquote class="pq">« Le dossier bilingue est le dernier endroit où vous voulez une erreur. Lexoral est le seul service qui comprend les deux faces de cette phrase — juridiquement et linguistiquement. »</blockquote>
+        <p class="pq-attr">— Raymond Carby Samuels · Défenseur des droits linguistiques au Canada</p>
+      </div>
+      <div class="pq-right">
+        <div class="pq-aside-card"><p class="pq-aside-title">Références disponibles sur demande</p><p class="pq-aside-sub">Toutes les références clients sont fournies sous NDA à l'engagement</p></div>
+        <div class="pq-aside-card"><p class="pq-aside-title">Satisfaction garantie</p><p class="pq-aside-sub">Re-transcription sans frais pour tout problème de mise en forme</p></div>
+        <div class="pq-aside-card"><p class="pq-aside-title">Zéro délai manqué</p><p class="pq-aside-sub">Pour l'ensemble des procédures accompagnées à ce jour</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="section pricing-section" id="tarifs">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Tarifs transparents</div>
+      <h2 class="section-h2">Aucune surprise.<br/>Aucun forfait.</h2>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card reveal">
+        <span class="price-tier">Standard</span>
+        <span class="price-num">2,50 $</span>
+        <span class="price-sub">par minute enregistrée · livraison 72h</span>
+        <ul class="pricing-ul">
+          <li>Transcription verbatim FR, EN ou bilingue</li>
+          <li>Identification des intervenants</li>
+          <li>Numérotation des lignes &amp; pagination</li>
+          <li>PDF consultable + Word modifiable</li>
+          <li>Déclaration d'exactitude signée</li>
+        </ul>
+        <a href="#contact" class="btn-pricing btn-p-outline">Demander un devis</a>
+      </div>
+      <div class="pricing-card featured reveal">
+        <span class="price-tier">Prioritaire</span>
+        <span class="price-num">3,75 $</span>
+        <span class="price-sub">par minute enregistrée · livraison 24–36h</span>
+        <ul class="pricing-ul">
+          <li>Tout ce qui est inclus dans Standard</li>
+          <li>Délai accéléré 24–36h</li>
+          <li>Gestionnaire de dossier dédié</li>
+          <li>Livraison partielle disponible</li>
+          <li>Ligne de soutien prioritaire</li>
+        </ul>
+        <a href="#contact" class="btn-pricing btn-p-gold">Demander un devis</a>
+      </div>
+      <div class="pricing-card reveal">
+        <span class="price-tier">Complexe</span>
+        <span class="price-num" style="font-size:3rem">Sur mesure</span>
+        <span class="price-sub">transfrontalier · multi-sessions · grand volume</span>
+        <ul class="pricing-ul">
+          <li>Tout ce qui est inclus dans Prioritaire</li>
+          <li>Coordination de procédures plurijournalières</li>
+          <li>Livraison double format FRCP + CPC</li>
+          <li>Remises sur volume disponibles</li>
+          <li>Conditions d'engagement permanent</li>
+        </ul>
+        <a href="#contact" class="btn-pricing btn-p-outline">Nous contacter</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section faq-section" id="faq">
+  <div class="container">
+    <div class="section-tag">FAQ</div>
+    <h2 class="section-h2" style="margin-bottom:0">Réponses claires<br/>pour les équipes juridiques.</h2>
+    <div class="faq-layout">
+      <div class="faq-sticky">
+        <p class="faq-contact">Tout ce dont vous avez besoin avant de soumettre une procédure. Questions supplémentaires bienvenues à <a href="mailto:contact@lexoral.org">contact@lexoral.org</a></p>
+        <a href="#contact" class="faq-btn">Soumettre une procédure →</a>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Que signifie exactement « certifié » ?</span><span class="faq-toggle">+</span></div>
+          <div class="faq-a"><p class="faq-a-text">Chaque transcription Lexoral est accompagnée d'une déclaration d'exactitude signée attestant que la transcription est un compte rendu fidèle et complet de l'audio fourni. Nous ne sommes pas affiliés à un ordre de sténographes judiciaires, et nous le divulguons clairement. Pour les procédures exigeant le sceau d'un sténographe agréé, nous vous en informons dès le dépôt.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Pourquoi ne pas utiliser des outils de transcription IA comme Whisper ou Otter ?</span><span class="faq-toggle">+</span></div>
+          <div class="faq-a"><p class="faq-a-text">Les outils de transcription IA échouent exactement dans les conditions qui définissent les procédures juridiques bilingues : alternance de codes en milieu de phrase, intervenants qui se chevauchent, terminologie juridique, noms propres et registre du français québécois. Plus fondamentalement, ces outils ne peuvent pas maintenir une chaîne de custody probatoire, ne peuvent pas signer une déclaration d'exactitude, et leurs résultats ne sont pas défendables en justice. Nous n'utilisons aucune IA à aucune étape de la transcription.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Êtes-vous conformes à la Loi 25 et au droit québécois de la vie privée ?</span><span class="faq-toggle">+</span></div>
+          <div class="faq-a"><p class="faq-a-text">Oui. Tous les fichiers sont traités via des flux à accès restreint conformément à la Loi 25. Les fichiers sont transférés via des protocoles chiffrés, stockés dans des environnements à accès restreint, et jamais partagés avec des tiers. Les clients peuvent demander la suppression permanente des enregistrements et transcriptions à tout moment.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Fournissez-vous des transcriptions avec numérotation des lignes ?</span><span class="faq-toggle">+</span></div>
+          <div class="faq-a"><p class="faq-a-text">Oui. Toutes les transcriptions comprennent une mise en forme juridique professionnelle avec numérotation continue des lignes, pagination structurée et identification des intervenants formatée pour référence directe dans les actes de procédure et les mémoires.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Pouvez-vous gérer des audiences véritablement bilingues avec alternance de codes en milieu de phrase ?</span><span class="faq-toggle">+</span></div>
+          <div class="faq-a"><p class="faq-a-text">Oui — c'est notre spécialisation. Nous transcrivons verbatim dans chaque langue telle qu'elle est parlée, sans traduire ni paraphraser. Chaque langue est rendue dans sa forme originale, ce qui préserve l'intégrité probatoire.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Quelle qualité audio est requise ?</span><span class="faq-toggle">+</span></div>
+          <div class="faq-a"><p class="faq-a-text">Nous travaillons avec la plupart des formats audio (MP3, WAV, M4A, MP4 et la plupart des formats vidéo). Nous signalerons toute section présentant des problèmes de qualité audio significatifs lors du dépôt et fournirons un devis précis tenant compte de la difficulté.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Les enregistrements sont-ils utilisés à des fins de formation externe ?</span><span class="faq-toggle">+</span></div>
+          <div class="faq-a"><p class="faq-a-text">Non. Les documents des clients sont utilisés exclusivement pour la mission de transcription et ne sont en aucun cas partagés, réutilisés ou employés à des fins de formation ou de développement externes.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="intake-section" id="contact">
+  <div class="container">
+    <div class="intake-layout">
+      <div>
+        <div class="section-tag" style="color:var(--gold)">Dépôt sécurisé</div>
+        <h2 class="intake-h2">Commencer une nouvelle<br/>demande de procédure.</h2>
+        <p class="intake-body">Service bilingue 100% à distance — disponible dans tous les 
+fuseaux horaires. Équipe basée en France et à Montréal, Québec. Contactez-nous directement par courriel ou par téléphone. Nous confirmons réception et émettons un devis dans l'heure ouvrable.</p>
+        <div class="contact-item"><span class="ci-label">Courriel sécurisé</span><span class="ci-val"><a href="mailto:secure@lexoral.org">secure@lexoral.org</a></span></div>
+        <div class="contact-item"><span class="ci-label">Téléphone / WhatsApp — France</span><span class="ci-val"><a href="tel:+33683358160">+33 6 83 35 81 60</a></span></div>
+        <div class="contact-item"><span class="ci-label">Téléphone / WhatsApp — Canada</span><span class="ci-val"><a href="tel:+15147127516">+1 (514) 712-7516</a></span></div>
+      <div class="contact-item">
+    <span class="ci-label">Notre équipe</span>
+    <span class="ci-val" style="font-size:0.92rem">
+        Brian Fino · Interprète & liaison juridique — France<br/>
+        Raymond Carby-Samuels · Coordination bilingue — Montréal
+    </span>
+</div>
+      </div>
+      <div class="intake-right">
+        <div class="contact-option">
+          <p class="co-title">Écrivez-nous directement</p>
+          <p class="co-body">Envoyez à <a href="mailto:secure@lexoral.org">secure@lexoral.org</a> en indiquant : date, durée, langues, juridiction et délai requis. Nous répondons dans l'heure ouvrable avec une confirmation et un devis.</p>
+        </div>
+        <div class="contact-option">
+          <p class="co-title">Appelez ou WhatsApp</p>
+          <p class="co-body">France : <a href="tel:+33683358160">+33 6 83 35 81 60</a><br/>Canada : <a href="tel:+15147127516">+1 (514) 712-7516</a><br/><br/>Disponible lundi–vendredi, 8h–19h HE / 14h–1h CET.</p>
+        </div>
+        <div class="contact-option">
+          <p class="co-title">Ce qu'il faut inclure</p>
+          <p class="co-body">Type de procédure et date · Durée de l'enregistrement (approx.) · Langues parlées · Juridiction · Délai requis · Toute exigence particulière de mise en forme</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">Lex<span>oral</span></div>
+        <p class="footer-mission">Prestataire indépendant de transcription juridique. Ne fournit pas de conseils juridiques.</p><p style="font-family:var(--mono);font-size:0.65rem;
+letter-spacing:0.08em;color:rgba(255,255,255,0.3);
+margin-top:20px;line-height:1.8">
+  Brian Fino — Interprète & liaison juridique, France<br/>
+  Raymond Carby-Samuels — Coordination, Montréal, Québec
+</p>
+      </div>
+      <div>
+        <span class="footer-col-title">Services</span>
+        <ul class="footer-links">
+          <li><a href="#services">Dépositions &amp; Interrogatoires</a></li>
+          <li><a href="#services">Arbitrage &amp; Médiation</a></li>
+          <li><a href="#services">Audiences de tribunal</a></li>
+          <li><a href="#transfrontalier">Litiges transfrontaliers</a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="footer-col-title">Conformité</span>
+        <ul class="footer-links">
+          <li><a href="privacy-fr.html">Politique de confidentialité</a></li>
+          <li><a href="retention-fr.html">Politique de conservation</a></li>
+          <li><a href="privacy-fr.html">Loi 25</a></li>
+          <li><a href="privacy-fr.html">RGPD</a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="footer-col-title">Contact</span>
+        <ul class="footer-links">
+          <li><a href="mailto:secure@lexoral.org">secure@lexoral.org</a></li>
+          <li>France : <a href="tel:+33683358160">+33 6 83 35 81 60</a></li>
+<li>Canada : <a href="tel:+15147127516">+1 (514) 712-7516</a></li>        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">© 2026 Lexoral · France &amp; Montréal, Québec · Au service des États-Unis</p>
+      <div class="footer-badges">
+        <span class="footer-badge">FR–EN Bilingue</span>
+        <span class="footer-badge">Loi 25 Conforme</span>
+        <span class="footer-badge">Traitement sécurisé</span>
+        <span class="footer-badge">Zéro IA</span>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+function toggleFaq(el){el.parentElement.classList.toggle('open')}
+const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>

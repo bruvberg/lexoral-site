@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Lexoral — Politique de conservation des données</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Mono:wght@300;400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&display=swap" rel="stylesheet"/>
+<style>
+:root{--navy:#1a2744;--navy-deep:#0d1a35;--navy-mid:#243358;--cream:#f7f4ed;--cream-dark:#ede9df;--gold:#b8943a;--gold-light:#d4ae62;--gold-pale:#f2e8cc;--ink:#1c1c1c;--ink-muted:#6b6b6b;--rule:#c8bfa8;--white:#ffffff;--mono:'DM Mono',monospace;--serif:'Playfair Display',serif;--body:'Source Serif 4',serif;--max:1280px}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:var(--body);line-height:1.75;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+.container{width:min(100% - 48px,var(--max));margin-inline:auto}
+nav{position:sticky;top:0;z-index:1000;background:var(--navy-deep);border-bottom:3px solid var(--gold)}
+.nav-inner{height:72px;display:flex;align-items:center;justify-content:space-between;gap:32px}
+.logo{font-family:var(--serif);font-size:1.9rem;font-weight:900;color:var(--white);letter-spacing:-0.02em}
+.logo span{color:var(--gold)}
+.back-btn{display:inline-flex;align-items:center;gap:10px;background:transparent;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.72);font-family:var(--mono);font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;padding:10px 22px;border-radius:2px;transition:all 0.2s}
+.back-btn:hover{border-color:var(--gold);color:var(--gold-light)}
+.back-btn::before{content:'←';margin-right:4px}
+.nav-lang{display:flex;gap:4px;align-items:center;border:1px solid rgba(255,255,255,0.2);border-radius:2px;padding:4px 10px;font-family:var(--mono);font-size:0.72rem;letter-spacing:0.1em}
+.nav-lang a{color:rgba(255,255,255,0.5)}
+.nav-lang a.active{color:var(--gold-light);font-weight:500}
+.nav-lang span{color:rgba(255,255,255,0.2);margin:0 2px}
+.doc-header{background:var(--navy-deep);padding:80px 0 72px;border-bottom:1px solid rgba(184,148,58,0.2);position:relative;overflow:hidden}
+.doc-header::after{content:'§';position:absolute;right:5%;bottom:-40px;font-family:var(--serif);font-size:22rem;color:rgba(255,255,255,0.03);line-height:1;pointer-events:none;font-weight:900}
+.doc-eyebrow{font-family:var(--mono);font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:12px;margin-bottom:24px}
+.doc-eyebrow::before{content:'';display:inline-block;width:20px;height:1px;background:var(--gold)}
+.doc-h1{font-family:var(--serif);font-size:clamp(3rem,6vw,5.5rem);line-height:0.92;letter-spacing:-0.04em;color:var(--white);font-weight:900;margin-bottom:28px}
+.doc-meta{display:flex;gap:32px;flex-wrap:wrap;margin-top:32px}
+.doc-meta-item{display:flex;flex-direction:column;gap:4px}
+.doc-meta-label{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.3)}
+.doc-meta-val{font-family:var(--mono);font-size:0.76rem;letter-spacing:0.06em;color:rgba(255,255,255,0.6)}
+.doc-body{display:grid;grid-template-columns:1fr 3fr;gap:80px;padding:80px 0 120px;align-items:start}
+.doc-toc{position:sticky;top:96px;align-self:start}
+.toc-label{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:block}
+.toc-list{list-style:none;display:flex;flex-direction:column;gap:0;border-left:1px solid var(--rule)}
+.toc-list li a{display:block;font-family:var(--mono);font-size:0.68rem;letter-spacing:0.06em;color:var(--ink-muted);padding:8px 0 8px 18px;transition:color 0.2s;line-height:1.4;border-left:2px solid transparent;margin-left:-1px}
+.toc-list li a:hover{color:var(--gold);border-left-color:var(--gold)}
+.doc-content section{margin-bottom:64px;padding-bottom:64px;border-bottom:1px solid var(--rule)}
+.doc-content section:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.sec-num{font-family:var(--mono);font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.sec-num::before{content:'';display:inline-block;width:16px;height:1px;background:var(--gold)}
+.sec-h2{font-family:var(--serif);font-size:2rem;font-weight:700;letter-spacing:-0.03em;line-height:1.05;margin-bottom:24px;color:var(--navy)}
+.doc-p{font-size:1.05rem;color:var(--ink-muted);line-height:1.9;margin-bottom:18px}
+.doc-p:last-child{margin-bottom:0}
+.doc-ul{list-style:none;margin:18px 0;display:flex;flex-direction:column;gap:10px}
+.doc-ul li{font-size:1.02rem;color:var(--ink-muted);line-height:1.75;display:flex;gap:14px;align-items:baseline}
+.doc-ul li::before{content:'—';font-family:var(--mono);font-size:0.7rem;color:var(--gold);flex-shrink:0}
+.doc-highlight{background:var(--gold-pale);border-left:3px solid var(--gold);padding:20px 24px;margin:28px 0;border-radius:0 4px 4px 0}
+.doc-highlight p{font-size:1rem;color:var(--ink);line-height:1.8;font-style:italic}
+.doc-highlight strong{color:var(--navy);font-style:normal}
+.ret-table{width:100%;border-collapse:collapse;margin:28px 0;border:1px solid var(--rule)}
+.ret-table th{background:var(--navy);color:var(--white);font-family:var(--mono);font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;padding:14px 18px;text-align:left}
+.ret-table td{padding:16px 18px;border-bottom:1px solid var(--rule);font-size:0.97rem;color:var(--ink-muted);vertical-align:top;line-height:1.6}
+.ret-table td:first-child{font-weight:600;color:var(--ink);width:32%}
+.ret-table td:last-child{font-family:var(--mono);font-size:0.72rem;letter-spacing:0.06em;color:var(--gold);white-space:nowrap}
+.ret-table tr:last-child td{border-bottom:none}
+.ret-table tr:hover td{background:var(--gold-pale)}
+.contact-box{background:var(--navy-deep);color:var(--white);padding:40px;margin-top:28px}
+.contact-box-label{font-family:var(--mono);font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:block}
+.contact-box-body{font-size:1rem;color:rgba(255,255,255,0.65);line-height:1.85}
+.contact-box-body a{color:var(--gold-light);border-bottom:1px solid rgba(212,174,98,0.3)}
+footer{background:var(--navy-deep);border-top:3px solid var(--gold);padding:48px 0 36px}
+.footer-bottom-simple{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-logo-sm{font-family:var(--serif);font-size:1.5rem;font-weight:900;color:var(--white);letter-spacing:-0.03em}
+.footer-logo-sm span{color:var(--gold)}
+.footer-legal{color:rgba(255,255,255,0.3);font-family:var(--mono);font-size:0.65rem;letter-spacing:0.06em}
+.footer-badges{display:flex;gap:10px;flex-wrap:wrap}
+.footer-badge{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.3);border:1px solid rgba(255,255,255,0.1);padding:5px 14px;border-radius:1px}
+@media(max-width:900px){.doc-body{grid-template-columns:1fr}.doc-toc{display:none}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a href="lexoral-fr.html" class="logo">Lex<span>oral</span></a>
+    <div style="display:flex;gap:14px;align-items:center">
+      <div class="nav-lang">
+        <a href="retention.html">EN</a><span>·</span><a href="#" class="active">FR</a>
+      </div>
+      <a href="lexoral-fr.html" class="back-btn">Retour à l'accueil</a>
+    </div>
+  </div>
+</nav>
+
+<div class="doc-header">
+  <div class="container">
+    <div class="doc-eyebrow">Mentions légales &amp; Conformité</div>
+    <h1 class="doc-h1">Politique de conservation<br/>des données</h1>
+    <div class="doc-meta">
+      <div class="doc-meta-item"><span class="doc-meta-label">Date d'entrée en vigueur</span><span class="doc-meta-val">1er janvier 2026</span></div>
+      <div class="doc-meta-item"><span class="doc-meta-label">Dernière révision</span><span class="doc-meta-val">1er janvier 2026</span></div>
+      <div class="doc-meta-item"><span class="doc-meta-label">Juridiction</span><span class="doc-meta-val">Québec, Canada · Union européenne</span></div>
+      <div class="doc-meta-item"><span class="doc-meta-label">Cadres applicables</span><span class="doc-meta-val">Loi 25 · RGPD · LPRPDE</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="doc-body">
+    <aside class="doc-toc">
+      <span class="toc-label">Sommaire</span>
+      <ul class="toc-list">
+        <li><a href="#r1">1. Objet</a></li>
+        <li><a href="#r2">2. Champ d'application</a></li>
+        <li><a href="#r3">3. Calendrier de conservation</a></li>
+        <li><a href="#r4">4. Enregistrements audio</a></li>
+        <li><a href="#r5">5. Transcriptions &amp; Documents</a></li>
+        <li><a href="#r6">6. Dossiers clients</a></li>
+        <li><a href="#r7">7. Procédures de suppression</a></li>
+        <li><a href="#r8">8. Suppression à la demande</a></li>
+        <li><a href="#r9">9. Gel des données (Legal Hold)</a></li>
+        <li><a href="#r10">10. Révision &amp; Responsabilité</a></li>
+        <li><a href="#r11">11. Contact</a></li>
+      </ul>
+    </aside>
+
+    <div class="doc-content">
+
+      <section id="r1">
+        <span class="sec-num">Article 01</span>
+        <h2 class="sec-h2">Objet</h2>
+        <p class="doc-p">La présente politique de conservation des données définit les durées pendant lesquelles Lexoral conserve les différentes catégories de renseignements personnels et de matériaux de procédure, ainsi que les procédures par lesquelles les matériaux sont supprimés de manière sécurisée à l'expiration de chaque durée de conservation.</p>
+        <p class="doc-p">Lexoral s'engage à ne conserver les renseignements personnels que pendant la durée nécessaire pour accomplir les finalités pour lesquelles ils ont été collectés, respecter les obligations légales applicables et soutenir les opérations commerciales légitimes. Nous ne conservons pas de données à titre spéculatif ou indéfiniment.</p>
+        <div class="doc-highlight"><p>La présente politique doit être lue conjointement avec notre <a href="privacy-fr.html" style="color:var(--navy);font-style:normal;border-bottom:1px solid var(--rule)">Politique de confidentialité</a>. En cas de conflit, la Politique de confidentialité prévaut.</p></div>
+      </section>
+
+      <section id="r2">
+        <span class="sec-num">Article 02</span>
+        <h2 class="sec-h2">Champ d'application</h2>
+        <p class="doc-p">La présente politique s'applique à l'ensemble des renseignements personnels et matériaux de procédure détenus par Lexoral, notamment :</p>
+        <ul class="doc-ul">
+          <li>Les enregistrements audio et vidéo soumis par les clients pour transcription</li>
+          <li>Les transcriptions terminées, les ébauches intermédiaires et les documents de certification</li>
+          <li>Les pièces, glossaires et documents de référence soumis avec les procédures</li>
+          <li>Les dossiers de contact client et d'engagement</li>
+          <li>Les registres de facturation, de facturation et de paiement</li>
+          <li>Les communications écrites (courriels, messages) relatives à un dossier</li>
+          <li>Les journaux techniques et les registres d'accès</li>
+        </ul>
+      </section>
+
+      <section id="r3">
+        <span class="sec-num">Article 03</span>
+        <h2 class="sec-h2">Calendrier de conservation</h2>
+        <p class="doc-p">Le tableau suivant présente les durées de conservation standard pour chaque catégorie de données détenues par Lexoral. Ces durées courent à compter de la date de l'événement déclencheur indiqué.</p>
+        <table class="ret-table">
+          <thead>
+            <tr><th>Catégorie de données</th><th>Description</th><th>Durée de conservation</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Enregistrements audio / vidéo</td><td>Enregistrements originaux soumis pour transcription</td><td>30 jours après livraison</td></tr>
+            <tr><td>Transcriptions terminées</td><td>Transcription certifiée finale et déclaration d'exactitude signée</td><td>2 ans après livraison</td></tr>
+            <tr><td>Ébauches de transcription</td><td>Versions intermédiaires et de travail produites en cours de production</td><td>Supprimées à la livraison finale</td></tr>
+            <tr><td>Pièces &amp; Références</td><td>Glossaires, pièces et documents de référence fournis par le client</td><td>30 jours après livraison</td></tr>
+            <tr><td>Dossiers de contact client</td><td>Nom, courriel, téléphone, organisation</td><td>5 ans après le dernier engagement</td></tr>
+            <tr><td>Registres de facturation</td><td>Factures, confirmations de paiement, correspondance de facturation</td><td>7 ans (conformité fiscale)</td></tr>
+            <tr><td>Correspondance de dossier</td><td>Courriels et messages relatifs à une procédure spécifique</td><td>2 ans après livraison</td></tr>
+            <tr><td>Registres de chaîne de custody</td><td>Confirmations de dépôt, journaux d'horodatage, accusés de livraison</td><td>5 ans après livraison</td></tr>
+            <tr><td>Journaux techniques</td><td>Journaux d'accès système, registres de transfert de fichiers</td><td>12 mois</td></tr>
+          </tbody>
+        </table>
+        <p class="doc-p">Toutes les durées ci-dessus représentent des valeurs par défaut standard. Les clients peuvent demander une conservation plus courte ou une suppression immédiate de catégories spécifiques à tout moment (voir Article 8). Une conservation plus longue peut s'appliquer lorsque la loi ou un gel des données l'exige (voir Article 9).</p>
+      </section>
+
+      <section id="r4">
+        <span class="sec-num">Article 04</span>
+        <h2 class="sec-h2">Enregistrements audio</h2>
+        <p class="doc-p">Les enregistrements audio et vidéo soumis pour transcription représentent la catégorie de matériaux la plus sensible traitée par Lexoral. Ils contiennent le contenu verbal verbatim de procédures judiciaires et peuvent inclure des communications privilégiées, des renseignements personnels de déposants et des informations commerciales confidentielles.</p>
+        <p class="doc-p">Notre pratique standard est de supprimer tous les enregistrements soumis dans les <strong style="color:var(--navy)">30 jours suivant la livraison de la transcription</strong>. Les clients qui souhaitent une suppression anticipée peuvent en faire la demande lors du dépôt ou à tout moment pendant l'engagement.</p>
+        <div class="doc-highlight"><p>Lexoral n'utilise <strong>pas</strong> les enregistrements soumis à d'autres fins que la production de la transcription demandée. Les enregistrements ne sont jamais conservés à des fins de formation, d'étalonnage ou d'évaluation de la qualité impliquant du contenu identifiable.</p></div>
+        <p class="doc-p">La suppression des enregistrements est effectuée à l'aide de méthodes d'effacement sécurisé rendant les données irrécupérables. Sur demande, Lexoral fournira une confirmation écrite de suppression.</p>
+      </section>
+
+      <section id="r5">
+        <span class="sec-num">Article 05</span>
+        <h2 class="sec-h2">Transcriptions &amp; Documents de certification</h2>
+        <p class="doc-p">Les transcriptions terminées et les documents de certification associés (déclarations d'exactitude signées, confirmations de livraison) sont conservés pendant une durée par défaut de <strong style="color:var(--navy)">2 ans à compter de la date de livraison</strong>. Cette période permet :</p>
+        <ul class="doc-ul">
+          <li>Les demandes de relivraison ou de copies de remplacement par les clients</li>
+          <li>La vérification de l'exactitude ou de la mise en forme en cas de litige</li>
+          <li>La conformité aux procédures judiciaires potentielles dans lesquelles la transcription est utilisée comme preuve</li>
+        </ul>
+        <p class="doc-p">Les clients qui n'ont pas besoin de la conservation des transcriptions terminées peuvent demander leur suppression à tout moment après la livraison. Les clients qui nécessitent une conservation plus longue pour des litiges en cours peuvent demander une conservation prolongée par écrit.</p>
+      </section>
+
+      <section id="r6">
+        <span class="sec-num">Article 06</span>
+        <h2 class="sec-h2">Dossiers clients</h2>
+        <p class="doc-p">Les informations de contact client, l'historique des engagements et les registres de facturation sont conservés pendant les durées précisées dans le calendrier ci-dessus. Les registres de facturation sont soumis à une durée de conservation obligatoire de 7 ans en vertu de la législation fiscale applicable au Canada et en France, et cette durée ne peut être raccourcie sur demande.</p>
+        <p class="doc-p">La correspondance de dossier (courriels, messages WhatsApp et communications écrites relatives à une procédure spécifique) est conservée pendant 2 ans après la livraison, puis supprimée définitivement, sauf si un gel des données s'applique.</p>
+      </section>
+
+      <section id="r7">
+        <span class="sec-num">Article 07</span>
+        <h2 class="sec-h2">Procédures de suppression</h2>
+        <p class="doc-p">À l'expiration de chaque durée de conservation applicable, Lexoral supprime définitivement et de manière sécurisée les données concernées. Nos procédures de suppression comprennent :</p>
+        <ul class="doc-ul">
+          <li>Effacement sécurisé par écrasement pour les fichiers numériques stockés sur les systèmes contrôlés par Lexoral</li>
+          <li>Demandes de suppression vérifiées auprès de tous les prestataires tiers détenant une copie des données</li>
+          <li>Confirmation de suppression consignée en interne avec date et méthode</li>
+          <li>Confirmation écrite de suppression fournie aux clients sur demande</li>
+        </ul>
+        <p class="doc-p">Lexoral effectue une révision trimestrielle de l'ensemble des matériaux stockés par rapport au présent calendrier de conservation et initie la suppression des matériaux ayant dépassé leur durée de conservation.</p>
+      </section>
+
+      <section id="r8">
+        <span class="sec-num">Article 08</span>
+        <h2 class="sec-h2">Suppression à la demande du client</h2>
+        <p class="doc-p">Les clients peuvent demander la suppression permanente de tout ou partie des matériaux détenus par Lexoral relatifs à leur dossier à tout moment, sous réserve des conditions suivantes :</p>
+        <ul class="doc-ul">
+          <li>Les demandes de suppression doivent être soumises à <a href="mailto:secure@lexoral.org" style="color:var(--gold);border-bottom:1px solid rgba(184,148,58,0.4)">secure@lexoral.org</a> par écrit, en identifiant le dossier spécifique et les matériaux à supprimer</li>
+          <li>Lexoral traitera les demandes de suppression dans un délai de <strong style="color:var(--navy)">7 jours ouvrables</strong></li>
+          <li>Une confirmation écrite de suppression sera fournie à l'issue du traitement</li>
+          <li>Les registres de facturation soumis à une conservation fiscale obligatoire ne peuvent être supprimés avant l'expiration de la période de 7 ans</li>
+          <li>Lorsqu'un gel des données est en place, la suppression peut être différée jusqu'à la levée du gel</li>
+        </ul>
+      </section>
+
+      <section id="r9">
+        <span class="sec-num">Article 09</span>
+        <h2 class="sec-h2">Gel des données (Legal Hold)</h2>
+        <p class="doc-p">Lorsque Lexoral prend connaissance — par notification du client ou par l'entremise de son propre conseil juridique — que des matériaux pourraient être pertinents dans le cadre d'un litige en cours ou anticipé, d'une enquête réglementaire ou d'une ordonnance judiciaire, un gel des données peut être imposé sur ces matériaux, suspendant le calendrier de suppression normal.</p>
+        <p class="doc-p">Les matériaux soumis à un gel des données seront conservés jusqu'à la levée formelle du gel par la partie mandante ou le conseil juridique de Lexoral. Lexoral notifiera les clients de tout gel des données imposé sur leurs matériaux et de son fondement, dans la mesure permise par la loi.</p>
+      </section>
+
+      <section id="r10">
+        <span class="sec-num">Article 10</span>
+        <h2 class="sec-h2">Révision &amp; Responsabilité</h2>
+        <p class="doc-p">La présente politique de conservation des données est révisée annuellement et mise à jour si nécessaire pour refléter les évolutions des opérations de Lexoral, du droit applicable ou des orientations réglementaires. La personne responsable de la protection des renseignements personnels chez Lexoral est responsable de la mise en œuvre et de l'application de la présente politique.</p>
+        <p class="doc-p">Les clients et personnes ayant des préoccupations concernant les pratiques de conservation des données de Lexoral peuvent nous contacter directement ou déposer une plainte auprès de la Commission d'accès à l'information du Québec (CAI) ou de la CNIL (France).</p>
+      </section>
+
+      <section id="r11">
+        <span class="sec-num">Article 11</span>
+        <h2 class="sec-h2">Contact</h2>
+        <p class="doc-p">Pour les demandes de suppression, les questions relatives à la présente politique ou pour signaler une préoccupation :</p>
+        <div class="contact-box">
+          <span class="contact-box-label">Contact conservation des données — Lexoral</span>
+          <div class="contact-box-body">
+            <p>Courriel : <a href="mailto:secure@lexoral.org">secure@lexoral.org</a></p>
+            <p style="margin-top:10px">France : <a href="tel:+33683358160">+33 6 83 35 81 60</a></p>
+            <p style="margin-top:6px">Canada : <a href="tel:+15141234567">+1 (514) 123-4567</a></p>
+            <p style="margin-top:18px;color:rgba(255,255,255,0.4);font-size:0.9rem">Lexoral · France &amp; Montréal, Québec · Au service des États-Unis</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-bottom-simple">
+      <div class="footer-logo-sm">Lex<span>oral</span></div>
+      <p class="footer-legal">© 2026 Lexoral · Politique de conservation des données · En vigueur le 1er janvier 2026</p>
+      <div class="footer-badges">
+        <span class="footer-badge">Loi 25</span>
+        <span class="footer-badge">RGPD</span>
+        <span class="footer-badge">LPRPDE</span>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
