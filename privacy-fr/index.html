@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Lexoral — Politique de confidentialité</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Mono:wght@300;400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&display=swap" rel="stylesheet"/>
+<style>
+:root{--navy:#1a2744;--navy-deep:#0d1a35;--navy-mid:#243358;--cream:#f7f4ed;--cream-dark:#ede9df;--gold:#b8943a;--gold-light:#d4ae62;--gold-pale:#f2e8cc;--ink:#1c1c1c;--ink-muted:#6b6b6b;--rule:#c8bfa8;--white:#ffffff;--mono:'DM Mono',monospace;--serif:'Playfair Display',serif;--body:'Source Serif 4',serif;--max:1280px}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:var(--body);line-height:1.75;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+.container{width:min(100% - 48px,var(--max));margin-inline:auto}
+nav{position:sticky;top:0;z-index:1000;background:var(--navy-deep);border-bottom:3px solid var(--gold)}
+.nav-inner{height:72px;display:flex;align-items:center;justify-content:space-between;gap:32px}
+.logo{font-family:var(--serif);font-size:1.9rem;font-weight:900;color:var(--white);letter-spacing:-0.02em}
+.logo span{color:var(--gold)}
+.back-btn{display:inline-flex;align-items:center;gap:10px;background:transparent;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.72);font-family:var(--mono);font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;padding:10px 22px;border-radius:2px;transition:all 0.2s}
+.back-btn:hover{border-color:var(--gold);color:var(--gold-light)}
+.back-btn::before{content:'←';margin-right:4px}
+.nav-lang{display:flex;gap:4px;align-items:center;border:1px solid rgba(255,255,255,0.2);border-radius:2px;padding:4px 10px;font-family:var(--mono);font-size:0.72rem;letter-spacing:0.1em}
+.nav-lang a{color:rgba(255,255,255,0.5)}
+.nav-lang a.active{color:var(--gold-light);font-weight:500}
+.nav-lang span{color:rgba(255,255,255,0.2);margin:0 2px}
+.doc-header{background:var(--navy-deep);padding:80px 0 72px;border-bottom:1px solid rgba(184,148,58,0.2);position:relative;overflow:hidden}
+.doc-header::after{content:'§';position:absolute;right:5%;bottom:-40px;font-family:var(--serif);font-size:22rem;color:rgba(255,255,255,0.03);line-height:1;pointer-events:none;font-weight:900}
+.doc-eyebrow{font-family:var(--mono);font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:12px;margin-bottom:24px}
+.doc-eyebrow::before{content:'';display:inline-block;width:20px;height:1px;background:var(--gold)}
+.doc-h1{font-family:var(--serif);font-size:clamp(3rem,6vw,5.5rem);line-height:0.92;letter-spacing:-0.04em;color:var(--white);font-weight:900;margin-bottom:28px}
+.doc-meta{display:flex;gap:32px;flex-wrap:wrap;margin-top:32px}
+.doc-meta-item{display:flex;flex-direction:column;gap:4px}
+.doc-meta-label{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.3)}
+.doc-meta-val{font-family:var(--mono);font-size:0.76rem;letter-spacing:0.06em;color:rgba(255,255,255,0.6)}
+.doc-body{display:grid;grid-template-columns:1fr 3fr;gap:80px;padding:80px 0 120px;align-items:start}
+.doc-toc{position:sticky;top:96px;align-self:start}
+.toc-label{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:block}
+.toc-list{list-style:none;display:flex;flex-direction:column;gap:0;border-left:1px solid var(--rule)}
+.toc-list li a{display:block;font-family:var(--mono);font-size:0.68rem;letter-spacing:0.06em;color:var(--ink-muted);padding:8px 0 8px 18px;transition:color 0.2s;line-height:1.4;border-left:2px solid transparent;margin-left:-1px}
+.toc-list li a:hover{color:var(--gold);border-left-color:var(--gold)}
+.doc-content section{margin-bottom:64px;padding-bottom:64px;border-bottom:1px solid var(--rule)}
+.doc-content section:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.sec-num{font-family:var(--mono);font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.sec-num::before{content:'';display:inline-block;width:16px;height:1px;background:var(--gold)}
+.sec-h2{font-family:var(--serif);font-size:2rem;font-weight:700;letter-spacing:-0.03em;line-height:1.05;margin-bottom:24px;color:var(--navy)}
+.doc-p{font-size:1.05rem;color:var(--ink-muted);line-height:1.9;margin-bottom:18px}
+.doc-p:last-child{margin-bottom:0}
+.doc-ul{list-style:none;margin:18px 0;display:flex;flex-direction:column;gap:10px}
+.doc-ul li{font-size:1.02rem;color:var(--ink-muted);line-height:1.75;display:flex;gap:14px;align-items:baseline}
+.doc-ul li::before{content:'—';font-family:var(--mono);font-size:0.7rem;color:var(--gold);flex-shrink:0}
+.doc-highlight{background:var(--gold-pale);border-left:3px solid var(--gold);padding:20px 24px;margin:28px 0;border-radius:0 4px 4px 0}
+.doc-highlight p{font-size:1rem;color:var(--ink);line-height:1.8;font-style:italic}
+.doc-highlight strong{color:var(--navy);font-style:normal}
+.contact-box{background:var(--navy-deep);color:var(--white);padding:40px;margin-top:28px}
+.contact-box-label{font-family:var(--mono);font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:block}
+.contact-box-body{font-size:1rem;color:rgba(255,255,255,0.65);line-height:1.85}
+.contact-box-body a{color:var(--gold-light);border-bottom:1px solid rgba(212,174,98,0.3)}
+footer{background:var(--navy-deep);border-top:3px solid var(--gold);padding:48px 0 36px}
+.footer-bottom-simple{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-logo-sm{font-family:var(--serif);font-size:1.5rem;font-weight:900;color:var(--white);letter-spacing:-0.03em}
+.footer-logo-sm span{color:var(--gold)}
+.footer-legal{color:rgba(255,255,255,0.3);font-family:var(--mono);font-size:0.65rem;letter-spacing:0.06em}
+.footer-badges{display:flex;gap:10px;flex-wrap:wrap}
+.footer-badge{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.3);border:1px solid rgba(255,255,255,0.1);padding:5px 14px;border-radius:1px}
+@media(max-width:900px){.doc-body{grid-template-columns:1fr}.doc-toc{display:none}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a href="/fr/" class="logo">Lex<span>oral</span></a>
+    <div style="display:flex;gap:14px;align-items:center">
+      <div class="nav-lang">
+        <a href="/privacy/">EN</a><span>·</span><a href="#" class="active">FR</a>
+      </div>
+      <a href="/fr/" class="back-btn">Retour à l'accueil</a>
+    </div>
+  </div>
+</nav>
+
+<div class="doc-header">
+  <div class="container">
+    <div class="doc-eyebrow">Mentions légales &amp; Conformité</div>
+    <h1 class="doc-h1">Politique de<br/>confidentialité</h1>
+    <div class="doc-meta">
+      <div class="doc-meta-item"><span class="doc-meta-label">Date d'entrée en vigueur</span><span class="doc-meta-val">1er janvier 2026</span></div>
+      <div class="doc-meta-item"><span class="doc-meta-label">Dernière révision</span><span class="doc-meta-val">1er janvier 2026</span></div>
+      <div class="doc-meta-item"><span class="doc-meta-label">Juridiction</span><span class="doc-meta-val">Québec, Canada · Union européenne</span></div>
+      <div class="doc-meta-item"><span class="doc-meta-label">Cadres applicables</span><span class="doc-meta-val">Loi 25 · RGPD · LPRPDE</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="doc-body">
+    <aside class="doc-toc">
+      <span class="toc-label">Sommaire</span>
+      <ul class="toc-list">
+        <li><a href="#s1">1. Qui sommes-nous</a></li>
+        <li><a href="#s2">2. Informations collectées</a></li>
+        <li><a href="#s3">3. Utilisation des informations</a></li>
+        <li><a href="#s4">4. Bases juridiques du traitement</a></li>
+        <li><a href="#s5">5. Confidentialité des procédures</a></li>
+        <li><a href="#s6">6. Partage des données</a></li>
+        <li><a href="#s7">7. Transferts internationaux</a></li>
+        <li><a href="#s8">8. Conservation des données</a></li>
+        <li><a href="#s9">9. Sécurité</a></li>
+        <li><a href="#s10">10. Vos droits</a></li>
+        <li><a href="#s11">11. Témoins (cookies)</a></li>
+        <li><a href="#s12">12. Modifications de la politique</a></li>
+        <li><a href="#s13">13. Contact</a></li>
+      </ul>
+    </aside>
+
+    <div class="doc-content">
+
+      <section id="s1">
+        <span class="sec-num">Article 01</span>
+        <h2 class="sec-h2">Qui sommes-nous</h2>
+        <p class="doc-p">Lexoral est un prestataire indépendant de transcription juridique opérant en France, à Montréal (Québec, Canada) et aux États-Unis. Nous fournissons des services de transcription bilingue français–anglais certifiée pour les procédures judiciaires, notamment les dépositions, les arbitrages, les audiences de tribunal et les litiges transfrontaliers.</p>
+        <p class="doc-p">La présente politique de confidentialité explique comment Lexoral collecte, utilise, conserve et protège les renseignements personnels dans le cadre de la prestation de ses services. Elle s'applique à tous les clients, déposants, professionnels du droit et personnes dont les renseignements personnels sont traités par Lexoral.</p>
+        <div class="doc-highlight"><p><strong>Note :</strong> La présente politique est régie par la Loi 25 du Québec (<em>Loi modernisant des dispositions législatives en matière de protection des renseignements personnels</em>), le Règlement général sur la protection des données (RGPD) le cas échéant, ainsi que la Loi sur la protection des renseignements personnels et les documents électroniques (LPRPDE) du Canada.</p></div>
+      </section>
+
+      <section id="s2">
+        <span class="sec-num">Article 02</span>
+        <h2 class="sec-h2">Informations que nous collectons</h2>
+        <p class="doc-p">Lexoral ne collecte que les informations strictement nécessaires à la prestation de services de transcription et à la gestion de nos relations clients. Nous collectons les catégories d'informations suivantes :</p>
+        <p class="doc-p"><strong style="color:var(--navy)">Informations client et coordonnées</strong></p>
+        <ul class="doc-ul">
+          <li>Nom, titre et cabinet ou organisation</li>
+          <li>Adresse courriel et numéro de téléphone</li>
+          <li>Adresse de facturation et informations de paiement (traitées de manière sécurisée ; les données de carte ne sont jamais stockées par Lexoral)</li>
+          <li>Numéros de référence de dossier et identifiants de fichier</li>
+        </ul>
+        <p class="doc-p" style="margin-top:24px"><strong style="color:var(--navy)">Matériaux de procédure</strong></p>
+        <ul class="doc-ul">
+          <li>Enregistrements audio et vidéo de procédures judiciaires soumis pour transcription</li>
+          <li>Noms, titres et contenu verbal de tous les participants aux enregistrements soumis</li>
+          <li>Pièces, documents de référence et glossaires terminologiques fournis par les clients</li>
+          <li>Transcriptions terminées et documents de certification associés</li>
+        </ul>
+        <p class="doc-p" style="margin-top:24px"><strong style="color:var(--navy)">Informations techniques</strong></p>
+        <ul class="doc-ul">
+          <li>Adresse IP et type de navigateur (collectés lors de l'utilisation de notre formulaire de dépôt en ligne)</li>
+          <li>Métadonnées des fichiers associées aux enregistrements téléversés</li>
+          <li>Registres de communication (courriels, messages WhatsApp) relatifs à un dossier</li>
+        </ul>
+      </section>
+
+      <section id="s3">
+        <span class="sec-num">Article 03</span>
+        <h2 class="sec-h2">Utilisation des informations</h2>
+        <p class="doc-p">Tous les renseignements personnels collectés par Lexoral sont utilisés exclusivement à des fins directement liées à la prestation de services de transcription. Plus précisément, nous utilisons les informations pour :</p>
+        <ul class="doc-ul">
+          <li>Produire des transcriptions bilingues certifiées et exactes des procédures soumises</li>
+          <li>Communiquer avec les clients au sujet de leur dossier, du délai et de la livraison</li>
+          <li>Émettre des factures et traiter les paiements</li>
+          <li>Maintenir la documentation de chaîne de custody à des fins probatoires</li>
+          <li>Respecter les obligations légales applicables et répondre aux demandes légitimes</li>
+          <li>Améliorer nos processus internes de contrôle qualité (à partir de données anonymisées uniquement)</li>
+        </ul>
+        <div class="doc-highlight"><p>Nous <strong>n'utilisons jamais</strong> les enregistrements, transcriptions ou renseignements personnels des clients à des fins de formation d'intelligence artificielle, de développement de produits, de publicité, de profilage, ou à toute autre fin extérieure à la mission de transcription spécifique.</p></div>
+      </section>
+
+      <section id="s4">
+        <span class="sec-num">Article 04</span>
+        <h2 class="sec-h2">Bases juridiques du traitement</h2>
+        <p class="doc-p">Lorsque le RGPD s'applique (notamment pour les clients et personnes situés dans l'Union européenne ou en France), Lexoral traite les renseignements personnels sur les bases juridiques suivantes :</p>
+        <ul class="doc-ul">
+          <li><strong style="color:var(--navy)">Exécution du contrat</strong> — traitement nécessaire à la prestation des services de transcription demandés</li>
+          <li><strong style="color:var(--navy)">Intérêts légitimes</strong> — tenue des registres d'entreprise, documentation de chaîne de custody et contrôle qualité</li>
+          <li><strong style="color:var(--navy)">Obligation légale</strong> — conformité aux lois applicables au Canada, en France et aux États-Unis</li>
+          <li><strong style="color:var(--navy)">Consentement</strong> — lorsqu'il est requis pour des activités de traitement spécifiques, obtenu explicitement et consigné</li>
+        </ul>
+        <p class="doc-p">En vertu de la Loi 25 du Québec, Lexoral agit en qualité de personne responsable de la protection des renseignements personnels et a mis en place des procédures internes pour assurer la conformité.</p>
+      </section>
+
+      <section id="s5">
+        <span class="sec-num">Article 05</span>
+        <h2 class="sec-h2">Confidentialité des procédures</h2>
+        <p class="doc-p">Lexoral traite tous les enregistrements soumis et toutes les transcriptions comme strictement confidentiels. Compte tenu de la nature sensible des procédures judiciaires, nous appliquons des protections renforcées aux matériaux de procédure :</p>
+        <ul class="doc-ul">
+          <li>L'accès aux matériaux de procédure est limité au personnel spécifiquement affecté à un dossier</li>
+          <li>Aucun enregistrement ou transcription n'est partagé avec une partie autre que le client mandant</li>
+          <li>Le personnel traitant les matériaux est soumis à des obligations de confidentialité</li>
+          <li>Les clients peuvent demander la suppression permanente de tous les matériaux à la conclusion d'un engagement</li>
+          <li>Les matériaux ne sont jamais utilisés dans des supports marketing, témoignages ou études de cas sans consentement écrit explicite</li>
+        </ul>
+        <div class="doc-highlight"><p>Lorsqu'une procédure est soumise à une ordonnance judiciaire, une ordonnance de protection ou un accord de confidentialité, les clients doivent nous en informer lors du dépôt. Nous nous conformerons à toutes les restrictions applicables et pouvons accommoder les désignations de dossiers scellés ou à huis clos.</p></div>
+      </section>
+
+      <section id="s6">
+        <span class="sec-num">Article 06</span>
+        <h2 class="sec-h2">Partage des données</h2>
+        <p class="doc-p">Lexoral ne vend, ne loue et ne cède pas les renseignements personnels. Nous ne partageons pas les renseignements personnels avec des tiers, sauf dans les circonstances limitées suivantes :</p>
+        <ul class="doc-ul">
+          <li><strong style="color:var(--navy)">Prestataires de services</strong> — fournisseurs de transfert et de stockage de fichiers chiffrés opérant dans le cadre d'accords de confidentialité stricts et d'accords de traitement des données conformes à la législation applicable</li>
+          <li><strong style="color:var(--navy)">Processeurs de paiement</strong> — processeurs conformes PCI pour la facturation ; aucune donnée de carte de paiement n'est stockée par Lexoral</li>
+          <li><strong style="color:var(--navy)">Exigences légales</strong> — lorsque la divulgation est requise par la loi, une ordonnance judiciaire ou une autorité réglementaire, auquel cas nous notifierons le client dans la mesure permise par la loi</li>
+        </ul>
+      </section>
+
+      <section id="s7">
+        <span class="sec-num">Article 07</span>
+        <h2 class="sec-h2">Transferts internationaux</h2>
+        <p class="doc-p">Lexoral opère en France, au Québec (Canada) et aux États-Unis. Les renseignements personnels peuvent être transférés entre ces juridictions dans le cadre de la prestation de services. Nous garantissons la protection de ces transferts par :</p>
+        <ul class="doc-ul">
+          <li>Les clauses contractuelles types (CCT) approuvées par la Commission européenne pour les transferts UE vers hors UE</li>
+          <li>La conformité aux exigences de la Loi 25 du Québec pour les transferts transfrontaliers de renseignements personnels</li>
+          <li>Le chiffrement de bout en bout pour tous les transferts de fichiers, quelle que soit la juridiction</li>
+        </ul>
+      </section>
+
+      <section id="s8">
+        <span class="sec-num">Article 08</span>
+        <h2 class="sec-h2">Conservation des données</h2>
+        <p class="doc-p">Lexoral conserve les renseignements personnels et les matériaux de procédure uniquement pendant la durée nécessaire pour accomplir les finalités pour lesquelles ils ont été collectés. Notre calendrier de conservation complet est présenté dans notre <a href="/retention-fr/" style="color:var(--gold);border-bottom:1px solid rgba(184,148,58,0.4)">Politique de conservation des données</a>. En résumé :</p>
+        <ul class="doc-ul">
+          <li>Les transcriptions terminées et les documents de certification sont conservés pendant une durée par défaut de 2 ans</li>
+          <li>Les enregistrements audio soumis pour transcription sont supprimés dans les 30 jours suivant la livraison de la transcription, sauf demande contraire</li>
+          <li>Les informations de contact client et de facturation sont conservées pendant 7 ans à des fins de conformité fiscale et légale</li>
+          <li>Les clients peuvent demander la suppression permanente des matériaux de procédure à tout moment</li>
+        </ul>
+      </section>
+
+      <section id="s9">
+        <span class="sec-num">Article 09</span>
+        <h2 class="sec-h2">Sécurité</h2>
+        <p class="doc-p">Lexoral met en œuvre des mesures de sécurité techniques et organisationnelles adaptées à la sensibilité des matériaux de procédures judiciaires. Celles-ci comprennent :</p>
+        <ul class="doc-ul">
+          <li>Chiffrement de bout en bout pour tous les transferts de fichiers et communications</li>
+          <li>Contrôles d'accès limitant l'accès aux matériaux de procédure au seul personnel affecté</li>
+          <li>Environnements de stockage sécurisés à accès restreint avec journalisation des accès</li>
+          <li>Révision régulière des procédures de sécurité et formation du personnel</li>
+          <li>Procédures de réponse aux incidents conformes aux exigences de notification de la Loi 25 et du RGPD</li>
+        </ul>
+        <p class="doc-p">En cas d'incident impliquant des renseignements personnels présentant un risque de préjudice grave, Lexoral notifiera les personnes concernées et l'autorité de contrôle compétente dans les délais requis par la loi.</p>
+      </section>
+
+      <section id="s10">
+        <span class="sec-num">Article 10</span>
+        <h2 class="sec-h2">Vos droits</h2>
+        <p class="doc-p">Selon votre juridiction, vous pouvez disposer des droits suivants concernant vos renseignements personnels détenus par Lexoral :</p>
+        <ul class="doc-ul">
+          <li><strong style="color:var(--navy)">Droit d'accès</strong> — obtenir une copie des renseignements personnels que nous détenons à votre sujet</li>
+          <li><strong style="color:var(--navy)">Droit de rectification</strong> — corriger les informations inexactes ou incomplètes</li>
+          <li><strong style="color:var(--navy)">Droit à l'effacement</strong> — demander la suppression permanente de vos renseignements personnels et matériaux de procédure</li>
+          <li><strong style="color:var(--navy)">Droit à la limitation du traitement</strong> — restreindre la manière dont nous utilisons vos informations dans certaines circonstances</li>
+          <li><strong style="color:var(--navy)">Droit à la portabilité</strong> — recevoir vos informations dans un format structuré et lisible par machine (RGPD)</li>
+          <li><strong style="color:var(--navy)">Droit d'opposition</strong> — vous opposer au traitement fondé sur des intérêts légitimes</li>
+          <li><strong style="color:var(--navy)">Droit de retrait du consentement</strong> — lorsque le traitement est fondé sur le consentement</li>
+        </ul>
+        <p class="doc-p">Pour exercer l'un de ces droits, contactez-nous à <a href="mailto:secure@lexoral.org" style="color:var(--gold);border-bottom:1px solid rgba(184,148,58,0.4)">secure@lexoral.org</a>. Nous répondrons dans un délai de 30 jours. Vous avez également le droit de déposer une plainte auprès de la Commission d'accès à l'information (Québec), de la Commission nationale de l'informatique et des libertés (CNIL, France) ou de l'autorité de contrôle compétente de votre juridiction.</p>
+      </section>
+
+      <section id="s11">
+        <span class="sec-num">Article 11</span>
+        <h2 class="sec-h2">Témoins (cookies)</h2>
+        <p class="doc-p">Notre site Web n'utilise que des témoins techniques essentiels nécessaires à son fonctionnement. Nous n'utilisons pas de témoins publicitaires, de pixels de suivi ou d'outils analytiques tiers collectant des renseignements personnels. Aucune bannière de consentement aux témoins n'est requise car aucun témoin non essentiel n'est déployé.</p>
+      </section>
+
+      <section id="s12">
+        <span class="sec-num">Article 12</span>
+        <h2 class="sec-h2">Modifications de la présente politique</h2>
+        <p class="doc-p">Lexoral peut mettre à jour la présente politique de confidentialité ponctuellement pour refléter les évolutions de nos pratiques ou du droit applicable. Les modifications substantielles seront communiquées aux clients actifs par courriel. La date d'entrée en vigueur figurant en haut du présent document reflète la révision la plus récente. La poursuite de l'utilisation de nos services après notification d'une modification vaut acceptation de la politique mise à jour.</p>
+      </section>
+
+      <section id="s13">
+        <span class="sec-num">Article 13</span>
+        <h2 class="sec-h2">Contact</h2>
+        <p class="doc-p">Pour toute question relative à la présente politique de confidentialité, pour exercer vos droits ou signaler un problème de confidentialité, veuillez nous contacter par l'un des moyens suivants :</p>
+        <div class="contact-box">
+          <span class="contact-box-label">Contact confidentialité — Lexoral</span>
+          <div class="contact-box-body">
+            <p>Courriel : <a href="mailto:secure@lexoral.org">secure@lexoral.org</a></p>
+            <p style="margin-top:10px">France : <a href="tel:+33683358160">+33 6 83 35 81 60</a></p>
+            <p style="margin-top:6px">Canada : <a href="tel:+15141234567">+1 (514) 123-4567</a></p>
+            <p style="margin-top:18px;color:rgba(255,255,255,0.4);font-size:0.9rem">Lexoral · France &amp; Montréal, Québec · Au service des États-Unis</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-bottom-simple">
+      <div class="footer-logo-sm">Lex<span>oral</span></div>
+      <p class="footer-legal">© 2026 Lexoral · Politique de confidentialité · En vigueur le 1er janvier 2026</p>
+      <div class="footer-badges">
+        <span class="footer-badge">Loi 25</span>
+        <span class="footer-badge">RGPD</span>
+        <span class="footer-badge">LPRPDE</span>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
