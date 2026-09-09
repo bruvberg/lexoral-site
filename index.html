@@ -1,0 +1,2487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Lexoral — Attested Legal Transcription French–English</title>
+<meta name="description" content="Attested FR–EN bilingual legal transcription for depositions, arbitrations, and cross-border proceedings. Court-ready. Human review at every stage."/>
+<meta property="og:title" content="Lexoral — Attested Bilingual Legal Transcription"/>
+<meta property="og:description" content="Attested FR–EN bilingual transcription for litigation, arbitration, and cross-border proceedings. Built for evidentiary standards."/>
+<meta property="og:url" content="https://lexoral.org/"/>
+<meta property="og:type" content="website"/>
+<link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=DM+Mono:wght@300;400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#F5F4F0;--white:#FFFFFF;--navy:#1A3254;--navy-dark:#0D1E35;--navy-mid:#284470;--brass:#7A5E10;--brass-light:#A88020;--brass-pale:#EEE0B8;--ink:#18160E;--ink-mid:#3C3830;--ink-muted:#5E5A52;--rule:#C4C0B4;--border:#DAD6CC;--serif:'EB Garamond',Georgia,serif;--body:'Source Serif 4',serif;--mono:'DM Mono',monospace;--max:1200px}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.75;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+.container{width:min(100% - 48px,var(--max));margin-inline:auto}
+.section{padding:88px 0}
+.section-header{margin-bottom:52px}
+.section-tag{font-family:var(--mono);font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--brass);display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.section-tag::before{content:'';display:inline-block;width:22px;height:1px;background:var(--brass)}
+.section-h2{font-family:var(--serif);font-size:clamp(2.4rem,4.5vw,3.8rem);line-height:1.05;letter-spacing:-0.02em;font-weight:500;color:var(--navy-dark)}
+.section-intro{color:var(--ink-muted);font-size:1.05rem;max-width:60ch;margin-top:16px;line-height:1.9;font-weight:300;font-style:italic}
+nav{position:sticky;top:0;z-index:1000;background:var(--white);border-bottom:2px solid var(--navy)}
+.nav-inner{height:66px;display:flex;align-items:center;justify-content:space-between;gap:32px}
+.logo{font-family:var(--serif);font-size:1.65rem;font-weight:700;color:var(--navy-dark);letter-spacing:-0.02em}
+.logo span{color:var(--brass-light)}
+.nav-links{display:flex;gap:26px;align-items:center}
+.nav-links a{color:var(--ink-muted);font-family:var(--mono);font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;transition:color 0.2s}
+.nav-links a:hover{color:var(--navy)}
+.nav-lang{display:flex;gap:4px;align-items:center;border:1px solid var(--border);border-radius:1px;padding:4px 10px;font-family:var(--mono);font-size:0.66rem;letter-spacing:0.1em}
+.nav-lang a{color:var(--ink-muted)}
+.nav-lang a.active{color:var(--navy);font-weight:500}
+.nav-lang span{color:var(--rule);margin:0 2px}
+.nav-cta{background:var(--navy);color:var(--white);font-family:var(--mono);font-size:0.66rem;letter-spacing:0.12em;text-transform:uppercase;padding:10px 20px;border-radius:1px;transition:background 0.2s}
+.nav-cta:hover{background:var(--navy-mid)}
+.hero{background:var(--navy-dark);padding:88px 0 80px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(255,255,255,0.022) 39px,rgba(255,255,255,0.022) 40px);pointer-events:none}
+.hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.hero-eyebrow{font-family:var(--mono);font-size:0.66rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--brass-light);margin-bottom:26px;display:flex;align-items:center;gap:12px}
+.hero-eyebrow::before{content:'';display:inline-block;width:18px;height:1px;background:var(--brass-light)}
+.hero-h1{font-family:var(--serif);font-size:clamp(2.8rem,5.5vw,4.8rem);font-weight:500;color:var(--white);line-height:1.05;letter-spacing:-0.02em;margin-bottom:24px}
+.hero-h1 em{font-style:italic;color:var(--brass-light);display:block}
+.hero-sub{font-family:var(--body);font-size:1.05rem;color:rgba(255,255,255,0.55);line-height:1.9;max-width:46ch;margin-bottom:40px;font-weight:300}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:44px}
+.btn-primary{background:var(--brass);color:var(--white);font-family:var(--mono);font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;padding:13px 26px;border-radius:1px;transition:background 0.2s;display:inline-flex;align-items:center;gap:8px}
+.btn-primary:hover{background:var(--brass-light)}
+.btn-outline-w{border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.62);font-family:var(--mono);font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;padding:13px 26px;border-radius:1px;transition:all 0.2s;display:inline-flex;align-items:center}
+.btn-outline-w:hover{border-color:var(--brass-light);color:var(--brass-light)}
+.hero-serving{border-top:1px solid rgba(255,255,255,0.08);padding-top:24px}
+.hero-serving-label{font-family:var(--mono);font-size:0.56rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.2);margin-bottom:8px}
+.hero-serving-list{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.hero-serving-list span{font-family:var(--mono);font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.38)}
+.hero-serving-list .sep{color:rgba(255,255,255,0.14)}
+.hero-doc{background:var(--white);max-width:100%}
+.doc-top{background:var(--navy);padding:13px 18px;display:flex;justify-content:space-between;align-items:center}
+.doc-top-title{font-family:var(--mono);font-size:0.58rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.45)}
+.doc-top-cert{font-family:var(--mono);font-size:0.56rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--brass-light)}
+.doc-meta{padding:11px 18px;border-bottom:1px solid var(--border);background:#FAFAF7}
+.doc-meta p{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.06em;color:var(--ink-muted);line-height:1.7}
+.doc-body{padding:18px 0 14px}
+.doc-line{display:flex;margin-bottom:16px;font-size:0.87rem;padding:0 18px 0 0}
+.doc-line-num{font-family:var(--mono);font-size:0.56rem;color:var(--rule);width:46px;flex-shrink:0;padding-top:2px;text-align:right;margin-right:12px;padding-right:10px;border-right:1px solid var(--border)}
+.doc-line-content{flex:1}
+.doc-speaker{font-family:var(--mono);font-size:0.6rem;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;color:var(--navy);display:block;margin-bottom:2px}
+.doc-text{color:var(--ink-mid);font-family:var(--body);font-size:0.88rem;line-height:1.5}
+.doc-line.dim .doc-text{color:var(--rule);font-style:italic}
+.doc-line.dim .doc-speaker{color:var(--rule)}
+.doc-foot{border-top:1px solid var(--border);padding:9px 18px;display:flex;justify-content:space-between;background:#FAFAF7}
+.doc-foot-left{font-family:var(--mono);font-size:0.56rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--rule)}
+.doc-foot-right{font-family:var(--mono);font-size:0.56rem;letter-spacing:0.08em;color:var(--brass)}
+.stats-band{background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.stats-inner{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat-item{padding:30px 22px;border-right:1px solid var(--border);text-align:center}
+.stat-item:last-child{border-right:none}
+.stat-num{font-family:var(--serif);font-size:2.7rem;font-weight:600;color:var(--navy);line-height:1;display:block;margin-bottom:5px}
+.stat-lab{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-muted);line-height:1.6}
+.trust-band{background:var(--bg);border-bottom:1px solid var(--border)}
+.trust-inner{display:grid;grid-template-columns:repeat(4,1fr)}
+.trust-item{padding:18px;border-right:1px solid var(--border);text-align:center}
+.trust-item:last-child{border-right:none}
+.trust-top{font-family:var(--mono);font-size:0.7rem;letter-spacing:0.05em;color:var(--navy);font-weight:500;display:block;margin-bottom:3px}
+.trust-bot{font-family:var(--mono);font-size:0.58rem;letter-spacing:0.07em;text-transform:uppercase;color:var(--ink-muted)}
+.services-section{background:var(--bg)}
+.services-grid{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--border)}
+.service-card{background:var(--white);padding:44px 40px;border-right:1px solid var(--border);border-bottom:1px solid var(--border);transition:background 0.22s}
+.service-card:nth-child(even){border-right:none}
+.service-card:nth-child(n+3){border-bottom:none}
+.service-card:hover{background:var(--brass-pale)}
+.service-num{font-family:var(--mono);font-size:0.63rem;letter-spacing:0.16em;color:var(--brass);display:block;margin-bottom:16px}
+.service-h3{font-family:var(--serif);font-size:1.65rem;line-height:1.1;margin-bottom:13px;font-weight:500;color:var(--navy-dark)}
+.service-p{color:var(--ink-muted);font-size:0.96rem;line-height:1.85}
+.service-link{font-family:var(--mono);font-size:0.63rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--navy);display:inline-flex;align-items:center;gap:8px;margin-top:22px;border-bottom:1px solid var(--navy);padding-bottom:2px;transition:color 0.2s,border-color 0.2s}
+.service-link:hover{color:var(--brass);border-color:var(--brass)}
+.service-link::after{content:'→'}
+.cross-section{background:var(--navy-dark);padding:88px 0}
+.cross-section .section-tag{color:var(--brass-light)}
+.cross-section .section-tag::before{background:var(--brass-light)}
+.cross-section .section-h2{color:var(--white)}
+.cross-section .section-intro{color:rgba(255,255,255,0.5)}
+.cross-layout{display:grid;grid-template-columns:5fr 7fr;gap:72px;align-items:start;margin-top:56px}
+.cross-body{font-size:1.02rem;color:rgba(255,255,255,0.6);line-height:1.9;font-style:italic}
+.cross-body p+p{margin-top:18px}
+.cross-cta{margin-top:32px;background:var(--brass);color:var(--white);font-family:var(--mono);font-size:0.66rem;letter-spacing:0.12em;text-transform:uppercase;padding:13px 24px;border-radius:1px;display:inline-flex;align-items:center;gap:8px;transition:background 0.2s}
+.cross-cta:hover{background:var(--brass-light)}
+.jur-table{border:1px solid rgba(255,255,255,0.1);border-collapse:collapse;width:100%}
+.jur-table th{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.32);padding:10px 14px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.04)}
+.jur-table td{padding:12px 14px;border-bottom:1px solid rgba(255,255,255,0.06);font-size:0.86rem;color:rgba(255,255,255,0.62);vertical-align:top;line-height:1.55}
+.jur-table td:first-child{font-family:var(--mono);font-size:0.63rem;letter-spacing:0.06em;color:var(--brass-light);white-space:nowrap;width:96px}
+.jur-table tr:last-child td{border-bottom:none}
+.team-section{background:var(--white)}
+.team-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);margin-top:44px}
+.team-card{background:var(--white);padding:44px 40px;display:flex;gap:24px;align-items:flex-start}
+.team-avatar{width:60px;height:60px;background:var(--navy);color:var(--white);font-family:var(--mono);font-size:0.9rem;font-weight:500;letter-spacing:0.04em;display:flex;align-items:center;justify-content:center;flex-shrink:0;border-radius:1px}
+.team-name{font-family:var(--serif);font-size:1.35rem;font-weight:600;color:var(--navy-dark);margin-bottom:4px;line-height:1.2}
+.team-role{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--brass);margin-bottom:13px;display:block}
+.team-bio{color:var(--ink-muted);font-size:0.93rem;line-height:1.85}
+.process-section{background:var(--bg)}
+.process-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border)}
+.process-card{background:var(--white);padding:44px 38px;border-right:1px solid var(--border);position:relative;overflow:hidden}
+.process-card:last-child{border-right:none}
+.process-card::after{content:attr(data-num);position:absolute;bottom:14px;right:18px;font-family:var(--serif);font-size:6rem;color:rgba(26,50,84,0.035);line-height:1;pointer-events:none;font-weight:700}
+.process-step-label{font-family:var(--mono);font-size:0.63rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--brass);display:block;margin-bottom:15px}
+.process-h3{font-family:var(--serif);font-size:1.65rem;line-height:1.05;margin-bottom:15px;font-weight:500;color:var(--navy-dark)}
+.process-p{color:var(--ink-muted);font-size:0.94rem;line-height:1.85;margin-bottom:20px}
+.process-tags{display:flex;flex-direction:column;gap:7px}
+.ptag{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.05em;color:var(--ink-muted);display:flex;align-items:center;gap:10px}
+.ptag::before{content:'';width:4px;height:4px;background:var(--brass);border-radius:50%;flex-shrink:0}
+.clients-section{background:var(--white)}
+.clients-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-top:52px}
+.client-card{background:var(--bg);padding:22px 20px;transition:background 0.2s}
+.client-card:hover{background:var(--brass-pale)}
+.client-name{font-family:var(--serif);font-size:1.08rem;font-weight:600;color:var(--navy);margin-bottom:5px;line-height:1.2}
+.client-desc{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.07em;text-transform:uppercase;color:var(--ink-muted);line-height:1.7}
+.testimonials-band{background:var(--navy);padding:0}
+.testimonials-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.testimonial-item{padding:52px 60px 52px 0;border-right:1px solid rgba(255,255,255,0.09)}
+.testimonial-item:last-child{border-right:none;padding:52px 0 52px 60px}
+.testimonial-quote{font-family:var(--serif);font-size:clamp(1.05rem,1.7vw,1.35rem);font-style:italic;line-height:1.65;color:var(--white);position:relative;padding-left:1.6rem;margin-bottom:24px}
+.testimonial-quote::before{content:'\201C';position:absolute;left:-0.5rem;top:-0.6rem;font-size:4rem;color:var(--brass-light);line-height:1;opacity:0.38;font-style:normal}
+.testimonial-name{font-family:var(--body);font-size:0.95rem;font-weight:600;color:rgba(255,255,255,0.88);margin-bottom:4px}
+.testimonial-org{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.3)}
+.pricing-section{background:var(--bg)}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border);margin-top:56px}
+.pricing-card{background:var(--white);padding:44px 38px;border-right:1px solid var(--border)}
+.pricing-card:last-child{border-right:none}
+.pricing-card.featured{background:var(--navy-dark);color:var(--white)}
+.price-tier{font-family:var(--mono);font-size:0.66rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--brass);display:block;margin-bottom:16px}
+.pricing-card.featured .price-tier{color:var(--brass-light)}
+.price-num{font-family:var(--serif);font-size:3.4rem;line-height:1;font-weight:600;display:block;margin-bottom:5px;color:var(--navy-dark)}
+.pricing-card.featured .price-num{color:var(--white)}
+.price-sub{font-family:var(--mono);font-size:0.63rem;letter-spacing:0.06em;color:var(--ink-muted);margin-bottom:30px;display:block}
+.pricing-card.featured .price-sub{color:rgba(255,255,255,0.35)}
+.pricing-ul{list-style:none;margin-bottom:34px}
+.pricing-ul li{margin-bottom:10px;font-size:0.94rem;color:var(--ink-muted);display:flex;gap:11px;align-items:baseline;line-height:1.5}
+.pricing-card.featured .pricing-ul li{color:rgba(255,255,255,0.58)}
+.pricing-ul li::before{content:'—';font-family:var(--mono);font-size:0.66rem;color:var(--brass);flex-shrink:0}
+.pricing-card.featured .pricing-ul li::before{color:var(--brass-light)}
+.btn-pricing{display:block;text-align:center;padding:13px;border-radius:1px;font-family:var(--mono);font-size:0.64rem;letter-spacing:0.12em;text-transform:uppercase;transition:all 0.22s}
+.btn-p-outline{border:1px solid var(--navy);color:var(--navy)}
+.btn-p-outline:hover{background:var(--navy);color:var(--white)}
+.btn-p-brass{background:var(--brass);color:var(--white);border:1px solid var(--brass)}
+.btn-p-brass:hover{background:var(--brass-light)}
+.faq-section{background:var(--white)}
+.faq-layout{display:grid;grid-template-columns:1fr 2fr;gap:80px;margin-top:56px}
+.faq-sticky{position:sticky;top:78px;align-self:start}
+.faq-contact{margin-top:24px;font-size:0.94rem;color:var(--ink-muted);line-height:1.85}
+.faq-contact a{color:var(--navy);border-bottom:1px solid var(--border);transition:border-color 0.2s}
+.faq-contact a:hover{border-color:var(--navy)}
+.faq-btn{display:inline-flex;align-items:center;gap:8px;margin-top:22px;background:var(--navy);color:var(--white);font-family:var(--mono);font-size:0.63rem;letter-spacing:0.12em;text-transform:uppercase;padding:12px 22px;border-radius:1px;transition:background 0.2s}
+.faq-btn:hover{background:var(--navy-mid)}
+.faq-list{border-top:1px solid var(--border)}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-q{display:flex;justify-content:space-between;align-items:baseline;padding:19px 0;gap:24px;cursor:pointer}
+.faq-q-text{font-family:var(--body);font-size:0.98rem;font-weight:600;color:var(--ink);line-height:1.4;transition:color 0.2s}
+.faq-toggle{font-family:var(--mono);font-size:1rem;color:var(--brass);flex-shrink:0;transition:transform 0.25s;font-weight:300}
+.faq-a{display:none;padding-bottom:20px}
+.faq-a-text{font-size:0.94rem;color:var(--ink-muted);line-height:1.9;max-width:60ch;font-style:italic}
+.faq-item.open .faq-toggle{transform:rotate(45deg)}
+.faq-item.open .faq-a{display:block}
+.faq-item:hover .faq-q-text{color:var(--brass)}
+.contact-section{background:var(--navy-dark);padding:88px 0;color:var(--white)}
+.intake-layout{display:grid;grid-template-columns:5fr 7fr;gap:80px;align-items:start}
+.intake-h2{font-family:var(--serif);font-size:clamp(1.9rem,3vw,2.7rem);line-height:1.1;letter-spacing:-0.02em;color:var(--white);margin-bottom:18px;font-weight:500}
+.intake-body{color:rgba(255,255,255,0.48);font-size:0.94rem;line-height:1.9;margin-bottom:34px;font-style:italic}
+.contact-item{margin-bottom:22px}
+.ci-label{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--brass-light);margin-bottom:5px;display:block}
+.ci-val{font-size:0.96rem;color:rgba(255,255,255,0.7)}
+.ci-val a{color:rgba(255,255,255,0.7);border-bottom:1px solid rgba(255,255,255,0.16);transition:border-color 0.2s}
+.ci-val a:hover{border-color:var(--brass-light)}
+.intake-right{border-left:1px solid rgba(255,255,255,0.08);padding-left:80px}
+.contact-option+.contact-option{margin-top:30px;padding-top:30px;border-top:1px solid rgba(255,255,255,0.07)}
+.co-title{font-family:var(--mono);font-size:0.58rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--brass-light);margin-bottom:11px;display:flex;align-items:center;gap:10px}
+.co-title::before{content:'';display:inline-block;width:14px;height:1px;background:var(--brass-light)}
+.co-body{color:rgba(255,255,255,0.48);font-size:0.9rem;line-height:1.85;font-style:italic}
+.co-body a{color:rgba(255,255,255,0.62);border-bottom:1px solid rgba(255,255,255,0.16)}
+footer{background:var(--navy-dark);border-top:2px solid var(--brass);padding:60px 0 40px}
+.footer-inner{display:grid;grid-template-columns:2.5fr 1fr 1fr 1fr;gap:52px;margin-bottom:48px}
+.footer-logo{font-family:var(--serif);font-size:1.7rem;font-weight:700;color:var(--white);letter-spacing:-0.02em;margin-bottom:11px}
+.footer-logo span{color:var(--brass-light)}
+.footer-mission{color:rgba(255,255,255,0.28);font-size:0.76rem;line-height:1.7;max-width:26ch;font-family:var(--mono);letter-spacing:0.04em}
+.footer-team{color:rgba(255,255,255,0.24);font-family:var(--mono);font-size:0.58rem;letter-spacing:0.07em;margin-top:16px;line-height:1.9}
+.footer-col-title{font-family:var(--mono);font-size:0.63rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--brass-light);margin-bottom:16px;display:block}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:8px}
+.footer-links a{color:rgba(255,255,255,0.36);font-size:0.88rem;transition:color 0.2s;line-height:1.4}
+.footer-links a:hover{color:rgba(255,255,255,0.75)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.07);padding-top:22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-legal{color:rgba(255,255,255,0.22);font-family:var(--mono);font-size:0.6rem;letter-spacing:0.06em}
+.footer-badges{display:flex;gap:7px;flex-wrap:wrap}
+.footer-badge{font-family:var(--mono);font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.22);border:1px solid rgba(255,255,255,0.1);padding:4px 11px;border-radius:1px}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity 0.5s ease,transform 0.5s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media(max-width:1100px){.hero-inner{grid-template-columns:1fr}.hero-doc{max-width:540px}.cross-layout{grid-template-columns:1fr}.team-grid{grid-template-columns:1fr}.process-grid{grid-template-columns:1fr}.process-card{border-right:none;border-bottom:1px solid var(--border)}.clients-grid{grid-template-columns:repeat(2,1fr)}.testimonials-grid{grid-template-columns:1fr}.testimonial-item{border-right:none;padding:44px 0}.testimonial-item:last-child{padding:0 0 44px}.pricing-grid{grid-template-columns:1fr}.pricing-card{border-right:none;border-bottom:1px solid var(--border)}.faq-layout{grid-template-columns:1fr;gap:40px}.faq-sticky{position:static}.intake-layout{grid-template-columns:1fr}.intake-right{border-left:none;padding-left:0;border-top:1px solid rgba(255,255,255,0.08);padding-top:40px}.footer-inner{grid-template-columns:1fr 1fr;gap:32px}.trust-inner{grid-template-columns:repeat(2,1fr)}.stats-inner{grid-template-columns:repeat(2,1fr)}.services-grid{grid-template-columns:1fr}.service-card{border-right:none}}
+@media(max-width:760px){.nav-links{display:none}.hero-h1{font-size:2.6rem}.footer-inner{grid-template-columns:1fr}.clients-grid{grid-template-columns:1fr 1fr}.team-card{flex-direction:column}}
+
+
+
+/* ============ DESIGN PASS 2 — unified palette, optical scale, origin ============ */
+:root{
+  /* ink-navy: deeper, less blue-grey, reads as printed ink not corporate blue */
+  --navy:#132842; --navy-dark:#0A1626; --navy-mid:#1C3A5E;
+  /* seal gold — warm, metallic; the old #7A5E10 read olive */
+  --brass:#8A6A1F; --brass-light:#CBA53A; --brass-pale:#F2E7C4;
+  /* correction mark — used ONLY on annotation/objection lines */
+  --ochre:#8C2F1E;
+  /* legal bond paper, faintly warm */
+  --bg:#F3F0E8; --white:#FFFFFF;
+  --ink:#171410; --ink-mid:#39352C; --ink-muted:#5B564C;
+  --rule:#BEB9AC; --border:#D8D3C7;
+}
+
+/* ---- optical type scale ---- */
+.hero-h1{font-size:clamp(3.1rem,6.6vw,6rem);letter-spacing:-0.038em;font-weight:600;line-height:0.96}
+.hero-h1 em{font-style:italic;letter-spacing:-0.042em;color:var(--brass-light)}
+.hero-sub{font-size:1.1rem;line-height:1.62;color:rgba(255,255,255,0.64);max-width:40ch}
+.hero-eyebrow{letter-spacing:0.26em;font-size:0.6rem;color:var(--brass-light);opacity:.9}
+.section-h2{font-size:clamp(2.5rem,4.6vw,4rem);letter-spacing:-0.032em;line-height:1.02}
+.section-label{letter-spacing:0.22em;font-size:0.6rem}
+
+/* ---- hero: document leads, tighter rhythm ---- */
+.hero{padding:100px 0 92px}
+.hero-inner{grid-template-columns:5fr 7fr;gap:60px;align-items:center}
+.hero-doc{box-shadow:0 44px 96px -44px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.06)}
+.doc-top{background:var(--navy-mid)}
+.hero-actions{margin-top:34px}
+
+/* ---- signature: transcript writes itself, FR/EN tagged ---- */
+.doc-line{opacity:0;transform:translateY(5px);animation:lineIn .5s cubic-bezier(.2,.7,.3,1) forwards}
+.doc-line:nth-child(1){animation-delay:.45s}
+.doc-line:nth-child(2){animation-delay:1.0s}
+.doc-line:nth-child(3){animation-delay:1.55s}
+.doc-line:nth-child(4){animation-delay:2.1s}
+.doc-line:nth-child(5){animation-delay:2.75s}
+@keyframes lineIn{to{opacity:1;transform:none}}
+.doc-line-content{position:relative}
+.doc-lang{position:absolute;right:0;top:1px;font-family:var(--mono);font-size:.5rem;letter-spacing:.14em;
+  color:var(--rule);border:1px solid var(--border);padding:1px 4px;line-height:1.4}
+.doc-text{padding-right:34px}
+.doc-line.dim .doc-text{color:var(--ochre);font-style:italic;opacity:.88}
+.doc-line.dim .doc-speaker{color:var(--ochre);opacity:.72}
+.doc-line.dim{border-left:2px solid var(--ochre);margin-left:-2px}
+.doc-foot-right{color:var(--brass)}
+
+/* ---- stats band: labels now carry the weight, not invented numbers ---- */
+.stat-num{font-family:var(--mono);font-size:1.5rem;font-weight:500;letter-spacing:-0.01em;
+  color:var(--brass);line-height:1;display:block;margin-bottom:9px}
+.stat-lab{line-height:1.5}
+
+/* ---- ORIGIN: the section that replaces the testimonials ---- */
+.testimonials-band{background:var(--navy);padding:96px 0}
+.origin-layout{display:grid;grid-template-columns:5fr 7fr;gap:64px;align-items:start}
+.origin-eyebrow{font-family:var(--mono);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--brass-light);margin-bottom:20px}
+.origin-h2{font-family:var(--serif);font-size:clamp(2.3rem,4vw,3.5rem);font-weight:600;
+  letter-spacing:-0.032em;line-height:1.04;color:#fff}
+.origin-h2 em{font-style:italic;color:var(--brass-light)}
+.origin-right{border-left:1px solid rgba(255,255,255,.13);padding-left:56px}
+.origin-p{font-family:var(--body);font-size:1.02rem;line-height:1.72;
+  color:rgba(255,255,255,.7);margin-bottom:20px;text-wrap:pretty}
+.origin-p:first-child{font-size:1.16rem;color:rgba(255,255,255,.88)}
+.origin-sig{font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(255,255,255,.34);margin-top:30px;padding-top:18px;
+  border-top:1px solid rgba(255,255,255,.12);display:inline-block}
+
+/* ---- structural device: transcript line references ---- */
+.service-num{font-variant-numeric:tabular-nums;color:var(--brass)}
+.service-num::before{content:'L. ';opacity:.45}
+
+/* ---- restraint + quality floor ---- */
+.section-h2,.hero-h1,.origin-h2{text-wrap:balance}
+.service-p,.hero-sub{text-wrap:pretty}
+.price-num{letter-spacing:-0.03em;font-variant-numeric:lining-nums tabular-nums}
+.pricing-card{transition:transform .35s cubic-bezier(.2,.7,.3,1),box-shadow .35s}
+.pricing-card:hover{transform:translateY(-3px);box-shadow:0 18px 44px -22px rgba(10,22,38,.42)}
+.service-card:hover{background:#FBF7E9}
+.nav-cta:hover{background:var(--brass)}
+.nav-links a{position:relative}
+.nav-links a::after{content:'';position:absolute;left:0;bottom:-5px;width:0;height:1px;
+  background:var(--brass);transition:width .28s ease}
+.nav-links a:hover::after{width:100%}
+a:focus-visible,button:focus-visible{outline:2px solid var(--brass-light);outline-offset:3px}
+::selection{background:var(--brass-pale);color:var(--navy-dark)}
+
+@media(max-width:1100px){
+  .hero-inner{grid-template-columns:1fr}
+  .origin-layout{grid-template-columns:1fr;gap:34px}
+  .origin-right{border-left:none;padding-left:0;border-top:1px solid rgba(255,255,255,.13);padding-top:32px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .doc-line{opacity:1;transform:none}
+}
+
+/* ============ TRANSCRIPT RAIL — the document's own device, applied to the page ============ */
+/* Each major section carries a line reference in the left margin, exactly as a
+   transcript numbers its lines. Legitimate because the page IS an ordered sequence. */
+body{counter-reset:lex-line}
+.section, .cross-section, .contact-section, .testimonials-band{position:relative;counter-increment:lex-line}
+.section::before, .cross-section::before, .contact-section::before, .testimonials-band::before{
+  content:'L. 0' counter(lex-line);
+  position:absolute;
+  top:var(--rail-top,84px);
+  left:calc((100vw - var(--max)) / 2 - 74px);
+  font-family:var(--mono);
+  font-size:.58rem;
+  letter-spacing:.16em;
+  color:var(--rule);
+  opacity:.55;
+  white-space:nowrap;
+  pointer-events:none;
+}
+/* on dark bands the rule colour disappears — lift it */
+.cross-section::before, .contact-section::before, .testimonials-band::before{
+  color:var(--brass-light);opacity:.34
+}
+/* hairline that continues the rail down the page edge, like a document margin rule */
+.section::after, .cross-section::after, .contact-section::after, .testimonials-band::after{
+  content:'';position:absolute;top:0;bottom:0;
+  left:calc((100vw - var(--max)) / 2 - 40px);
+  width:1px;background:currentColor;opacity:.09;pointer-events:none;
+}
+/* only when there is genuinely room in the margin */
+@media(max-width:1400px){
+  .section::before,.cross-section::before,.contact-section::before,.testimonials-band::before,
+  .section::after,.cross-section::after,.contact-section::after,.testimonials-band::after{display:none}
+}
+
+/* ---- footer set as a transcript footer ---- */
+.footer-legal{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;
+  color:rgba(255,255,255,.34);text-transform:none}
+
+/* ============ HERO / DARK SURFACES — printer's ink ============ */
+:root{
+  --navy:#14110C;        /* warm near-black: ink on paper, not corporate blue */
+  --navy-dark:#0C0A07;
+  --navy-mid:#221D15;    /* raised bands, doc header bar */
+  --brass-light:#CBA53A;
+}
+/* paper tone lifts slightly so it reads warm against the ink, not grey */
+:root{ --bg:#F3F0E8; }
+
+/* text on ink: never pure white — warm off-white, less glare, more printed */
+.hero-h1{color:#F5F2EA}
+.hero-sub{color:rgba(245,242,234,.66)}
+.hero-serving-label,.hero-serving-list{color:rgba(245,242,234,.5)}
+.origin-h2{color:#F5F2EA}
+.origin-p{color:rgba(245,242,234,.72)}
+.origin-p:first-child{color:rgba(245,242,234,.9)}
+.origin-sig{color:rgba(245,242,234,.36);border-top-color:rgba(245,242,234,.14)}
+.origin-right{border-left-color:rgba(245,242,234,.14)}
+
+/* hairlines on ink need a touch more presence than they did on navy */
+.testimonials-band{border-top:1px solid rgba(203,165,58,.16);border-bottom:1px solid rgba(203,165,58,.16)}
+.jur-table{border-color:rgba(245,242,234,.12)}
+
+/* the white transcript now sits ON the ink — give it real lift */
+.hero-doc{box-shadow:0 50px 110px -46px rgba(0,0,0,.92),0 0 0 1px rgba(203,165,58,.14)}
+.doc-top{background:var(--navy-mid);border-bottom:1px solid rgba(203,165,58,.22)}
+
+/* footer + nav on ink */
+.footer-legal{color:rgba(245,242,234,.34)}
+.nav-cta{background:var(--brass);color:#14110C}
+.nav-cta:hover{background:var(--brass-light)}
+
+
+
+
+
+/* ============ HERO — no card, no frame. Type on the page. ============ */
+.hero{background:var(--bg);padding:0;border-bottom:1px solid var(--border);overflow:hidden}
+
+.hx{
+  display:grid;
+  grid-template-columns:76px repeat(12,1fr);
+  padding:0 48px 0 0;
+  position:relative;
+  align-items:start;
+}
+
+/* line numbers: apparatus only. No rule, no border, barely there. */
+.hx-nums{grid-column:1;grid-row:1 / -1;display:flex;flex-direction:column;
+  text-align:right;padding:72px 16px 0 0}
+.hx-nums span{font-family:var(--mono);font-size:.56rem;line-height:34px;
+  color:var(--rule);opacity:.5;font-variant-numeric:tabular-nums}
+
+/* --- upper-left third --- */
+.hx-eyebrow{grid-column:2 / 9;margin:0;padding:76px 0 0 40px;
+  font-family:var(--mono);font-size:.6rem;letter-spacing:.26em;
+  text-transform:uppercase;color:var(--brass)}
+
+.hx-h1{
+  grid-column:2 / 11;margin:0;padding:26px 0 0 40px;
+  font-family:var(--serif);
+  font-size:clamp(3.4rem,11vw,10rem);
+  font-weight:600;letter-spacing:-.052em;line-height:.84;
+  color:var(--ink);
+}
+
+/* --- lower-right third: the exchange carries the argument --- */
+.hx-ex{grid-column:6 / 13;padding:84px 0 0 40px;max-width:560px}
+.hx-turn{display:flex;gap:20px;align-items:baseline;margin-bottom:26px}
+.hx-q{font-family:var(--mono);font-size:.68rem;font-weight:500;color:var(--ink);
+  flex-shrink:0;width:22px;letter-spacing:.04em}
+.hx-turn p{font-family:var(--body);font-size:1.22rem;line-height:1.5;
+  color:var(--ink-mid);margin:0;text-wrap:pretty}
+
+/* the loss, and the recovery */
+.hx-inaud{font-family:var(--mono);font-size:1rem;color:var(--ochre);letter-spacing:.02em}
+.hx-lost{opacity:.92}
+.hx-kept p{color:var(--ink);font-size:1.34rem;line-height:1.42}
+.hx-kept .hx-q{color:var(--brass)}
+
+.hx-redact{grid-column:6 / 12;display:flex;gap:9px;align-items:center;
+  margin:0;padding:6px 0 0 40px}
+
+.hx-actions{grid-column:2 / 11;display:flex;gap:12px;flex-wrap:wrap;
+  padding:70px 0 84px 40px}
+.btn-primary{background:var(--ink);color:var(--bg);border:1px solid var(--ink)}
+.btn-primary:hover{background:var(--brass);border-color:var(--brass);color:var(--ink)}
+.btn-outline-w{border:1px solid var(--rule);color:var(--ink-mid);background:transparent}
+.btn-outline-w:hover{border-color:var(--ink);color:var(--ink)}
+
+/* --- the page composes itself, in reading order --- */
+.hx-eyebrow,.hx-h1,.hx-turn,.hx-redact,.hx-actions{
+  opacity:0;animation:hxIn .55s cubic-bezier(.2,.7,.3,1) forwards}
+@keyframes hxIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.hx-eyebrow{animation-delay:.15s}
+.hx-h1{animation-delay:.32s}
+.hx-turn:nth-child(1){animation-delay:1.15s}
+.hx-turn:nth-child(2){animation-delay:1.85s}   /* the pause before the loss */
+.hx-turn:nth-child(3){animation-delay:2.55s}
+.hx-turn:nth-child(4){animation-delay:3.15s}
+.hx-redact{animation-delay:3.7s}
+.hx-actions{animation-delay:.9s}
+
+@media(max-width:1000px){
+  .hx{grid-template-columns:52px 1fr;padding-right:24px}
+  .hx-nums{padding:44px 10px 0 0}
+  .hx-nums span{line-height:28px}
+  .hx-eyebrow{grid-column:2;padding:46px 0 0 22px}
+  .hx-h1{grid-column:2;padding:20px 0 0 22px;font-size:clamp(2.7rem,12vw,4.4rem);line-height:.92}
+  .hx-ex{grid-column:2;padding:46px 0 0 22px;max-width:none}
+  .hx-turn p{font-size:1.05rem}
+  .hx-kept p{font-size:1.12rem}
+  .hx-redact{grid-column:2;padding-left:22px}
+  .hx-actions{grid-column:2;padding:44px 0 52px 22px}
+}
+@media(prefers-reduced-motion:reduce){
+  .hx-eyebrow,.hx-h1,.hx-turn,.hx-redact,.hx-actions{opacity:1;animation:none}
+}
+
+/* ============ REDACTIONS ============ */
+.redact{display:inline-block;height:.72em;background:#14110C;border-radius:1px;
+  transform:scaleX(0);transform-origin:left center;
+  animation:redactIn .38s cubic-bezier(.4,0,.2,1) forwards;animation-delay:3.8s}
+.w-xs{width:34px}.w-sm{width:92px}.w-md{width:150px}.w-lg{width:220px}
+@keyframes redactIn{to{transform:scaleX(1)}}
+@media(prefers-reduced-motion:reduce){.redact{transform:scaleX(1);animation:none}}
+
+/* ============ AUDIO EXHIBIT — the source, before the record ============ */
+.hx-audio{grid-column:2 / 11;padding:16px 0 0 40px;max-width:640px}
+
+.hx-audio-meta{display:flex;gap:18px;align-items:baseline;flex-wrap:wrap;
+  padding-bottom:10px;border-bottom:1px solid var(--rule)}
+.hx-ex-lab{font-family:var(--mono);font-size:.56rem;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ink);
+  border:1px solid var(--ink);padding:3px 7px}
+.hx-file{font-family:var(--mono);font-size:.62rem;letter-spacing:.02em;color:var(--ink-mid)}
+.hx-spec{font-family:var(--mono);font-size:.56rem;letter-spacing:.06em;
+  color:var(--ink-muted);opacity:.75;margin-left:auto}
+
+.hx-wave{display:block;width:100%;height:46px;margin-top:12px}
+.wf-bar{fill:var(--ink);opacity:.32}
+.wf-dead{fill:var(--ochre);opacity:.85}
+
+/* the waveform draws itself left to right */
+.hx-wave rect{transform-origin:center;transform:scaleY(0);
+  animation:wfIn .4s cubic-bezier(.3,.8,.4,1) forwards}
+@keyframes wfIn{to{transform:scaleY(1)}}
+
+.hx-audio-foot{display:flex;gap:10px;align-items:baseline;padding-top:7px}
+.hx-mark{font-family:var(--mono);font-size:.56rem;letter-spacing:.1em;color:var(--ochre);
+  margin-left:13%}
+.hx-mark-t{font-family:var(--mono);font-size:.54rem;letter-spacing:.08em;
+  color:var(--ink-muted);opacity:.7;text-transform:uppercase}
+
+/* the eyebrow sits above the exhibit, tighter now */
+.hx-eyebrow{padding-top:64px}
+.hx-h1{padding-top:34px}
+.hx-audio,.hx-audio-foot{opacity:0;animation:hxIn .5s ease forwards}
+.hx-audio{animation-delay:.28s}
+.hx-audio-foot{animation-delay:1.5s}
+
+@media(max-width:1000px){
+  .hx-audio{grid-column:2;padding:14px 0 0 22px;max-width:none}
+  .hx-spec{margin-left:0;width:100%}
+  .hx-mark{margin-left:12%}
+  .hx-h1{padding-top:26px}
+}
+@media(prefers-reduced-motion:reduce){
+  .hx-wave rect{transform:scaleY(1);animation:none}
+  .hx-audio,.hx-audio-foot{opacity:1;animation:none}
+}
+.hx-wave rect:nth-child(1){animation-delay:0.456s}.hx-wave rect:nth-child(2){animation-delay:0.462s}.hx-wave rect:nth-child(3){animation-delay:0.468s}.hx-wave rect:nth-child(4){animation-delay:0.474s}.hx-wave rect:nth-child(5){animation-delay:0.480s}.hx-wave rect:nth-child(6){animation-delay:0.486s}.hx-wave rect:nth-child(7){animation-delay:0.492s}.hx-wave rect:nth-child(8){animation-delay:0.498s}.hx-wave rect:nth-child(9){animation-delay:0.504s}.hx-wave rect:nth-child(10){animation-delay:0.510s}.hx-wave rect:nth-child(11){animation-delay:0.516s}.hx-wave rect:nth-child(12){animation-delay:0.522s}.hx-wave rect:nth-child(13){animation-delay:0.528s}.hx-wave rect:nth-child(14){animation-delay:0.534s}.hx-wave rect:nth-child(15){animation-delay:0.540s}.hx-wave rect:nth-child(16){animation-delay:0.546s}.hx-wave rect:nth-child(17){animation-delay:0.552s}.hx-wave rect:nth-child(18){animation-delay:0.558s}.hx-wave rect:nth-child(19){animation-delay:0.564s}.hx-wave rect:nth-child(20){animation-delay:0.570s}.hx-wave rect:nth-child(21){animation-delay:0.576s}.hx-wave rect:nth-child(22){animation-delay:0.582s}.hx-wave rect:nth-child(23){animation-delay:0.588s}.hx-wave rect:nth-child(24){animation-delay:0.594s}.hx-wave rect:nth-child(25){animation-delay:0.600s}.hx-wave rect:nth-child(26){animation-delay:0.606s}.hx-wave rect:nth-child(27){animation-delay:0.612s}.hx-wave rect:nth-child(28){animation-delay:0.618s}.hx-wave rect:nth-child(29){animation-delay:0.624s}.hx-wave rect:nth-child(30){animation-delay:0.630s}.hx-wave rect:nth-child(31){animation-delay:0.636s}.hx-wave rect:nth-child(32){animation-delay:0.642s}.hx-wave rect:nth-child(33){animation-delay:0.648s}.hx-wave rect:nth-child(34){animation-delay:0.654s}.hx-wave rect:nth-child(35){animation-delay:0.660s}.hx-wave rect:nth-child(36){animation-delay:0.666s}.hx-wave rect:nth-child(37){animation-delay:0.672s}.hx-wave rect:nth-child(38){animation-delay:0.678s}.hx-wave rect:nth-child(39){animation-delay:0.684s}.hx-wave rect:nth-child(40){animation-delay:0.690s}.hx-wave rect:nth-child(41){animation-delay:0.696s}.hx-wave rect:nth-child(42){animation-delay:0.702s}.hx-wave rect:nth-child(43){animation-delay:0.708s}.hx-wave rect:nth-child(44){animation-delay:0.714s}.hx-wave rect:nth-child(45){animation-delay:0.720s}.hx-wave rect:nth-child(46){animation-delay:0.726s}.hx-wave rect:nth-child(47){animation-delay:0.732s}.hx-wave rect:nth-child(48){animation-delay:0.738s}.hx-wave rect:nth-child(49){animation-delay:0.744s}.hx-wave rect:nth-child(50){animation-delay:0.750s}.hx-wave rect:nth-child(51){animation-delay:0.756s}.hx-wave rect:nth-child(52){animation-delay:0.762s}.hx-wave rect:nth-child(53){animation-delay:0.768s}.hx-wave rect:nth-child(54){animation-delay:0.774s}.hx-wave rect:nth-child(55){animation-delay:0.780s}.hx-wave rect:nth-child(56){animation-delay:0.786s}.hx-wave rect:nth-child(57){animation-delay:0.792s}.hx-wave rect:nth-child(58){animation-delay:0.798s}.hx-wave rect:nth-child(59){animation-delay:0.804s}.hx-wave rect:nth-child(60){animation-delay:0.810s}.hx-wave rect:nth-child(61){animation-delay:0.816s}.hx-wave rect:nth-child(62){animation-delay:0.822s}.hx-wave rect:nth-child(63){animation-delay:0.828s}.hx-wave rect:nth-child(64){animation-delay:0.834s}.hx-wave rect:nth-child(65){animation-delay:0.840s}.hx-wave rect:nth-child(66){animation-delay:0.846s}.hx-wave rect:nth-child(67){animation-delay:0.852s}.hx-wave rect:nth-child(68){animation-delay:0.858s}.hx-wave rect:nth-child(69){animation-delay:0.864s}.hx-wave rect:nth-child(70){animation-delay:0.870s}.hx-wave rect:nth-child(71){animation-delay:0.876s}.hx-wave rect:nth-child(72){animation-delay:0.882s}.hx-wave rect:nth-child(73){animation-delay:0.888s}.hx-wave rect:nth-child(74){animation-delay:0.894s}.hx-wave rect:nth-child(75){animation-delay:0.900s}.hx-wave rect:nth-child(76){animation-delay:0.906s}.hx-wave rect:nth-child(77){animation-delay:0.912s}.hx-wave rect:nth-child(78){animation-delay:0.918s}.hx-wave rect:nth-child(79){animation-delay:0.924s}.hx-wave rect:nth-child(80){animation-delay:0.930s}.hx-wave rect:nth-child(81){animation-delay:0.936s}.hx-wave rect:nth-child(82){animation-delay:0.942s}.hx-wave rect:nth-child(83){animation-delay:0.948s}.hx-wave rect:nth-child(84){animation-delay:0.954s}.hx-wave rect:nth-child(85){animation-delay:0.960s}.hx-wave rect:nth-child(86){animation-delay:0.966s}.hx-wave rect:nth-child(87){animation-delay:0.972s}.hx-wave rect:nth-child(88){animation-delay:0.978s}.hx-wave rect:nth-child(89){animation-delay:0.984s}.hx-wave rect:nth-child(90){animation-delay:0.990s}.hx-wave rect:nth-child(91){animation-delay:0.996s}.hx-wave rect:nth-child(92){animation-delay:1.002s}.hx-wave rect:nth-child(93){animation-delay:1.008s}.hx-wave rect:nth-child(94){animation-delay:1.014s}.hx-wave rect:nth-child(95){animation-delay:1.020s}.hx-wave rect:nth-child(96){animation-delay:1.026s}.hx-wave rect:nth-child(97){animation-delay:1.032s}.hx-wave rect:nth-child(98){animation-delay:1.038s}.hx-wave rect:nth-child(99){animation-delay:1.044s}.hx-wave rect:nth-child(100){animation-delay:1.050s}.hx-wave rect:nth-child(101){animation-delay:1.056s}.hx-wave rect:nth-child(102){animation-delay:1.062s}.hx-wave rect:nth-child(103){animation-delay:1.068s}.hx-wave rect:nth-child(104){animation-delay:1.074s}.hx-wave rect:nth-child(105){animation-delay:1.080s}.hx-wave rect:nth-child(106){animation-delay:1.086s}.hx-wave rect:nth-child(107){animation-delay:1.092s}.hx-wave rect:nth-child(108){animation-delay:1.098s}.hx-wave rect:nth-child(109){animation-delay:1.104s}.hx-wave rect:nth-child(110){animation-delay:1.110s}.hx-wave rect:nth-child(111){animation-delay:1.116s}.hx-wave rect:nth-child(112){animation-delay:1.122s}.hx-wave rect:nth-child(113){animation-delay:1.128s}.hx-wave rect:nth-child(114){animation-delay:1.134s}.hx-wave rect:nth-child(115){animation-delay:1.140s}.hx-wave rect:nth-child(116){animation-delay:1.146s}.hx-wave rect:nth-child(117){animation-delay:1.152s}.hx-wave rect:nth-child(118){animation-delay:1.158s}.hx-wave rect:nth-child(119){animation-delay:1.164s}.hx-wave rect:nth-child(120){animation-delay:1.170s}.hx-wave rect:nth-child(121){animation-delay:1.176s}.hx-wave rect:nth-child(122){animation-delay:1.182s}.hx-wave rect:nth-child(123){animation-delay:1.188s}.hx-wave rect:nth-child(124){animation-delay:1.194s}.hx-wave rect:nth-child(125){animation-delay:1.200s}.hx-wave rect:nth-child(126){animation-delay:1.206s}.hx-wave rect:nth-child(127){animation-delay:1.212s}.hx-wave rect:nth-child(128){animation-delay:1.218s}.hx-wave rect:nth-child(129){animation-delay:1.224s}.hx-wave rect:nth-child(130){animation-delay:1.230s}.hx-wave rect:nth-child(131){animation-delay:1.236s}.hx-wave rect:nth-child(132){animation-delay:1.242s}
+
+
+
+
+
+/* ============ HERO — three elements, stacked ============ */
+/* The claim, the proof, the invitation. Nothing else competes with the line.  */
+
+.hx{
+  display:grid;
+  grid-template-columns:96px repeat(12,1fr);
+  grid-auto-rows:min-content;
+  padding:0 48px 0 0;
+  position:relative;align-items:start;
+}
+
+.hx-eyebrow{grid-column:2 / 10; grid-row:1; padding:82px 0 0 56px}
+
+/* 1 — the claim. It gets the room. */
+.hx-h1{
+  grid-column:2 / 13; grid-row:2;
+  padding:38px 0 0 56px;
+  white-space:nowrap;
+  font-size:clamp(1.6rem,6.4vw,7.2rem);
+  letter-spacing:-.048em;line-height:1;
+}
+
+/* 2 — the proof, set narrower so it reads as evidence beneath the line */
+.hx-ex{
+  grid-column:2 / 9; grid-row:3;
+  padding:62px 0 0 56px;
+  max-width:none;border-left:none;
+}
+
+/* 3 — the invitation */
+.hx-actions{
+  grid-column:2 / 10; grid-row:4;
+  display:flex;gap:12px;flex-wrap:wrap;
+  padding:52px 0 96px 56px;
+}
+
+/* the three references */
+.hx-h1,.hx-ex,.hx-actions{position:relative;z-index:1}
+.hx-h1::before,.hx-ex::before,.hx-actions::before{
+  content:attr(data-n);
+  position:absolute;left:20px;
+  width:18px;text-align:right;
+  font-family:var(--mono);font-size:.62rem;
+  color:var(--ink);opacity:.7;
+  font-variant-numeric:tabular-nums;
+}
+.hx-h1::before{top:46px}
+.hx-ex::before{top:68px}
+.hx-actions::before{top:60px}
+.hx-h1::after,.hx-ex::after{display:none}
+
+/* the bracket holds all three */
+.hx-bracket{
+  position:absolute;left:34px;
+  top:84px;bottom:100px;
+  width:20px;height:auto;
+  color:var(--ink);opacity:.45;
+  pointer-events:none;z-index:0;
+  transform:scaleY(0);transform-origin:top center;
+  animation:brIn 1s cubic-bezier(.25,.8,.3,1) forwards;animation-delay:.4s;
+}
+
+@media(max-width:1100px){
+  .hx{grid-template-columns:1fr;padding:0 22px}
+  .hx-eyebrow,.hx-h1,.hx-ex,.hx-actions{grid-column:1;grid-row:auto;padding-left:48px}
+  .hx-eyebrow{padding-top:54px}
+  .hx-h1{padding-top:26px;font-size:clamp(1.4rem,8vw,3.6rem)}
+  .hx-ex{padding-top:44px}
+  .hx-actions{padding:40px 0 64px 48px}
+  .hx-h1::before{top:32px}
+  .hx-ex::before{top:50px}
+  .hx-actions::before{top:46px}
+  .hx-h1::before,.hx-ex::before,.hx-actions::before{left:0;width:14px;font-size:.58rem}
+  .hx-bracket{left:14px;width:14px;top:58px;bottom:72px}
+}
+
+/* ============ HOUSE STYLE — engraved, not modern ============ */
+/* Ivory laid paper, black ink, one restrained oxblood. The brass has gone:
+   metallic gold reads as contemporary luxury, not as a document. */
+
+:root{
+  --bg:#F4F1E7;
+  --white:#FBF9F2;
+  --ink:#141210;
+  --ink-mid:#38342D;
+  --ink-muted:#615C53;
+  --rule:#B4AE9F;
+  --border:#D3CDBE;
+  --brass:#6B2318;        /* oxblood, used sparingly */
+  --brass-light:#8C3A26;
+  --brass-pale:#EFE4DC;
+  --ochre:#6B2318;
+  --navy:#1A1714;
+  --navy-dark:#100E0B;
+  --navy-mid:#26221C;
+}
+
+/* ---- the mark ---- */
+.logo{font-family:var(--serif);font-size:1.42rem;font-weight:600;
+  letter-spacing:.02em;color:var(--ink);font-variant:small-caps}
+.lg-b{color:var(--rule);font-weight:400;margin:0 .12em}
+
+/* ---- letterhead nav: rules, not buttons ---- */
+nav{background:var(--bg);border-bottom:none;
+  box-shadow:0 2px 0 var(--ink), 0 4px 0 var(--ink), 0 6px 0 var(--border)}
+.nav-inner{height:68px}
+.nav-links a{font-family:var(--mono);font-size:.58rem;letter-spacing:.2em;
+  color:var(--ink-muted);padding:6px 15px;border-left:1px solid var(--border)}
+.nav-links a:first-child{border-left:none;padding-left:0}
+.nav-links a:hover{color:var(--ink)}
+.nav-tel{font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;
+  color:var(--ink);border-bottom:1px solid var(--rule);padding-bottom:2px}
+.nav-tel:hover{border-bottom-color:var(--ink)}
+.nav-lang{border:1px solid var(--rule);border-radius:0;padding:0}
+.nav-lang a{padding:5px 9px;font-size:.56rem;letter-spacing:.14em}
+.nav-lang a.active{background:var(--ink);color:var(--bg)}
+.nav-lang span{display:none}
+
+/* ---- the numbering is gone; the bracket alone holds the three ---- */
+.hx-h1::before,.hx-ex::before,.hx-actions::before{display:none}
+.hx-h1,.hx-ex,.hx-actions{padding-left:56px}
+
+/* ---- headings: engraved, letterspaced, small caps ---- */
+.section-h2{font-weight:600;letter-spacing:-.022em;color:var(--ink)}
+.section-tag{font-family:var(--mono);font-size:.58rem;letter-spacing:.24em;color:var(--brass)}
+.section-tag::before{background:var(--brass);width:26px}
+.section-intro{font-style:normal;color:var(--ink-muted)}
+
+/* ---- rules: thick over thin, the printer's convention ---- */
+.section{border-top:2px solid var(--ink);position:relative}
+.section::after{content:'';position:absolute;top:3px;left:0;right:0;
+  height:1px;background:var(--border);opacity:1;width:auto}
+.section::before{display:none}
+
+/* ---- cards: ruled, not shadowed ---- */
+.service-card,.pricing-card,.process-card,.client-card,.team-card{
+  background:var(--white);box-shadow:none}
+.service-card:hover,.client-card:hover{background:#F6F1E4}
+.pricing-card:hover{transform:none;box-shadow:none;background:#F6F1E4}
+.pricing-card.featured{background:var(--ink);color:var(--bg)}
+.price-num{font-weight:600;color:var(--ink)}
+.pricing-card.featured .price-num{color:var(--bg)}
+
+/* ---- buttons as stamps ---- */
+.btn-primary,.btn-pricing,.cross-cta,.faq-btn,.tm-btn{
+  border-radius:0;font-family:var(--mono);letter-spacing:.18em;font-size:.58rem}
+.btn-primary{background:var(--ink);color:var(--bg);border:1px solid var(--ink)}
+.btn-primary:hover{background:transparent;color:var(--ink)}
+.btn-outline-w{border:1px solid var(--rule);color:var(--ink-mid);border-radius:0;
+  font-family:var(--mono);letter-spacing:.18em;font-size:.58rem}
+.btn-outline-w:hover{border-color:var(--ink);color:var(--ink);background:transparent}
+.btn-p-brass{background:var(--brass);border-color:var(--brass);color:var(--bg)}
+.btn-p-brass:hover{background:var(--brass-light)}
+.btn-p-outline{border-color:var(--ink);color:var(--ink)}
+.btn-p-outline:hover{background:var(--ink);color:var(--bg)}
+
+/* ---- dark bands become deep ink, never navy ---- */
+.cross-section,.contact-section,.testimonials-band,footer{background:var(--navy-dark)}
+footer{border-top:2px solid var(--brass)}
+.stats-band,.trust-band{background:var(--white)}
+.stat-num{font-family:var(--serif);font-size:1.9rem;font-weight:600;
+  color:var(--ink);letter-spacing:.01em}
+
+/* ---- the exchange keeps its rules, in ink ---- */
+.hx-ex{border-top:2px solid var(--ink)}
+.ex-head-r{color:var(--brass)}
+.hx-kept .hx-q{color:var(--brass);border-right-color:var(--brass)}
+.hx-bracket{opacity:.4}
+
+/* ============ CORRECTIONS & ART DIRECTION ============ */
+
+/* ---- 1. the exchange: grid, so a label can never run into the text ---- */
+.hx-ex{border-top:2px solid var(--ink);padding-top:0!important}
+.ex-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;
+  padding:9px 0;border-bottom:1px solid var(--border)}
+.ex-head span{font-family:var(--mono);font-size:.54rem;letter-spacing:.18em;text-transform:uppercase}
+.ex-head-l{color:var(--ink-muted)}
+.ex-head-r{color:var(--brass)}
+
+.hx-turn{
+  display:grid!important;
+  grid-template-columns:118px 1fr;
+  column-gap:24px;
+  align-items:baseline;
+  margin:0;padding:16px 0;
+  border-bottom:1px solid var(--border);
+}
+.hx-turn:last-child{border-bottom:2px solid var(--ink)}
+.hx-q{
+  width:auto!important;
+  font-family:var(--mono);font-size:.56rem;font-weight:500;
+  letter-spacing:.12em;text-transform:uppercase;text-align:right;
+  color:var(--ink-muted);
+  align-self:stretch;padding:3px 24px 0 0;margin-right:-24px;
+  border-right:1px solid var(--border);
+}
+.hx-turn p{font-family:var(--body);font-size:1.06rem;line-height:1.55;
+  color:var(--ink-mid);margin:0;max-width:44ch;text-wrap:pretty}
+.hx-kept .hx-q{color:var(--brass);border-right-color:var(--brass)}
+.hx-kept p{color:var(--ink)}
+
+/* ---- 2. FAQ: Q. in the margin, question beside it, toggle at the far right ---- */
+.faq-q{
+  display:grid!important;
+  grid-template-columns:44px 1fr 24px;
+  align-items:baseline;
+  gap:0;padding:18px 0;cursor:pointer;
+}
+.faq-mk{font-family:var(--mono);font-size:.66rem;font-weight:500;color:var(--ink);
+  width:auto;letter-spacing:.06em}
+.faq-q-text{text-align:left;font-size:1rem}
+.faq-toggle{justify-self:end;color:var(--rule)}
+.faq-a{display:none;grid-template-columns:44px 1fr;padding:0 0 20px}
+.faq-item.open .faq-a{display:grid}
+.faq-mk-a{float:none;color:var(--brass);font-family:var(--mono);font-size:.66rem;font-weight:500}
+.faq-a-text{font-style:normal;max-width:62ch}
+.faq-item::before{display:none}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-list{border-top:2px solid var(--ink)}
+
+/* ---- 3. jurisdiction table: oxblood is unreadable on ink; use sand ---- */
+.jur-table td:first-child{color:#C9BFA8;opacity:.9}
+.jur-table th{color:rgba(244,241,231,.42);background:rgba(244,241,231,.05)}
+.jur-table td{color:rgba(244,241,231,.72)}
+
+/* ---- 4. the team: engraved monogram plates, asymmetric ---- */
+.team-grid{grid-template-columns:1fr 1fr;gap:0;background:var(--border);
+  border:2px solid var(--ink)}
+.team-card{background:var(--white);padding:0;display:block}
+.team-card > div:last-child{padding:34px 36px 38px}
+
+.team-plate{
+  border-bottom:1px solid var(--ink);
+  padding:34px 36px 22px;
+  display:flex;flex-direction:column;align-items:flex-start;
+  background:#F6F1E4;
+}
+.tp-mono{
+  font-family:var(--serif);font-size:4.6rem;font-weight:600;line-height:.86;
+  letter-spacing:-.04em;color:var(--ink);
+  border:1px solid var(--rule);padding:14px 22px 10px;
+  box-shadow:3px 3px 0 var(--border);
+}
+.tp-rule{display:block;width:56px;height:2px;background:var(--brass);margin:18px 0 10px}
+.tp-loc{font-family:var(--mono);font-size:.56rem;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--ink-muted)}
+
+.team-name{font-family:var(--serif);font-size:1.7rem;font-weight:600;
+  color:var(--ink);letter-spacing:-.02em;margin-bottom:2px}
+.team-role{font-family:var(--mono);font-size:.56rem;letter-spacing:.2em;
+  color:var(--brass);margin-bottom:16px}
+.team-bio{color:var(--ink-muted);font-size:.94rem;line-height:1.8}
+.team-edu{margin-top:14px;padding-top:14px;border-top:1px solid var(--border);
+  font-size:.86rem;color:var(--ink-muted);line-height:1.7}
+.edu-k{display:block;font-family:var(--mono);font-size:.52rem;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ink);margin-bottom:5px}
+
+/* ---- 5. client cards: engraved line marks ---- */
+.clients-grid{border:2px solid var(--ink)}
+.client-card{padding:26px 22px 24px;background:var(--white)}
+.cl-ico{width:30px;height:30px;color:var(--brass);display:block;margin-bottom:16px;opacity:.9}
+.client-card:hover .cl-ico{color:var(--ink)}
+.client-name{font-family:var(--serif);font-size:1.06rem;font-weight:600;color:var(--ink)}
+.client-desc{font-size:.56rem;letter-spacing:.12em;color:var(--ink-muted)}
+
+@media(max-width:1100px){
+  .hx-turn{grid-template-columns:1fr;row-gap:5px}
+  .hx-q{text-align:left;border-right:none;padding-right:0;margin-right:0}
+  .faq-q{grid-template-columns:34px 1fr 20px}
+  .faq-a{grid-template-columns:34px 1fr}
+  .team-grid{grid-template-columns:1fr}
+  .tp-mono{font-size:3.4rem}
+}
+
+/* ============ THE EXCHANGE — no rules, line numbers only ============ */
+/* The ruled version read as a table. A transcript needs one apparatus and one
+   only: the numbers in the margin. Everything else is white space. */
+
+.hx-ex{border-top:none!important;padding-top:62px!important;counter-reset:exline 183}
+
+.ex-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;
+  padding:0 0 22px 0;border-bottom:none!important}
+.ex-head span{font-family:var(--mono);font-size:.54rem;letter-spacing:.18em;text-transform:uppercase}
+.ex-head-l{color:var(--ink-muted);opacity:.7}
+.ex-head-r{color:var(--brass);opacity:.8}
+
+.hx-turn{
+  display:grid!important;
+  grid-template-columns:38px 112px 1fr;
+  column-gap:22px;
+  align-items:baseline;
+  margin:0 0 20px 0!important;
+  padding:0!important;
+  border:none!important;
+  counter-increment:exline;
+}
+.hx-turn:last-child{border:none!important;margin-bottom:0!important}
+
+.hx-turn::before{
+  content:counter(exline);
+  font-family:var(--mono);font-size:.56rem;
+  color:var(--rule);opacity:.75;
+  text-align:right;
+  font-variant-numeric:tabular-nums;
+  padding-top:4px;
+}
+
+.hx-q{
+  width:auto!important;
+  font-family:var(--mono);font-size:.56rem;font-weight:500;
+  letter-spacing:.12em;text-transform:uppercase;text-align:right;
+  color:var(--ink-muted);
+  padding:3px 0 0 0!important;margin:0!important;
+  border:none!important;
+  align-self:start;
+}
+.hx-turn p{font-family:var(--body);font-size:1.06rem;line-height:1.55;
+  color:var(--ink-mid);margin:0;max-width:44ch;text-wrap:pretty}
+.hx-kept .hx-q{color:var(--brass)}
+.hx-kept p{color:var(--ink)}
+
+/* ---- the margin rail stays, on every section ---- */
+.section::before{
+  content:'L. 0' counter(lex-line);
+  display:block;
+  position:absolute;top:84px;
+  left:calc((100vw - var(--max)) / 2 - 74px);
+  font-family:var(--mono);font-size:.56rem;letter-spacing:.16em;
+  color:var(--rule);opacity:.6;white-space:nowrap;pointer-events:none;
+}
+@media(max-width:1400px){.section::before{display:none}}
+
+@media(max-width:1100px){
+  .hx-turn{grid-template-columns:30px 1fr;row-gap:4px}
+  .hx-q{grid-column:2;text-align:left}
+  .hx-turn p{grid-column:2;max-width:none}
+}
+
+/* ============ PASS: nav mark, letterpress buttons, margin rule, formats ============ */
+
+/* ---- 1. telephone, set as a letterhead line ---- */
+.nav-tel{display:inline-flex;align-items:center;gap:8px;border-bottom:1px solid var(--rule);
+  padding-bottom:3px;font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;color:var(--ink)}
+.nav-tel svg{width:14px;height:14px;flex-shrink:0}
+.nav-tel:hover{border-bottom-color:var(--ink)}
+
+/* ---- 2. buttons: hard offset, the way a stamp or a letterpress block sits ---- */
+.btn-primary,.btn-outline-w,.btn-pricing,.cross-cta,.faq-btn,.tm-btn,.svc-toggle{
+  border-radius:0;
+  box-shadow:3px 3px 0 var(--ink);
+  transition:transform .08s ease, box-shadow .08s ease, background .2s, color .2s;
+}
+.btn-outline-w,.btn-p-outline{box-shadow:3px 3px 0 var(--rule)}
+.btn-primary:active,.btn-outline-w:active,.btn-pricing:active,
+.cross-cta:active,.faq-btn:active,.tm-btn:active,.svc-toggle:active{
+  transform:translate(3px,3px);box-shadow:0 0 0 var(--ink);
+}
+.pricing-card.featured .btn-p-brass{box-shadow:3px 3px 0 var(--bg)}
+.cross-cta{background:var(--brass);border:1px solid var(--brass);box-shadow:3px 3px 0 rgba(244,241,231,.5)}
+
+/* ---- 3. the margin rule: L. 01 with a vertical line, as on a ruled page ---- */
+.section{
+  border-top:2px solid var(--ink);
+  background-image:linear-gradient(var(--border),var(--border));
+  background-size:100% 1px;background-position:0 3px;background-repeat:no-repeat;
+}
+.section::after{
+  content:'';position:absolute;top:0;bottom:0;
+  left:calc((100vw - var(--max)) / 2 - 56px);
+  width:1px;background:var(--border);opacity:1;
+  pointer-events:none;
+}
+@media(max-width:1400px){.section::after{display:none}}
+
+/* ---- 4. the format panels ---- */
+.svc-toggle{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;width:100%;
+  margin-top:20px;padding:9px 13px;cursor:pointer;
+  background:transparent;border:1px solid var(--rule);
+  font-family:var(--mono);font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-muted);
+}
+.svc-toggle:hover{border-color:var(--ink);color:var(--ink)}
+.svc-plus{font-size:.8rem;line-height:1;transition:transform .2s}
+.svc-toggle.open .svc-plus{transform:rotate(45deg)}
+.svc-fmt{
+  max-height:0;overflow:hidden;transition:max-height .32s ease;
+  font-family:var(--mono);font-size:.58rem;line-height:2;
+  color:var(--ink-mid);white-space:pre;margin:0;
+  border-left:2px solid var(--ink);padding-left:0;
+}
+.svc-toggle.open + .svc-fmt{padding:14px 0 14px 16px;margin-top:12px}
+.service-link{margin-top:18px}
+
+/* ---- 5. the border, behind the cross-border section ---- */
+.cross-section{position:relative;overflow:hidden}
+.xb-map{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:min(1500px,140%);height:auto;
+  color:rgba(244,241,231,.16);
+  pointer-events:none;z-index:0;
+}
+.cross-section .container{position:relative;z-index:1}
+
+/* ---- 6. the stats band now stands alone; give it room ---- */
+.stats-band{border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.stat-item{padding:34px 22px}
+
+/* ============ MARGIN RULE + BORDER MAP ============ */
+
+/* ---- the ruled left margin, on every band, light and dark ---- */
+.section,.cross-section,.contact-section,.testimonials-band,.stats-band,.clients-section{
+  position:relative;
+}
+.section::after,
+.cross-section::before,
+.contact-section::before,
+.testimonials-band::before,
+.stats-band::before{
+  content:'';position:absolute;top:0;bottom:0;
+  left:calc((100vw - var(--max)) / 2 - 56px);
+  width:1px;background:var(--border);
+  pointer-events:none;z-index:2;
+}
+/* on ink, the rule has to be lifted or it vanishes */
+.cross-section::before,.contact-section::before,.testimonials-band::before{
+  background:rgba(244,241,231,.18);
+}
+@media(max-width:1400px){
+  .section::after,.cross-section::before,.contact-section::before,
+  .testimonials-band::before,.stats-band::before{display:none}
+}
+
+/* ---- the border, named ---- */
+.xb-map{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:min(1250px,118%);height:auto;
+  color:rgba(244,241,231,.26);
+  pointer-events:none;z-index:0;
+}
+
+
+.cross-section{position:relative;overflow:hidden}
+.cross-section .container{position:relative;z-index:1}
+
+@media(max-width:900px){
+  .xb-map{width:190%;opacity:.8}
+  
+  
+}
+
+/* ============ THE BORDER — real coordinates ============ */
+/* Boundaries from public GeoJSON, projected equirectangular corrected at 43°N.
+   The countries sit in thin outline; the shared boundary is the only heavy line. */
+.xb-map{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:min(1180px,112%);height:auto;pointer-events:none;z-index:0;
+}
+.xb-land{fill:none;stroke:rgba(244,241,231,.20);stroke-width:1;
+  stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.xb-line{fill:none;stroke:rgba(244,241,231,.62);stroke-width:2.6;
+  stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.cross-section{position:relative;overflow:hidden}
+.cross-section .container{position:relative;z-index:1}
+@media(max-width:900px){.xb-map{width:190%}}
+
+/* ============ DEPOSITION CONVENTIONS ============ */
+/* Q. / A. for the examination itself; the named label only for colloquy, which
+   is how a US deposition transcript actually distinguishes the two registers.
+   Parentheticals carry no speaker and no line reference. */
+
+.hx-ex{counter-reset:exline 30}
+.hx-turn{grid-template-columns:38px 104px 1fr}
+
+/* Q. and A. sit tight against the text; counsel names are wider */
+.hx-q{font-size:.6rem;letter-spacing:.1em}
+
+/* parentheticals: no number, no speaker, set in the text column */
+.hx-paren{counter-increment:none}
+.hx-paren::before{content:''}
+.hx-paren p{font-family:var(--mono);font-size:.62rem;letter-spacing:.04em;
+  color:var(--ink-muted);opacity:.8}
+
+/* colloquy: counsel speaking to counsel, not testimony */
+.hx-colloquy .hx-q{font-size:.56rem;letter-spacing:.14em}
+.hx-colloquy p{color:var(--ink-muted);font-size:.98rem}
+
+/* the moment that matters: the answer that crosses back into French */
+.hx-kept p{color:var(--ink)}
+.hx-kept .hx-q{color:var(--brass)}
+
+
+
+/* ============ NAV RULE — hairline, and a whisper of engraving ============ */
+nav{position:sticky;top:0;z-index:1000;background:var(--bg);
+  border-bottom:none;box-shadow:none;padding-bottom:0}
+nav::after{
+  content:'';display:block;height:9px;
+  border-top:none;
+  background-image:url("data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%2284%22%20height=%228%22%20viewBox=%220%200%2084%208%22%3E%3Cpath%20d=%22M0.00%204.00%20L0.70%204.05%20L1.40%204.09%20L2.10%204.14%20L2.80%204.19%20L3.50%204.23%20L4.20%204.28%20L4.90%204.32%20L5.60%204.37%20L6.30%204.41%20L7.00%204.45%20L7.70%204.49%20L8.40%204.53%20L9.10%204.57%20L9.80%204.60%20L10.50%204.64%20L11.20%204.67%20L11.90%204.70%20L12.60%204.73%20L13.30%204.75%20L14.00%204.78%20L14.70%204.80%20L15.40%204.82%20L16.10%204.84%20L16.80%204.86%20L17.50%204.87%20L18.20%204.88%20L18.90%204.89%20L19.60%204.90%20L20.30%204.90%20L21.00%204.90%20L21.70%204.90%20L22.40%204.90%20L23.10%204.89%20L23.80%204.88%20L24.50%204.87%20L25.20%204.86%20L25.90%204.84%20L26.60%204.82%20L27.30%204.80%20L28.00%204.78%20L28.70%204.75%20L29.40%204.73%20L30.10%204.70%20L30.80%204.67%20L31.50%204.64%20L32.20%204.60%20L32.90%204.57%20L33.60%204.53%20L34.30%204.49%20L35.00%204.45%20L35.70%204.41%20L36.40%204.37%20L37.10%204.32%20L37.80%204.28%20L38.50%204.23%20L39.20%204.19%20L39.90%204.14%20L40.60%204.09%20L41.30%204.05%20L42.00%204.00%20L42.70%203.95%20L43.40%203.91%20L44.10%203.86%20L44.80%203.81%20L45.50%203.77%20L46.20%203.72%20L46.90%203.68%20L47.60%203.63%20L48.30%203.59%20L49.00%203.55%20L49.70%203.51%20L50.40%203.47%20L51.10%203.43%20L51.80%203.40%20L52.50%203.36%20L53.20%203.33%20L53.90%203.30%20L54.60%203.27%20L55.30%203.25%20L56.00%203.22%20L56.70%203.20%20L57.40%203.18%20L58.10%203.16%20L58.80%203.14%20L59.50%203.13%20L60.20%203.12%20L60.90%203.11%20L61.60%203.10%20L62.30%203.10%20L63.00%203.10%20L63.70%203.10%20L64.40%203.10%20L65.10%203.11%20L65.80%203.12%20L66.50%203.13%20L67.20%203.14%20L67.90%203.16%20L68.60%203.18%20L69.30%203.20%20L70.00%203.22%20L70.70%203.25%20L71.40%203.27%20L72.10%203.30%20L72.80%203.33%20L73.50%203.36%20L74.20%203.40%20L74.90%203.43%20L75.60%203.47%20L76.30%203.51%20L77.00%203.55%20L77.70%203.59%20L78.40%203.63%20L79.10%203.68%20L79.80%203.72%20L80.50%203.77%20L81.20%203.81%20L81.90%203.86%20L82.60%203.91%20L83.30%203.95%20L84.00%204.00%22%20fill=%22none%22%20stroke=%22%23141210%22%20stroke-width=%220.3%22%20opacity=%220.10%22/%3E%3Cpath%20d=%22M0.00%204.00%20L0.70%203.95%20L1.40%203.91%20L2.10%203.86%20L2.80%203.81%20L3.50%203.77%20L4.20%203.72%20L4.90%203.68%20L5.60%203.63%20L6.30%203.59%20L7.00%203.55%20L7.70%203.51%20L8.40%203.47%20L9.10%203.43%20L9.80%203.40%20L10.50%203.36%20L11.20%203.33%20L11.90%203.30%20L12.60%203.27%20L13.30%203.25%20L14.00%203.22%20L14.70%203.20%20L15.40%203.18%20L16.10%203.16%20L16.80%203.14%20L17.50%203.13%20L18.20%203.12%20L18.90%203.11%20L19.60%203.10%20L20.30%203.10%20L21.00%203.10%20L21.70%203.10%20L22.40%203.10%20L23.10%203.11%20L23.80%203.12%20L24.50%203.13%20L25.20%203.14%20L25.90%203.16%20L26.60%203.18%20L27.30%203.20%20L28.00%203.22%20L28.70%203.25%20L29.40%203.27%20L30.10%203.30%20L30.80%203.33%20L31.50%203.36%20L32.20%203.40%20L32.90%203.43%20L33.60%203.47%20L34.30%203.51%20L35.00%203.55%20L35.70%203.59%20L36.40%203.63%20L37.10%203.68%20L37.80%203.72%20L38.50%203.77%20L39.20%203.81%20L39.90%203.86%20L40.60%203.91%20L41.30%203.95%20L42.00%204.00%20L42.70%204.05%20L43.40%204.09%20L44.10%204.14%20L44.80%204.19%20L45.50%204.23%20L46.20%204.28%20L46.90%204.32%20L47.60%204.37%20L48.30%204.41%20L49.00%204.45%20L49.70%204.49%20L50.40%204.53%20L51.10%204.57%20L51.80%204.60%20L52.50%204.64%20L53.20%204.67%20L53.90%204.70%20L54.60%204.73%20L55.30%204.75%20L56.00%204.78%20L56.70%204.80%20L57.40%204.82%20L58.10%204.84%20L58.80%204.86%20L59.50%204.87%20L60.20%204.88%20L60.90%204.89%20L61.60%204.90%20L62.30%204.90%20L63.00%204.90%20L63.70%204.90%20L64.40%204.90%20L65.10%204.89%20L65.80%204.88%20L66.50%204.87%20L67.20%204.86%20L67.90%204.84%20L68.60%204.82%20L69.30%204.80%20L70.00%204.78%20L70.70%204.75%20L71.40%204.73%20L72.10%204.70%20L72.80%204.67%20L73.50%204.64%20L74.20%204.60%20L74.90%204.57%20L75.60%204.53%20L76.30%204.49%20L77.00%204.45%20L77.70%204.41%20L78.40%204.37%20L79.10%204.32%20L79.80%204.28%20L80.50%204.23%20L81.20%204.19%20L81.90%204.14%20L82.60%204.09%20L83.30%204.05%20L84.00%204.00%22%20fill=%22none%22%20stroke=%22%23141210%22%20stroke-width=%220.3%22%20opacity=%220.10%22/%3E%3C/svg%3E");
+  background-repeat:repeat-x;background-position:center 2px;background-size:84px 8px;
+}
+.nav-inner{height:64px}
+@media(max-width:760px){nav::after{height:7px;background-size:64px 6px}}
+
+/* ============ DEBOX — space and hairlines, not cells ============ */
+/* Every grid on this site was a bordered box. Boxes are what HTML does when
+   nobody decides anything. These are laid out on an asymmetric 12-column grid
+   with white space doing the separating. */
+
+/* ---- the band: no cells, uneven spans, one rule top and bottom ---- */
+.stats-band{background:transparent;border-top:1px solid rgba(20,18,16,.32);
+  border-bottom:1px solid rgba(20,18,16,.32);padding:0}
+.stats-inner{
+  display:grid;grid-template-columns:repeat(12,1fr);
+  gap:0;align-items:start;padding:46px 0 44px;
+}
+.stat-item{border:none;text-align:left;padding:0}
+.stat-item:nth-child(1){grid-column:1 / 4}
+.stat-item:nth-child(2){grid-column:4 / 7}
+.stat-item:nth-child(3){grid-column:8 / 10}
+.stat-item:nth-child(4){grid-column:10 / 13}
+.stat-num{font-family:var(--serif);font-size:2.1rem;font-weight:600;
+  color:var(--ink);letter-spacing:-.02em;line-height:1;margin-bottom:12px;display:block}
+.stat-lab{font-family:var(--mono);font-size:.56rem;letter-spacing:.16em;
+  line-height:1.9;color:var(--ink-muted);text-transform:uppercase}
+
+/* ---- services: four entries, uneven, no cards ---- */
+.services-grid{
+  display:grid;grid-template-columns:repeat(12,1fr);
+  border:none;column-gap:0;row-gap:64px;
+}
+.service-card{
+  background:transparent;border:none;padding:0;
+  border-top:1px solid var(--ink);padding-top:22px;
+}
+.service-card:hover{background:transparent}
+.service-card:nth-child(1){grid-column:1 / 6}
+.service-card:nth-child(2){grid-column:7 / 13}
+.service-card:nth-child(3){grid-column:1 / 7}
+.service-card:nth-child(4){grid-column:8 / 13}
+.service-h3{font-size:1.55rem;margin-bottom:12px}
+.service-p{max-width:42ch}
+
+/* ---- clients: a list, not a lattice ---- */
+.clients-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:0;background:transparent;border:none;
+  border-top:1px solid var(--ink);
+}
+.client-card{
+  background:transparent;border:none;
+  border-bottom:1px solid var(--border);
+  padding:26px 28px 26px 0;
+}
+.client-card:hover{background:transparent}
+.client-card:hover .client-name{color:var(--brass)}
+.cl-ico{margin-bottom:14px;opacity:.75}
+
+/* ---- process: three columns, no frames ---- */
+.process-grid{display:grid;grid-template-columns:repeat(12,1fr);border:none;column-gap:0;row-gap:56px}
+.process-card{background:transparent;border:none;padding:0;overflow:visible;
+  border-top:1px solid var(--ink);padding-top:22px}
+.process-card::after{display:none}
+.process-card:nth-child(1){grid-column:1 / 5}
+.process-card:nth-child(2){grid-column:5 / 9;padding-left:34px}
+.process-card:nth-child(3){grid-column:9 / 13;padding-left:34px}
+.process-h3{font-size:1.45rem}
+
+/* ---- pricing keeps a frame, because it is a comparison ---- */
+.pricing-grid{border:none;display:grid;grid-template-columns:repeat(3,1fr);column-gap:0}
+.pricing-card{border:none;border-top:2px solid var(--ink);background:transparent;
+  padding:26px 30px 34px 0}
+.pricing-card:hover{background:transparent}
+.pricing-card.featured{background:transparent;color:inherit;padding-left:30px;
+  border-top-color:var(--brass)}
+.pricing-card.featured .price-tier{color:var(--brass)}
+.pricing-card.featured .price-num{color:var(--ink)}
+.pricing-card.featured .price-sub{color:var(--ink-muted)}
+.pricing-card.featured .pricing-ul li{color:var(--ink-muted)}
+.pricing-card.featured .pricing-ul li::before{color:var(--brass)}
+.pricing-card.featured .btn-p-brass{box-shadow:3px 3px 0 var(--ink)}
+
+/* ---- team: the plates stay, the lattice goes ---- */
+.team-grid{border:none;background:transparent;gap:0;
+  display:grid;grid-template-columns:1fr 1fr}
+.team-card{border-top:1px solid var(--ink);background:transparent}
+.team-card:nth-child(2){padding-left:44px}
+.team-plate{background:transparent;border-bottom:none;padding:26px 0 20px}
+
+@media(max-width:1000px){
+  .stats-inner{grid-template-columns:1fr 1fr;row-gap:34px;padding:34px 0}
+  .stat-item:nth-child(n){grid-column:auto}
+  .services-grid,.process-grid{grid-template-columns:1fr;row-gap:42px}
+  .service-card:nth-child(n),.process-card:nth-child(n){grid-column:auto;padding-left:0}
+  .clients-grid{grid-template-columns:1fr 1fr}
+  .pricing-grid{grid-template-columns:1fr;row-gap:34px}
+  .pricing-card{padding-left:0!important}
+  .team-grid{grid-template-columns:1fr}
+  .team-card:nth-child(2){padding-left:0}
+}
+
+/* ============ MASTHEAD — the line a letterhead opens with ============ */
+/* Three fields across the measure, hairline above and below, small caps
+   letterspaced wide. It gives the hero a top edge to hang from. */
+
+.hx-mast{
+  grid-column:2 / 13;grid-row:1;
+  display:grid;grid-template-columns:1fr auto 1fr;align-items:baseline;
+  gap:24px;
+  margin:0 0 0 56px;
+  padding:46px 0 9px;
+  border-bottom:1px solid rgba(20,18,16,.28);
+}
+.hx-mast span{
+  font-family:var(--mono);font-size:.54rem;letter-spacing:.26em;
+  text-transform:uppercase;color:var(--ink-muted);white-space:nowrap;
+}
+.mast-l{text-align:left}
+.mast-c{text-align:center;color:var(--ink);opacity:.85}
+.mast-r{text-align:right}
+
+/* the eyebrow and the rest step down one row */
+.hx-eyebrow{grid-row:2;padding-top:22px}
+.hx-h1{grid-row:3}
+.hx-ex{grid-row:4}
+.hx-actions{grid-row:5}
+
+/* the bracket starts below the masthead */
+.hx-bracket{top:118px}
+
+/* the mast fades in first, then everything under it */
+.hx-mast{opacity:0;animation:hxIn .5s ease forwards;animation-delay:.08s}
+
+@media(max-width:1100px){
+  .hx-mast{grid-column:1;margin-left:48px;padding-top:32px;
+    grid-template-columns:1fr;gap:5px;text-align:left}
+  .mast-c,.mast-r{text-align:left}
+  .hx-bracket{top:150px}
+}
+@media(max-width:560px){
+  .mast-r{display:none}
+}
+
+/* ============ FOLIO — the foot of a filed page ============ */
+/* File reference left, page mark centred, nature of the record right. It closes
+   the hero the way a printed page closes: quietly, with its own identifiers. */
+
+.hx-folio{
+  grid-column:2 / 13;grid-row:6;
+  display:grid;grid-template-columns:1fr auto 1fr;align-items:baseline;
+  gap:24px;
+  margin:0 0 0 56px;
+  padding:14px 0 40px;
+  border-top:1px solid rgba(20,18,16,.22);
+}
+.hx-folio span{
+  font-family:var(--mono);font-size:.52rem;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--ink-muted);opacity:.72;white-space:nowrap;
+}
+.fo-l{text-align:left}
+.fo-c{text-align:center;color:var(--ink);opacity:.85;letter-spacing:.14em}
+.fo-r{text-align:right}
+
+/* the actions no longer carry the bottom padding; the folio closes the section */
+.hx-actions{padding-bottom:44px}
+.hx-bracket{bottom:132px}
+
+.hx-folio{opacity:0;animation:hxIn .5s ease forwards;animation-delay:1.3s}
+
+@media(max-width:1100px){
+  .hx-folio{grid-column:1;margin-left:48px;padding-bottom:30px}
+  .hx-actions{padding-bottom:34px}
+  .hx-bracket{bottom:112px}
+}
+@media(max-width:560px){
+  .hx-folio{grid-template-columns:1fr auto;gap:14px}
+  .fo-r{display:none}
+}
+
+/* ============ RESTORED: services and pricing keep their frames ============ */
+/* Two grids earn their boxes. The services are four parallel offers a reader
+   compares side by side, and pricing is a comparison table by definition.
+   Everything else stays deboxed. */
+
+.services-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  border:2px solid var(--ink);
+  column-gap:0;row-gap:0;
+}
+.service-card{
+  background:var(--white);
+  border:none;
+  border-right:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  padding:42px 40px;
+  grid-column:auto!important;
+}
+.service-card:nth-child(even){border-right:none}
+.service-card:nth-child(n+3){border-bottom:none}
+.service-card:hover{background:#F6F1E4}
+.service-h3{font-size:1.6rem;margin-bottom:13px}
+.service-p{max-width:none}
+
+.pricing-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  border:2px solid var(--ink);
+  margin-top:56px;column-gap:0;
+}
+.pricing-card{
+  background:var(--white);
+  border:none;border-right:1px solid var(--border);
+  padding:42px 36px 40px;
+}
+.pricing-card:last-child{border-right:none}
+.pricing-card:hover{background:#F6F1E4}
+.pricing-card.featured{background:var(--ink);padding-left:36px}
+.pricing-card.featured:hover{background:var(--ink)}
+.pricing-card.featured .price-tier{color:var(--brass-light)}
+.pricing-card.featured .price-num{color:var(--bg)}
+.pricing-card.featured .price-sub{color:rgba(244,241,231,.42)}
+.pricing-card.featured .pricing-ul li{color:rgba(244,241,231,.66)}
+.pricing-card.featured .pricing-ul li::before{color:var(--brass-light)}
+.pricing-card.featured .btn-p-brass{box-shadow:3px 3px 0 rgba(244,241,231,.55)}
+
+@media(max-width:1000px){
+  .services-grid{grid-template-columns:1fr}
+  .service-card{border-right:none;border-bottom:1px solid var(--border)}
+  .service-card:last-child{border-bottom:none}
+  .pricing-grid{grid-template-columns:1fr}
+  .pricing-card{border-right:none;border-bottom:1px solid var(--border);padding-left:36px!important}
+  .pricing-card:last-child{border-bottom:none}
+}
+
+/* ============ HEADLINE — the machine brackets, the voice speaks ============ */
+/* A transcript encloses testimony in the reporter's parentheticals. So the
+   parentheses are set in the machine face and the words in the text face:
+   the apparatus holds the statement, exactly as the document does. */
+
+.hx-h1{
+  font-family:var(--serif);
+  font-size:clamp(1.6rem,6.2vw,7rem);
+  font-weight:600;
+  letter-spacing:-.046em;
+  line-height:1.02;
+  white-space:nowrap;
+  color:var(--ink);
+  padding-top:44px;
+}
+.h1-p{
+  font-family:var(--mono);
+  font-weight:300;
+  font-size:.52em;
+  letter-spacing:0;
+  color:var(--rule);
+  vertical-align:.14em;
+  margin:0 .06em;
+  display:inline-block;
+  transform:translateY(-.02em);
+}
+.hx-h1::before{top:50px}
+.hx-h1::after{display:none}
+
+/* the brackets settle a beat after the words */
+.h1-p{opacity:0;animation:hxIn .5s ease forwards;animation-delay:.62s}
+
+@media(max-width:1100px){
+  .hx-h1{font-size:clamp(1.4rem,7.6vw,3.6rem);padding-top:30px}
+  .h1-p{font-size:.56em;vertical-align:.1em}
+}
+@media(prefers-reduced-motion:reduce){.h1-p{opacity:1;animation:none}}
+
+/* ============ HEADLINE — the machine supplies the brackets ============ */
+/* A parenthetical is a stenographer's mark, not a typographer's. So the marks
+   are set in the machine face and the words in the human one. That is the whole
+   business in one line: the draft is typed, the record is written. */
+
+.hx-h1{
+  font-family:var(--serif)!important;
+  font-size:clamp(1.9rem,5.4vw,6rem)!important;
+  font-weight:600!important;
+  letter-spacing:-.032em!important;
+  line-height:1.02!important;
+  text-transform:none;
+  white-space:nowrap;
+  color:var(--ink);
+  padding-top:46px!important;
+  display:flex;align-items:baseline;gap:.06em;
+}
+.hx-h1::after{display:none}
+
+.hw{font-family:var(--serif)}
+
+/* the marks: machine face, lighter, set slightly small and raised */
+.pm{
+  font-family:var(--mono);
+  font-size:.44em;
+  font-weight:400;
+  letter-spacing:0;
+  color:var(--rule);
+  position:relative;top:-.30em;
+}
+.pm-l{margin-right:.02em}
+.pm-r{margin-left:.04em}
+
+@media(max-width:1100px){
+  .hx-h1{font-size:clamp(1.5rem,6.6vw,3rem)!important;padding-top:30px!important}
+}
+
+/* ============ HERO — a frame, and three things inside it ============ */
+/* Masthead and folio are the frame. Between them: the claim, the proof, the
+   invitation. The eyebrow is gone; the masthead already says what this is. */
+.hx-mast{grid-row:1}
+.hx-h1{grid-row:2;padding-top:56px!important}
+.hx-ex{grid-row:3}
+.hx-actions{grid-row:4}
+.hx-folio{grid-row:5}
+.hx-bracket{top:112px}
+@media(max-width:1100px){.hx-h1{padding-top:34px!important}.hx-bracket{top:142px}}
+
+/* ============ GUILLOCHE — the site's only divider ============ */
+/* The same engraved band under the nav now separates every section. Solid
+   rules are gone; the texture does the work. */
+
+.section{
+  border-top:none;
+  background-image:url("data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%2284%22%20height=%228%22%20viewBox=%220%200%2084%208%22%3E%3Cpath%20d=%22M0.00%204.00%20L0.70%204.05%20L1.40%204.09%20L2.10%204.14%20L2.80%204.19%20L3.50%204.23%20L4.20%204.28%20L4.90%204.32%20L5.60%204.37%20L6.30%204.41%20L7.00%204.45%20L7.70%204.49%20L8.40%204.53%20L9.10%204.57%20L9.80%204.60%20L10.50%204.64%20L11.20%204.67%20L11.90%204.70%20L12.60%204.73%20L13.30%204.75%20L14.00%204.78%20L14.70%204.80%20L15.40%204.82%20L16.10%204.84%20L16.80%204.86%20L17.50%204.87%20L18.20%204.88%20L18.90%204.89%20L19.60%204.90%20L20.30%204.90%20L21.00%204.90%20L21.70%204.90%20L22.40%204.90%20L23.10%204.89%20L23.80%204.88%20L24.50%204.87%20L25.20%204.86%20L25.90%204.84%20L26.60%204.82%20L27.30%204.80%20L28.00%204.78%20L28.70%204.75%20L29.40%204.73%20L30.10%204.70%20L30.80%204.67%20L31.50%204.64%20L32.20%204.60%20L32.90%204.57%20L33.60%204.53%20L34.30%204.49%20L35.00%204.45%20L35.70%204.41%20L36.40%204.37%20L37.10%204.32%20L37.80%204.28%20L38.50%204.23%20L39.20%204.19%20L39.90%204.14%20L40.60%204.09%20L41.30%204.05%20L42.00%204.00%20L42.70%203.95%20L43.40%203.91%20L44.10%203.86%20L44.80%203.81%20L45.50%203.77%20L46.20%203.72%20L46.90%203.68%20L47.60%203.63%20L48.30%203.59%20L49.00%203.55%20L49.70%203.51%20L50.40%203.47%20L51.10%203.43%20L51.80%203.40%20L52.50%203.36%20L53.20%203.33%20L53.90%203.30%20L54.60%203.27%20L55.30%203.25%20L56.00%203.22%20L56.70%203.20%20L57.40%203.18%20L58.10%203.16%20L58.80%203.14%20L59.50%203.13%20L60.20%203.12%20L60.90%203.11%20L61.60%203.10%20L62.30%203.10%20L63.00%203.10%20L63.70%203.10%20L64.40%203.10%20L65.10%203.11%20L65.80%203.12%20L66.50%203.13%20L67.20%203.14%20L67.90%203.16%20L68.60%203.18%20L69.30%203.20%20L70.00%203.22%20L70.70%203.25%20L71.40%203.27%20L72.10%203.30%20L72.80%203.33%20L73.50%203.36%20L74.20%203.40%20L74.90%203.43%20L75.60%203.47%20L76.30%203.51%20L77.00%203.55%20L77.70%203.59%20L78.40%203.63%20L79.10%203.68%20L79.80%203.72%20L80.50%203.77%20L81.20%203.81%20L81.90%203.86%20L82.60%203.91%20L83.30%203.95%20L84.00%204.00%22%20fill=%22none%22%20stroke=%22%23141210%22%20stroke-width=%220.3%22%20opacity=%220.13%22/%3E%3Cpath%20d=%22M0.00%204.00%20L0.70%203.95%20L1.40%203.91%20L2.10%203.86%20L2.80%203.81%20L3.50%203.77%20L4.20%203.72%20L4.90%203.68%20L5.60%203.63%20L6.30%203.59%20L7.00%203.55%20L7.70%203.51%20L8.40%203.47%20L9.10%203.43%20L9.80%203.40%20L10.50%203.36%20L11.20%203.33%20L11.90%203.30%20L12.60%203.27%20L13.30%203.25%20L14.00%203.22%20L14.70%203.20%20L15.40%203.18%20L16.10%203.16%20L16.80%203.14%20L17.50%203.13%20L18.20%203.12%20L18.90%203.11%20L19.60%203.10%20L20.30%203.10%20L21.00%203.10%20L21.70%203.10%20L22.40%203.10%20L23.10%203.11%20L23.80%203.12%20L24.50%203.13%20L25.20%203.14%20L25.90%203.16%20L26.60%203.18%20L27.30%203.20%20L28.00%203.22%20L28.70%203.25%20L29.40%203.27%20L30.10%203.30%20L30.80%203.33%20L31.50%203.36%20L32.20%203.40%20L32.90%203.43%20L33.60%203.47%20L34.30%203.51%20L35.00%203.55%20L35.70%203.59%20L36.40%203.63%20L37.10%203.68%20L37.80%203.72%20L38.50%203.77%20L39.20%203.81%20L39.90%203.86%20L40.60%203.91%20L41.30%203.95%20L42.00%204.00%20L42.70%204.05%20L43.40%204.09%20L44.10%204.14%20L44.80%204.19%20L45.50%204.23%20L46.20%204.28%20L46.90%204.32%20L47.60%204.37%20L48.30%204.41%20L49.00%204.45%20L49.70%204.49%20L50.40%204.53%20L51.10%204.57%20L51.80%204.60%20L52.50%204.64%20L53.20%204.67%20L53.90%204.70%20L54.60%204.73%20L55.30%204.75%20L56.00%204.78%20L56.70%204.80%20L57.40%204.82%20L58.10%204.84%20L58.80%204.86%20L59.50%204.87%20L60.20%204.88%20L60.90%204.89%20L61.60%204.90%20L62.30%204.90%20L63.00%204.90%20L63.70%204.90%20L64.40%204.90%20L65.10%204.89%20L65.80%204.88%20L66.50%204.87%20L67.20%204.86%20L67.90%204.84%20L68.60%204.82%20L69.30%204.80%20L70.00%204.78%20L70.70%204.75%20L71.40%204.73%20L72.10%204.70%20L72.80%204.67%20L73.50%204.64%20L74.20%204.60%20L74.90%204.57%20L75.60%204.53%20L76.30%204.49%20L77.00%204.45%20L77.70%204.41%20L78.40%204.37%20L79.10%204.32%20L79.80%204.28%20L80.50%204.23%20L81.20%204.19%20L81.90%204.14%20L82.60%204.09%20L83.30%204.05%20L84.00%204.00%22%20fill=%22none%22%20stroke=%22%23141210%22%20stroke-width=%220.3%22%20opacity=%220.13%22/%3E%3C/svg%3E");
+  background-repeat:repeat-x;background-position:0 3px;background-size:84px 8px;
+}
+.services-grid,.pricing-grid,.clients-grid,.faq-list,.hx-ex,
+.stats-band,.prin,.story-body{border-top:none}
+
+.stats-band{
+  border-top:none;border-bottom:none;
+  background-image:url("data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%2284%22%20height=%228%22%20viewBox=%220%200%2084%208%22%3E%3Cpath%20d=%22M0.00%204.00%20L0.70%204.05%20L1.40%204.09%20L2.10%204.14%20L2.80%204.19%20L3.50%204.23%20L4.20%204.28%20L4.90%204.32%20L5.60%204.37%20L6.30%204.41%20L7.00%204.45%20L7.70%204.49%20L8.40%204.53%20L9.10%204.57%20L9.80%204.60%20L10.50%204.64%20L11.20%204.67%20L11.90%204.70%20L12.60%204.73%20L13.30%204.75%20L14.00%204.78%20L14.70%204.80%20L15.40%204.82%20L16.10%204.84%20L16.80%204.86%20L17.50%204.87%20L18.20%204.88%20L18.90%204.89%20L19.60%204.90%20L20.30%204.90%20L21.00%204.90%20L21.70%204.90%20L22.40%204.90%20L23.10%204.89%20L23.80%204.88%20L24.50%204.87%20L25.20%204.86%20L25.90%204.84%20L26.60%204.82%20L27.30%204.80%20L28.00%204.78%20L28.70%204.75%20L29.40%204.73%20L30.10%204.70%20L30.80%204.67%20L31.50%204.64%20L32.20%204.60%20L32.90%204.57%20L33.60%204.53%20L34.30%204.49%20L35.00%204.45%20L35.70%204.41%20L36.40%204.37%20L37.10%204.32%20L37.80%204.28%20L38.50%204.23%20L39.20%204.19%20L39.90%204.14%20L40.60%204.09%20L41.30%204.05%20L42.00%204.00%20L42.70%203.95%20L43.40%203.91%20L44.10%203.86%20L44.80%203.81%20L45.50%203.77%20L46.20%203.72%20L46.90%203.68%20L47.60%203.63%20L48.30%203.59%20L49.00%203.55%20L49.70%203.51%20L50.40%203.47%20L51.10%203.43%20L51.80%203.40%20L52.50%203.36%20L53.20%203.33%20L53.90%203.30%20L54.60%203.27%20L55.30%203.25%20L56.00%203.22%20L56.70%203.20%20L57.40%203.18%20L58.10%203.16%20L58.80%203.14%20L59.50%203.13%20L60.20%203.12%20L60.90%203.11%20L61.60%203.10%20L62.30%203.10%20L63.00%203.10%20L63.70%203.10%20L64.40%203.10%20L65.10%203.11%20L65.80%203.12%20L66.50%203.13%20L67.20%203.14%20L67.90%203.16%20L68.60%203.18%20L69.30%203.20%20L70.00%203.22%20L70.70%203.25%20L71.40%203.27%20L72.10%203.30%20L72.80%203.33%20L73.50%203.36%20L74.20%203.40%20L74.90%203.43%20L75.60%203.47%20L76.30%203.51%20L77.00%203.55%20L77.70%203.59%20L78.40%203.63%20L79.10%203.68%20L79.80%203.72%20L80.50%203.77%20L81.20%203.81%20L81.90%203.86%20L82.60%203.91%20L83.30%203.95%20L84.00%204.00%22%20fill=%22none%22%20stroke=%22%23141210%22%20stroke-width=%220.3%22%20opacity=%220.13%22/%3E%3Cpath%20d=%22M0.00%204.00%20L0.70%203.95%20L1.40%203.91%20L2.10%203.86%20L2.80%203.81%20L3.50%203.77%20L4.20%203.72%20L4.90%203.68%20L5.60%203.63%20L6.30%203.59%20L7.00%203.55%20L7.70%203.51%20L8.40%203.47%20L9.10%203.43%20L9.80%203.40%20L10.50%203.36%20L11.20%203.33%20L11.90%203.30%20L12.60%203.27%20L13.30%203.25%20L14.00%203.22%20L14.70%203.20%20L15.40%203.18%20L16.10%203.16%20L16.80%203.14%20L17.50%203.13%20L18.20%203.12%20L18.90%203.11%20L19.60%203.10%20L20.30%203.10%20L21.00%203.10%20L21.70%203.10%20L22.40%203.10%20L23.10%203.11%20L23.80%203.12%20L24.50%203.13%20L25.20%203.14%20L25.90%203.16%20L26.60%203.18%20L27.30%203.20%20L28.00%203.22%20L28.70%203.25%20L29.40%203.27%20L30.10%203.30%20L30.80%203.33%20L31.50%203.36%20L32.20%203.40%20L32.90%203.43%20L33.60%203.47%20L34.30%203.51%20L35.00%203.55%20L35.70%203.59%20L36.40%203.63%20L37.10%203.68%20L37.80%203.72%20L38.50%203.77%20L39.20%203.81%20L39.90%203.86%20L40.60%203.91%20L41.30%203.95%20L42.00%204.00%20L42.70%204.05%20L43.40%204.09%20L44.10%204.14%20L44.80%204.19%20L45.50%204.23%20L46.20%204.28%20L46.90%204.32%20L47.60%204.37%20L48.30%204.41%20L49.00%204.45%20L49.70%204.49%20L50.40%204.53%20L51.10%204.57%20L51.80%204.60%20L52.50%204.64%20L53.20%204.67%20L53.90%204.70%20L54.60%204.73%20L55.30%204.75%20L56.00%204.78%20L56.70%204.80%20L57.40%204.82%20L58.10%204.84%20L58.80%204.86%20L59.50%204.87%20L60.20%204.88%20L60.90%204.89%20L61.60%204.90%20L62.30%204.90%20L63.00%204.90%20L63.70%204.90%20L64.40%204.90%20L65.10%204.89%20L65.80%204.88%20L66.50%204.87%20L67.20%204.86%20L67.90%204.84%20L68.60%204.82%20L69.30%204.80%20L70.00%204.78%20L70.70%204.75%20L71.40%204.73%20L72.10%204.70%20L72.80%204.67%20L73.50%204.64%20L74.20%204.60%20L74.90%204.57%20L75.60%204.53%20L76.30%204.49%20L77.00%204.45%20L77.70%204.41%20L78.40%204.37%20L79.10%204.32%20L79.80%204.28%20L80.50%204.23%20L81.20%204.19%20L81.90%204.14%20L82.60%204.09%20L83.30%204.05%20L84.00%204.00%22%20fill=%22none%22%20stroke=%22%23141210%22%20stroke-width=%220.3%22%20opacity=%220.13%22/%3E%3C/svg%3E"),url("data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%2284%22%20height=%228%22%20viewBox=%220%200%2084%208%22%3E%3Cpath%20d=%22M0.00%204.00%20L0.70%204.05%20L1.40%204.09%20L2.10%204.14%20L2.80%204.19%20L3.50%204.23%20L4.20%204.28%20L4.90%204.32%20L5.60%204.37%20L6.30%204.41%20L7.00%204.45%20L7.70%204.49%20L8.40%204.53%20L9.10%204.57%20L9.80%204.60%20L10.50%204.64%20L11.20%204.67%20L11.90%204.70%20L12.60%204.73%20L13.30%204.75%20L14.00%204.78%20L14.70%204.80%20L15.40%204.82%20L16.10%204.84%20L16.80%204.86%20L17.50%204.87%20L18.20%204.88%20L18.90%204.89%20L19.60%204.90%20L20.30%204.90%20L21.00%204.90%20L21.70%204.90%20L22.40%204.90%20L23.10%204.89%20L23.80%204.88%20L24.50%204.87%20L25.20%204.86%20L25.90%204.84%20L26.60%204.82%20L27.30%204.80%20L28.00%204.78%20L28.70%204.75%20L29.40%204.73%20L30.10%204.70%20L30.80%204.67%20L31.50%204.64%20L32.20%204.60%20L32.90%204.57%20L33.60%204.53%20L34.30%204.49%20L35.00%204.45%20L35.70%204.41%20L36.40%204.37%20L37.10%204.32%20L37.80%204.28%20L38.50%204.23%20L39.20%204.19%20L39.90%204.14%20L40.60%204.09%20L41.30%204.05%20L42.00%204.00%20L42.70%203.95%20L43.40%203.91%20L44.10%203.86%20L44.80%203.81%20L45.50%203.77%20L46.20%203.72%20L46.90%203.68%20L47.60%203.63%20L48.30%203.59%20L49.00%203.55%20L49.70%203.51%20L50.40%203.47%20L51.10%203.43%20L51.80%203.40%20L52.50%203.36%20L53.20%203.33%20L53.90%203.30%20L54.60%203.27%20L55.30%203.25%20L56.00%203.22%20L56.70%203.20%20L57.40%203.18%20L58.10%203.16%20L58.80%203.14%20L59.50%203.13%20L60.20%203.12%20L60.90%203.11%20L61.60%203.10%20L62.30%203.10%20L63.00%203.10%20L63.70%203.10%20L64.40%203.10%20L65.10%203.11%20L65.80%203.12%20L66.50%203.13%20L67.20%203.14%20L67.90%203.16%20L68.60%203.18%20L69.30%203.20%20L70.00%203.22%20L70.70%203.25%20L71.40%203.27%20L72.10%203.30%20L72.80%203.33%20L73.50%203.36%20L74.20%203.40%20L74.90%203.43%20L75.60%203.47%20L76.30%203.51%20L77.00%203.55%20L77.70%203.59%20L78.40%203.63%20L79.10%203.68%20L79.80%203.72%20L80.50%203.77%20L81.20%203.81%20L81.90%203.86%20L82.60%203.91%20L83.30%203.95%20L84.00%204.00%22%20fill=%22none%22%20stroke=%22%23141210%22%20stroke-width=%220.3%22%20opacity=%220.13%22/%3E%3Cpath%20d=%22M0.00%204.00%20L0.70%203.95%20L1.40%203.91%20L2.10%203.86%20L2.80%203.81%20L3.50%203.77%20L4.20%203.72%20L4.90%203.68%20L5.60%203.63%20L6.30%203.59%20L7.00%203.55%20L7.70%203.51%20L8.40%203.47%20L9.10%203.43%20L9.80%203.40%20L10.50%203.36%20L11.20%203.33%20L11.90%203.30%20L12.60%203.27%20L13.30%203.25%20L14.00%203.22%20L14.70%203.20%20L15.40%203.18%20L16.10%203.16%20L16.80%203.14%20L17.50%203.13%20L18.20%203.12%20L18.90%203.11%20L19.60%203.10%20L20.30%203.10%20L21.00%203.10%20L21.70%203.10%20L22.40%203.10%20L23.10%203.11%20L23.80%203.12%20L24.50%203.13%20L25.20%203.14%20L25.90%203.16%20L26.60%203.18%20L27.30%203.20%20L28.00%203.22%20L28.70%203.25%20L29.40%203.27%20L30.10%203.30%20L30.80%203.33%20L31.50%203.36%20L32.20%203.40%20L32.90%203.43%20L33.60%203.47%20L34.30%203.51%20L35.00%203.55%20L35.70%203.59%20L36.40%203.63%20L37.10%203.68%20L37.80%203.72%20L38.50%203.77%20L39.20%203.81%20L39.90%203.86%20L40.60%203.91%20L41.30%203.95%20L42.00%204.00%20L42.70%204.05%20L43.40%204.09%20L44.10%204.14%20L44.80%204.19%20L45.50%204.23%20L46.20%204.28%20L46.90%204.32%20L47.60%204.37%20L48.30%204.41%20L49.00%204.45%20L49.70%204.49%20L50.40%204.53%20L51.10%204.57%20L51.80%204.60%20L52.50%204.64%20L53.20%204.67%20L53.90%204.70%20L54.60%204.73%20L55.30%204.75%20L56.00%204.78%20L56.70%204.80%20L57.40%204.82%20L58.10%204.84%20L58.80%204.86%20L59.50%204.87%20L60.20%204.88%20L60.90%204.89%20L61.60%204.90%20L62.30%204.90%20L63.00%204.90%20L63.70%204.90%20L64.40%204.90%20L65.10%204.89%20L65.80%204.88%20L66.50%204.87%20L67.20%204.86%20L67.90%204.84%20L68.60%204.82%20L69.30%204.80%20L70.00%204.78%20L70.70%204.75%20L71.40%204.73%20L72.10%204.70%20L72.80%204.67%20L73.50%204.64%20L74.20%204.60%20L74.90%204.57%20L75.60%204.53%20L76.30%204.49%20L77.00%204.45%20L77.70%204.41%20L78.40%204.37%20L79.10%204.32%20L79.80%204.28%20L80.50%204.23%20L81.20%204.19%20L81.90%204.14%20L82.60%204.09%20L83.30%204.05%20L84.00%204.00%22%20fill=%22none%22%20stroke=%22%23141210%22%20stroke-width=%220.3%22%20opacity=%220.13%22/%3E%3C/svg%3E");
+  background-repeat:repeat-x,repeat-x;
+  background-position:0 0,0 100%;
+  background-size:84px 8px,84px 8px;
+}
+.clients-grid,.faq-list{
+  background-image:url("data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%2284%22%20height=%228%22%20viewBox=%220%200%2084%208%22%3E%3Cpath%20d=%22M0.00%204.00%20L0.70%204.05%20L1.40%204.09%20L2.10%204.14%20L2.80%204.19%20L3.50%204.23%20L4.20%204.28%20L4.90%204.32%20L5.60%204.37%20L6.30%204.41%20L7.00%204.45%20L7.70%204.49%20L8.40%204.53%20L9.10%204.57%20L9.80%204.60%20L10.50%204.64%20L11.20%204.67%20L11.90%204.70%20L12.60%204.73%20L13.30%204.75%20L14.00%204.78%20L14.70%204.80%20L15.40%204.82%20L16.10%204.84%20L16.80%204.86%20L17.50%204.87%20L18.20%204.88%20L18.90%204.89%20L19.60%204.90%20L20.30%204.90%20L21.00%204.90%20L21.70%204.90%20L22.40%204.90%20L23.10%204.89%20L23.80%204.88%20L24.50%204.87%20L25.20%204.86%20L25.90%204.84%20L26.60%204.82%20L27.30%204.80%20L28.00%204.78%20L28.70%204.75%20L29.40%204.73%20L30.10%204.70%20L30.80%204.67%20L31.50%204.64%20L32.20%204.60%20L32.90%204.57%20L33.60%204.53%20L34.30%204.49%20L35.00%204.45%20L35.70%204.41%20L36.40%204.37%20L37.10%204.32%20L37.80%204.28%20L38.50%204.23%20L39.20%204.19%20L39.90%204.14%20L40.60%204.09%20L41.30%204.05%20L42.00%204.00%20L42.70%203.95%20L43.40%203.91%20L44.10%203.86%20L44.80%203.81%20L45.50%203.77%20L46.20%203.72%20L46.90%203.68%20L47.60%203.63%20L48.30%203.59%20L49.00%203.55%20L49.70%203.51%20L50.40%203.47%20L51.10%203.43%20L51.80%203.40%20L52.50%203.36%20L53.20%203.33%20L53.90%203.30%20L54.60%203.27%20L55.30%203.25%20L56.00%203.22%20L56.70%203.20%20L57.40%203.18%20L58.10%203.16%20L58.80%203.14%20L59.50%203.13%20L60.20%203.12%20L60.90%203.11%20L61.60%203.10%20L62.30%203.10%20L63.00%203.10%20L63.70%203.10%20L64.40%203.10%20L65.10%203.11%20L65.80%203.12%20L66.50%203.13%20L67.20%203.14%20L67.90%203.16%20L68.60%203.18%20L69.30%203.20%20L70.00%203.22%20L70.70%203.25%20L71.40%203.27%20L72.10%203.30%20L72.80%203.33%20L73.50%203.36%20L74.20%203.40%20L74.90%203.43%20L75.60%203.47%20L76.30%203.51%20L77.00%203.55%20L77.70%203.59%20L78.40%203.63%20L79.10%203.68%20L79.80%203.72%20L80.50%203.77%20L81.20%203.81%20L81.90%203.86%20L82.60%203.91%20L83.30%203.95%20L84.00%204.00%22%20fill=%22none%22%20stroke=%22%23141210%22%20stroke-width=%220.3%22%20opacity=%220.13%22/%3E%3Cpath%20d=%22M0.00%204.00%20L0.70%203.95%20L1.40%203.91%20L2.10%203.86%20L2.80%203.81%20L3.50%203.77%20L4.20%203.72%20L4.90%203.68%20L5.60%203.63%20L6.30%203.59%20L7.00%203.55%20L7.70%203.51%20L8.40%203.47%20L9.10%203.43%20L9.80%203.40%20L10.50%203.36%20L11.20%203.33%20L11.90%203.30%20L12.60%203.27%20L13.30%203.25%20L14.00%203.22%20L14.70%203.20%20L15.40%203.18%20L16.10%203.16%20L16.80%203.14%20L17.50%203.13%20L18.20%203.12%20L18.90%203.11%20L19.60%203.10%20L20.30%203.10%20L21.00%203.10%20L21.70%203.10%20L22.40%203.10%20L23.10%203.11%20L23.80%203.12%20L24.50%203.13%20L25.20%203.14%20L25.90%203.16%20L26.60%203.18%20L27.30%203.20%20L28.00%203.22%20L28.70%203.25%20L29.40%203.27%20L30.10%203.30%20L30.80%203.33%20L31.50%203.36%20L32.20%203.40%20L32.90%203.43%20L33.60%203.47%20L34.30%203.51%20L35.00%203.55%20L35.70%203.59%20L36.40%203.63%20L37.10%203.68%20L37.80%203.72%20L38.50%203.77%20L39.20%203.81%20L39.90%203.86%20L40.60%203.91%20L41.30%203.95%20L42.00%204.00%20L42.70%204.05%20L43.40%204.09%20L44.10%204.14%20L44.80%204.19%20L45.50%204.23%20L46.20%204.28%20L46.90%204.32%20L47.60%204.37%20L48.30%204.41%20L49.00%204.45%20L49.70%204.49%20L50.40%204.53%20L51.10%204.57%20L51.80%204.60%20L52.50%204.64%20L53.20%204.67%20L53.90%204.70%20L54.60%204.73%20L55.30%204.75%20L56.00%204.78%20L56.70%204.80%20L57.40%204.82%20L58.10%204.84%20L58.80%204.86%20L59.50%204.87%20L60.20%204.88%20L60.90%204.89%20L61.60%204.90%20L62.30%204.90%20L63.00%204.90%20L63.70%204.90%20L64.40%204.90%20L65.10%204.89%20L65.80%204.88%20L66.50%204.87%20L67.20%204.86%20L67.90%204.84%20L68.60%204.82%20L69.30%204.80%20L70.00%204.78%20L70.70%204.75%20L71.40%204.73%20L72.10%204.70%20L72.80%204.67%20L73.50%204.64%20L74.20%204.60%20L74.90%204.57%20L75.60%204.53%20L76.30%204.49%20L77.00%204.45%20L77.70%204.41%20L78.40%204.37%20L79.10%204.32%20L79.80%204.28%20L80.50%204.23%20L81.20%204.19%20L81.90%204.14%20L82.60%204.09%20L83.30%204.05%20L84.00%204.00%22%20fill=%22none%22%20stroke=%22%23141210%22%20stroke-width=%220.3%22%20opacity=%220.13%22/%3E%3C/svg%3E");background-repeat:repeat-x;
+  background-position:0 0;background-size:84px 8px;padding-top:10px
+}
+.service-card,.process-card,.prin{
+  border-top:none;
+  background-image:url("data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%2284%22%20height=%228%22%20viewBox=%220%200%2084%208%22%3E%3Cpath%20d=%22M0.00%204.00%20L0.70%204.05%20L1.40%204.09%20L2.10%204.14%20L2.80%204.19%20L3.50%204.23%20L4.20%204.28%20L4.90%204.32%20L5.60%204.37%20L6.30%204.41%20L7.00%204.45%20L7.70%204.49%20L8.40%204.53%20L9.10%204.57%20L9.80%204.60%20L10.50%204.64%20L11.20%204.67%20L11.90%204.70%20L12.60%204.73%20L13.30%204.75%20L14.00%204.78%20L14.70%204.80%20L15.40%204.82%20L16.10%204.84%20L16.80%204.86%20L17.50%204.87%20L18.20%204.88%20L18.90%204.89%20L19.60%204.90%20L20.30%204.90%20L21.00%204.90%20L21.70%204.90%20L22.40%204.90%20L23.10%204.89%20L23.80%204.88%20L24.50%204.87%20L25.20%204.86%20L25.90%204.84%20L26.60%204.82%20L27.30%204.80%20L28.00%204.78%20L28.70%204.75%20L29.40%204.73%20L30.10%204.70%20L30.80%204.67%20L31.50%204.64%20L32.20%204.60%20L32.90%204.57%20L33.60%204.53%20L34.30%204.49%20L35.00%204.45%20L35.70%204.41%20L36.40%204.37%20L37.10%204.32%20L37.80%204.28%20L38.50%204.23%20L39.20%204.19%20L39.90%204.14%20L40.60%204.09%20L41.30%204.05%20L42.00%204.00%20L42.70%203.95%20L43.40%203.91%20L44.10%203.86%20L44.80%203.81%20L45.50%203.77%20L46.20%203.72%20L46.90%203.68%20L47.60%203.63%20L48.30%203.59%20L49.00%203.55%20L49.70%203.51%20L50.40%203.47%20L51.10%203.43%20L51.80%203.40%20L52.50%203.36%20L53.20%203.33%20L53.90%203.30%20L54.60%203.27%20L55.30%203.25%20L56.00%203.22%20L56.70%203.20%20L57.40%203.18%20L58.10%203.16%20L58.80%203.14%20L59.50%203.13%20L60.20%203.12%20L60.90%203.11%20L61.60%203.10%20L62.30%203.10%20L63.00%203.10%20L63.70%203.10%20L64.40%203.10%20L65.10%203.11%20L65.80%203.12%20L66.50%203.13%20L67.20%203.14%20L67.90%203.16%20L68.60%203.18%20L69.30%203.20%20L70.00%203.22%20L70.70%203.25%20L71.40%203.27%20L72.10%203.30%20L72.80%203.33%20L73.50%203.36%20L74.20%203.40%20L74.90%203.43%20L75.60%203.47%20L76.30%203.51%20L77.00%203.55%20L77.70%203.59%20L78.40%203.63%20L79.10%203.68%20L79.80%203.72%20L80.50%203.77%20L81.20%203.81%20L81.90%203.86%20L82.60%203.91%20L83.30%203.95%20L84.00%204.00%22%20fill=%22none%22%20stroke=%22%23141210%22%20stroke-width=%220.3%22%20opacity=%220.13%22/%3E%3Cpath%20d=%22M0.00%204.00%20L0.70%203.95%20L1.40%203.91%20L2.10%203.86%20L2.80%203.81%20L3.50%203.77%20L4.20%203.72%20L4.90%203.68%20L5.60%203.63%20L6.30%203.59%20L7.00%203.55%20L7.70%203.51%20L8.40%203.47%20L9.10%203.43%20L9.80%203.40%20L10.50%203.36%20L11.20%203.33%20L11.90%203.30%20L12.60%203.27%20L13.30%203.25%20L14.00%203.22%20L14.70%203.20%20L15.40%203.18%20L16.10%203.16%20L16.80%203.14%20L17.50%203.13%20L18.20%203.12%20L18.90%203.11%20L19.60%203.10%20L20.30%203.10%20L21.00%203.10%20L21.70%203.10%20L22.40%203.10%20L23.10%203.11%20L23.80%203.12%20L24.50%203.13%20L25.20%203.14%20L25.90%203.16%20L26.60%203.18%20L27.30%203.20%20L28.00%203.22%20L28.70%203.25%20L29.40%203.27%20L30.10%203.30%20L30.80%203.33%20L31.50%203.36%20L32.20%203.40%20L32.90%203.43%20L33.60%203.47%20L34.30%203.51%20L35.00%203.55%20L35.70%203.59%20L36.40%203.63%20L37.10%203.68%20L37.80%203.72%20L38.50%203.77%20L39.20%203.81%20L39.90%203.86%20L40.60%203.91%20L41.30%203.95%20L42.00%204.00%20L42.70%204.05%20L43.40%204.09%20L44.10%204.14%20L44.80%204.19%20L45.50%204.23%20L46.20%204.28%20L46.90%204.32%20L47.60%204.37%20L48.30%204.41%20L49.00%204.45%20L49.70%204.49%20L50.40%204.53%20L51.10%204.57%20L51.80%204.60%20L52.50%204.64%20L53.20%204.67%20L53.90%204.70%20L54.60%204.73%20L55.30%204.75%20L56.00%204.78%20L56.70%204.80%20L57.40%204.82%20L58.10%204.84%20L58.80%204.86%20L59.50%204.87%20L60.20%204.88%20L60.90%204.89%20L61.60%204.90%20L62.30%204.90%20L63.00%204.90%20L63.70%204.90%20L64.40%204.90%20L65.10%204.89%20L65.80%204.88%20L66.50%204.87%20L67.20%204.86%20L67.90%204.84%20L68.60%204.82%20L69.30%204.80%20L70.00%204.78%20L70.70%204.75%20L71.40%204.73%20L72.10%204.70%20L72.80%204.67%20L73.50%204.64%20L74.20%204.60%20L74.90%204.57%20L75.60%204.53%20L76.30%204.49%20L77.00%204.45%20L77.70%204.41%20L78.40%204.37%20L79.10%204.32%20L79.80%204.28%20L80.50%204.23%20L81.20%204.19%20L81.90%204.14%20L82.60%204.09%20L83.30%204.05%20L84.00%204.00%22%20fill=%22none%22%20stroke=%22%23141210%22%20stroke-width=%220.3%22%20opacity=%220.13%22/%3E%3C/svg%3E");background-repeat:repeat-x;
+  background-position:0 0;background-size:84px 8px;padding-top:26px
+}
+.hx-ex{
+  background-image:url("data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%2284%22%20height=%228%22%20viewBox=%220%200%2084%208%22%3E%3Cpath%20d=%22M0.00%204.00%20L0.70%204.05%20L1.40%204.09%20L2.10%204.14%20L2.80%204.19%20L3.50%204.23%20L4.20%204.28%20L4.90%204.32%20L5.60%204.37%20L6.30%204.41%20L7.00%204.45%20L7.70%204.49%20L8.40%204.53%20L9.10%204.57%20L9.80%204.60%20L10.50%204.64%20L11.20%204.67%20L11.90%204.70%20L12.60%204.73%20L13.30%204.75%20L14.00%204.78%20L14.70%204.80%20L15.40%204.82%20L16.10%204.84%20L16.80%204.86%20L17.50%204.87%20L18.20%204.88%20L18.90%204.89%20L19.60%204.90%20L20.30%204.90%20L21.00%204.90%20L21.70%204.90%20L22.40%204.90%20L23.10%204.89%20L23.80%204.88%20L24.50%204.87%20L25.20%204.86%20L25.90%204.84%20L26.60%204.82%20L27.30%204.80%20L28.00%204.78%20L28.70%204.75%20L29.40%204.73%20L30.10%204.70%20L30.80%204.67%20L31.50%204.64%20L32.20%204.60%20L32.90%204.57%20L33.60%204.53%20L34.30%204.49%20L35.00%204.45%20L35.70%204.41%20L36.40%204.37%20L37.10%204.32%20L37.80%204.28%20L38.50%204.23%20L39.20%204.19%20L39.90%204.14%20L40.60%204.09%20L41.30%204.05%20L42.00%204.00%20L42.70%203.95%20L43.40%203.91%20L44.10%203.86%20L44.80%203.81%20L45.50%203.77%20L46.20%203.72%20L46.90%203.68%20L47.60%203.63%20L48.30%203.59%20L49.00%203.55%20L49.70%203.51%20L50.40%203.47%20L51.10%203.43%20L51.80%203.40%20L52.50%203.36%20L53.20%203.33%20L53.90%203.30%20L54.60%203.27%20L55.30%203.25%20L56.00%203.22%20L56.70%203.20%20L57.40%203.18%20L58.10%203.16%20L58.80%203.14%20L59.50%203.13%20L60.20%203.12%20L60.90%203.11%20L61.60%203.10%20L62.30%203.10%20L63.00%203.10%20L63.70%203.10%20L64.40%203.10%20L65.10%203.11%20L65.80%203.12%20L66.50%203.13%20L67.20%203.14%20L67.90%203.16%20L68.60%203.18%20L69.30%203.20%20L70.00%203.22%20L70.70%203.25%20L71.40%203.27%20L72.10%203.30%20L72.80%203.33%20L73.50%203.36%20L74.20%203.40%20L74.90%203.43%20L75.60%203.47%20L76.30%203.51%20L77.00%203.55%20L77.70%203.59%20L78.40%203.63%20L79.10%203.68%20L79.80%203.72%20L80.50%203.77%20L81.20%203.81%20L81.90%203.86%20L82.60%203.91%20L83.30%203.95%20L84.00%204.00%22%20fill=%22none%22%20stroke=%22%23141210%22%20stroke-width=%220.3%22%20opacity=%220.13%22/%3E%3Cpath%20d=%22M0.00%204.00%20L0.70%203.95%20L1.40%203.91%20L2.10%203.86%20L2.80%203.81%20L3.50%203.77%20L4.20%203.72%20L4.90%203.68%20L5.60%203.63%20L6.30%203.59%20L7.00%203.55%20L7.70%203.51%20L8.40%203.47%20L9.10%203.43%20L9.80%203.40%20L10.50%203.36%20L11.20%203.33%20L11.90%203.30%20L12.60%203.27%20L13.30%203.25%20L14.00%203.22%20L14.70%203.20%20L15.40%203.18%20L16.10%203.16%20L16.80%203.14%20L17.50%203.13%20L18.20%203.12%20L18.90%203.11%20L19.60%203.10%20L20.30%203.10%20L21.00%203.10%20L21.70%203.10%20L22.40%203.10%20L23.10%203.11%20L23.80%203.12%20L24.50%203.13%20L25.20%203.14%20L25.90%203.16%20L26.60%203.18%20L27.30%203.20%20L28.00%203.22%20L28.70%203.25%20L29.40%203.27%20L30.10%203.30%20L30.80%203.33%20L31.50%203.36%20L32.20%203.40%20L32.90%203.43%20L33.60%203.47%20L34.30%203.51%20L35.00%203.55%20L35.70%203.59%20L36.40%203.63%20L37.10%203.68%20L37.80%203.72%20L38.50%203.77%20L39.20%203.81%20L39.90%203.86%20L40.60%203.91%20L41.30%203.95%20L42.00%204.00%20L42.70%204.05%20L43.40%204.09%20L44.10%204.14%20L44.80%204.19%20L45.50%204.23%20L46.20%204.28%20L46.90%204.32%20L47.60%204.37%20L48.30%204.41%20L49.00%204.45%20L49.70%204.49%20L50.40%204.53%20L51.10%204.57%20L51.80%204.60%20L52.50%204.64%20L53.20%204.67%20L53.90%204.70%20L54.60%204.73%20L55.30%204.75%20L56.00%204.78%20L56.70%204.80%20L57.40%204.82%20L58.10%204.84%20L58.80%204.86%20L59.50%204.87%20L60.20%204.88%20L60.90%204.89%20L61.60%204.90%20L62.30%204.90%20L63.00%204.90%20L63.70%204.90%20L64.40%204.90%20L65.10%204.89%20L65.80%204.88%20L66.50%204.87%20L67.20%204.86%20L67.90%204.84%20L68.60%204.82%20L69.30%204.80%20L70.00%204.78%20L70.70%204.75%20L71.40%204.73%20L72.10%204.70%20L72.80%204.67%20L73.50%204.64%20L74.20%204.60%20L74.90%204.57%20L75.60%204.53%20L76.30%204.49%20L77.00%204.45%20L77.70%204.41%20L78.40%204.37%20L79.10%204.32%20L79.80%204.28%20L80.50%204.23%20L81.20%204.19%20L81.90%204.14%20L82.60%204.09%20L83.30%204.05%20L84.00%204.00%22%20fill=%22none%22%20stroke=%22%23141210%22%20stroke-width=%220.3%22%20opacity=%220.13%22/%3E%3C/svg%3E");background-repeat:repeat-x;
+  background-position:0 4px;background-size:84px 8px;padding-top:60px!important
+}
+/* on ink surfaces the band has to be cream */
+.cross-section,.contact-section{
+  background-image:url("data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%2284%22%20height=%228%22%20viewBox=%220%200%2084%208%22%3E%3Cpath%20d=%22M0.00%204.00%20L0.70%204.05%20L1.40%204.09%20L2.10%204.14%20L2.80%204.19%20L3.50%204.23%20L4.20%204.28%20L4.90%204.32%20L5.60%204.37%20L6.30%204.41%20L7.00%204.45%20L7.70%204.49%20L8.40%204.53%20L9.10%204.57%20L9.80%204.60%20L10.50%204.64%20L11.20%204.67%20L11.90%204.70%20L12.60%204.73%20L13.30%204.75%20L14.00%204.78%20L14.70%204.80%20L15.40%204.82%20L16.10%204.84%20L16.80%204.86%20L17.50%204.87%20L18.20%204.88%20L18.90%204.89%20L19.60%204.90%20L20.30%204.90%20L21.00%204.90%20L21.70%204.90%20L22.40%204.90%20L23.10%204.89%20L23.80%204.88%20L24.50%204.87%20L25.20%204.86%20L25.90%204.84%20L26.60%204.82%20L27.30%204.80%20L28.00%204.78%20L28.70%204.75%20L29.40%204.73%20L30.10%204.70%20L30.80%204.67%20L31.50%204.64%20L32.20%204.60%20L32.90%204.57%20L33.60%204.53%20L34.30%204.49%20L35.00%204.45%20L35.70%204.41%20L36.40%204.37%20L37.10%204.32%20L37.80%204.28%20L38.50%204.23%20L39.20%204.19%20L39.90%204.14%20L40.60%204.09%20L41.30%204.05%20L42.00%204.00%20L42.70%203.95%20L43.40%203.91%20L44.10%203.86%20L44.80%203.81%20L45.50%203.77%20L46.20%203.72%20L46.90%203.68%20L47.60%203.63%20L48.30%203.59%20L49.00%203.55%20L49.70%203.51%20L50.40%203.47%20L51.10%203.43%20L51.80%203.40%20L52.50%203.36%20L53.20%203.33%20L53.90%203.30%20L54.60%203.27%20L55.30%203.25%20L56.00%203.22%20L56.70%203.20%20L57.40%203.18%20L58.10%203.16%20L58.80%203.14%20L59.50%203.13%20L60.20%203.12%20L60.90%203.11%20L61.60%203.10%20L62.30%203.10%20L63.00%203.10%20L63.70%203.10%20L64.40%203.10%20L65.10%203.11%20L65.80%203.12%20L66.50%203.13%20L67.20%203.14%20L67.90%203.16%20L68.60%203.18%20L69.30%203.20%20L70.00%203.22%20L70.70%203.25%20L71.40%203.27%20L72.10%203.30%20L72.80%203.33%20L73.50%203.36%20L74.20%203.40%20L74.90%203.43%20L75.60%203.47%20L76.30%203.51%20L77.00%203.55%20L77.70%203.59%20L78.40%203.63%20L79.10%203.68%20L79.80%203.72%20L80.50%203.77%20L81.20%203.81%20L81.90%203.86%20L82.60%203.91%20L83.30%203.95%20L84.00%204.00%22%20fill=%22none%22%20stroke=%22%23F4F1E7%22%20stroke-width=%220.3%22%20opacity=%220.22%22/%3E%3Cpath%20d=%22M0.00%204.00%20L0.70%203.95%20L1.40%203.91%20L2.10%203.86%20L2.80%203.81%20L3.50%203.77%20L4.20%203.72%20L4.90%203.68%20L5.60%203.63%20L6.30%203.59%20L7.00%203.55%20L7.70%203.51%20L8.40%203.47%20L9.10%203.43%20L9.80%203.40%20L10.50%203.36%20L11.20%203.33%20L11.90%203.30%20L12.60%203.27%20L13.30%203.25%20L14.00%203.22%20L14.70%203.20%20L15.40%203.18%20L16.10%203.16%20L16.80%203.14%20L17.50%203.13%20L18.20%203.12%20L18.90%203.11%20L19.60%203.10%20L20.30%203.10%20L21.00%203.10%20L21.70%203.10%20L22.40%203.10%20L23.10%203.11%20L23.80%203.12%20L24.50%203.13%20L25.20%203.14%20L25.90%203.16%20L26.60%203.18%20L27.30%203.20%20L28.00%203.22%20L28.70%203.25%20L29.40%203.27%20L30.10%203.30%20L30.80%203.33%20L31.50%203.36%20L32.20%203.40%20L32.90%203.43%20L33.60%203.47%20L34.30%203.51%20L35.00%203.55%20L35.70%203.59%20L36.40%203.63%20L37.10%203.68%20L37.80%203.72%20L38.50%203.77%20L39.20%203.81%20L39.90%203.86%20L40.60%203.91%20L41.30%203.95%20L42.00%204.00%20L42.70%204.05%20L43.40%204.09%20L44.10%204.14%20L44.80%204.19%20L45.50%204.23%20L46.20%204.28%20L46.90%204.32%20L47.60%204.37%20L48.30%204.41%20L49.00%204.45%20L49.70%204.49%20L50.40%204.53%20L51.10%204.57%20L51.80%204.60%20L52.50%204.64%20L53.20%204.67%20L53.90%204.70%20L54.60%204.73%20L55.30%204.75%20L56.00%204.78%20L56.70%204.80%20L57.40%204.82%20L58.10%204.84%20L58.80%204.86%20L59.50%204.87%20L60.20%204.88%20L60.90%204.89%20L61.60%204.90%20L62.30%204.90%20L63.00%204.90%20L63.70%204.90%20L64.40%204.90%20L65.10%204.89%20L65.80%204.88%20L66.50%204.87%20L67.20%204.86%20L67.90%204.84%20L68.60%204.82%20L69.30%204.80%20L70.00%204.78%20L70.70%204.75%20L71.40%204.73%20L72.10%204.70%20L72.80%204.67%20L73.50%204.64%20L74.20%204.60%20L74.90%204.57%20L75.60%204.53%20L76.30%204.49%20L77.00%204.45%20L77.70%204.41%20L78.40%204.37%20L79.10%204.32%20L79.80%204.28%20L80.50%204.23%20L81.20%204.19%20L81.90%204.14%20L82.60%204.09%20L83.30%204.05%20L84.00%204.00%22%20fill=%22none%22%20stroke=%22%23F4F1E7%22%20stroke-width=%220.3%22%20opacity=%220.22%22/%3E%3C/svg%3E");background-repeat:repeat-x;
+  background-position:0 3px;background-size:84px 8px
+}
+.hx-mast{border-bottom:none;
+  background-image:url("data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%2284%22%20height=%228%22%20viewBox=%220%200%2084%208%22%3E%3Cpath%20d=%22M0.00%204.00%20L0.70%204.05%20L1.40%204.09%20L2.10%204.14%20L2.80%204.19%20L3.50%204.23%20L4.20%204.28%20L4.90%204.32%20L5.60%204.37%20L6.30%204.41%20L7.00%204.45%20L7.70%204.49%20L8.40%204.53%20L9.10%204.57%20L9.80%204.60%20L10.50%204.64%20L11.20%204.67%20L11.90%204.70%20L12.60%204.73%20L13.30%204.75%20L14.00%204.78%20L14.70%204.80%20L15.40%204.82%20L16.10%204.84%20L16.80%204.86%20L17.50%204.87%20L18.20%204.88%20L18.90%204.89%20L19.60%204.90%20L20.30%204.90%20L21.00%204.90%20L21.70%204.90%20L22.40%204.90%20L23.10%204.89%20L23.80%204.88%20L24.50%204.87%20L25.20%204.86%20L25.90%204.84%20L26.60%204.82%20L27.30%204.80%20L28.00%204.78%20L28.70%204.75%20L29.40%204.73%20L30.10%204.70%20L30.80%204.67%20L31.50%204.64%20L32.20%204.60%20L32.90%204.57%20L33.60%204.53%20L34.30%204.49%20L35.00%204.45%20L35.70%204.41%20L36.40%204.37%20L37.10%204.32%20L37.80%204.28%20L38.50%204.23%20L39.20%204.19%20L39.90%204.14%20L40.60%204.09%20L41.30%204.05%20L42.00%204.00%20L42.70%203.95%20L43.40%203.91%20L44.10%203.86%20L44.80%203.81%20L45.50%203.77%20L46.20%203.72%20L46.90%203.68%20L47.60%203.63%20L48.30%203.59%20L49.00%203.55%20L49.70%203.51%20L50.40%203.47%20L51.10%203.43%20L51.80%203.40%20L52.50%203.36%20L53.20%203.33%20L53.90%203.30%20L54.60%203.27%20L55.30%203.25%20L56.00%203.22%20L56.70%203.20%20L57.40%203.18%20L58.10%203.16%20L58.80%203.14%20L59.50%203.13%20L60.20%203.12%20L60.90%203.11%20L61.60%203.10%20L62.30%203.10%20L63.00%203.10%20L63.70%203.10%20L64.40%203.10%20L65.10%203.11%20L65.80%203.12%20L66.50%203.13%20L67.20%203.14%20L67.90%203.16%20L68.60%203.18%20L69.30%203.20%20L70.00%203.22%20L70.70%203.25%20L71.40%203.27%20L72.10%203.30%20L72.80%203.33%20L73.50%203.36%20L74.20%203.40%20L74.90%203.43%20L75.60%203.47%20L76.30%203.51%20L77.00%203.55%20L77.70%203.59%20L78.40%203.63%20L79.10%203.68%20L79.80%203.72%20L80.50%203.77%20L81.20%203.81%20L81.90%203.86%20L82.60%203.91%20L83.30%203.95%20L84.00%204.00%22%20fill=%22none%22%20stroke=%22%23141210%22%20stroke-width=%220.3%22%20opacity=%220.13%22/%3E%3Cpath%20d=%22M0.00%204.00%20L0.70%203.95%20L1.40%203.91%20L2.10%203.86%20L2.80%203.81%20L3.50%203.77%20L4.20%203.72%20L4.90%203.68%20L5.60%203.63%20L6.30%203.59%20L7.00%203.55%20L7.70%203.51%20L8.40%203.47%20L9.10%203.43%20L9.80%203.40%20L10.50%203.36%20L11.20%203.33%20L11.90%203.30%20L12.60%203.27%20L13.30%203.25%20L14.00%203.22%20L14.70%203.20%20L15.40%203.18%20L16.10%203.16%20L16.80%203.14%20L17.50%203.13%20L18.20%203.12%20L18.90%203.11%20L19.60%203.10%20L20.30%203.10%20L21.00%203.10%20L21.70%203.10%20L22.40%203.10%20L23.10%203.11%20L23.80%203.12%20L24.50%203.13%20L25.20%203.14%20L25.90%203.16%20L26.60%203.18%20L27.30%203.20%20L28.00%203.22%20L28.70%203.25%20L29.40%203.27%20L30.10%203.30%20L30.80%203.33%20L31.50%203.36%20L32.20%203.40%20L32.90%203.43%20L33.60%203.47%20L34.30%203.51%20L35.00%203.55%20L35.70%203.59%20L36.40%203.63%20L37.10%203.68%20L37.80%203.72%20L38.50%203.77%20L39.20%203.81%20L39.90%203.86%20L40.60%203.91%20L41.30%203.95%20L42.00%204.00%20L42.70%204.05%20L43.40%204.09%20L44.10%204.14%20L44.80%204.19%20L45.50%204.23%20L46.20%204.28%20L46.90%204.32%20L47.60%204.37%20L48.30%204.41%20L49.00%204.45%20L49.70%204.49%20L50.40%204.53%20L51.10%204.57%20L51.80%204.60%20L52.50%204.64%20L53.20%204.67%20L53.90%204.70%20L54.60%204.73%20L55.30%204.75%20L56.00%204.78%20L56.70%204.80%20L57.40%204.82%20L58.10%204.84%20L58.80%204.86%20L59.50%204.87%20L60.20%204.88%20L60.90%204.89%20L61.60%204.90%20L62.30%204.90%20L63.00%204.90%20L63.70%204.90%20L64.40%204.90%20L65.10%204.89%20L65.80%204.88%20L66.50%204.87%20L67.20%204.86%20L67.90%204.84%20L68.60%204.82%20L69.30%204.80%20L70.00%204.78%20L70.70%204.75%20L71.40%204.73%20L72.10%204.70%20L72.80%204.67%20L73.50%204.64%20L74.20%204.60%20L74.90%204.57%20L75.60%204.53%20L76.30%204.49%20L77.00%204.45%20L77.70%204.41%20L78.40%204.37%20L79.10%204.32%20L79.80%204.28%20L80.50%204.23%20L81.20%204.19%20L81.90%204.14%20L82.60%204.09%20L83.30%204.05%20L84.00%204.00%22%20fill=%22none%22%20stroke=%22%23141210%22%20stroke-width=%220.3%22%20opacity=%220.13%22/%3E%3C/svg%3E");background-repeat:repeat-x;
+  background-position:0 100%;background-size:84px 8px;padding-bottom:14px}
+.hx-folio{border-top:none;
+  background-image:url("data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%2284%22%20height=%228%22%20viewBox=%220%200%2084%208%22%3E%3Cpath%20d=%22M0.00%204.00%20L0.70%204.05%20L1.40%204.09%20L2.10%204.14%20L2.80%204.19%20L3.50%204.23%20L4.20%204.28%20L4.90%204.32%20L5.60%204.37%20L6.30%204.41%20L7.00%204.45%20L7.70%204.49%20L8.40%204.53%20L9.10%204.57%20L9.80%204.60%20L10.50%204.64%20L11.20%204.67%20L11.90%204.70%20L12.60%204.73%20L13.30%204.75%20L14.00%204.78%20L14.70%204.80%20L15.40%204.82%20L16.10%204.84%20L16.80%204.86%20L17.50%204.87%20L18.20%204.88%20L18.90%204.89%20L19.60%204.90%20L20.30%204.90%20L21.00%204.90%20L21.70%204.90%20L22.40%204.90%20L23.10%204.89%20L23.80%204.88%20L24.50%204.87%20L25.20%204.86%20L25.90%204.84%20L26.60%204.82%20L27.30%204.80%20L28.00%204.78%20L28.70%204.75%20L29.40%204.73%20L30.10%204.70%20L30.80%204.67%20L31.50%204.64%20L32.20%204.60%20L32.90%204.57%20L33.60%204.53%20L34.30%204.49%20L35.00%204.45%20L35.70%204.41%20L36.40%204.37%20L37.10%204.32%20L37.80%204.28%20L38.50%204.23%20L39.20%204.19%20L39.90%204.14%20L40.60%204.09%20L41.30%204.05%20L42.00%204.00%20L42.70%203.95%20L43.40%203.91%20L44.10%203.86%20L44.80%203.81%20L45.50%203.77%20L46.20%203.72%20L46.90%203.68%20L47.60%203.63%20L48.30%203.59%20L49.00%203.55%20L49.70%203.51%20L50.40%203.47%20L51.10%203.43%20L51.80%203.40%20L52.50%203.36%20L53.20%203.33%20L53.90%203.30%20L54.60%203.27%20L55.30%203.25%20L56.00%203.22%20L56.70%203.20%20L57.40%203.18%20L58.10%203.16%20L58.80%203.14%20L59.50%203.13%20L60.20%203.12%20L60.90%203.11%20L61.60%203.10%20L62.30%203.10%20L63.00%203.10%20L63.70%203.10%20L64.40%203.10%20L65.10%203.11%20L65.80%203.12%20L66.50%203.13%20L67.20%203.14%20L67.90%203.16%20L68.60%203.18%20L69.30%203.20%20L70.00%203.22%20L70.70%203.25%20L71.40%203.27%20L72.10%203.30%20L72.80%203.33%20L73.50%203.36%20L74.20%203.40%20L74.90%203.43%20L75.60%203.47%20L76.30%203.51%20L77.00%203.55%20L77.70%203.59%20L78.40%203.63%20L79.10%203.68%20L79.80%203.72%20L80.50%203.77%20L81.20%203.81%20L81.90%203.86%20L82.60%203.91%20L83.30%203.95%20L84.00%204.00%22%20fill=%22none%22%20stroke=%22%23141210%22%20stroke-width=%220.3%22%20opacity=%220.13%22/%3E%3Cpath%20d=%22M0.00%204.00%20L0.70%203.95%20L1.40%203.91%20L2.10%203.86%20L2.80%203.81%20L3.50%203.77%20L4.20%203.72%20L4.90%203.68%20L5.60%203.63%20L6.30%203.59%20L7.00%203.55%20L7.70%203.51%20L8.40%203.47%20L9.10%203.43%20L9.80%203.40%20L10.50%203.36%20L11.20%203.33%20L11.90%203.30%20L12.60%203.27%20L13.30%203.25%20L14.00%203.22%20L14.70%203.20%20L15.40%203.18%20L16.10%203.16%20L16.80%203.14%20L17.50%203.13%20L18.20%203.12%20L18.90%203.11%20L19.60%203.10%20L20.30%203.10%20L21.00%203.10%20L21.70%203.10%20L22.40%203.10%20L23.10%203.11%20L23.80%203.12%20L24.50%203.13%20L25.20%203.14%20L25.90%203.16%20L26.60%203.18%20L27.30%203.20%20L28.00%203.22%20L28.70%203.25%20L29.40%203.27%20L30.10%203.30%20L30.80%203.33%20L31.50%203.36%20L32.20%203.40%20L32.90%203.43%20L33.60%203.47%20L34.30%203.51%20L35.00%203.55%20L35.70%203.59%20L36.40%203.63%20L37.10%203.68%20L37.80%203.72%20L38.50%203.77%20L39.20%203.81%20L39.90%203.86%20L40.60%203.91%20L41.30%203.95%20L42.00%204.00%20L42.70%204.05%20L43.40%204.09%20L44.10%204.14%20L44.80%204.19%20L45.50%204.23%20L46.20%204.28%20L46.90%204.32%20L47.60%204.37%20L48.30%204.41%20L49.00%204.45%20L49.70%204.49%20L50.40%204.53%20L51.10%204.57%20L51.80%204.60%20L52.50%204.64%20L53.20%204.67%20L53.90%204.70%20L54.60%204.73%20L55.30%204.75%20L56.00%204.78%20L56.70%204.80%20L57.40%204.82%20L58.10%204.84%20L58.80%204.86%20L59.50%204.87%20L60.20%204.88%20L60.90%204.89%20L61.60%204.90%20L62.30%204.90%20L63.00%204.90%20L63.70%204.90%20L64.40%204.90%20L65.10%204.89%20L65.80%204.88%20L66.50%204.87%20L67.20%204.86%20L67.90%204.84%20L68.60%204.82%20L69.30%204.80%20L70.00%204.78%20L70.70%204.75%20L71.40%204.73%20L72.10%204.70%20L72.80%204.67%20L73.50%204.64%20L74.20%204.60%20L74.90%204.57%20L75.60%204.53%20L76.30%204.49%20L77.00%204.45%20L77.70%204.41%20L78.40%204.37%20L79.10%204.32%20L79.80%204.28%20L80.50%204.23%20L81.20%204.19%20L81.90%204.14%20L82.60%204.09%20L83.30%204.05%20L84.00%204.00%22%20fill=%22none%22%20stroke=%22%23141210%22%20stroke-width=%220.3%22%20opacity=%220.13%22/%3E%3C/svg%3E");background-repeat:repeat-x;
+  background-position:0 0;background-size:84px 8px;padding-top:16px}
+
+/* ============ READABILITY ON INK ============ */
+/* Oxblood at 27% luminance on a near-black ground fails every contrast test.
+   On dark surfaces the accent becomes warm sand; oxblood is kept for paper. */
+
+:root{--sand:#CFC4A9;}
+
+.cross-section .section-tag,
+.contact-section .section-tag,
+.co-title,.ci-label{color:var(--sand)!important}
+.cross-section .section-tag::before,.co-title::before{background:var(--sand)!important}
+.jur-table td:first-child{color:var(--sand);opacity:.95}
+.jur-table th{color:rgba(244,241,231,.5);background:rgba(244,241,231,.06)}
+.jur-table td{color:rgba(244,241,231,.82)}
+.cross-body{color:rgba(244,241,231,.78);font-style:normal}
+.cross-section .section-intro{color:rgba(244,241,231,.62);font-style:normal}
+.intake-body{color:rgba(244,241,231,.66);font-style:normal}
+.co-body{color:rgba(244,241,231,.62);font-style:normal}
+.ci-val,.ci-val a{color:rgba(244,241,231,.86)}
+.cross-cta{background:var(--sand);color:#141210;border-color:var(--sand)}
+.cross-cta:hover{background:#E2D9C4}
+
+/* the map must not sit under the reading column */
+.xb-map{
+  color:rgba(244,241,231,.30);
+  -webkit-mask-image:linear-gradient(to right,transparent 0%,transparent 34%,#000 58%,#000 100%);
+  mask-image:linear-gradient(to right,transparent 0%,transparent 34%,#000 58%,#000 100%);
+}
+.xb-land{stroke:currentColor;opacity:.55}
+.xb-line{stroke:currentColor;opacity:1;stroke-width:2.4}
+.cross-layout,.cross-section .section-tag,.cross-section .section-h2,
+.cross-section .section-intro{position:relative;z-index:2}
+
+@media(max-width:900px){
+  .xb-map{-webkit-mask-image:none;mask-image:none;opacity:.5}
+}
+
+/* ============ THE STORY SECTION ============ */
+/* One section: how it began, then who does what. The plates are kept; the
+   biographies now carry the record that supports the claim. */
+
+.story-section{background:var(--bg)}
+.story-head{max-width:20ch;margin-bottom:34px}
+.story-eyebrow{font-family:var(--mono);font-size:.58rem;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--brass);margin-bottom:16px}
+.story-head .section-h2 em{font-style:italic;color:var(--brass)}
+
+.story-body{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:34px;
+  padding-bottom:56px;
+}
+.story-p{font-family:var(--body);font-size:1rem;line-height:1.78;
+  color:var(--ink-mid);margin:0;text-wrap:pretty}
+.story-p:first-child{color:var(--ink);font-size:1.08rem}
+
+.prin-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.prin{padding:26px 44px 0 0;display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:start}
+.prin:nth-child(2){padding-left:44px;padding-right:0}
+.prin-plate{
+  border:1px solid var(--rule);box-shadow:3px 3px 0 var(--border);
+  padding:12px 16px 8px;background:#F6F1E4;
+}
+.tp-mono{font-family:var(--serif);font-size:2.4rem;font-weight:600;
+  line-height:.9;letter-spacing:-.04em;color:var(--ink)}
+.prin-name{font-family:var(--serif);font-size:1.5rem;font-weight:600;
+  color:var(--ink);letter-spacing:-.02em;margin-bottom:3px;line-height:1.15}
+.prin-role{display:block;font-family:var(--mono);font-size:.54rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--brass);margin-bottom:15px}
+.prin-bio{font-size:.94rem;line-height:1.75;color:var(--ink-muted);margin-bottom:12px;
+  text-wrap:pretty}
+.prin-link{color:var(--ink);border-bottom:1px solid var(--rule)}
+.prin-link:hover{border-bottom-color:var(--ink)}
+
+.prin-facts{margin-top:16px;padding-top:14px;
+  display:grid;grid-template-columns:auto 1fr;column-gap:18px;row-gap:7px;
+  background-image:var(--rule-band);}
+.prin-facts dt{font-family:var(--mono);font-size:.52rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--ink);padding-top:2px}
+.prin-facts dd{font-size:.84rem;line-height:1.65;color:var(--ink-muted);margin:0}
+
+@media(max-width:1000px){
+  .story-body{grid-template-columns:1fr;gap:18px;padding-bottom:40px}
+  .prin-grid{grid-template-columns:1fr;gap:34px}
+  .prin,.prin:nth-child(2){padding:26px 0 0 0}
+  .prin-facts{grid-template-columns:1fr;row-gap:2px}
+  .prin-facts dd{margin-bottom:8px}
+}
+
+/* ============ KEPT FROM THE ORIGINAL ============ */
+/* Two devices from the first build were worth carrying over: the ghost numeral
+   set into the corner of each process card, and the warm parchment wash on
+   hover. Both re-expressed in the current palette. */
+
+/* ---- the ghost numeral: an engraver's folio, set large and nearly invisible ---- */
+.process-card{position:relative;overflow:hidden}
+.process-card::after{
+  content:attr(data-num);
+  display:block!important;
+  position:absolute;bottom:-6px;right:0;
+  font-family:var(--serif);font-size:7.5rem;font-weight:700;
+  line-height:1;letter-spacing:-.04em;
+  color:rgba(20,18,16,.045);
+  pointer-events:none;
+}
+
+/* ---- the parchment wash: warmer than before, and now on every card ---- */
+.service-card:hover{background:#F1E7CE}
+.client-card:hover{background:#F1E7CE}
+.pricing-card:hover{background:#F6F1E4}
+.pricing-card.featured:hover{background:var(--ink)}
+.process-card:hover::after{color:rgba(20,18,16,.075)}
+
+/* ---- the brass bullet, kept ---- */
+.ptag::before{background:var(--brass);width:4px;height:4px;border-radius:50%}
+.ptag{font-family:var(--mono);font-size:.6rem;letter-spacing:.05em;color:var(--ink-muted)}
+
+@media(max-width:1000px){
+  .process-card::after{font-size:5.5rem}
+}
+
+/* ============ RULES, SHADOWS, REFERENCE BAR ============ */
+
+/* ---- 1. the stray rules go. Guilloche stays under the nav only, where it
+        has room to read as a motif rather than a smudge. ---- */
+.section::after,.cross-section::before,.contact-section::before,
+.story-section::before,.stats-band::before{display:none!important}
+.section::before{display:none!important}
+
+.section{background-image:none;border-top:1px solid rgba(20,18,16,.16)}
+.stats-band{background-image:none;
+  border-top:1px solid rgba(20,18,16,.16);border-bottom:1px solid rgba(20,18,16,.16)}
+.cross-section,.contact-section{background-image:none}
+.services-grid,.pricing-grid{background-image:none}
+.service-card,.process-card,.prin,.clients-grid,.faq-list,.hx-ex{
+  background-image:none}
+.service-card{border-top:1px solid var(--border)}
+.services-grid{border:1px solid var(--ink)}
+.service-card{border:none;border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
+.service-card:nth-child(even){border-right:none}
+.service-card:nth-child(n+3){border-bottom:none}
+.process-card{border-top:1px solid var(--ink);padding-top:24px}
+.prin{border-top:1px solid var(--ink);padding-top:26px}
+.clients-grid,.faq-list{border-top:1px solid var(--ink);padding-top:0}
+.hx-ex{padding-top:58px!important}
+.hx-mast{background-image:none;border-bottom:1px solid rgba(20,18,16,.22)}
+.hx-folio{background-image:none;border-top:1px solid rgba(20,18,16,.18)}
+
+/* ---- 2. the pricing block gets the same pressed-block shadow as the buttons ---- */
+.pricing-grid{
+  border:1px solid var(--ink);
+  box-shadow:5px 5px 0 var(--ink);
+  margin-bottom:8px;
+}
+.services-grid{box-shadow:5px 5px 0 var(--border)}
+
+/* ---- 3. the reference bar, restored ---- */
+.ref-bar{
+  display:flex;align-items:baseline;gap:20px;flex-wrap:wrap;
+  margin-top:30px;padding:15px 22px;
+  background:var(--white);
+  border:1px solid var(--ink);
+  box-shadow:4px 4px 0 var(--border);
+}
+.ref-lab{
+  font-family:var(--mono);font-size:.56rem;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--brass);flex-shrink:0;
+}
+.ref-txt{font-family:var(--body);font-size:.96rem;color:var(--ink-muted);line-height:1.6}
+.ref-txt strong{color:var(--ink);font-weight:600}
+.ref-note{
+  margin-left:auto;font-family:var(--mono);font-size:.56rem;
+  letter-spacing:.1em;color:var(--rule);flex-shrink:0;
+}
+
+@media(max-width:900px){
+  .pricing-grid,.services-grid{box-shadow:3px 3px 0 var(--ink)}
+  .services-grid{box-shadow:3px 3px 0 var(--border)}
+  .ref-note{margin-left:0;width:100%}
+}
+
+/* ============ CLEANUP: rules, story head, pricing ============ */
+
+/* ---- 1. the vertical margin rules were debris. Gone. ---- */
+.section::after,
+.cross-section::before,
+.contact-section::before,
+.testimonials-band::before,
+.stats-band::before,
+.story-section::after{display:none!important}
+
+/* ---- 2. the story headline was breaking one word per line ---- */
+.story-head{max-width:none;margin-bottom:38px}
+.story-head .section-h2{
+  max-width:14ch;
+  font-size:clamp(2.2rem,4.2vw,3.6rem);
+  line-height:1.04;letter-spacing:-.03em;
+}
+
+/* ---- 3. pricing: the block sits on the page like a letterpress plate ---- */
+.pricing-grid{
+  border:1px solid var(--ink);
+  box-shadow:6px 6px 0 var(--ink);
+  background:var(--white);
+}
+.pricing-card{border-right:1px solid var(--border)}
+.pricing-card:last-child{border-right:none}
+
+/* ---- 4. the reference bar, restored ---- */
+.pricing-note{
+  margin-top:46px;
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  background:var(--white);
+}
+.pn-item{
+  display:grid;grid-template-columns:132px 1fr;
+  align-items:baseline;gap:22px;
+  padding:15px 26px;
+  border-bottom:1px solid var(--border);
+}
+.pn-item:last-child{border-bottom:none}
+.pn-k{
+  font-family:var(--mono);font-size:.54rem;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--brass);
+}
+.pn-v{
+  font-family:var(--body);font-size:.98rem;line-height:1.6;color:var(--ink-mid);
+}
+.pn-item:first-child .pn-v{font-weight:600;color:var(--ink)}
+
+@media(max-width:760px){
+  .pn-item{grid-template-columns:1fr;gap:5px;padding:13px 18px}
+  .pricing-grid{box-shadow:4px 4px 0 var(--ink)}
+}
+
+/* ---- the reference bar: three fields across, meta to the right ---- */
+.pn-item{
+  display:grid;grid-template-columns:118px 1fr auto;
+  align-items:baseline;gap:24px;
+  padding:15px 26px;
+  border-bottom:1px solid var(--border);
+}
+.pn-item:last-child{border-bottom:none}
+.pn-m{font-family:var(--mono);font-size:.52rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--rule);white-space:nowrap}
+.pn-v strong{font-weight:600;color:var(--ink)}
+.pn-item:first-child .pn-v{font-weight:400;color:var(--ink-mid)}
+@media(max-width:860px){
+  .pn-item{grid-template-columns:1fr;gap:5px;padding:13px 18px}
+  .pn-m{display:none}
+}
+
+
+/* ============ PRINT MARKS AND PLATES ============ */
+
+/* ---- 1. the story headline: one line, roman throughout ---- */
+.story-head .section-h2{
+  max-width:22ch;font-style:normal;
+  font-size:clamp(2.1rem,3.9vw,3.3rem);
+  line-height:1.08;letter-spacing:-.028em;
+}
+.story-head .section-h2 em{font-style:normal;color:inherit}
+
+/* ---- 2. brackets on section tags: the transcript's own mark ---- */
+.st-br{color:var(--rule);font-weight:400;margin:0 .45em;opacity:.85}
+.section-tag::before{display:none}
+
+/* ---- 3. the portrait: an offset outline, not a box ---- */
+.prin-plate{
+  border:none;box-shadow:none;background:transparent;
+  padding:0;width:172px;position:relative;
+}
+.prin-plate::before{
+  content:'';position:absolute;
+  left:12px;top:12px;right:-12px;bottom:-12px;
+  border:1px solid var(--ink);opacity:.5;
+  pointer-events:none;
+}
+.prin-img{
+  position:relative;z-index:1;
+  display:block;width:100%;height:auto;
+  filter:grayscale(1) contrast(1.08);
+}
+.prin{grid-template-columns:172px 1fr;gap:44px}
+
+/* ---- 4. pricing: no outer box; column rules, and the featured plate breaks out ---- */
+.pricing-grid{
+  border:none;box-shadow:none;background:transparent;
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  align-items:stretch;
+}
+.pricing-card{border-right:1px solid var(--border);background:transparent}
+.pricing-card:last-child{border-right:none}
+.pricing-card.featured{
+  background:var(--ink);
+  margin:-22px 0;padding-top:64px;padding-bottom:62px;
+  border-right:none;
+}
+.pricing-card:hover{background:transparent}
+.pricing-card.featured:hover{background:var(--ink)}
+
+/* ---- 5. registration marks, as on a press sheet ---- */
+.regmarks{position:relative}
+.regmarks::before,.regmarks::after{
+  content:'';position:absolute;width:13px;height:13px;
+  border:1px solid var(--ink);opacity:.42;pointer-events:none;
+}
+.regmarks::before{left:-22px;top:-22px;border-right:none;border-bottom:none}
+.regmarks::after{right:-22px;bottom:-22px;border-left:none;border-top:none}
+
+/* ---- 6. the seal, set in the folio ---- */
+.seal{
+  width:26px;height:26px;color:var(--ink);opacity:.55;
+  justify-self:center;margin-bottom:-5px;
+}
+.hx-folio{grid-template-columns:1fr auto auto 1fr;gap:14px;align-items:center}
+
+@media(max-width:1000px){
+  .prin{grid-template-columns:1fr;gap:34px}
+  .prin-plate{width:148px}
+  .pricing-card.featured{margin:0;padding-top:42px;padding-bottom:40px}
+  .regmarks::before,.regmarks::after{display:none}
+}
+
+/* ============ RHYTHM — vary the entry, vary the measure ============ */
+/* Every section was entering at the same margin with the same header stack.
+   The page read as one long column. These break that: headers split into two
+   columns, the entry point shifts, and one section runs full bleed. */
+
+/* ---- headers: title left, intro offset right and dropped ---- */
+.section-header{
+  display:grid;grid-template-columns:repeat(12,1fr);
+  gap:0;margin-bottom:56px;align-items:end;
+}
+.section-header .section-tag{grid-column:1 / 7;margin-bottom:16px}
+.section-header .section-h2{grid-column:1 / 8;max-width:16ch}
+.section-header .section-intro{
+  grid-column:8 / 13;max-width:34ch;margin-top:0;padding-bottom:6px;
+  font-size:.98rem;line-height:1.8;
+}
+
+/* ---- the cross-border header keeps its own scale: it is the argument ---- */
+.cross-section .section-h2{font-size:clamp(2.8rem,5.4vw,4.6rem);max-width:13ch}
+.cross-section .section-intro{max-width:46ch}
+
+/* ---- the clients run edge to edge: a directory, not a card grid ---- */
+.clients-section .container{width:100%;max-width:none;padding:0}
+.clients-section .section-header{
+  width:min(100% - 48px,var(--max));margin-inline:auto;margin-bottom:48px;
+}
+.clients-grid{
+  grid-template-columns:repeat(4,1fr);
+  border-left:none;border-right:none;
+}
+.client-card{padding:34px 30px}
+.client-card:nth-child(4n+1){padding-left:max(24px,calc((100vw - var(--max)) / 2))}
+.client-card:nth-child(4n){padding-right:max(24px,calc((100vw - var(--max)) / 2))}
+
+/* ---- services enter one column in; process starts flush ---- */
+.services-section .section-header{padding-left:0}
+.process-section .section-header .section-h2{grid-column:1 / 9}
+.pricing-section .section-header .section-h2{grid-column:1 / 10;max-width:14ch}
+
+/* ---- the story section: the head takes the left third only ---- */
+.story-head{display:grid;grid-template-columns:repeat(12,1fr)}
+.story-head .story-eyebrow{grid-column:1 / 7}
+.story-head .section-h2{grid-column:1 / 7}
+
+@media(max-width:1000px){
+  .section-header{grid-template-columns:1fr;gap:14px}
+  .section-header .section-tag,
+  .section-header .section-h2,
+  .section-header .section-intro{grid-column:1;max-width:none}
+  .clients-grid{grid-template-columns:1fr 1fr}
+  .client-card:nth-child(n){padding-left:24px;padding-right:24px}
+  .story-head .story-eyebrow,.story-head .section-h2{grid-column:1}
+}
+
+/* ============ TESTIMONIAL — set upright, on a plate ============ */
+/* Italic at that size read as a pull-quote from a magazine. Roman, on a plate
+   with the same hard offset as the buttons, reads as a filed statement. */
+.testi-band{background:var(--navy-dark);padding:76px 0 84px}
+.testi{
+  margin:0;display:grid;grid-template-columns:repeat(12,1fr);
+  background:transparent;
+}
+.testi-q{
+  grid-column:1 / 9;
+  font-family:var(--body);font-style:normal;
+  font-size:clamp(1.12rem,1.62vw,1.4rem);
+  font-weight:400;line-height:1.66;letter-spacing:0;
+  color:rgba(244,241,231,.92);margin:0;text-wrap:pretty;
+  padding-left:26px;border-left:2px solid var(--sand);
+}
+.testi-q::before{display:none}
+.testi-src{
+  grid-column:10 / 13;align-self:start;
+  padding:18px 20px;
+  border:1px solid rgba(244,241,231,.42);
+  box-shadow:4px 4px 0 rgba(244,241,231,.22);
+}
+.testi-name{display:block;font-family:var(--body);font-size:.94rem;font-weight:600;
+  color:#F4F1E7;margin-bottom:7px;line-height:1.3}
+.testi-org{display:block;font-family:var(--mono);font-size:.52rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--sand);line-height:1.85}
+
+/* ============ RELIEF — the letterpress offset, used sparingly ============ */
+/* The buttons already sit proud of the page. These four blocks now do too:
+   the transcript extract, the reference bar, the FAQ column and the folio seal. */
+.hx-ex{
+  background-color:#FBF9F2;
+  padding:34px 30px 30px 30px!important;
+  border:1px solid var(--ink);
+  box-shadow:5px 5px 0 var(--ink);
+}
+.pricing-note{
+  border:1px solid var(--ink);border-top:1px solid var(--ink);
+  box-shadow:5px 5px 0 var(--border);
+}
+.faq-sticky{
+  background:var(--white);padding:26px 24px 28px;
+  border:1px solid var(--ink);box-shadow:5px 5px 0 var(--border);
+}
+.prin-plate,.tp-mono{box-shadow:none}
+.cl-ico{filter:none}
+.hx-folio .seal{opacity:.6}
+
+/* the stats band gets a plate under each numeral instead of floating */
+.stat-num{
+  display:inline-block;
+  border-bottom:2px solid var(--ink);
+  padding-bottom:6px;margin-bottom:14px;
+}
+
+@media(max-width:1000px){
+  .testi-q{grid-column:1;padding-left:18px}
+  .testi-src{grid-column:1;margin-top:26px}
+  .hx-ex{padding:26px 20px!important;box-shadow:4px 4px 0 var(--ink)}
+  .pricing-note,.faq-sticky{box-shadow:3px 3px 0 var(--border)}
+}
+
+/* ============ CREDENTIALS — the section is about us now ============ */
+.story-head{margin-bottom:40px;display:grid;grid-template-columns:repeat(12,1fr);
+  align-items:end;gap:0}
+.story-head .story-eyebrow{grid-column:1 / 7;margin-bottom:16px}
+.story-head .section-h2{grid-column:1 / 7;max-width:14ch}
+.story-head .cred-p{grid-column:8 / 13;max-width:36ch;padding-bottom:6px;
+  font-size:.98rem;line-height:1.8;color:var(--ink-muted)}
+.cred-list{display:block}
+.cred-dl{display:grid;grid-template-columns:200px 1fr;column-gap:44px;row-gap:0}
+.cred-dl dt{font-family:var(--mono);font-size:.54rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--ink);padding:17px 0}
+.cred-dl dd{font-size:.96rem;line-height:1.72;color:var(--ink-muted);margin:0;
+  padding:16px 0 17px;max-width:62ch}
+.cred-dl dt:not(:first-of-type),.cred-dl dd:not(:first-of-type){border-top:1px solid var(--border)}
+
+/* the eyebrow was oxblood on ink: unreadable. Sand, like every other label there. */
+.testi-eyebrow{color:var(--sand)}
+
+@media(max-width:1000px){
+  .story-head{grid-template-columns:1fr;gap:14px}
+  .story-head .story-eyebrow,.story-head .section-h2,.story-head .cred-p{grid-column:1;max-width:none}
+  .cred-dl{grid-template-columns:1fr;row-gap:0}
+  .cred-dl dt{padding:16px 0 4px}
+  .cred-dl dd{padding:0 0 16px;max-width:none;border-top:none!important}
+}
+
+/* ============ FIXES: band, hero plate, lang toggle, footer ============ */
+
+/* ---- 1. the stats band: the label was colliding with the numeral ---- */
+.stats-inner{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:0;align-items:start;padding:46px 0 44px;
+}
+.stat-item{border:none;text-align:left;padding:0 34px 0 0}
+.stat-item:nth-child(n){grid-column:auto}
+.stat-num{
+  display:block;width:max-content;
+  border-bottom:2px solid var(--ink);
+  padding-bottom:7px;margin:0 0 16px 0;
+  font-family:var(--serif);font-size:2rem;font-weight:600;
+  color:var(--ink);letter-spacing:-.02em;line-height:1;
+}
+.stat-lab{
+  display:block;
+  font-family:var(--mono);font-size:.56rem;letter-spacing:.16em;
+  line-height:2;color:var(--ink-muted);text-transform:uppercase;
+}
+
+/* ---- 2. the transcript plate: lighter relief, real breathing room ---- */
+.hx-ex{
+  background-color:#FBF9F2;
+  margin-top:22px;
+  padding:30px 30px 28px 26px!important;
+  border:1px solid var(--rule);
+  box-shadow:3px 3px 0 var(--border);
+}
+.hx-h1{padding-bottom:14px}
+.hx-turn{grid-template-columns:34px 92px 1fr;column-gap:18px}
+.hx-turn::before{font-size:.54rem}
+
+/* ---- 3. the language toggle gets the same relief as the buttons ---- */
+.nav-lang{
+  border:1px solid var(--ink);border-radius:0;
+  box-shadow:2px 2px 0 var(--ink);
+  transition:transform .08s ease,box-shadow .08s ease;
+}
+.nav-lang:active{transform:translate(2px,2px);box-shadow:0 0 0 var(--ink)}
+.nav-lang a{padding:6px 10px}
+.nav-lang a.active{background:var(--ink);color:var(--bg)}
+
+/* ---- 4. the footer address was at 24% on near-black ---- */
+.footer-logo{
+  font-family:var(--serif);font-size:1.5rem;font-weight:600;
+  color:#F4F1E7;font-variant:small-caps;letter-spacing:.02em;
+}
+.footer-logo .lg-b{color:var(--sand);font-weight:400;margin:0 .12em;font-variant:normal}
+.footer-links li,.footer-links a{color:rgba(244,241,231,.72);font-size:.9rem;line-height:1.65}
+.footer-links a:hover{color:#F4F1E7}
+.footer-mission{color:rgba(244,241,231,.52)}
+.footer-col-title{color:var(--sand)}
+
+@media(max-width:1000px){
+  .stats-inner{grid-template-columns:1fr 1fr;row-gap:32px}
+  .stat-item{padding-right:20px}
+}
+@media(max-width:640px){
+  .stats-inner{grid-template-columns:1fr;row-gap:26px}
+  /* the transcript must not become an endless scroll on a phone */
+  .hx-ex{padding:22px 18px!important;box-shadow:2px 2px 0 var(--border);margin-top:16px}
+  .hx-turn{grid-template-columns:26px 1fr;column-gap:12px;row-gap:3px;margin-bottom:14px!important}
+  .hx-turn .hx-q{grid-column:2;text-align:left;font-size:.52rem}
+  .hx-turn p{grid-column:2;font-size:.92rem;line-height:1.5}
+  .hx-turn::before{grid-row:1 / 3;font-size:.5rem}
+  .hx-paren p{font-size:.56rem}
+}
+
+/* ---- contact items: the note was inline against the address ---- */
+.contact-item{margin-bottom:26px}
+.ci-label{display:block;margin-bottom:7px}
+.ci-val{display:block;font-size:.98rem;line-height:1.5}
+.ci-note{
+  display:block;margin-top:6px;
+  font-family:var(--mono);font-size:.52rem;letter-spacing:.14em;
+  text-transform:uppercase;color:rgba(244,241,231,.46);line-height:1.7;
+}
+
+/* ============ FINAL PASS ============ */
+
+/* ---- 1. the h1 was the only thing at 6rem; sections had nothing near it.
+        Give the two argument sections real scale so the page has peaks. ---- */
+.cross-section .section-h2{font-size:clamp(2.9rem,5.6vw,5rem);line-height:.98}
+.story-section .section-h2{font-size:clamp(2.3rem,4.4vw,3.7rem)}
+.pricing-section .section-h2,.faq-section .section-h2{font-size:clamp(2.2rem,4vw,3.4rem)}
+.services-section .section-h2,.process-section .section-h2,
+.clients-section .section-h2{font-size:clamp(2rem,3.6vw,3rem)}
+
+/* ---- 2. optical detail the whole page was missing ---- */
+body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.section-h2,.hx-h1,.cred-h,.pain-h,.service-h3,.process-h3,.prin-name,
+.testi-q,.price-num,.client-name{font-kerning:normal;font-feature-settings:"kern" 1,"liga" 1}
+.price-num,.stat-num,.pn-v,.hx-turn::before,.cred-dl dt{font-variant-numeric:tabular-nums}
+p,li,dd{hanging-punctuation:first last}
+
+/* ---- 3. focus and selection, checked against the ink surfaces ---- */
+a:focus-visible,button:focus-visible,summary:focus-visible{
+  outline:2px solid var(--brass);outline-offset:3px;border-radius:0}
+.cross-section a:focus-visible,.contact-section a:focus-visible,
+footer a:focus-visible,.testi-band a:focus-visible{outline-color:var(--sand)}
+::selection{background:var(--brass-pale);color:var(--ink)}
+
+/* ---- 4. links inside running text were bare ---- */
+.cred-dl dd a,.prin-bio a,.story-p a{
+  color:var(--ink);border-bottom:1px solid var(--rule);transition:border-color .2s}
+.cred-dl dd a:hover,.prin-bio a:hover{border-bottom-color:var(--ink)}
+
+/* ---- 5. the seal sat below its line ---- */
+.hx-folio{align-items:center}
+.seal{margin-bottom:0;align-self:center}
+
+/* ---- 6. motion: everything animated on load with no escape hatch ---- */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .hx-mast,.hx-h1,.hx-ex,.hx-actions,.hx-folio,.hx-turn,.reveal{opacity:1!important;transform:none!important}
+  .hx-bracket{transform:scaleY(1)!important}
+  .redact{transform:scaleX(1)!important}
+}
+
+/* ---- 7. print: the site is a document, it should print like one ---- */
+@media print{
+  nav,.hx-bracket,.xb-map,.btn-primary,.btn-outline-w,.nav-tel,.svc-toggle{display:none!important}
+  body{background:#fff;color:#000}
+  .cross-section,.contact-section,.testi-band,footer{background:#fff;color:#000}
+  .cross-body,.testi-q,.ci-val,.co-body{color:#000!important}
+  .section{page-break-inside:avoid}
+  .hx-ex{box-shadow:none;border:1px solid #000}
+}
+
+/* ---- 8. small screens: the grid still had two-column remnants ---- */
+@media(max-width:640px){
+  .clients-grid{grid-template-columns:1fr}
+  .client-card:nth-child(n){padding-left:24px;padding-right:24px}
+  .cred-dl dd{max-width:none}
+  .testi-q{font-size:1.02rem}
+  .hx-folio{grid-template-columns:1fr auto;gap:12px}
+  .hx-folio .fo-r{display:none}
+}
+</style>
+  <link rel="alternate" hreflang="en" href="https://lexoral.org/"/>
+  <link rel="alternate" hreflang="fr" href="https://lexoral.org/fr/"/>
+  <link rel="alternate" hreflang="x-default" href="https://lexoral.org/"/>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"Organization","@id":"https://lexoral.org/#org","name":"Lexoral","url":"https://lexoral.org","email":"secure@lexoral.org","telephone":["+15147127516"],"address":{"@type":"PostalAddress","streetAddress":"24191-300 Eagleson Rd","addressLocality":"Kanata","addressRegion":"ON","postalCode":"K2M 2C3","addressCountry":"CA"},"areaServed":["CA","US"],"knowsLanguage":["fr","en"]},
+{"@type":"LegalService","name":"Lexoral — Attested Bilingual Legal Transcription","provider":{"@id":"https://lexoral.org/#org"},"serviceType":"Legal Transcription","description":"Attested French-English bilingual transcription for depositions, arbitrations, and cross-border proceedings.","areaServed":["CA","US"]},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What exactly do you certify?","acceptedAnswer":{"@type":"Answer","text":"Every Lexoral transcript is accompanied by a signed accuracy declaration attesting that the transcript is a faithful and complete account of the audio provided."}},
+{"@type":"Question","name":"Why not use AI transcription tools like Whisper or Otter?","acceptedAnswer":{"@type":"Answer","text":"AI transcription tools fail precisely in the conditions that define bilingual legal proceedings: mid-sentence code-switching, overlapping speakers, legal terminology, and Quebec French register. These tools cannot maintain an evidentiary chain of custody nor sign an accuracy declaration."}},
+{"@type":"Question","name":"Are you compliant with Loi 25 and Quebec privacy law?","acceptedAnswer":{"@type":"Answer","text":"Yes. All files are handled via restricted-access workflows in compliance with Loi 25. Files are transferred via encrypted protocols and never disclosed to third parties except where you instruct us to involve one."}},
+{"@type":"Question","name":"Can you handle bilingual hearings with mid-sentence code-switching?","acceptedAnswer":{"@type":"Answer","text":"Yes — this is our specialization. We transcribe verbatim in each language as spoken, without translating or paraphrasing, preserving evidentiary integrity."}},
+{"@type":"Question","name":"Do you provide transcripts with line numbering?","acceptedAnswer":{"@type":"Answer","text":"Yes. All transcripts include continuous line numbering, structured pagination, and speaker identification formatted for direct reference in pleadings and briefs."}}
+]}]}
+</script>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <div class="logo"><span class="lg-b">[</span>Lexoral<span class="lg-b">]</span></div>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#cross-border">Cross-Border</a>
+      <a href="#team">Team</a>
+      <a href="#process">Process</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div style="display:flex;gap:12px;align-items:center">
+      <div class="nav-lang">
+        <a href="#" class="active">EN</a>
+        <span>·</span>
+        <a href="/fr/">FR</a>
+      </div>
+      <a href="tel:+15147127516" class="nav-tel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3h3l1.5 4-2 1.5a12 12 0 0 0 6.5 6.5l1.5-2 4 1.5v3a2 2 0 0 1-2.2 2A17 17 0 0 1 4.5 5.2 2 2 0 0 1 6.5 3z"/></svg><span>+1 (514) 712-7516</span></a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hx">
+
+    <svg class="hx-bracket" viewBox="0 0 20 100" preserveAspectRatio="none" aria-hidden="true"><path d="M19 0.6 L4 0.6 L4 99.4 L19 99.4" fill="none" stroke="currentColor" stroke-width="1.1" vector-effect="non-scaling-stroke"/></svg>
+
+    <div class="hx-mast">
+      <span class="mast-l">Lexoral &middot; French&ndash;English legal transcription</span>
+      <span class="mast-c">Montreal &middot; Quebec &middot; Ontario</span>
+      <span class="mast-r">Established 2024</span>
+    </div>
+
+    <h1 class="hx-h1"><span class="pm pm-l">(</span><span class="hw">We&rsquo;re the record.</span><span class="pm pm-r">)</span></h1>
+
+    <div class="hx-ex">
+      <div class="hx-turn hx-paren">
+        <span class="hx-q"></span>
+        <p>(Exhibit 14 marked for identification.)</p>
+      </div>
+      <div class="hx-turn">
+        <span class="hx-q">Q.</span>
+        <p>Ms. Patel, do you recognise Exhibit 14?</p>
+      </div>
+      <div class="hx-turn">
+        <span class="hx-q">A.</span>
+        <p>Oui. C&rsquo;est la lettre du douze janvier.</p>
+      </div>
+      <div class="hx-turn">
+        <span class="hx-q">Q.</span>
+        <p>In English, for the record, please.</p>
+      </div>
+      <div class="hx-turn hx-kept">
+        <span class="hx-q">A.</span>
+        <p>The letter of January twelfth. Mais l&rsquo;annexe C n&rsquo;y &eacute;tait pas jointe.</p>
+      </div>
+      <div class="hx-turn hx-colloquy">
+        <span class="hx-q">Me&nbsp;Tremblay</span>
+        <p>Objection to form. I take the question under advisement.</p>
+      </div>
+    </div>
+
+    <div class="hx-actions">
+      <a href="#contact" class="btn-primary">Submit a proceeding &rarr;</a>
+      <a href="#services" class="btn-outline-w">Our services</a>
+    </div>
+
+    <div class="hx-folio">
+      <span class="fo-l">Dossier 2024-QC-482</span>
+      <svg class="seal" viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="32" cy="32" r="29" stroke="currentColor" stroke-width="1"/><circle cx="32" cy="32" r="24.5" stroke="currentColor" stroke-width="0.5" stroke-dasharray="1.6 2.4"/><path d="M32 14 L32 50 M20 24 L44 24 M20 40 L44 40" stroke="currentColor" stroke-width="0.5" opacity=".45"/><path d="M24 32 l5 5 l11 -11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="fo-c">&mdash;&nbsp;1&nbsp;&mdash;</span>
+      <span class="fo-r">Verbatim FR&ndash;EN</span>
+    </div>
+
+  </div>
+</section>
+
+<div class="stats-band">
+  <div class="container">
+    <div class="stats-inner">
+      <div class="stat-item"><span class="stat-num">FR·EN</span><span class="stat-lab">Verbatim both languages<br/>code-switching preserved</span></div>
+      <div class="stat-item"><span class="stat-num">CA·US</span><span class="stat-lab">Quebec proceedings<br/>U.S. public defence</span></div>
+      <div class="stat-item"><span class="stat-num">24h</span><span class="stat-lab">Priority turnaround<br/>available</span></div>
+      <div class="stat-item"><span class="stat-num">Loi&nbsp;25</span><span class="stat-lab">Quebec privacy<br/>compliant handling</span></div>
+    </div>
+  </div>
+</div>
+
+
+<section class="services-section section" id="services">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag"><span class="st-br">[</span>What we do<span class="st-br">]</span></div>
+      <h2 class="section-h2">Built for evidentiary standards.</h2>
+      <p class="section-intro">Four kinds of proceeding, four sets of formatting conventions. Each transcript is produced to the requirements of the forum it is going to.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <span class="service-num">01</span>
+        <h3 class="service-h3">Depositions &amp; Examinations</h3>
+        <p class="service-p">Verbatim bilingual transcripts with speaker identification, timestamps, line numbering, and objection notation. Formatted for immediate filing or production in court.</p>
+        <button class="svc-toggle" onclick="toggleFmt(this)" aria-expanded="false"><span>Format &mdash; déposition</span><span class="svc-plus">+</span></button><pre class="svc-fmt"> 21   Q.   Ms. Patel, when did you receive Schedule C?
+ 22   A.   Le douze janvier. But the annex --
+ 23        (Passage en anglais.)
+ 24   A.   -- l’annexe C only came a week later.</pre>
+        <a href="#contact" class="service-link">Submit a Request</a>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-num">02</span>
+        <h3 class="service-h3">Arbitration &amp; Mediation</h3>
+        <p class="service-p">Judicial formatting for private panels, institutional arbitrations, and complex multi-party disputes. ICC, AAA, ADRIC, and CIAC proceedings accepted.</p>
+        <button class="svc-toggle" onclick="toggleFmt(this)" aria-expanded="false"><span>Format &mdash; arbitrage</span><span class="svc-plus">+</span></button><pre class="svc-fmt">      THE CHAIR:      We are back on the record.
+      Me TREMBLAY:    Merci, Madame la Présidente.
+      (Voix superposées.)
+      THE CHAIR:      One at a time, please.</pre>
+        <a href="#contact" class="service-link">Submit a Request</a>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-num">03</span>
+        <h3 class="service-h3">Tribunals &amp; Regulatory Hearings</h3>
+        <p class="service-p">Administrative tribunals, labour commissions, immigration hearings, and government proceedings — formatted to each body's documentary requirements.</p>
+        <button class="svc-toggle" onclick="toggleFmt(this)" aria-expanded="false"><span>Format &mdash; tribunal administratif</span><span class="svc-plus">+</span></button><pre class="svc-fmt"> 08   THE MEMBER:     Please state your name.
+ 09   THE WITNESS:    Chantal Beauchemin [phonétique].
+ 10                   [inaudible 00:14:22]
+ 11   THE MEMBER:     Repeat that, please.</pre>
+        <a href="#contact" class="service-link">Submit a Request</a>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-num">04</span>
+        <h3 class="service-h3">Cross-Border Litigation Support</h3>
+        <p class="service-p">U.S. deposition standards combined with bilingual Quebec law expertise. One record built to satisfy both procedural frameworks, without reformatting or a second pass.</p>
+        <button class="svc-toggle" onclick="toggleFmt(this)" aria-expanded="false"><span>Format &mdash; transfrontalier</span><span class="svc-plus">+</span></button><pre class="svc-fmt">      EXAMINATION BY MR. WALSH
+ 31   Q.   When did you first receive it?
+ 32   A.   Le douze janvier.
+ 33        (Silence 00:04 --> 00:12.)</pre>
+        <a href="#cross-border" class="service-link">Learn More</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cross-section" id="cross-border">
+  <svg class="xb-map" viewBox="0 0 1000 620" fill="none" aria-hidden="true"><path class="xb-land" d="M793.7 345.0 L800.1 346.6 L808.3 346.3 L803.9 351.3 L800.6 352.1 L789.4 346.9 L787.2 342.9 L790.5 339.1 L793.7 345.0 Z M810.1 314.1 L805.8 314.3 L794.3 310.5 L786.1 304.8 L789.1 303.8 L800.8 306.8 L809.8 311.9 L810.1 314.1 Z M263.7 321.3 L259.2 323.0 L244.7 317.5 L242.0 313.2 L234.1 308.9 L232.5 305.5 L223.4 303.3 L220.0 296.7 L220.7 293.9 L230.0 296.6 L235.5 298.4 L243.8 299.7 L246.8 303.8 L251.2 309.6 L260.0 314.6 L263.7 321.3 Z M860.3 294.9 L854.5 305.5 L860.3 301.4 L866.2 304.0 L863.1 308.2 L871.0 311.6 L875.0 308.6 L883.9 312.3 L881.1 321.2 L887.3 319.1 L888.5 325.6 L891.2 333.1 L887.5 343.7 L883.5 344.2 L877.7 341.9 L879.6 332.0 L877.1 330.5 L866.8 341.0 L861.6 340.5 L867.8 334.9 L859.3 331.9 L849.8 332.6 L832.6 332.3 L831.2 328.7 L836.8 324.4 L832.9 321.1 L840.3 313.8 L849.5 294.5 L855.0 287.7 L862.7 283.5 L866.8 284.0 L865.1 287.3 L860.3 294.9 Z M182.2 254.3 L190.7 253.4 L188.0 267.1 L195.7 276.8 L192.2 276.8 L186.9 271.3 L183.6 265.7 L179.1 261.9 L177.5 256.6 L178.0 252.7 L182.2 254.3 Z M655.5 156.0 L652.0 162.4 L648.1 161.3 L645.8 157.7 L646.2 156.9 L649.6 153.3 L653.2 153.5 L655.5 156.0 Z M632.2 149.3 L621.8 156.0 L615.6 155.7 L613.6 152.5 L620.2 146.9 L632.4 147.0 L632.2 149.3 Z M603.3 113.6 L604.9 119.0 L609.5 117.1 L614.6 120.3 L624.3 124.4 L634.4 128.2 L635.2 134.0 L641.7 133.0 L648.1 137.0 L640.2 140.8 L626.4 137.9 L621.5 132.5 L612.7 138.9 L600.1 145.2 L597.0 138.1 L585.0 139.3 L592.7 133.3 L593.9 123.8 L596.9 112.7 L603.3 113.6 Z M685.6 95.6 L675.7 96.2 L673.5 90.3 L677.2 83.5 L685.3 81.8 L692.3 85.2 L692.3 90.3 L691.4 92.0 L685.6 95.6 Z M510.4 71.9 L504.9 76.1 L493.0 72.4 L485.8 73.8 L473.7 68.3 L481.5 64.6 L487.6 59.3 L497.0 62.8 L502.4 64.9 L505.0 67.2 L510.4 71.9 Z M555.6 67.1 L555.5 79.5 L567.4 70.0 L578.0 77.8 L575.3 86.8 L583.9 95.0 L593.1 86.2 L599.6 75.8 L600.1 62.5 L612.7 63.4 L625.8 65.2 L637.6 71.2 L638.2 77.2 L631.6 83.7 L637.8 90.2 L636.7 96.0 L619.4 104.5 L607.0 106.4 L597.9 102.7 L595.2 108.8 L586.7 119.0 L584.1 124.3 L573.9 132.5 L561.2 133.3 L554.2 138.4 L553.6 146.3 L543.3 147.8 L532.5 157.6 L522.9 171.3 L519.4 180.8 L518.9 194.9 L532.0 196.9 L535.9 208.2 L540.1 217.4 L552.5 215.0 L568.9 220.3 L577.8 224.9 L584.1 230.6 L595.2 233.9 L604.6 239.0 L619.2 239.7 L628.9 240.9 L627.4 251.4 L630.2 263.6 L636.6 277.1 L649.8 288.6 L656.6 284.7 L661.4 272.2 L656.7 253.1 L650.5 246.7 L664.7 241.0 L674.7 232.6 L679.6 224.1 L678.9 216.0 L672.9 205.7 L662.1 196.6 L672.6 183.9 L668.7 173.0 L665.7 154.1 L671.9 151.3 L687.1 154.6 L696.2 155.7 L703.5 152.6 L711.8 156.7 L722.7 163.7 L725.4 168.4 L741.2 169.3 L740.9 179.5 L743.9 194.8 L751.9 196.7 L758.4 203.8 L771.2 197.1 L779.7 183.7 L785.5 178.1 L792.4 188.9 L803.9 204.3 L813.7 218.9 L810.2 226.5 L822.0 233.3 L829.9 240.2 L844.0 243.4 L849.7 247.2 L853.2 257.5 L860.1 259.1 L863.7 263.6 L864.3 277.2 L857.9 281.8 L851.5 286.1 L837.0 290.4 L825.8 300.3 L810.8 302.3 L791.9 299.7 L778.6 299.6 L769.4 300.5 L762.0 309.2 L750.7 314.5 L738.0 330.5 L727.8 341.7 L735.3 339.7 L749.5 323.8 L768.1 313.7 L781.3 312.5 L789.2 318.5 L780.8 326.6 L783.6 339.7 L786.5 348.8 L798.0 354.8 L812.6 353.1 L821.5 339.5 L822.1 348.3 L827.9 352.6 L816.9 360.6 L797.3 367.8 L788.5 372.7 L778.6 381.4 L771.9 380.5 L771.5 370.3 L786.9 360.3 L772.7 360.6 L762.9 362.1 L757.1 355.3 L757.1 338.8 L753.2 335.3 L747.2 337.3 L744.3 334.1 L737.5 343.3 L734.8 352.7 L731.7 358.2 L727.9 360.1 L725.1 360.7 L724.2 363.7 L707.9 363.7 L694.4 363.8 L690.4 366.0 L681.1 374.7 L680.0 375.7 L677.1 380.4 L669.0 380.4 L660.3 380.4 L656.3 382.4 L657.8 384.7 L658.5 388.4 L658.4 389.7 L646.8 395.7 L637.7 397.6 L627.4 404.0 L625.2 404.0 L622.2 402.1 L621.2 400.4 L621.4 399.1 L623.3 394.9 L627.5 388.2 L630.1 381.1 L628.3 370.6 L626.4 359.6 L617.2 353.9 L618.3 351.7 L617.0 350.3 L614.5 350.3 L612.7 348.3 L612.3 345.5 L610.6 346.7 L608.2 346.4 L608.7 345.2 L606.7 344.0 L605.8 340.8 L598.9 336.9 L591.8 332.9 L583.1 328.2 L574.8 323.8 L566.9 327.2 L564.0 327.3 L553.1 324.2 L545.9 325.8 L537.3 322.0 L528.3 320.1 L522.1 319.3 L519.3 317.3 L517.8 310.6 L514.8 310.7 L514.7 315.4 L496.4 315.3 L466.1 315.4 L436.0 315.4 L409.4 315.4 L382.9 315.4 L356.7 315.4 L329.7 315.4 L321.0 315.4 L294.7 315.4 L269.6 315.4 L268.4 315.3 L251.3 303.4 L244.9 298.2 L228.9 293.2 L224.0 282.5 L225.2 275.0 L213.9 269.9 L212.3 260.1 L201.6 251.3 L201.4 245.1 L206.4 239.2 L206.1 231.6 L191.1 223.9 L182.0 210.1 L176.5 201.4 L168.4 195.9 L162.4 191.0 L157.7 184.7 L148.8 188.6 L140.2 195.4 L132.3 187.5 L126.1 182.2 L117.5 178.8 L108.8 178.4 L108.8 109.5 L108.9 64.5 L125.4 67.5 L139.4 73.3 L148.6 74.4 L156.4 69.4 L167.1 65.6 L180.2 67.1 L193.5 61.7 L208.0 58.7 L214.1 63.7 L220.7 60.9 L222.7 55.2 L228.8 56.5 L243.8 67.4 L255.6 59.1 L256.8 68.3 L267.6 66.3 L271.0 62.8 L281.7 63.5 L295.2 68.6 L316.0 73.0 L328.2 75.1 L336.8 74.3 L348.8 80.4 L336.3 86.5 L352.3 89.1 L376.2 87.6 L383.8 85.5 L393.2 92.8 L402.9 86.6 L393.8 81.5 L399.5 77.4 L410.3 76.8 L417.4 75.6 L424.5 78.5 L433.4 85.1 L443.3 84.1 L459.0 89.6 L472.7 87.6 L485.7 87.9 L484.6 80.4 L492.5 78.3 L506.2 82.4 L506.2 93.8 L511.8 84.2 L518.9 84.5 L522.9 72.3 L513.5 64.9 L503.1 60.0 L503.8 46.6 L514.3 37.8 L526.0 39.7 L534.9 45.1 L547.0 58.7 L539.1 64.7 L555.6 67.1 Z M346.4 23.3 L342.0 28.9 L361.7 25.3 L374.0 31.4 L384.0 25.2 L392.1 29.2 L399.3 41.1 L403.8 36.0 L397.5 23.6 L405.3 21.9 L414.1 23.8 L424.0 28.7 L429.6 40.5 L432.3 49.0 L447.2 55.0 L463.2 60.8 L462.2 66.1 L447.7 67.1 L453.3 71.7 L450.3 76.2 L434.3 74.3 L419.1 71.0 L408.8 71.7 L392.2 75.8 L369.7 77.6 L354.0 78.8 L349.2 73.1 L337.1 69.8 L329.2 71.1 L318.3 61.5 L324.2 60.3 L337.9 58.2 L350.3 58.7 L361.9 56.6 L344.8 53.8 L325.9 54.8 L313.3 54.5 L308.6 50.1 L329.2 45.2 L315.5 45.4 L300.0 42.2 L307.5 33.1 L313.6 28.3 L337.3 20.9 L346.4 23.3 Z M590.9 22.8 L597.8 30.4 L606.0 20.6 L628.5 15.6 L643.7 28.2 L642.4 36.1 L659.9 32.6 L668.2 27.8 L687.9 33.9 L700.1 39.7 L701.2 44.9 L717.7 42.2 L726.9 49.9 L748.3 54.7 L756.0 59.6 L764.4 70.9 L748.1 76.6 L769.0 84.5 L783.0 87.1 L795.8 98.3 L809.7 99.1 L806.9 107.6 L791.4 121.6 L780.5 116.4 L766.6 104.8 L755.1 106.3 L754.0 113.3 L763.3 120.3 L775.3 125.9 L779.0 129.1 L784.8 141.1 L781.7 149.8 L770.5 146.5 L748.3 136.8 L760.8 147.2 L770.1 154.5 L771.5 158.8 L747.5 153.9 L728.5 146.9 L717.7 141.0 L720.8 137.6 L707.6 131.4 L694.7 125.5 L694.9 129.0 L669.3 130.9 L661.8 126.8 L667.6 117.9 L684.2 117.6 L702.5 116.1 L699.5 111.8 L702.6 105.7 L714.1 93.9 L711.6 88.6 L708.2 84.4 L694.7 78.6 L676.7 74.4 L682.4 71.4 L673.0 63.9 L665.2 63.2 L658.2 59.0 L653.5 62.6 L637.4 64.2 L605.2 61.5 L586.5 57.9 L572.1 56.1 L564.7 51.8 L574.0 46.3 L561.4 46.3 L558.6 34.0 L565.4 23.2 L574.5 18.2 L597.4 15.0 L590.9 22.8 Z"/><path class="xb-land" d="M517.8 310.6 L519.3 317.3 L522.1 319.3 L528.3 320.1 L537.3 322.0 L545.9 325.8 L553.1 324.2 L564.0 327.3 L566.9 327.2 L574.8 323.8 L583.1 328.2 L591.8 332.9 L598.9 336.9 L605.8 340.8 L606.7 344.0 L608.7 345.2 L608.2 346.4 L610.6 346.7 L612.3 345.5 L612.7 348.3 L614.5 350.3 L617.0 350.3 L618.3 351.7 L617.2 353.9 L626.4 359.6 L628.3 370.6 L630.1 381.1 L627.5 388.2 L623.3 394.9 L621.4 399.1 L621.2 400.4 L622.2 402.1 L625.2 404.0 L627.4 404.0 L637.7 397.6 L646.8 395.7 L658.4 389.7 L658.5 388.4 L657.8 384.7 L656.3 382.4 L660.3 380.4 L669.0 380.4 L677.1 380.4 L680.0 375.7 L681.1 374.7 L690.4 366.0 L694.4 363.8 L707.9 363.7 L724.2 363.7 L725.1 360.7 L727.9 360.1 L731.7 358.2 L734.8 352.7 L737.5 343.3 L744.3 334.1 L747.2 337.3 L753.2 335.3 L757.1 338.8 L757.1 355.3 L762.9 362.1 L764.4 366.1 L755.0 372.0 L745.9 376.1 L736.5 379.7 L731.8 386.9 L730.3 389.6 L730.2 396.1 L733.2 402.5 L736.8 402.8 L735.9 398.4 L738.6 401.0 L737.9 404.5 L731.9 406.5 L727.6 406.2 L721.1 408.3 L717.2 409.0 L712.1 409.6 L704.7 413.1 L717.7 410.8 L720.3 413.1 L707.9 416.7 L702.3 416.7 L702.5 415.2 L699.8 418.6 L702.5 419.2 L700.5 427.9 L694.1 437.2 L693.4 434.1 L691.5 433.4 L688.6 430.4 L690.4 436.9 L692.6 439.1 L692.8 443.7 L689.9 448.4 L684.9 458.0 L684.1 457.6 L686.9 449.3 L682.3 444.7 L681.3 434.6 L679.6 439.9 L681.5 447.5 L675.6 445.6 L681.7 449.5 L682.1 461.1 L684.7 461.9 L685.6 466.1 L686.8 478.2 L681.2 487.2 L672.0 490.8 L666.2 497.9 L661.8 498.7 L657.3 503.1 L656.0 507.2 L646.3 515.0 L641.3 520.8 L637.1 528.0 L635.8 536.6 L637.3 545.0 L640.3 555.4 L644.2 563.9 L644.3 569.2 L648.5 583.2 L648.2 591.4 L647.8 596.1 L645.6 603.5 L643.0 605.0 L638.6 603.5 L637.2 598.2 L633.8 595.4 L629.1 585.0 L625.0 575.8 L623.7 571.0 L625.5 563.0 L623.0 556.3 L616.1 546.2 L612.7 544.3 L603.7 549.8 L602.2 549.2 L597.9 543.6 L592.3 540.6 L582.3 542.1 L574.4 540.8 L567.7 541.6 L564.0 543.5 L565.6 546.7 L565.5 551.6 L567.4 554.0 L565.7 555.6 L562.4 553.8 L559.1 556.1 L552.6 555.7 L546.0 549.3 L538.3 550.8 L531.9 548.0 L526.3 548.9 L518.9 551.7 L510.8 560.7 L502.0 565.9 L497.2 571.7 L495.2 577.1 L495.1 585.5 L495.5 591.3 L497.2 595.4 L493.7 595.8 L487.5 593.1 L480.5 589.4 L478.1 583.7 L476.1 575.2 L470.9 568.3 L467.8 561.2 L463.4 552.9 L457.1 548.1 L449.9 548.3 L444.3 557.9 L437.0 554.3 L432.4 550.6 L430.2 543.9 L427.3 537.6 L422.0 532.3 L417.5 528.5 L414.2 524.2 L398.9 524.2 L398.9 529.2 L391.8 529.2 L374.2 529.3 L354.0 520.7 L340.7 514.8 L341.5 512.5 L330.2 513.8 L320.2 514.7 L318.7 508.5 L313.0 501.6 L308.8 500.1 L307.9 496.7 L302.9 496.0 L299.7 492.8 L291.5 491.6 L289.2 489.6 L288.2 483.0 L279.6 470.8 L272.2 454.0 L272.5 451.2 L268.6 447.2 L261.7 437.0 L260.5 427.2 L255.8 420.5 L257.7 410.5 L257.4 400.1 L254.6 390.8 L258.1 379.4 L259.1 368.4 L260.2 357.4 L258.6 341.2 L255.8 330.8 L253.2 325.2 L254.3 322.9 L267.1 327.0 L271.8 338.4 L274.0 335.2 L272.6 325.3 L269.6 315.4 L294.7 315.4 L321.0 315.4 L329.7 315.4 L356.7 315.4 L382.9 315.4 L409.4 315.4 L436.0 315.4 L466.1 315.4 L496.4 315.3 L514.7 315.4 L514.8 310.7 L517.8 310.6 Z"/><path class="xb-line" d="M254.6 390.8 L258.1 379.4 L259.1 368.4 L260.2 357.4 L258.6 341.2 L255.8 330.8 L253.2 325.2 L254.3 322.9 L267.1 327.0 L271.8 338.4 L274.0 335.2 L272.6 325.3 L269.6 315.4 L294.7 315.4 L321.0 315.4 L329.7 315.4 L356.7 315.4 L382.9 315.4 L409.4 315.4 L436.0 315.4 L466.1 315.4 L496.4 315.3 L514.7 315.4 L514.8 310.7 L517.8 310.6 L519.3 317.3 L522.1 319.3 L528.3 320.1 L537.3 322.0 L545.9 325.8 L553.1 324.2 L564.0 327.3 L566.9 327.2 L574.8 323.8 L583.1 328.2 L591.8 332.9 L598.9 336.9 L605.8 340.8 L606.7 344.0 L608.7 345.2 L608.2 346.4 L610.6 346.7 L612.3 345.5 L612.7 348.3 L614.5 350.3 L617.0 350.3 L618.3 351.7 L617.2 353.9 L626.4 359.6 L628.3 370.6 L630.1 381.1 L627.5 388.2 L623.3 394.9 L621.4 399.1"/></svg>
+  <div class="container">
+    <div class="section-tag"><span class="st-br">[</span>Cross-Border Excellence<span class="st-br">]</span></div>
+    <h2 class="section-h2">Two legal systems.<br/>One defensible record.</h2>
+    <p class="section-intro">When a Montreal deponent's testimony is produced before a U.S. federal court — or a U.S. party submits evidence to the Quebec Superior Court — the transcript must simultaneously satisfy two distinct procedural frameworks.</p>
+    <div class="cross-layout">
+      <div>
+        <p class="cross-body">Lexoral is specifically structured for bilingual litigation, code-switching testimony, and dual-jurisdiction requirements. We navigate the Federal Rules of Civil Procedure and the Quebec Code of Civil Procedure — in both languages — so your record is defensible on both sides of the border.</p>
+        <p class="cross-body">No interpreter required. No reformatting. One attested bilingual transcript, valid wherever the matter is heard.</p>
+        <a href="#contact" class="cross-cta">Submit a Cross-Border File →</a>
+      </div>
+      <div class="reveal">
+        <table class="jur-table">
+          <thead><tr><th>Matter</th><th>Quebec / Canada</th><th>United States</th></tr></thead>
+          <tbody>
+            <tr><td>Procedure</td><td>Code of Civil Procedure (CPC)</td><td>FRCP</td></tr>
+            <tr><td>Language</td><td>French · English (bilingual)</td><td>English; interpreter for FR</td></tr>
+            <tr><td>Format</td><td>Superior Court standards</td><td>AAERT format</td></tr>
+            <tr><td>Certification</td><td>Signed accuracy declaration</td><td>Certified stenographer</td></tr>
+            <tr><td>Evidentiary</td><td>Sténographe officiel required for filing</td><td>Formatted for use in federal proceedings</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="process-section section" id="process">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag"><span class="st-br">[</span>How it works<span class="st-br">]</span></div>
+      <h2 class="section-h2">Built for defensibility.</h2>
+    </div>
+    <div class="process-grid">
+      <div class="process-card reveal" data-num="01">
+        <span class="process-step-label">Step 01</span>
+        <h3 class="process-h3">Secure Submission</h3>
+        <p class="process-p">Submit your proceeding details via our encrypted channel. Receive confirmation the same working day, and a firm figure once the audio has been reviewed. No recording leaves your custody without verification.</p>
+        <div class="process-tags">
+          <span class="ptag">End-to-end encrypted submission</span>
+          <span class="ptag">Timestamp verification</span>
+          <span class="ptag">Chain of custody documentation</span>
+          <span class="ptag">Loi 25 compliant handling</span>
+        </div>
+      </div>
+      <div class="process-card reveal" data-num="02">
+        <span class="process-step-label">Step 02</span>
+        <h3 class="process-h3">Dual Legal Review</h3>
+        <p class="process-p">Every transcript undergoes speaker verification, bilingual terminology normalization, formatting review, and full quality control before delivery.</p>
+        <div class="process-tags">
+          <span class="ptag">Speaker identification and verification</span>
+          <span class="ptag">Bilingual terminology audit</span>
+          <span class="ptag">Formatting standards review</span>
+          <span class="ptag">Structured quality control</span>
+        </div>
+      </div>
+      <div class="process-card reveal" data-num="03">
+        <span class="process-step-label">Step 03</span>
+        <h3 class="process-h3">Attested Delivery</h3>
+        <p class="process-p">Delivered as searchable PDF and editable Word, with filing-ready structure, signed accuracy declaration, and audit documentation. Permanent deletion available on request.</p>
+        <div class="process-tags">
+          <span class="ptag">Searchable PDF + editable Word</span>
+          <span class="ptag">Signed accuracy declaration</span>
+          <span class="ptag">Audit-ready documentation</span>
+          <span class="ptag">Permanent deletion on request</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="clients-section section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag"><span class="st-br">[</span>Who we serve<span class="st-br">]</span></div>
+      <h2 class="section-h2">For modern legal proceedings.</h2>
+    </div>
+    <div class="clients-grid">
+      <div class="client-card reveal"><svg class="cl-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18M5 7h14M8 7l-3 6a3 3 0 0 0 6 0L8 7zM16 7l-3 6a3 3 0 0 0 6 0l-3-6z"/></svg><p class="client-name">Litigation Firms</p><p class="client-desc">Quebec · Ontario · New York · Federal</p></div>
+      <div class="client-card reveal"><svg class="cl-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16M6 20V9M12 20V9M18 20V9M3 9h18L12 3 3 9z"/></svg><p class="client-name">Arbitration Panels</p><p class="client-desc">ICC · AAA · ADRIC · CIAC · Ad hoc</p></div>
+      <div class="client-card reveal"><svg class="cl-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V10M19 21V10M9 21v-6h6v6M4 10h16L12 4 4 10z"/></svg><p class="client-name">Government &amp; Tribunals</p><p class="client-desc">Administrative · Labour · Immigration</p></div>
+      <div class="client-card reveal"><svg class="cl-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V4h10v17M14 10h6v11M7 8h4M7 12h4M7 16h4M17 14h1M17 18h1"/></svg><p class="client-name">Legal Departments</p><p class="client-desc">In-house counsel · Cross-border</p></div>
+      <div class="client-card reveal"><svg class="cl-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4-3 7-7 9-4-2-7-5-7-9V6l7-3zM9 12l2 2 4-4"/></svg><p class="client-name">Insurance Defence</p><p class="client-desc">Examinations under oath · Coverage</p></div>
+      <div class="client-card reveal"><svg class="cl-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h9l4 4v14H6V3zM15 3v4h4M9 12h7M9 16h7"/></svg><p class="client-name">Civil Litigation</p><p class="client-desc">Discovery · Pre-trial · Appeal</p></div>
+      <div class="client-card reveal"><svg class="cl-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v13M12 7C10 4 6 4 4 5v13c2-1 6-1 8 2M12 7c2-3 6-3 8-2v13c-2-1-6-1-8 2"/></svg><p class="client-name">Public Defence &amp; Legal Aid</p><p class="client-desc">Criminal · Language rights</p></div>
+      <div class="client-card reveal"><svg class="cl-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8l9-4 9 4-9 4-9-4zM7 10v5c0 1.5 2.5 3 5 3s5-1.5 5-3v-5M21 8v6"/></svg><p class="client-name">Academic &amp; Research</p><p class="client-desc">Law faculties · Linguistics</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="story-section section" id="team">
+  <div class="container">
+
+    <div class="story-head">
+      <p class="story-eyebrow">Who does the work</p>
+      <h2 class="section-h2">Two practitioners, one file.</h2>
+      <p class="cred-p">Lexoral is a two-person practice. One side carries the language and the verbatim discipline; the other carries Quebec procedure, jurisdiction and client coordination. Every transcript passes through both.</p>
+    </div>
+
+    <div class="cred-list">
+      <dl class="cred-dl">
+        <dt>Court record</dt>
+        <dd>Trials, examinations for discovery and emergency services calls for the Metropolitan Public Defender, Portland, Oregon, contracted through Scribe Northwest</dd>
+        <dt>Interpretation</dt>
+        <dd>Consecutive and liaison interpretation for counsel and police station interviews; ongoing bilingual support for Linguistica International</dd>
+        <dt>Quebec practice</dt>
+        <dd>Former paralegal in Quebec; active Associate Member of the Canadian Bar Association; legal argument delivered in French before Quebec&rsquo;s National Assembly</dd>
+        <dt>Teaching &amp; writing</dt>
+        <dd>Sessional Lecturer, George Brown College &mdash; Canadian constitutional law and human rights codes; author of constitutional and civil liberties textbooks in both languages</dd>
+        <dt>Working languages</dt>
+        <dd>French and English throughout, native level in both; Spanish additionally</dd>
+      </dl>
+    </div>
+
+  </div>
+</section>
+
+<div class="testi-band">
+  <div class="container">
+    <p class="testi-eyebrow">Client</p>
+    <blockquote class="testi">
+      <p class="testi-q">Lexoral delivered bilingual legal transcription with the level of precision and reliability high-pressure defense work demands. Fast turnaround, meticulous formatting, and exceptional professionalism throughout the process.</p>
+      <footer class="testi-src">
+        <span class="testi-name">Legal support staff</span>
+        <span class="testi-org">Metropolitan Public Defender &middot; Portland, Oregon</span>
+      </footer>
+    </blockquote>
+  </div>
+</div>
+
+<section class="pricing-section section" id="pricing">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag"><span class="st-br">[</span>Transparent pricing<span class="st-br">]</span></div>
+      <h2 class="section-h2">No surprises.<br/>No retainers.</h2>
+    </div>
+    <div class="pricing-grid regmarks">
+      <div class="pricing-card reveal">
+        <span class="price-tier">Standard</span>
+        <span class="price-num">$7.50</span>
+        <span class="price-sub">CAD per page · 25 lines/page · delivered within 5 business days</span>
+        <ul class="pricing-ul">
+          <li>Verbatim transcription FR, EN or bilingual</li>
+          <li>Speaker identification</li>
+          <li>Line numbering &amp; pagination</li>
+          <li>Searchable PDF + editable Word</li>
+          <li>Signed accuracy declaration</li>
+        </ul>
+        <a href="#contact" class="btn-pricing btn-p-outline">Request a Quote</a>
+      </div>
+      <div class="pricing-card featured reveal">
+        <span class="price-tier">Priority</span>
+        <span class="price-num">$11.00</span>
+        <span class="price-sub">CAD per page · 25 lines/page · delivered within 48h</span>
+        <ul class="pricing-ul">
+          <li>Everything in Standard</li>
+          <li>Accelerated 48h turnaround</li>
+          <li>Dedicated file manager</li>
+          <li>Partial delivery available</li>
+          <li>Priority support line</li>
+        </ul>
+        <a href="#contact" class="btn-pricing btn-p-brass">Request a Quote</a>
+      </div>
+      <div class="pricing-card reveal">
+        <span class="price-tier">Complex</span>
+        <span class="price-num" style="font-size:2.8rem">Custom</span>
+        <span class="price-sub">CAD · cross-border · multi-session · high volume</span>
+        <ul class="pricing-ul">
+          <li>Everything in Priority</li>
+          <li>Multi-day proceeding coordination</li>
+          <li>Dual FRCP + CPC format delivery</li>
+          <li>Volume discounts available</li>
+          <li>Standing engagement terms</li>
+        </ul>
+        <a href="#contact" class="btn-pricing btn-p-outline">Contact Us</a>
+      </div>
+    </div>
+
+    <div class="pricing-note">
+      <div class="pn-item">
+        <span class="pn-k">Reference</span>
+        <span class="pn-v">A typical two-hour deposition runs to about eighty pages &mdash; <strong>Standard &asymp; $600</strong> &middot; <strong>Priority &asymp; $880</strong></span>
+        <span class="pn-m">CAD &middot; bilingual rate included</span>
+      </div>
+      <div class="pn-item">
+        <span class="pn-k">Minimum</span>
+        <span class="pn-v">$175 CAD per engagement</span>
+        <span class="pn-m">applies below the threshold</span>
+      </div>
+      <div class="pn-item">
+        <span class="pn-k">Volume</span>
+        <span class="pn-v">Preferential per-page rates by arrangement</span>
+        <span class="pn-m">recurring work</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq-section section" id="faq">
+  <div class="container">
+    <div class="section-tag"><span class="st-br">[</span>FAQ<span class="st-br">]</span></div>
+    <h2 class="section-h2" style="margin-bottom:0">Clear answers<br/>for legal teams.</h2>
+    <div class="faq-layout">
+      <div class="faq-sticky">
+        <p class="faq-contact">Everything you need before submitting a proceeding. Additional questions welcome at <a href="mailto:secure@lexoral.org">secure@lexoral.org</a></p>
+        <a href="#contact" class="faq-btn">Submit a Proceeding →</a>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-mk">Q.</span><span class="faq-q-text">What exactly do you certify?</span><span class="faq-toggle">+</span></div>
+          <div class="faq-a"><span class="faq-mk faq-mk-a">A.</span><p class="faq-a-text">Every Lexoral transcript is accompanied by a signed accuracy declaration attesting that the transcript is a faithful and complete account of the audio provided.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-mk">Q.</span><span class="faq-q-text">Why not use AI transcription tools like Whisper or Otter?</span><span class="faq-toggle">+</span></div>
+          <div class="faq-a"><span class="faq-mk faq-mk-a">A.</span><p class="faq-a-text">AI transcription tools fail precisely in the conditions that define bilingual legal proceedings: mid-sentence code-switching, overlapping speakers, legal terminology, proper nouns, and Quebec French register. More fundamentally, these tools cannot maintain an evidentiary chain of custody nor sign an accuracy declaration, and their output is not defensible in court.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-mk">Q.</span><span class="faq-q-text">Are you compliant with Loi 25 and Quebec privacy law?</span><span class="faq-toggle">+</span></div>
+          <div class="faq-a"><span class="faq-mk faq-mk-a">A.</span><p class="faq-a-text">Yes. All files are handled via restricted-access workflows in compliance with Loi 25. Files are transferred via encrypted protocols, stored in restricted-access environments, and never disclosed to third parties except where you instruct us to involve one. Clients may request permanent deletion of recordings and transcripts at any time.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-mk">Q.</span><span class="faq-q-text">Do you provide transcripts with line numbering?</span><span class="faq-toggle">+</span></div>
+          <div class="faq-a"><span class="faq-mk faq-mk-a">A.</span><p class="faq-a-text">Yes. All transcripts include professional legal formatting with continuous line numbering, structured pagination, and speaker identification formatted for direct reference in pleadings and briefs.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-mk">Q.</span><span class="faq-q-text">Can you handle genuinely bilingual hearings with mid-sentence code-switching?</span><span class="faq-toggle">+</span></div>
+          <div class="faq-a"><span class="faq-mk faq-mk-a">A.</span><p class="faq-a-text">Yes — this is our specialization. We transcribe verbatim in each language as spoken, without translating or paraphrasing. Each language is rendered in its original form, preserving evidentiary integrity.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-mk">Q.</span><span class="faq-q-text">What audio quality is required?</span><span class="faq-toggle">+</span></div>
+          <div class="faq-a"><span class="faq-mk faq-mk-a">A.</span><p class="faq-a-text">We work with most audio formats (MP3, WAV, M4A, MP4, and most video formats). We will flag any sections with significant audio quality issues at submission and provide an accurate quote accounting for the difficulty.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-mk">Q.</span><span class="faq-q-text">Are recordings used for external training purposes?</span><span class="faq-toggle">+</span></div>
+          <div class="faq-a"><span class="faq-mk faq-mk-a">A.</span><p class="faq-a-text">No. Client materials are used exclusively for the transcription assignment and are never shared, repurposed, or used for any external training or development purpose.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="intake-layout">
+      <div>
+        <div class="section-tag" style="color:var(--brass-light)">Secure Submission</div>
+        <h2 class="intake-h2">Start a new<br/>proceeding request.</h2>
+        <p class="intake-body">We confirm receipt the same working day, and quote once we have heard the recording.</p>
+        <div class="contact-item"><span class="ci-label">Files &amp; proceedings</span><span class="ci-val"><a href="mailto:secure@lexoral.org">secure@lexoral.org</a></span><span class="ci-note">Recordings, quotes, delivery</span></div>
+        <div class="contact-item"><span class="ci-label">Everything else</span><span class="ci-val"><a href="mailto:contact@lexoral.org">contact@lexoral.org</a></span><span class="ci-note">General enquiries, press, partnerships</span></div>
+        <div class="contact-item"><span class="ci-label">Phone / WhatsApp</span><span class="ci-val"><a href="tel:+15147127516">+1 (514) 712-7516</a></span></div>
+        <div class="contact-item"><span class="ci-label">Mailing Address</span><span class="ci-val" style="font-size:0.9rem;line-height:1.6">24191-300 Eagleson Rd<br/>Kanata, ON K2M 2C3<br/>Canada</span></div>
+      </div>
+      <div class="intake-right">
+        <div class="contact-option">
+          <p class="co-title">What to include</p>
+          <p class="co-body">Proceeding type and date · Recording duration · Languages spoken · Jurisdiction · Required turnaround · Any specific formatting requirements</p>
+        </div>
+        <div class="contact-option">
+          <p class="co-title">References</p>
+          <p class="co-body">Available under NDA. Formatting issues corrected at no charge.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo"><span class="lg-b">[</span>Lexoral<span class="lg-b">]</span></div>
+        <p class="footer-mission">Independent legal transcription provider. Does not provide legal advice.</p>
+      </div>
+      <div>
+        <span class="footer-col-title">Services</span>
+        <ul class="footer-links">
+          <li><a href="#services">Depositions &amp; Examinations</a></li>
+          <li><a href="#services">Arbitration &amp; Mediation</a></li>
+          <li><a href="#services">Tribunal Hearings</a></li>
+          <li><a href="#cross-border">Cross-Border Litigation</a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="footer-col-title">Compliance</span>
+        <ul class="footer-links">
+          <li><a href="/privacy/">Privacy Policy</a></li>
+          <li><a href="/retention/">Retention Policy</a></li>
+          <li><a href="/privacy/">Loi 25</a></li>
+          <li><a href="/privacy/">GDPR</a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="footer-col-title">Contact</span>
+        <ul class="footer-links">
+          <li><a href="mailto:secure@lexoral.org">secure@lexoral.org</a></li>
+          <li><a href="tel:+15147127516">+1 (514) 712-7516</a></li>
+          <li style="line-height:1.55">24191-300 Eagleson Rd<br/>Kanata, ON K2M 2C3</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">Lexoral · lexoral.org · bilingual record · © 2026</p>
+      <div class="footer-badges">
+        <span class="footer-badge">FR–EN Bilingual</span>
+        <span class="footer-badge">Loi 25 Compliant</span>
+        <span class="footer-badge">Secure Handling</span>
+        <span class="footer-badge">Court-Ready</span>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+function toggleFmt(b){var p=b.nextElementSibling,o=b.getAttribute("aria-expanded")==="true";b.setAttribute("aria-expanded",!o);p.style.maxHeight=o?null:p.scrollHeight+"px";b.classList.toggle("open",!o)}
+function toggleFaq(el){el.parentElement.classList.toggle('open')}
+const observer=new IntersectionObserver((e)=>{e.forEach(i=>{if(i.isIntersecting)i.target.classList.add('visible')})},{threshold:0.07});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
