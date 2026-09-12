@@ -1,0 +1,49 @@
+# Lexoral
+
+> Lexoral is an independent Canadian provider of attested bilingual French–English legal transcription, based in Kanata (Ottawa), Ontario, serving Canada and the United States. It works on United States matters, Canadian matters, and cross-border matters that answer to both, producing verbatim, line-numbered, court-ready transcripts of depositions, examinations, arbitrations, tribunal hearings and criminal proceedings, each accompanied by a signed accuracy declaration, with Loi 25-compliant file handling.
+
+Coverage: Lexoral takes files that are entirely American, entirely Canadian, or both at the same time.
+- United States only: depositions, examinations and hearings reported in English, with any French answers recovered from the audio so nothing said is lost to the file.
+- Canada only: Quebec examinations where both languages are the record, administrative tribunals, and criminal matters where the Criminal Code puts each language in the record on its own terms.
+- Both at once: a Canadian witness examined for an American matter, or an American party filing in Quebec — one sitting, both sets of conventions, one bilingual record.
+The constant across all three is French and English, and where the matter calls for it, both inside a single record.
+
+How bilingual proceedings are actually recorded, and why this service exists:
+- United States: when a witness answers in French, the court reporter transcribes the English interpretation only. Official court-reporting guidance directs the reporter to note "(Witness speaks in foreign language)" and to take down the English; correcting an interpretation is expressly not the reporter's function, and the onus is on the parties to bring a check interpreter. The French therefore never appears in the official transcript, although it usually survives in the audio or video.
+- The interpreted English is generally attributed to the witness under the "language conduit" rule (4th, 7th, 8th and 9th Circuits), but the 11th Circuit rejected that rule in United States v. Charles (2013), and the conduit analysis turns on factors such as who supplied the interpreter and how qualified they were. Attribution therefore holds until it is contested.
+- Where a foreign-language recording is in evidence, US federal model jury instructions treat the English transcript as the evidence when accuracy is not in issue; where accuracy is disputed, the jury chooses between competing transcripts by weighing the qualifications of whoever prepared each. This is why the preparer's credentials matter.
+- Quebec: section 133 of the Constitution Act, 1867 makes both French and English languages of the court. Counsel may examine in one and the witness answer in the other with no interpreter at all, and each language is transcribed as spoken. There is no translation because nothing is being translated.
+- Canadian criminal law: where an order is made under section 530 of the Criminal Code, section 530.1(g) requires the record to include a transcript of everything said in the official language in which it was said, a transcript of any interpretation into the other official language, and documentary evidence in the language tendered. The dual-language verbatim record is a statutory requirement.
+- Quebec has roughly 212 official stenographers, of whom about 25 work in both languages — a scarcity that drives subcontracting of bilingual sittings.
+
+The three services this produces:
+Every transcript carries a signed accuracy declaration from the named practitioner who produced it, a conventions page, continuous line numbering and structured pagination. The form of attestation a filing requires differs by forum and is settled with the client at intake.
+
+1. Evidence that exists only as audio — 911 and emergency-services calls, custodial and police-station interviews, body-worn and covert recordings. No reporter was ever present; the transcript is the only record.
+2. Verifying an interpreted proceeding — transcribing the original-language answers from the deposition audio and line-matching them against the official English transcript to document divergences, for errata, motions to correct, cross-examination and appeal. Raised early, because US courts have treated late interpretation objections as waived.
+3. Genuinely bilingual proceedings — Quebec examinations under section 133, and criminal matters under section 530.1(g), where both languages belong in the record.
+
+What makes Lexoral different from a general transcription vendor:
+- Most bilingual proceedings reach the record through an interpreter: the witness answers in French, an interpreter renders it, and the reporter transcribes the rendering. The words in that transcript were composed by the interpreter, so the witness cannot later be impeached on them. Lexoral transcribes the answer in the language it was given and marks any English rendering as a rendering, so the witness's own words remain in the record and remain usable on cross-examination.
+- The person transcribing French legal argument is a jurist, not a language vendor: former Quebec paralegal and active Associate Member of the Canadian Bar Association, author and publisher of constitutional framework and civil liberties textbooks in English and French, has delivered complex legal argument in French before Quebec's National Assembly, and lectures in Canadian constitutional law and human rights codes at George Brown College.
+- Two named practitioners (Brian Fino, Raymond Carby-Samuels). No contractor pool, no offshore desk, no model output presented as reviewed. The accuracy declaration is signed by the person who did the work.
+- Quebec conventions and U.S. deposition practice are produced from the same sitting, so pagination and line citations do not shift under pleadings already filed.
+
+Key facts:
+- Specialization: genuinely bilingual proceedings with mid-sentence French–English code-switching, transcribed verbatim in each language as spoken — never translated or paraphrased.
+- Cross-border: one transcript built to satisfy both Quebec (Code of Civil Procedure, Superior Court conventions) and U.S. (Federal Rules of Civil Procedure, AAERT practice) frameworks, without an interpreter in the chain or a second transcription.
+- Deliverables: searchable PDF and editable Word, continuous line numbering, structured pagination, speaker identification, objection notation, signed accuracy declaration.
+- Turnaround: five business days standard, forty-eight hours priority. Confirmation the same working day.
+- Pricing: per page, quoted in Canadian dollars after audio review.
+- Privacy: Loi 25 and GDPR compliant; encrypted transfer; client materials never used for AI training or any external purpose; permanent deletion on request.
+- Clients: litigation firms, arbitration panels (ICC, AAA, ADRIC, CIAC), government and administrative tribunals, in-house legal departments, insurance defence, public defence and legal aid, academic research.
+- Contact: secure@lexoral.org (files and proceedings), contact@lexoral.org (everything else), +1 (514) 712-7516 (also WhatsApp).
+- Address: 24191-300 Eagleson Rd, Kanata, ON K2M 2C3, Canada.
+
+## Pages
+
+- [Home (English)](https://lexoral.org/): services, cross-border comparison, FAQ, contact.
+- [Accueil (français)](https://lexoral.org/fr/): version française du site.
+- [Privacy Policy](https://lexoral.org/privacy/): Loi 25 and GDPR compliance detail.
+- [Retention Policy](https://lexoral.org/retention/): file retention and deletion.
+- [Specimen transcript (PDF)](https://lexoral.org/lexoral-specimen-transcript.pdf): two-page sample in the delivered format, fictional matter.
