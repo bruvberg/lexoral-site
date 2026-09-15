@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Page not found — Lexoral</title>
+<meta name="description" content="That page does not exist. Return to Lexoral — attested bilingual French–English legal transcription."/>
+<meta property="og:title" content="Lexoral — Attested Bilingual Legal Transcription"/>
+<meta property="og:description" content="Attested FR–EN bilingual transcription for litigation, arbitration, and cross-border proceedings. Built for evidentiary standards."/>
+<meta property="og:url" content="https://lexoral.org/404.html"/>
+<meta name="robots" content="noindex,follow"/>
+<meta name="theme-color" content="#FFF1E5"/>
+<link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+<meta property="og:site_name" content="Lexoral"/>
+<meta property="og:type" content="website"/>
+<meta property="og:locale" content="en_CA"/>
+<meta property="og:image" content="https://lexoral.org/og.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="Lexoral — attested bilingual French-English legal transcription"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Page not found — Lexoral"/>
+<meta name="twitter:description" content="That page does not exist. Return to Lexoral — attested bilingual French–English legal transcription."/>
+<meta name="twitter:image" content="https://lexoral.org/og.png"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+<style>/* =========================================================================
+   LEXORAL — the document as the layout.
+   One grid: margin column + measure. Garamond sets the argument,
+   Courier sets the record. Rules structure; nothing decorates.
+   ========================================================================= */
+
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+img,svg{max-width:100%;height:auto}
+ul,ol{list-style:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+a{color:inherit;text-decoration:none}
+:where(*){min-width:0}
+
+:root{
+  /* GROUND — the blue of the courts, on cool document stock */
+  --paper:#FFF1E5; --leaf:#FFF9F3; --ink:#162E51; --ink-deep:#0D1F3A;
+  --shade:17,34,61;          /* the ink as a triple, for hairlines and relief   */
+  --shade-d:237,242,248;     /* paper as a triple, for the same on navy         */
+  --paper-0:rgba(255,241,229,0);
+
+  /* TYPE */
+  --t-1:#11223D; --t-2:#2E3D52; --t-3:#5B6A7E;   /* on paper */
+  --d-1:#EDF2F8; --d-2:#B9C7DA; --d-3:#8C9FB7;   /* on navy  */
+
+  /* ACCENTS — one structural blue, one interactive blue, one warm */
+  --nav:#1A4480;    /* references: margin labels, numbers, brackets, rules */
+  --blue:#005EA2;   /* interactive: links and the primary action           */
+  --gold:#FFBE2E;   /* the single warm accent — navy grounds only          */
+  --key:#F2E3D4;    /* the EN / FR keycaps                                 */
+
+  /* RULES AND RELIEF */
+  --rule:#E3D2C1; --rule-d:rgba(237,242,248,.20);
+  --nav-f:rgba(26,68,128,.32); --gold-f:rgba(255,190,46,.42);
+  --face-r:rgba(17,34,61,.22); --face-b:rgba(17,34,61,.38);
+
+  --serif:"EB Garamond",Georgia,"Times New Roman",serif;
+  --mono:"Courier Prime","Courier New",Courier,monospace;
+
+  --t-xs:11px; --t-sm:1rem; --t-md:1.1rem; --t-lg:1.42rem; --t-xl:1.8rem;
+  --t-h2:clamp(2rem,4.4vw,3.1rem);
+  --t-h1:clamp(2.5rem,9vw,6.4rem);
+
+  --s1:4px; --s2:8px; --s3:12px; --s4:18px; --s5:26px;
+  --s6:36px; --s7:52px; --s8:72px; --s9:104px;
+
+  --marg:116px;        /* the margin column */
+  --hxtag:3.3rem;      /* hero speaker-label column */
+  --gapc:36px;         /* margin → measure */
+  --mgut:30px;         /* margin label → pleading rule */
+  --mlabel:9.5px;      /* margin label type size */
+  --measure:35em;      /* Tschichold's discipline */
+  --pad:28px;
+}
+
+body{
+  background:var(--paper); color:var(--t-2);
+  font:400 19px/1.66 var(--serif);
+  -webkit-font-smoothing:antialiased; font-feature-settings:"kern" 1,"liga" 1;
+  display:flex; flex-direction:column; min-height:100vh; overflow-x:hidden;
+}
+body > *{flex:0 0 auto}
+body > footer{margin-top:auto}
+::selection{background:var(--blue);color:var(--paper)}
+p{margin:0 0 var(--s4);max-width:var(--measure)}
+p:last-child{margin-bottom:0}
+.reveal{opacity:1}
+
+/* ---------- THE DOCUMENT GRID ----------
+   Every section body is margin column + measure, with one continuous
+   double rule down the margin — the pleading edge.                        */
+.container{width:100%;max-width:1100px;margin-inline:auto;padding-inline:var(--pad)}
+section > .container,.rec-band > .container,.cov-band > .container{
+  display:grid; grid-template-columns:var(--marg) minmax(0,1fr); column-gap:var(--gapc);
+  background-image:linear-gradient(to right,var(--nav-f) 0 1px,transparent 1px 3px,var(--nav-f) 3px 4px,transparent 4px);
+  background-size:4px 100%; background-repeat:repeat-y;
+  background-position:calc(var(--pad) + var(--marg) - 20px) 0;
+}
+.why-section > .container,.cross-section > .container,.contact-section > .container{
+  background-image:linear-gradient(to right,var(--gold-f) 0 1px,transparent 1px 3px,var(--gold-f) 3px 4px,transparent 4px)}
+/* Default placement is the measure. Specificity 0 on purpose: any block that
+   declares its own grid-column wins without an arms race. */
+:where(section > .container,.rec-band > .container,.cov-band > .container) > *{grid-column:2}
+
+/* every label, number and machine-typed line */
+.section-tag,.cov-k,.fh-k,.spec-k,.service-num,.wy-k,.wy-pn,.fit-n span,.fit-tag,
+.ct-k,.ct-n,.xg-k,.xbt-k,.tsp-k,.tsp-b,.tsp-legend,.client-desc,.footer-col-title,
+.footer-legal,.footer-badge,.lh-l,.lh-r,.lf-sig,.lf-note,.rec-role,.rec-tr-k,
+.cred-list dt,.pol-n,.nav-links a,.nav-lang a,.nav-tel,.nav-menu,.nav-index a,
+.service-link,.faq-mk,.btn-primary,.btn-outline-w,.cross-cta,.faq-btn,.spec-dl,
+.cov-c,.xbt-head span,.mx-t,.hxc-r,.hx-rail,.wy-p,.xb-prob::before,.faq-toggle{
+  font-family:var(--mono);font-weight:400;
+}
+.section-tag,.cov-k,.fh-k,.spec-k,.service-num,.wy-k,.wy-pn,.fit-n span,.fit-tag,
+.ct-k,.ct-n,.xg-k,.xbt-k,.tsp-k,.tsp-legend,.client-desc,.footer-col-title,
+.footer-legal,.footer-badge,.lh-l,.lh-r,.lf-sig,.lf-note,.rec-role,.rec-tr-k,
+.cred-list dt,.pol-n,.nav-links a,.nav-lang a,.nav-menu,.nav-index a,.service-link,
+.btn-primary,.btn-outline-w,.cross-cta,.faq-btn,.spec-dl,.cov-c,.xbt-head span,
+.mx-t,.hxc-r{letter-spacing:.17em;text-transform:uppercase}
+
+h1,h2,h3,.hx-h1,.section-h2,.service-h3,.client-name,.pol-title,.pol-h,.logo,
+.footer-logo,.cov h3,.wy-pill h3,.fit-b h3,.xb-prob h3,.letter-bd p,.cred-list dd,
+.ct-v,.faq-q-text{font-family:var(--serif);font-weight:400;color:var(--t-1)}
+
+/* ---------- running head + section number ---------- */
+section,.rec-band{padding:var(--s9) 0}
+.cov-band{padding:var(--s7) 0 var(--s9)}
+.section-header{display:contents}
+.section-tag{
+  grid-column:1/-1;display:block;font-size:var(--t-xs);color:var(--t-1);
+  margin-bottom:var(--s6);padding-bottom:var(--s3);border-bottom:3px double var(--ink);
+  /* the running head sits above the ruled area: mask the pleading rule behind it */
+  position:relative;background:var(--paper);
+  padding-top:var(--s3);margin-top:calc(-1 * var(--s3));
+}
+.why-section .section-tag,.cross-section .section-tag,.contact-section .section-tag{background:var(--ink)}
+.section-tag .st-br{color:var(--nav);letter-spacing:0;margin:0 .45em}
+.section-tag::before{content:'L. 0' counter(secline);color:var(--t-3);margin-right:1.6em}
+body{counter-reset:secline}
+.section-tag{counter-increment:secline}
+.section-header .section-intro{margin-bottom:var(--s6)}
+.section-h2{
+  grid-column:2;font-size:var(--t-h2);line-height:1.06;letter-spacing:-.018em;
+  max-width:16ch;margin:0 0 var(--s5);
+}
+.section-intro{grid-column:2;font-size:var(--t-md);line-height:1.62;color:var(--t-3);
+  max-width:46ch;margin:0 0 var(--s6);font-style:italic}
+
+/* ---------- entries: label in the margin, argument in the measure ---------- */
+.services-grid,.cov-grid,.xb-probs,.wy-pillars,.fit-rows,.clients-grid,.rec-grid{display:contents}
+.service-card,.cov,.xb-prob,.wy-pill,.fit,.client-card,.rec{
+  grid-column:1/-1;display:grid;grid-template-columns:var(--marg) minmax(0,1fr);
+  column-gap:var(--gapc);align-items:start;
+  padding:var(--s6) 0;border-top:1px solid var(--rule);
+}
+.why-section .wy-pill,.cross-section .xb-prob{border-top-color:var(--rule-d)}
+.service-card > *,.cov > *,.xb-prob > *,.wy-pill > *,.fit-b,.client-card > *,.rec-txt{grid-column:2}
+.service-num,.cov-c,.wy-pn,.fit-n,.cl-ico{grid-column:1;grid-row:span 9}
+.service-num,.cov-c,.wy-pn{align-self:start;font-size:var(--mlabel);color:var(--nav);
+  padding:.42em var(--mgut) 0 0;text-align:right;letter-spacing:.12em}
+/* in the margin the label is the label: the brackets belong to running heads */
+.cov-k .st-br{display:none}
+.why-section .wy-pn,.cross-section .xb-prob::before{color:var(--gold)}
+.xb-prob{position:relative}
+.xb-prob::before{content:'0' counter(xbp);grid-column:1;grid-row:span 9;
+  font-size:var(--mlabel);letter-spacing:.12em;color:var(--gold);text-align:right;padding:.42em var(--mgut) 0 0}
+.xb-probs{counter-reset:xbp}
+.xb-prob{counter-increment:xbp}
+.xb-ico,.cl-ico{display:none}
+
+.service-h3,.cov h3,.xb-prob h3,.wy-pill h3,.fit-b h3,.client-name{
+  font-size:var(--t-lg);line-height:1.2;margin:0 0 var(--s3);letter-spacing:-.012em}
+.service-p,.cov p,.xb-prob p,.wy-pill p,.fit-b p{
+  font-size:var(--t-sm);line-height:1.66;max-width:var(--measure)}
+.cross-section .xb-prob p,.why-section .wy-pill p{color:var(--d-2)}
+.cross-section .xb-prob h3,.why-section .wy-pill h3{color:var(--d-1)}
+
+/* ---------- the typed record ---------- */
+.tsp{margin:var(--s5) 0 0;
+  border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.tsp-k{display:block;font-size:9.5px;letter-spacing:.2em;color:var(--t-3);
+  padding:var(--s3) 0 var(--s2);border-bottom:1px solid var(--rule)}
+.tsp-b{margin:0;padding:var(--s4) 0;font-size:12.5px;line-height:2.05;color:var(--t-2);
+  white-space:pre;overflow-x:auto}
+.tsp-b b{font-weight:700;color:var(--t-1)}
+.tsp-b i{font-style:normal;color:var(--t-3)}
+.tsp-legend{display:flex;flex-wrap:wrap;gap:var(--s3) var(--s5);margin:var(--s5) 0 0;font-size:10px}
+.tsp-legend span{display:inline-flex;align-items:center;gap:9px}
+.tsp-legend span::before{content:'';width:9px;height:2px;background:currentColor;flex:0 0 auto}
+.tl-fr{color:var(--t-1)}.tl-en{color:var(--t-2)}.tl-nt{color:var(--t-3)}
+.tl-fr::before{height:3px}
+.service-link{display:inline-block;margin-top:var(--s4);font-size:10px;color:var(--blue);
+  border-bottom:1px solid var(--nav-f)}
+.service-link:hover{border-bottom-color:var(--blue)}
+
+/* ---------- relief, interactive only ---------- */
+.btn-primary,.btn-outline-w,.cross-cta,.faq-btn,.spec-dl,.nav-lang a,.nav-menu{
+  position:relative;display:inline-block;justify-self:start;font-size:var(--t-xs);letter-spacing:.16em;
+  transition:transform .08s,background .16s,color .16s}
+.btn-primary::before,.btn-outline-w::before,.cross-cta::before,.faq-btn::before,
+.spec-dl::before,.nav-lang a::before,.nav-menu::before{
+  content:'';position:absolute;left:100%;top:0;width:var(--relief,5px);height:100%;
+  background:var(--fr,var(--face-r));transform:skewY(45deg);transform-origin:0 0;pointer-events:none}
+.btn-primary::after,.btn-outline-w::after,.cross-cta::after,.faq-btn::after,
+.spec-dl::after,.nav-lang a::after,.nav-menu::after{
+  content:'';position:absolute;top:100%;left:0;width:100%;height:var(--relief,5px);
+  background:var(--fb,var(--face-b));transform:skewX(45deg);transform-origin:0 0;pointer-events:none}
+.btn-primary:active,.btn-outline-w:active,.cross-cta:active,.faq-btn:active,
+.spec-dl:active,.nav-lang a:active,.nav-menu:active{transform:translate(5px,5px)}
+.btn-primary:active::before,.btn-primary:active::after,.btn-outline-w:active::before,
+.btn-outline-w:active::after,.cross-cta:active::before,.cross-cta:active::after,
+.faq-btn:active::before,.faq-btn:active::after,.spec-dl:active::before,.spec-dl:active::after,
+.nav-lang a:active::before,.nav-lang a:active::after,
+.nav-menu:active::before,.nav-menu:active::after{opacity:0}
+.btn-primary,.faq-btn,.spec-dl{padding:15px 26px;background:var(--blue);color:#FFFFFF;--fr:#00497F;--fb:#003257}
+.btn-primary:hover,.faq-btn:hover,.spec-dl:hover{background:var(--ink)}
+.btn-outline-w{padding:15px 26px;background:var(--leaf);color:var(--t-1);box-shadow:inset 0 0 0 1px var(--ink)}
+.btn-outline-w:hover{background:var(--ink);color:var(--paper)}
+.cross-cta{padding:15px 26px;background:var(--gold);color:var(--ink);--fr:#C08D16;--fb:#8C650B}
+.cross-cta:hover{background:#FFD16B}
+
+/* ---------- nav: a letterhead ---------- */
+nav{position:sticky;top:0;z-index:60;background:var(--paper);border-bottom:1px solid var(--ink)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;height:66px}
+.logo{display:inline-flex;align-items:baseline;gap:.28em;font-size:1.4rem;letter-spacing:.14em}
+.lg-p{text-transform:uppercase}
+.lg-v{font-style:italic;font-size:.72em;color:var(--nav);letter-spacing:0}
+.nav-links{display:flex;gap:22px}
+.nav-links a{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--t-3);
+  white-space:nowrap;transition:color .15s}
+.nav-links a:hover{color:var(--blue)}
+.nav-side{display:flex;align-items:center;gap:16px}
+.nav-lang{display:inline-flex;gap:11px}
+.nav-lang a{--relief:4px;padding:8px 12px;background:var(--key);color:var(--t-2);font-size:10px;
+  box-shadow:inset 0 0 0 1px rgba(var(--shade),.30)}
+.nav-lang a.active{background:var(--ink);color:var(--paper);box-shadow:inset 0 0 0 1px var(--ink)}
+.nav-tel{display:inline-flex;align-items:center;gap:9px;font-size:12.5px;letter-spacing:.04em;
+  color:var(--t-1);white-space:nowrap}
+.nav-tel svg{width:16px;height:16px;flex:0 0 auto}
+.nav-menu{--relief:4px;display:none;align-items:center;gap:11px;padding:8px 12px;
+  background:var(--key);color:var(--t-1);box-shadow:inset 0 0 0 1px rgba(var(--shade),.30);font-size:10px}
+.nm-b{display:flex;flex-direction:column;gap:3px;width:13px}
+.nm-b i{display:block;height:1.5px;background:var(--ink);transition:transform .2s,opacity .2s}
+.nav-menu[aria-expanded="true"] .nm-b i:nth-child(1){transform:translateY(4.5px) rotate(45deg)}
+.nav-menu[aria-expanded="true"] .nm-b i:nth-child(2){opacity:0}
+.nav-menu[aria-expanded="true"] .nm-b i:nth-child(3){transform:translateY(-4.5px) rotate(-45deg)}
+.nav-index{background:var(--paper);border-bottom:1px solid var(--ink);
+  max-height:calc(100vh - 66px);overflow-y:auto}
+.nav-index .container{padding-block:0 var(--s4)}
+.nav-index a{display:grid;grid-template-columns:38px 1fr;gap:12px;align-items:baseline;
+  padding:14px 0;font-size:10px;letter-spacing:.17em;text-transform:uppercase;
+  color:var(--t-1);border-top:1px solid var(--rule)}
+.nav-index a span{color:var(--nav)}
+.nav-index a:last-child{color:var(--nav)}
+@media (max-width:1179px){.nav-links{display:none!important}.nav-menu{display:inline-flex}}
+@media (min-width:1180px){.nav-menu,.nav-index{display:none!important}}
+@media (max-width:640px){.nav-tel{display:none}.nav-side{gap:11px}}
+
+/* ---------- hero: the caption page ----------
+   A transcript's first page is its caption: which jurisdictions, which
+   languages, which matter. The cover is not ruled — the body pages are —
+   so the hero runs the full measure with no margin column.               */
+.hero{position:relative;overflow:hidden;background:var(--paper);color:var(--t-2);
+  padding:var(--s9) 0}
+.hero > .container{display:block;background-image:none}
+.hx{position:relative;z-index:1}
+
+/* THE RULE OF THIRDS: the argument holds the left two thirds; the right
+   third is left to the border, which runs out to the edge of the page.    */
+.hx-body{display:grid;grid-template-columns:2fr 1fr;column-gap:var(--s6);
+  align-items:center;margin-left:var(--hxtag);min-height:400px}
+.hx-left{grid-column:1;min-width:0}
+/* the border stays where it belongs: behind the page, a watermark on the
+   stock — present, named, never competing with the type.                  */
+.xb-map{position:absolute;right:-4%;top:50%;transform:translateY(-50%);
+  width:min(62vw,900px);max-width:none;pointer-events:none;z-index:0;
+  -webkit-mask-image:linear-gradient(to right,transparent 0,transparent 8%,#000 34%,#000 100%);
+          mask-image:linear-gradient(to right,transparent 0,transparent 8%,#000 34%,#000 100%)}
+.xb-land{fill:none;stroke:rgba(var(--shade),.11);
+  stroke-width:1;vector-effect:non-scaling-stroke}
+.xb-line{fill:none;stroke:var(--nav-f);stroke-width:1.8;stroke-linejoin:round;
+  stroke-linecap:round;vector-effect:non-scaling-stroke}
+.xb-t{font-family:var(--mono);font-size:24px;letter-spacing:.26em;
+  fill:rgba(var(--shade),.15)}
+.cross-section .xb-map{display:none}
+
+
+/* the headline is itself a bilingual record: two speakers, one answer */
+.hx-h1{font-size:clamp(2.3rem,6.4vw,4.8rem);line-height:1.04;letter-spacing:-.03em;
+  color:var(--t-1)}
+.hx-l{display:grid;grid-template-columns:var(--hxtag) minmax(0,1fr);align-items:start}
+.hx-l + .hx-l{margin-top:.1em}
+.hx-l i{font-family:var(--mono);font-style:normal;font-size:11px;letter-spacing:.2em;
+  color:var(--nav);padding-top:1.15em}
+.hx-sub{font-size:1.14rem;line-height:1.6;color:var(--t-2);max-width:27em;margin-top:var(--s6)}
+.hx-actions{display:flex;gap:var(--s3);margin-top:var(--s7);flex-wrap:wrap}
+.hx-actions a{min-width:230px;text-align:center}
+
+
+/* ---------- coverage ---------- */
+.cov-head{grid-column:1/-1;display:grid;grid-template-columns:var(--marg) minmax(0,1fr);
+  column-gap:var(--gapc);padding-bottom:var(--s6);border-top:3px double var(--ink);padding-top:var(--s6)}
+.cov-k{grid-column:1;font-size:var(--mlabel);letter-spacing:.12em;color:var(--nav);text-align:right;padding:.4em var(--mgut) 0 0}
+.cov-k .st-br{letter-spacing:0;margin:0 .3em}
+.cov-lead{grid-column:2;font-size:var(--t-lg);line-height:1.48;color:var(--t-1);
+  max-width:32em;margin:0;font-style:italic}
+.cov:last-of-type{border-bottom:1px solid var(--rule)}
+.cov-c{white-space:nowrap}
+.cov-both .cov-c{color:var(--nav);font-weight:400}
+
+/* ---------- why ---------- */
+.why-section,.cross-section,.contact-section{background:var(--ink);color:var(--d-2)}
+.why-section .section-tag,.cross-section .section-tag,.contact-section .section-tag{
+  color:var(--d-1);border-bottom-color:var(--rule-d)}
+.why-section .section-tag .st-br,.cross-section .section-tag .st-br,
+.contact-section .section-tag .st-br{color:var(--gold)}
+.why-section .section-header .section-tag::before,.cross-section .section-header .section-tag::before,
+.contact-section .section-header .section-tag::before{color:var(--d-3)}
+.why-section .section-h2,.cross-section .section-h2,.contact-section .section-h2{color:var(--d-1)}
+.why-section .section-intro,.cross-section .section-intro,.contact-section .section-intro{color:var(--d-3)}
+.why-section ::selection,.cross-section ::selection,.contact-section ::selection,
+footer ::selection{background:var(--gold);color:var(--ink)}
+.wy-lead{font-size:var(--t-md);line-height:1.66;color:var(--d-1);max-width:var(--measure);
+  margin:0 0 var(--s7)}
+
+/* the three renderings of one answer, read as stacked exhibits — not three boxes */
+.why-section > .container{counter-reset:wyx}
+.wy-diff{display:contents}
+.wy-col{grid-column:1/-1;display:grid;grid-template-columns:var(--marg) minmax(0,1fr);
+  column-gap:var(--gapc);align-items:start;counter-increment:wyx;
+  padding:var(--s6) 0;border-top:1px solid var(--rule-d)}
+.wy-col::before{content:'EXH. ' counter(wyx,upper-alpha);grid-column:1;grid-row:span 9;
+  font-family:var(--mono);font-size:var(--mlabel);letter-spacing:.12em;color:var(--d-3);
+  text-align:right;padding:.15em var(--mgut) 0 0;white-space:nowrap}
+.wy-col:last-of-type{border-bottom:1px solid var(--rule-d);margin-bottom:var(--s8)}
+.wy-good::before{color:var(--gold)}
+.wy-k{grid-column:2;display:block;font-size:9.5px;letter-spacing:.2em;color:var(--d-3);
+  margin:0 0 var(--s4);padding-bottom:var(--s3);border-bottom:1px solid var(--rule-d)}
+.wy-p{grid-column:2;margin:0;padding:0 0 var(--s5);font-size:13px;line-height:1.95;
+  white-space:pre-wrap;color:var(--d-2);max-width:none;border-bottom:1px solid var(--rule-d)}
+.wy-n{grid-column:2;font-size:.98rem;line-height:1.62;color:var(--d-3);margin:var(--s4) 0 0;
+  max-width:var(--measure)}
+.wy-said .wy-k{color:var(--d-2)}
+.wy-good .wy-k{color:var(--gold)}
+.wy-good .wy-p b{font-weight:700;color:var(--d-1)}
+.wy-good .wy-p i{font-style:normal;color:var(--d-3)}
+.wy-good .wy-n{color:var(--d-2)}
+.wy-bad .wy-k{color:var(--d-3)}
+.wy-pill:last-of-type{border-bottom:1px solid var(--rule-d)}
+.why-section .cross-cta,.cross-section .cross-cta{margin-top:var(--s7)}
+
+/* ---------- where we fit ---------- */
+.fit-n{grid-column:1;grid-row:span 9;text-align:right;padding:.42em var(--mgut) 0 0}
+.fit-n span:first-child{display:block;font-size:var(--mlabel);letter-spacing:.12em;color:var(--nav);margin-bottom:var(--s2)}
+.fit-tag{display:block;font-size:9px;letter-spacing:.13em;line-height:1.8;color:var(--t-3)}
+.fit:last-of-type{border-bottom:1px solid var(--rule)}
+.fit-b h3{font-size:var(--t-lg)}
+.fit-note{font-size:.98rem;line-height:1.62;color:var(--t-3);font-style:italic;
+  padding-left:var(--s4);border-left:1px solid var(--nav-f);max-width:var(--measure)}
+.fit-honest{grid-column:1/-1;margin-top:var(--s7);padding-top:var(--s6);border-top:3px double var(--ink)}
+.fh-k{display:block;font-size:10px;color:var(--nav);margin-bottom:var(--s4)}
+.fit-honest p{font-size:var(--t-sm);line-height:1.68;color:var(--t-2);max-width:38em}
+
+/* ---------- the specimen ---------- */
+.spec{grid-column:1/-1;display:grid;grid-template-columns:var(--marg) minmax(0,1fr);
+  column-gap:var(--gapc);align-items:center;gap:var(--s5) var(--gapc);
+  margin-top:var(--s7);padding-top:var(--s6);border-top:3px double var(--ink)}
+.spec-k{grid-column:1;font-size:var(--mlabel);letter-spacing:.12em;color:var(--nav);text-align:right;padding:.4em var(--mgut) 0 0}
+.spec-txt{grid-column:2;display:contents}
+.spec-txt p{grid-column:2;margin:0;font-size:var(--t-sm);line-height:1.66;max-width:36em}
+.spec-dl{grid-column:2;justify-self:start;display:inline-flex;align-items:center;gap:11px;white-space:nowrap}
+.spec-dl svg{width:16px;height:16px;flex:0 0 auto}
+
+/* ---------- cross-border ---------- */
+.xb-answer{display:contents}
+.xb-lead{grid-column:2;font-size:var(--t-lg);line-height:1.5;color:var(--d-1);max-width:32em;
+  margin:0 0 var(--s7)}
+.xb-lead em{display:block;margin-top:var(--s5);font-family:var(--mono);font-style:normal;
+  font-size:11px;letter-spacing:.15em;text-transform:uppercase;line-height:2.1;
+  color:var(--gold);max-width:34em}
+/* what you get, set as lettered subparagraphs on the document grid */
+.cross-section > .container{counter-reset:xgl xbp}
+.xb-gets{display:contents}
+.xb-gets li{grid-column:1/-1;list-style:none;display:grid;
+  grid-template-columns:var(--marg) minmax(0,1fr);column-gap:var(--gapc);align-items:start;
+  counter-increment:xgl;padding:var(--s5) 0;border-top:1px solid var(--rule-d)}
+.xb-gets li::before{content:'(' counter(xgl,lower-alpha) ')';grid-column:1;grid-row:span 9;
+  font-family:var(--mono);font-size:var(--mlabel);letter-spacing:.12em;color:var(--gold);
+  text-align:right;padding:.2em var(--mgut) 0 0}
+.xb-gets li:last-child{border-bottom:1px solid var(--rule-d);margin-bottom:var(--s7)}
+.xg-k{grid-column:2;display:block;font-size:9.5px;letter-spacing:.18em;color:var(--gold);
+  margin-bottom:var(--s3)}
+.xg-v{grid-column:2;display:block;font-size:.98rem;line-height:1.6;color:var(--d-2);
+  max-width:var(--measure)}
+.xb-why{font-size:var(--t-sm);line-height:1.66;color:var(--d-3);max-width:36em;
+  margin:0 0 var(--s7);font-style:italic}
+.xb-prob:last-of-type{border-bottom:1px solid var(--rule-d)}
+.xb-table{grid-column:1/-1;margin:var(--s8) 0 var(--s7);border-top:3px double var(--rule-d)}
+.xbt-row{display:grid;grid-template-columns:var(--marg) 1fr 1fr;column-gap:var(--gapc);
+  align-items:baseline;padding:var(--s4) 0;border-bottom:1px solid var(--rule-d)}
+.xbt-head{padding:var(--s3) 0;border-bottom:1px solid var(--gold-f)}
+.xbt-head span{font-size:9.5px;letter-spacing:.2em;color:var(--gold)}
+.xbt-k{font-size:var(--mlabel);letter-spacing:.12em;color:var(--d-3);text-align:right;padding-right:var(--mgut)}
+.xbt-row span:nth-child(2){color:var(--d-1);font-size:var(--t-sm)}
+.xbt-row span:nth-child(3){color:var(--d-3);font-size:var(--t-sm)}
+.xb-close{font-size:var(--t-lg);line-height:1.5;color:var(--d-1);max-width:32em;margin:0}
+
+/* ---------- clients ---------- */
+.client-card{padding:var(--s5) 0}
+.client-name{font-size:var(--t-md);margin:0}
+.client-desc{grid-column:2;display:block;font-size:9.5px;letter-spacing:.16em;
+  line-height:1.9;color:var(--t-3);margin-top:var(--s2)}
+.client-card:last-of-type{border-bottom:1px solid var(--rule)}
+
+/* ---------- the record ---------- */
+.rec-band{background:var(--paper)}
+.rec-band > .container{counter-reset:recn}
+.rec-band .section-tag{margin-bottom:var(--s7)}
+.rec{align-items:start;padding:var(--s7) 0;counter-increment:recn}
+.rec:first-of-type{border-top:0;padding-top:0}
+.rec::before{content:'0' counter(recn);grid-column:1;grid-row:span 9;
+  font-family:var(--mono);font-size:var(--mlabel);letter-spacing:.12em;color:var(--nav);
+  text-align:right;padding:.3em var(--mgut) 0 0}
+.rec:last-of-type{border-bottom:1px solid var(--rule)}
+.rec-map-wrap{grid-column:2;max-width:300px;margin-top:var(--s5)}
+.letter-hd{display:flex;justify-content:space-between;gap:var(--s4);flex-wrap:wrap;
+  padding-bottom:var(--s3);border-bottom:1px solid var(--ink)}
+.lh-l{font-size:10px;letter-spacing:.16em;color:var(--t-1)}
+.lh-r{font-size:10px;letter-spacing:.16em;color:var(--t-3)}
+.lh-l a{display:inline-flex;align-items:center;gap:8px;transition:color .15s}
+.lh-l a:hover{color:var(--blue)}
+.ext-ico{width:12px;height:12px;color:var(--nav);flex:0 0 auto}
+.letter-bd{padding:var(--s6) 0 0}
+.letter-bd p{font-size:var(--t-xl);line-height:1.36;color:var(--t-1);margin:0;max-width:24em}
+.letter-ft{margin-top:var(--s5);display:flex;gap:var(--s5);flex-wrap:wrap;align-items:baseline}
+.lf-sig{font-size:10px;letter-spacing:.16em;color:var(--t-1)}
+.lf-note{font-size:9.5px;letter-spacing:.14em;color:var(--t-3)}
+.rec-role{font-size:10px;letter-spacing:.16em;color:var(--nav);margin:var(--s5) 0 var(--s4);
+  max-width:none}
+.rec-tr{margin:var(--s4) 0 0;font-size:.98rem;line-height:1.6;color:var(--t-3);font-style:italic;
+  padding-left:var(--s4);border-left:1px solid var(--nav-f);max-width:32em}
+.rec-tr-k{display:block;font-size:9.5px;letter-spacing:.18em;color:var(--nav);
+  margin-bottom:var(--s2);font-style:normal}
+.cred-list{margin:var(--s4) 0 0}
+.cred-list dt{font-size:9.5px;letter-spacing:.18em;color:var(--nav);margin-top:var(--s4)}
+.cred-list dt:first-of-type{margin-top:0}
+.cred-list dd{margin:5px 0 0;font-size:var(--t-sm);line-height:1.5;color:var(--t-1);max-width:34em}
+.rec-map{width:100%;height:auto;display:block}
+.mx-land{fill:none;stroke:rgba(var(--shade),.15);stroke-width:1;vector-effect:non-scaling-stroke}
+.mx-line{fill:none;stroke:rgba(var(--shade),.30);stroke-width:2;vector-effect:non-scaling-stroke}
+.mx-dot{fill:var(--nav)}.mx-ring{fill:none;stroke:var(--nav);stroke-width:1;opacity:.45}
+.mx-t{font-size:10px;letter-spacing:.16em;fill:var(--nav)}
+
+/* ---------- faq: a list of questions, not a panel ---------- */
+.faq-layout{grid-column:1/-1;display:grid;grid-template-columns:var(--marg) minmax(0,1fr);
+  column-gap:var(--gapc)}
+.faq-sticky{grid-column:1/-1;display:grid;grid-template-columns:var(--marg) minmax(0,1fr);
+  column-gap:var(--gapc);padding-bottom:var(--s6);margin-bottom:var(--s5);
+  border-bottom:3px double var(--ink)}
+.faq-contact{grid-column:2;font-size:var(--t-sm);line-height:1.6;color:var(--t-3);margin:0;
+  max-width:34em;font-style:italic}
+.faq-sticky .faq-btn{grid-column:2;justify-self:start;margin-top:var(--s5)}
+.faq-contact a{color:var(--blue);border-bottom:1px solid var(--nav-f)}
+.faq-list{grid-column:1/-1}
+.faq-item{border-bottom:1px solid var(--rule)}
+.faq-q{display:grid;grid-template-columns:var(--marg) minmax(0,1fr) 28px;column-gap:var(--gapc);
+  align-items:baseline;padding:var(--s5) 0;cursor:pointer}
+.faq-mk{font-size:var(--mlabel);letter-spacing:.12em;color:var(--nav);text-align:right;padding-right:var(--mgut)}
+.faq-q-text{font-size:var(--t-md);line-height:1.34;color:var(--t-1)}
+.faq-toggle{justify-self:end;color:var(--t-3);font-size:.95rem;transition:transform .2s}
+.faq-item.open .faq-toggle{transform:rotate(45deg)}
+.faq-a{display:none;grid-template-columns:var(--marg) minmax(0,1fr);column-gap:var(--gapc);
+  padding:0 0 var(--s6)}
+.faq-item.open .faq-a{display:grid}
+.faq-a .faq-mk{color:var(--t-3)}
+.faq-a-text{font-size:var(--t-sm);line-height:1.7;color:var(--t-2);max-width:var(--measure)}
+
+/* ---------- contact ---------- */
+.ct-three{grid-column:1/-1;display:grid;
+  grid-template-columns:var(--marg) repeat(3,minmax(0,1fr));column-gap:var(--gapc);
+  padding:var(--s6) 0;border-top:3px double var(--rule-d);border-bottom:1px solid var(--rule-d)}
+.ct-three > *:first-child{grid-column:2}
+.ct-k{display:flex;align-items:center;gap:10px;font-size:9.5px;letter-spacing:.18em;
+  color:var(--gold);margin-bottom:var(--s4)}
+.ct-k svg{width:15px;height:15px;color:var(--gold);flex:0 0 auto}
+.ct-v{display:block;font-size:var(--t-lg);line-height:1.3;color:var(--d-1);word-break:break-word}
+a.ct-v:hover{color:var(--gold)}
+.ct-n{display:block;margin-top:var(--s3);font-size:9.5px;letter-spacing:.16em;color:var(--d-3)}
+.ct-addr{grid-column:1/-1;display:grid;
+  grid-template-columns:var(--marg) minmax(0,24em) minmax(0,1fr);
+  column-gap:var(--gapc);align-items:start;padding-top:var(--s7)}
+.ct-addr-t{grid-column:2}
+.ct-addr-t .ct-v{font-size:var(--t-md);line-height:1.55}
+.ct-map-wrap{grid-column:3;justify-self:end;width:100%;max-width:420px}
+.mapx{width:100%;height:auto}
+.contact-section .mx-land{stroke:var(--rule-d)}
+.contact-section .mx-line{stroke:rgba(var(--shade-d),.42)}
+.contact-section .mx-dot{fill:var(--gold)}
+.contact-section .mx-ring{stroke:var(--gold)}
+.contact-section .mx-t{fill:var(--gold)}
+
+/* ---------- footer: the colophon ---------- */
+footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)}
+.footer-inner{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:var(--s6);
+  margin-bottom:var(--s7);padding-bottom:var(--s6);border-bottom:1px solid var(--rule-d)}
+.footer-5{grid-template-columns:1.6fr 1fr 1fr 1fr 1fr}
+.footer-logo{display:block;font-size:1.4rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--d-1);margin-bottom:var(--s3)}
+.footer-logo .lg-v{color:var(--gold);font-style:italic;font-size:.72em;letter-spacing:0;text-transform:none}
+.footer-mission{font-size:.98rem;line-height:1.6;color:var(--d-3);max-width:30em;font-style:italic}
+.footer-col-title{display:block;font-size:9.5px;letter-spacing:.18em;color:var(--gold);margin-bottom:var(--s3)}
+.footer-links li{margin-bottom:7px;font-size:.98rem;color:var(--d-2)}
+.footer-links a{transition:color .15s}
+.footer-links a:hover{color:var(--gold)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;gap:var(--s5);flex-wrap:wrap}
+.footer-legal{font-size:9.5px;letter-spacing:.16em;color:var(--d-3);margin:0}
+.footer-badges{display:flex;flex-wrap:wrap;gap:var(--s5)}
+.footer-badge{font-size:9.5px;letter-spacing:.16em;color:var(--d-3)}
+
+/* ---------- policy + 404 ---------- */
+.pol-head{padding:var(--s8) 0 var(--s5)}
+.pol-head .container{display:block;background:none}
+.pol-title{font-size:clamp(2.2rem,6vw,3.6rem);line-height:1.03;letter-spacing:-.028em;margin-bottom:var(--s4)}
+.pol-sub{font-size:var(--t-sm);line-height:1.6;color:var(--t-3);max-width:34em;margin:0;font-style:italic}
+.nf-acts{display:flex;gap:var(--s3);flex-wrap:wrap;margin-top:var(--s6)}
+.pol{padding:0}
+.pol .container{display:grid;grid-template-columns:var(--marg) minmax(0,1fr);column-gap:var(--gapc);
+  background-image:linear-gradient(to right,var(--nav-f) 0 1px,transparent 1px 3px,var(--nav-f) 3px 4px,transparent 4px);
+  background-size:4px 100%;background-repeat:repeat-y;
+  background-position:calc(var(--pad) + var(--marg) - 20px) 0}
+.pol-in{grid-column:1/-1;display:grid;grid-template-columns:var(--marg) minmax(0,1fr);
+  column-gap:var(--gapc);align-items:start;padding:var(--s6) 0;border-top:1px solid var(--rule)}
+.pol:first-of-type .pol-in{border-top:3px double var(--ink)}
+.pol:last-of-type .pol-in{border-bottom:1px solid var(--rule)}
+.pol-n{grid-column:1;font-size:var(--mlabel);letter-spacing:.12em;color:var(--nav);text-align:right;padding:.5em var(--mgut) 0 0}
+.pol-body{grid-column:2}
+.pol-h{font-size:var(--t-lg);line-height:1.2;letter-spacing:-.012em;margin-bottom:var(--s4)}
+.pol-body p{font-size:var(--t-sm);line-height:1.68;color:var(--t-2);max-width:var(--measure)}
+.pol-body a{color:var(--blue);border-bottom:1px solid var(--nav-f)}
+.pol-body strong{color:var(--t-1);font-weight:600}
+.pol-ul,.pol-body ul{margin:var(--s2) 0 var(--s4)}
+.pol-ul li,.pol-body ul li{position:relative;padding-left:22px;margin-bottom:8px;
+  font-size:var(--t-sm);line-height:1.62;color:var(--t-2);max-width:var(--measure)}
+.pol-ul li::before,.pol-body ul li::before{content:'\2014';position:absolute;left:0;
+  color:var(--nav);font-family:var(--mono);font-size:.7em;top:.3em}
+.pol-note{margin:var(--s4) 0;padding-left:var(--s4);border-left:1px solid var(--nav-f)}
+.pol-note p{margin:0;font-style:italic;color:var(--t-3)}
+.pol-table,.pol-body table{width:100%;border-collapse:collapse;margin:var(--s3) 0 var(--s4)}
+.pol-table th,.pol-body th{text-align:left;padding:10px 18px 9px 0;font-family:var(--mono);
+  font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--t-3);
+  font-weight:400;border-bottom:1px solid var(--ink)}
+.pol-table td,.pol-body td{padding:12px 18px 11px 0;vertical-align:top;color:var(--t-2);
+  font-size:var(--t-sm);line-height:1.55;border-bottom:1px solid var(--rule)}
+
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+.why-section :focus-visible,.cross-section :focus-visible,
+.contact-section :focus-visible,footer :focus-visible{outline-color:var(--gold)}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+@media print{
+  nav,.hx-actions,.cross-cta,.faq-btn,.xb-map,.nav-index{display:none!important}
+  body{background:#fff;color:#000}
+  .why-section,.cross-section,.contact-section,footer{background:#fff;color:#000}
+  section{page-break-inside:avoid}
+}
+
+/* =========================================================================
+   NARROWER: the margin column shrinks, then folds away
+   ========================================================================= */
+@media (max-width:1039px){
+  :root{--marg:104px;--gapc:24px;--mgut:22px}
+  .footer-inner,.footer-5{grid-template-columns:1fr 1fr}
+  .ct-addr{grid-template-columns:var(--marg) minmax(0,1fr)}
+  .ct-map-wrap{grid-column:2;justify-self:start;margin-top:var(--s6)}
+}
+@media (max-width:900px){
+  :root{--marg:0px;--gapc:0px;--pad:20px;--s9:64px;--s8:48px;--s7:36px}
+  body{font-size:18px}
+  /* the margin column folds away entirely: drop back to normal flow so no
+     grid-column declaration anywhere can conjure an implicit second track */
+  section > .container,.rec-band > .container,.cov-band > .container,
+  .pol .container{display:block;background-image:none}
+  .service-card,.cov,.xb-prob,.wy-pill,.fit,.client-card,.rec,.pol-in,.cov-head,
+  .spec,.faq-layout,.faq-q,.faq-a,.ct-addr,.wy-col,.xb-gets li{grid-template-columns:1fr}
+  .service-card > *,.cov > *,.xb-prob > *,.wy-pill > *,.fit-b,.client-card > *,
+  .rec-txt,.pol-body,.cov-lead,.spec-txt p,.spec-dl,.ct-addr-t,.ct-map-wrap,
+  .rec-map-wrap,.faq-a-text,.faq-q-text,.client-desc,
+  .wy-k,.wy-p,.wy-n,.xg-k,.xg-v{grid-column:1}
+  .service-num,.cov-c,.wy-pn,.fit-n,.pol-n,.cov-k,.spec-k,.faq-mk,.xbt-k,.xb-prob::before,
+  .wy-col::before,.xb-gets li::before,.rec::before{
+    grid-column:1;grid-row:auto;text-align:left;padding:0;margin-bottom:var(--s3)}
+  .faq-q{grid-template-columns:1fr 28px}
+  .faq-q .faq-mk{display:none}
+  .faq-a .faq-mk{display:none}
+  :root{--hxtag:2.3rem}
+  .hx-body{grid-template-columns:1fr;margin-left:0;min-height:0}
+  .hx-left{grid-column:1}
+  /* the map drops below the three things and keeps only what stays legible */
+  .xb-map{right:-34%;width:170%;opacity:.55;
+    -webkit-mask-image:none;mask-image:none}
+  .hx-sub{max-width:none;margin-top:var(--s5)}
+  .hx-actions{flex-direction:column;margin-top:var(--s6)}
+  .hx-actions a{width:100%;min-width:0}
+  .section-h2{max-width:none;margin-bottom:var(--s4)}
+  .section-intro{max-width:none;margin-bottom:var(--s6)}
+  .cov-head{gap:var(--s3);padding-top:var(--s5);padding-bottom:var(--s5)}
+  .cov-lead{max-width:none;font-size:var(--t-md)}
+  /* a transcript keeps its own line breaks, so it scrolls sideways.
+     shadows appear only on the side that still has record to show. */
+  .tsp-b{
+    background-image:
+      linear-gradient(to right,var(--paper) 55%,var(--paper-0)),
+      linear-gradient(to left,var(--paper) 55%,var(--paper-0)),
+      linear-gradient(to right,rgba(var(--shade),.22),rgba(var(--shade),0)),
+      linear-gradient(to left,rgba(var(--shade),.22),rgba(var(--shade),0));
+    background-position:left center,right center,left center,right center;
+    background-repeat:no-repeat;
+    background-size:26px 100%,26px 100%,11px 100%,11px 100%;
+    background-attachment:local,local,scroll,scroll;
+    scrollbar-width:thin;
+  }
+  .pol-table,.pol-body table{table-layout:fixed}
+  .pol-table th,.pol-body th{padding-right:10px;font-size:8.5px;letter-spacing:.06em}
+  .pol-table td,.pol-body td{padding-right:10px;overflow-wrap:break-word;font-size:.94rem}
+  .ct-three{grid-template-columns:1fr;gap:var(--s5)}
+  .ct-three > *:first-child{grid-column:1}
+  .section-tag{margin-top:0;padding-top:0;background:none}
+  .xbt-row{grid-template-columns:1fr;gap:3px}
+  .xbt-head{display:none}
+  .xbt-k{text-align:left}
+  .xbt-row span:nth-child(2)::before{content:'Quebec — ';font-family:var(--mono);font-size:9.5px;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--d-3)}
+  .xbt-row span:nth-child(3)::before{content:'United States — ';font-family:var(--mono);font-size:9.5px;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--d-3)}
+  .rec-map-wrap,.ct-map-wrap{max-width:340px;margin-top:var(--s5)}
+  .letter-bd p{max-width:none;font-size:var(--t-lg)}
+  .cred-list dd,.rec-tr,.fit-honest p,.faq-a-text,.wy-lead,.xb-lead,.xb-close{max-width:none}
+  .faq-sticky{display:block}
+  .faq-sticky .faq-contact{margin-bottom:var(--s5)}
+  .footer-inner,.footer-5{grid-template-columns:1fr;gap:var(--s5)}
+  .footer-bottom{display:block}
+  .footer-legal{margin-bottom:var(--s3)}
+}
+</style>
+
+</head>
+<body>
+<nav>
+  <div class="container nav-inner">
+    <a href="/" class="logo"><span class="lg-p">Lex</span><span class="lg-v">v.</span><span class="lg-p">Oral</span></a>
+    <div class="nav-links">
+      <a href="/#coverage">Coverage</a>
+      <a href="/#why">Why us</a>
+      <a href="/#services">Services</a>
+      <a href="/#cross-border">Cross-border</a>
+      <a href="/#practice">Practice</a>
+      <a href="/#faq">FAQ</a>
+      <a href="/#contact">Contact</a>
+    </div>
+    <div class="nav-side">
+      <div class="nav-lang">
+        <a href="/" class="active" lang="en" hreflang="en">EN</a>
+        <a href="/fr/" lang="fr" hreflang="fr">FR</a>
+      </div>
+      <a href="tel:+15147127516" class="nav-tel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3h3l1.5 4-2 1.5a12 12 0 0 0 6.5 6.5l1.5-2 4 1.5v3a2 2 0 0 1-2.2 2A17 17 0 0 1 4.5 5.2 2 2 0 0 1 6.5 3z"/></svg><span>+1 (514) 712-7516</span></a>
+      <button type="button" class="nav-menu" aria-expanded="false" aria-controls="nav-index"><span class="nm-t">Index</span><span class="nm-b" aria-hidden="true"><i></i><i></i><i></i></span></button>
+    </div>
+  </div>
+  <div class="nav-index" id="nav-index" hidden>
+    <div class="container">
+      <a href="/#coverage"><span>01</span>Coverage</a>
+      <a href="/#why"><span>02</span>Why us</a>
+      <a href="/#where-we-fit"><span>03</span>Where we fit</a>
+      <a href="/#services"><span>04</span>Services</a>
+      <a href="/#cross-border"><span>05</span>Cross-border</a>
+      <a href="/#practice"><span>06</span>Practice</a>
+      <a href="/#faq"><span>07</span>FAQ</a>
+      <a href="/#contact"><span>08</span>Contact</a>
+      <a href="tel:+15147127516" class="ni-tel"><span>Tel</span>+1 (514) 712-7516</a>
+    </div>
+  </div>
+</nav>
+<main>
+<section class="pol-head"><div class="container">
+  <div class="section-tag"><span class="st-br">[</span>Error 404<span class="st-br">]</span></div>
+  <h1 class="pol-title">Page not found.</h1>
+  <p class="pol-sub">The page you asked for is not in the record. It may have been moved, or the reference may be wrong.</p>
+  <div class="nf-acts">
+    <a href="/" class="btn-primary">Return to the record</a>
+    <a href="mailto:secure@lexoral.org" class="btn-outline-w">Write to us</a>
+  </div>
+</div></section>
+</main>
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo"><span class="lg-p">Lex</span><span class="lg-v">v.</span><span class="lg-p">Oral</span></div>
+        <p class="footer-mission">Independent legal transcription provider. Does not provide legal advice.</p>
+      </div>
+      <div>
+        <span class="footer-col-title">Services</span>
+        <ul class="footer-links">
+          <li><a href="/#services">Depositions &amp; Examinations</a></li>
+          <li><a href="/#services">Arbitration &amp; Mediation</a></li>
+          <li><a href="/#services">Tribunal Hearings</a></li>
+          <li><a href="/#cross-border">Cross-Border Litigation</a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="footer-col-title">Compliance</span>
+        <ul class="footer-links">
+          <li><a href="/privacy/">Privacy Policy</a></li>
+          <li><a href="/retention/">Retention Policy</a></li>
+          <li><a href="/privacy/">Loi 25</a></li>
+          <li><a href="/privacy/">GDPR</a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="footer-col-title">Contact</span>
+        <ul class="footer-links">
+          <li><a href="mailto:secure@lexoral.org">secure@lexoral.org</a></li>
+          <li><a href="tel:+15147127516">+1 (514) 712-7516</a></li>
+          <li style="line-height:1.55">24191-300 Eagleson Rd<br/>Kanata, ON K2M 2C3</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">Lexoral · lexoral.org · &copy; 2026 &middot; All rights reserved</p>
+      <div class="footer-badges">
+        <span class="footer-badge">FR–EN Bilingual</span>
+        <span class="footer-badge">Loi 25 Compliant</span>
+        <span class="footer-badge">Secure Handling</span>
+        <span class="footer-badge">Court-Ready</span>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+(function(){var b=document.querySelector('.nav-menu'),p=document.getElementById('nav-index');if(!b||!p)return;
+ function set(o){b.setAttribute('aria-expanded',String(o));p.hidden=!o}
+ b.addEventListener('click',function(){set(b.getAttribute('aria-expanded')!=='true')});
+ p.addEventListener('click',function(e){if(e.target.closest('a'))set(false)});
+ document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false)});
+ addEventListener('resize',function(){if(innerWidth>=1180)set(false)});})();</script>
+</body>
+</html>
