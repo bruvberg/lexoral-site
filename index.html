@@ -191,10 +191,9 @@ body{counter-reset:secline}
 .cross-section .xb-prob h3,.why-section .wy-pill h3{color:var(--d-1)}
 
 /* ---------- the typed record ---------- */
-.tsp{margin:var(--s5) 0 0;
+.tsp{margin:var(--s6) 0 0;padding-top:var(--s2);
   border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
-.tsp-k{display:block;font-size:9.5px;letter-spacing:.2em;color:var(--t-3);
-  padding:var(--s3) 0 var(--s2);border-bottom:1px solid var(--rule)}
+.tsp-k{font-size:9.5px;letter-spacing:.2em}
 .tsp-b{margin:0;padding:var(--s4) 0;font-size:12.5px;line-height:2.05;color:var(--t-2);
   white-space:pre;overflow-x:auto}
 .tsp-b b{font-weight:700;color:var(--t-1)}
@@ -248,6 +247,23 @@ body{counter-reset:secline}
 .btn-outline-w:hover{background:var(--ink);color:var(--paper)}
 .cross-cta{padding:15px 26px;background:var(--gold);color:var(--ink);--fr:#C08D16;--fb:#8C650B}
 .cross-cta:hover{background:#FFD16B}
+
+/* the same relief, not as a button: a label stuck onto a figure.
+   Every specimen and every diagram carries one — a rule, not a flourish. */
+.tsp-k,.dgm-k{--relief:4px;position:relative;display:inline-block;
+  padding:8px 15px 7px;margin:0 0 var(--s5);
+  background:var(--leaf);color:var(--t-2);
+  box-shadow:inset 0 0 0 1px var(--rule);border:0}
+.tsp-k::before,.dgm-k::before{content:'';position:absolute;left:100%;top:0;
+  width:var(--relief);height:100%;background:var(--face-r);
+  transform:skewY(45deg);transform-origin:0 0;pointer-events:none}
+.tsp-k::after,.dgm-k::after{content:'';position:absolute;top:100%;left:0;
+  width:100%;height:var(--relief);background:var(--face-b);
+  transform:skewX(45deg);transform-origin:0 0;pointer-events:none}
+.why-section .dgm-k,.cross-section .dgm-k,.contact-section .dgm-k{
+  background:var(--ink-deep);color:var(--d-2);
+  box-shadow:inset 0 0 0 1px rgba(var(--shade-d),.26);
+  --face-r:rgba(0,0,0,.30);--face-b:rgba(0,0,0,.45)}
 
 /* ---------- nav: a letterhead ---------- */
 nav{position:sticky;top:0;z-index:60;background:var(--paper);border-bottom:1px solid var(--ink)}
@@ -381,6 +397,47 @@ footer ::selection{background:var(--gold);color:var(--ink)}
 .wy-bad .wy-k{color:var(--d-3)}
 .wy-pill:last-of-type{border-bottom:1px solid var(--rule-d)}
 .why-section .cross-cta,.cross-section .cross-cta{margin-top:var(--s7)}
+
+/* ---------- diagrams: the argument, drawn ---------- */
+.dgm{grid-column:2;margin:var(--s6) 0 var(--s8);max-width:none}
+.dgm svg{display:block;width:100%;height:auto;overflow:visible}
+.dgm-k{font-family:var(--mono);font-size:var(--mlabel);letter-spacing:.2em;
+  text-transform:uppercase}
+.dgm-h{font-family:var(--mono);font-size:13px;letter-spacing:.22em;text-transform:uppercase;
+  fill:var(--t-3)}
+.dgm-l{font-family:var(--mono);font-size:13px;letter-spacing:.16em;text-transform:uppercase;
+  fill:var(--t-2)}
+.dgm-ref{font-family:var(--mono);font-size:11px;letter-spacing:.1em;fill:var(--t-3)}
+.dgm-rule{stroke:var(--rule);stroke-width:1}
+.dgm-sep{stroke:var(--rule);stroke-width:1}
+.dgm-box{fill:none;stroke:var(--rule);stroke-width:1}
+.dgm-t{font-family:var(--serif);font-size:23px;fill:var(--t-1);letter-spacing:.02em}
+.dgm-arrow{fill:none;stroke:var(--t-3);stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
+.dgm-note{font-family:var(--mono);font-size:12.5px;fill:var(--t-3)}
+.dgm-s{font-family:var(--mono);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;fill:var(--t-2)}
+.dgm-cap{font-size:.98rem;line-height:1.6;color:var(--t-3);margin:var(--s5) 0 0;max-width:var(--measure)}
+.why-section .dgm-s,.cross-section .dgm-s{fill:var(--d-2)}
+.why-section .dgm-cap,.cross-section .dgm-cap{color:var(--d-3)}
+.dgm-bg{stroke:var(--nav);stroke-width:1.6}
+.dgm-tg{fill:var(--nav)}
+.dgm-ag{stroke:var(--nav)}
+.dgm-ng{fill:var(--t-2)}
+.dgm-lg{fill:var(--t-1)}
+/* on navy the same diagram switches side */
+.why-section .dgm-k,.cross-section .dgm-k{color:var(--d-3);border-bottom-color:var(--rule-d)}
+.why-section .dgm-h,.cross-section .dgm-h{fill:var(--d-3)}
+.why-section .dgm-l,.cross-section .dgm-l{fill:var(--d-2)}
+.why-section .dgm-ref,.cross-section .dgm-ref{fill:var(--d-3)}
+.why-section .dgm-rule,.why-section .dgm-sep,.why-section .dgm-box,
+.cross-section .dgm-rule,.cross-section .dgm-sep,.cross-section .dgm-box{stroke:rgba(var(--shade-d),.26)}
+.why-section .dgm-t,.cross-section .dgm-t{fill:var(--d-1)}
+.why-section .dgm-arrow,.cross-section .dgm-arrow{stroke:rgba(var(--shade-d),.42)}
+.why-section .dgm-note,.cross-section .dgm-note{fill:var(--d-3)}
+.why-section .dgm-bg,.cross-section .dgm-bg{stroke:var(--gold);stroke-width:1.6}
+.why-section .dgm-tg,.cross-section .dgm-tg{fill:var(--gold)}
+.why-section .dgm-ag,.cross-section .dgm-ag{stroke:var(--gold)}
+.why-section .dgm-ng,.cross-section .dgm-ng{fill:var(--d-2)}
+.why-section .dgm-lg,.cross-section .dgm-lg{fill:var(--d-1)}
 
 /* ---------- where we fit ---------- */
 .fit-n{grid-column:1;grid-row:span 9;text-align:right;padding:.42em var(--mgut) 0 0}
@@ -651,6 +708,25 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
     background-attachment:local,local,scroll,scroll;
     scrollbar-width:thin;
   }
+  /* a diagram keeps its proportions and scrolls, like the transcript does */
+  .dgm{overflow-x:auto;scrollbar-width:thin;
+    background-image:
+      linear-gradient(to right,var(--paper) 55%,var(--paper-0)),
+      linear-gradient(to left,var(--paper) 55%,var(--paper-0)),
+      linear-gradient(to right,rgba(var(--shade),.22),rgba(var(--shade),0)),
+      linear-gradient(to left,rgba(var(--shade),.22),rgba(var(--shade),0));
+    background-position:left center,right center,left center,right center;
+    background-repeat:no-repeat;
+    background-size:26px 100%,26px 100%,11px 100%,11px 100%;
+    background-attachment:local,local,scroll,scroll}
+  .why-section .dgm,.cross-section .dgm{
+    background-image:
+      linear-gradient(to right,var(--ink) 55%,rgba(22,46,81,0)),
+      linear-gradient(to left,var(--ink) 55%,rgba(22,46,81,0)),
+      linear-gradient(to right,rgba(0,0,0,.35),rgba(0,0,0,0)),
+      linear-gradient(to left,rgba(0,0,0,.35),rgba(0,0,0,0))}
+  .dgm svg{width:760px;max-width:none}
+  .dgm-k,.dgm-cap{position:sticky;left:0}
   .pol-table,.pol-body table{table-layout:fixed}
   .pol-table th,.pol-body th{padding-right:10px;font-size:8.5px;letter-spacing:.06em}
   .pol-table td,.pol-body td{padding-right:10px;overflow-wrap:break-word;font-size:.94rem}
@@ -795,6 +871,40 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
 
     <p class="wy-lead">Under a section 530 order the law does not ask for a readable English document. It asks for the words as spoken, any interpretation as a separate transcript, and the exhibits in the language they were tendered. Most firms deliver the first thing.</p>
 
+    
+    <figure class="dgm">
+      <figcaption class="dgm-k">One answer, three stages</figcaption>
+      <svg viewBox="0 0 920 296" role="img" aria-label="One answer, three stages">
+        <text class="dgm-h" x="270" y="16" text-anchor="middle">Spoken</text>
+        <text class="dgm-h" x="510" y="16" text-anchor="middle">Interpreted</text>
+        <text class="dgm-h" x="778" y="16" text-anchor="middle">In the record</text>
+        <line class="dgm-rule" x1="0" y1="34" x2="920" y2="34"/>
+
+        <text class="dgm-l" x="170" y="106" text-anchor="end">Usual practice</text>
+        <rect class="dgm-box" x="220" y="78" width="100" height="48"/>
+        <text class="dgm-t" x="270" y="109" text-anchor="middle">FR</text>
+        <path class="dgm-arrow" d="M334 102 H446"/><path class="dgm-arrow" d="M438 96 l8 6 -8 6"/>
+        <rect class="dgm-box" x="460" y="78" width="100" height="48"/>
+        <text class="dgm-t" x="510" y="109" text-anchor="middle">EN</text>
+        <path class="dgm-arrow" d="M574 102 H674"/><path class="dgm-arrow" d="M666 96 l8 6 -8 6"/>
+        <rect class="dgm-box" x="688" y="78" width="180" height="48"/>
+        <text class="dgm-t" x="778" y="109" text-anchor="middle">EN</text>
+        <text class="dgm-note" x="688" y="150">The French is never written down.</text>
+        <line class="dgm-sep" x1="0" y1="176" x2="920" y2="176"/>
+
+        <text class="dgm-l dgm-lg" x="170" y="234" text-anchor="end">Lexoral</text>
+        <rect class="dgm-box" x="220" y="206" width="100" height="48"/>
+        <text class="dgm-t" x="270" y="237" text-anchor="middle">FR</text>
+        <path class="dgm-arrow" d="M334 230 H446"/><path class="dgm-arrow" d="M438 224 l8 6 -8 6"/>
+        <rect class="dgm-box" x="460" y="206" width="100" height="48"/>
+        <text class="dgm-t" x="510" y="237" text-anchor="middle">EN</text>
+        <path class="dgm-arrow dgm-ag" d="M574 230 H674"/><path class="dgm-arrow dgm-ag" d="M666 224 l8 6 -8 6"/>
+        <rect class="dgm-box dgm-bg" x="688" y="206" width="180" height="48"/>
+        <text class="dgm-t dgm-tg" x="778" y="237" text-anchor="middle">FR + EN</text>
+        <text class="dgm-note dgm-ng" x="688" y="278">Both, each marked for what it is.</text>
+        <text class="dgm-ref" x="170" y="258" text-anchor="end">s. 530.1(g)</text>
+      </svg>
+    </figure>
     <div class="wy-diff">
       <div class="wy-col wy-said">
         <span class="wy-k">What the witness said</span>
@@ -978,8 +1088,25 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
       </ul>
     </div>
 
-    <p class="xb-why">A Montr&eacute;al deponent examined for a U.S. matter. A U.S. party filing in Quebec. One transcript, two procedural frameworks. The usual answer &mdash; an interpreter plus a second transcription &mdash; doubles the cost and adds a second point of failure. Three things break.</p>
+    <p class="xb-why">A Montr&eacute;al deponent examined for a U.S. matter. A U.S. party filing in Quebec. One transcript, two procedural frameworks.</p>
 
+    
+    <figure class="dgm">
+      <figcaption class="dgm-k">Four schedules, or one</figcaption>
+      <svg viewBox="0 48 920 204" role="img" aria-label="Four schedules, or one">
+        <text class="dgm-l" x="170" y="99" text-anchor="end">The usual route</text>
+        <rect class="dgm-box" x="190" y="72" width="140" height="44"/><text class="dgm-s" x="260" y="99" text-anchor="middle">Interpreter</text><path class="dgm-arrow" d="M338 94 H368"/><path class="dgm-arrow" d="M361 88 l7 6 -7 6"/><rect class="dgm-box" x="376" y="72" width="140" height="44"/><text class="dgm-s" x="446" y="99" text-anchor="middle">Transcription</text><path class="dgm-arrow" d="M524 94 H554"/><path class="dgm-arrow" d="M547 88 l7 6 -7 6"/><rect class="dgm-box" x="562" y="72" width="140" height="44"/><text class="dgm-s" x="632" y="99" text-anchor="middle">Translation</text><path class="dgm-arrow" d="M710 94 H740"/><path class="dgm-arrow" d="M733 88 l7 6 -7 6"/><rect class="dgm-box" x="748" y="72" width="140" height="44"/><text class="dgm-s" x="818" y="99" text-anchor="middle">Review</text>
+        <text class="dgm-note" x="190" y="140">Four steps, four schedules. Every correction travels back through all of them.</text>
+        <line class="dgm-sep" x1="0" y1="166" x2="920" y2="166"/>
+        <text class="dgm-l dgm-lg" x="170" y="222" text-anchor="end">Lexoral</text>
+        <rect class="dgm-box dgm-bg" x="190" y="195" width="326" height="44"/>
+        <text class="dgm-s dgm-tg" x="353" y="222" text-anchor="middle">One bilingual pass</text>
+        <path class="dgm-arrow dgm-ag" d="M524 217 H562"/><path class="dgm-arrow dgm-ag" d="M555 211 l7 6 -7 6"/>
+        <rect class="dgm-box dgm-bg" x="570" y="195" width="326" height="44"/>
+        <text class="dgm-s dgm-tg" x="733" y="222" text-anchor="middle">Attested record</text>
+      </svg>
+      <p class="dgm-cap">One schedule. One point of failure, not four.</p>
+    </figure>
     <div class="xb-probs">
       <div class="xb-prob"><svg class="xb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4"/><path d="M9 11h7M9 15h7M9 19h4"/></svg><h3>The two formats diverge</h3>
         <p>Quebec follows Superior Court conventions; U.S. depositions follow AAERT practice with its own objection notation and exhibit marking. A transcript built for one is reformatted for the other, and pagination shifts underneath the citations.</p></div>

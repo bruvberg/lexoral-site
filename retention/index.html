@@ -187,10 +187,9 @@ body{counter-reset:secline}
 .cross-section .xb-prob h3,.why-section .wy-pill h3{color:var(--d-1)}
 
 /* ---------- the typed record ---------- */
-.tsp{margin:var(--s5) 0 0;
+.tsp{margin:var(--s6) 0 0;padding-top:var(--s2);
   border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
-.tsp-k{display:block;font-size:9.5px;letter-spacing:.2em;color:var(--t-3);
-  padding:var(--s3) 0 var(--s2);border-bottom:1px solid var(--rule)}
+.tsp-k{font-size:9.5px;letter-spacing:.2em}
 .tsp-b{margin:0;padding:var(--s4) 0;font-size:12.5px;line-height:2.05;color:var(--t-2);
   white-space:pre;overflow-x:auto}
 .tsp-b b{font-weight:700;color:var(--t-1)}
@@ -244,6 +243,23 @@ body{counter-reset:secline}
 .btn-outline-w:hover{background:var(--ink);color:var(--paper)}
 .cross-cta{padding:15px 26px;background:var(--gold);color:var(--ink);--fr:#C08D16;--fb:#8C650B}
 .cross-cta:hover{background:#FFD16B}
+
+/* the same relief, not as a button: a label stuck onto a figure.
+   Every specimen and every diagram carries one — a rule, not a flourish. */
+.tsp-k,.dgm-k{--relief:4px;position:relative;display:inline-block;
+  padding:8px 15px 7px;margin:0 0 var(--s5);
+  background:var(--leaf);color:var(--t-2);
+  box-shadow:inset 0 0 0 1px var(--rule);border:0}
+.tsp-k::before,.dgm-k::before{content:'';position:absolute;left:100%;top:0;
+  width:var(--relief);height:100%;background:var(--face-r);
+  transform:skewY(45deg);transform-origin:0 0;pointer-events:none}
+.tsp-k::after,.dgm-k::after{content:'';position:absolute;top:100%;left:0;
+  width:100%;height:var(--relief);background:var(--face-b);
+  transform:skewX(45deg);transform-origin:0 0;pointer-events:none}
+.why-section .dgm-k,.cross-section .dgm-k,.contact-section .dgm-k{
+  background:var(--ink-deep);color:var(--d-2);
+  box-shadow:inset 0 0 0 1px rgba(var(--shade-d),.26);
+  --face-r:rgba(0,0,0,.30);--face-b:rgba(0,0,0,.45)}
 
 /* ---------- nav: a letterhead ---------- */
 nav{position:sticky;top:0;z-index:60;background:var(--paper);border-bottom:1px solid var(--ink)}
@@ -377,6 +393,47 @@ footer ::selection{background:var(--gold);color:var(--ink)}
 .wy-bad .wy-k{color:var(--d-3)}
 .wy-pill:last-of-type{border-bottom:1px solid var(--rule-d)}
 .why-section .cross-cta,.cross-section .cross-cta{margin-top:var(--s7)}
+
+/* ---------- diagrams: the argument, drawn ---------- */
+.dgm{grid-column:2;margin:var(--s6) 0 var(--s8);max-width:none}
+.dgm svg{display:block;width:100%;height:auto;overflow:visible}
+.dgm-k{font-family:var(--mono);font-size:var(--mlabel);letter-spacing:.2em;
+  text-transform:uppercase}
+.dgm-h{font-family:var(--mono);font-size:13px;letter-spacing:.22em;text-transform:uppercase;
+  fill:var(--t-3)}
+.dgm-l{font-family:var(--mono);font-size:13px;letter-spacing:.16em;text-transform:uppercase;
+  fill:var(--t-2)}
+.dgm-ref{font-family:var(--mono);font-size:11px;letter-spacing:.1em;fill:var(--t-3)}
+.dgm-rule{stroke:var(--rule);stroke-width:1}
+.dgm-sep{stroke:var(--rule);stroke-width:1}
+.dgm-box{fill:none;stroke:var(--rule);stroke-width:1}
+.dgm-t{font-family:var(--serif);font-size:23px;fill:var(--t-1);letter-spacing:.02em}
+.dgm-arrow{fill:none;stroke:var(--t-3);stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
+.dgm-note{font-family:var(--mono);font-size:12.5px;fill:var(--t-3)}
+.dgm-s{font-family:var(--mono);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;fill:var(--t-2)}
+.dgm-cap{font-size:.98rem;line-height:1.6;color:var(--t-3);margin:var(--s5) 0 0;max-width:var(--measure)}
+.why-section .dgm-s,.cross-section .dgm-s{fill:var(--d-2)}
+.why-section .dgm-cap,.cross-section .dgm-cap{color:var(--d-3)}
+.dgm-bg{stroke:var(--nav);stroke-width:1.6}
+.dgm-tg{fill:var(--nav)}
+.dgm-ag{stroke:var(--nav)}
+.dgm-ng{fill:var(--t-2)}
+.dgm-lg{fill:var(--t-1)}
+/* on navy the same diagram switches side */
+.why-section .dgm-k,.cross-section .dgm-k{color:var(--d-3);border-bottom-color:var(--rule-d)}
+.why-section .dgm-h,.cross-section .dgm-h{fill:var(--d-3)}
+.why-section .dgm-l,.cross-section .dgm-l{fill:var(--d-2)}
+.why-section .dgm-ref,.cross-section .dgm-ref{fill:var(--d-3)}
+.why-section .dgm-rule,.why-section .dgm-sep,.why-section .dgm-box,
+.cross-section .dgm-rule,.cross-section .dgm-sep,.cross-section .dgm-box{stroke:rgba(var(--shade-d),.26)}
+.why-section .dgm-t,.cross-section .dgm-t{fill:var(--d-1)}
+.why-section .dgm-arrow,.cross-section .dgm-arrow{stroke:rgba(var(--shade-d),.42)}
+.why-section .dgm-note,.cross-section .dgm-note{fill:var(--d-3)}
+.why-section .dgm-bg,.cross-section .dgm-bg{stroke:var(--gold);stroke-width:1.6}
+.why-section .dgm-tg,.cross-section .dgm-tg{fill:var(--gold)}
+.why-section .dgm-ag,.cross-section .dgm-ag{stroke:var(--gold)}
+.why-section .dgm-ng,.cross-section .dgm-ng{fill:var(--d-2)}
+.why-section .dgm-lg,.cross-section .dgm-lg{fill:var(--d-1)}
 
 /* ---------- where we fit ---------- */
 .fit-n{grid-column:1;grid-row:span 9;text-align:right;padding:.42em var(--mgut) 0 0}
@@ -647,6 +704,25 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
     background-attachment:local,local,scroll,scroll;
     scrollbar-width:thin;
   }
+  /* a diagram keeps its proportions and scrolls, like the transcript does */
+  .dgm{overflow-x:auto;scrollbar-width:thin;
+    background-image:
+      linear-gradient(to right,var(--paper) 55%,var(--paper-0)),
+      linear-gradient(to left,var(--paper) 55%,var(--paper-0)),
+      linear-gradient(to right,rgba(var(--shade),.22),rgba(var(--shade),0)),
+      linear-gradient(to left,rgba(var(--shade),.22),rgba(var(--shade),0));
+    background-position:left center,right center,left center,right center;
+    background-repeat:no-repeat;
+    background-size:26px 100%,26px 100%,11px 100%,11px 100%;
+    background-attachment:local,local,scroll,scroll}
+  .why-section .dgm,.cross-section .dgm{
+    background-image:
+      linear-gradient(to right,var(--ink) 55%,rgba(22,46,81,0)),
+      linear-gradient(to left,var(--ink) 55%,rgba(22,46,81,0)),
+      linear-gradient(to right,rgba(0,0,0,.35),rgba(0,0,0,0)),
+      linear-gradient(to left,rgba(0,0,0,.35),rgba(0,0,0,0))}
+  .dgm svg{width:760px;max-width:none}
+  .dgm-k,.dgm-cap{position:sticky;left:0}
   .pol-table,.pol-body table{table-layout:fixed}
   .pol-table th,.pol-body th{padding-right:10px;font-size:8.5px;letter-spacing:.06em}
   .pol-table td,.pol-body td{padding-right:10px;overflow-wrap:break-word;font-size:.94rem}
