@@ -199,6 +199,21 @@ body{counter-reset:secline}
   white-space:pre;overflow-x:auto}
 .tsp-b b{font-weight:700;color:var(--t-1)}
 .tsp-b i{font-style:normal;color:var(--t-3)}
+/* the specification, set as a datasheet: one dimension per row, what is
+   included on the left, what can be asked for on the right.               */
+.svc-spec{grid-column:1/-1;margin-top:var(--s7);border-top:3px double var(--ink)}
+.ssr{display:grid;grid-template-columns:var(--marg) minmax(0,1.05fr) minmax(0,1fr);
+  column-gap:var(--gapc);align-items:baseline;padding:var(--s4) 0;
+  border-bottom:1px solid var(--rule)}
+.ssr-head{padding:var(--s3) 0 var(--s2);border-bottom:1px solid var(--nav-f)}
+.ssr-head span{font-family:var(--mono);font-size:var(--mlabel);letter-spacing:.2em;
+  text-transform:uppercase;color:var(--nav)}
+.ssr-head span:last-child{color:var(--t-3)}
+.ssr-k{font-family:var(--mono);font-size:var(--mlabel);letter-spacing:.12em;
+  text-transform:uppercase;color:var(--nav);text-align:right;padding-right:var(--mgut)}
+.ssr span:nth-child(2){font-size:var(--t-sm);line-height:1.5;color:var(--t-1)}
+.ssr span:nth-child(3){font-size:var(--t-sm);line-height:1.5;color:var(--t-3)}
+.ssr:last-child{border-bottom:0}
 .tsp-legend{display:flex;flex-wrap:wrap;gap:var(--s3) var(--s5);margin:var(--s5) 0 0;font-size:10px}
 .tsp-legend span{display:inline-flex;align-items:center;gap:9px}
 .tsp-legend span::before{content:'';width:9px;height:2px;background:currentColor;flex:0 0 auto}
@@ -320,6 +335,9 @@ nav{position:sticky;top:0;z-index:60;background:var(--paper);border-bottom:1px s
 .cov-lead{grid-column:2;font-size:var(--t-lg);line-height:1.48;color:var(--t-1);
   max-width:32em;margin:0;font-style:italic}
 .cov:last-of-type{border-bottom:1px solid var(--rule)}
+.cov p{margin-bottom:var(--s3)}
+.cov-n{font-size:.95rem;line-height:1.6;color:var(--t-3);font-style:italic;max-width:var(--measure)}
+.cross-section .cov-n,.why-section .cov-n{color:var(--d-3)}
 .cov-c{white-space:nowrap}
 .cov-both .cov-c{color:var(--nav);font-weight:400}
 
@@ -367,7 +385,7 @@ footer ::selection{background:var(--gold);color:var(--ink)}
 /* ---------- where we fit ---------- */
 .fit-n{grid-column:1;grid-row:span 9;text-align:right;padding:.42em var(--mgut) 0 0}
 .fit-n span:first-child{display:block;font-size:var(--mlabel);letter-spacing:.12em;color:var(--nav);margin-bottom:var(--s2)}
-.fit-tag{display:block;font-size:9px;letter-spacing:.13em;line-height:1.8;color:var(--t-3)}
+.fit-tag{display:block;font-size:9px;letter-spacing:.13em;line-height:1.8;color:var(--t-3);overflow-wrap:break-word}
 .fit:last-of-type{border-bottom:1px solid var(--rule)}
 .fit-b h3{font-size:var(--t-lg)}
 .fit-note{font-size:.98rem;line-height:1.62;color:var(--t-3);font-style:italic;
@@ -636,6 +654,16 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
   .pol-table,.pol-body table{table-layout:fixed}
   .pol-table th,.pol-body th{padding-right:10px;font-size:8.5px;letter-spacing:.06em}
   .pol-table td,.pol-body td{padding-right:10px;overflow-wrap:break-word;font-size:.94rem}
+  .ssr{grid-template-columns:1fr;gap:3px;padding:var(--s4) 0}
+  .ssr-head{display:none}
+  .ssr-nil{display:none}
+  .ssr-k{text-align:left;padding:0 0 var(--s2)}
+  .ssr span:nth-child(2)::before{content:'Included \2014\00a0';font-family:var(--mono);font-size:9.5px;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--nav)}
+  .ssr span:nth-child(3)::before{content:'On request \2014\00a0';font-family:var(--mono);font-size:9.5px;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--t-3)}
+  html[lang="fr"] .ssr span:nth-child(2)::before{content:'Inclus \2014\00a0'}
+  html[lang="fr"] .ssr span:nth-child(3)::before{content:'Sur demande \2014\00a0'}
   .ct-three{grid-template-columns:1fr;gap:var(--s5)}
   .ct-three > *:first-child{grid-column:1}
   .section-tag{margin-top:0;padding-top:0;background:none}
@@ -710,10 +738,10 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
 </nav>
 
 <section class="hero">
-  <svg class="xb-map" viewBox="200 200 680 408" fill="none" aria-hidden="true"><path class="xb-land" d="M793.7 345.0 L800.1 346.6 L808.3 346.3 L803.9 351.3 L800.6 352.1 L789.4 346.9 L787.2 342.9 L790.5 339.1 L793.7 345.0 Z M810.1 314.1 L805.8 314.3 L794.3 310.5 L786.1 304.8 L789.1 303.8 L800.8 306.8 L809.8 311.9 L810.1 314.1 Z M263.7 321.3 L259.2 323.0 L244.7 317.5 L242.0 313.2 L234.1 308.9 L232.5 305.5 L223.4 303.3 L220.0 296.7 L220.7 293.9 L230.0 296.6 L235.5 298.4 L243.8 299.7 L246.8 303.8 L251.2 309.6 L260.0 314.6 L263.7 321.3 Z M860.3 294.9 L854.5 305.5 L860.3 301.4 L866.2 304.0 L863.1 308.2 L871.0 311.6 L875.0 308.6 L883.9 312.3 L881.1 321.2 L887.3 319.1 L888.5 325.6 L891.2 333.1 L887.5 343.7 L883.5 344.2 L877.7 341.9 L879.6 332.0 L877.1 330.5 L866.8 341.0 L861.6 340.5 L867.8 334.9 L859.3 331.9 L849.8 332.6 L832.6 332.3 L831.2 328.7 L836.8 324.4 L832.9 321.1 L840.3 313.8 L849.5 294.5 L855.0 287.7 L862.7 283.5 L866.8 284.0 L865.1 287.3 L860.3 294.9 Z M182.2 254.3 L190.7 253.4 L188.0 267.1 L195.7 276.8 L192.2 276.8 L186.9 271.3 L183.6 265.7 L179.1 261.9 L177.5 256.6 L178.0 252.7 L182.2 254.3 Z M655.5 156.0 L652.0 162.4 L648.1 161.3 L645.8 157.7 L646.2 156.9 L649.6 153.3 L653.2 153.5 L655.5 156.0 Z M632.2 149.3 L621.8 156.0 L615.6 155.7 L613.6 152.5 L620.2 146.9 L632.4 147.0 L632.2 149.3 Z M603.3 113.6 L604.9 119.0 L609.5 117.1 L614.6 120.3 L624.3 124.4 L634.4 128.2 L635.2 134.0 L641.7 133.0 L648.1 137.0 L640.2 140.8 L626.4 137.9 L621.5 132.5 L612.7 138.9 L600.1 145.2 L597.0 138.1 L585.0 139.3 L592.7 133.3 L593.9 123.8 L596.9 112.7 L603.3 113.6 Z M685.6 95.6 L675.7 96.2 L673.5 90.3 L677.2 83.5 L685.3 81.8 L692.3 85.2 L692.3 90.3 L691.4 92.0 L685.6 95.6 Z M510.4 71.9 L504.9 76.1 L493.0 72.4 L485.8 73.8 L473.7 68.3 L481.5 64.6 L487.6 59.3 L497.0 62.8 L502.4 64.9 L505.0 67.2 L510.4 71.9 Z M555.6 67.1 L555.5 79.5 L567.4 70.0 L578.0 77.8 L575.3 86.8 L583.9 95.0 L593.1 86.2 L599.6 75.8 L600.1 62.5 L612.7 63.4 L625.8 65.2 L637.6 71.2 L638.2 77.2 L631.6 83.7 L637.8 90.2 L636.7 96.0 L619.4 104.5 L607.0 106.4 L597.9 102.7 L595.2 108.8 L586.7 119.0 L584.1 124.3 L573.9 132.5 L561.2 133.3 L554.2 138.4 L553.6 146.3 L543.3 147.8 L532.5 157.6 L522.9 171.3 L519.4 180.8 L518.9 194.9 L532.0 196.9 L535.9 208.2 L540.1 217.4 L552.5 215.0 L568.9 220.3 L577.8 224.9 L584.1 230.6 L595.2 233.9 L604.6 239.0 L619.2 239.7 L628.9 240.9 L627.4 251.4 L630.2 263.6 L636.6 277.1 L649.8 288.6 L656.6 284.7 L661.4 272.2 L656.7 253.1 L650.5 246.7 L664.7 241.0 L674.7 232.6 L679.6 224.1 L678.9 216.0 L672.9 205.7 L662.1 196.6 L672.6 183.9 L668.7 173.0 L665.7 154.1 L671.9 151.3 L687.1 154.6 L696.2 155.7 L703.5 152.6 L711.8 156.7 L722.7 163.7 L725.4 168.4 L741.2 169.3 L740.9 179.5 L743.9 194.8 L751.9 196.7 L758.4 203.8 L771.2 197.1 L779.7 183.7 L785.5 178.1 L792.4 188.9 L803.9 204.3 L813.7 218.9 L810.2 226.5 L822.0 233.3 L829.9 240.2 L844.0 243.4 L849.7 247.2 L853.2 257.5 L860.1 259.1 L863.7 263.6 L864.3 277.2 L857.9 281.8 L851.5 286.1 L837.0 290.4 L825.8 300.3 L810.8 302.3 L791.9 299.7 L778.6 299.6 L769.4 300.5 L762.0 309.2 L750.7 314.5 L738.0 330.5 L727.8 341.7 L735.3 339.7 L749.5 323.8 L768.1 313.7 L781.3 312.5 L789.2 318.5 L780.8 326.6 L783.6 339.7 L786.5 348.8 L798.0 354.8 L812.6 353.1 L821.5 339.5 L822.1 348.3 L827.9 352.6 L816.9 360.6 L797.3 367.8 L788.5 372.7 L778.6 381.4 L771.9 380.5 L771.5 370.3 L786.9 360.3 L772.7 360.6 L762.9 362.1 L757.1 355.3 L757.1 338.8 L753.2 335.3 L747.2 337.3 L744.3 334.1 L737.5 343.3 L734.8 352.7 L731.7 358.2 L727.9 360.1 L725.1 360.7 L724.2 363.7 L707.9 363.7 L694.4 363.8 L690.4 366.0 L681.1 374.7 L680.0 375.7 L677.1 380.4 L669.0 380.4 L660.3 380.4 L656.3 382.4 L657.8 384.7 L658.5 388.4 L658.4 389.7 L646.8 395.7 L637.7 397.6 L627.4 404.0 L625.2 404.0 L622.2 402.1 L621.2 400.4 L621.4 399.1 L623.3 394.9 L627.5 388.2 L630.1 381.1 L628.3 370.6 L626.4 359.6 L617.2 353.9 L618.3 351.7 L617.0 350.3 L614.5 350.3 L612.7 348.3 L612.3 345.5 L610.6 346.7 L608.2 346.4 L608.7 345.2 L606.7 344.0 L605.8 340.8 L598.9 336.9 L591.8 332.9 L583.1 328.2 L574.8 323.8 L566.9 327.2 L564.0 327.3 L553.1 324.2 L545.9 325.8 L537.3 322.0 L528.3 320.1 L522.1 319.3 L519.3 317.3 L517.8 310.6 L514.8 310.7 L514.7 315.4 L496.4 315.3 L466.1 315.4 L436.0 315.4 L409.4 315.4 L382.9 315.4 L356.7 315.4 L329.7 315.4 L321.0 315.4 L294.7 315.4 L269.6 315.4 L268.4 315.3 L251.3 303.4 L244.9 298.2 L228.9 293.2 L224.0 282.5 L225.2 275.0 L213.9 269.9 L212.3 260.1 L201.6 251.3 L201.4 245.1 L206.4 239.2 L206.1 231.6 L191.1 223.9 L182.0 210.1 L176.5 201.4 L168.4 195.9 L162.4 191.0 L157.7 184.7 L148.8 188.6 L140.2 195.4 L132.3 187.5 L126.1 182.2 L117.5 178.8 L108.8 178.4 L108.8 109.5 L108.9 64.5 L125.4 67.5 L139.4 73.3 L148.6 74.4 L156.4 69.4 L167.1 65.6 L180.2 67.1 L193.5 61.7 L208.0 58.7 L214.1 63.7 L220.7 60.9 L222.7 55.2 L228.8 56.5 L243.8 67.4 L255.6 59.1 L256.8 68.3 L267.6 66.3 L271.0 62.8 L281.7 63.5 L295.2 68.6 L316.0 73.0 L328.2 75.1 L336.8 74.3 L348.8 80.4 L336.3 86.5 L352.3 89.1 L376.2 87.6 L383.8 85.5 L393.2 92.8 L402.9 86.6 L393.8 81.5 L399.5 77.4 L410.3 76.8 L417.4 75.6 L424.5 78.5 L433.4 85.1 L443.3 84.1 L459.0 89.6 L472.7 87.6 L485.7 87.9 L484.6 80.4 L492.5 78.3 L506.2 82.4 L506.2 93.8 L511.8 84.2 L518.9 84.5 L522.9 72.3 L513.5 64.9 L503.1 60.0 L503.8 46.6 L514.3 37.8 L526.0 39.7 L534.9 45.1 L547.0 58.7 L539.1 64.7 L555.6 67.1 Z M346.4 23.3 L342.0 28.9 L361.7 25.3 L374.0 31.4 L384.0 25.2 L392.1 29.2 L399.3 41.1 L403.8 36.0 L397.5 23.6 L405.3 21.9 L414.1 23.8 L424.0 28.7 L429.6 40.5 L432.3 49.0 L447.2 55.0 L463.2 60.8 L462.2 66.1 L447.7 67.1 L453.3 71.7 L450.3 76.2 L434.3 74.3 L419.1 71.0 L408.8 71.7 L392.2 75.8 L369.7 77.6 L354.0 78.8 L349.2 73.1 L337.1 69.8 L329.2 71.1 L318.3 61.5 L324.2 60.3 L337.9 58.2 L350.3 58.7 L361.9 56.6 L344.8 53.8 L325.9 54.8 L313.3 54.5 L308.6 50.1 L329.2 45.2 L315.5 45.4 L300.0 42.2 L307.5 33.1 L313.6 28.3 L337.3 20.9 L346.4 23.3 Z M590.9 22.8 L597.8 30.4 L606.0 20.6 L628.5 15.6 L643.7 28.2 L642.4 36.1 L659.9 32.6 L668.2 27.8 L687.9 33.9 L700.1 39.7 L701.2 44.9 L717.7 42.2 L726.9 49.9 L748.3 54.7 L756.0 59.6 L764.4 70.9 L748.1 76.6 L769.0 84.5 L783.0 87.1 L795.8 98.3 L809.7 99.1 L806.9 107.6 L791.4 121.6 L780.5 116.4 L766.6 104.8 L755.1 106.3 L754.0 113.3 L763.3 120.3 L775.3 125.9 L779.0 129.1 L784.8 141.1 L781.7 149.8 L770.5 146.5 L748.3 136.8 L760.8 147.2 L770.1 154.5 L771.5 158.8 L747.5 153.9 L728.5 146.9 L717.7 141.0 L720.8 137.6 L707.6 131.4 L694.7 125.5 L694.9 129.0 L669.3 130.9 L661.8 126.8 L667.6 117.9 L684.2 117.6 L702.5 116.1 L699.5 111.8 L702.6 105.7 L714.1 93.9 L711.6 88.6 L708.2 84.4 L694.7 78.6 L676.7 74.4 L682.4 71.4 L673.0 63.9 L665.2 63.2 L658.2 59.0 L653.5 62.6 L637.4 64.2 L605.2 61.5 L586.5 57.9 L572.1 56.1 L564.7 51.8 L574.0 46.3 L561.4 46.3 L558.6 34.0 L565.4 23.2 L574.5 18.2 L597.4 15.0 L590.9 22.8 Z"/><path class="xb-land" d="M517.8 310.6 L519.3 317.3 L522.1 319.3 L528.3 320.1 L537.3 322.0 L545.9 325.8 L553.1 324.2 L564.0 327.3 L566.9 327.2 L574.8 323.8 L583.1 328.2 L591.8 332.9 L598.9 336.9 L605.8 340.8 L606.7 344.0 L608.7 345.2 L608.2 346.4 L610.6 346.7 L612.3 345.5 L612.7 348.3 L614.5 350.3 L617.0 350.3 L618.3 351.7 L617.2 353.9 L626.4 359.6 L628.3 370.6 L630.1 381.1 L627.5 388.2 L623.3 394.9 L621.4 399.1 L621.2 400.4 L622.2 402.1 L625.2 404.0 L627.4 404.0 L637.7 397.6 L646.8 395.7 L658.4 389.7 L658.5 388.4 L657.8 384.7 L656.3 382.4 L660.3 380.4 L669.0 380.4 L677.1 380.4 L680.0 375.7 L681.1 374.7 L690.4 366.0 L694.4 363.8 L707.9 363.7 L724.2 363.7 L725.1 360.7 L727.9 360.1 L731.7 358.2 L734.8 352.7 L737.5 343.3 L744.3 334.1 L747.2 337.3 L753.2 335.3 L757.1 338.8 L757.1 355.3 L762.9 362.1 L764.4 366.1 L755.0 372.0 L745.9 376.1 L736.5 379.7 L731.8 386.9 L730.3 389.6 L730.2 396.1 L733.2 402.5 L736.8 402.8 L735.9 398.4 L738.6 401.0 L737.9 404.5 L731.9 406.5 L727.6 406.2 L721.1 408.3 L717.2 409.0 L712.1 409.6 L704.7 413.1 L717.7 410.8 L720.3 413.1 L707.9 416.7 L702.3 416.7 L702.5 415.2 L699.8 418.6 L702.5 419.2 L700.5 427.9 L694.1 437.2 L693.4 434.1 L691.5 433.4 L688.6 430.4 L690.4 436.9 L692.6 439.1 L692.8 443.7 L689.9 448.4 L684.9 458.0 L684.1 457.6 L686.9 449.3 L682.3 444.7 L681.3 434.6 L679.6 439.9 L681.5 447.5 L675.6 445.6 L681.7 449.5 L682.1 461.1 L684.7 461.9 L685.6 466.1 L686.8 478.2 L681.2 487.2 L672.0 490.8 L666.2 497.9 L661.8 498.7 L657.3 503.1 L656.0 507.2 L646.3 515.0 L641.3 520.8 L637.1 528.0 L635.8 536.6 L637.3 545.0 L640.3 555.4 L644.2 563.9 L644.3 569.2 L648.5 583.2 L648.2 591.4 L647.8 596.1 L645.6 603.5 L643.0 605.0 L638.6 603.5 L637.2 598.2 L633.8 595.4 L629.1 585.0 L625.0 575.8 L623.7 571.0 L625.5 563.0 L623.0 556.3 L616.1 546.2 L612.7 544.3 L603.7 549.8 L602.2 549.2 L597.9 543.6 L592.3 540.6 L582.3 542.1 L574.4 540.8 L567.7 541.6 L564.0 543.5 L565.6 546.7 L565.5 551.6 L567.4 554.0 L565.7 555.6 L562.4 553.8 L559.1 556.1 L552.6 555.7 L546.0 549.3 L538.3 550.8 L531.9 548.0 L526.3 548.9 L518.9 551.7 L510.8 560.7 L502.0 565.9 L497.2 571.7 L495.2 577.1 L495.1 585.5 L495.5 591.3 L497.2 595.4 L493.7 595.8 L487.5 593.1 L480.5 589.4 L478.1 583.7 L476.1 575.2 L470.9 568.3 L467.8 561.2 L463.4 552.9 L457.1 548.1 L449.9 548.3 L444.3 557.9 L437.0 554.3 L432.4 550.6 L430.2 543.9 L427.3 537.6 L422.0 532.3 L417.5 528.5 L414.2 524.2 L398.9 524.2 L398.9 529.2 L391.8 529.2 L374.2 529.3 L354.0 520.7 L340.7 514.8 L341.5 512.5 L330.2 513.8 L320.2 514.7 L318.7 508.5 L313.0 501.6 L308.8 500.1 L307.9 496.7 L302.9 496.0 L299.7 492.8 L291.5 491.6 L289.2 489.6 L288.2 483.0 L279.6 470.8 L272.2 454.0 L272.5 451.2 L268.6 447.2 L261.7 437.0 L260.5 427.2 L255.8 420.5 L257.7 410.5 L257.4 400.1 L254.6 390.8 L258.1 379.4 L259.1 368.4 L260.2 357.4 L258.6 341.2 L255.8 330.8 L253.2 325.2 L254.3 322.9 L267.1 327.0 L271.8 338.4 L274.0 335.2 L272.6 325.3 L269.6 315.4 L294.7 315.4 L321.0 315.4 L329.7 315.4 L356.7 315.4 L382.9 315.4 L409.4 315.4 L436.0 315.4 L466.1 315.4 L496.4 315.3 L514.7 315.4 L514.8 310.7 L517.8 310.6 Z"/><path class="xb-line" d="M254.6 390.8 L258.1 379.4 L259.1 368.4 L260.2 357.4 L258.6 341.2 L255.8 330.8 L253.2 325.2 L254.3 322.9 L267.1 327.0 L271.8 338.4 L274.0 335.2 L272.6 325.3 L269.6 315.4 L294.7 315.4 L321.0 315.4 L329.7 315.4 L356.7 315.4 L382.9 315.4 L409.4 315.4 L436.0 315.4 L466.1 315.4 L496.4 315.3 L514.7 315.4 L514.8 310.7 L517.8 310.6 L519.3 317.3 L522.1 319.3 L528.3 320.1 L537.3 322.0 L545.9 325.8 L553.1 324.2 L564.0 327.3 L566.9 327.2 L574.8 323.8 L583.1 328.2 L591.8 332.9 L598.9 336.9 L605.8 340.8 L606.7 344.0 L608.7 345.2 L608.2 346.4 L610.6 346.7 L612.3 345.5 L612.7 348.3 L614.5 350.3 L617.0 350.3 L618.3 351.7 L617.2 353.9 L626.4 359.6 L628.3 370.6 L630.1 381.1 L627.5 388.2 L623.3 394.9 L621.4 399.1"/><text class="xb-t" x="490" y="286" text-anchor="middle">CANADA</text><text class="xb-t" x="490" y="506" text-anchor="middle">UNITED STATES</text></svg>
+  <svg class="xb-map" viewBox="200 200 680 408" fill="none" aria-hidden="true"><path class="xb-land" d="M793.7 345.0 L800.1 346.6 L808.3 346.3 L803.9 351.3 L800.6 352.1 L789.4 346.9 L787.2 342.9 L790.5 339.1 L793.7 345.0 Z M810.1 314.1 L805.8 314.3 L794.3 310.5 L786.1 304.8 L789.1 303.8 L800.8 306.8 L809.8 311.9 L810.1 314.1 Z M263.7 321.3 L259.2 323.0 L244.7 317.5 L242.0 313.2 L234.1 308.9 L232.5 305.5 L223.4 303.3 L220.0 296.7 L220.7 293.9 L230.0 296.6 L235.5 298.4 L243.8 299.7 L246.8 303.8 L251.2 309.6 L260.0 314.6 L263.7 321.3 Z M860.3 294.9 L854.5 305.5 L860.3 301.4 L866.2 304.0 L863.1 308.2 L871.0 311.6 L875.0 308.6 L883.9 312.3 L881.1 321.2 L887.3 319.1 L888.5 325.6 L891.2 333.1 L887.5 343.7 L883.5 344.2 L877.7 341.9 L879.6 332.0 L877.1 330.5 L866.8 341.0 L861.6 340.5 L867.8 334.9 L859.3 331.9 L849.8 332.6 L832.6 332.3 L831.2 328.7 L836.8 324.4 L832.9 321.1 L840.3 313.8 L849.5 294.5 L855.0 287.7 L862.7 283.5 L866.8 284.0 L865.1 287.3 L860.3 294.9 Z M182.2 254.3 L190.7 253.4 L188.0 267.1 L195.7 276.8 L192.2 276.8 L186.9 271.3 L183.6 265.7 L179.1 261.9 L177.5 256.6 L178.0 252.7 L182.2 254.3 Z M655.5 156.0 L652.0 162.4 L648.1 161.3 L645.8 157.7 L646.2 156.9 L649.6 153.3 L653.2 153.5 L655.5 156.0 Z M632.2 149.3 L621.8 156.0 L615.6 155.7 L613.6 152.5 L620.2 146.9 L632.4 147.0 L632.2 149.3 Z M603.3 113.6 L604.9 119.0 L609.5 117.1 L614.6 120.3 L624.3 124.4 L634.4 128.2 L635.2 134.0 L641.7 133.0 L648.1 137.0 L640.2 140.8 L626.4 137.9 L621.5 132.5 L612.7 138.9 L600.1 145.2 L597.0 138.1 L585.0 139.3 L592.7 133.3 L593.9 123.8 L596.9 112.7 L603.3 113.6 Z M685.6 95.6 L675.7 96.2 L673.5 90.3 L677.2 83.5 L685.3 81.8 L692.3 85.2 L692.3 90.3 L691.4 92.0 L685.6 95.6 Z M510.4 71.9 L504.9 76.1 L493.0 72.4 L485.8 73.8 L473.7 68.3 L481.5 64.6 L487.6 59.3 L497.0 62.8 L502.4 64.9 L505.0 67.2 L510.4 71.9 Z M555.6 67.1 L555.5 79.5 L567.4 70.0 L578.0 77.8 L575.3 86.8 L583.9 95.0 L593.1 86.2 L599.6 75.8 L600.1 62.5 L612.7 63.4 L625.8 65.2 L637.6 71.2 L638.2 77.2 L631.6 83.7 L637.8 90.2 L636.7 96.0 L619.4 104.5 L607.0 106.4 L597.9 102.7 L595.2 108.8 L586.7 119.0 L584.1 124.3 L573.9 132.5 L561.2 133.3 L554.2 138.4 L553.6 146.3 L543.3 147.8 L532.5 157.6 L522.9 171.3 L519.4 180.8 L518.9 194.9 L532.0 196.9 L535.9 208.2 L540.1 217.4 L552.5 215.0 L568.9 220.3 L577.8 224.9 L584.1 230.6 L595.2 233.9 L604.6 239.0 L619.2 239.7 L628.9 240.9 L627.4 251.4 L630.2 263.6 L636.6 277.1 L649.8 288.6 L656.6 284.7 L661.4 272.2 L656.7 253.1 L650.5 246.7 L664.7 241.0 L674.7 232.6 L679.6 224.1 L678.9 216.0 L672.9 205.7 L662.1 196.6 L672.6 183.9 L668.7 173.0 L665.7 154.1 L671.9 151.3 L687.1 154.6 L696.2 155.7 L703.5 152.6 L711.8 156.7 L722.7 163.7 L725.4 168.4 L741.2 169.3 L740.9 179.5 L743.9 194.8 L751.9 196.7 L758.4 203.8 L771.2 197.1 L779.7 183.7 L785.5 178.1 L792.4 188.9 L803.9 204.3 L813.7 218.9 L810.2 226.5 L822.0 233.3 L829.9 240.2 L844.0 243.4 L849.7 247.2 L853.2 257.5 L860.1 259.1 L863.7 263.6 L864.3 277.2 L857.9 281.8 L851.5 286.1 L837.0 290.4 L825.8 300.3 L810.8 302.3 L791.9 299.7 L778.6 299.6 L769.4 300.5 L762.0 309.2 L750.7 314.5 L738.0 330.5 L727.8 341.7 L735.3 339.7 L749.5 323.8 L768.1 313.7 L781.3 312.5 L789.2 318.5 L780.8 326.6 L783.6 339.7 L786.5 348.8 L798.0 354.8 L812.6 353.1 L821.5 339.5 L822.1 348.3 L827.9 352.6 L816.9 360.6 L797.3 367.8 L788.5 372.7 L778.6 381.4 L771.9 380.5 L771.5 370.3 L786.9 360.3 L772.7 360.6 L762.9 362.1 L757.1 355.3 L757.1 338.8 L753.2 335.3 L747.2 337.3 L744.3 334.1 L737.5 343.3 L734.8 352.7 L731.7 358.2 L727.9 360.1 L725.1 360.7 L724.2 363.7 L707.9 363.7 L694.4 363.8 L690.4 366.0 L681.1 374.7 L680.0 375.7 L677.1 380.4 L669.0 380.4 L660.3 380.4 L656.3 382.4 L657.8 384.7 L658.5 388.4 L658.4 389.7 L646.8 395.7 L637.7 397.6 L627.4 404.0 L625.2 404.0 L622.2 402.1 L621.2 400.4 L621.4 399.1 L623.3 394.9 L627.5 388.2 L630.1 381.1 L628.3 370.6 L626.4 359.6 L617.2 353.9 L618.3 351.7 L617.0 350.3 L614.5 350.3 L612.7 348.3 L612.3 345.5 L610.6 346.7 L608.2 346.4 L608.7 345.2 L606.7 344.0 L605.8 340.8 L598.9 336.9 L591.8 332.9 L583.1 328.2 L574.8 323.8 L566.9 327.2 L564.0 327.3 L553.1 324.2 L545.9 325.8 L537.3 322.0 L528.3 320.1 L522.1 319.3 L519.3 317.3 L517.8 310.6 L514.8 310.7 L514.7 315.4 L496.4 315.3 L466.1 315.4 L436.0 315.4 L409.4 315.4 L382.9 315.4 L356.7 315.4 L329.7 315.4 L321.0 315.4 L294.7 315.4 L269.6 315.4 L268.4 315.3 L251.3 303.4 L244.9 298.2 L228.9 293.2 L224.0 282.5 L225.2 275.0 L213.9 269.9 L212.3 260.1 L201.6 251.3 L201.4 245.1 L206.4 239.2 L206.1 231.6 L191.1 223.9 L182.0 210.1 L176.5 201.4 L168.4 195.9 L162.4 191.0 L157.7 184.7 L148.8 188.6 L140.2 195.4 L132.3 187.5 L126.1 182.2 L117.5 178.8 L108.8 178.4 L108.8 109.5 L108.9 64.5 L125.4 67.5 L139.4 73.3 L148.6 74.4 L156.4 69.4 L167.1 65.6 L180.2 67.1 L193.5 61.7 L208.0 58.7 L214.1 63.7 L220.7 60.9 L222.7 55.2 L228.8 56.5 L243.8 67.4 L255.6 59.1 L256.8 68.3 L267.6 66.3 L271.0 62.8 L281.7 63.5 L295.2 68.6 L316.0 73.0 L328.2 75.1 L336.8 74.3 L348.8 80.4 L336.3 86.5 L352.3 89.1 L376.2 87.6 L383.8 85.5 L393.2 92.8 L402.9 86.6 L393.8 81.5 L399.5 77.4 L410.3 76.8 L417.4 75.6 L424.5 78.5 L433.4 85.1 L443.3 84.1 L459.0 89.6 L472.7 87.6 L485.7 87.9 L484.6 80.4 L492.5 78.3 L506.2 82.4 L506.2 93.8 L511.8 84.2 L518.9 84.5 L522.9 72.3 L513.5 64.9 L503.1 60.0 L503.8 46.6 L514.3 37.8 L526.0 39.7 L534.9 45.1 L547.0 58.7 L539.1 64.7 L555.6 67.1 Z M346.4 23.3 L342.0 28.9 L361.7 25.3 L374.0 31.4 L384.0 25.2 L392.1 29.2 L399.3 41.1 L403.8 36.0 L397.5 23.6 L405.3 21.9 L414.1 23.8 L424.0 28.7 L429.6 40.5 L432.3 49.0 L447.2 55.0 L463.2 60.8 L462.2 66.1 L447.7 67.1 L453.3 71.7 L450.3 76.2 L434.3 74.3 L419.1 71.0 L408.8 71.7 L392.2 75.8 L369.7 77.6 L354.0 78.8 L349.2 73.1 L337.1 69.8 L329.2 71.1 L318.3 61.5 L324.2 60.3 L337.9 58.2 L350.3 58.7 L361.9 56.6 L344.8 53.8 L325.9 54.8 L313.3 54.5 L308.6 50.1 L329.2 45.2 L315.5 45.4 L300.0 42.2 L307.5 33.1 L313.6 28.3 L337.3 20.9 L346.4 23.3 Z M590.9 22.8 L597.8 30.4 L606.0 20.6 L628.5 15.6 L643.7 28.2 L642.4 36.1 L659.9 32.6 L668.2 27.8 L687.9 33.9 L700.1 39.7 L701.2 44.9 L717.7 42.2 L726.9 49.9 L748.3 54.7 L756.0 59.6 L764.4 70.9 L748.1 76.6 L769.0 84.5 L783.0 87.1 L795.8 98.3 L809.7 99.1 L806.9 107.6 L791.4 121.6 L780.5 116.4 L766.6 104.8 L755.1 106.3 L754.0 113.3 L763.3 120.3 L775.3 125.9 L779.0 129.1 L784.8 141.1 L781.7 149.8 L770.5 146.5 L748.3 136.8 L760.8 147.2 L770.1 154.5 L771.5 158.8 L747.5 153.9 L728.5 146.9 L717.7 141.0 L720.8 137.6 L707.6 131.4 L694.7 125.5 L694.9 129.0 L669.3 130.9 L661.8 126.8 L667.6 117.9 L684.2 117.6 L702.5 116.1 L699.5 111.8 L702.6 105.7 L714.1 93.9 L711.6 88.6 L708.2 84.4 L694.7 78.6 L676.7 74.4 L682.4 71.4 L673.0 63.9 L665.2 63.2 L658.2 59.0 L653.5 62.6 L637.4 64.2 L605.2 61.5 L586.5 57.9 L572.1 56.1 L564.7 51.8 L574.0 46.3 L561.4 46.3 L558.6 34.0 L565.4 23.2 L574.5 18.2 L597.4 15.0 L590.9 22.8 Z"/><path class="xb-land" d="M517.8 310.6 L519.3 317.3 L522.1 319.3 L528.3 320.1 L537.3 322.0 L545.9 325.8 L553.1 324.2 L564.0 327.3 L566.9 327.2 L574.8 323.8 L583.1 328.2 L591.8 332.9 L598.9 336.9 L605.8 340.8 L606.7 344.0 L608.7 345.2 L608.2 346.4 L610.6 346.7 L612.3 345.5 L612.7 348.3 L614.5 350.3 L617.0 350.3 L618.3 351.7 L617.2 353.9 L626.4 359.6 L628.3 370.6 L630.1 381.1 L627.5 388.2 L623.3 394.9 L621.4 399.1 L621.2 400.4 L622.2 402.1 L625.2 404.0 L627.4 404.0 L637.7 397.6 L646.8 395.7 L658.4 389.7 L658.5 388.4 L657.8 384.7 L656.3 382.4 L660.3 380.4 L669.0 380.4 L677.1 380.4 L680.0 375.7 L681.1 374.7 L690.4 366.0 L694.4 363.8 L707.9 363.7 L724.2 363.7 L725.1 360.7 L727.9 360.1 L731.7 358.2 L734.8 352.7 L737.5 343.3 L744.3 334.1 L747.2 337.3 L753.2 335.3 L757.1 338.8 L757.1 355.3 L762.9 362.1 L764.4 366.1 L755.0 372.0 L745.9 376.1 L736.5 379.7 L731.8 386.9 L730.3 389.6 L730.2 396.1 L733.2 402.5 L736.8 402.8 L735.9 398.4 L738.6 401.0 L737.9 404.5 L731.9 406.5 L727.6 406.2 L721.1 408.3 L717.2 409.0 L712.1 409.6 L704.7 413.1 L717.7 410.8 L720.3 413.1 L707.9 416.7 L702.3 416.7 L702.5 415.2 L699.8 418.6 L702.5 419.2 L700.5 427.9 L694.1 437.2 L693.4 434.1 L691.5 433.4 L688.6 430.4 L690.4 436.9 L692.6 439.1 L692.8 443.7 L689.9 448.4 L684.9 458.0 L684.1 457.6 L686.9 449.3 L682.3 444.7 L681.3 434.6 L679.6 439.9 L681.5 447.5 L675.6 445.6 L681.7 449.5 L682.1 461.1 L684.7 461.9 L685.6 466.1 L686.8 478.2 L681.2 487.2 L672.0 490.8 L666.2 497.9 L661.8 498.7 L657.3 503.1 L656.0 507.2 L646.3 515.0 L641.3 520.8 L637.1 528.0 L635.8 536.6 L637.3 545.0 L640.3 555.4 L644.2 563.9 L644.3 569.2 L648.5 583.2 L648.2 591.4 L647.8 596.1 L645.6 603.5 L643.0 605.0 L638.6 603.5 L637.2 598.2 L633.8 595.4 L629.1 585.0 L625.0 575.8 L623.7 571.0 L625.5 563.0 L623.0 556.3 L616.1 546.2 L612.7 544.3 L603.7 549.8 L602.2 549.2 L597.9 543.6 L592.3 540.6 L582.3 542.1 L574.4 540.8 L567.7 541.6 L564.0 543.5 L565.6 546.7 L565.5 551.6 L567.4 554.0 L565.7 555.6 L562.4 553.8 L559.1 556.1 L552.6 555.7 L546.0 549.3 L538.3 550.8 L531.9 548.0 L526.3 548.9 L518.9 551.7 L510.8 560.7 L502.0 565.9 L497.2 571.7 L495.2 577.1 L495.1 585.5 L495.5 591.3 L497.2 595.4 L493.7 595.8 L487.5 593.1 L480.5 589.4 L478.1 583.7 L476.1 575.2 L470.9 568.3 L467.8 561.2 L463.4 552.9 L457.1 548.1 L449.9 548.3 L444.3 557.9 L437.0 554.3 L432.4 550.6 L430.2 543.9 L427.3 537.6 L422.0 532.3 L417.5 528.5 L414.2 524.2 L398.9 524.2 L398.9 529.2 L391.8 529.2 L374.2 529.3 L354.0 520.7 L340.7 514.8 L341.5 512.5 L330.2 513.8 L320.2 514.7 L318.7 508.5 L313.0 501.6 L308.8 500.1 L307.9 496.7 L302.9 496.0 L299.7 492.8 L291.5 491.6 L289.2 489.6 L288.2 483.0 L279.6 470.8 L272.2 454.0 L272.5 451.2 L268.6 447.2 L261.7 437.0 L260.5 427.2 L255.8 420.5 L257.7 410.5 L257.4 400.1 L254.6 390.8 L258.1 379.4 L259.1 368.4 L260.2 357.4 L258.6 341.2 L255.8 330.8 L253.2 325.2 L254.3 322.9 L267.1 327.0 L271.8 338.4 L274.0 335.2 L272.6 325.3 L269.6 315.4 L294.7 315.4 L321.0 315.4 L329.7 315.4 L356.7 315.4 L382.9 315.4 L409.4 315.4 L436.0 315.4 L466.1 315.4 L496.4 315.3 L514.7 315.4 L514.8 310.7 L517.8 310.6 Z"/><path class="xb-line" d="M254.6 390.8 L258.1 379.4 L259.1 368.4 L260.2 357.4 L258.6 341.2 L255.8 330.8 L253.2 325.2 L254.3 322.9 L267.1 327.0 L271.8 338.4 L274.0 335.2 L272.6 325.3 L269.6 315.4 L294.7 315.4 L321.0 315.4 L329.7 315.4 L356.7 315.4 L382.9 315.4 L409.4 315.4 L436.0 315.4 L466.1 315.4 L496.4 315.3 L514.7 315.4 L514.8 310.7 L517.8 310.6 L519.3 317.3 L522.1 319.3 L528.3 320.1 L537.3 322.0 L545.9 325.8 L553.1 324.2 L564.0 327.3 L566.9 327.2 L574.8 323.8 L583.1 328.2 L591.8 332.9 L598.9 336.9 L605.8 340.8 L606.7 344.0 L608.7 345.2 L608.2 346.4 L610.6 346.7 L612.3 345.5 L612.7 348.3 L614.5 350.3 L617.0 350.3 L618.3 351.7 L617.2 353.9 L626.4 359.6 L628.3 370.6 L630.1 381.1 L627.5 388.2 L623.3 394.9 L621.4 399.1"/></svg>
   <div class="container hx">
     <div class="hx-body"><div class="hx-left"><h1 class="hx-h1"><span class="hx-l"><i aria-hidden="true">EN</i>We&rsquo;re the record.</span><span class="hx-l" lang="fr"><i aria-hidden="true">FR</i>Nous prenons acte.</span></h1>
-    <p class="hx-sub">Verbatim French&ndash;English transcription for American files, Canadian files, and the ones that answer to both &mdash; every answer kept in the language it was given in.</p>
+    <p class="hx-sub">French&ndash;English legal transcription for Canada and the United States. Each language transcribed as spoken, never translated.</p>
     <div class="hx-actions">
       <a href="#contact" class="btn-primary">Submit a proceeding</a>
       <a href="#services" class="btn-outline-w">Our services</a>
@@ -725,23 +753,32 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
   <div class="container">
     <div class="cov-head">
       <span class="cov-k"><span class="st-br">[</span>Coverage<span class="st-br">]</span></span>
-      <p class="cov-lead">We take files that are entirely American, entirely Canadian, or both at the same time. The constant is French and English &mdash; and, where the matter calls for it, both inside one record.</p>
+      <p class="cov-lead">American files, Canadian files, and the ones that answer to both.</p>
     </div>
     <div class="cov-grid">
       <div class="cov">
         <span class="cov-c">U.S.</span>
         <h3>United States</h3>
-        <p>Depositions, examinations and hearings reported in English. Where a witness answered in French, we recover it from the audio so nothing said is lost to the file.</p>
+        <p>Depositions &middot; examinations before trial &middot; examinations under oath (EUO) &middot; arbitration hearings &middot; recorded statements &middot; 911 and emergency-services calls &middot; custodial and police-station interviews &middot; body-worn and covert recordings &middot; wiretap and consensual recordings.</p>
+        <p class="cov-n">Reported in English. Where the evidence is a French-language recording, the transcript is the evidence &mdash; and it is produced to forensic transcription-translation standards.</p>
       </div>
       <div class="cov">
         <span class="cov-c">CAN</span>
         <h3>Canada</h3>
-        <p>Quebec examinations where both languages are the record, administrative tribunals, and criminal matters where the <em>Criminal Code</em> puts each language in the record on its own terms.</p>
+        <p>Examinations for discovery &middot; interrogatoires hors cour &middot; out-of-court examinations &middot; criminal trials and preliminary inquiries &middot; labour and grievance arbitration &middot; administrative tribunals &middot; professional discipline councils &middot; coroner&rsquo;s inquests &middot; immigration hearings &middot; commissions of inquiry.</p>
+        <p class="cov-n">Quebec, Ontario, New Brunswick and the federal courts. In each, the law puts both official languages in the record on its own terms.</p>
       </div>
       <div class="cov cov-both">
         <span class="cov-c">U.S. &plus; CAN</span>
         <h3>Both at once</h3>
-        <p>A Canadian witness examined for an American matter, or an American party filing in Quebec. One sitting, both sets of conventions, one bilingual record.</p>
+        <p>A Canadian witness examined for a U.S. matter &middot; a U.S. party filing in Quebec &middot; cross-border arbitration &middot; parallel proceedings.</p>
+        <p class="cov-n">One sitting, both sets of conventions, one record.</p>
+      </div>
+      <div class="cov cov-geo">
+        <span class="cov-c">Areas</span>
+        <h3>Areas served</h3>
+        <p>Montr&eacute;al &middot; Qu&eacute;bec &middot; Laval &middot; Longueuil &middot; Gatineau &middot; Sherbrooke &middot; Trois-Rivi&egrave;res &middot; Ottawa &middot; Kanata &middot; Toronto &middot; Moncton &middot; Winnipeg &middot; New York &middot; Boston &middot; Buffalo &middot; Detroit &middot; Chicago &middot; Burlington &middot; Portland &middot; Seattle &middot; Los Angeles &middot; Miami.</p>
+        <p class="cov-n">Work is produced from the recording, so recordings are accepted from any jurisdiction. Remote intake. No travel charge.</p>
       </div>
     </div>
   </div>
@@ -753,23 +790,23 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
     <div class="section-header reveal">
       <div class="section-tag"><span class="st-br">[</span>Why Lexoral<span class="st-br">]</span></div>
       <h2 class="section-h2">The record is the evidence.<br/>Not a version of it.</h2>
-      <p class="section-intro">The official transcript of an interpreted proceeding contains the interpreter&rsquo;s English and nothing else. That is by design. It is also the gap we exist to fill.</p>
+      <p class="section-intro">Two languages, two different things in the file. One is testimony. The other is a rendering of it.</p>
     </div>
 
-    <p class="wy-lead">In a U.S. deposition the reporter takes down the interpretation, not the answer &mdash; the French is never transcribed at all. Under the language-conduit rule that English passes as the witness&rsquo;s own words, right up until someone contests it. Then the argument turns on audio nobody has transcribed.</p>
+    <p class="wy-lead">Under a section 530 order the law does not ask for a readable English document. It asks for the words as spoken, any interpretation as a separate transcript, and the exhibits in the language they were tendered. Most firms deliver the first thing.</p>
 
     <div class="wy-diff">
       <div class="wy-col wy-said">
         <span class="wy-k">What the witness said</span>
         <pre class="wy-p">A.   Je n&rsquo;ai jamais vu l&rsquo;annexe C avant
      le douze janvier.</pre>
-        <p class="wy-n">The answer, as given, under oath.</p>
+        <p class="wy-n">The answer, as given, under oath. Subparagraph (i).</p>
       </div>
       <div class="wy-col wy-bad">
-        <span class="wy-k">Interpreted record</span>
+        <span class="wy-k">Interpretation only</span>
         <pre class="wy-p">A.   I never saw Schedule C before
      January twelfth.</pre>
-        <p class="wy-n">Composed by the interpreter. The reporter is instructed to take down the English and mark &ldquo;(Witness speaks in foreign language)&rdquo; &mdash; correcting the interpretation is not their function. Attribution to the witness holds only until it is challenged.</p>
+        <p class="wy-n">Composed by the interpreter. Enough for a U.S. deposition, where the reporter is instructed to take down the English and told not to correct it. Not enough for a record under section 530.1(g).</p>
       </div>
       <div class="wy-col wy-good">
         <span class="wy-k">Lexoral record</span>
@@ -777,7 +814,7 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
      le douze janvier.</b>
      <i>(Interpretation: I never saw
      Schedule C before January 12.)</i></pre>
-        <p class="wy-n">What was actually said, alongside the interpretation, each marked for what it is. A challenge to the rendering gets answered with a document instead of an argument.</p>
+        <p class="wy-n">Both, each marked for what it is. Subparagraphs (i) and (ii) together &mdash; the record the statute describes.</p>
       </div>
     </div>
 
@@ -808,40 +845,38 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
     <div class="section-header reveal">
       <div class="section-tag"><span class="st-br">[</span>Where we fit<span class="st-br">]</span></div>
       <h2 class="section-h2">Where the second language is won or lost.</h2>
-      <p class="section-intro">Three points in a bilingual matter where the record either holds what was actually said, or it does not. This is the work.</p>
+      <p class="section-intro">Three situations. In each the second language is either in the record, or it is gone.</p>
     </div>
 
     <div class="fit-rows">
       <div class="fit">
-        <div class="fit-n"><span>01</span><span class="fit-tag">No reporter was ever present</span></div>
-        <div class="fit-b">
-          <h3>Evidence that exists only as audio</h3>
-          <p>911 and emergency-services calls, custodial and police-station interviews, body-worn recordings, consented and covert recordings, recorded meetings and interviews. Nobody took these down at the time. The transcript is made from the recording and it is the only record there will ever be &mdash; which is why it has to be right, and why the person who made it has to be able to stand behind it. Regular work for public-defence offices.</p>
-        </div>
-      </div>
-
-      <div class="fit">
-        <div class="fit-n"><span>02</span><span class="fit-tag">A reporter was present, in one language</span></div>
-        <div class="fit-b">
-          <h3>Verifying an interpreted proceeding</h3>
-          <p>The deposition was reported in English; the French went unrecorded on the page but is sitting in the audio or video. We transcribe what the witness actually said, line-matched against the official transcript, and mark every place the two diverge. Used for errata, motions to correct, cross-examination preparation and appeal.</p>
-          <p class="fit-note">Do it early. U.S. courts have held that a party who sits on an interpretation problem can waive it &mdash; the objection belongs on delivery, not on the eve of trial.</p>
-        </div>
-      </div>
-
-      <div class="fit">
-        <div class="fit-n"><span>03</span><span class="fit-tag">Both languages are the record</span></div>
+        <div class="fit-n"><span>01</span><span class="fit-tag">Both languages are the record</span></div>
         <div class="fit-b">
           <h3>Genuinely bilingual proceedings</h3>
-          <p>In Quebec, section 133 of the <em>Constitution Act, 1867</em> lets counsel examine in one official language while the witness answers in the other, with no interpreter in between: each is transcribed as spoken. In criminal matters under a section 530 order, section 530.1(g) of the <em>Criminal Code</em> goes further and <em>requires</em> the record to contain a transcript of everything said in the language it was said in, plus a transcript of the interpretation.</p>
-          <p class="fit-note">Quebec has roughly 212 official stenographers. About 25 work in both languages. Agencies subcontract the bilingual sittings, and that is frequently us.</p>
+          <p>Criminal matters under a section 530 order &middot; Quebec examinations and trials under section 133 of the <em>Constitution Act, 1867</em> &middot; Ontario bilingual proceedings under section 126 of the <em>Courts of Justice Act</em> &middot; Federal Court, Tax Court and courts martial under Part III of the <em>Official Languages Act</em> &middot; New Brunswick, where both languages are official in the courts.</p>
+          <p class="fit-note">Section 530.1(g) of the <em>Criminal Code</em> requires the record to contain a transcript of everything said in the official language it was said in, a transcript of any interpretation into the other, and documentary evidence in the language it was tendered. That is not a preference. It is the statute.</p>
+        </div>
+      </div>
+      <div class="fit">
+        <div class="fit-n"><span>02</span><span class="fit-tag">No reporter was ever present</span></div>
+        <div class="fit-b">
+          <h3>Recorded evidence in French</h3>
+          <p>911 and emergency-services calls &middot; custodial and police-station interviews &middot; wiretap and consensual recordings &middot; body-worn and covert recordings &middot; voicemail and recorded telephone calls &middot; recorded meetings and interviews.</p>
+          <p class="fit-note">Where the evidence is a foreign-language recording, U.S. federal practice treats the English transcript as the evidence rather than as an aid, and where accuracy is disputed each side may put its own translation before the jury. In <em>United States v. Chavez</em> (10th Cir. 2020) a conviction was vacated because translation transcripts went in without the recordings. The transcript carries the weight &mdash; so who prepared it, and how, becomes the argument.</p>
+        </div>
+      </div>
+      <div class="fit">
+        <div class="fit-n"><span>03</span><span class="fit-tag">Accuracy is in issue</span></div>
+        <div class="fit-b">
+          <h3>Interpreted proceedings, contested</h3>
+          <p>Errata under Rule 30(e) &middot; motions to correct &middot; competing transcripts &middot; cross-examination of an interpreter &middot; appeal. We transcribe the original-language answer from the audio and line-match it against the official transcript, marking every divergence.</p>
+          <p class="fit-note">Said plainly: in most U.S. circuits the interpreter&rsquo;s English is attributed to the witness, and this work is not worth buying unless accuracy is genuinely in issue. When it is, raise it early &mdash; the objection belongs at the deposition, not on the eve of trial.</p>
         </div>
       </div>
     </div>
-
     <div class="fit-honest">
-      <span class="fh-k">The difference in practice</span>
-      <p>Most transcription firms treat a French passage as a translation problem: send it out, get English back, drop it in. That produces a readable document and quietly discards the thing you may need a year later. We treat it as a record problem. The two languages stay distinct and attributable, an interpretation is marked as an interpretation rather than passed off as testimony, the conventions match the forum the transcript is going to, and the accuracy declaration is signed by a named practitioner who works in the law in both languages and can speak to how the transcript was made. Tell us the forum at intake and we will confirm the form your filing needs before you engage us.</p>
+      <span class="fh-k">Why the reporter has to be bilingual</span>
+      <p>In <em>R. v. Munkonda</em>, 2015 ONCA 309, the Court of Appeal for Ontario quashed a committal for trial after a bilingual preliminary inquiry. Among the breaches it identified: the court reporter was not bilingual. In Quebec, accreditation is granted per language &mdash; the Barreau&rsquo;s attestation states whether the stenographer passed the examination in French or in English &mdash; and only a minority of the roll holds both. A firm that cannot work in both languages cannot produce the record the statute describes. It produces a translation of it.</p>
     </div>
   </div>
 </section>
@@ -855,13 +890,13 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
     <div class="section-header reveal">
       <div class="section-tag"><span class="st-br">[</span>What we do<span class="st-br">]</span></div>
       <h2 class="section-h2">Built for evidentiary standards.</h2>
-      <p class="section-intro">Four kinds of proceeding, four sets of formatting conventions. Each transcript is produced to the requirements of the forum it is going to.</p>
+      <p class="section-intro">Four kinds of proceeding, four sets of conventions. The specification is below.</p>
     </div>
     <div class="services-grid">
       <div class="service-card reveal" data-n="01">
         <span class="service-num">Exhibit 01</span>
         <h3 class="service-h3">Depositions &amp; Examinations</h3>
-        <p class="service-p">Verbatim bilingual transcripts with speaker identification, timestamps, line numbering and objection notation, produced from the recording to the conventions of the forum the transcript is going to.</p>
+        <p class="service-p">Examinations for discovery &middot; depositions &middot; cross-examination on affidavit &middot; examinations under oath (EUO) &middot; interrogatoires hors cour &middot; out-of-court examinations &middot; recorded statements.</p>
         <figure class="tsp">
           <figcaption class="tsp-k">Format &mdash; d&eacute;position</figcaption>
           <pre class="tsp-b"> 21   Q.   Ms. Patel, when did you receive Schedule C?
@@ -874,7 +909,7 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
       <div class="service-card reveal" data-n="02">
         <span class="service-num">Exhibit 02</span>
         <h3 class="service-h3">Arbitration &amp; Mediation</h3>
-        <p class="service-p">Judicial formatting for private panels, institutional arbitrations and complex multi-party disputes. ICC, AAA, ADRIC and CIAC proceedings accepted.</p>
+        <p class="service-p">Labour and grievance arbitration &middot; commercial arbitration &middot; institutional panels &mdash; ICC, AAA, ICDR, ADRIC, CIAC &middot; mediation and settlement conferences &middot; multi-party hearings.</p>
         <figure class="tsp">
           <figcaption class="tsp-k">Format &mdash; arbitrage</figcaption>
           <pre class="tsp-b">      THE CHAIR:      We are back on the record.
@@ -887,7 +922,7 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
       <div class="service-card reveal" data-n="03">
         <span class="service-num">Exhibit 03</span>
         <h3 class="service-h3">Tribunals &amp; Regulatory Hearings</h3>
-        <p class="service-p">Administrative tribunals, labour commissions, immigration hearings and government proceedings &mdash; formatted to each body&rsquo;s documentary requirements.</p>
+        <p class="service-p">Administrative tribunals &middot; labour and employment boards &middot; human rights tribunals &middot; professional discipline councils &middot; immigration and refugee hearings &middot; coroner&rsquo;s inquests &middot; commissions of inquiry &middot; regulatory and licensing hearings.</p>
         <figure class="tsp">
           <figcaption class="tsp-k">Format &mdash; tribunal administratif</figcaption>
           <pre class="tsp-b"> 08   THE MEMBER:     Please state your name for the record.
@@ -900,7 +935,7 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
       <div class="service-card reveal" data-n="04">
         <span class="service-num">Exhibit 04</span>
         <h3 class="service-h3">Cross-Border Litigation Support</h3>
-        <p class="service-p">U.S. deposition standards combined with bilingual Quebec expertise. One record built to satisfy both procedural frameworks, without reformatting or a second pass.</p>
+        <p class="service-p">A Canadian witness examined for a U.S. matter &middot; a U.S. party filing in Quebec &middot; parallel proceedings &middot; cross-border arbitration &middot; letters rogatory and Hague Evidence Convention examinations.</p>
         <figure class="tsp">
           <figcaption class="tsp-k">Format &mdash; transfrontalier</figcaption>
           <pre class="tsp-b">      EXAMINATION BY MR. WALSH
@@ -912,6 +947,18 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
       </div>
     </div>
     <p class="tsp-legend"><span class="tl-fr">French as spoken</span><span class="tl-en">English as spoken</span><span class="tl-nt">Reporter&rsquo;s notation</span></p>
+  <div class="svc-spec">
+    <div class="ssr ssr-head"><span></span><span>Included</span><span>On request</span></div>
+    <div class="ssr"><span class="ssr-k">Turnaround</span><span>Five business days</span><span>Forty-eight hours</span></div>
+    <div class="ssr"><span class="ssr-k">Languages</span><span>Each language transcribed as spoken, never translated</span><span>Original and interpretation in parallel columns</span></div>
+    <div class="ssr"><span class="ssr-k">Numbering</span><span>Continuous line numbering, structured pagination</span><span class="ssr-nil">&mdash;</span></div>
+    <div class="ssr"><span class="ssr-k">Notation</span><span>Speaker identification, objection notation, timestamps at speaker changes</span><span>Line-matched comparison against an official transcript</span></div>
+    <div class="ssr"><span class="ssr-k">Attestation</span><span>Signed accuracy declaration, named practitioner</span><span class="ssr-nil">&mdash;</span></div>
+    <div class="ssr"><span class="ssr-k">Conventions</span><span>Conventions page; the forum&rsquo;s standard format</span><span>Produced to a named forum&rsquo;s own conventions</span></div>
+    <div class="ssr"><span class="ssr-k">Delivery</span><span>Searchable PDF, editable Word</span><span>ASCII, e-transcript, RTF, condensed four-up, word index</span></div>
+    <div class="ssr"><span class="ssr-k">Exhibits</span><span>Listed and indexed</span><span>Scanned and hyperlinked</span></div>
+    <div class="ssr"><span class="ssr-k">Drafts</span><span class="ssr-nil">&mdash;</span><span>Rough draft before certification</span></div>
+  </div>
   <div class="spec"><div class="spec-txt"><span class="spec-k">Specimen</span><p>A two-page transcript in our delivered format &mdash; line numbering, speaker attribution, conventions page and signed accuracy declaration. Fictional matter.</p></div><a class="spec-dl" href="/lexoral-specimen-transcript.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-4.5-4.5M12 15l4.5-4.5M4 19h16"/></svg><span>Download PDF</span></a></div></div>
 </section>
 
@@ -923,7 +970,7 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
       <h2 class="section-h2">One record,<br/>two jurisdictions.</h2>
     </div>
     <div class="xb-answer">
-      <p class="xb-lead">We transcribe both languages as spoken, in one pass, to whichever set of conventions the matter requires. <em>Both languages preserved. No second transcription. No reformatting after the fact.</em></p>
+      <p class="xb-lead">Both languages as spoken, one pass, to whichever set of conventions the matter requires. <em>No second transcription. No reformatting after the fact.</em></p>
       <ul class="xb-gets">
         <li><span class="xg-k">Both frameworks, one sitting</span><span class="xg-v">Superior Court conventions and AAERT deposition practice produced from the same audio &mdash; delivered together where counsel needs both.</span></li>
         <li><span class="xg-k">The words, not a rendering</span><span class="xg-v">In Quebec both languages are the record and no interpreter is needed. Where a forum does require one, the interpretation stays &mdash; and what was actually said stays with it.</span></li>
@@ -931,7 +978,7 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
       </ul>
     </div>
 
-    <p class="xb-why">The third case above is the hard one. A Montreal deponent examined for a United States matter. A U.S. party filing in Quebec. The same transcript has to satisfy both procedural frameworks &mdash; and the usual answer, an interpreter plus a second transcription, doubles the cost and introduces a second point of failure. Here is what breaks.</p>
+    <p class="xb-why">A Montr&eacute;al deponent examined for a U.S. matter. A U.S. party filing in Quebec. One transcript, two procedural frameworks. The usual answer &mdash; an interpreter plus a second transcription &mdash; doubles the cost and adds a second point of failure. Three things break.</p>
 
     <div class="xb-probs">
       <div class="xb-prob"><svg class="xb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4"/><path d="M9 11h7M9 15h7M9 19h4"/></svg><h3>The two formats diverge</h3>
