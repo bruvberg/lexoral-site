@@ -12,13 +12,16 @@ and enable *Enforce HTTPS*.
 ## Structure
 
 ```
-index.html            English homepage
-fr/                   French homepage
-privacy/              Privacy policy (EN)      privacy-fr/    (FR)
-retention/            Retention policy (EN)    retention-fr/  (FR)
+index.html            English homepage        fr/            French homepage
+quebec/               Quebec (EN)             quebec-fr/     (FR)
+recorded-evidence/    Recorded evidence (EN)  preuve-enregistree/  (FR)
+section-530/          s. 530.1(g) (EN)        article-530/   (FR)
+faq/                  21 questions (EN)       faq-fr/        (FR)
+privacy/              Privacy policy (EN)     privacy-fr/    (FR)
+retention/            Retention policy (EN)   retention-fr/  (FR)
 404.html              Not-found page (noindex)
 robots.txt            Crawl rules, incl. AI answer engines
-sitemap.xml           URLs with hreflang pairs
+sitemap.xml           14 URLs with hreflang trios
 llms.txt              Plain-language summary for LLM crawlers
 og.png                1200x630 social card
 favicon.svg           Site icon        apple-touch-icon.png   180x180
@@ -26,19 +29,34 @@ logo.svg              Wordmark
 lexoral-specimen-transcript.pdf   Downloadable sample transcript
 ```
 
-Every page is a single self-contained HTML file: CSS lives in an inline `<style>`
-block and there is no build step, no dependency and no JavaScript beyond the FAQ
-accordion and the mobile section index.
+Every page has an EN/FR twin, and the `.nav-lang` toggle on each page points at its own pair,
+not at the homepage. The homepage is the argument; the six content pages carry the detail and
+the homepage's *Reference* section (`#reference`) is the hub that points at them.
+
+Every page ships as a single self-contained HTML file: CSS lives in an inline `<style>`
+block, there is no dependency to fetch, and no JavaScript beyond the FAQ accordion and the
+mobile section index. The pages are generated from the sources described below, but what
+deploys is exactly the file you are looking at.
 
 ## Editing notes
 
 - Section anchors on the homepage: `#coverage #why #where-we-fit #services
-  #cross-border #practice #faq #contact`. The nav and the mobile index both
+  #cross-border #practice #reference #contact`. The nav and the mobile index both
   reference these, as does the footer *Sections* column.
-- Structured data (JSON-LD) sits at the end of each `<head>`. The FAQ schema on
-  the homepage mirrors the visible FAQ one-for-one — change both together.
+- Structured data (JSON-LD) sits at the end of each `<head>`. The FAQ schema lives on
+  `/faq/` and `/faq-fr/` only, and mirrors the visible questions one-for-one — change both
+  together. It must not be duplicated on the homepage.
 - Colour tokens are defined once in `:root`. Nothing else in the sheet — and nothing
   in any page body — uses a raw colour literal.
+
+### The generators
+
+The stylesheet lives once, at `ds/doc.css`, and `ds/install.py` writes it into the
+`<style>` block of every `*.html` under `site/`. The content pages are generated:
+`build.py` holds the page shell and the component helpers (`auth`, `kf`, `dgm`, `spec`,
+`cta`, `sec`), `pages/dgm.py` draws the three diagrams, `pages/p_*.py` hold the copy, and
+`pages/make.py` builds all six. `build_faq.py` rebuilds the two FAQ pages from
+`qa-en.json` / `qa-fr.json`.
 
 ## The palette
 
@@ -63,6 +81,15 @@ The transcript is monochrome on purpose. What the witness actually said is set i
 **bold black Courier** — struck harder on the typewriter, not coloured; the English
 around it is body grey and the reporter's notation lighter still. Nothing in a
 record is red.
+
+## Blocks worth knowing
+
+`.auth` is a quoted statute or judgment: a raised card carrying the citation key, the
+operative words, and the source in small Courier. `.kf` is a three-up strip of key figures.
+`.idx-a` is one row of the *Reference* index. `.faq-grp` heads a group of questions.
+`.dgm` is a figure: an inline SVG on the document grid, with a relief label. `.svc-spec`
+is the datasheet — inside a page section (`.pol-body`) it drops the margin column, because
+there is only one margin per page and it belongs to the document, not to a card.
 
 ## The hero
 

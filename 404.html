@@ -146,6 +146,9 @@ section,.rec-band{padding:var(--s9) 0}
 .section-tag::before{content:'L. 0' counter(secline);color:var(--t-3);margin-right:1.6em}
 body{counter-reset:secline}
 .section-tag{counter-increment:secline}
+/* a closing band is not a numbered section of the document */
+.section-tag.st-plain{counter-increment:none}
+.section-tag.st-plain::before{content:none}
 .section-header .section-intro{margin-bottom:var(--s6)}
 .section-h2{
   grid-column:2;font-size:var(--t-h2);line-height:1.06;letter-spacing:-.018em;
@@ -600,6 +603,70 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
 .footer-badges{display:flex;flex-wrap:wrap;gap:var(--s5)}
 .footer-badge{font-size:9.5px;letter-spacing:.16em;color:var(--d-3)}
 
+/* ---------- an authority, quoted ----------
+   A reference page is built on statutes and judgments. Each one is raised off
+   the stock like the figure labels, so it reads as an exhibit stuck onto the
+   page rather than one more paragraph of argument.                          */
+.auth{--relief:5px;position:relative;margin:var(--s6) 0 calc(var(--s6) + var(--relief));
+  padding:var(--s5);background:var(--leaf);box-shadow:inset 0 0 0 1px var(--rule)}
+.auth::before{content:'';position:absolute;left:100%;top:0;width:var(--relief);height:100%;
+  background:var(--face-r);transform:skewY(45deg);transform-origin:0 0;pointer-events:none}
+.auth::after{content:'';position:absolute;top:100%;left:0;width:100%;height:var(--relief);
+  background:var(--face-b);transform:skewX(45deg);transform-origin:0 0;pointer-events:none}
+.auth-k{display:block;font-family:var(--mono);font-size:var(--mlabel);letter-spacing:.2em;
+  text-transform:uppercase;color:var(--nav);
+  padding-bottom:var(--s3);margin-bottom:var(--s4);border-bottom:1px solid var(--rule)}
+.auth-q{margin:0;font-family:var(--serif);font-size:var(--t-md);line-height:1.52;
+  color:var(--t-1);max-width:34em}
+.auth-c{margin:var(--s4) 0 0;font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.04em;line-height:1.75;color:var(--t-3);max-width:44em}
+.auth-c a{color:var(--blue);border-bottom:1px solid var(--nav-f)}
+
+/* ---------- key figures: the page in four readings ---------- */
+.kf{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:var(--gapc);
+  row-gap:var(--s5);margin:var(--s6) 0 var(--s7);padding-top:var(--s4);
+  border-top:3px double var(--ink)}
+.kf-k{grid-column:1/-1;font-family:var(--mono);font-size:var(--mlabel);letter-spacing:.2em;
+  text-transform:uppercase;color:var(--nav)}
+.kf-c{display:block}
+.kf-v{display:block;font-family:var(--mono);font-size:1.5rem;line-height:1.1;color:var(--t-1)}
+.kf-l{display:block;margin-top:var(--s3);font-family:var(--mono);font-size:9.5px;
+  letter-spacing:.16em;text-transform:uppercase;line-height:1.85;color:var(--t-3)}
+
+/* a datasheet nested inside a page section has no margin column to borrow */
+.pol-body .svc-spec{margin-top:var(--s6)}
+.pol-body .ssr{grid-template-columns:120px minmax(0,1.05fr) minmax(0,1fr)}
+.pol-body .ssr-k{text-align:left;padding-right:var(--s3)}
+
+/* ---------- a question set, grouped ---------- */
+.faq-grp{grid-column:1/-1;display:grid;grid-template-columns:var(--marg) minmax(0,1fr);
+  column-gap:var(--gapc);margin:var(--s8) 0 0;padding-bottom:var(--s4);
+  border-bottom:3px double var(--ink)}
+.faq-layout > .faq-grp:first-child{margin-top:0}
+.fg-n{grid-column:1;font-family:var(--mono);font-size:var(--mlabel);letter-spacing:.12em;
+  text-transform:uppercase;color:var(--nav);text-align:right;padding:.55em var(--mgut) 0 0}
+.fg-h{grid-column:2;font-size:var(--t-lg);line-height:1.2;letter-spacing:-.012em;margin:0}
+.fg-p{grid-column:2;margin:var(--s3) 0 0;font-size:var(--t-sm);line-height:1.6;color:var(--t-3);
+  max-width:34em;font-style:italic}
+
+/* ---------- the rest of the file: where the argument continues ---------- */
+.idx{grid-column:1/-1;display:contents}
+.idx-a{grid-column:1/-1;display:grid;grid-template-columns:var(--marg) minmax(0,1fr) auto;
+  column-gap:var(--gapc);align-items:baseline;padding:var(--s5) 0;
+  border-bottom:1px solid var(--rule);color:inherit;transition:background .16s}
+.idx-a:first-of-type{border-top:3px double var(--ink)}
+.idx-a:hover{background:var(--leaf)}
+.idx-k{grid-column:1;font-family:var(--mono);font-size:var(--mlabel);letter-spacing:.12em;
+  text-transform:uppercase;color:var(--nav);text-align:right;padding-right:var(--mgut)}
+.idx-b{grid-column:2}
+.idx-t{display:block;font-family:var(--serif);font-size:var(--t-lg);line-height:1.2;color:var(--t-1)}
+.idx-d{display:block;margin-top:var(--s3);font-size:var(--t-sm);line-height:1.6;
+  color:var(--t-3);max-width:38em}
+.idx-g{grid-column:3;font-family:var(--mono);font-size:var(--t-xs);letter-spacing:.16em;
+  text-transform:uppercase;color:var(--blue);white-space:nowrap}
+.idx-a:hover .idx-g{color:var(--ink)}
+
+
 /* ---------- policy + 404 ---------- */
 .pol-head{padding:var(--s8) 0 var(--s5)}
 .pol-head .container{display:block;background:none}
@@ -743,9 +810,21 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
     letter-spacing:.16em;text-transform:uppercase;color:var(--d-3)}
   .xbt-row span:nth-child(3)::before{content:'United States — ';font-family:var(--mono);font-size:9.5px;
     letter-spacing:.16em;text-transform:uppercase;color:var(--d-3)}
+  html[lang="fr"] .xbt-row span:nth-child(2)::before{content:'Qu\00e9bec \2014\00a0'}
+  html[lang="fr"] .xbt-row span:nth-child(3)::before{content:'\00c9tats-Unis \2014\00a0'}
   .rec-map-wrap,.ct-map-wrap{max-width:340px;margin-top:var(--s5)}
   .letter-bd p{max-width:none;font-size:var(--t-lg)}
   .cred-list dd,.rec-tr,.fit-honest p,.faq-a-text,.wy-lead,.xb-lead,.xb-close{max-width:none}
+  /* the new blocks fold the same way everything else does */
+  .kf,.faq-grp,.idx-a,.pol-body .ssr{grid-template-columns:1fr}
+  .fg-n,.idx-k{grid-column:1;text-align:left;padding:0 0 var(--s3) 0}
+  .fg-h,.fg-p,.idx-b,.idx-g{grid-column:1}
+  .kf{row-gap:var(--s4)}
+  .kf-c{padding-bottom:var(--s4);border-bottom:1px solid var(--rule)}
+  .kf-c:last-child{border-bottom:0;padding-bottom:0}
+  .auth-q,.auth-c,.fg-p,.idx-d{max-width:none}
+  .idx-g{margin-top:var(--s4)}
+
   .faq-sticky{display:block}
   .faq-sticky .faq-contact{margin-bottom:var(--s5)}
   .footer-inner,.footer-5{grid-template-columns:1fr;gap:var(--s5)}
@@ -765,7 +844,7 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
       <a href="/#services">Services</a>
       <a href="/#cross-border">Cross-border</a>
       <a href="/#practice">Practice</a>
-      <a href="/#faq">FAQ</a>
+      <a href="/faq/">FAQ</a>
       <a href="/#contact">Contact</a>
     </div>
     <div class="nav-side">
@@ -785,7 +864,7 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
       <a href="/#services"><span>04</span>Services</a>
       <a href="/#cross-border"><span>05</span>Cross-border</a>
       <a href="/#practice"><span>06</span>Practice</a>
-      <a href="/#faq"><span>07</span>FAQ</a>
+      <a href="/faq/"><span>07</span>FAQ</a>
       <a href="/#contact"><span>08</span>Contact</a>
       <a href="tel:+15147127516" class="ni-tel"><span>Tel</span>+1 (514) 712-7516</a>
     </div>
@@ -810,12 +889,12 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
         <p class="footer-mission">Independent legal transcription provider. Does not provide legal advice.</p>
       </div>
       <div>
-        <span class="footer-col-title">Services</span>
+        <span class="footer-col-title">Reference</span>
         <ul class="footer-links">
-          <li><a href="/#services">Depositions &amp; Examinations</a></li>
-          <li><a href="/#services">Arbitration &amp; Mediation</a></li>
-          <li><a href="/#services">Tribunal Hearings</a></li>
-          <li><a href="/#cross-border">Cross-Border Litigation</a></li>
+          <li><a href="/faq/">Questions</a></li>
+          <li><a href="/quebec/">Quebec</a></li>
+          <li><a href="/recorded-evidence/">Recorded evidence</a></li>
+          <li><a href="/section-530/">Paragraph 530.1(g)</a></li>
         </ul>
       </div>
       <div>

@@ -153,6 +153,9 @@ section,.rec-band{padding:var(--s9) 0}
 .section-tag::before{content:'L. 0' counter(secline);color:var(--t-3);margin-right:1.6em}
 body{counter-reset:secline}
 .section-tag{counter-increment:secline}
+/* a closing band is not a numbered section of the document */
+.section-tag.st-plain{counter-increment:none}
+.section-tag.st-plain::before{content:none}
 .section-header .section-intro{margin-bottom:var(--s6)}
 .section-h2{
   grid-column:2;font-size:var(--t-h2);line-height:1.06;letter-spacing:-.018em;
@@ -607,6 +610,70 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
 .footer-badges{display:flex;flex-wrap:wrap;gap:var(--s5)}
 .footer-badge{font-size:9.5px;letter-spacing:.16em;color:var(--d-3)}
 
+/* ---------- an authority, quoted ----------
+   A reference page is built on statutes and judgments. Each one is raised off
+   the stock like the figure labels, so it reads as an exhibit stuck onto the
+   page rather than one more paragraph of argument.                          */
+.auth{--relief:5px;position:relative;margin:var(--s6) 0 calc(var(--s6) + var(--relief));
+  padding:var(--s5);background:var(--leaf);box-shadow:inset 0 0 0 1px var(--rule)}
+.auth::before{content:'';position:absolute;left:100%;top:0;width:var(--relief);height:100%;
+  background:var(--face-r);transform:skewY(45deg);transform-origin:0 0;pointer-events:none}
+.auth::after{content:'';position:absolute;top:100%;left:0;width:100%;height:var(--relief);
+  background:var(--face-b);transform:skewX(45deg);transform-origin:0 0;pointer-events:none}
+.auth-k{display:block;font-family:var(--mono);font-size:var(--mlabel);letter-spacing:.2em;
+  text-transform:uppercase;color:var(--nav);
+  padding-bottom:var(--s3);margin-bottom:var(--s4);border-bottom:1px solid var(--rule)}
+.auth-q{margin:0;font-family:var(--serif);font-size:var(--t-md);line-height:1.52;
+  color:var(--t-1);max-width:34em}
+.auth-c{margin:var(--s4) 0 0;font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.04em;line-height:1.75;color:var(--t-3);max-width:44em}
+.auth-c a{color:var(--blue);border-bottom:1px solid var(--nav-f)}
+
+/* ---------- key figures: the page in four readings ---------- */
+.kf{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:var(--gapc);
+  row-gap:var(--s5);margin:var(--s6) 0 var(--s7);padding-top:var(--s4);
+  border-top:3px double var(--ink)}
+.kf-k{grid-column:1/-1;font-family:var(--mono);font-size:var(--mlabel);letter-spacing:.2em;
+  text-transform:uppercase;color:var(--nav)}
+.kf-c{display:block}
+.kf-v{display:block;font-family:var(--mono);font-size:1.5rem;line-height:1.1;color:var(--t-1)}
+.kf-l{display:block;margin-top:var(--s3);font-family:var(--mono);font-size:9.5px;
+  letter-spacing:.16em;text-transform:uppercase;line-height:1.85;color:var(--t-3)}
+
+/* a datasheet nested inside a page section has no margin column to borrow */
+.pol-body .svc-spec{margin-top:var(--s6)}
+.pol-body .ssr{grid-template-columns:120px minmax(0,1.05fr) minmax(0,1fr)}
+.pol-body .ssr-k{text-align:left;padding-right:var(--s3)}
+
+/* ---------- a question set, grouped ---------- */
+.faq-grp{grid-column:1/-1;display:grid;grid-template-columns:var(--marg) minmax(0,1fr);
+  column-gap:var(--gapc);margin:var(--s8) 0 0;padding-bottom:var(--s4);
+  border-bottom:3px double var(--ink)}
+.faq-layout > .faq-grp:first-child{margin-top:0}
+.fg-n{grid-column:1;font-family:var(--mono);font-size:var(--mlabel);letter-spacing:.12em;
+  text-transform:uppercase;color:var(--nav);text-align:right;padding:.55em var(--mgut) 0 0}
+.fg-h{grid-column:2;font-size:var(--t-lg);line-height:1.2;letter-spacing:-.012em;margin:0}
+.fg-p{grid-column:2;margin:var(--s3) 0 0;font-size:var(--t-sm);line-height:1.6;color:var(--t-3);
+  max-width:34em;font-style:italic}
+
+/* ---------- the rest of the file: where the argument continues ---------- */
+.idx{grid-column:1/-1;display:contents}
+.idx-a{grid-column:1/-1;display:grid;grid-template-columns:var(--marg) minmax(0,1fr) auto;
+  column-gap:var(--gapc);align-items:baseline;padding:var(--s5) 0;
+  border-bottom:1px solid var(--rule);color:inherit;transition:background .16s}
+.idx-a:first-of-type{border-top:3px double var(--ink)}
+.idx-a:hover{background:var(--leaf)}
+.idx-k{grid-column:1;font-family:var(--mono);font-size:var(--mlabel);letter-spacing:.12em;
+  text-transform:uppercase;color:var(--nav);text-align:right;padding-right:var(--mgut)}
+.idx-b{grid-column:2}
+.idx-t{display:block;font-family:var(--serif);font-size:var(--t-lg);line-height:1.2;color:var(--t-1)}
+.idx-d{display:block;margin-top:var(--s3);font-size:var(--t-sm);line-height:1.6;
+  color:var(--t-3);max-width:38em}
+.idx-g{grid-column:3;font-family:var(--mono);font-size:var(--t-xs);letter-spacing:.16em;
+  text-transform:uppercase;color:var(--blue);white-space:nowrap}
+.idx-a:hover .idx-g{color:var(--ink)}
+
+
 /* ---------- policy + 404 ---------- */
 .pol-head{padding:var(--s8) 0 var(--s5)}
 .pol-head .container{display:block;background:none}
@@ -750,9 +817,21 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
     letter-spacing:.16em;text-transform:uppercase;color:var(--d-3)}
   .xbt-row span:nth-child(3)::before{content:'United States — ';font-family:var(--mono);font-size:9.5px;
     letter-spacing:.16em;text-transform:uppercase;color:var(--d-3)}
+  html[lang="fr"] .xbt-row span:nth-child(2)::before{content:'Qu\00e9bec \2014\00a0'}
+  html[lang="fr"] .xbt-row span:nth-child(3)::before{content:'\00c9tats-Unis \2014\00a0'}
   .rec-map-wrap,.ct-map-wrap{max-width:340px;margin-top:var(--s5)}
   .letter-bd p{max-width:none;font-size:var(--t-lg)}
   .cred-list dd,.rec-tr,.fit-honest p,.faq-a-text,.wy-lead,.xb-lead,.xb-close{max-width:none}
+  /* the new blocks fold the same way everything else does */
+  .kf,.faq-grp,.idx-a,.pol-body .ssr{grid-template-columns:1fr}
+  .fg-n,.idx-k{grid-column:1;text-align:left;padding:0 0 var(--s3) 0}
+  .fg-h,.fg-p,.idx-b,.idx-g{grid-column:1}
+  .kf{row-gap:var(--s4)}
+  .kf-c{padding-bottom:var(--s4);border-bottom:1px solid var(--rule)}
+  .kf-c:last-child{border-bottom:0;padding-bottom:0}
+  .auth-q,.auth-c,.fg-p,.idx-d{max-width:none}
+  .idx-g{margin-top:var(--s4)}
+
   .faq-sticky{display:block}
   .faq-sticky .faq-contact{margin-bottom:var(--s5)}
   .footer-inner,.footer-5{grid-template-columns:1fr;gap:var(--s5)}
@@ -760,7 +839,7 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
   .footer-legal{margin-bottom:var(--s3)}
 }
 </style>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Organization","LegalService","LocalBusiness"],"@id":"https://lexoral.org/#org","name":"Lexoral","alternateName":"Lexoral Legal Transcription","url":"https://lexoral.org","logo":"https://lexoral.org/logo.svg","image":"https://lexoral.org/og.png","description":"Lexoral produit des transcriptions juridiques bilingues français–anglais attestées : dossiers américains, dossiers canadiens et dossiers transfrontaliers. Transcriptions verbatim, lignes numérotées, prêtes pour le tribunal, pour dépositions, interrogatoires, arbitrages, audiences de tribunaux et affaires criminelles, avec déclaration d'exactitude signée et traitement conforme à la Loi 25.","slogan":"Un seul dossier, deux juridictions.","founder":[{"@id":"https://lexoral.org/#brian"},{"@id":"https://lexoral.org/#raymond"}],"numberOfEmployees":{"@type":"QuantitativeValue","value":2},"email":"secure@lexoral.org","telephone":"+1-514-712-7516","priceRange":"$$","currenciesAccepted":"CAD","address":{"@type":"PostalAddress","streetAddress":"24191-300 Eagleson Rd","addressLocality":"Kanata","addressRegion":"ON","postalCode":"K2M 2C3","addressCountry":"CA"},"geo":{"@type":"GeoCoordinates","latitude":45.3088,"longitude":-75.8983},"areaServed":[{"@type":"Country","name":"Canada"},{"@type":"Country","name":"&Eacute;tats-Unis"}],"knowsLanguage":[{"@type":"Language","name":"French","alternateName":"fr"},{"@type":"Language","name":"English","alternateName":"en"}],"knowsAbout":["legal transcription","bilingual transcription","French-English code-switching","deposition transcripts","arbitration transcripts","administrative tribunal hearings","cross-border litigation","Quebec Code de proc&eacute;dure civile","Federal Rules of Civil Proc&eacute;dure","AAERT transcript formatting","Loi 25 compliance","evidentiary chain of custody"],"contactPoint":[{"@type":"ContactPoint","contactType":"customer service","email":"secure@lexoral.org","telephone":"+1-514-712-7516","availableLanguage":["French","English"],"areaServed":["CA","US"]},{"@type":"ContactPoint","contactType":"press and partnerships","email":"contact@lexoral.org","availableLanguage":["French","English"]}],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Legal transcription services","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Dépositions et interrogatoires","description":"Transcriptions bilingues verbatim avec identification des locuteurs, horodatage, numérotation des lignes et notation des objections."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Arbitrage et médiation","description":"Mise en forme judiciaire pour formations privées et arbitrages institutionnels — CCI, AAA, ADRIC, CIAC."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Tribunaux et audiences réglementaires","description":"Tribunaux administratifs, commissions du travail, audiences en immigration et procédures gouvernementales."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Soutien au litige transfrontalier","description":"Normes américaines de déposition combinées à une expertise québécoise bilingue, en une seule passe."}}]}},{"@type":"Person","@id":"https://lexoral.org/#raymond","name":"Raymond Carby-Samuels","jobTitle":"Cofondateur — procédure québécoise et droits linguistiques","worksFor":{"@id":"https://lexoral.org/#org"},"knowsLanguage":["fr","en"],"description":"Ancien parajuriste au Québec et membre associé actif de l'Association du Barreau canadien. Auteur et éditeur de manuels sur le cadre constitutionnel et les libertés civiles en anglais et en français. A préparé et présenté une argumentation juridique complexe en français devant l'Assemblée nationale du Québec. Chargé de cours au George Brown College en droit constitutionnel canadien et codes des droits de la personne.","knowsAbout":["Canadian constitutional law","human rights codes","Quebec civil procedure","language rights","legal translation"],"affiliation":{"@type":"Organization","name":"Canadian Bar Association"},"alumniOf":{"@type":"CollegeOrUniversity","name":"George Brown College"}},{"@type":"Person","@id":"https://lexoral.org/#brian","name":"Brian Fino","jobTitle":"Cofondateur — langue et discipline du verbatim","worksFor":{"@id":"https://lexoral.org/#org"},"knowsLanguage":["fr","en"],"knowsAbout":["verbatim legal transcription","French-English code-switching","deposition transcript formatting","interpretation"]},{"@type":"WebSite","@id":"https://lexoral.org/#website","url":"https://lexoral.org","name":"Lexoral","publisher":{"@id":"https://lexoral.org/#org"},"inLanguage":["en-CA","fr-CA"]},{"@type":"WebPage","@id":"https://lexoral.org/fr/#webpage","url":"https://lexoral.org/fr/","name":"Transcription juridique bilingue FR–EN, Canada et É.-U. — Lexoral","isPartOf":{"@id":"https://lexoral.org/#website"},"about":{"@id":"https://lexoral.org/#org"},"inLanguage":"fr-CA","dateModified":"2026-09-12","speakable":{"@type":"SpeakableSpecification","cssSelector":[".hx-sub",".xb-close"]}},{"@type":"FAQPage","@id":"https://lexoral.org/fr/#faq","mainEntity":[{"@type":"Question","name":"Un témoin répond en français lors d'une déposition. Quels mots se retrouvent dans la transcription ?","acceptedAnswer":{"@type":"Answer","text":"Ceux de l'interprète. Dans la pratique américaine, le sténographe consigne l'interprétation anglaise et rien d'autre — les directives officielles de sténographie judiciaire sont explicites : la langue étrangère n'est pas transcrite, elle est simplement signalée comme un témoin s'exprimant dans une langue étrangère, et corriger une interprétation ne relève pas de la fonction du sténographe. La plupart des circuits fédéraux traiteront tout de même cet anglais comme la déclaration propre du témoin, en vertu de la règle du « language conduit », mais le onzième circuit a rejeté cette règle et les autres appliquent un test à plusieurs facteurs portant notamment sur qui a fourni l'interprète et sur ses qualifications. L'attribution tient donc jusqu'à ce que quelqu'un la conteste. Ce que nous faisons, c'est transcrire le français qui dort dans l'audio, pour que le jour où c'est contesté vous répondiez avec un document plutôt qu'avec un argument."}},{"@type":"Question","name":"Qu'attestez-vous exactement ?","acceptedAnswer":{"@type":"Answer","text":"Chaque transcription Lexoral est accompagnée d'une déclaration d'exactitude signée attestant qu'elle est un compte rendu fidèle et complet de l'audio fourni, signée par le praticien qui l'a produite. Les forums diffèrent quant à la forme d'attestation qu'ils attendent, et celle qui satisfait un dépôt québécois n'est pas celle qu'attend un dépôt américain. Dites-nous où la transcription est destinée à l'ouverture du dossier et nous confirmerons ce que votre dépôt exige avant tout engagement."}},{"@type":"Question","name":"Pouvez-vous traiter des audiences réellement bilingues, avec alternance de langue en milieu de phrase ?","acceptedAnswer":{"@type":"Answer","text":"Oui — c'est notre spécialité. L'avocat interroge en anglais, le témoin répond en français puis rebascule au milieu de sa réponse ; nous transcrivons chaque langue verbatim telle que prononcée, sans traduire ni paraphraser, en signalant le changement là où la convention du forum l'exige. Le registre du français québécois, l'usage du palais et la terminologie juridique sont pris en charge par un praticien qui travaille dans le droit dans les deux langues, et non par un glossaire appliqué après coup."}},{"@type":"Question","name":"Quelle valeur probante a la transcription d'un enregistrement ?","acceptedAnswer":{"@type":"Answer","text":"Les transcriptions d'enregistrements constituent une catégorie de preuve bien établie en soi. Pour les enregistrements en langue étrangère, les directives types au jury des tribunaux fédéraux américains traitent la transcription anglaise comme la preuve sur laquelle le jury travaille lorsque l'exactitude n'est pas en litige ; lorsqu'elle l'est, le jury tranche entre des transcriptions concurrentes en soupesant les qualifications de la personne qui a préparé chacune, la clarté de l'enregistrement et la manière dont la transcription a été produite. C'est pourquoi les nôtres sont produites et signées par un praticien nommé dont les titres sont publiés, pourquoi chaque transcription est livrée avec une page des conventions, et pourquoi les passages incertains sont signalés et horodatés plutôt que lissés."}},{"@type":"Question","name":"Au Québec, l'avocat peut-il interroger en anglais pendant que le témoin répond en français ?","acceptedAnswer":{"@type":"Answer","text":"Oui, et aucun interprète n'est nécessaire. En vertu de l'article 133 de la Loi constitutionnelle de 1867, l'une ou l'autre langue officielle peut être utilisée devant les tribunaux du Québec, et chaque participant choisit indépendamment — l'avocat peut poser la question en anglais et le témoin répondre en français dans le même souffle. Les deux font le dossier. La transcription reproduit chaque langue telle qu'elle a été prononcée, sans traduction, parce que rien n'est traduit. C'est l'inverse du modèle américain, et c'est précisément la situation pour laquelle nous sommes faits."}},{"@type":"Question","name":"Travaillez-vous sur des dossiers criminels, et qu'exige le Code criminel quant au dossier ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Lorsqu'un accusé subit son procès dans la langue officielle de son choix en vertu de l'article 530 du Code criminel, l'article 530.1g) exige que le dossier de l'enquête préliminaire ou du procès comprenne la transcription de tout ce qui a été dit dans la langue officielle où cela a été dit, la transcription de toute interprétation vers l'autre langue officielle, et la preuve documentaire dans la langue où elle a été produite. Le dossier verbatim bilingue n'y est pas une préférence : c'est ce que la loi demande. Le principe vaut plus largement : une transcription qui convertit silencieusement la procédure dans une seule langue peut miner le droit même qui est invoqué. Nous produisons des dossiers qui gardent les deux langues distinctes et attribuables."}},{"@type":"Question","name":"L'interprétation lors de notre déposition était erronée. Que pouvons-nous faire maintenant ?","acceptedAnswer":{"@type":"Answer","text":"Commandez l'audio ou la vidéo et faites transcrire les réponses dans leur langue d'origine, alignées ligne à ligne sur la transcription anglaise officielle, afin que les divergences soient documentées plutôt qu'affirmées. Ce document soutient un errata, une requête en rectification ou un contre-interrogatoire sur le point. Agissez vite : des tribunaux américains ont sanctionné des parties ayant soulevé tardivement un problème d'interprétation, allant dans certains cas jusqu'à considérer l'objection comme abandonnée. Cela se joue à la livraison de la transcription, pas à la veille du procès."}},{"@type":"Question","name":"Pourquoi les titres de vos praticiens figurent-ils sur le site ?","acceptedAnswer":{"@type":"Answer","text":"Parce que lorsqu'une traduction est contestée, le tribunal ne soupèse pas le fournisseur : il soupèse la personne qui l'a faite. Les directives types invitent les jurés à considérer les qualifications du traducteur, la clarté de l'enregistrement et la manière dont la transcription a été produite. Une transcription issue d'un bassin anonyme n'a rien à inscrire dans cette colonne. La nôtre est produite par un praticien qui a plaidé en français devant l'Assemblée nationale du Québec et écrit des ouvrages de droit constitutionnel dans les deux langues, et qui peut en témoigner sous serment."}},{"@type":"Question","name":"Comment notez-vous les voix superposées, les passages inaudibles et les événements non verbaux ?","acceptedAnswer":{"@type":"Answer","text":"Par convention, visiblement, et jamais en devinant. Les voix superposées sont signalées comme telles plutôt que transformées en phrases propres. Les passages inaudibles portent un horodatage — [inaudible 00:14:22] — pour que vous puissiez retourner à l'audio vous-même. Les noms propres incertains sont marqués [phonétique]. Les silences d'une durée significative sont chronométrés. Chaque transcription est livrée avec une page des conventions, afin que l'avocat adverse lise les mêmes marques de la même façon."}},{"@type":"Question","name":"Transcrivez-vous les appels au 911 et aux services d'urgence ?","acceptedAnswer":{"@type":"Answer","text":"Oui. L'audio des services d'urgence, les interrogatoires en détention et en poste de police et les enregistrements de caméras d'intervention sont un travail régulier, notamment pour les bureaux de défense publique. C'est de l'audio difficile — chevauchements, trafic radio, détresse, bruit de fond — et il est chiffré après écoute, jamais à partir d'une simple durée."}},{"@type":"Question","name":"Comment les pièces sont-elles traitées dans la transcription ?","acceptedAnswer":{"@type":"Answer","text":"Les pièces sont portées à la transcription telles qu'elles sont cotées au dossier, avec attribution au locuteur qui les annonce. Lorsqu'un dossier transfrontalier emploie la cotation québécoise des pièces d'un côté et la numérotation américaine des exhibits de l'autre, les deux figurent dans le même document, de sorte qu'aucune des deux équipes d'avocats n'ait à convertir les renvois à la main."}},{"@type":"Question","name":"Pourquoi ne pas utiliser des outils de transcription par IA comme Whisper ou Otter ?","acceptedAnswer":{"@type":"Answer","text":"La transcription par IA échoue précisément dans les conditions qui définissent une procédure juridique bilingue : alternance de langue en milieu de phrase, voix superposées, terminologie juridique, noms propres et registre du français québécois. Elle invente aussi un texte fluide là où l'audio est incertain, ce qui est le pire mode de défaillance possible dans un dossier de preuve. Plus fondamentalement, un modèle ne peut pas maintenir une chaîne de possession, ne peut pas être contre-interrogé et ne peut pas signer une déclaration d'exactitude."}},{"@type":"Question","name":"Qui travaille réellement sur mon dossier ?","acceptedAnswer":{"@type":"Answer","text":"Deux praticiens nommés — la langue et la discipline du verbatim d'un côté, la procédure et la juridiction québécoises de l'autre. Les dossiers ne sont pas distribués à un bassin de sous-traitants ni à un bureau délocalisé, et rien n'est livré comme relu qui ne l'ait pas été par une personne. Le nom sur la déclaration est celui de la personne qui a fait le travail."}},{"@type":"Question","name":"Combien de temps prend une transcription ?","acceptedAnswer":{"@type":"Answer","text":"Cinq jours ouvrables en standard, quarante-huit heures en prioritaire. Les procédures s'étalant sur plusieurs jours sont planifiées au cas par cas et, lorsqu'une audience se poursuit d'un jour à l'autre, nous pouvons livrer jour par jour afin que l'avocat n'attende pas le dossier complet pour préparer le lendemain matin."}},{"@type":"Question","name":"Combien coûte une transcription juridique bilingue ?","acceptedAnswer":{"@type":"Answer","text":"À la page, en dollars canadiens, après écoute de l'enregistrement. La durée seule ne fixe pas le prix — les voix superposées, un audio difficile et une alternance de langue soutenue changent considérablement le travail. Le prix ferme suit donc l'écoute de l'audio plutôt qu'il ne la précède. La confirmation de réception est le jour ouvrable même."}},{"@type":"Question","name":"Sous quelle forme la transcription est-elle livrée ?","acceptedAnswer":{"@type":"Answer","text":"PDF interrogeable et Word modifiable, lignes numérotées et pagination structurée, avec identification des locuteurs, page des conventions et déclaration d'exactitude signée. La livraison se fait par transfert chiffré. Les corrections de mise en forme sont sans frais."}},{"@type":"Question","name":"Et si nous contestons un passage après la livraison ?","acceptedAnswer":{"@type":"Answer","text":"Indiquez-nous la page et la ligne. Le passage est réécouté contre l'enregistrement source. Lorsque l'audio ne soutient pas ce qui a été transcrit, le passage est corrigé et la déclaration réémise sans frais. Lorsque l'audio le soutient, nous vous le disons clairement et marquons le passage comme contesté plutôt que de modifier le dossier en silence — parce qu'une transcription qui bouge sur demande n'est pas une preuve."}},{"@type":"Question","name":"Quels formats et quelle qualité audio acceptez-vous ?","acceptedAnswer":{"@type":"Answer","text":"La plupart des formats audio et vidéo, dont MP3, WAV, M4A et MP4. Si un enregistrement est difficile par endroits, nous le disons avant de chiffrer et non après avoir livré, et nous identifions les passages à risque pour que vous sachiez où le dossier est fragile."}},{"@type":"Question","name":"Fournissez-vous des transcriptions avec numérotation des lignes ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Numérotation continue des lignes, pagination structurée et identification des locuteurs, mises en forme pour un renvoi direct dans les actes de procédure et les mémoires — une citation faite une fois tient pour toute la durée du dossier."}},{"@type":"Question","name":"Êtes-vous conformes à la Loi 25 et au droit québécois de la vie privée ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Les fichiers sont traités dans des flux à accès restreint conformes à la Loi 25, transférés par protocoles chiffrés, conservés dans des environnements à accès restreint, et jamais divulgués à des tiers sauf sur votre instruction. Les clients peuvent demander la suppression permanente des enregistrements et des transcriptions à tout moment."}},{"@type":"Question","name":"Les enregistrements servent-ils à de l'entraînement ou à toute autre fin externe ?","acceptedAnswer":{"@type":"Answer","text":"Non. Le matériel des clients sert exclusivement au mandat de transcription. Il n'est jamais partagé, réutilisé, vendu, ni employé pour entraîner ou développer un modèle ou un système, interne ou externe."}}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": ["Organization", "LegalService", "LocalBusiness"], "@id": "https://lexoral.org/#org", "name": "Lexoral", "alternateName": "Lexoral Legal Transcription", "url": "https://lexoral.org", "logo": "https://lexoral.org/logo.svg", "image": "https://lexoral.org/og.png", "description": "Lexoral produit des transcriptions juridiques bilingues français–anglais attestées : dossiers américains, dossiers canadiens et dossiers transfrontaliers. Transcriptions verbatim, lignes numérotées, prêtes pour le tribunal, pour dépositions, interrogatoires, arbitrages, audiences de tribunaux et affaires criminelles, avec déclaration d'exactitude signée et traitement conforme à la Loi 25.", "slogan": "Un seul dossier, deux juridictions.", "founder": [{"@id": "https://lexoral.org/#brian"}, {"@id": "https://lexoral.org/#raymond"}], "numberOfEmployees": {"@type": "QuantitativeValue", "value": 2}, "email": "secure@lexoral.org", "telephone": "+1-514-712-7516", "priceRange": "$$", "currenciesAccepted": "CAD", "address": {"@type": "PostalAddress", "streetAddress": "24191-300 Eagleson Rd", "addressLocality": "Kanata", "addressRegion": "ON", "postalCode": "K2M 2C3", "addressCountry": "CA"}, "geo": {"@type": "GeoCoordinates", "latitude": 45.3088, "longitude": -75.8983}, "areaServed": [{"@type": "Country", "name": "Canada"}, {"@type": "Country", "name": "&Eacute;tats-Unis"}], "knowsLanguage": [{"@type": "Language", "name": "French", "alternateName": "fr"}, {"@type": "Language", "name": "English", "alternateName": "en"}], "knowsAbout": ["legal transcription", "bilingual transcription", "French-English code-switching", "deposition transcripts", "arbitration transcripts", "administrative tribunal hearings", "cross-border litigation", "Quebec Code de proc&eacute;dure civile", "Federal Rules of Civil Proc&eacute;dure", "AAERT transcript formatting", "Loi 25 compliance", "evidentiary chain of custody"], "contactPoint": [{"@type": "ContactPoint", "contactType": "customer service", "email": "secure@lexoral.org", "telephone": "+1-514-712-7516", "availableLanguage": ["French", "English"], "areaServed": ["CA", "US"]}, {"@type": "ContactPoint", "contactType": "press and partnerships", "email": "contact@lexoral.org", "availableLanguage": ["French", "English"]}], "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Legal transcription services", "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Dépositions et interrogatoires", "description": "Transcriptions bilingues verbatim avec identification des locuteurs, horodatage, numérotation des lignes et notation des objections."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Arbitrage et médiation", "description": "Mise en forme judiciaire pour formations privées et arbitrages institutionnels — CCI, AAA, ADRIC, CIAC."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Tribunaux et audiences réglementaires", "description": "Tribunaux administratifs, commissions du travail, audiences en immigration et procédures gouvernementales."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Soutien au litige transfrontalier", "description": "Normes américaines de déposition combinées à une expertise québécoise bilingue, en une seule passe."}}]}}, {"@type": "Person", "@id": "https://lexoral.org/#raymond", "name": "Raymond Carby-Samuels", "jobTitle": "Cofondateur — procédure québécoise et droits linguistiques", "worksFor": {"@id": "https://lexoral.org/#org"}, "knowsLanguage": ["fr", "en"], "description": "Ancien parajuriste au Québec et membre associé actif de l'Association du Barreau canadien. Auteur et éditeur de manuels sur le cadre constitutionnel et les libertés civiles en anglais et en français. A préparé et présenté une argumentation juridique complexe en français devant l'Assemblée nationale du Québec. Chargé de cours au George Brown College en droit constitutionnel canadien et codes des droits de la personne.", "knowsAbout": ["Canadian constitutional law", "human rights codes", "Quebec civil procedure", "language rights", "legal translation"], "affiliation": {"@type": "Organization", "name": "Canadian Bar Association"}, "alumniOf": {"@type": "CollegeOrUniversity", "name": "George Brown College"}}, {"@type": "Person", "@id": "https://lexoral.org/#brian", "name": "Brian Fino", "jobTitle": "Cofondateur — langue et discipline du verbatim", "worksFor": {"@id": "https://lexoral.org/#org"}, "knowsLanguage": ["fr", "en"], "knowsAbout": ["verbatim legal transcription", "French-English code-switching", "deposition transcript formatting", "interpretation"]}, {"@type": "WebSite", "@id": "https://lexoral.org/#website", "url": "https://lexoral.org", "name": "Lexoral", "publisher": {"@id": "https://lexoral.org/#org"}, "inLanguage": ["en-CA", "fr-CA"]}, {"@type": "WebPage", "@id": "https://lexoral.org/fr/#webpage", "url": "https://lexoral.org/fr/", "name": "Transcription juridique bilingue FR–EN, Canada et É.-U. — Lexoral", "isPartOf": {"@id": "https://lexoral.org/#website"}, "about": {"@id": "https://lexoral.org/#org"}, "inLanguage": "fr-CA", "dateModified": "2026-09-12", "speakable": {"@type": "SpeakableSpecification", "cssSelector": [".hx-sub", ".xb-close"]}}]}</script>
 
 <link rel="canonical" href="https://lexoral.org/fr/"/>
 <link rel="alternate" hreflang="en" href="https://lexoral.org/"/>
@@ -778,7 +857,7 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
       <a href="#services">Services</a>
       <a href="#cross-border">Transfrontalier</a>
       <a href="#practice">Pratique</a>
-      <a href="#faq">FAQ</a>
+      <a href="/faq-fr/">FAQ</a>
       <a href="#contact">Contact</a>
     </div>
     <div class="nav-side">
@@ -798,7 +877,7 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
       <a href="#services"><span>04</span>Services</a>
       <a href="#cross-border"><span>05</span>Transfrontalier</a>
       <a href="#practice"><span>06</span>Pratique</a>
-      <a href="#faq"><span>07</span>FAQ</a>
+      <a href="/faq-fr/"><span>07</span>FAQ</a>
       <a href="#contact"><span>08</span>Contact</a>
       <a href="tel:+15147127516" class="ni-tel"><span>Tél</span>+1 (514) 712-7516</a>
     </div>
@@ -956,7 +1035,7 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
         <div class="fit-b">
           <h3>Proc&eacute;dures v&eacute;ritablement bilingues</h3>
           <p>Mati&egrave;res criminelles vis&eacute;es par une ordonnance en vertu de l&rsquo;article 530 &middot; interrogatoires et proc&egrave;s qu&eacute;b&eacute;cois sous l&rsquo;article 133 de la <em>Loi constitutionnelle de 1867</em> &middot; instances bilingues ontariennes sous l&rsquo;article 126 de la <em>Loi sur les tribunaux judiciaires</em> &middot; Cour f&eacute;d&eacute;rale, Cour canadienne de l&rsquo;imp&ocirc;t et cours martiales sous la partie III de la <em>Loi sur les langues officielles</em> &middot; Nouveau-Brunswick, o&ugrave; les deux langues sont officielles devant les tribunaux.</p>
-          <p class="fit-note">L&rsquo;alin&eacute;a 530.1g) du <em>Code criminel</em> exige que le dossier comporte la totalit&eacute; des d&eacute;bats dans la langue officielle originale, la transcription de l&rsquo;interpr&eacute;tation, et toute la preuve documentaire dans la langue de sa pr&eacute;sentation. Ce n&rsquo;est pas une pr&eacute;f&eacute;rence. C&rsquo;est la loi.</p>
+          <p class="fit-note">L&rsquo;alin&eacute;a 530.1g) ne demande pas une transcription. Il en demande trois, et un dossier unilingue ne le satisfait pas.</p><a class="service-link" href="/article-530/">Ce qu&rsquo;exige l&rsquo;alin&eacute;a 530.1g) &rarr;</a>
         </div>
       </div>
       <div class="fit">
@@ -964,7 +1043,7 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
         <div class="fit-b">
           <h3>Preuve enregistr&eacute;e en fran&ccedil;ais</h3>
           <p>Appels 911 et services d&rsquo;urgence &middot; interrogatoires en d&eacute;tention et au poste &middot; &eacute;coutes &eacute;lectroniques et captations consenties &middot; cam&eacute;ras corporelles et enregistrements discrets &middot; messagerie vocale et appels enregistr&eacute;s &middot; r&eacute;unions et entretiens enregistr&eacute;s.</p>
-          <p class="fit-note">Quand la preuve est un enregistrement en langue &eacute;trang&egrave;re, la pratique f&eacute;d&eacute;rale am&eacute;ricaine traite la transcription anglaise comme &eacute;tant la preuve elle-m&ecirc;me, et non comme un simple appui&nbsp;; si l&rsquo;exactitude est contest&eacute;e, chaque partie peut soumettre sa propre traduction au jury. Dans <em>United States v. Chavez</em> (10<sup>e</sup> circuit, 2020), une condamnation a &eacute;t&eacute; annul&eacute;e parce que les transcriptions traduites avaient &eacute;t&eacute; d&eacute;pos&eacute;es sans les enregistrements. C&rsquo;est la transcription qui porte le poids &mdash; donc qui l&rsquo;a faite, et comment, devient l&rsquo;argument.</p>
+          <p class="fit-note">L&rsquo;enregistrement est la preuve&nbsp;; la transcription est l&agrave; pour assister. Dans <em>United States v. Chavez</em> (10<sup>e</sup> circuit, 2020), admettre les transcriptions anglaises sans les enregistrements a constitu&eacute; une erreur donnant ouverture &agrave; r&eacute;vision.</p><a class="service-link" href="/preuve-enregistree/">La preuve enregistr&eacute;e en fran&ccedil;ais &rarr;</a>
         </div>
       </div>
       <div class="fit">
@@ -972,13 +1051,14 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
         <div class="fit-b">
           <h3>Interpr&eacute;tation contest&eacute;e</h3>
           <p>Errata sous la r&egrave;gle 30(e) &middot; requ&ecirc;tes en rectification &middot; transcriptions concurrentes &middot; contre-interrogatoire de l&rsquo;interpr&egrave;te &middot; appel. Nous transcrivons la r&eacute;ponse dans sa langue d&rsquo;origine &agrave; partir de l&rsquo;audio et la mettons en regard, ligne &agrave; ligne, de la transcription officielle.</p>
-          <p class="fit-note">Disons-le franchement&nbsp;: dans la plupart des circuits am&eacute;ricains, l&rsquo;anglais de l&rsquo;interpr&egrave;te est attribu&eacute; au t&eacute;moin, et ce travail ne vaut pas la d&eacute;pense tant que l&rsquo;exactitude n&rsquo;est pas r&eacute;ellement en jeu. Quand elle l&rsquo;est, soulevez-le t&ocirc;t &mdash; l&rsquo;objection se fait &agrave; l&rsquo;interrogatoire, pas &agrave; la veille du proc&egrave;s.</p>
+          <p class="fit-note">Disons-le franchement&nbsp;: dans la plupart des circuits am&eacute;ricains, l&rsquo;anglais de l&rsquo;interpr&egrave;te est attribu&eacute; au t&eacute;moin, et ce travail ne vaut pas la d&eacute;pense tant que l&rsquo;exactitude n&rsquo;est pas r&eacute;ellement en jeu. Quand elle l&rsquo;est, soulevez-le t&ocirc;t.</p>
         </div>
       </div>
     </div>
     <div class="fit-honest">
       <span class="fh-k">Pourquoi le st&eacute;nographe doit &ecirc;tre bilingue</span>
-      <p>Dans <em>R. c. Munkonda</em>, 2015 ONCA 309, la Cour d&rsquo;appel de l&rsquo;Ontario a annul&eacute; un renvoi &agrave; proc&egrave;s apr&egrave;s une enqu&ecirc;te pr&eacute;liminaire bilingue. Parmi les manquements relev&eacute;s&nbsp;: le st&eacute;nographe n&rsquo;&eacute;tait pas bilingue. Au Qu&eacute;bec, l&rsquo;accr&eacute;ditation est d&eacute;livr&eacute;e par langue &mdash; l&rsquo;attestation du Barreau indique si le st&eacute;nographe a r&eacute;ussi l&rsquo;examen en fran&ccedil;ais ou en anglais &mdash; et seule une minorit&eacute; du tableau d&eacute;tient les deux. Un cabinet qui ne travaille pas dans les deux langues ne peut pas produire le dossier que d&eacute;crit la loi. Il en produit une traduction.</p>
+      <p>Dans <em>R. c. Munkonda</em>, 2015 ONCA 309, la Cour d&rsquo;appel de l&rsquo;Ontario a annul&eacute; un renvoi &agrave; proc&egrave;s apr&egrave;s une enqu&ecirc;te pr&eacute;liminaire bilingue&nbsp;; parmi les manquements relev&eacute;s, le st&eacute;nographe n&rsquo;&eacute;tait pas bilingue. Le Qu&eacute;bec accr&eacute;dite les st&eacute;nographes par langue pour la m&ecirc;me raison.</p>
+      <a class="service-link" href="/quebec-fr/">Transcription juridique au Qu&eacute;bec &rarr;</a>
     </div>
   </div>
 </section>
@@ -1053,7 +1133,7 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
     <div class="ssr ssr-head"><span></span><span>Inclus</span><span>Sur demande</span></div>
     <div class="ssr"><span class="ssr-k">D&eacute;lai</span><span>Cinq jours ouvrables</span><span>Quarante-huit heures</span></div>
     <div class="ssr"><span class="ssr-k">Langues</span><span>Chaque langue transcrite telle que parl&eacute;e, jamais traduite</span><span>Langue d&rsquo;origine et interpr&eacute;tation en colonnes parall&egrave;les</span></div>
-    <div class="ssr"><span class="ssr-k">Num&eacute;rotation</span><span>Num&eacute;rotation continue des lignes, pagination structur&eacute;e</span><span class="ssr-nil">&mdash;</span></div>
+    <div class="ssr"><span class="ssr-k">Pagination</span><span>Num&eacute;rotation continue des lignes, pagination structur&eacute;e</span><span class="ssr-nil">&mdash;</span></div>
     <div class="ssr"><span class="ssr-k">Notation</span><span>Identification des locuteurs, notation des objections, horodatage aux changements</span><span>Mise en regard ligne &agrave; ligne d&rsquo;une transcription officielle</span></div>
     <div class="ssr"><span class="ssr-k">Attestation</span><span>D&eacute;claration d&rsquo;exactitude sign&eacute;e, praticien nomm&eacute;</span><span class="ssr-nil">&mdash;</span></div>
     <div class="ssr"><span class="ssr-k">Conventions</span><span>Page des conventions&nbsp;; format standard du forum</span><span>Produit selon les conventions d&rsquo;un forum nomm&eacute;</span></div>
@@ -1200,102 +1280,14 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
   </div>
 </section>
 
-<section class="faq-section section" id="faq">
+<section class="section" id="reference">
   <div class="container">
-    <div class="section-tag"><span class="st-br">[</span>FAQ<span class="st-br">]</span></div>
-    <h2 class="section-h2" style="margin-bottom:0">Des r&eacute;ponses claires<br/>pour les &eacute;quipes juridiques.</h2>
-    <div class="faq-layout">
-      <div class="faq-sticky">
-        <p class="faq-contact">Tout ce qu&rsquo;il faut savoir avant de soumettre un dossier. Autres questions bienvenues &agrave; <a href="mailto:secure@lexoral.org">secure@lexoral.org</a></p>
-        <a href="#contact" class="faq-btn">Soumettre un dossier →</a>
-      </div>
-      <div class="faq-list">
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-mk">Q.</span><span class="faq-q-text">Un témoin répond en français lors d'une déposition. Quels mots se retrouvent dans la transcription ?</span><span class="faq-toggle">+</span></div>
-          <div class="faq-a"><span class="faq-mk">R.</span><p class="faq-a-text">Ceux de l'interprète. Dans la pratique américaine, le sténographe consigne l'interprétation anglaise et rien d'autre — les directives officielles de sténographie judiciaire sont explicites : la langue étrangère n'est pas transcrite, elle est simplement signalée comme un témoin s'exprimant dans une langue étrangère, et corriger une interprétation ne relève pas de la fonction du sténographe. La plupart des circuits fédéraux traiteront tout de même cet anglais comme la déclaration propre du témoin, en vertu de la règle du « language conduit », mais le onzième circuit a rejeté cette règle et les autres appliquent un test à plusieurs facteurs portant notamment sur qui a fourni l'interprète et sur ses qualifications. L'attribution tient donc jusqu'à ce que quelqu'un la conteste. Ce que nous faisons, c'est transcrire le français qui dort dans l'audio, pour que le jour où c'est contesté vous répondiez avec un document plutôt qu'avec un argument.</p></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-mk">Q.</span><span class="faq-q-text">Qu'attestez-vous exactement ?</span><span class="faq-toggle">+</span></div>
-          <div class="faq-a"><span class="faq-mk">R.</span><p class="faq-a-text">Chaque transcription Lexoral est accompagnée d'une déclaration d'exactitude signée attestant qu'elle est un compte rendu fidèle et complet de l'audio fourni, signée par le praticien qui l'a produite. Les forums diffèrent quant à la forme d'attestation qu'ils attendent, et celle qui satisfait un dépôt québécois n'est pas celle qu'attend un dépôt américain. Dites-nous où la transcription est destinée à l'ouverture du dossier et nous confirmerons ce que votre dépôt exige avant tout engagement.</p></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-mk">Q.</span><span class="faq-q-text">Pouvez-vous traiter des audiences réellement bilingues, avec alternance de langue en milieu de phrase ?</span><span class="faq-toggle">+</span></div>
-          <div class="faq-a"><span class="faq-mk">R.</span><p class="faq-a-text">Oui — c'est notre spécialité. L'avocat interroge en anglais, le témoin répond en français puis rebascule au milieu de sa réponse ; nous transcrivons chaque langue verbatim telle que prononcée, sans traduire ni paraphraser, en signalant le changement là où la convention du forum l'exige. Le registre du français québécois, l'usage du palais et la terminologie juridique sont pris en charge par un praticien qui travaille dans le droit dans les deux langues, et non par un glossaire appliqué après coup.</p></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-mk">Q.</span><span class="faq-q-text">Quelle valeur probante a la transcription d'un enregistrement ?</span><span class="faq-toggle">+</span></div>
-          <div class="faq-a"><span class="faq-mk">R.</span><p class="faq-a-text">Les transcriptions d'enregistrements constituent une catégorie de preuve bien établie en soi. Pour les enregistrements en langue étrangère, les directives types au jury des tribunaux fédéraux américains traitent la transcription anglaise comme la preuve sur laquelle le jury travaille lorsque l'exactitude n'est pas en litige ; lorsqu'elle l'est, le jury tranche entre des transcriptions concurrentes en soupesant les qualifications de la personne qui a préparé chacune, la clarté de l'enregistrement et la manière dont la transcription a été produite. C'est pourquoi les nôtres sont produites et signées par un praticien nommé dont les titres sont publiés, pourquoi chaque transcription est livrée avec une page des conventions, et pourquoi les passages incertains sont signalés et horodatés plutôt que lissés.</p></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-mk">Q.</span><span class="faq-q-text">Au Québec, l'avocat peut-il interroger en anglais pendant que le témoin répond en français ?</span><span class="faq-toggle">+</span></div>
-          <div class="faq-a"><span class="faq-mk">R.</span><p class="faq-a-text">Oui, et aucun interprète n'est nécessaire. En vertu de l'article 133 de la Loi constitutionnelle de 1867, l'une ou l'autre langue officielle peut être utilisée devant les tribunaux du Québec, et chaque participant choisit indépendamment — l'avocat peut poser la question en anglais et le témoin répondre en français dans le même souffle. Les deux font le dossier. La transcription reproduit chaque langue telle qu'elle a été prononcée, sans traduction, parce que rien n'est traduit. C'est l'inverse du modèle américain, et c'est précisément la situation pour laquelle nous sommes faits.</p></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-mk">Q.</span><span class="faq-q-text">Travaillez-vous sur des dossiers criminels, et qu'exige le Code criminel quant au dossier ?</span><span class="faq-toggle">+</span></div>
-          <div class="faq-a"><span class="faq-mk">R.</span><p class="faq-a-text">Oui. Lorsqu'un accusé subit son procès dans la langue officielle de son choix en vertu de l'article 530 du Code criminel, l'article 530.1g) exige que le dossier de l'enquête préliminaire ou du procès comprenne la transcription de tout ce qui a été dit dans la langue officielle où cela a été dit, la transcription de toute interprétation vers l'autre langue officielle, et la preuve documentaire dans la langue où elle a été produite. Le dossier verbatim bilingue n'y est pas une préférence : c'est ce que la loi demande. Le principe vaut plus largement : une transcription qui convertit silencieusement la procédure dans une seule langue peut miner le droit même qui est invoqué. Nous produisons des dossiers qui gardent les deux langues distinctes et attribuables.</p></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-mk">Q.</span><span class="faq-q-text">L'interprétation lors de notre déposition était erronée. Que pouvons-nous faire maintenant ?</span><span class="faq-toggle">+</span></div>
-          <div class="faq-a"><span class="faq-mk">R.</span><p class="faq-a-text">Commandez l'audio ou la vidéo et faites transcrire les réponses dans leur langue d'origine, alignées ligne à ligne sur la transcription anglaise officielle, afin que les divergences soient documentées plutôt qu'affirmées. Ce document soutient un errata, une requête en rectification ou un contre-interrogatoire sur le point. Agissez vite : des tribunaux américains ont sanctionné des parties ayant soulevé tardivement un problème d'interprétation, allant dans certains cas jusqu'à considérer l'objection comme abandonnée. Cela se joue à la livraison de la transcription, pas à la veille du procès.</p></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-mk">Q.</span><span class="faq-q-text">Pourquoi les titres de vos praticiens figurent-ils sur le site ?</span><span class="faq-toggle">+</span></div>
-          <div class="faq-a"><span class="faq-mk">R.</span><p class="faq-a-text">Parce que lorsqu'une traduction est contestée, le tribunal ne soupèse pas le fournisseur : il soupèse la personne qui l'a faite. Les directives types invitent les jurés à considérer les qualifications du traducteur, la clarté de l'enregistrement et la manière dont la transcription a été produite. Une transcription issue d'un bassin anonyme n'a rien à inscrire dans cette colonne. La nôtre est produite par un praticien qui a plaidé en français devant l'Assemblée nationale du Québec et écrit des ouvrages de droit constitutionnel dans les deux langues, et qui peut en témoigner sous serment.</p></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-mk">Q.</span><span class="faq-q-text">Comment notez-vous les voix superposées, les passages inaudibles et les événements non verbaux ?</span><span class="faq-toggle">+</span></div>
-          <div class="faq-a"><span class="faq-mk">R.</span><p class="faq-a-text">Par convention, visiblement, et jamais en devinant. Les voix superposées sont signalées comme telles plutôt que transformées en phrases propres. Les passages inaudibles portent un horodatage — [inaudible 00:14:22] — pour que vous puissiez retourner à l'audio vous-même. Les noms propres incertains sont marqués [phonétique]. Les silences d'une durée significative sont chronométrés. Chaque transcription est livrée avec une page des conventions, afin que l'avocat adverse lise les mêmes marques de la même façon.</p></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-mk">Q.</span><span class="faq-q-text">Transcrivez-vous les appels au 911 et aux services d'urgence ?</span><span class="faq-toggle">+</span></div>
-          <div class="faq-a"><span class="faq-mk">R.</span><p class="faq-a-text">Oui. L'audio des services d'urgence, les interrogatoires en détention et en poste de police et les enregistrements de caméras d'intervention sont un travail régulier, notamment pour les bureaux de défense publique. C'est de l'audio difficile — chevauchements, trafic radio, détresse, bruit de fond — et il est chiffré après écoute, jamais à partir d'une simple durée.</p></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-mk">Q.</span><span class="faq-q-text">Comment les pièces sont-elles traitées dans la transcription ?</span><span class="faq-toggle">+</span></div>
-          <div class="faq-a"><span class="faq-mk">R.</span><p class="faq-a-text">Les pièces sont portées à la transcription telles qu'elles sont cotées au dossier, avec attribution au locuteur qui les annonce. Lorsqu'un dossier transfrontalier emploie la cotation québécoise des pièces d'un côté et la numérotation américaine des exhibits de l'autre, les deux figurent dans le même document, de sorte qu'aucune des deux équipes d'avocats n'ait à convertir les renvois à la main.</p></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-mk">Q.</span><span class="faq-q-text">Pourquoi ne pas utiliser des outils de transcription par IA comme Whisper ou Otter ?</span><span class="faq-toggle">+</span></div>
-          <div class="faq-a"><span class="faq-mk">R.</span><p class="faq-a-text">La transcription par IA échoue précisément dans les conditions qui définissent une procédure juridique bilingue : alternance de langue en milieu de phrase, voix superposées, terminologie juridique, noms propres et registre du français québécois. Elle invente aussi un texte fluide là où l'audio est incertain, ce qui est le pire mode de défaillance possible dans un dossier de preuve. Plus fondamentalement, un modèle ne peut pas maintenir une chaîne de possession, ne peut pas être contre-interrogé et ne peut pas signer une déclaration d'exactitude.</p></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-mk">Q.</span><span class="faq-q-text">Qui travaille réellement sur mon dossier ?</span><span class="faq-toggle">+</span></div>
-          <div class="faq-a"><span class="faq-mk">R.</span><p class="faq-a-text">Deux praticiens nommés — la langue et la discipline du verbatim d'un côté, la procédure et la juridiction québécoises de l'autre. Les dossiers ne sont pas distribués à un bassin de sous-traitants ni à un bureau délocalisé, et rien n'est livré comme relu qui ne l'ait pas été par une personne. Le nom sur la déclaration est celui de la personne qui a fait le travail.</p></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-mk">Q.</span><span class="faq-q-text">Combien de temps prend une transcription ?</span><span class="faq-toggle">+</span></div>
-          <div class="faq-a"><span class="faq-mk">R.</span><p class="faq-a-text">Cinq jours ouvrables en standard, quarante-huit heures en prioritaire. Les procédures s'étalant sur plusieurs jours sont planifiées au cas par cas et, lorsqu'une audience se poursuit d'un jour à l'autre, nous pouvons livrer jour par jour afin que l'avocat n'attende pas le dossier complet pour préparer le lendemain matin.</p></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-mk">Q.</span><span class="faq-q-text">Combien coûte une transcription juridique bilingue ?</span><span class="faq-toggle">+</span></div>
-          <div class="faq-a"><span class="faq-mk">R.</span><p class="faq-a-text">À la page, en dollars canadiens, après écoute de l'enregistrement. La durée seule ne fixe pas le prix — les voix superposées, un audio difficile et une alternance de langue soutenue changent considérablement le travail. Le prix ferme suit donc l'écoute de l'audio plutôt qu'il ne la précède. La confirmation de réception est le jour ouvrable même.</p></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-mk">Q.</span><span class="faq-q-text">Sous quelle forme la transcription est-elle livrée ?</span><span class="faq-toggle">+</span></div>
-          <div class="faq-a"><span class="faq-mk">R.</span><p class="faq-a-text">PDF interrogeable et Word modifiable, lignes numérotées et pagination structurée, avec identification des locuteurs, page des conventions et déclaration d'exactitude signée. La livraison se fait par transfert chiffré. Les corrections de mise en forme sont sans frais.</p></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-mk">Q.</span><span class="faq-q-text">Et si nous contestons un passage après la livraison ?</span><span class="faq-toggle">+</span></div>
-          <div class="faq-a"><span class="faq-mk">R.</span><p class="faq-a-text">Indiquez-nous la page et la ligne. Le passage est réécouté contre l'enregistrement source. Lorsque l'audio ne soutient pas ce qui a été transcrit, le passage est corrigé et la déclaration réémise sans frais. Lorsque l'audio le soutient, nous vous le disons clairement et marquons le passage comme contesté plutôt que de modifier le dossier en silence — parce qu'une transcription qui bouge sur demande n'est pas une preuve.</p></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-mk">Q.</span><span class="faq-q-text">Quels formats et quelle qualité audio acceptez-vous ?</span><span class="faq-toggle">+</span></div>
-          <div class="faq-a"><span class="faq-mk">R.</span><p class="faq-a-text">La plupart des formats audio et vidéo, dont MP3, WAV, M4A et MP4. Si un enregistrement est difficile par endroits, nous le disons avant de chiffrer et non après avoir livré, et nous identifions les passages à risque pour que vous sachiez où le dossier est fragile.</p></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-mk">Q.</span><span class="faq-q-text">Fournissez-vous des transcriptions avec numérotation des lignes ?</span><span class="faq-toggle">+</span></div>
-          <div class="faq-a"><span class="faq-mk">R.</span><p class="faq-a-text">Oui. Numérotation continue des lignes, pagination structurée et identification des locuteurs, mises en forme pour un renvoi direct dans les actes de procédure et les mémoires — une citation faite une fois tient pour toute la durée du dossier.</p></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-mk">Q.</span><span class="faq-q-text">Êtes-vous conformes à la Loi 25 et au droit québécois de la vie privée ?</span><span class="faq-toggle">+</span></div>
-          <div class="faq-a"><span class="faq-mk">R.</span><p class="faq-a-text">Oui. Les fichiers sont traités dans des flux à accès restreint conformes à la Loi 25, transférés par protocoles chiffrés, conservés dans des environnements à accès restreint, et jamais divulgués à des tiers sauf sur votre instruction. Les clients peuvent demander la suppression permanente des enregistrements et des transcriptions à tout moment.</p></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-mk">Q.</span><span class="faq-q-text">Les enregistrements servent-ils à de l'entraînement ou à toute autre fin externe ?</span><span class="faq-toggle">+</span></div>
-          <div class="faq-a"><span class="faq-mk">R.</span><p class="faq-a-text">Non. Le matériel des clients sert exclusivement au mandat de transcription. Il n'est jamais partagé, réutilisé, vendu, ni employé pour entraîner ou développer un modèle ou un système, interne ou externe.</p></div>
-        </div>
-      </div>
+    <div class="section-header reveal">
+      <div class="section-tag"><span class="st-br">[</span>Référence<span class="st-br">]</span></div>
+      <h2 class="section-h2">Le reste<br/>du dossier.</h2>
+      <p class="section-intro">Quatre pages portant le détail que celle-ci ne fait qu’énoncer. Chacune répond à une question que quelqu’un est réellement venu poser.</p>
     </div>
+    <div class="idx"><a class="idx-a" href="/quebec-fr/"><span class="idx-k">Pièce A</span><span class="idx-b"><span class="idx-t">Transcription juridique au Québec</span><span class="idx-d">L’article 133 fait des deux langues le dossier, et personne n’interprète. À quoi ressemble un interrogatoire bilingue minute par minute, pourquoi le Barreau accrédite les sténographes par langue, et ce que nous faisons — ou non — dans la province.</span></span><span class="idx-g">Lire &rarr;</span></a><a class="idx-a" href="/preuve-enregistree/"><span class="idx-k">Pièce B</span><span class="idx-b"><span class="idx-t">La preuve enregistrée en français</span><span class="idx-d">L’enregistrement est la preuve ; la transcription assiste. La langue source d’abord, la traduction alignée ligne par ligne — et les deux règles de coûts à connaître avant de budgéter.</span></span><span class="idx-g">Lire &rarr;</span></a><a class="idx-a" href="/article-530/"><span class="idx-k">Pièce C</span><span class="idx-b"><span class="idx-t">Ce qu’exige l’alinéa 530.1g)</span><span class="idx-d">Trois transcriptions, pas une. La disposition elle-même, ce qu’elle oblige, pourquoi tout le monde dans la salle doit être bilingue, et les trois autres lois qui mettent deux langues à la même audience.</span></span><span class="idx-g">Lire &rarr;</span></a><a class="idx-a" href="/faq-fr/"><span class="idx-k">Pièce D</span><span class="idx-b"><span class="idx-t">Vingt et une questions, répondues</span><span class="idx-d">Quels mots entrent au dossier, ce que nous attestons, comment nous marquons ce que nous n’entendons pas, délais, tarifs, confidentialité. Groupées, et courtes.</span></span><span class="idx-g">Lire &rarr;</span></a></div>
   </div>
 </section>
 
@@ -1341,17 +1333,17 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
           <li><a href="#services">Services</a></li>
           <li><a href="#cross-border">Transfrontalier</a></li>
           <li><a href="#practice">Pratique</a></li>
-          <li><a href="#faq">FAQ</a></li>
+          <li><a href="/faq-fr/">FAQ</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
       <div>
-        <span class="footer-col-title">Services</span>
+        <span class="footer-col-title">Références</span>
         <ul class="footer-links">
-          <li><a href="#services">D&eacute;positions et interrogatoires</a></li>
-          <li><a href="#services">Arbitrage et m&eacute;diation</a></li>
-          <li><a href="#services">Audiences de tribunaux</a></li>
-          <li><a href="#cross-border">Litige transfrontalier</a></li>
+          <li><a href="/faq-fr/">Questions</a></li>
+          <li><a href="/quebec-fr/">Qu&eacute;bec</a></li>
+          <li><a href="/preuve-enregistree/">Preuve enregistr&eacute;e</a></li>
+          <li><a href="/article-530/">Alin&eacute;a 530.1g)</a></li>
         </ul>
       </div>
       <div>
