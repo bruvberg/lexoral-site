@@ -20,7 +20,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
 <meta property="og:site_name" content="Lexoral"/>
 <meta property="og:type" content="website"/>
-<meta property="og:locale" content="en_CA"/>
+<meta property="og:locale" content="fr_CA"/>
 <meta property="og:image" content="https://lexoral.org/og.png"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="630"/>
@@ -28,10 +28,37 @@
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://lexoral.org/og.png"/>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
-<style>/* =========================================================================
+<link rel="preload" href="/fonts/eb-garamond-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin/>
+<link rel="preload" href="/fonts/courier-prime-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin/>
+<style>/* ---------- the faces, served from this origin ----------
+   No third party sees a visitor arrive here. Nothing else on the page is
+   fetched from anywhere else either, which is what the Loi 25 and GDPR
+   badges in the footer are supposed to mean.
+
+   The subset is latin only, deliberately: every character this site sets —
+   the French accents, œ, the em dash, the curly quotes, the narrow no-break
+   space and the arrow — falls inside that range. A glyph outside it falls
+   back to Georgia or Courier New rather than pulling a second file.        */
+@font-face{font-family:"EB Garamond";font-style:normal;font-weight:400;font-display:swap;
+  src:url(/fonts/eb-garamond-latin-400-normal.woff2) format("woff2");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"EB Garamond";font-style:italic;font-weight:400;font-display:swap;
+  src:url(/fonts/eb-garamond-latin-400-italic.woff2) format("woff2");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"EB Garamond";font-style:normal;font-weight:600;font-display:swap;
+  src:url(/fonts/eb-garamond-latin-600-normal.woff2) format("woff2");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Courier Prime";font-style:normal;font-weight:400;font-display:swap;
+  src:url(/fonts/courier-prime-latin-400-normal.woff2) format("woff2");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Courier Prime";font-style:italic;font-weight:400;font-display:swap;
+  src:url(/fonts/courier-prime-latin-400-italic.woff2) format("woff2");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Courier Prime";font-style:normal;font-weight:700;font-display:swap;
+  src:url(/fonts/courier-prime-latin-700-normal.woff2) format("woff2");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+/* =========================================================================
    LEXORAL — the document as the layout.
    One grid: margin column + measure. Garamond sets the argument,
    Courier sets the record. Rules structure; nothing decorates.
@@ -96,6 +123,7 @@ body > *{flex:0 0 auto}
 body > footer{margin-top:auto}
 ::selection{background:var(--blue);color:var(--paper)}
 p{margin:0 0 var(--s4);max-width:var(--measure)}
+strong{font-weight:600}
 p:last-child{margin-bottom:0}
 .reveal{opacity:1}
 
@@ -667,6 +695,9 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
 .idx-t{display:block;font-family:var(--serif);font-size:var(--t-lg);line-height:1.2;color:var(--t-1)}
 .idx-d{display:block;margin-top:var(--s3);font-size:var(--t-sm);line-height:1.6;
   color:var(--t-3);max-width:38em}
+/* the raw list: what is actually on the other end of the link */
+.idx-l{display:block;margin-top:var(--s3);font-family:var(--mono);font-size:10px;
+  letter-spacing:.06em;line-height:1.95;color:var(--t-3);max-width:46em}
 .idx-g{grid-column:3;font-family:var(--mono);font-size:var(--t-xs);letter-spacing:.16em;
   text-transform:uppercase;color:var(--blue);white-space:nowrap}
 .idx-a:hover .idx-g{color:var(--ink)}
@@ -692,7 +723,7 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
 .pol-h{font-size:var(--t-lg);line-height:1.2;letter-spacing:-.012em;margin-bottom:var(--s4)}
 .pol-body p{font-size:var(--t-sm);line-height:1.68;color:var(--t-2);max-width:var(--measure)}
 .pol-body a{color:var(--blue);border-bottom:1px solid var(--nav-f)}
-.pol-body strong{color:var(--t-1);font-weight:600}
+.pol-body strong{color:var(--t-1)}
 .pol-ul,.pol-body ul{margin:var(--s2) 0 var(--s4)}
 .pol-ul li,.pol-body ul li{position:relative;padding-left:22px;margin-bottom:8px;
   font-size:var(--t-sm);line-height:1.62;color:var(--t-2);max-width:var(--measure)}
@@ -844,12 +875,13 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
   <div class="container nav-inner">
     <a href="/fr/" class="logo"><span class="lg-p">Lex</span><span class="lg-v">v.</span><span class="lg-p">Oral</span></a>
     <div class="nav-links">
-      <a href="/#services">Services</a>
-      <a href="/#cross-border">Transfrontalier</a>
-      <a href="/#clients">Client&egrave;le</a>
-      <a href="/#practice">R&eacute;f&eacute;rences</a>
+      <a href="/fr/#coverage">Couverture</a>
+      <a href="/fr/#why">Pourquoi nous</a>
+      <a href="/services-fr/">Services</a>
+      <a href="/transfrontalier/">Transfrontalier</a>
+      <a href="/fr/#reference">R&eacute;f&eacute;rence</a>
       <a href="/faq-fr/">FAQ</a>
-      <a href="/#contact">Contact</a>
+      <a href="/fr/#contact">Contact</a>
     </div>
     <div class="nav-side">
       <div class="nav-lang"><a href="/quebec/" lang="en" hreflang="en">EN</a><a href="/quebec-fr/" class="active" lang="fr" hreflang="fr">FR</a></div><a href="tel:+15147127516" class="nav-tel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3h3l1.5 4-2 1.5a12 12 0 0 0 6.5 6.5l1.5-2 4 1.5v3a2 2 0 0 1-2.2 2A17 17 0 0 1 4.5 5.2 2 2 0 0 1 6.5 3z"/></svg><span>+1 (514) 712-7516</span></a>
@@ -858,12 +890,17 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
   </div>
   <div class="nav-index" id="nav-index" hidden>
     <div class="container">
-      <a href="/#services"><span>01</span>Services</a>
-      <a href="/#cross-border"><span>02</span>Transfrontalier</a>
-      <a href="/#clients"><span>03</span>Client&egrave;le</a>
-      <a href="/#practice"><span>04</span>R&eacute;f&eacute;rences</a>
-      <a href="/faq-fr/"><span>05</span>FAQ</a>
-      <a href="/#contact"><span>06</span>Contact</a>
+                        <a href="/fr/#coverage"><span>01</span>Couverture</a>
+      <a href="/fr/#why"><span>02</span>Pourquoi nous</a>
+      <a href="/fr/#reference"><span>03</span>R&eacute;f&eacute;rence</a>
+      <a href="/fr/#practice"><span>04</span>Praticiens</a>
+      <a href="/fr/#contact"><span>05</span>Contact</a>
+      <a href="/services-fr/"><span>06</span>Services</a>
+      <a href="/transfrontalier/"><span>07</span>Transfrontalier</a>
+      <a href="/faq-fr/"><span>08</span>Questions</a>
+
+
+
       <a href="tel:+15147127516" class="ni-tel"><span>Tel</span>+1 (514) 712-7516</a>
     </div>
   </div>

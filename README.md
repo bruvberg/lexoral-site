@@ -12,16 +12,19 @@ and enable *Enforce HTTPS*.
 ## Structure
 
 ```
-index.html            English homepage        fr/            French homepage
-quebec/               Quebec (EN)             quebec-fr/     (FR)
+index.html            English homepage        fr/                  French homepage
+services/             Services (EN)           services-fr/         (FR)
+quebec/               Quebec (EN)             quebec-fr/           (FR)
 recorded-evidence/    Recorded evidence (EN)  preuve-enregistree/  (FR)
-section-530/          s. 530.1(g) (EN)        article-530/   (FR)
-faq/                  21 questions (EN)       faq-fr/        (FR)
-privacy/              Privacy policy (EN)     privacy-fr/    (FR)
-retention/            Retention policy (EN)   retention-fr/  (FR)
+cross-border/         Cross-border (EN)       transfrontalier/     (FR)
+section-530/          s. 530.1(g) (EN)        article-530/         (FR)
+faq/                  21 questions (EN)       faq-fr/              (FR)
+privacy/              Privacy policy (EN)     privacy-fr/          (FR)
+retention/            Retention policy (EN)   retention-fr/        (FR)
 404.html              Not-found page (noindex)
+fonts/                Six woff2 faces, latin subset — see "The faces" below
 robots.txt            Crawl rules, incl. AI answer engines
-sitemap.xml           14 URLs with hreflang trios
+sitemap.xml           18 URLs with hreflang trios
 llms.txt              Plain-language summary for LLM crawlers
 og.png                1200x630 social card
 favicon.svg           Site icon        apple-touch-icon.png   180x180
@@ -30,8 +33,10 @@ lexoral-specimen-transcript.pdf   Downloadable sample transcript
 ```
 
 Every page has an EN/FR twin, and the `.nav-lang` toggle on each page points at its own pair,
-not at the homepage. The homepage is the argument; the six content pages carry the detail and
-the homepage's *Reference* section (`#reference`) is the hub that points at them.
+not at the homepage. The homepage carries the argument and nothing else: hero, coverage, why,
+the *Reference* index, the practitioners, contact — about 7,500 characters of visible text, down
+from 23,400. The eight content pages carry the detail, and `#reference` is the hub that points
+at them.
 
 Every page ships as a single self-contained HTML file: CSS lives in an inline `<style>`
 block, there is no dependency to fetch, and no JavaScript beyond the FAQ accordion and the
@@ -40,14 +45,32 @@ deploys is exactly the file you are looking at.
 
 ## Editing notes
 
-- Section anchors on the homepage: `#coverage #why #where-we-fit #services
-  #cross-border #practice #reference #contact`. The nav and the mobile index both
-  reference these, as does the footer *Sections* column.
+- Section anchors on the homepage: `#coverage #why #reference #practice #clients
+  #contact`. The nav mixes these with page links; the mobile index and the footer
+  *Sections* column list the homepage's own sections only. On a sub-page the same
+  anchors are written `/#coverage`, and `nav_fix.py` is what keeps all three in step.
 - Structured data (JSON-LD) sits at the end of each `<head>`. The FAQ schema lives on
   `/faq/` and `/faq-fr/` only, and mirrors the visible questions one-for-one — change both
   together. It must not be duplicated on the homepage.
 - Colour tokens are defined once in `:root`. Nothing else in the sheet — and nothing
   in any page body — uses a raw colour literal.
+
+## The faces
+
+`fonts/` holds six woff2 files — EB Garamond 400, 400 italic and 600; Courier Prime 400,
+400 italic and 700 — declared in `doc.css` and preloaded from each page's `<head>`. Nothing is
+fetched from Google or anywhere else: a site whose footer says *Loi 25 Compliant* should not be
+handing every visitor's IP to a third party on page load, and it no longer does.
+
+The subset is **latin only**, deliberately. Every character the site sets falls inside that
+range — the French accents, `œ`, the em dash, the curly quotes, the narrow no-break space and
+the `→`. A glyph outside it falls back to Georgia or Courier New rather than pulling a second
+file. If a page ever needs Eastern European or Vietnamese text, add the `latin-ext` faces from
+`@fontsource/eb-garamond` and `@fontsource/courier-prime` and give them the matching
+`unicode-range`; the browser will fetch them only when a glyph needs them.
+
+No weight above 600 exists for the serif, so `strong` is set to 600 globally. Adding a
+`font-weight: 700` rule to serif text would silently synthesise a fake bold.
 
 ### The generators
 
@@ -55,8 +78,11 @@ The stylesheet lives once, at `ds/doc.css`, and `ds/install.py` writes it into t
 `<style>` block of every `*.html` under `site/`. The content pages are generated:
 `build.py` holds the page shell and the component helpers (`auth`, `kf`, `dgm`, `spec`,
 `cta`, `sec`), `pages/dgm.py` draws the three diagrams, `pages/p_*.py` hold the copy, and
-`pages/make.py` builds all six. `build_faq.py` rebuilds the two FAQ pages from
-`qa-en.json` / `qa-fr.json`.
+`pages/make.py` builds those six. `build_faq.py` rebuilds the two FAQ pages from
+`qa-en.json` / `qa-fr.json`. `split_pages.py` builds the Services and Cross-border pages — the
+first run lifted the sections off the homepage, and every run since rebuilds them from
+themselves. `nav_fix.py` rewrites the nav, the mobile index and the footer across every page,
+and must be re-run after any generator.
 
 ## The palette
 

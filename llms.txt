@@ -36,8 +36,12 @@ Key facts:
 
 ## Pages
 
-- [Home (English)](https://lexoral.org/): coverage, where the work matters, services, cross-border comparison, the record, contact.
+- [Home (English)](https://lexoral.org/): coverage, the argument, the reference index to the six content pages, the practitioners, contact.
 - [Accueil (français)](https://lexoral.org/fr/): version française de la page d'accueil.
+- [Legal transcription services](https://lexoral.org/services/): the four kinds of proceeding transcribed (depositions and examinations, arbitration and mediation, tribunal hearings, recorded evidence), with the full datasheet of what every transcript includes and what can be requested, and a downloadable specimen transcript.
+- [Services de transcription juridique](https://lexoral.org/services-fr/): version française.
+- [Cross-border transcription, Canada and the United States](https://lexoral.org/cross-border/): a Canadian witness examined for a U.S. matter, a U.S. party filing in Quebec, parallel proceedings, cross-border arbitration, letters rogatory and Hague Evidence Convention examinations — both languages as spoken, one pass, produced to whichever set of conventions the forum requires.
+- [Transcription transfrontalière Canada–États-Unis](https://lexoral.org/transfrontalier/): version française.
 - [Legal transcription in Quebec](https://lexoral.org/quebec/): section 133 of the Constitution Act, 1867 makes either language usable by any person in the courts of Quebec, so both languages are the record and no interpreter is involved; what a bilingual examination looks like minute by minute; per-language stenographer accreditation under CQLR c. B-1, r. 13; procedures transcribed; cities served (Montreal, Quebec City, Laval, Gatineau, Longueuil, Sherbrooke, Trois-Rivières, Saguenay, Lévis). States plainly that Lexoral is not an accredited Quebec official stenographer.
 - [Transcription juridique au Québec](https://lexoral.org/quebec-fr/): version française.
 - [French recordings as evidence](https://lexoral.org/recorded-evidence/): forensic transcription and transcription-translation of French-language recorded evidence; the recording is the evidence and the transcript assists (United States v. Chavez, 976 F.3d 1178 (10th Cir. 2020)); source-language transcription produced first and the translation aligned to it line by line, per NAJIT's Position Paper: General Guidelines and Requirements for Transcription Translation in a Legal Setting (May 2019); Taniguchi v. Kan Pacific Saipan, 566 U.S. 560 (2012) means document-translation cost is not taxable under 28 U.S.C. § 1920(6).
