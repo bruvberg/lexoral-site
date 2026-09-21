@@ -524,18 +524,12 @@ footer ::selection{background:var(--gold);color:var(--ink)}
 .xbt-row span:nth-child(3){color:var(--d-3);font-size:var(--t-sm)}
 .xb-close{font-size:var(--t-lg);line-height:1.5;color:var(--d-1);max-width:32em;margin:0}
 
-/* ---------- clients ----------
-   Les huit sont un index, pas huit entrees : deux colonnes de filets,
-   soit le tiers de la hauteur, et ca se lit comme une table des matieres
-   plutot que comme huit lignes seules au milieu d'une page vide.      */
-.clients-section .clients-grid{display:grid;grid-column:2;
-  grid-template-columns:repeat(2,minmax(0,1fr));column-gap:var(--s7);
-  border-top:1px solid var(--rule)}
-.clients-section .client-card{grid-column:auto;display:block;
-  padding:var(--s4) 0;border-top:0;border-bottom:1px solid var(--rule)}
+/* ---------- clients ---------- */
+.client-card{padding:var(--s5) 0}
 .client-name{font-size:var(--t-md);margin:0}
-.client-desc{grid-column:auto;display:block;font-size:9.5px;letter-spacing:.16em;
-  line-height:1.9;color:var(--t-3);margin-top:6px}
+.client-desc{grid-column:2;display:block;font-size:9.5px;letter-spacing:.16em;
+  line-height:1.9;color:var(--t-3);margin-top:var(--s2)}
+.client-card:last-of-type{border-bottom:1px solid var(--rule)}
 
 /* ---------- the record ---------- */
 .rec-band{background:var(--paper)}
@@ -747,83 +741,6 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
 :focus-visible{outline:2px solid var(--blue);outline-offset:3px}
 .why-section :focus-visible,.cross-section :focus-visible,
 .contact-section :focus-visible,footer :focus-visible{outline-color:var(--gold)}
-/* =========================================================================
-   GRAVURE — figures au trait, calculees et non dessinees.
-
-   Le registre est celui de l'imprimerie fiduciaire : la rosace d'un
-   certificat d'actions est une hypotrochoide, alors on la calcule au lieu
-   de l'approcher, et le trait maigre fait le reste. Un seul lobe est grave
-   en <defs>, repete par <use> — c'est ainsi que travaille une machine a
-   guillocher, et c'est ce qui met la piece a 5 ko au lieu de 850.
-
-   Rien ici n'est decoratif : le fac-simile montre le livrable, les quatre
-   vignettes nomment les quatre temps du travail.
-   ========================================================================= */
-.eng{display:block}
-.eng-o{fill:none;stroke:currentColor;stroke-width:1.15;
-  stroke-linejoin:round;stroke-linecap:round}
-.eng-h{fill:none;stroke:currentColor;stroke-width:.7}
-.eng-l{fill:none;stroke:currentColor;stroke-width:.7;opacity:.42}
-.eng-fl{margin:var(--s2) auto var(--s3);color:var(--nav);opacity:.6}
-.eng-mk{font-family:var(--serif);font-style:italic;fill:currentColor;
-  letter-spacing:.02em}
-
-/* ---------- le fac-simile : la declaration d'exactitude, en specimen ----------
-   C'est le produit. Il ne figurait nulle part sur le site : on ne vendait
-   qu'une promesse. Le tiers droit du hero lui etait deja reserve.          */
-.hx-fig{grid-column:2;justify-self:end;align-self:center;
-  width:100%;max-width:340px;margin:0}
-.att{--relief:6px;position:relative;background:var(--leaf);
-  box-shadow:inset 0 0 0 1px var(--rule)}
-.att::before{content:'';position:absolute;left:100%;top:0;width:var(--relief);
-  height:100%;background:var(--face-r);transform:skewY(45deg);
-  transform-origin:0 0;pointer-events:none}
-.att::after{content:'';position:absolute;top:100%;left:0;width:100%;
-  height:var(--relief);background:var(--face-b);transform:skewX(45deg);
-  transform-origin:0 0;pointer-events:none}
-.att-hd{display:flex;align-items:baseline;justify-content:space-between;gap:var(--s3);
-  padding:10px 15px 9px;border-bottom:1px solid var(--ink);
-  font-family:var(--mono);font-size:8.5px;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--nav)}
-.att-hd span:last-child{color:var(--t-3);letter-spacing:.12em}
-.att-in{padding:var(--s4) var(--s5) var(--s4);text-align:center}
-.att-t{font-family:var(--mono);font-weight:400;font-size:10px;letter-spacing:.24em;
-  text-transform:uppercase;color:var(--t-1)}
-.att-b{margin:0;text-align:left;font-family:var(--mono);font-size:9.5px;
-  line-height:1.86;color:var(--t-2)}
-.att-seal{display:flex;justify-content:center;margin:var(--s4) 0 var(--s4)}
-.att-seal .eng{color:var(--nav)}
-.att-sig{text-align:left}
-.att-rule{display:block;width:76%;height:0;border-top:1px solid var(--ink);
-  margin-bottom:7px}
-.att-nm{display:block;font-family:var(--serif);font-size:1.04rem;color:var(--t-1)}
-.att-pl{display:block;margin-top:5px;font-family:var(--mono);font-size:8.5px;
-  letter-spacing:.16em;text-transform:uppercase;color:var(--t-3)}
-.att-ft{padding:var(--s3) 15px var(--s4);border-top:1px solid var(--rule)}
-.att-r{display:flex;align-items:baseline;justify-content:space-between;gap:var(--s3);
-  font-family:var(--mono);font-size:8.5px;line-height:2.15}
-.att-r span:first-child{letter-spacing:.16em;text-transform:uppercase;color:var(--nav)}
-.att-r span:last-child{letter-spacing:.04em;color:var(--t-2);text-align:right}
-
-/* ---------- les quatre temps du travail, sur le marine du contact ----------
-   La question << et ensuite ? >> se pose au moment d'envoyer un fichier.
-   La reponse est donc la, et pas dans une section de plus.                 */
-.proc{grid-column:1/-1;margin:0 0 var(--s8);padding-top:var(--s6);
-  border-top:1px solid var(--rule-d)}
-.proc-k{display:block;margin-bottom:var(--s6);font-family:var(--mono);
-  font-size:var(--mlabel);letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
-.proc-l{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:var(--s6) var(--gapc)}
-.pstep{padding-left:var(--s4);border-left:1px solid var(--rule-d)}
-.pstep-n{display:block;font-family:var(--mono);font-size:9.5px;
-  letter-spacing:.18em;color:var(--d-3)}
-.pstep-i{display:block;margin:var(--s4) 0;color:var(--d-2)}
-.pstep-h{font-family:var(--serif);font-weight:400;font-size:var(--t-md);
-  line-height:1.25;color:var(--d-1)}
-.pstep-p{margin-top:var(--s2);font-size:.95rem;line-height:1.55;color:var(--d-3)}
-.contact-section .eng-h{stroke-width:.85}
-.contact-section .eng-o{stroke-width:1.25}
-
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 @media print{
   nav,.hx-actions,.cross-cta,.faq-btn,.xb-map,.nav-index{display:none!important}
@@ -836,7 +753,6 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
    NARROWER: the margin column shrinks, then folds away
    ========================================================================= */
 @media (max-width:1039px){
-  .proc-l{grid-template-columns:repeat(2,minmax(0,1fr))}
   :root{--marg:104px;--gapc:24px;--mgut:22px}
   .footer-inner,.footer-5{grid-template-columns:1fr 1fr}
   .ct-addr{grid-template-columns:var(--marg) minmax(0,1fr)}
@@ -864,7 +780,6 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
   :root{--hxtag:2.3rem}
   .hx-body{grid-template-columns:1fr;margin-left:0;min-height:0}
   .hx-left{grid-column:1}
-  .hx-fig{grid-column:1;justify-self:start;max-width:340px;margin-top:var(--s8)}
   /* the map drops below the three things and keeps only what stays legible */
   .xb-map{right:-34%;width:170%;opacity:.55;
     -webkit-mask-image:none;mask-image:none}
@@ -951,16 +866,6 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
   .footer-inner,.footer-5{grid-template-columns:1fr;gap:var(--s5)}
   .footer-bottom{display:block}
   .footer-legal{margin-bottom:var(--s3)}
-}
-
-/* les etroits en dernier : ils doivent gagner sur les blocs 1039 / 900 */
-@media (max-width:640px){
-  .clients-section .clients-grid{grid-template-columns:1fr;column-gap:0}
-}
-@media (max-width:560px){
-  .proc-l{grid-template-columns:1fr;gap:var(--s7)}
-  .hx-fig{max-width:none}
-  .att-b{font-size:10px}
 }
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://lexoral.org/article-530/#webpage", "url": "https://lexoral.org/article-530/", "name": "Ce que l’alinéa 530.1g) exige du dossier", "description": "L’alinéa 530.1g) du Code criminel oblige le dossier d’un procès bilingue à comporter la totalité des débats dans la langue originale, la transcription de l’interprétation et la preuve documentaire dans sa langue de dépôt. Ce que cela signifie en pratique, et qui doit être bilingue.", "inLanguage": "fr-CA", "isPartOf": {"@id": "https://lexoral.org/#website"}, "publisher": {"@id": "https://lexoral.org/#organization"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Lexoral", "item": "https://lexoral.org/fr/"}, {"@type": "ListItem", "position": 2, "name": "Ce que l’alinéa 530.1g) exige du dossier", "item": "https://lexoral.org/article-530/"}]}, {"@type": "Article", "@id": "https://lexoral.org/article-530/#article", "headline": "Ce que l’alinéa 530.1g) exige du dossier", "inLanguage": "fr-CA", "url": "https://lexoral.org/article-530/", "author": {"@id": "https://lexoral.org/#organization"}, "publisher": {"@id": "https://lexoral.org/#organization"}, "isPartOf": {"@id": "https://lexoral.org/#website"}, "citation": ["Criminal Code, RSC 1985, c C-46, s 530.1(g)", "R v Munkonda, 2015 ONCA 309", "Constitution Act, 1867 (UK), 30 & 31 Vict, c 3, s 133", "Official Languages Act, RSC 1985, c 31 (4th Supp), s 14", "Courts of Justice Act, RSO 1990, c C.43, s 126(1)"]}]}</script>

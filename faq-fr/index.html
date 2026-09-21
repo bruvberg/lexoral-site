@@ -524,18 +524,12 @@ footer ::selection{background:var(--gold);color:var(--ink)}
 .xbt-row span:nth-child(3){color:var(--d-3);font-size:var(--t-sm)}
 .xb-close{font-size:var(--t-lg);line-height:1.5;color:var(--d-1);max-width:32em;margin:0}
 
-/* ---------- clients ----------
-   Les huit sont un index, pas huit entrees : deux colonnes de filets,
-   soit le tiers de la hauteur, et ca se lit comme une table des matieres
-   plutot que comme huit lignes seules au milieu d'une page vide.      */
-.clients-section .clients-grid{display:grid;grid-column:2;
-  grid-template-columns:repeat(2,minmax(0,1fr));column-gap:var(--s7);
-  border-top:1px solid var(--rule)}
-.clients-section .client-card{grid-column:auto;display:block;
-  padding:var(--s4) 0;border-top:0;border-bottom:1px solid var(--rule)}
+/* ---------- clients ---------- */
+.client-card{padding:var(--s5) 0}
 .client-name{font-size:var(--t-md);margin:0}
-.client-desc{grid-column:auto;display:block;font-size:9.5px;letter-spacing:.16em;
-  line-height:1.9;color:var(--t-3);margin-top:6px}
+.client-desc{grid-column:2;display:block;font-size:9.5px;letter-spacing:.16em;
+  line-height:1.9;color:var(--t-3);margin-top:var(--s2)}
+.client-card:last-of-type{border-bottom:1px solid var(--rule)}
 
 /* ---------- the record ---------- */
 .rec-band{background:var(--paper)}
@@ -747,83 +741,6 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
 :focus-visible{outline:2px solid var(--blue);outline-offset:3px}
 .why-section :focus-visible,.cross-section :focus-visible,
 .contact-section :focus-visible,footer :focus-visible{outline-color:var(--gold)}
-/* =========================================================================
-   GRAVURE — figures au trait, calculees et non dessinees.
-
-   Le registre est celui de l'imprimerie fiduciaire : la rosace d'un
-   certificat d'actions est une hypotrochoide, alors on la calcule au lieu
-   de l'approcher, et le trait maigre fait le reste. Un seul lobe est grave
-   en <defs>, repete par <use> — c'est ainsi que travaille une machine a
-   guillocher, et c'est ce qui met la piece a 5 ko au lieu de 850.
-
-   Rien ici n'est decoratif : le fac-simile montre le livrable, les quatre
-   vignettes nomment les quatre temps du travail.
-   ========================================================================= */
-.eng{display:block}
-.eng-o{fill:none;stroke:currentColor;stroke-width:1.15;
-  stroke-linejoin:round;stroke-linecap:round}
-.eng-h{fill:none;stroke:currentColor;stroke-width:.7}
-.eng-l{fill:none;stroke:currentColor;stroke-width:.7;opacity:.42}
-.eng-fl{margin:var(--s2) auto var(--s3);color:var(--nav);opacity:.6}
-.eng-mk{font-family:var(--serif);font-style:italic;fill:currentColor;
-  letter-spacing:.02em}
-
-/* ---------- le fac-simile : la declaration d'exactitude, en specimen ----------
-   C'est le produit. Il ne figurait nulle part sur le site : on ne vendait
-   qu'une promesse. Le tiers droit du hero lui etait deja reserve.          */
-.hx-fig{grid-column:2;justify-self:end;align-self:center;
-  width:100%;max-width:340px;margin:0}
-.att{--relief:6px;position:relative;background:var(--leaf);
-  box-shadow:inset 0 0 0 1px var(--rule)}
-.att::before{content:'';position:absolute;left:100%;top:0;width:var(--relief);
-  height:100%;background:var(--face-r);transform:skewY(45deg);
-  transform-origin:0 0;pointer-events:none}
-.att::after{content:'';position:absolute;top:100%;left:0;width:100%;
-  height:var(--relief);background:var(--face-b);transform:skewX(45deg);
-  transform-origin:0 0;pointer-events:none}
-.att-hd{display:flex;align-items:baseline;justify-content:space-between;gap:var(--s3);
-  padding:10px 15px 9px;border-bottom:1px solid var(--ink);
-  font-family:var(--mono);font-size:8.5px;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--nav)}
-.att-hd span:last-child{color:var(--t-3);letter-spacing:.12em}
-.att-in{padding:var(--s4) var(--s5) var(--s4);text-align:center}
-.att-t{font-family:var(--mono);font-weight:400;font-size:10px;letter-spacing:.24em;
-  text-transform:uppercase;color:var(--t-1)}
-.att-b{margin:0;text-align:left;font-family:var(--mono);font-size:9.5px;
-  line-height:1.86;color:var(--t-2)}
-.att-seal{display:flex;justify-content:center;margin:var(--s4) 0 var(--s4)}
-.att-seal .eng{color:var(--nav)}
-.att-sig{text-align:left}
-.att-rule{display:block;width:76%;height:0;border-top:1px solid var(--ink);
-  margin-bottom:7px}
-.att-nm{display:block;font-family:var(--serif);font-size:1.04rem;color:var(--t-1)}
-.att-pl{display:block;margin-top:5px;font-family:var(--mono);font-size:8.5px;
-  letter-spacing:.16em;text-transform:uppercase;color:var(--t-3)}
-.att-ft{padding:var(--s3) 15px var(--s4);border-top:1px solid var(--rule)}
-.att-r{display:flex;align-items:baseline;justify-content:space-between;gap:var(--s3);
-  font-family:var(--mono);font-size:8.5px;line-height:2.15}
-.att-r span:first-child{letter-spacing:.16em;text-transform:uppercase;color:var(--nav)}
-.att-r span:last-child{letter-spacing:.04em;color:var(--t-2);text-align:right}
-
-/* ---------- les quatre temps du travail, sur le marine du contact ----------
-   La question << et ensuite ? >> se pose au moment d'envoyer un fichier.
-   La reponse est donc la, et pas dans une section de plus.                 */
-.proc{grid-column:1/-1;margin:0 0 var(--s8);padding-top:var(--s6);
-  border-top:1px solid var(--rule-d)}
-.proc-k{display:block;margin-bottom:var(--s6);font-family:var(--mono);
-  font-size:var(--mlabel);letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
-.proc-l{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:var(--s6) var(--gapc)}
-.pstep{padding-left:var(--s4);border-left:1px solid var(--rule-d)}
-.pstep-n{display:block;font-family:var(--mono);font-size:9.5px;
-  letter-spacing:.18em;color:var(--d-3)}
-.pstep-i{display:block;margin:var(--s4) 0;color:var(--d-2)}
-.pstep-h{font-family:var(--serif);font-weight:400;font-size:var(--t-md);
-  line-height:1.25;color:var(--d-1)}
-.pstep-p{margin-top:var(--s2);font-size:.95rem;line-height:1.55;color:var(--d-3)}
-.contact-section .eng-h{stroke-width:.85}
-.contact-section .eng-o{stroke-width:1.25}
-
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 @media print{
   nav,.hx-actions,.cross-cta,.faq-btn,.xb-map,.nav-index{display:none!important}
@@ -836,7 +753,6 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
    NARROWER: the margin column shrinks, then folds away
    ========================================================================= */
 @media (max-width:1039px){
-  .proc-l{grid-template-columns:repeat(2,minmax(0,1fr))}
   :root{--marg:104px;--gapc:24px;--mgut:22px}
   .footer-inner,.footer-5{grid-template-columns:1fr 1fr}
   .ct-addr{grid-template-columns:var(--marg) minmax(0,1fr)}
@@ -864,7 +780,6 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
   :root{--hxtag:2.3rem}
   .hx-body{grid-template-columns:1fr;margin-left:0;min-height:0}
   .hx-left{grid-column:1}
-  .hx-fig{grid-column:1;justify-self:start;max-width:340px;margin-top:var(--s8)}
   /* the map drops below the three things and keeps only what stays legible */
   .xb-map{right:-34%;width:170%;opacity:.55;
     -webkit-mask-image:none;mask-image:none}
@@ -951,16 +866,6 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
   .footer-inner,.footer-5{grid-template-columns:1fr;gap:var(--s5)}
   .footer-bottom{display:block}
   .footer-legal{margin-bottom:var(--s3)}
-}
-
-/* les etroits en dernier : ils doivent gagner sur les blocs 1039 / 900 */
-@media (max-width:640px){
-  .clients-section .clients-grid{grid-template-columns:1fr;column-gap:0}
-}
-@media (max-width:560px){
-  .proc-l{grid-template-columns:1fr;gap:var(--s7)}
-  .hx-fig{max-width:none}
-  .att-b{font-size:10px}
 }
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://lexoral.org/faq-fr/#webpage", "url": "https://lexoral.org/faq-fr/", "name": "Questions fréquentes", "description": "Vingt et une réponses sur la transcription juridique bilingue français-anglais : quels mots entrent au dossier, ce que nous attestons, le traitement de la preuve enregistrée en français, délais, tarifs et confidentialité.", "inLanguage": "fr-CA", "isPartOf": {"@id": "https://lexoral.org/#website"}, "publisher": {"@id": "https://lexoral.org/#organization"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Lexoral", "item": "https://lexoral.org/fr/"}, {"@type": "ListItem", "position": 2, "name": "Questions fréquentes", "item": "https://lexoral.org/faq-fr/"}]}, {"@type": "FAQPage", "@id": "https://lexoral.org/faq-fr/#faq", "inLanguage": "fr-CA", "mainEntity": [{"@type": "Question", "name": "Un témoin répond en français lors d'une déposition. Quels mots se retrouvent dans la transcription ?", "acceptedAnswer": {"@type": "Answer", "text": "Ceux de l'interprète. Dans la pratique américaine, le sténographe consigne l'interprétation anglaise et rien d'autre. Les directives officielles de sténographie judiciaire sont explicites : la langue étrangère n'est pas transcrite, elle est simplement signalée comme un témoin s'exprimant dans une langue étrangère, et corriger une interprétation ne relève pas de la fonction du sténographe. La plupart des circuits fédéraux traiteront tout de même cet anglais comme la déclaration propre du témoin, en vertu de la règle du « language conduit », mais le onzième circuit a rejeté cette règle et les autres appliquent un test à plusieurs facteurs portant notamment sur qui a fourni l'interprète et sur ses qualifications. L'attribution tient donc jusqu'à ce que quelqu'un la conteste. Ce que nous faisons, c'est transcrire le français qui dort dans l'audio, pour que le jour où c'est contesté vous répondiez avec un document plutôt qu'avec un argument."}}, {"@type": "Question", "name": "Qu'attestez-vous exactement ?", "acceptedAnswer": {"@type": "Answer", "text": "Chaque transcription Lexoral est accompagnée d'une déclaration d'exactitude signée attestant qu'elle est un compte rendu fidèle et complet de l'audio fourni, signée par le praticien qui l'a produite. Les forums diffèrent quant à la forme d'attestation qu'ils attendent, et celle qui satisfait un dépôt québécois n'est pas celle qu'attend un dépôt américain. Dites-nous où la transcription est destinée à l'ouverture du dossier et nous confirmerons ce que votre dépôt exige avant tout engagement."}}, {"@type": "Question", "name": "Pouvez-vous traiter des audiences réellement bilingues, avec alternance de langue en milieu de phrase ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui. C'est notre spécialité. L'avocat interroge en anglais, le témoin répond en français puis rebascule au milieu de sa réponse ; nous transcrivons chaque langue verbatim telle que prononcée, sans traduire ni paraphraser, en signalant le changement là où la convention du forum l'exige. Le registre du français québécois, l'usage du palais et la terminologie juridique sont pris en charge par un praticien qui travaille dans le droit dans les deux langues, et non par un glossaire appliqué après coup."}}, {"@type": "Question", "name": "Quelle valeur probante a la transcription d'un enregistrement ?", "acceptedAnswer": {"@type": "Answer", "text": "Les transcriptions d'enregistrements constituent une catégorie de preuve bien établie en soi. Pour les enregistrements en langue étrangère, les directives types au jury des tribunaux fédéraux américains traitent la transcription anglaise comme la preuve sur laquelle le jury travaille lorsque l'exactitude n'est pas en litige ; lorsqu'elle l'est, le jury tranche entre des transcriptions concurrentes en soupesant les qualifications de la personne qui a préparé chacune, la clarté de l'enregistrement et la manière dont la transcription a été produite. C'est pourquoi les nôtres sont produites et signées par un praticien nommé dont les titres sont publiés, pourquoi chaque transcription est livrée avec une page des conventions, et pourquoi les passages incertains sont signalés et horodatés plutôt que lissés."}}, {"@type": "Question", "name": "Au Québec, l'avocat peut-il interroger en anglais pendant que le témoin répond en français ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui, et aucun interprète n'est nécessaire. En vertu de l'article 133 de la Loi constitutionnelle de 1867, l'une ou l'autre langue officielle peut être utilisée devant les tribunaux du Québec, et chaque participant choisit indépendamment : l'avocat peut poser la question en anglais et le témoin répondre en français dans le même souffle. Les deux font le dossier. La transcription reproduit chaque langue telle qu'elle a été prononcée, sans traduction, parce que rien n'est traduit. C'est l'inverse du modèle américain, et c'est précisément la situation pour laquelle nous sommes faits."}}, {"@type": "Question", "name": "Travaillez-vous sur des dossiers criminels, et qu'exige le Code criminel quant au dossier ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui. Lorsqu'un accusé subit son procès dans la langue officielle de son choix en vertu de l'article 530 du Code criminel, l'article 530.1g) exige que le dossier de l'enquête préliminaire ou du procès comprenne la transcription de tout ce qui a été dit dans la langue officielle où cela a été dit, la transcription de toute interprétation vers l'autre langue officielle, et la preuve documentaire dans la langue où elle a été produite. Le dossier verbatim bilingue n'y est pas une préférence : c'est ce que la loi demande. Le principe vaut plus largement : une transcription qui convertit silencieusement la procédure dans une seule langue peut miner le droit même qui est invoqué. Nous produisons des dossiers qui gardent les deux langues distinctes et attribuables."}}, {"@type": "Question", "name": "L'interprétation lors de notre déposition était erronée. Que pouvons-nous faire maintenant ?", "acceptedAnswer": {"@type": "Answer", "text": "Commandez l'audio ou la vidéo et faites transcrire les réponses dans leur langue d'origine, alignées ligne à ligne sur la transcription anglaise officielle, afin que les divergences soient documentées plutôt qu'affirmées. Ce document soutient un errata, une requête en rectification ou un contre-interrogatoire sur le point. Agissez vite : des tribunaux américains ont sanctionné des parties ayant soulevé tardivement un problème d'interprétation, allant dans certains cas jusqu'à considérer l'objection comme abandonnée. Cela se joue à la livraison de la transcription, pas à la veille du procès."}}, {"@type": "Question", "name": "Pourquoi les titres de vos praticiens figurent-ils sur le site ?", "acceptedAnswer": {"@type": "Answer", "text": "Parce que lorsqu'une traduction est contestée, le tribunal ne soupèse pas le fournisseur : il soupèse la personne qui l'a faite. Les directives types invitent les jurés à considérer les qualifications du traducteur, la clarté de l'enregistrement et la manière dont la transcription a été produite. Une transcription issue d'un bassin anonyme n'a rien à inscrire dans cette colonne. La nôtre est produite par un praticien qui a plaidé en français devant l'Assemblée nationale du Québec et écrit des ouvrages de droit constitutionnel dans les deux langues, et qui peut en témoigner sous serment."}}, {"@type": "Question", "name": "Comment notez-vous les voix superposées, les passages inaudibles et les événements non verbaux ?", "acceptedAnswer": {"@type": "Answer", "text": "Par convention, visiblement, et jamais en devinant. Les voix superposées sont signalées comme telles plutôt que transformées en phrases propres. Les passages inaudibles portent un horodatage — [inaudible 00:14:22] — pour que vous puissiez retourner à l'audio vous-même. Les noms propres incertains sont marqués [phonétique]. Les silences d'une durée significative sont chronométrés. Chaque transcription est livrée avec une page des conventions, afin que l'avocat adverse lise les mêmes marques de la même façon."}}, {"@type": "Question", "name": "Transcrivez-vous les appels au 911 et aux services d'urgence ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui. L'audio des services d'urgence, les interrogatoires en détention et en poste de police et les enregistrements de caméras d'intervention sont un travail régulier, notamment pour les bureaux de défense publique. C'est de l'audio difficile — chevauchements, trafic radio, détresse, bruit de fond — et il est chiffré après écoute, jamais à partir d'une simple durée."}}, {"@type": "Question", "name": "Comment les pièces sont-elles traitées dans la transcription ?", "acceptedAnswer": {"@type": "Answer", "text": "Les pièces sont portées à la transcription telles qu'elles sont cotées au dossier, avec attribution au locuteur qui les annonce. Lorsqu'un dossier transfrontalier emploie la cotation québécoise des pièces d'un côté et la numérotation américaine des exhibits de l'autre, les deux figurent dans le même document, de sorte qu'aucune des deux équipes d'avocats n'ait à convertir les renvois à la main."}}, {"@type": "Question", "name": "Pourquoi ne pas utiliser des outils de transcription par IA comme Whisper ou Otter ?", "acceptedAnswer": {"@type": "Answer", "text": "La transcription par IA échoue précisément dans les conditions qui définissent une procédure juridique bilingue : alternance de langue en milieu de phrase, voix superposées, terminologie juridique, noms propres et registre du français québécois. Elle invente aussi un texte fluide là où l'audio est incertain, ce qui est le pire mode de défaillance possible dans un dossier de preuve. Plus fondamentalement, un modèle ne peut pas maintenir une chaîne de possession, ne peut pas être contre-interrogé et ne peut pas signer une déclaration d'exactitude."}}, {"@type": "Question", "name": "Qui travaille réellement sur mon dossier ?", "acceptedAnswer": {"@type": "Answer", "text": "Deux praticiens nommés : la langue et la discipline du verbatim d'un côté, la procédure et la juridiction québécoises de l'autre. Les dossiers ne sont pas distribués à un bassin de sous-traitants ni à un bureau délocalisé, et rien n'est livré comme relu qui ne l'ait pas été par une personne. Le nom sur la déclaration est celui de la personne qui a fait le travail."}}, {"@type": "Question", "name": "Combien de temps prend une transcription ?", "acceptedAnswer": {"@type": "Answer", "text": "Cinq jours ouvrables en standard, quarante-huit heures en prioritaire. Les procédures s'étalant sur plusieurs jours sont planifiées au cas par cas et, lorsqu'une audience se poursuit d'un jour à l'autre, nous pouvons livrer jour par jour afin que l'avocat n'attende pas le dossier complet pour préparer le lendemain matin."}}, {"@type": "Question", "name": "Combien coûte une transcription juridique bilingue ?", "acceptedAnswer": {"@type": "Answer", "text": "À la page, en dollars canadiens, après écoute de l'enregistrement. La durée seule ne fixe pas le prix : les voix superposées, un audio difficile et une alternance de langue soutenue changent considérablement le travail. Le prix ferme suit donc l'écoute de l'audio plutôt qu'il ne la précède. La confirmation de réception est le jour ouvrable même."}}, {"@type": "Question", "name": "Sous quelle forme la transcription est-elle livrée ?", "acceptedAnswer": {"@type": "Answer", "text": "PDF interrogeable et Word modifiable, lignes numérotées et pagination structurée, avec identification des locuteurs, page des conventions et déclaration d'exactitude signée. La livraison se fait par transfert chiffré. Les corrections de mise en forme sont sans frais."}}, {"@type": "Question", "name": "Et si nous contestons un passage après la livraison ?", "acceptedAnswer": {"@type": "Answer", "text": "Indiquez-nous la page et la ligne. Le passage est réécouté contre l'enregistrement source. Lorsque l'audio ne soutient pas ce qui a été transcrit, le passage est corrigé et la déclaration réémise sans frais. Lorsque l'audio le soutient, nous vous le disons clairement et marquons le passage comme contesté plutôt que de modifier le dossier en silence. Une transcription qui bouge sur demande n'est pas une preuve."}}, {"@type": "Question", "name": "Quels formats et quelle qualité audio acceptez-vous ?", "acceptedAnswer": {"@type": "Answer", "text": "La plupart des formats audio et vidéo, dont MP3, WAV, M4A et MP4. Si un enregistrement est difficile par endroits, nous le disons avant de chiffrer et non après avoir livré, et nous identifions les passages à risque pour que vous sachiez où le dossier est fragile."}}, {"@type": "Question", "name": "Fournissez-vous des transcriptions avec numérotation des lignes ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui. Numérotation continue des lignes, pagination structurée et identification des locuteurs, mises en forme pour un renvoi direct dans les actes de procédure et les mémoires. Une citation faite une fois tient pour toute la durée du dossier."}}, {"@type": "Question", "name": "Êtes-vous conformes à la Loi 25 et au droit québécois de la vie privée ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui. Les fichiers sont traités dans des flux à accès restreint conformes à la Loi 25, transférés par protocoles chiffrés, conservés dans des environnements à accès restreint, et jamais divulgués à des tiers sauf sur votre instruction. Les clients peuvent demander la suppression permanente des enregistrements et des transcriptions à tout moment."}}, {"@type": "Question", "name": "Les enregistrements servent-ils à de l'entraînement ou à toute autre fin externe ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. Le matériel des clients sert exclusivement au mandat de transcription. Il n'est jamais partagé, réutilisé, vendu, ni employé pour entraîner ou développer un modèle ou un système, interne ou externe."}}]}]}</script>
