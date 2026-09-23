@@ -1235,101 +1235,140 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
 .jx-a i{font-size:11px;color:#DCE4EE}
 
 /* =========================================================================
-   L'INTRO : LE STENOTYPE QUI FRAPPE << LEX v. ORAL >>
+   L'INTRO : LE NOM, DEMONTE
 
-   Le nom est deja une affaire : la loi contre le parle. L'intro ne
-   l'explique pas, elle le montre. Les touches d'un stenotype se
-   baissent, la bande de papier sort de la machine, et le nom se compose
-   lettre a lettre — le parle qui devient le dossier.
+   LEX v. ORAL est deja une affaire : la loi contre la parole. Le << v. >>
+   devient la colonne de parentheses d'un fronton de proces, et les deux
+   parties se font face de part et d'autre : LEX a gauche, ORAL a droite,
+   chacune definie sous son mot comme dans un dictionnaire. La loi ne
+   connait que l'ecrit ; le temoignage est d'abord parle. La conclusion
+   est le titre de la page : << Nous prenons acte >>.
 
-   Le clavier est la vraie disposition Ward Stone Ireland (S T K P W H R,
-   A O, *, E U, F R P B L G T S D Z, la barre des chiffres) et les frappes
-   sont la vraie dactylologie Plover : HR*P pour L, *EP pour E, KP*P pour
-   X... Un stenographe qui regarde reconnaitra ses propres touches.
+   La carte Canada / Etats-Unis revient, sur blanc. La frontiere part du
+   titre, traverse la colonne et rejoint le continent.
 
-   Sans JavaScript ou avec << moins de mouvement >>, la page montre l'etat
-   final : la bande imprimee, le nom compose. L'animation ne fait que
-   rejouer ce qui est deja la.
+   Sans mouvement ni JavaScript, tout est deja en place ; a l'ouverture,
+   les deux mots se separent, la colonne descend entre eux et la frontiere
+   se trace.
    ========================================================================= */
-.hero.hero-st{background:var(--paper);color:var(--t-2);padding:var(--s8) 0 var(--s8);
-  overflow:hidden}
-.hero.hero-st > .st-hx{display:grid;grid-template-columns:minmax(0,1.18fr) minmax(0,1fr);
-  column-gap:var(--s8);align-items:center}
-.st-left{grid-column:1;min-width:0}
-.hero.hero-st > .st-hx > .st-mach{grid-column:2}
-.st-out{display:flex;align-items:baseline;flex-wrap:nowrap;
-  font-family:var(--serif);font-size:clamp(2.1rem,4.5vw,3.9rem);line-height:1;
-  letter-spacing:.14em;text-transform:uppercase;color:var(--t-1);
-  padding-bottom:var(--s5);margin-bottom:var(--s6);border-bottom:1px solid var(--ink);
-  min-height:1.25em;white-space:pre}
-.st-out i{font-style:italic;text-transform:none;letter-spacing:0;color:var(--nav);
-  font-size:.62em;margin:0 .1em}
-.st-caret{display:inline-block;width:2px;height:.82em;margin-left:.08em;
-  background:var(--red);align-self:center}
-.hero-st .hx-h1{font-size:clamp(1.9rem,3.8vw,3.2rem);line-height:1.06;color:var(--t-1)}
-.hero-st .hx-l{grid-template-columns:2.4rem minmax(0,1fr)}
-.hero-st .hx-l i{color:var(--red);padding-top:.9em}
-.hero-st .hx-sub{color:var(--t-2);margin-top:var(--s5);max-width:31em}
-.hero-st .hx-actions{margin-top:var(--s6)}
-.hero-st .btn-primary{background:var(--ink);color:#fff;--fr:#0B1C33;--fb:#06121F}
-.hero-st .btn-primary:hover{background:var(--nav);color:#fff}
-.hero-st .btn-outline-w{background:var(--paper);color:var(--t-1);
-  box-shadow:inset 0 0 0 1px var(--ink);--fr:var(--face-r);--fb:var(--face-b)}
-.hero-st .btn-outline-w:hover{background:var(--ink);color:#fff}
-.hero-st :focus-visible{outline-color:var(--nav)}
+.hero.hero-lx{--lxg:76px;--lxw:clamp(2.5rem,5.6vw,4.6rem);
+  --h1fs:clamp(1.9rem,3.6vw,3rem);--mapw:min(60vw,840px);--line:#5F7CA6;
+  background:var(--paper);color:var(--t-2);padding:0;overflow:hidden;isolation:isolate}
+.hero.hero-lx > .lx{position:relative;display:grid;
+  grid-template-columns:minmax(0,1fr) var(--lxg) minmax(0,1fr);
+  grid-template-rows:auto auto;column-gap:0;padding-block:var(--s8)}
 
-/* la machine : la bande sort du haut, le clavier dessous */
-.st-mach{position:relative;justify-self:end;width:100%;max-width:430px}
-.st-tape{position:relative;z-index:0;width:74%;margin:0 auto;height:236px;
-  background:#FBF8F0;display:flex;flex-direction:column;justify-content:flex-end;
-  overflow:hidden;box-shadow:0 0 0 1px #E6DECB,6px 0 14px -10px rgba(0,0,0,.25);
-  -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 34%);
-          mask-image:linear-gradient(to bottom,transparent 0,#000 34%)}
-.st-tape::after{content:'';position:absolute;left:50%;top:0;bottom:0;
-  border-left:1px dashed rgba(138,28,28,.16)}
-.st-rows{position:relative;padding:0 0 10px;font-family:var(--mono);font-size:12.5px;
-  line-height:23px;color:#262626;white-space:pre;text-align:center;
-  text-shadow:0 0 .5px rgba(0,0,0,.35)}
-.st-r{height:23px}
-.st-kb{position:relative;z-index:1;margin-top:-4px;background:#fff;
-  padding:14px 14px 16px;border-top:3px solid var(--ink);
-  box-shadow:0 0 0 1px var(--rule),0 22px 40px -24px rgba(17,34,61,.5)}
-.st-g{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));
-  grid-template-rows:20px 40px 40px 8px 40px;gap:5px}
-.k{display:flex;align-items:center;justify-content:center;
-  font-family:var(--mono);font-size:12.5px;color:var(--t-1);
-  background:#F4F3EF;border-radius:4px;
-  box-shadow:inset 0 -2px 0 rgba(0,0,0,.07),0 0 0 1px #D6D1C6;
-  transition:background .09s,color .09s,transform .09s,box-shadow .09s}
-.k.on{background:var(--ink);color:#fff;transform:translateY(1px);
-  box-shadow:inset 0 0 0 1px var(--ink)}
-.k-n{font-size:10px;letter-spacing:.34em;color:var(--t-3)}
-.st-lbl{display:flex;justify-content:space-between;margin-top:10px;
-  font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--t-3)}
+/* la colonne : le << v. >> du nom, sur toute la hauteur du bandeau */
+.lx-rail{position:absolute;grid-column:2 / 3;grid-row:1 / 3;left:0;right:0;
+  top:calc(var(--s8) * -1);bottom:calc(var(--s8) * -1);z-index:0;
+  display:flex;flex-direction:column;align-items:center;overflow:hidden;
+  font-family:var(--mono);font-size:clamp(20px,1.9vw,27px);line-height:1.34;
+  color:var(--nav);opacity:.55;pointer-events:none;user-select:none;
+  -webkit-mask-image:linear-gradient(to bottom,transparent,#000 12%,#000 86%,transparent);
+          mask-image:linear-gradient(to bottom,transparent,#000 12%,#000 86%,transparent)}
+.lx-rail span{display:block}
+
+/* les deux parties, face a face */
+.lx-tc{grid-column:1 / -1;grid-row:1;position:relative;z-index:1;display:grid;
+  grid-template-columns:minmax(0,1fr) var(--lxg) minmax(0,1fr);margin:0}
+.lx-e{min-width:0}
+.lx-e1{grid-column:1;text-align:right}
+.lx-e2{grid-column:3;text-align:left}
+.lx-w{position:relative;font-family:var(--serif);font-size:var(--lxw);line-height:1;
+  font-weight:400;letter-spacing:.14em;text-transform:uppercase;color:var(--t-1);
+  padding-bottom:var(--s5);margin-bottom:var(--s5)}
+.lx-e1 .lx-t{margin-right:-.14em}
+.lx-t{display:inline-block}
+.lx-w::after{content:'';position:absolute;left:0;right:0;bottom:0;
+  border-bottom:1px solid var(--ink);transform-origin:100% 50%}
+.lx-e2 .lx-w::after{transform-origin:0 50%}
+.lx-caret{display:inline-block;width:2px;height:.8em;margin-left:.02em;
+  background:var(--red);vertical-align:-.02em}
+.lx-g{margin:0 0 var(--s2);font-size:1.02rem;line-height:1.45;color:var(--t-3)}
+.lx-g b{font-weight:400;font-style:italic;color:var(--red);margin-right:.3em}
+.lx-g i{color:var(--t-1)}
+.lx-d{margin:0;font-size:1.16rem;line-height:1.5;color:var(--t-1);max-width:17em;
+  text-wrap:balance}
+.lx-e1 .lx-d{margin-left:auto}
+
+/* la conclusion, a gauche de la colonne */
+.lx-low{grid-column:1;grid-row:2;position:relative;min-width:0;margin-top:var(--s7)}
+.hero-lx .hx-h1{font-size:var(--h1fs);line-height:1.06;color:var(--t-1)}
+.hero-lx .hx-l{grid-template-columns:2.3rem minmax(0,1fr)}
+.hero-lx .hx-l i{color:var(--red);padding-top:.9em}
+/* la premiere ligne du titre se prolonge en filet jusqu'a la colonne ; de
+   l'autre cote, le meme filet devient la frontiere                      */
+.hero-lx .hx-l:first-child{grid-template-columns:2.3rem auto minmax(0,1fr)}
+.hero-lx .hx-l:first-child::after{content:'';grid-column:3;align-self:start;height:2px;
+  margin:calc(var(--h1fs) * .6 - 1px) 0 0 .32em;background:var(--line);transform-origin:0 50%}
+.hero-lx .hx-sub{color:var(--t-2);margin-top:var(--s5);max-width:29em}
+.hero-lx .hx-actions{margin-top:var(--s6)}
+.hero-lx .btn-primary{background:var(--ink);color:#fff;--fr:#0B1C33;--fb:#06121F}
+.hero-lx .btn-primary:hover{background:var(--nav);color:#fff}
+.hero-lx .btn-outline-w{background:var(--paper);color:var(--t-1);
+  box-shadow:inset 0 0 0 1px var(--ink);--fr:var(--face-r);--fb:var(--face-b)}
+.hero-lx .btn-outline-w:hover{background:var(--ink);color:#fff}
+.hero-lx :focus-visible{outline-color:var(--nav)}
+
+/* la carte, sur blanc : la frontiere tombe a hauteur de la premiere ligne
+   du titre et file vers la droite, a travers la colonne               */
+.hero-lx .xb-map{position:absolute;z-index:-1;right:auto;transform:none;
+  width:var(--mapw);left:calc(100% - 2px - var(--mapw) * .2);
+  top:calc(var(--h1fs) * .6 - var(--mapw) * .1697);
+  -webkit-mask-image:linear-gradient(to right,transparent 0,transparent 6%,#000 19%);
+          mask-image:linear-gradient(to right,transparent 0,transparent 6%,#000 19%)}
+.hero-lx .xb-land{stroke:rgba(17,34,61,.15)}
+/* la frontiere reprend exactement la ou le filet du titre s'arrete */
+.hero-lx .xb-line{stroke:var(--line);stroke-width:2;clip-path:inset(0 0 0 22%)}
+
 @media (prefers-reduced-motion:no-preference){
-  .st-caret{animation:st-blink 1.05s steps(1) infinite}
+  .lx-rail span{animation:tr-drop .5s cubic-bezier(.2,.7,.3,1) both;
+    animation-delay:calc(.2s + var(--i,0) * 40ms)}
+  .lx-e1 .lx-t{animation:lx-part-l 1.1s cubic-bezier(.2,.7,.25,1) .15s both}
+  .lx-e2 .lx-t{animation:lx-part-r 1.1s cubic-bezier(.2,.7,.25,1) .15s both}
+  .lx-w::after{animation:tr-wipe .9s cubic-bezier(.3,.8,.35,1) .45s both}
+  .lx-g,.lx-d{animation:tr-rise .6s cubic-bezier(.2,.7,.3,1) both}
+  .lx-e1 .lx-g{animation-delay:.75s}
+  .lx-e1 .lx-d{animation-delay:.85s}
+  .lx-e2 .lx-g{animation-delay:.95s}
+  .lx-e2 .lx-d{animation-delay:1.05s}
+  .lx-caret{animation:st-blink 1.05s steps(1) infinite}
+  .hero-lx .hx-l:first-child::after{animation:tr-wipe .45s cubic-bezier(.4,.1,.6,1) .95s both}
+  .hero-lx .xb-line{animation:lx-draw 1.8s cubic-bezier(.3,.1,.3,1) 1.05s both}
 }
+@keyframes lx-part-l{from{transform:translateX(calc(var(--lxg) / 2 - .07em))}to{transform:none}}
+@keyframes lx-part-r{from{transform:translateX(calc(var(--lxg) / -2 + .07em))}to{transform:none}}
+@keyframes lx-draw{from{clip-path:inset(0 100% 0 22%)}to{clip-path:inset(0 0 0 22%)}}
 @keyframes st-blink{50%{opacity:0}}
 
 @media (max-width:1039px){
-  .hero.hero-st > .st-hx{column-gap:var(--s6)}
-  .st-tape{height:200px}
+  .hero.hero-lx{--lxg:60px}
+  .lx-d{font-size:1.06rem}
 }
+/* sous 900 px : les deux parties restent face a face, la colonne ne court
+   plus que le long de leurs definitions, et la carte passe sous les
+   boutons, entiere                                                      */
 @media (max-width:900px){
-  .hero.hero-st > .st-hx{grid-template-columns:1fr;row-gap:var(--s7)}
-  .hero.hero-st > .st-hx > .st-mach{grid-column:1}
-  .st-mach{justify-self:center;max-width:400px}
-  .hero-st .hx-l{grid-template-columns:2.1rem minmax(0,1fr)}
+  .hero.hero-lx{--lxg:40px;--lxw:clamp(1.85rem,8.2vw,3rem);--h1fs:clamp(1.9rem,6.2vw,2.6rem)}
+  .lx-rail{grid-row:1 / 2;top:-.3em;bottom:0;font-size:17px;line-height:1.4;
+    -webkit-mask-image:linear-gradient(to bottom,#000 70%,transparent);
+            mask-image:linear-gradient(to bottom,#000 70%,transparent)}
+  .lx-w{padding-bottom:var(--s4);margin-bottom:var(--s4)}
+  .lx-g{font-size:.9rem}
+  .lx-d{font-size:.98rem;line-height:1.45}
+  .lx-low{grid-column:1 / -1;margin-top:var(--s7)}
+  .hero-lx .hx-l,.hero-lx .hx-l:first-child{grid-template-columns:2.1rem minmax(0,1fr)}
+  .hero-lx .hx-l:first-child::after{content:none}
+  .hero-lx .xb-line{clip-path:none;animation:none}
+  .hero-lx .xb-land{stroke:rgba(17,34,61,.22)}
+  .hero-lx .xb-map{position:relative;z-index:0;display:block;left:auto;top:auto;
+    width:100%;max-width:620px;margin:var(--s7) 0 0 auto;
+    -webkit-mask-image:none;mask-image:none}
 }
 @media (max-width:520px){
-  .st-out{font-size:2rem;letter-spacing:.1em}
-  .st-g{grid-template-rows:18px 34px 34px 6px 34px;gap:4px}
-  .k{font-size:11px}
-  .st-tape{height:170px;width:86%}
-  .st-rows{font-size:11px;line-height:21px}
-  .st-r{height:21px}
+  .lx-g b{display:block;margin:0 0 2px}
 }
+
 /* les filets et les fleches du schema etaient tires en blanc pour le marine :
    sur papier ils disparaissaient                                           */
 .why-section .dgm-rule,.why-section .dgm-sep,.why-section .dgm-box,
@@ -1342,13 +1381,8 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
 .why-section .dgm-arrow.dgm-ag,.why-section .dgm-ag,
 .cross-section:has(.xb-probs) .dgm-ag{stroke:var(--red)}
 /* la marge retrecit sous 1040 px : les etiquettes reprennent leur corps d'avant
-   pour ne pas toucher le filet ; et sous 900 px le hero repasse en flux
-   normal, comme tous les conteneurs du site                                 */
+   pour ne pas toucher le filet                                              */
 @media (max-width:1039px){:root{--mlabel:9.5px}}
-@media (max-width:900px){
-  .hero.hero-st > .st-hx{display:block}
-  .hero.hero-st > .st-hx > .st-mach{margin:var(--s7) auto 0}
-}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://lexoral.org/recorded-evidence/#webpage", "url": "https://lexoral.org/recorded-evidence/", "name": "French recordings as evidence", "description": "Forensic transcription and transcription-translation of French-language recorded evidence — intercepts, body-worn and dash camera audio, 911 calls, covert recordings, custodial interviews and voicemail. The source language is transcribed first; the translation is aligned to it, never substituted for it.", "inLanguage": "en-CA", "isPartOf": {"@id": "https://lexoral.org/#website"}, "publisher": {"@id": "https://lexoral.org/#organization"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Lexoral", "item": "https://lexoral.org/"}, {"@type": "ListItem", "position": 2, "name": "French recordings as evidence", "item": "https://lexoral.org/recorded-evidence/"}]}, {"@type": "Service", "@id": "https://lexoral.org/recorded-evidence/#service", "name": "French recordings as evidence", "serviceType": "Forensic transcription and transcription-translation of recorded evidence", "provider": {"@id": "https://lexoral.org/#organization"}, "inLanguage": "en-CA", "url": "https://lexoral.org/recorded-evidence/", "availableLanguage": ["fr-CA", "en-CA"], "areaServed": [{"@type": "Country", "name": "Canada"}, {"@type": "Country", "name": "United States"}]}]}</script>
 </head>
