@@ -867,6 +867,318 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
   .footer-bottom{display:block}
   .footer-legal{margin-bottom:var(--s3)}
 }
+
+/* =========================================================================
+   LE MOBILIER DE LA TRANSCRIPTION
+
+   Tout ce qui suit existe sur une vraie piece : la colonne de parentheses
+   du fronton federal americain, le tampon de piece, le papier regle a
+   double filet, les barres de caviardage. Rien n'est un ornement invente :
+   ce sont les objets du metier, employes a leur echelle.
+
+   Les mouvements sont trois, et tous discrets : une montee a l'apparition,
+   la cascade des parentheses, l'essuyage des barres. Ils ne se declenchent
+   que si le visiteur n'a pas demande moins de mouvement, et la page reste
+   entierement lisible sans JavaScript.
+   ========================================================================= */
+
+/* ---------- la colonne de parentheses, dans le tiers droit du hero -------
+   C'est le fronton d'un dossier federal : MARIE TREMBLAY, ) No. 3:26-cv...
+   Le tiers droit etait reserve a la frontiere et restait vide.          */
+.hx-rail{position:absolute;top:0;bottom:0;left:min(63%,880px);z-index:0;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  font-family:var(--mono);font-size:clamp(20px,2vw,30px);line-height:1.3;
+  color:var(--nav);opacity:.52;pointer-events:none;user-select:none;
+  -webkit-mask-image:linear-gradient(to bottom,transparent,#000 14%,#000 86%,transparent);
+          mask-image:linear-gradient(to bottom,transparent,#000 14%,#000 86%,transparent)}
+.hx-rail span{display:block}
+
+/* ---------- le tampon de piece ----------
+   Les etiquettes de marge deviennent ce qu'elles sont : des marques
+   apposees sur une piece, pas des mots flottants.                      */
+.cov-c,.idx-k{white-space:nowrap}
+.cov-band .cov-c,.idx-k{display:inline-block;padding:5px 9px 4px;
+  box-shadow:inset 0 0 0 1px var(--nav-f);color:var(--nav);
+  background:var(--leaf);line-height:1.3}
+.idx-k{text-align:center;justify-self:end;margin-right:var(--mgut);padding-right:9px}
+.idx-a:hover .idx-k{box-shadow:inset 0 0 0 1px var(--nav);background:var(--paper)}
+.cov-band .cov-c{margin-top:.15em}
+
+/* ---------- le papier regle : les trois lectures d'une reponse ----------
+   Une transcription porte des numeros de ligne et un double filet. Les
+   numeros sont ceux de l'extrait, pas un decor : chaque ligne du <pre>
+   est comptee.                                                          */
+.wy-p{counter-reset:wl}
+.wy-p .wl{display:block;counter-increment:wl;position:relative;
+  padding-left:44px;min-height:1.95em}
+.wy-p .wl::before{content:counter(wl,decimal-leading-zero);
+  position:absolute;left:0;top:0;width:26px;text-align:right;
+  font-size:10px;letter-spacing:.06em;color:var(--d-3);opacity:.7}
+.wy-p{position:relative;padding-left:0}
+.wy-p::before{content:'';position:absolute;left:33px;top:0;bottom:var(--s5);
+  border-left:1px solid var(--rule-d);box-shadow:1.5px 0 0 var(--rule-d)}
+.wy-good .wy-p::before{border-left-color:var(--gold-f);box-shadow:1.5px 0 0 var(--gold-f)}
+.wy-good .wy-p .wl::before{color:var(--gold);opacity:.8}
+
+/* ---------- le caviardage : ce qui est retire, et pourquoi ---------- */
+.rdx{grid-column:1/-1;margin:var(--s8) 0 0;padding-top:var(--s6);
+  border-top:3px double var(--ink)}
+.rdx-hd{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--s3);
+  align-items:baseline;font-family:var(--mono);font-size:10px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--t-3);padding-bottom:var(--s5)}
+.rdx-hd em{font-style:normal;color:#8A1C1C}
+.rdx-b{display:grid;grid-template-columns:var(--marg) minmax(0,1fr) minmax(0,15em);
+  column-gap:var(--gapc);font-family:var(--mono);font-size:13px;line-height:2.2}
+.rdx-b .n{grid-column:1;text-align:right;padding-right:var(--mgut);
+  font-size:10px;color:var(--t-3)}
+.rdx-b .t{grid-column:2;white-space:pre-wrap;color:var(--t-2)}
+.rdx-b .t b{font-weight:400;color:var(--nav)}
+.rdx-b .t i{font-style:normal;color:var(--t-3)}
+.rdx-b .k{grid-column:3;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--t-3);border-left:1px solid var(--rule);padding-left:var(--s4)}
+.bar{display:inline-block;vertical-align:-.2em;height:1.05em;background:var(--t-1);
+  border-radius:1px;transform-origin:0 50%}
+.rdx-n{grid-column:2;margin:var(--s6) 0 0;font-size:.95rem;line-height:1.6;
+  color:var(--t-3);max-width:var(--measure)}
+
+/* =========================================================================
+   LES TROIS MOUVEMENTS
+   Sans JavaScript, rien ne s'anime et tout reste visible : l'animation
+   n'est declenchee que par la classe que l'observateur ajoute.
+   ========================================================================= */
+@media (prefers-reduced-motion:no-preference){
+  .reveal.visible{animation:tr-rise .55s cubic-bezier(.2,.7,.3,1) both}
+  .hx-rail span{animation:tr-drop .5s cubic-bezier(.2,.7,.3,1) both;
+    animation-delay:calc(var(--i,0) * 55ms)}
+  .rdx.visible .bar{animation:tr-wipe .42s cubic-bezier(.3,.8,.35,1) both;
+    animation-delay:calc(.12s + var(--i,0) * 90ms)}
+  .idx-g{transition:transform .18s cubic-bezier(.2,.7,.3,1)}
+  .idx-a:hover .idx-g{transform:translateX(5px)}
+}
+@keyframes tr-rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes tr-drop{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:none}}
+@keyframes tr-wipe{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+@media (max-width:900px){
+  .hx-rail{display:none}
+  .rdx-b{grid-template-columns:1fr}
+  .rdx-b .n{grid-column:1;text-align:left;padding:var(--s4) 0 0}
+  .rdx-b .t,.rdx-b .k,.rdx-n{grid-column:1}
+  .rdx-b .k{border-left:0;padding-left:0;padding-bottom:var(--s3)}
+  .wy-p .wl{padding-left:34px}
+  .wy-p::before{left:25px}
+}
+
+/* =========================================================================
+   V3 — LE BLANC, LE MARINE EN BANDEAU, LE ROUGE EN SECOND
+
+   Reference donnee : << Principles of Freedom >>, Colonial Williamsburg,
+   2006. Un bandeau sombre et grene pour le titre, une barre rouge pour les
+   chapitres avec leur date dessous, et tout le reste sur fond clair.
+
+   Le bleu ne porte plus de texte courant. Il porte des titres blancs, des
+   bandeaux et les panneaux de pieces. Le texte se lit en gris-noir sur
+   blanc. Le rouge sang-de-boeuf est le second accent : les onglets, les
+   numeros, la citation.
+
+   Rien ici n'imite un site gouvernemental : pas de sceau, pas de bandeau
+   << site officiel >>, pas d'embleme. On emprunte le registre
+   institutionnel, pas l'identite de qui que ce soit.
+   ========================================================================= */
+:root{
+  --paper:#FFFFFF; --leaf:#F6F5F1;
+  --t-1:#1B1B1B; --t-2:#3D3D3D; --t-3:#5E5E5E;
+  --rule:#DEDBD2; --key:#E9E7E1;
+  --red:#8A1C1C; --red-d:#6E1616;
+  /* le grain du bandeau : un bruit blanc a 5 %, calcule, pas une image */
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+::selection{background:var(--ink);color:#fff}
+
+/* ---------- la barre de titre : bleu, titre blanc ----------
+   Chaque section s'ouvre sur une barre marine, le libelle en capitales
+   espacees, le numero de ligne en or. C'est le seul endroit ou le bleu
+   porte des lettres, et ce sont des titres.                          */
+.section-tag,
+.why-section .section-tag,.cross-section .section-tag,.contact-section .section-tag{
+  background:var(--ink);color:#fff;border-bottom:0;
+  padding:12px 18px 11px;margin-top:0;
+  font-family:var(--serif);font-size:.78rem;letter-spacing:.26em}
+.section-tag::before,
+.why-section .section-header .section-tag::before,
+.cross-section .section-header .section-tag::before,
+.contact-section .section-header .section-tag::before{
+  font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--gold)}
+.section-tag .st-br,
+.why-section .section-tag .st-br,.cross-section .section-tag .st-br,
+.contact-section .section-tag .st-br{color:var(--gold)}
+/* sur un fond deja marine, la barre s'eclaircit a peine */
+.contact-section .section-tag,.pol-head .section-tag,
+.cross-section:not(:has(.xb-probs)) .section-tag{background:rgba(255,255,255,.07)}
+
+/* ---------- le bandeau de tete : marine grene, titre blanc ---------- */
+.hero,.pol-head{background:var(--ink) var(--grain);color:var(--d-2)}
+.hx-h1,.pol-head .pol-title{color:#fff}
+.hx-l i{color:var(--gold)}
+.hx-sub,.pol-head .pol-sub{color:var(--d-2)}
+.pol-head{padding:var(--s8) 0 var(--s8)}
+.xb-land{stroke:rgba(237,242,248,.12)}
+.xb-line{stroke:rgba(255,190,46,.62)}
+.xb-t{fill:rgba(237,242,248,.16)}
+.hx-rail{color:var(--gold);opacity:.5}
+.hero .btn-primary{background:var(--gold);color:var(--ink);--fr:#C08D16;--fb:#8C650B}
+.hero .btn-primary:hover{background:#FFD16B;color:var(--ink)}
+.hero .btn-outline-w{background:transparent;color:#fff;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.72);--fr:rgba(0,0,0,.34);--fb:rgba(0,0,0,.5)}
+.hero .btn-outline-w:hover{background:#fff;color:var(--ink)}
+.hero :focus-visible,.pol-head :focus-visible{outline-color:var(--gold)}
+
+/* ---------- la barre des juridictions : rouge dessus, texte de loi dessous
+   Exactement la barre de la reference : un onglet par chapitre, et sous
+   chacun sa << date >> — ici la regle qui gouverne le dossier.        */
+.jx{background:var(--ink);border-bottom:1px solid var(--ink)}
+.jx-in{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.jx-a{display:block;text-align:center;color:#fff;position:relative}
+.jx-a b{display:block;position:relative;font-family:var(--serif);font-weight:600;font-size:.78rem;
+  letter-spacing:.22em;text-transform:uppercase;line-height:1.2;
+  background:var(--red);padding:15px 10px 14px;
+  box-shadow:inset 1px 0 0 rgba(0,0,0,.28),inset -1px 0 0 rgba(255,255,255,.08)}
+.jx-a b::after{content:'';position:absolute;left:50%;top:100%;margin-left:-6px;
+  border:6px solid transparent;border-top-color:var(--red);z-index:1}
+.jx-a i{display:block;font-style:normal;font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.05em;line-height:1.5;color:var(--d-2);padding:12px 10px 11px}
+.jx-a:hover b,.jx-a:focus-visible b{background:var(--red-d)}
+.jx-a:hover b::after,.jx-a:focus-visible b::after{border-top-color:var(--red-d)}
+.jx-a:hover i{color:#fff}
+.jx-a:focus-visible{outline:2px solid var(--gold);outline-offset:-2px}
+/* le rouge doit courir d'un bord a l'autre, comme la reference */
+.jx{background:linear-gradient(var(--red) 0 calc(.78rem * 1.2 + 29px),var(--ink) 0)}
+
+/* ---------- un dossier, deux formes : le fronton et l'en-tete ---------- */
+.cov-pair{grid-column:1/-1;margin:0 0 var(--s8);
+  --d-1:#FFFFFF;--d-2:#C9D4E3;--d-3:#98A9BF;--rule-d:rgba(237,242,248,.2);
+  background:var(--ink) var(--grain);color:var(--d-2)}
+.cp-hd{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--s3);
+  padding:13px 22px 12px;border-bottom:1px solid var(--rule-d);
+  font-family:var(--serif);font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;color:#fff}
+.cp-hd em{font-style:normal;font-family:var(--mono);font-size:10px;letter-spacing:.16em;
+  color:var(--gold)}
+.cp-g{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,1fr)}
+.cp-us,.cp-qc{padding:26px 26px 30px;font-family:var(--mono);font-size:13px;
+  line-height:1.95;color:var(--d-1);min-width:0}
+.cp-qc{border-left:1px solid var(--rule-d)}
+.cp-k{display:block;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:18px}
+.cp-court{text-align:center;margin-bottom:16px}
+.cp-court b{display:block;font-weight:400;letter-spacing:.18em;text-transform:uppercase}
+.cp-court i{display:block;font-style:normal;font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--d-3)}
+.cp-cap{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,.86fr)}
+.cp-l p,.cp-r p{margin:0;white-space:nowrap;min-height:1.95em}
+.cp-l{padding-right:12px}
+.cp-l .ind{padding-left:4ch}
+.cp-l .v{padding-left:1.5ch}
+.cp-l .rule{border-bottom:1px solid var(--d-2);min-height:.98em;margin-bottom:.97em}
+.cp-rail{display:flex;flex-direction:column;color:var(--gold)}
+.cp-rail span{display:block}
+.cp-r{padding-left:16px;color:var(--d-2)}
+.cp-r b{font-weight:400;color:var(--d-1)}
+.cp-qtop{display:grid;grid-template-columns:1fr auto;gap:12px;padding-bottom:12px;
+  border-bottom:1px solid var(--d-2)}
+.cp-qtop div:last-child{text-align:right}
+.cp-qtop b{display:block;font-weight:400;letter-spacing:.16em;text-transform:uppercase}
+.cp-qtop i{display:block;font-style:normal;font-size:11.5px;letter-spacing:.06em;color:var(--d-3)}
+.cp-no{padding:9px 0;border-bottom:1px solid var(--d-2);letter-spacing:.1em;color:var(--gold)}
+.cp-p{padding-top:16px}
+.cp-p b{display:block;font-weight:400;letter-spacing:.12em}
+.cp-p i{display:block;font-style:normal;padding-left:6ch;font-size:11px;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--d-3)}
+.cp-p .c{display:block;padding:6px 0;letter-spacing:.3em;color:var(--gold)}
+
+/* ---------- pourquoi : fond blanc, et les pieces dans un panneau marine ----
+   Le texte courant de la section passe en sombre sur blanc : on
+   reaffecte les variables de la section plutot que de reecrire chaque
+   regle. Le schema et les trois pieces, eux, restent sur marine — c'est
+   la photo 2, approuvee.                                               */
+.why-section,.cross-section:has(.xb-probs){background:var(--paper);color:var(--t-2);
+  --d-1:var(--t-1);--d-2:var(--t-2);--d-3:var(--t-3);
+  --rule-d:var(--rule);--gold-f:var(--nav-f)}
+.why-section .wy-pn,.cross-section:has(.xb-probs) .xb-prob::before{color:var(--red)}
+.why-section ::selection,.cross-section:has(.xb-probs) ::selection{background:var(--ink);color:#fff}
+.why-section > .container,.cross-section:has(.xb-probs) > .container{
+  background-image:linear-gradient(to right,var(--nav-f) 0 1px,transparent 1px 3px,var(--nav-f) 3px 4px,transparent 4px)}
+.why-section .dgm,.why-section .wy-diff,.cross-section:has(.xb-probs) .dgm{
+  --d-1:#FFFFFF;--d-2:#C9D4E3;--d-3:#98A9BF;
+  --rule-d:rgba(237,242,248,.2);--gold-f:rgba(255,190,46,.42);
+  background:var(--ink) var(--grain);color:var(--d-2);position:relative;z-index:1}
+.why-section .dgm,.cross-section:has(.xb-probs) .dgm{grid-column:1/-1;
+  margin:var(--s7) 0 0;padding:var(--s6) var(--s6) var(--s5)}
+.cross-section:has(.xb-probs) .dgm{margin-bottom:var(--s7)}
+.why-section .wy-diff{display:block;grid-column:1/-1;margin:0 0 var(--s8);
+  padding:0 var(--s6) var(--s5)}
+.why-section .wy-col:last-of-type{margin-bottom:0;border-bottom:0}
+.why-section .wy-col::before{color:var(--d-3)}
+.why-section .wy-good::before{color:var(--gold)}
+
+/* ---------- au dossier : la citation en rouge, comme le preambule ------- */
+.letter-bd p{color:var(--red);font-style:italic}
+
+@media (max-width:1039px){
+  .jx-in{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .jx{background:var(--ink)}
+  .cp-g{grid-template-columns:1fr}
+  .cp-qc{border-left:0;border-top:1px solid var(--rule-d)}
+}
+@media (max-width:900px){
+  .why-section .dgm,.why-section .wy-diff,.cross-section:has(.xb-probs) .dgm{
+    margin-left:calc(-1 * var(--pad));margin-right:calc(-1 * var(--pad));
+    padding-left:var(--pad);padding-right:var(--pad)}
+  .cov-pair{margin-left:calc(-1 * var(--pad));margin-right:calc(-1 * var(--pad))}
+  .cp-us,.cp-qc{padding:22px var(--pad) 24px;font-size:11px}
+  .cp-hd{padding:12px var(--pad)}
+}
+@media (max-width:520px){
+  .jx-a b{font-size:.7rem;letter-spacing:.16em;padding:13px 6px 12px}
+  .jx-a i{font-size:9.5px;padding:10px 6px}
+  .cp-us{font-size:10px}
+}
+
+/* ---------- ajustements v3 ---------- */
+/* chaque onglet porte son fond : le degrade de la barre ne suffit pas a
+   dire au navigateur (et aux lecteurs d'ecran a fort contraste) sur quoi
+   le texte est pose                                                      */
+.jx-a{background-color:var(--ink)}
+
+/* la page transfrontaliere est passee sur blanc : l'or ne s'y lit plus,
+   le rouge prend sa place                                                */
+.cross-section:has(.xb-probs) .xg-k,
+.cross-section:has(.xb-probs) .xb-gets li::before,
+.cross-section:has(.xb-probs) .xbt-head span,
+.cross-section:has(.xb-probs) .xb-lead em{color:var(--red)}
+.cross-section:has(.xb-probs) .xbt-head{border-bottom-color:rgba(138,28,28,.3)}
+
+/* ---------- clientele : un index en deux colonnes ----------
+   Huit lignes seules sur toute la largeur faisaient la partie la plus
+   creuse de la page. En deux colonnes c'est une table des matieres, et
+   le tiers de la hauteur.                                                */
+.clients-section .clients-grid{display:grid;grid-column:2;
+  grid-template-columns:repeat(2,minmax(0,1fr));column-gap:var(--s7);
+  border-top:1px solid var(--rule)}
+.clients-section .client-card{grid-column:auto;display:block;
+  padding:var(--s4) 0;border-top:0;border-bottom:1px solid var(--rule)}
+.clients-section .client-desc{grid-column:auto;margin-top:6px}
+@media (max-width:640px){
+  .clients-section .clients-grid{grid-template-columns:1fr;column-gap:0}
+}
+
+/* ---------- couverture : la meme barre de titre que partout ailleurs ---- */
+.cov-head{display:block;border-top:0;padding:0 0 var(--s6)}
+.cov-head .cov-k{display:block;background:var(--ink);color:#fff;text-align:left;
+  padding:12px 18px 11px;margin:0 0 var(--s6);
+  font-family:var(--serif);font-size:.78rem;letter-spacing:.26em}
+.cov-head .cov-k .st-br{display:inline;color:var(--gold);margin:0 .45em}
+.cov-head .cov-lead{margin-left:calc(var(--marg) + var(--gapc))}
+@media (max-width:900px){.cov-head .cov-lead{margin-left:0}}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://lexoral.org/preuve-enregistree/#webpage", "url": "https://lexoral.org/preuve-enregistree/", "name": "La preuve enregistrée en français", "description": "Transcription judiciaire et transcription-traduction de preuve enregistrée en français — écoutes légales, caméras corporelles et de bord, appels au 911, enregistrements clandestins, interrogatoires et messages vocaux. La langue source est transcrite d’abord ; la traduction lui est alignée, jamais substituée.", "inLanguage": "fr-CA", "isPartOf": {"@id": "https://lexoral.org/#website"}, "publisher": {"@id": "https://lexoral.org/#organization"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Lexoral", "item": "https://lexoral.org/fr/"}, {"@type": "ListItem", "position": 2, "name": "La preuve enregistrée en français", "item": "https://lexoral.org/preuve-enregistree/"}]}, {"@type": "Service", "@id": "https://lexoral.org/preuve-enregistree/#service", "name": "La preuve enregistrée en français", "serviceType": "Forensic transcription and transcription-translation of recorded evidence", "provider": {"@id": "https://lexoral.org/#organization"}, "inLanguage": "fr-CA", "url": "https://lexoral.org/preuve-enregistree/", "availableLanguage": ["fr-CA", "en-CA"], "areaServed": [{"@type": "Country", "name": "Canada"}, {"@type": "Country", "name": "United States"}]}]}</script>
 </head>
