@@ -1179,6 +1179,176 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
 .cov-head .cov-k .st-br{display:inline;color:var(--gold);margin:0 .45em}
 .cov-head .cov-lead{margin-left:calc(var(--marg) + var(--gapc))}
 @media (max-width:900px){.cov-head .cov-lead{margin-left:0}}
+
+/* =========================================================================
+   V4 — PLUS DE TEXTE SUR LE MARINE
+
+   Le panneau marine avec ses petites lettres grises ne se lisait pas.
+   Regle desormais : le marine porte des titres blancs courts, jamais de
+   texte a lire. Le schema, les trois pieces et le fronton passent sur
+   papier clair, en encre sombre — ce qu'ils sont d'ailleurs en vrai : une
+   transcription, un acte de procedure, ca s'imprime sur du blanc.
+   ========================================================================= */
+:root{--mlabel:10.5px}
+
+/* ---------- pourquoi : le schema et les pieces sur papier ---------- */
+.why-section .dgm,.why-section .wy-diff,.cross-section:has(.xb-probs) .dgm{
+  --d-1:var(--t-1);--d-2:var(--t-2);--d-3:var(--t-3);
+  --rule-d:var(--rule);--gold-f:var(--nav-f);
+  background:var(--leaf);color:var(--t-2);box-shadow:inset 0 0 0 1px var(--rule)}
+.why-section .wy-diff{box-shadow:inset 1px 0 0 var(--rule),inset -1px 0 0 var(--rule),inset 0 -1px 0 var(--rule)}
+.why-section .dgm{box-shadow:inset 1px 0 0 var(--rule),inset -1px 0 0 var(--rule),inset 0 1px 0 var(--rule)}
+/* le rang Lexoral du schema : l'or ne se lit pas sur papier, le rouge oui */
+.why-section .dgm-bg,.cross-section:has(.xb-probs) .dgm-bg{stroke:var(--red)}
+.why-section .dgm-tg,.cross-section:has(.xb-probs) .dgm-tg{fill:var(--red)}
+.why-section .dgm-ag,.cross-section:has(.xb-probs) .dgm-ag{stroke:var(--red)}
+.why-section .dgm-k,.cross-section .dgm-k{background:#fff;color:var(--t-2);
+  box-shadow:inset 0 0 0 1px var(--rule);
+  --face-r:rgba(17,34,61,.20);--face-b:rgba(17,34,61,.34)}
+.why-section .wy-good::before,.why-section .wy-good .wy-k,
+.why-section .wy-good .wy-p .wl::before{color:var(--red)}
+.why-section .wy-good .wy-p::before{border-left-color:rgba(138,28,28,.35);
+  box-shadow:1.5px 0 0 rgba(138,28,28,.35)}
+.why-section .wy-k{font-size:10.5px;color:var(--t-2)}
+.why-section .wy-p{font-size:13.5px;color:var(--t-1)}
+.why-section .wy-p .wl::before{opacity:1;color:var(--t-3)}
+.why-section .wy-n{color:var(--t-2)}
+.why-section .dgm-note{fill:var(--t-3)}
+
+/* ---------- un dossier, deux formes : une feuille, pas un panneau ---------- */
+.cov-pair{--d-1:var(--t-1);--d-2:var(--t-2);--d-3:var(--t-3);--rule-d:var(--rule);
+  background:#fff;color:var(--t-2);
+  box-shadow:0 0 0 1px var(--rule),0 16px 32px -22px rgba(17,34,61,.4)}
+.cp-hd{background:var(--ink);border-bottom:0}
+.cp-k,.cp-no,.cp-p .c{color:var(--red)}
+.cp-rail{color:var(--nav)}
+.cp-l .rule{border-bottom-color:var(--t-1)}
+.cp-qtop,.cp-no{border-bottom-color:var(--t-1)}
+.cp-qc{border-left-color:var(--rule)}
+.cp-us,.cp-qc{font-size:13.5px}
+.cp-court i,.cp-qtop i,.cp-p i{color:var(--t-3)}
+@media (max-width:1039px){.cp-qc{border-top-color:var(--rule)}}
+
+/* ---------- ce qui reste sur marine se lit ---------- */
+.ct-k,.ct-n{font-size:11px}
+.contact-section .ct-n,.contact-section .section-intro{color:var(--d-2)}
+.jx-a i{font-size:11px;color:#DCE4EE}
+
+/* =========================================================================
+   L'INTRO : LE STENOTYPE QUI FRAPPE << LEX v. ORAL >>
+
+   Le nom est deja une affaire : la loi contre le parle. L'intro ne
+   l'explique pas, elle le montre. Les touches d'un stenotype se
+   baissent, la bande de papier sort de la machine, et le nom se compose
+   lettre a lettre — le parle qui devient le dossier.
+
+   Le clavier est la vraie disposition Ward Stone Ireland (S T K P W H R,
+   A O, *, E U, F R P B L G T S D Z, la barre des chiffres) et les frappes
+   sont la vraie dactylologie Plover : HR*P pour L, *EP pour E, KP*P pour
+   X... Un stenographe qui regarde reconnaitra ses propres touches.
+
+   Sans JavaScript ou avec << moins de mouvement >>, la page montre l'etat
+   final : la bande imprimee, le nom compose. L'animation ne fait que
+   rejouer ce qui est deja la.
+   ========================================================================= */
+.hero.hero-st{background:var(--paper);color:var(--t-2);padding:var(--s8) 0 var(--s8);
+  overflow:hidden}
+.hero.hero-st > .st-hx{display:grid;grid-template-columns:minmax(0,1.18fr) minmax(0,1fr);
+  column-gap:var(--s8);align-items:center}
+.st-left{grid-column:1;min-width:0}
+.hero.hero-st > .st-hx > .st-mach{grid-column:2}
+.st-out{display:flex;align-items:baseline;flex-wrap:nowrap;
+  font-family:var(--serif);font-size:clamp(2.1rem,4.5vw,3.9rem);line-height:1;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--t-1);
+  padding-bottom:var(--s5);margin-bottom:var(--s6);border-bottom:1px solid var(--ink);
+  min-height:1.25em;white-space:pre}
+.st-out i{font-style:italic;text-transform:none;letter-spacing:0;color:var(--nav);
+  font-size:.62em;margin:0 .1em}
+.st-caret{display:inline-block;width:2px;height:.82em;margin-left:.08em;
+  background:var(--red);align-self:center}
+.hero-st .hx-h1{font-size:clamp(1.9rem,3.8vw,3.2rem);line-height:1.06;color:var(--t-1)}
+.hero-st .hx-l{grid-template-columns:2.4rem minmax(0,1fr)}
+.hero-st .hx-l i{color:var(--red);padding-top:.9em}
+.hero-st .hx-sub{color:var(--t-2);margin-top:var(--s5);max-width:31em}
+.hero-st .hx-actions{margin-top:var(--s6)}
+.hero-st .btn-primary{background:var(--ink);color:#fff;--fr:#0B1C33;--fb:#06121F}
+.hero-st .btn-primary:hover{background:var(--nav);color:#fff}
+.hero-st .btn-outline-w{background:var(--paper);color:var(--t-1);
+  box-shadow:inset 0 0 0 1px var(--ink);--fr:var(--face-r);--fb:var(--face-b)}
+.hero-st .btn-outline-w:hover{background:var(--ink);color:#fff}
+.hero-st :focus-visible{outline-color:var(--nav)}
+
+/* la machine : la bande sort du haut, le clavier dessous */
+.st-mach{position:relative;justify-self:end;width:100%;max-width:430px}
+.st-tape{position:relative;z-index:0;width:74%;margin:0 auto;height:236px;
+  background:#FBF8F0;display:flex;flex-direction:column;justify-content:flex-end;
+  overflow:hidden;box-shadow:0 0 0 1px #E6DECB,6px 0 14px -10px rgba(0,0,0,.25);
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 34%);
+          mask-image:linear-gradient(to bottom,transparent 0,#000 34%)}
+.st-tape::after{content:'';position:absolute;left:50%;top:0;bottom:0;
+  border-left:1px dashed rgba(138,28,28,.16)}
+.st-rows{position:relative;padding:0 0 10px;font-family:var(--mono);font-size:12.5px;
+  line-height:23px;color:#262626;white-space:pre;text-align:center;
+  text-shadow:0 0 .5px rgba(0,0,0,.35)}
+.st-r{height:23px}
+.st-kb{position:relative;z-index:1;margin-top:-4px;background:#fff;
+  padding:14px 14px 16px;border-top:3px solid var(--ink);
+  box-shadow:0 0 0 1px var(--rule),0 22px 40px -24px rgba(17,34,61,.5)}
+.st-g{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));
+  grid-template-rows:20px 40px 40px 8px 40px;gap:5px}
+.k{display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:12.5px;color:var(--t-1);
+  background:#F4F3EF;border-radius:4px;
+  box-shadow:inset 0 -2px 0 rgba(0,0,0,.07),0 0 0 1px #D6D1C6;
+  transition:background .09s,color .09s,transform .09s,box-shadow .09s}
+.k.on{background:var(--ink);color:#fff;transform:translateY(1px);
+  box-shadow:inset 0 0 0 1px var(--ink)}
+.k-n{font-size:10px;letter-spacing:.34em;color:var(--t-3)}
+.st-lbl{display:flex;justify-content:space-between;margin-top:10px;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--t-3)}
+@media (prefers-reduced-motion:no-preference){
+  .st-caret{animation:st-blink 1.05s steps(1) infinite}
+}
+@keyframes st-blink{50%{opacity:0}}
+
+@media (max-width:1039px){
+  .hero.hero-st > .st-hx{column-gap:var(--s6)}
+  .st-tape{height:200px}
+}
+@media (max-width:900px){
+  .hero.hero-st > .st-hx{grid-template-columns:1fr;row-gap:var(--s7)}
+  .hero.hero-st > .st-hx > .st-mach{grid-column:1}
+  .st-mach{justify-self:center;max-width:400px}
+  .hero-st .hx-l{grid-template-columns:2.1rem minmax(0,1fr)}
+}
+@media (max-width:520px){
+  .st-out{font-size:2rem;letter-spacing:.1em}
+  .st-g{grid-template-rows:18px 34px 34px 6px 34px;gap:4px}
+  .k{font-size:11px}
+  .st-tape{height:170px;width:86%}
+  .st-rows{font-size:11px;line-height:21px}
+  .st-r{height:21px}
+}
+/* les filets et les fleches du schema etaient tires en blanc pour le marine :
+   sur papier ils disparaissaient                                           */
+.why-section .dgm-rule,.why-section .dgm-sep,.why-section .dgm-box,
+.cross-section:has(.xb-probs) .dgm-rule,.cross-section:has(.xb-probs) .dgm-sep,
+.cross-section:has(.xb-probs) .dgm-box{stroke:#B7B1A4}
+.why-section .dgm-arrow,.cross-section:has(.xb-probs) .dgm-arrow{stroke:var(--t-3)}
+/* ... et le rang Lexoral garde son rouge, qui doit passer apres */
+.why-section .dgm-box.dgm-bg,.why-section .dgm-bg,
+.cross-section:has(.xb-probs) .dgm-bg{stroke:var(--red);stroke-width:1.6}
+.why-section .dgm-arrow.dgm-ag,.why-section .dgm-ag,
+.cross-section:has(.xb-probs) .dgm-ag{stroke:var(--red)}
+/* la marge retrecit sous 1040 px : les etiquettes reprennent leur corps d'avant
+   pour ne pas toucher le filet ; et sous 900 px le hero repasse en flux
+   normal, comme tous les conteneurs du site                                 */
+@media (max-width:1039px){:root{--mlabel:9.5px}}
+@media (max-width:900px){
+  .hero.hero-st > .st-hx{display:block}
+  .hero.hero-st > .st-hx > .st-mach{margin:var(--s7) auto 0}
+}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://lexoral.org/cross-border/#webpage", "url": "https://lexoral.org/cross-border/", "name": "Cross-border transcription, Canada and the United States", "description": "A Canadian witness examined for a U.S. matter, a U.S. party filing in Quebec, parallel proceedings, letters rogatory. Both languages as spoken, one pass, produced to whichever set of conventions the forum requires.", "inLanguage": "en-CA", "isPartOf": {"@id": "https://lexoral.org/#website"}, "publisher": {"@id": "https://lexoral.org/#organization"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Lexoral", "item": "https://lexoral.org/"}, {"@type": "ListItem", "position": 2, "name": "Cross-border transcription, Canada and the United States", "item": "https://lexoral.org/cross-border/"}]}, {"@type": "Service", "@id": "https://lexoral.org/cross-border/#service", "name": "Cross-border legal transcription", "serviceType": "Cross-border bilingual legal transcription for Canadian and U.S. proceedings", "provider": {"@id": "https://lexoral.org/#organization"}, "url": "https://lexoral.org/cross-border/", "inLanguage": "en-CA", "availableLanguage": ["fr-CA", "en-CA"], "areaServed": [{"@type": "Country", "name": "Canada"}, {"@type": "Country", "name": "United States"}]}]}</script>
 </head>

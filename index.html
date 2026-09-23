@@ -1181,6 +1181,176 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
 .cov-head .cov-k .st-br{display:inline;color:var(--gold);margin:0 .45em}
 .cov-head .cov-lead{margin-left:calc(var(--marg) + var(--gapc))}
 @media (max-width:900px){.cov-head .cov-lead{margin-left:0}}
+
+/* =========================================================================
+   V4 — PLUS DE TEXTE SUR LE MARINE
+
+   Le panneau marine avec ses petites lettres grises ne se lisait pas.
+   Regle desormais : le marine porte des titres blancs courts, jamais de
+   texte a lire. Le schema, les trois pieces et le fronton passent sur
+   papier clair, en encre sombre — ce qu'ils sont d'ailleurs en vrai : une
+   transcription, un acte de procedure, ca s'imprime sur du blanc.
+   ========================================================================= */
+:root{--mlabel:10.5px}
+
+/* ---------- pourquoi : le schema et les pieces sur papier ---------- */
+.why-section .dgm,.why-section .wy-diff,.cross-section:has(.xb-probs) .dgm{
+  --d-1:var(--t-1);--d-2:var(--t-2);--d-3:var(--t-3);
+  --rule-d:var(--rule);--gold-f:var(--nav-f);
+  background:var(--leaf);color:var(--t-2);box-shadow:inset 0 0 0 1px var(--rule)}
+.why-section .wy-diff{box-shadow:inset 1px 0 0 var(--rule),inset -1px 0 0 var(--rule),inset 0 -1px 0 var(--rule)}
+.why-section .dgm{box-shadow:inset 1px 0 0 var(--rule),inset -1px 0 0 var(--rule),inset 0 1px 0 var(--rule)}
+/* le rang Lexoral du schema : l'or ne se lit pas sur papier, le rouge oui */
+.why-section .dgm-bg,.cross-section:has(.xb-probs) .dgm-bg{stroke:var(--red)}
+.why-section .dgm-tg,.cross-section:has(.xb-probs) .dgm-tg{fill:var(--red)}
+.why-section .dgm-ag,.cross-section:has(.xb-probs) .dgm-ag{stroke:var(--red)}
+.why-section .dgm-k,.cross-section .dgm-k{background:#fff;color:var(--t-2);
+  box-shadow:inset 0 0 0 1px var(--rule);
+  --face-r:rgba(17,34,61,.20);--face-b:rgba(17,34,61,.34)}
+.why-section .wy-good::before,.why-section .wy-good .wy-k,
+.why-section .wy-good .wy-p .wl::before{color:var(--red)}
+.why-section .wy-good .wy-p::before{border-left-color:rgba(138,28,28,.35);
+  box-shadow:1.5px 0 0 rgba(138,28,28,.35)}
+.why-section .wy-k{font-size:10.5px;color:var(--t-2)}
+.why-section .wy-p{font-size:13.5px;color:var(--t-1)}
+.why-section .wy-p .wl::before{opacity:1;color:var(--t-3)}
+.why-section .wy-n{color:var(--t-2)}
+.why-section .dgm-note{fill:var(--t-3)}
+
+/* ---------- un dossier, deux formes : une feuille, pas un panneau ---------- */
+.cov-pair{--d-1:var(--t-1);--d-2:var(--t-2);--d-3:var(--t-3);--rule-d:var(--rule);
+  background:#fff;color:var(--t-2);
+  box-shadow:0 0 0 1px var(--rule),0 16px 32px -22px rgba(17,34,61,.4)}
+.cp-hd{background:var(--ink);border-bottom:0}
+.cp-k,.cp-no,.cp-p .c{color:var(--red)}
+.cp-rail{color:var(--nav)}
+.cp-l .rule{border-bottom-color:var(--t-1)}
+.cp-qtop,.cp-no{border-bottom-color:var(--t-1)}
+.cp-qc{border-left-color:var(--rule)}
+.cp-us,.cp-qc{font-size:13.5px}
+.cp-court i,.cp-qtop i,.cp-p i{color:var(--t-3)}
+@media (max-width:1039px){.cp-qc{border-top-color:var(--rule)}}
+
+/* ---------- ce qui reste sur marine se lit ---------- */
+.ct-k,.ct-n{font-size:11px}
+.contact-section .ct-n,.contact-section .section-intro{color:var(--d-2)}
+.jx-a i{font-size:11px;color:#DCE4EE}
+
+/* =========================================================================
+   L'INTRO : LE STENOTYPE QUI FRAPPE << LEX v. ORAL >>
+
+   Le nom est deja une affaire : la loi contre le parle. L'intro ne
+   l'explique pas, elle le montre. Les touches d'un stenotype se
+   baissent, la bande de papier sort de la machine, et le nom se compose
+   lettre a lettre — le parle qui devient le dossier.
+
+   Le clavier est la vraie disposition Ward Stone Ireland (S T K P W H R,
+   A O, *, E U, F R P B L G T S D Z, la barre des chiffres) et les frappes
+   sont la vraie dactylologie Plover : HR*P pour L, *EP pour E, KP*P pour
+   X... Un stenographe qui regarde reconnaitra ses propres touches.
+
+   Sans JavaScript ou avec << moins de mouvement >>, la page montre l'etat
+   final : la bande imprimee, le nom compose. L'animation ne fait que
+   rejouer ce qui est deja la.
+   ========================================================================= */
+.hero.hero-st{background:var(--paper);color:var(--t-2);padding:var(--s8) 0 var(--s8);
+  overflow:hidden}
+.hero.hero-st > .st-hx{display:grid;grid-template-columns:minmax(0,1.18fr) minmax(0,1fr);
+  column-gap:var(--s8);align-items:center}
+.st-left{grid-column:1;min-width:0}
+.hero.hero-st > .st-hx > .st-mach{grid-column:2}
+.st-out{display:flex;align-items:baseline;flex-wrap:nowrap;
+  font-family:var(--serif);font-size:clamp(2.1rem,4.5vw,3.9rem);line-height:1;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--t-1);
+  padding-bottom:var(--s5);margin-bottom:var(--s6);border-bottom:1px solid var(--ink);
+  min-height:1.25em;white-space:pre}
+.st-out i{font-style:italic;text-transform:none;letter-spacing:0;color:var(--nav);
+  font-size:.62em;margin:0 .1em}
+.st-caret{display:inline-block;width:2px;height:.82em;margin-left:.08em;
+  background:var(--red);align-self:center}
+.hero-st .hx-h1{font-size:clamp(1.9rem,3.8vw,3.2rem);line-height:1.06;color:var(--t-1)}
+.hero-st .hx-l{grid-template-columns:2.4rem minmax(0,1fr)}
+.hero-st .hx-l i{color:var(--red);padding-top:.9em}
+.hero-st .hx-sub{color:var(--t-2);margin-top:var(--s5);max-width:31em}
+.hero-st .hx-actions{margin-top:var(--s6)}
+.hero-st .btn-primary{background:var(--ink);color:#fff;--fr:#0B1C33;--fb:#06121F}
+.hero-st .btn-primary:hover{background:var(--nav);color:#fff}
+.hero-st .btn-outline-w{background:var(--paper);color:var(--t-1);
+  box-shadow:inset 0 0 0 1px var(--ink);--fr:var(--face-r);--fb:var(--face-b)}
+.hero-st .btn-outline-w:hover{background:var(--ink);color:#fff}
+.hero-st :focus-visible{outline-color:var(--nav)}
+
+/* la machine : la bande sort du haut, le clavier dessous */
+.st-mach{position:relative;justify-self:end;width:100%;max-width:430px}
+.st-tape{position:relative;z-index:0;width:74%;margin:0 auto;height:236px;
+  background:#FBF8F0;display:flex;flex-direction:column;justify-content:flex-end;
+  overflow:hidden;box-shadow:0 0 0 1px #E6DECB,6px 0 14px -10px rgba(0,0,0,.25);
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 34%);
+          mask-image:linear-gradient(to bottom,transparent 0,#000 34%)}
+.st-tape::after{content:'';position:absolute;left:50%;top:0;bottom:0;
+  border-left:1px dashed rgba(138,28,28,.16)}
+.st-rows{position:relative;padding:0 0 10px;font-family:var(--mono);font-size:12.5px;
+  line-height:23px;color:#262626;white-space:pre;text-align:center;
+  text-shadow:0 0 .5px rgba(0,0,0,.35)}
+.st-r{height:23px}
+.st-kb{position:relative;z-index:1;margin-top:-4px;background:#fff;
+  padding:14px 14px 16px;border-top:3px solid var(--ink);
+  box-shadow:0 0 0 1px var(--rule),0 22px 40px -24px rgba(17,34,61,.5)}
+.st-g{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));
+  grid-template-rows:20px 40px 40px 8px 40px;gap:5px}
+.k{display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:12.5px;color:var(--t-1);
+  background:#F4F3EF;border-radius:4px;
+  box-shadow:inset 0 -2px 0 rgba(0,0,0,.07),0 0 0 1px #D6D1C6;
+  transition:background .09s,color .09s,transform .09s,box-shadow .09s}
+.k.on{background:var(--ink);color:#fff;transform:translateY(1px);
+  box-shadow:inset 0 0 0 1px var(--ink)}
+.k-n{font-size:10px;letter-spacing:.34em;color:var(--t-3)}
+.st-lbl{display:flex;justify-content:space-between;margin-top:10px;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--t-3)}
+@media (prefers-reduced-motion:no-preference){
+  .st-caret{animation:st-blink 1.05s steps(1) infinite}
+}
+@keyframes st-blink{50%{opacity:0}}
+
+@media (max-width:1039px){
+  .hero.hero-st > .st-hx{column-gap:var(--s6)}
+  .st-tape{height:200px}
+}
+@media (max-width:900px){
+  .hero.hero-st > .st-hx{grid-template-columns:1fr;row-gap:var(--s7)}
+  .hero.hero-st > .st-hx > .st-mach{grid-column:1}
+  .st-mach{justify-self:center;max-width:400px}
+  .hero-st .hx-l{grid-template-columns:2.1rem minmax(0,1fr)}
+}
+@media (max-width:520px){
+  .st-out{font-size:2rem;letter-spacing:.1em}
+  .st-g{grid-template-rows:18px 34px 34px 6px 34px;gap:4px}
+  .k{font-size:11px}
+  .st-tape{height:170px;width:86%}
+  .st-rows{font-size:11px;line-height:21px}
+  .st-r{height:21px}
+}
+/* les filets et les fleches du schema etaient tires en blanc pour le marine :
+   sur papier ils disparaissaient                                           */
+.why-section .dgm-rule,.why-section .dgm-sep,.why-section .dgm-box,
+.cross-section:has(.xb-probs) .dgm-rule,.cross-section:has(.xb-probs) .dgm-sep,
+.cross-section:has(.xb-probs) .dgm-box{stroke:#B7B1A4}
+.why-section .dgm-arrow,.cross-section:has(.xb-probs) .dgm-arrow{stroke:var(--t-3)}
+/* ... et le rang Lexoral garde son rouge, qui doit passer apres */
+.why-section .dgm-box.dgm-bg,.why-section .dgm-bg,
+.cross-section:has(.xb-probs) .dgm-bg{stroke:var(--red);stroke-width:1.6}
+.why-section .dgm-arrow.dgm-ag,.why-section .dgm-ag,
+.cross-section:has(.xb-probs) .dgm-ag{stroke:var(--red)}
+/* la marge retrecit sous 1040 px : les etiquettes reprennent leur corps d'avant
+   pour ne pas toucher le filet ; et sous 900 px le hero repasse en flux
+   normal, comme tous les conteneurs du site                                 */
+@media (max-width:1039px){:root{--mlabel:9.5px}}
+@media (max-width:900px){
+  .hero.hero-st > .st-hx{display:block}
+  .hero.hero-st > .st-hx > .st-mach{margin:var(--s7) auto 0}
+}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": ["Organization", "LegalService", "LocalBusiness"], "@id": "https://lexoral.org/#org", "name": "Lexoral", "alternateName": "Lexoral Legal Transcription", "url": "https://lexoral.org", "logo": "https://lexoral.org/logo.svg", "image": "https://lexoral.org/og.png", "description": "Lexoral is an independent Canadian provider of attested bilingual French–English legal transcription. It works on United States matters, Canadian matters, and cross-border matters that answer to both, producing verbatim, line-numbered, court-ready transcripts of depositions, examinations, arbitrations, tribunal hearings and criminal proceedings, with a signed accuracy declaration and Loi 25-compliant handling.", "slogan": "One record, two jurisdictions.", "founder": [{"@id": "https://lexoral.org/#brian"}, {"@id": "https://lexoral.org/#raymond"}], "numberOfEmployees": {"@type": "QuantitativeValue", "value": 2}, "email": "secure@lexoral.org", "telephone": "+1-514-712-7516", "priceRange": "$$", "currenciesAccepted": "CAD", "address": {"@type": "PostalAddress", "streetAddress": "24191-300 Eagleson Rd", "addressLocality": "Kanata", "addressRegion": "ON", "postalCode": "K2M 2C3", "addressCountry": "CA"}, "geo": {"@type": "GeoCoordinates", "latitude": 45.3088, "longitude": -75.8983}, "areaServed": [{"@type": "Country", "name": "Canada"}, {"@type": "Country", "name": "United States"}], "knowsLanguage": [{"@type": "Language", "name": "French", "alternateName": "fr"}, {"@type": "Language", "name": "English", "alternateName": "en"}], "knowsAbout": ["legal transcription", "bilingual transcription", "French-English code-switching", "deposition transcripts", "arbitration transcripts", "administrative tribunal hearings", "cross-border litigation", "Quebec Code of Civil Procedure", "Federal Rules of Civil Procedure", "AAERT transcript formatting", "Loi 25 compliance", "evidentiary chain of custody"], "contactPoint": [{"@type": "ContactPoint", "contactType": "customer service", "email": "secure@lexoral.org", "telephone": "+1-514-712-7516", "availableLanguage": ["French", "English"], "areaServed": ["CA", "US"]}, {"@type": "ContactPoint", "contactType": "press and partnerships", "email": "contact@lexoral.org", "availableLanguage": ["French", "English"]}], "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Legal transcription services", "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Depositions & Examinations", "description": "Verbatim bilingual deposition and examination transcripts with speaker identification, timestamps, line numbering and objection notation, formatted for immediate filing or production in court."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Arbitration & Mediation", "description": "Judicial formatting for private panels and institutional arbitrations — ICC, AAA, ADRIC and CIAC proceedings accepted."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Tribunals & Regulatory Hearings", "description": "Administrative tribunals, labour commissions, immigration hearings and government proceedings, formatted to each body's documentary requirements."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Cross-Border Litigation Support", "description": "U.S. deposition standards combined with bilingual Quebec expertise: one record built to satisfy both procedural frameworks, without a second transcription or reformatting."}}]}}, {"@type": "Person", "@id": "https://lexoral.org/#raymond", "name": "Raymond Carby-Samuels", "jobTitle": "Co-founder — Quebec procedure and language rights", "worksFor": {"@id": "https://lexoral.org/#org"}, "knowsLanguage": ["fr", "en"], "description": "Former paralegal in Quebec and active Associate Member of the Canadian Bar Association. Author and publisher of constitutional framework and civil liberties textbooks in both English and French. Prepared and delivered complex legal argument in French before Quebec's National Assembly. Sessional Lecturer at George Brown College in Canadian constitutional law and human rights codes.", "knowsAbout": ["Canadian constitutional law", "human rights codes", "Quebec civil procedure", "language rights", "legal translation"], "affiliation": {"@type": "Organization", "name": "Canadian Bar Association"}, "alumniOf": {"@type": "CollegeOrUniversity", "name": "George Brown College"}}, {"@type": "Person", "@id": "https://lexoral.org/#brian", "name": "Brian Fino", "jobTitle": "Co-founder — language and verbatim discipline", "worksFor": {"@id": "https://lexoral.org/#org"}, "knowsLanguage": ["fr", "en"], "knowsAbout": ["verbatim legal transcription", "French-English code-switching", "deposition transcript formatting", "interpretation"]}, {"@type": "WebSite", "@id": "https://lexoral.org/#website", "url": "https://lexoral.org", "name": "Lexoral", "publisher": {"@id": "https://lexoral.org/#org"}, "inLanguage": ["en-CA", "fr-CA"]}, {"@type": "WebPage", "@id": "https://lexoral.org/#webpage", "url": "https://lexoral.org/", "name": "Lexoral — Bilingual French-English Legal Transcription", "isPartOf": {"@id": "https://lexoral.org/#website"}, "about": {"@id": "https://lexoral.org/#org"}, "inLanguage": "en-CA", "dateModified": "2026-09-11", "speakable": {"@type": "SpeakableSpecification", "cssSelector": [".hx-sub", ".xb-close"]}}]}</script>
 
@@ -1233,16 +1403,18 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
   </div>
 </nav>
 
-<section class="hero">
-  <svg class="xb-map" viewBox="200 200 680 408" fill="none" aria-hidden="true"><path class="xb-land" d="M793.7 345.0 L800.1 346.6 L808.3 346.3 L803.9 351.3 L800.6 352.1 L789.4 346.9 L787.2 342.9 L790.5 339.1 L793.7 345.0 Z M810.1 314.1 L805.8 314.3 L794.3 310.5 L786.1 304.8 L789.1 303.8 L800.8 306.8 L809.8 311.9 L810.1 314.1 Z M263.7 321.3 L259.2 323.0 L244.7 317.5 L242.0 313.2 L234.1 308.9 L232.5 305.5 L223.4 303.3 L220.0 296.7 L220.7 293.9 L230.0 296.6 L235.5 298.4 L243.8 299.7 L246.8 303.8 L251.2 309.6 L260.0 314.6 L263.7 321.3 Z M860.3 294.9 L854.5 305.5 L860.3 301.4 L866.2 304.0 L863.1 308.2 L871.0 311.6 L875.0 308.6 L883.9 312.3 L881.1 321.2 L887.3 319.1 L888.5 325.6 L891.2 333.1 L887.5 343.7 L883.5 344.2 L877.7 341.9 L879.6 332.0 L877.1 330.5 L866.8 341.0 L861.6 340.5 L867.8 334.9 L859.3 331.9 L849.8 332.6 L832.6 332.3 L831.2 328.7 L836.8 324.4 L832.9 321.1 L840.3 313.8 L849.5 294.5 L855.0 287.7 L862.7 283.5 L866.8 284.0 L865.1 287.3 L860.3 294.9 Z M182.2 254.3 L190.7 253.4 L188.0 267.1 L195.7 276.8 L192.2 276.8 L186.9 271.3 L183.6 265.7 L179.1 261.9 L177.5 256.6 L178.0 252.7 L182.2 254.3 Z M655.5 156.0 L652.0 162.4 L648.1 161.3 L645.8 157.7 L646.2 156.9 L649.6 153.3 L653.2 153.5 L655.5 156.0 Z M632.2 149.3 L621.8 156.0 L615.6 155.7 L613.6 152.5 L620.2 146.9 L632.4 147.0 L632.2 149.3 Z M603.3 113.6 L604.9 119.0 L609.5 117.1 L614.6 120.3 L624.3 124.4 L634.4 128.2 L635.2 134.0 L641.7 133.0 L648.1 137.0 L640.2 140.8 L626.4 137.9 L621.5 132.5 L612.7 138.9 L600.1 145.2 L597.0 138.1 L585.0 139.3 L592.7 133.3 L593.9 123.8 L596.9 112.7 L603.3 113.6 Z M685.6 95.6 L675.7 96.2 L673.5 90.3 L677.2 83.5 L685.3 81.8 L692.3 85.2 L692.3 90.3 L691.4 92.0 L685.6 95.6 Z M510.4 71.9 L504.9 76.1 L493.0 72.4 L485.8 73.8 L473.7 68.3 L481.5 64.6 L487.6 59.3 L497.0 62.8 L502.4 64.9 L505.0 67.2 L510.4 71.9 Z M555.6 67.1 L555.5 79.5 L567.4 70.0 L578.0 77.8 L575.3 86.8 L583.9 95.0 L593.1 86.2 L599.6 75.8 L600.1 62.5 L612.7 63.4 L625.8 65.2 L637.6 71.2 L638.2 77.2 L631.6 83.7 L637.8 90.2 L636.7 96.0 L619.4 104.5 L607.0 106.4 L597.9 102.7 L595.2 108.8 L586.7 119.0 L584.1 124.3 L573.9 132.5 L561.2 133.3 L554.2 138.4 L553.6 146.3 L543.3 147.8 L532.5 157.6 L522.9 171.3 L519.4 180.8 L518.9 194.9 L532.0 196.9 L535.9 208.2 L540.1 217.4 L552.5 215.0 L568.9 220.3 L577.8 224.9 L584.1 230.6 L595.2 233.9 L604.6 239.0 L619.2 239.7 L628.9 240.9 L627.4 251.4 L630.2 263.6 L636.6 277.1 L649.8 288.6 L656.6 284.7 L661.4 272.2 L656.7 253.1 L650.5 246.7 L664.7 241.0 L674.7 232.6 L679.6 224.1 L678.9 216.0 L672.9 205.7 L662.1 196.6 L672.6 183.9 L668.7 173.0 L665.7 154.1 L671.9 151.3 L687.1 154.6 L696.2 155.7 L703.5 152.6 L711.8 156.7 L722.7 163.7 L725.4 168.4 L741.2 169.3 L740.9 179.5 L743.9 194.8 L751.9 196.7 L758.4 203.8 L771.2 197.1 L779.7 183.7 L785.5 178.1 L792.4 188.9 L803.9 204.3 L813.7 218.9 L810.2 226.5 L822.0 233.3 L829.9 240.2 L844.0 243.4 L849.7 247.2 L853.2 257.5 L860.1 259.1 L863.7 263.6 L864.3 277.2 L857.9 281.8 L851.5 286.1 L837.0 290.4 L825.8 300.3 L810.8 302.3 L791.9 299.7 L778.6 299.6 L769.4 300.5 L762.0 309.2 L750.7 314.5 L738.0 330.5 L727.8 341.7 L735.3 339.7 L749.5 323.8 L768.1 313.7 L781.3 312.5 L789.2 318.5 L780.8 326.6 L783.6 339.7 L786.5 348.8 L798.0 354.8 L812.6 353.1 L821.5 339.5 L822.1 348.3 L827.9 352.6 L816.9 360.6 L797.3 367.8 L788.5 372.7 L778.6 381.4 L771.9 380.5 L771.5 370.3 L786.9 360.3 L772.7 360.6 L762.9 362.1 L757.1 355.3 L757.1 338.8 L753.2 335.3 L747.2 337.3 L744.3 334.1 L737.5 343.3 L734.8 352.7 L731.7 358.2 L727.9 360.1 L725.1 360.7 L724.2 363.7 L707.9 363.7 L694.4 363.8 L690.4 366.0 L681.1 374.7 L680.0 375.7 L677.1 380.4 L669.0 380.4 L660.3 380.4 L656.3 382.4 L657.8 384.7 L658.5 388.4 L658.4 389.7 L646.8 395.7 L637.7 397.6 L627.4 404.0 L625.2 404.0 L622.2 402.1 L621.2 400.4 L621.4 399.1 L623.3 394.9 L627.5 388.2 L630.1 381.1 L628.3 370.6 L626.4 359.6 L617.2 353.9 L618.3 351.7 L617.0 350.3 L614.5 350.3 L612.7 348.3 L612.3 345.5 L610.6 346.7 L608.2 346.4 L608.7 345.2 L606.7 344.0 L605.8 340.8 L598.9 336.9 L591.8 332.9 L583.1 328.2 L574.8 323.8 L566.9 327.2 L564.0 327.3 L553.1 324.2 L545.9 325.8 L537.3 322.0 L528.3 320.1 L522.1 319.3 L519.3 317.3 L517.8 310.6 L514.8 310.7 L514.7 315.4 L496.4 315.3 L466.1 315.4 L436.0 315.4 L409.4 315.4 L382.9 315.4 L356.7 315.4 L329.7 315.4 L321.0 315.4 L294.7 315.4 L269.6 315.4 L268.4 315.3 L251.3 303.4 L244.9 298.2 L228.9 293.2 L224.0 282.5 L225.2 275.0 L213.9 269.9 L212.3 260.1 L201.6 251.3 L201.4 245.1 L206.4 239.2 L206.1 231.6 L191.1 223.9 L182.0 210.1 L176.5 201.4 L168.4 195.9 L162.4 191.0 L157.7 184.7 L148.8 188.6 L140.2 195.4 L132.3 187.5 L126.1 182.2 L117.5 178.8 L108.8 178.4 L108.8 109.5 L108.9 64.5 L125.4 67.5 L139.4 73.3 L148.6 74.4 L156.4 69.4 L167.1 65.6 L180.2 67.1 L193.5 61.7 L208.0 58.7 L214.1 63.7 L220.7 60.9 L222.7 55.2 L228.8 56.5 L243.8 67.4 L255.6 59.1 L256.8 68.3 L267.6 66.3 L271.0 62.8 L281.7 63.5 L295.2 68.6 L316.0 73.0 L328.2 75.1 L336.8 74.3 L348.8 80.4 L336.3 86.5 L352.3 89.1 L376.2 87.6 L383.8 85.5 L393.2 92.8 L402.9 86.6 L393.8 81.5 L399.5 77.4 L410.3 76.8 L417.4 75.6 L424.5 78.5 L433.4 85.1 L443.3 84.1 L459.0 89.6 L472.7 87.6 L485.7 87.9 L484.6 80.4 L492.5 78.3 L506.2 82.4 L506.2 93.8 L511.8 84.2 L518.9 84.5 L522.9 72.3 L513.5 64.9 L503.1 60.0 L503.8 46.6 L514.3 37.8 L526.0 39.7 L534.9 45.1 L547.0 58.7 L539.1 64.7 L555.6 67.1 Z M346.4 23.3 L342.0 28.9 L361.7 25.3 L374.0 31.4 L384.0 25.2 L392.1 29.2 L399.3 41.1 L403.8 36.0 L397.5 23.6 L405.3 21.9 L414.1 23.8 L424.0 28.7 L429.6 40.5 L432.3 49.0 L447.2 55.0 L463.2 60.8 L462.2 66.1 L447.7 67.1 L453.3 71.7 L450.3 76.2 L434.3 74.3 L419.1 71.0 L408.8 71.7 L392.2 75.8 L369.7 77.6 L354.0 78.8 L349.2 73.1 L337.1 69.8 L329.2 71.1 L318.3 61.5 L324.2 60.3 L337.9 58.2 L350.3 58.7 L361.9 56.6 L344.8 53.8 L325.9 54.8 L313.3 54.5 L308.6 50.1 L329.2 45.2 L315.5 45.4 L300.0 42.2 L307.5 33.1 L313.6 28.3 L337.3 20.9 L346.4 23.3 Z M590.9 22.8 L597.8 30.4 L606.0 20.6 L628.5 15.6 L643.7 28.2 L642.4 36.1 L659.9 32.6 L668.2 27.8 L687.9 33.9 L700.1 39.7 L701.2 44.9 L717.7 42.2 L726.9 49.9 L748.3 54.7 L756.0 59.6 L764.4 70.9 L748.1 76.6 L769.0 84.5 L783.0 87.1 L795.8 98.3 L809.7 99.1 L806.9 107.6 L791.4 121.6 L780.5 116.4 L766.6 104.8 L755.1 106.3 L754.0 113.3 L763.3 120.3 L775.3 125.9 L779.0 129.1 L784.8 141.1 L781.7 149.8 L770.5 146.5 L748.3 136.8 L760.8 147.2 L770.1 154.5 L771.5 158.8 L747.5 153.9 L728.5 146.9 L717.7 141.0 L720.8 137.6 L707.6 131.4 L694.7 125.5 L694.9 129.0 L669.3 130.9 L661.8 126.8 L667.6 117.9 L684.2 117.6 L702.5 116.1 L699.5 111.8 L702.6 105.7 L714.1 93.9 L711.6 88.6 L708.2 84.4 L694.7 78.6 L676.7 74.4 L682.4 71.4 L673.0 63.9 L665.2 63.2 L658.2 59.0 L653.5 62.6 L637.4 64.2 L605.2 61.5 L586.5 57.9 L572.1 56.1 L564.7 51.8 L574.0 46.3 L561.4 46.3 L558.6 34.0 L565.4 23.2 L574.5 18.2 L597.4 15.0 L590.9 22.8 Z"/><path class="xb-land" d="M517.8 310.6 L519.3 317.3 L522.1 319.3 L528.3 320.1 L537.3 322.0 L545.9 325.8 L553.1 324.2 L564.0 327.3 L566.9 327.2 L574.8 323.8 L583.1 328.2 L591.8 332.9 L598.9 336.9 L605.8 340.8 L606.7 344.0 L608.7 345.2 L608.2 346.4 L610.6 346.7 L612.3 345.5 L612.7 348.3 L614.5 350.3 L617.0 350.3 L618.3 351.7 L617.2 353.9 L626.4 359.6 L628.3 370.6 L630.1 381.1 L627.5 388.2 L623.3 394.9 L621.4 399.1 L621.2 400.4 L622.2 402.1 L625.2 404.0 L627.4 404.0 L637.7 397.6 L646.8 395.7 L658.4 389.7 L658.5 388.4 L657.8 384.7 L656.3 382.4 L660.3 380.4 L669.0 380.4 L677.1 380.4 L680.0 375.7 L681.1 374.7 L690.4 366.0 L694.4 363.8 L707.9 363.7 L724.2 363.7 L725.1 360.7 L727.9 360.1 L731.7 358.2 L734.8 352.7 L737.5 343.3 L744.3 334.1 L747.2 337.3 L753.2 335.3 L757.1 338.8 L757.1 355.3 L762.9 362.1 L764.4 366.1 L755.0 372.0 L745.9 376.1 L736.5 379.7 L731.8 386.9 L730.3 389.6 L730.2 396.1 L733.2 402.5 L736.8 402.8 L735.9 398.4 L738.6 401.0 L737.9 404.5 L731.9 406.5 L727.6 406.2 L721.1 408.3 L717.2 409.0 L712.1 409.6 L704.7 413.1 L717.7 410.8 L720.3 413.1 L707.9 416.7 L702.3 416.7 L702.5 415.2 L699.8 418.6 L702.5 419.2 L700.5 427.9 L694.1 437.2 L693.4 434.1 L691.5 433.4 L688.6 430.4 L690.4 436.9 L692.6 439.1 L692.8 443.7 L689.9 448.4 L684.9 458.0 L684.1 457.6 L686.9 449.3 L682.3 444.7 L681.3 434.6 L679.6 439.9 L681.5 447.5 L675.6 445.6 L681.7 449.5 L682.1 461.1 L684.7 461.9 L685.6 466.1 L686.8 478.2 L681.2 487.2 L672.0 490.8 L666.2 497.9 L661.8 498.7 L657.3 503.1 L656.0 507.2 L646.3 515.0 L641.3 520.8 L637.1 528.0 L635.8 536.6 L637.3 545.0 L640.3 555.4 L644.2 563.9 L644.3 569.2 L648.5 583.2 L648.2 591.4 L647.8 596.1 L645.6 603.5 L643.0 605.0 L638.6 603.5 L637.2 598.2 L633.8 595.4 L629.1 585.0 L625.0 575.8 L623.7 571.0 L625.5 563.0 L623.0 556.3 L616.1 546.2 L612.7 544.3 L603.7 549.8 L602.2 549.2 L597.9 543.6 L592.3 540.6 L582.3 542.1 L574.4 540.8 L567.7 541.6 L564.0 543.5 L565.6 546.7 L565.5 551.6 L567.4 554.0 L565.7 555.6 L562.4 553.8 L559.1 556.1 L552.6 555.7 L546.0 549.3 L538.3 550.8 L531.9 548.0 L526.3 548.9 L518.9 551.7 L510.8 560.7 L502.0 565.9 L497.2 571.7 L495.2 577.1 L495.1 585.5 L495.5 591.3 L497.2 595.4 L493.7 595.8 L487.5 593.1 L480.5 589.4 L478.1 583.7 L476.1 575.2 L470.9 568.3 L467.8 561.2 L463.4 552.9 L457.1 548.1 L449.9 548.3 L444.3 557.9 L437.0 554.3 L432.4 550.6 L430.2 543.9 L427.3 537.6 L422.0 532.3 L417.5 528.5 L414.2 524.2 L398.9 524.2 L398.9 529.2 L391.8 529.2 L374.2 529.3 L354.0 520.7 L340.7 514.8 L341.5 512.5 L330.2 513.8 L320.2 514.7 L318.7 508.5 L313.0 501.6 L308.8 500.1 L307.9 496.7 L302.9 496.0 L299.7 492.8 L291.5 491.6 L289.2 489.6 L288.2 483.0 L279.6 470.8 L272.2 454.0 L272.5 451.2 L268.6 447.2 L261.7 437.0 L260.5 427.2 L255.8 420.5 L257.7 410.5 L257.4 400.1 L254.6 390.8 L258.1 379.4 L259.1 368.4 L260.2 357.4 L258.6 341.2 L255.8 330.8 L253.2 325.2 L254.3 322.9 L267.1 327.0 L271.8 338.4 L274.0 335.2 L272.6 325.3 L269.6 315.4 L294.7 315.4 L321.0 315.4 L329.7 315.4 L356.7 315.4 L382.9 315.4 L409.4 315.4 L436.0 315.4 L466.1 315.4 L496.4 315.3 L514.7 315.4 L514.8 310.7 L517.8 310.6 Z"/><path class="xb-line" d="M254.6 390.8 L258.1 379.4 L259.1 368.4 L260.2 357.4 L258.6 341.2 L255.8 330.8 L253.2 325.2 L254.3 322.9 L267.1 327.0 L271.8 338.4 L274.0 335.2 L272.6 325.3 L269.6 315.4 L294.7 315.4 L321.0 315.4 L329.7 315.4 L356.7 315.4 L382.9 315.4 L409.4 315.4 L436.0 315.4 L466.1 315.4 L496.4 315.3 L514.7 315.4 L514.8 310.7 L517.8 310.6 L519.3 317.3 L522.1 319.3 L528.3 320.1 L537.3 322.0 L545.9 325.8 L553.1 324.2 L564.0 327.3 L566.9 327.2 L574.8 323.8 L583.1 328.2 L591.8 332.9 L598.9 336.9 L605.8 340.8 L606.7 344.0 L608.7 345.2 L608.2 346.4 L610.6 346.7 L612.3 345.5 L612.7 348.3 L614.5 350.3 L617.0 350.3 L618.3 351.7 L617.2 353.9 L626.4 359.6 L628.3 370.6 L630.1 381.1 L627.5 388.2 L623.3 394.9 L621.4 399.1"/></svg>
-  <div class="hx-rail" aria-hidden="true"><span style="--i:0">)</span><span style="--i:1">)</span><span style="--i:2">)</span><span style="--i:3">)</span><span style="--i:4">)</span><span style="--i:5">)</span><span style="--i:6">)</span><span style="--i:7">)</span><span style="--i:8">)</span><span style="--i:9">)</span><span style="--i:10">)</span><span style="--i:11">)</span><span style="--i:12">)</span><span style="--i:13">)</span><span style="--i:14">)</span><span style="--i:15">)</span><span style="--i:16">)</span><span style="--i:17">)</span><span style="--i:18">)</span></div>
-  <div class="container hx">
-    <div class="hx-body"><div class="hx-left"><h1 class="hx-h1"><span class="hx-l"><i aria-hidden="true">EN</i>We&rsquo;re the record.</span><span class="hx-l" lang="fr"><i aria-hidden="true">FR</i>Nous prenons acte.</span></h1>
-    <p class="hx-sub">French&ndash;English legal transcription for Canada and the United States. Each language transcribed as spoken, never translated.</p>
-    <div class="hx-actions">
+<section class="hero hero-st">
+  <div class="container st-hx">
+    <div class="st-left">
+      <div class="st-out" aria-hidden="true"><span class="st-o">LEX <i>v.</i> ORAL</span><span class="st-caret"></span></div>
+      <h1 class="hx-h1"><span class="hx-l"><i aria-hidden="true">EN</i>We&rsquo;re the record.</span><span class="hx-l" lang="fr"><i aria-hidden="true">FR</i>Nous prenons acte.</span></h1>
+      <p class="hx-sub">French&ndash;English legal transcription for Canada and the United States. Each language transcribed as spoken, never translated.</p>
+      <div class="hx-actions">
       <a href="#contact" class="btn-primary">Submit a proceeding</a>
       <a href="/services/" class="btn-outline-w">Our services</a>
-    </div></div></div>
+    </div>
+    </div>
+    <div class="st-mach" aria-hidden="true"><div class="st-tape"><div class="st-rows"><div class="st-r">      HR  *    P       </div><div class="st-r">          *E   P       </div><div class="st-r">   KP     *    P       </div><div class="st-r"> S     R  *            </div><div class="st-r">  T P          P L     </div><div class="st-r">         O*    P       </div><div class="st-r">       R  *    P       </div><div class="st-r">        A *    P       </div><div class="st-r">      HR  *    P       </div></div></div><div class="st-kb"><div class="st-g"><span class="k k-n" data-k="#" style="grid-area:1/1/2/11"># &middot; # &middot; #</span><span class="k" data-k="S-" style="grid-area:2/1/4/2">S</span><span class="k" data-k="T-" style="grid-area:2/2/3/3">T</span><span class="k" data-k="K-" style="grid-area:3/2/4/3">K</span><span class="k" data-k="P-" style="grid-area:2/3/3/4">P</span><span class="k" data-k="W-" style="grid-area:3/3/4/4">W</span><span class="k" data-k="H-" style="grid-area:2/4/3/5">H</span><span class="k" data-k="R-" style="grid-area:3/4/4/5">R</span><span class="k" data-k="*" style="grid-area:2/5/4/6">*</span><span class="k" data-k="-F" style="grid-area:2/6/3/7">F</span><span class="k" data-k="-R" style="grid-area:3/6/4/7">R</span><span class="k" data-k="-P" style="grid-area:2/7/3/8">P</span><span class="k" data-k="-B" style="grid-area:3/7/4/8">B</span><span class="k" data-k="-L" style="grid-area:2/8/3/9">L</span><span class="k" data-k="-G" style="grid-area:3/8/4/9">G</span><span class="k" data-k="-T" style="grid-area:2/9/3/10">T</span><span class="k" data-k="-S" style="grid-area:3/9/4/10">S</span><span class="k" data-k="-D" style="grid-area:2/10/3/11">D</span><span class="k" data-k="-Z" style="grid-area:3/10/4/11">Z</span><span class="k" data-k="A-" style="grid-area:5/3/6/4">A</span><span class="k" data-k="O-" style="grid-area:5/4/6/5">O</span><span class="k" data-k="-E" style="grid-area:5/6/6/7">E</span><span class="k" data-k="-U" style="grid-area:5/7/6/8">U</span></div><div class="st-lbl"><span>Stenotype</span><span>Steno &rarr; record</span></div></div></div>
   </div>
 </section>
 <div class="jx" role="navigation" aria-label="Jurisdictions"><div class="container jx-in"><a class="jx-a" href="/quebec/"><b>Quebec</b><i>s. 133, Constitution Act, 1867</i></a><a class="jx-a" href="/section-530/"><b>Canada</b><i>Criminal Code, s. 530.1(g)</i></a><a class="jx-a" href="/recorded-evidence/"><b>United States</b><i>U.S. v. Chavez (10th Cir. 2020)</i></a><a class="jx-a" href="/cross-border/"><b>Both at once</b><i>Hague Evidence Convention</i></a></div></div>
@@ -1548,6 +1720,41 @@ function toggleFaq(el){el.parentElement.classList.toggle('open')}
  addEventListener('resize',function(){if(innerWidth>=1180)set(false)});})();
 const observer=new IntersectionObserver((e)=>{e.forEach(i=>{if(i.isIntersecting)i.target.classList.add('visible')})},{threshold:0.07});
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+<script>
+/* le stenotype rejoue la frappe du nom ; le HTML porte deja l'etat final */
+(function(){
+  var m=document.querySelector('.st-mach'),o=document.querySelector('.st-out .st-o');
+  if(!m||!o||!window.matchMedia||!matchMedia('(prefers-reduced-motion: no-preference)').matches)return;
+  var C='#STKPWHRAO*EUFRPBLGTSDZ',I={'#':0,'S-':1,'T-':2,'K-':3,'P-':4,'W-':5,'H-':6,'R-':7,
+    'A-':8,'O-':9,'*':10,'-E':11,'-U':12,'-F':13,'-R':14,'-P':15,'-B':16,'-L':17,'-G':18,
+    '-T':19,'-S':20,'-D':21,'-Z':22};
+  var S=[[['H-','R-','*','-P'],'L',0],[['*','-E','-P'],'E',0],[['K-','P-','*','-P'],'X',0],
+    [['S-','R-','*'],'v',1,' '],[['T-','P-','-P','-L'],'.',1],[['O-','*','-P'],'O',0,' '],
+    [['R-','*','-P'],'R',0],[['A-','*','-P'],'A',0],[['H-','R-','*','-P'],'L',0]];
+  var rows=m.querySelector('.st-rows'),keys={},fin=o.innerHTML,i=0,node=null,it=-1;
+  m.querySelectorAll('.k').forEach(function(k){keys[k.getAttribute('data-k')]=k});
+  function row(ks){var a=[],j;for(j=0;j<23;j++)a.push(' ');
+    ks.forEach(function(k){a[I[k]]=C.charAt(I[k])});
+    var d=document.createElement('div');d.className='st-r';d.textContent=a.join('');rows.appendChild(d)}
+  function put(ch,ital){
+    if(ital!==it){node=ital?document.createElement('i'):document.createTextNode('');
+      o.appendChild(node);it=ital}
+    if(ital)node.textContent+=ch;else node.nodeValue+=ch}
+  function step(){
+    if(i>=S.length){o.innerHTML=fin;return}
+    var s=S[i];s[0].forEach(function(k){if(keys[k])keys[k].classList.add('on')});
+    row(s[0]);if(s[3])put(s[3],0);put(s[1],s[2]);
+    setTimeout(function(){s[0].forEach(function(k){if(keys[k])keys[k].classList.remove('on')})},190);
+    i++;setTimeout(step,i===3||i===5?560:330)}
+  /* on ne rejoue qu'une fois la machine a l'ecran : sur mobile elle est sous
+     les boutons, et jusque-la la page garde l'etat final, le nom compose */
+  function go(){rows.innerHTML='';o.innerHTML='';setTimeout(step,450)}
+  if(!('IntersectionObserver' in window)){setTimeout(go,200);return}
+  var ob=new IntersectionObserver(function(e){
+    if(e[0].isIntersecting){ob.disconnect();go()}},{threshold:.35});
+  ob.observe(m);
+})();
 </script>
 </body>
 </html>

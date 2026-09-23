@@ -1179,6 +1179,176 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
 .cov-head .cov-k .st-br{display:inline;color:var(--gold);margin:0 .45em}
 .cov-head .cov-lead{margin-left:calc(var(--marg) + var(--gapc))}
 @media (max-width:900px){.cov-head .cov-lead{margin-left:0}}
+
+/* =========================================================================
+   V4 — PLUS DE TEXTE SUR LE MARINE
+
+   Le panneau marine avec ses petites lettres grises ne se lisait pas.
+   Regle desormais : le marine porte des titres blancs courts, jamais de
+   texte a lire. Le schema, les trois pieces et le fronton passent sur
+   papier clair, en encre sombre — ce qu'ils sont d'ailleurs en vrai : une
+   transcription, un acte de procedure, ca s'imprime sur du blanc.
+   ========================================================================= */
+:root{--mlabel:10.5px}
+
+/* ---------- pourquoi : le schema et les pieces sur papier ---------- */
+.why-section .dgm,.why-section .wy-diff,.cross-section:has(.xb-probs) .dgm{
+  --d-1:var(--t-1);--d-2:var(--t-2);--d-3:var(--t-3);
+  --rule-d:var(--rule);--gold-f:var(--nav-f);
+  background:var(--leaf);color:var(--t-2);box-shadow:inset 0 0 0 1px var(--rule)}
+.why-section .wy-diff{box-shadow:inset 1px 0 0 var(--rule),inset -1px 0 0 var(--rule),inset 0 -1px 0 var(--rule)}
+.why-section .dgm{box-shadow:inset 1px 0 0 var(--rule),inset -1px 0 0 var(--rule),inset 0 1px 0 var(--rule)}
+/* le rang Lexoral du schema : l'or ne se lit pas sur papier, le rouge oui */
+.why-section .dgm-bg,.cross-section:has(.xb-probs) .dgm-bg{stroke:var(--red)}
+.why-section .dgm-tg,.cross-section:has(.xb-probs) .dgm-tg{fill:var(--red)}
+.why-section .dgm-ag,.cross-section:has(.xb-probs) .dgm-ag{stroke:var(--red)}
+.why-section .dgm-k,.cross-section .dgm-k{background:#fff;color:var(--t-2);
+  box-shadow:inset 0 0 0 1px var(--rule);
+  --face-r:rgba(17,34,61,.20);--face-b:rgba(17,34,61,.34)}
+.why-section .wy-good::before,.why-section .wy-good .wy-k,
+.why-section .wy-good .wy-p .wl::before{color:var(--red)}
+.why-section .wy-good .wy-p::before{border-left-color:rgba(138,28,28,.35);
+  box-shadow:1.5px 0 0 rgba(138,28,28,.35)}
+.why-section .wy-k{font-size:10.5px;color:var(--t-2)}
+.why-section .wy-p{font-size:13.5px;color:var(--t-1)}
+.why-section .wy-p .wl::before{opacity:1;color:var(--t-3)}
+.why-section .wy-n{color:var(--t-2)}
+.why-section .dgm-note{fill:var(--t-3)}
+
+/* ---------- un dossier, deux formes : une feuille, pas un panneau ---------- */
+.cov-pair{--d-1:var(--t-1);--d-2:var(--t-2);--d-3:var(--t-3);--rule-d:var(--rule);
+  background:#fff;color:var(--t-2);
+  box-shadow:0 0 0 1px var(--rule),0 16px 32px -22px rgba(17,34,61,.4)}
+.cp-hd{background:var(--ink);border-bottom:0}
+.cp-k,.cp-no,.cp-p .c{color:var(--red)}
+.cp-rail{color:var(--nav)}
+.cp-l .rule{border-bottom-color:var(--t-1)}
+.cp-qtop,.cp-no{border-bottom-color:var(--t-1)}
+.cp-qc{border-left-color:var(--rule)}
+.cp-us,.cp-qc{font-size:13.5px}
+.cp-court i,.cp-qtop i,.cp-p i{color:var(--t-3)}
+@media (max-width:1039px){.cp-qc{border-top-color:var(--rule)}}
+
+/* ---------- ce qui reste sur marine se lit ---------- */
+.ct-k,.ct-n{font-size:11px}
+.contact-section .ct-n,.contact-section .section-intro{color:var(--d-2)}
+.jx-a i{font-size:11px;color:#DCE4EE}
+
+/* =========================================================================
+   L'INTRO : LE STENOTYPE QUI FRAPPE << LEX v. ORAL >>
+
+   Le nom est deja une affaire : la loi contre le parle. L'intro ne
+   l'explique pas, elle le montre. Les touches d'un stenotype se
+   baissent, la bande de papier sort de la machine, et le nom se compose
+   lettre a lettre — le parle qui devient le dossier.
+
+   Le clavier est la vraie disposition Ward Stone Ireland (S T K P W H R,
+   A O, *, E U, F R P B L G T S D Z, la barre des chiffres) et les frappes
+   sont la vraie dactylologie Plover : HR*P pour L, *EP pour E, KP*P pour
+   X... Un stenographe qui regarde reconnaitra ses propres touches.
+
+   Sans JavaScript ou avec << moins de mouvement >>, la page montre l'etat
+   final : la bande imprimee, le nom compose. L'animation ne fait que
+   rejouer ce qui est deja la.
+   ========================================================================= */
+.hero.hero-st{background:var(--paper);color:var(--t-2);padding:var(--s8) 0 var(--s8);
+  overflow:hidden}
+.hero.hero-st > .st-hx{display:grid;grid-template-columns:minmax(0,1.18fr) minmax(0,1fr);
+  column-gap:var(--s8);align-items:center}
+.st-left{grid-column:1;min-width:0}
+.hero.hero-st > .st-hx > .st-mach{grid-column:2}
+.st-out{display:flex;align-items:baseline;flex-wrap:nowrap;
+  font-family:var(--serif);font-size:clamp(2.1rem,4.5vw,3.9rem);line-height:1;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--t-1);
+  padding-bottom:var(--s5);margin-bottom:var(--s6);border-bottom:1px solid var(--ink);
+  min-height:1.25em;white-space:pre}
+.st-out i{font-style:italic;text-transform:none;letter-spacing:0;color:var(--nav);
+  font-size:.62em;margin:0 .1em}
+.st-caret{display:inline-block;width:2px;height:.82em;margin-left:.08em;
+  background:var(--red);align-self:center}
+.hero-st .hx-h1{font-size:clamp(1.9rem,3.8vw,3.2rem);line-height:1.06;color:var(--t-1)}
+.hero-st .hx-l{grid-template-columns:2.4rem minmax(0,1fr)}
+.hero-st .hx-l i{color:var(--red);padding-top:.9em}
+.hero-st .hx-sub{color:var(--t-2);margin-top:var(--s5);max-width:31em}
+.hero-st .hx-actions{margin-top:var(--s6)}
+.hero-st .btn-primary{background:var(--ink);color:#fff;--fr:#0B1C33;--fb:#06121F}
+.hero-st .btn-primary:hover{background:var(--nav);color:#fff}
+.hero-st .btn-outline-w{background:var(--paper);color:var(--t-1);
+  box-shadow:inset 0 0 0 1px var(--ink);--fr:var(--face-r);--fb:var(--face-b)}
+.hero-st .btn-outline-w:hover{background:var(--ink);color:#fff}
+.hero-st :focus-visible{outline-color:var(--nav)}
+
+/* la machine : la bande sort du haut, le clavier dessous */
+.st-mach{position:relative;justify-self:end;width:100%;max-width:430px}
+.st-tape{position:relative;z-index:0;width:74%;margin:0 auto;height:236px;
+  background:#FBF8F0;display:flex;flex-direction:column;justify-content:flex-end;
+  overflow:hidden;box-shadow:0 0 0 1px #E6DECB,6px 0 14px -10px rgba(0,0,0,.25);
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 34%);
+          mask-image:linear-gradient(to bottom,transparent 0,#000 34%)}
+.st-tape::after{content:'';position:absolute;left:50%;top:0;bottom:0;
+  border-left:1px dashed rgba(138,28,28,.16)}
+.st-rows{position:relative;padding:0 0 10px;font-family:var(--mono);font-size:12.5px;
+  line-height:23px;color:#262626;white-space:pre;text-align:center;
+  text-shadow:0 0 .5px rgba(0,0,0,.35)}
+.st-r{height:23px}
+.st-kb{position:relative;z-index:1;margin-top:-4px;background:#fff;
+  padding:14px 14px 16px;border-top:3px solid var(--ink);
+  box-shadow:0 0 0 1px var(--rule),0 22px 40px -24px rgba(17,34,61,.5)}
+.st-g{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));
+  grid-template-rows:20px 40px 40px 8px 40px;gap:5px}
+.k{display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:12.5px;color:var(--t-1);
+  background:#F4F3EF;border-radius:4px;
+  box-shadow:inset 0 -2px 0 rgba(0,0,0,.07),0 0 0 1px #D6D1C6;
+  transition:background .09s,color .09s,transform .09s,box-shadow .09s}
+.k.on{background:var(--ink);color:#fff;transform:translateY(1px);
+  box-shadow:inset 0 0 0 1px var(--ink)}
+.k-n{font-size:10px;letter-spacing:.34em;color:var(--t-3)}
+.st-lbl{display:flex;justify-content:space-between;margin-top:10px;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--t-3)}
+@media (prefers-reduced-motion:no-preference){
+  .st-caret{animation:st-blink 1.05s steps(1) infinite}
+}
+@keyframes st-blink{50%{opacity:0}}
+
+@media (max-width:1039px){
+  .hero.hero-st > .st-hx{column-gap:var(--s6)}
+  .st-tape{height:200px}
+}
+@media (max-width:900px){
+  .hero.hero-st > .st-hx{grid-template-columns:1fr;row-gap:var(--s7)}
+  .hero.hero-st > .st-hx > .st-mach{grid-column:1}
+  .st-mach{justify-self:center;max-width:400px}
+  .hero-st .hx-l{grid-template-columns:2.1rem minmax(0,1fr)}
+}
+@media (max-width:520px){
+  .st-out{font-size:2rem;letter-spacing:.1em}
+  .st-g{grid-template-rows:18px 34px 34px 6px 34px;gap:4px}
+  .k{font-size:11px}
+  .st-tape{height:170px;width:86%}
+  .st-rows{font-size:11px;line-height:21px}
+  .st-r{height:21px}
+}
+/* les filets et les fleches du schema etaient tires en blanc pour le marine :
+   sur papier ils disparaissaient                                           */
+.why-section .dgm-rule,.why-section .dgm-sep,.why-section .dgm-box,
+.cross-section:has(.xb-probs) .dgm-rule,.cross-section:has(.xb-probs) .dgm-sep,
+.cross-section:has(.xb-probs) .dgm-box{stroke:#B7B1A4}
+.why-section .dgm-arrow,.cross-section:has(.xb-probs) .dgm-arrow{stroke:var(--t-3)}
+/* ... et le rang Lexoral garde son rouge, qui doit passer apres */
+.why-section .dgm-box.dgm-bg,.why-section .dgm-bg,
+.cross-section:has(.xb-probs) .dgm-bg{stroke:var(--red);stroke-width:1.6}
+.why-section .dgm-arrow.dgm-ag,.why-section .dgm-ag,
+.cross-section:has(.xb-probs) .dgm-ag{stroke:var(--red)}
+/* la marge retrecit sous 1040 px : les etiquettes reprennent leur corps d'avant
+   pour ne pas toucher le filet ; et sous 900 px le hero repasse en flux
+   normal, comme tous les conteneurs du site                                 */
+@media (max-width:1039px){:root{--mlabel:9.5px}}
+@media (max-width:900px){
+  .hero.hero-st > .st-hx{display:block}
+  .hero.hero-st > .st-hx > .st-mach{margin:var(--s7) auto 0}
+}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://lexoral.org/faq/#webpage", "url": "https://lexoral.org/faq/", "name": "Frequently asked questions", "description": "Twenty-one answers on bilingual French-English legal transcription: whose words enter the record, what we attest, how recorded French evidence is handled, turnaround, pricing and confidentiality.", "inLanguage": "en-CA", "isPartOf": {"@id": "https://lexoral.org/#website"}, "publisher": {"@id": "https://lexoral.org/#organization"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Lexoral", "item": "https://lexoral.org/"}, {"@type": "ListItem", "position": 2, "name": "Frequently asked questions", "item": "https://lexoral.org/faq/"}]}, {"@type": "FAQPage", "@id": "https://lexoral.org/faq/#faq", "inLanguage": "en-CA", "mainEntity": [{"@type": "Question", "name": "A witness answers in French at a deposition. Whose words end up in the transcript?", "acceptedAnswer": {"@type": "Answer", "text": "The interpreter's. In U.S. practice the reporter takes down the English interpretation and nothing else. Official court-reporting guidance is explicit that the foreign language is not transcribed, that it is marked only as the witness speaking in a foreign language, and that correcting an interpretation is not the reporter's function. Most federal circuits will still treat that English as the witness's own statement under the language-conduit rule, but the Eleventh Circuit has rejected that rule and the others apply a multi-factor test that asks who supplied the interpreter and how qualified they were. The attribution holds until someone contests it. What we do is transcribe the French sitting in the audio, so that if it is ever contested you are answering with a document rather than an argument."}}, {"@type": "Question", "name": "What exactly do you certify?", "acceptedAnswer": {"@type": "Answer", "text": "Every Lexoral transcript carries a signed accuracy declaration attesting that the transcript is a faithful and complete account of the audio provided, signed by the practitioner who produced it. Forums differ on the form of attestation they expect, and the form that satisfies a Quebec filing is not the one a U.S. filing expects. Tell us where the transcript is going and we will confirm what your filing needs."}}, {"@type": "Question", "name": "Can you handle genuinely bilingual hearings with mid-sentence code-switching?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. This is the specialization. Counsel examines in English, the witness answers in French and crosses back mid-answer; we transcribe each language verbatim as spoken, without translating or paraphrasing, with the switch marked where the convention of the forum calls for it. Quebec French register, courthouse usage and legal terminology are handled by a practitioner who works in the law in both languages, not by a glossary applied afterwards."}}, {"@type": "Question", "name": "How does a transcript of a recording hold up as evidence?", "acceptedAnswer": {"@type": "Answer", "text": "Transcripts of recordings are a well-established category of evidence in their own right. For foreign-language recordings, U.S. federal model jury instructions treat the English transcript as the evidence the jury works from where accuracy is not in issue; where accuracy is disputed, the jury decides between competing transcripts by weighing the qualifications of whoever prepared each one, the clarity of the recording, and how the transcript was produced. That is why ours are produced and signed by a named practitioner with published credentials, why every transcript ships with a conventions page, and why uncertain passages are marked and timestamped instead of smoothed over."}}, {"@type": "Question", "name": "In Quebec, can counsel examine in English while the witness answers in French?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, and no interpreter is needed for it. Under section 133 of the Constitution Act, 1867 either official language may be used before Quebec's courts, and each participant chooses independently: counsel may put the question in English and the witness may answer in French in the same breath. Both are the record. The transcript reproduces each language as it was spoken, with no translation, because nothing is being translated. This is the opposite of the U.S. model, and it is the situation we are built for."}}, {"@type": "Question", "name": "Do you work on criminal matters, and what does the Criminal Code require for the record?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Where an accused is tried in the official language of their choice under section 530 of the Criminal Code, section 530.1(g) requires the record of the preliminary inquiry or trial to include a transcript of everything that was said in the official language in which it was said, a transcript of any interpretation of it into the other official language, and documentary evidence in the language in which it was tendered. A dual-language verbatim record is not a preference in that setting; it is what the statute asks for. The same principle runs wider: a transcript that silently converts a proceeding into one language can undercut the very right being asserted. We produce records that keep the two languages distinct and attributable."}}, {"@type": "Question", "name": "The interpretation at our deposition was wrong. What can we do now?", "acceptedAnswer": {"@type": "Answer", "text": "Order the audio or video and have the original-language answers transcribed and line-matched against the official English transcript, so the divergences are documented rather than asserted. That record supports errata, a motion to correct, or cross-examination on the point. Move quickly: U.S. courts have penalised parties who raised an interpretation problem late, in some cases treating the objection as waived, so this belongs on delivery of the transcript and not on the eve of trial."}}, {"@type": "Question", "name": "Why are your practitioners' credentials on the website?", "acceptedAnswer": {"@type": "Answer", "text": "Because when a translation is disputed the court does not weigh the vendor. It weighs the person who made it. Model instructions direct jurors to consider the qualifications of the translator, the clarity of the recording and how the transcript was produced. A transcript from an anonymous pool has nothing to put in that column. Ours is produced by a practitioner who has delivered legal argument in French before Quebec's National Assembly and written constitutional-law texts in both languages, and who can say so under oath."}}, {"@type": "Question", "name": "How do you mark overlapping speech, inaudible passages and non-verbal events?", "acceptedAnswer": {"@type": "Answer", "text": "By convention, visibly, and never by guessing. Overlapping speech is marked as such (voix superposées / simultaneous speakers) rather than invented into clean sentences. Inaudible passages carry a timestamp — [inaudible 00:14:22] — so you can go to the audio yourself. Uncertain proper nouns are marked [phonetic]. Silences of evidentiary length are timed. Every transcript ships with a conventions page so opposing counsel reads the same marks the same way."}}, {"@type": "Question", "name": "Do you transcribe 911 and emergency-services calls?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Emergency-services audio, custodial and police-station interviews, and body-worn recordings are regular work, including for public-defence offices. This is difficult audio — crosstalk, radio traffic, distress, background noise — and it is quoted after we have heard it, not from a duration estimate."}}, {"@type": "Question", "name": "How are exhibits handled in the transcript?", "acceptedAnswer": {"@type": "Answer", "text": "Exhibits are carried into the transcript as they are marked on the record, with the announcing speaker attributed. Where a cross-border matter runs Quebec pièce numbering on one side and U.S. Exhibit numbering on the other, both are carried in the same record so neither set of counsel has to translate references by hand."}}, {"@type": "Question", "name": "Why not use AI transcription tools like Whisper or Otter?", "acceptedAnswer": {"@type": "Answer", "text": "AI transcription fails precisely in the conditions that define bilingual legal proceedings: mid-sentence code-switching, overlapping speakers, legal terminology, proper nouns and Quebec French register. It also invents fluent text where the audio is unclear, which is the single worst failure mode in an evidentiary record. More fundamentally, a model cannot maintain a chain of custody, cannot be cross-examined, and cannot sign an accuracy declaration."}}, {"@type": "Question", "name": "Who actually does the work on my file?", "acceptedAnswer": {"@type": "Answer", "text": "Two named practitioners: language and verbatim discipline on one side, Quebec procedure and jurisdiction on the other. Files are not distributed to a contractor pool or an offshore desk, and nothing is delivered as reviewed that was not in fact reviewed by a person. The name on the declaration is the person who did the work."}}, {"@type": "Question", "name": "How long does a transcript take?", "acceptedAnswer": {"@type": "Answer", "text": "Five business days as standard, forty-eight hours on priority. Multi-day proceedings are scheduled individually, and where a hearing runs over consecutive days we can deliver day-by-day so counsel is not waiting on the full record to prepare the next morning."}}, {"@type": "Question", "name": "What does bilingual legal transcription cost?", "acceptedAnswer": {"@type": "Answer", "text": "Per page, quoted in Canadian dollars, after we have heard the recording. Length alone does not set the price: overlapping speech, poor audio and sustained code-switching change the work considerably, so a firm figure follows the audio review rather than preceding it. Confirmation of receipt is the same working day."}}, {"@type": "Question", "name": "How is a transcript delivered?", "acceptedAnswer": {"@type": "Answer", "text": "Searchable PDF and editable Word, line-numbered and paginated, with speaker identification, a conventions page and the signed accuracy declaration. Delivery is by encrypted transfer. Formatting corrections are made at no charge."}}, {"@type": "Question", "name": "What if we disagree with a passage after delivery?", "acceptedAnswer": {"@type": "Answer", "text": "Tell us the page and line. The passage is re-audited against the source recording. Where the audio does not support what was transcribed, it is corrected and the declaration re-issued at no charge. Where the audio does support it, we tell you that plainly and mark the passage as disputed rather than quietly changing the record. A transcript that moves on request is not evidence."}}, {"@type": "Question", "name": "What audio quality and formats do you accept?", "acceptedAnswer": {"@type": "Answer", "text": "Most audio and video formats, including MP3, WAV, M4A and MP4. If a recording is difficult in places we say so before quoting, not after delivering, and we identify which passages carry risk so you know where the record is soft."}}, {"@type": "Question", "name": "Do you provide transcripts with line numbering?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Continuous line numbering, structured pagination and speaker identification, formatted for direct reference in pleadings and briefs, so a citation made once holds for the life of the matter."}}, {"@type": "Question", "name": "Are you compliant with Loi 25 and Quebec privacy law?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Files are handled through restricted-access workflows in compliance with Loi 25, transferred by encrypted protocols, stored in restricted-access environments, and never disclosed to third parties except where you instruct us to involve one. Clients may request permanent deletion of recordings and transcripts at any time."}}, {"@type": "Question", "name": "Are recordings used for training or any external purpose?", "acceptedAnswer": {"@type": "Answer", "text": "No. Client materials are used exclusively for the transcription assignment. They are never shared, repurposed, sold, or used to train or develop any model or system, internal or external."}}]}]}</script>
 </head>
