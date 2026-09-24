@@ -1235,138 +1235,152 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
 .jx-a i{font-size:11px;color:#DCE4EE}
 
 /* =========================================================================
-   L'INTRO : LE NOM, DEMONTE
+   L'INTRO : LE TITRE, LA COLONNE, LA CARTE — SUR BLANC
 
-   LEX v. ORAL est deja une affaire : la loi contre la parole. Le << v. >>
-   devient la colonne de parentheses d'un fronton de proces, et les deux
-   parties se font face de part et d'autre : LEX a gauche, ORAL a droite,
-   chacune definie sous son mot comme dans un dictionnaire. La loi ne
-   connait que l'ecrit ; le temoignage est d'abord parle. La conclusion
-   est le titre de la page : << Nous prenons acte >>.
-
-   La carte Canada / Etats-Unis revient, sur blanc. La frontiere part du
-   titre, traverse la colonne et rejoint le continent.
-
-   Sans mouvement ni JavaScript, tout est deja en place ; a l'ouverture,
-   les deux mots se separent, la colonne descend entre eux et la frontiere
-   se trace.
+   Plus de << LEX v. ORAL >> dans le bandeau : le nom est deja dans la
+   barre de navigation, et il est demonte plus bas. Le bandeau porte le
+   titre bilingue en grand, la colonne de parentheses d'un fronton de
+   proces, et la carte Canada / Etats-Unis sur blanc. La premiere ligne du
+   titre se prolonge en filet, traverse la colonne et devient la frontiere.
    ========================================================================= */
-.hero.hero-lx{--lxg:76px;--lxw:clamp(2.5rem,5.6vw,4.6rem);
-  --h1fs:clamp(1.9rem,3.6vw,3rem);--mapw:min(60vw,840px);--line:#5F7CA6;
-  background:var(--paper);color:var(--t-2);padding:0;overflow:hidden;isolation:isolate}
-.hero.hero-lx > .lx{position:relative;display:grid;
-  grid-template-columns:minmax(0,1fr) var(--lxg) minmax(0,1fr);
-  grid-template-rows:auto auto;column-gap:0;padding-block:var(--s8)}
-
-/* la colonne : le << v. >> du nom, sur toute la hauteur du bandeau */
-.lx-rail{position:absolute;grid-column:2 / 3;grid-row:1 / 3;left:0;right:0;
-  top:calc(var(--s8) * -1);bottom:calc(var(--s8) * -1);z-index:0;
-  display:flex;flex-direction:column;align-items:center;overflow:hidden;
-  font-family:var(--mono);font-size:clamp(20px,1.9vw,27px);line-height:1.34;
-  color:var(--nav);opacity:.55;pointer-events:none;user-select:none;
-  -webkit-mask-image:linear-gradient(to bottom,transparent,#000 12%,#000 86%,transparent);
-          mask-image:linear-gradient(to bottom,transparent,#000 12%,#000 86%,transparent)}
-.lx-rail span{display:block}
-
-/* les deux parties, face a face */
-.lx-tc{grid-column:1 / -1;grid-row:1;position:relative;z-index:1;display:grid;
-  grid-template-columns:minmax(0,1fr) var(--lxg) minmax(0,1fr);margin:0}
-.lx-e{min-width:0}
-.lx-e1{grid-column:1;text-align:right}
-.lx-e2{grid-column:3;text-align:left}
-.lx-w{position:relative;font-family:var(--serif);font-size:var(--lxw);line-height:1;
-  font-weight:400;letter-spacing:.14em;text-transform:uppercase;color:var(--t-1);
-  padding-bottom:var(--s5);margin-bottom:var(--s5)}
-.lx-e1 .lx-t{margin-right:-.14em}
-.lx-t{display:inline-block}
-.lx-w::after{content:'';position:absolute;left:0;right:0;bottom:0;
-  border-bottom:1px solid var(--ink);transform-origin:100% 50%}
-.lx-e2 .lx-w::after{transform-origin:0 50%}
-.lx-caret{display:inline-block;width:2px;height:.8em;margin-left:.02em;
-  background:var(--red);vertical-align:-.02em}
-.lx-g{margin:0 0 var(--s2);font-size:1.02rem;line-height:1.45;color:var(--t-3)}
-.lx-g b{font-weight:400;font-style:italic;color:var(--red);margin-right:.3em}
-.lx-g i{color:var(--t-1)}
-.lx-d{margin:0;font-size:1.16rem;line-height:1.5;color:var(--t-1);max-width:17em;
-  text-wrap:balance}
-.lx-e1 .lx-d{margin-left:auto}
-
-/* la conclusion, a gauche de la colonne */
-.lx-low{grid-column:1;grid-row:2;position:relative;min-width:0;margin-top:var(--s7)}
-.hero-lx .hx-h1{font-size:var(--h1fs);line-height:1.06;color:var(--t-1)}
-.hero-lx .hx-l{grid-template-columns:2.3rem minmax(0,1fr)}
-.hero-lx .hx-l i{color:var(--red);padding-top:.9em}
-/* la premiere ligne du titre se prolonge en filet jusqu'a la colonne ; de
-   l'autre cote, le meme filet devient la frontiere                      */
-.hero-lx .hx-l:first-child{grid-template-columns:2.3rem auto minmax(0,1fr)}
-.hero-lx .hx-l:first-child::after{content:'';grid-column:3;align-self:start;height:2px;
-  margin:calc(var(--h1fs) * .6 - 1px) 0 0 .32em;background:var(--line);transform-origin:0 50%}
-.hero-lx .hx-sub{color:var(--t-2);margin-top:var(--s5);max-width:29em}
-.hero-lx .hx-actions{margin-top:var(--s6)}
-.hero-lx .btn-primary{background:var(--ink);color:#fff;--fr:#0B1C33;--fb:#06121F}
-.hero-lx .btn-primary:hover{background:var(--nav);color:#fff}
-.hero-lx .btn-outline-w{background:var(--paper);color:var(--t-1);
+.hero.hero-v7{--h1fs:clamp(2.3rem,6vw,4.4rem);--mapw:min(58vw,820px);--line:#5F7CA6;
+  background:var(--paper);color:var(--t-2);padding:var(--s9) 0;overflow:hidden;
+  isolation:isolate}
+.hero.hero-v7 > .h7{position:relative;display:grid;column-gap:0;
+  grid-template-columns:minmax(0,1.5fr) 64px minmax(0,1fr)}
+.h7-left{grid-column:1;grid-row:1;position:relative;min-width:0}
+/* la colonne : une piece de la grille, sur toute la hauteur du bandeau */
+.hero-v7 .h7-rail{position:absolute;grid-column:2 / 3;grid-row:1 / 2;left:0;right:0;
+  top:calc(var(--s9) * -1);bottom:calc(var(--s9) * -1);color:var(--nav);opacity:.5}
+.hero-v7 .hx-h1{font-size:var(--h1fs);line-height:1.04;letter-spacing:-.03em;color:var(--t-1)}
+.hero-v7 .hx-l{grid-template-columns:var(--hxtag) minmax(0,1fr)}
+.hero-v7 .hx-l i{color:var(--red)}
+.hero-v7 .hx-sub{color:var(--t-2);margin-top:var(--s6);max-width:27em}
+.hero-v7 .hx-actions{margin-top:var(--s7)}
+.hero-v7 .btn-primary{background:var(--ink);color:#fff;--fr:#0B1C33;--fb:#06121F}
+.hero-v7 .btn-primary:hover{background:var(--nav);color:#fff}
+.hero-v7 .btn-outline-w{background:var(--paper);color:var(--t-1);
   box-shadow:inset 0 0 0 1px var(--ink);--fr:var(--face-r);--fb:var(--face-b)}
-.hero-lx .btn-outline-w:hover{background:var(--ink);color:#fff}
-.hero-lx :focus-visible{outline-color:var(--nav)}
-
-/* la carte, sur blanc : la frontiere tombe a hauteur de la premiere ligne
-   du titre et file vers la droite, a travers la colonne               */
-.hero-lx .xb-map{position:absolute;z-index:-1;right:auto;transform:none;
+.hero-v7 .btn-outline-w:hover{background:var(--ink);color:#fff}
+.hero-v7 :focus-visible{outline-color:var(--nav)}
+/* la premiere ligne du titre se prolonge en filet jusqu'au bord de sa colonne */
+.hero-v7 .hx-l:first-child{grid-template-columns:var(--hxtag) auto minmax(0,1fr)}
+.hero-v7 .hx-l:first-child::after{content:'';grid-column:3;align-self:start;height:2px;
+  margin:calc(var(--h1fs) * .6 - 1px) 0 0 .3em;background:var(--line);transform-origin:0 50%}
+/* ... et de l'autre cote de la colonne, le meme filet est la frontiere */
+.hero-v7 .xb-map{position:absolute;z-index:-1;right:auto;transform:none;
   width:var(--mapw);left:calc(100% - 2px - var(--mapw) * .2);
   top:calc(var(--h1fs) * .6 - var(--mapw) * .1697);
   -webkit-mask-image:linear-gradient(to right,transparent 0,transparent 6%,#000 19%);
           mask-image:linear-gradient(to right,transparent 0,transparent 6%,#000 19%)}
-.hero-lx .xb-land{stroke:rgba(17,34,61,.15)}
-/* la frontiere reprend exactement la ou le filet du titre s'arrete */
-.hero-lx .xb-line{stroke:var(--line);stroke-width:2;clip-path:inset(0 0 0 22%)}
+.hero-v7 .xb-land{stroke:rgba(17,34,61,.15)}
+.hero-v7 .xb-line{stroke:var(--line);stroke-width:2;clip-path:inset(0 0 0 22%)}
 
 @media (prefers-reduced-motion:no-preference){
-  .lx-rail span{animation:tr-drop .5s cubic-bezier(.2,.7,.3,1) both;
-    animation-delay:calc(.2s + var(--i,0) * 40ms)}
-  .lx-e1 .lx-t{animation:lx-part-l 1.1s cubic-bezier(.2,.7,.25,1) .15s both}
-  .lx-e2 .lx-t{animation:lx-part-r 1.1s cubic-bezier(.2,.7,.25,1) .15s both}
-  .lx-w::after{animation:tr-wipe .9s cubic-bezier(.3,.8,.35,1) .45s both}
-  .lx-g,.lx-d{animation:tr-rise .6s cubic-bezier(.2,.7,.3,1) both}
-  .lx-e1 .lx-g{animation-delay:.75s}
-  .lx-e1 .lx-d{animation-delay:.85s}
-  .lx-e2 .lx-g{animation-delay:.95s}
-  .lx-e2 .lx-d{animation-delay:1.05s}
-  .lx-caret{animation:st-blink 1.05s steps(1) infinite}
-  .hero-lx .hx-l:first-child::after{animation:tr-wipe .45s cubic-bezier(.4,.1,.6,1) .95s both}
-  .hero-lx .xb-line{animation:lx-draw 1.8s cubic-bezier(.3,.1,.3,1) 1.05s both}
+  .hero-v7 .hx-l:first-child::after{animation:tr-wipe .5s cubic-bezier(.4,.1,.6,1) .5s both}
+  .hero-v7 .xb-line{animation:lx-draw 1.8s cubic-bezier(.3,.1,.3,1) .65s both}
 }
-@keyframes lx-part-l{from{transform:translateX(calc(var(--lxg) / 2 - .07em))}to{transform:none}}
-@keyframes lx-part-r{from{transform:translateX(calc(var(--lxg) / -2 + .07em))}to{transform:none}}
 @keyframes lx-draw{from{clip-path:inset(0 100% 0 22%)}to{clip-path:inset(0 0 0 22%)}}
 @keyframes st-blink{50%{opacity:0}}
 
 @media (max-width:1039px){
-  .hero.hero-lx{--lxg:60px}
-  .lx-d{font-size:1.06rem}
+  .hero.hero-v7 > .h7{grid-template-columns:minmax(0,1.6fr) 48px minmax(0,1fr)}
 }
-/* sous 900 px : les deux parties restent face a face, la colonne ne court
-   plus que le long de leurs definitions, et la carte passe sous les
-   boutons, entiere                                                      */
 @media (max-width:900px){
-  .hero.hero-lx{--lxg:40px;--lxw:clamp(1.85rem,8.2vw,3rem);--h1fs:clamp(1.9rem,6.2vw,2.6rem)}
-  .lx-rail{grid-row:1 / 2;top:-.3em;bottom:0;font-size:17px;line-height:1.4;
-    -webkit-mask-image:linear-gradient(to bottom,#000 70%,transparent);
-            mask-image:linear-gradient(to bottom,#000 70%,transparent)}
-  .lx-w{padding-bottom:var(--s4);margin-bottom:var(--s4)}
-  .lx-g{font-size:.9rem}
-  .lx-d{font-size:.98rem;line-height:1.45}
-  .lx-low{grid-column:1 / -1;margin-top:var(--s7)}
-  .hero-lx .hx-l,.hero-lx .hx-l:first-child{grid-template-columns:2.1rem minmax(0,1fr)}
-  .hero-lx .hx-l:first-child::after{content:none}
-  .hero-lx .xb-line{clip-path:none;animation:none}
-  .hero-lx .xb-land{stroke:rgba(17,34,61,.22)}
-  .hero-lx .xb-map{position:relative;z-index:0;display:block;left:auto;top:auto;
+  .hero.hero-v7{padding:var(--s8) 0}
+  .hero.hero-v7 > .h7{display:block}
+  .hero-v7 .h7-rail{display:none}
+  .hero-v7 .hx-l:first-child{grid-template-columns:var(--hxtag) minmax(0,1fr)}
+  .hero-v7 .hx-l:first-child::after{content:none}
+  .hero-v7 .xb-map{position:relative;z-index:0;display:block;left:auto;top:auto;
     width:100%;max-width:620px;margin:var(--s7) 0 0 auto;
     -webkit-mask-image:none;mask-image:none}
+  .hero-v7 .xb-line{clip-path:none;animation:none}
+  .hero-v7 .xb-land{stroke:rgba(17,34,61,.22)}
 }
-@media (max-width:520px){
-  .lx-g b{display:block;margin:0 0 2px}
+
+/* =========================================================================
+   CE QUE NOUS FAISONS : LE NOM, EN CLAIR (B1)
+
+   LEX v. ORAL en tres grand, et sous chaque mot ce qu'il veut dire pour
+   celui qui lit : le dossier (ce que lit le tribunal), nous (entre les
+   deux), l'audience (ce qui a ete dit). Puis une phrase qui dit le metier,
+   les faits, et le lien vers le formulaire. Quand la piece arrive a
+   l'ecran, le nom part colle, LEXORAL, puis se separe ; sans JavaScript ou
+   avec << moins de mouvement >>, il est deja separe.
+   ========================================================================= */
+.name-section{--nmfs:min(10.4vw,7.4rem);padding:var(--s9) 0 var(--s8)}
+.vh{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;
+  clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
+
+/* les lettres : une rangee pour les mots, une pour les accolades ; la ligne
+   de base est commune, les accolades aussi                               */
+.nm-mark{grid-column:2;display:grid;grid-template-columns:repeat(3,auto);
+  justify-content:start;align-items:baseline;row-gap:14px;margin:var(--s3) 0 var(--s7);
+  color:var(--t-1);-webkit-user-select:none;user-select:none}
+.nm-l{grid-row:1;position:relative;font-family:var(--serif);font-size:var(--nmfs);
+  line-height:1;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;
+  justify-self:start}
+.nm-c1{grid-column:1}.nm-c2{grid-column:2}.nm-c3{grid-column:3}
+.nm-l.nm-c2{margin:0 calc(var(--nmfs) * .38)}
+.nm-l.nm-vv{font-size:calc(var(--nmfs) * .66);font-style:italic;text-transform:none;
+  letter-spacing:0;color:var(--red);justify-self:center}
+.nm-k{grid-row:2;align-self:start;display:flex;flex-direction:column;align-items:center;
+  min-width:0;padding-right:calc(var(--nmfs) * .12);font-size:1.1rem;line-height:1.25;
+  color:var(--t-1);text-align:center;contain:inline-size}
+/* la legende ne fixe pas la largeur de la colonne : c'est le mot qui la fixe */
+.nm-k.nm-c2{padding-right:0}
+.nm-k.nm-c2::before{margin-left:calc(var(--nmfs) * .38);margin-right:calc(var(--nmfs) * .38)}
+.nm-k::before{content:'';align-self:stretch;height:12px;margin:0 0 10px;
+  border:1px solid var(--t-3);border-top:0;transform-origin:50% 0}
+.nm-k i{font-style:italic}
+.nm-k b{margin-top:6px;font-family:var(--mono);font-weight:400;font-size:9.5px;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--t-3)}
+
+/* la phrase, les faits, le lien */
+.nm-say{grid-column:2;margin:0 0 var(--s6);max-width:26em;font-family:var(--serif);
+  font-size:clamp(1.35rem,2.4vw,1.95rem);line-height:1.32;color:var(--t-1)}
+.nm-say em{font-style:normal;color:var(--red)}
+.nm-facts{grid-column:2;display:flex;flex-wrap:wrap;align-items:center;
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--rule)}
+.nm-facts span{padding:14px 22px 13px 0;margin-right:22px;border-right:1px solid var(--rule);
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--t-2)}
+.nm-facts a{margin-left:auto;padding:14px 0;font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.17em;text-transform:uppercase;color:var(--red);text-decoration:none}
+.nm-facts a:hover{color:var(--red-d);text-decoration:underline;text-underline-offset:4px}
+
+/* le mouvement : pose par le script seulement si la piece n'est pas deja
+   a l'ecran au chargement                                               */
+@media (prefers-reduced-motion:no-preference){
+  .nm-js .nm-c1.nm-l{transform:translateX(var(--nm-dx,0px))}
+  .nm-js .nm-c3.nm-l{transform:translateX(calc(var(--nm-dx,0px) * -1))}
+  .nm-js .nm-vv{opacity:0;transform:scale(.4)}
+  .nm-js .nm-k{opacity:0}
+  .nm-js .nm-k::before{transform:scaleY(0)}
+  .nm-js .nm-say,.nm-js .nm-facts{opacity:0;transform:translateY(12px)}
+  .nm-js.nm-on .nm-l{transform:none;transition:transform 1.05s cubic-bezier(.2,.7,.25,1) .15s}
+  .nm-js.nm-on .nm-vv{opacity:1;transform:none;
+    transition:opacity .45s ease .65s,transform .7s cubic-bezier(.2,.9,.3,1.25) .65s}
+  .nm-js.nm-on .nm-k{opacity:1;transition:opacity .5s ease 1.2s}
+  .nm-js.nm-on .nm-k::before{transform:none;transition:transform .45s cubic-bezier(.3,.8,.35,1) 1.05s}
+  .nm-js.nm-on .nm-k.nm-c2,.nm-js.nm-on .nm-k.nm-c2::before{transition-delay:1.15s}
+  .nm-js.nm-on .nm-k.nm-c3,.nm-js.nm-on .nm-k.nm-c3::before{transition-delay:1.25s}
+  .nm-js.nm-on .nm-say,.nm-js.nm-on .nm-facts{opacity:1;transform:none;
+    transition:opacity .6s ease 1.45s,transform .6s cubic-bezier(.2,.7,.3,1) 1.45s}
+  .nm-js.nm-on .nm-facts{transition-delay:1.65s}
+}
+
+@media (max-width:900px){
+  .name-section{--nmfs:10.6vw}
+  .nm-mark{margin-bottom:var(--s6)}
+  .nm-facts a{margin-left:0}
+}
+@media (max-width:600px){
+  .nm-k{font-size:.86rem}
+  .nm-k::before{height:8px;margin-bottom:6px}
+  .nm-k b{font-size:8.5px;letter-spacing:.1em;margin-top:3px}
+  .nm-mark{row-gap:9px}
+  .nm-facts span{border-right:0;margin-right:0;padding-right:0;width:100%;border-bottom:1px solid var(--rule)}
 }
 
 /* les filets et les fleches du schema etaient tires en blanc pour le marine :
@@ -1383,6 +1397,113 @@ footer{background:var(--ink-deep);color:var(--d-2);padding:var(--s8) 0 var(--s6)
 /* la marge retrecit sous 1040 px : les etiquettes reprennent leur corps d'avant
    pour ne pas toucher le filet                                              */
 @media (max-width:1039px){:root{--mlabel:9.5px}}
+
+/* =========================================================================
+   V8 — LES TITRES DE SECTION : UN EN-TETE DE TRANSCRIPTION (A3)
+
+   Plus de rectangle bleu. Chaque section s'ouvre comme une page de
+   transcription : le numero de ligne dans la marge, le titre en capitales
+   rouges espacees, le nom du cabinet en titre courant a droite, et un
+   double filet dessous. Le triple nom de classe ne sert qu'a passer devant
+   les anciennes barres marine, sans les reecrire une a une.
+   ========================================================================= */
+.section-tag.section-tag.section-tag,
+.cov-head .cov-k.cov-k{
+  grid-column:1/-1;display:grid;grid-template-columns:var(--marg) minmax(0,1fr) auto;
+  column-gap:var(--gapc);align-items:baseline;position:relative;
+  margin:0 0 var(--s7);padding:0 0 12px;border:0;border-bottom:3px double var(--ink);
+  background:var(--paper);box-shadow:none;color:var(--red);text-align:left;
+  font-family:var(--serif);font-size:1rem;font-weight:400;line-height:1.3;
+  letter-spacing:.3em;text-transform:uppercase}
+.section-tag.section-tag.section-tag .st-br,
+.cov-head .cov-k.cov-k .st-br{display:none}
+.section-tag.section-tag.section-tag::before,
+.cov-head .cov-k.cov-k::before{
+  content:'L. 0' counter(secline);grid-column:1;justify-self:end;margin:0;padding:0 var(--mgut) 0 0;
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--red)}
+.section-tag.section-tag.section-tag.st-plain::before{content:''}
+.section-tag.section-tag.section-tag::after,
+.cov-head .cov-k.cov-k::after{
+  content:'Lexoral \00B7  French\2013 English legal transcription';grid-column:3;
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--t-3);white-space:nowrap}
+:lang(fr) .section-tag.section-tag.section-tag::after,
+:lang(fr) .cov-head .cov-k.cov-k::after{content:'Lexoral \00B7  transcription juridique fr\2013 en'}
+/* la couverture compte parmi les sections numerotees */
+.cov-head .cov-k.cov-k{counter-increment:secline}
+.cov-head.cov-head{border-top:0;padding-top:0}
+
+/* ---------- ce qui etait un bloc marine devient une page blanche ----------
+   Le bandeau des pages interieures, les bandes << La suite >> et la section
+   Contact : memes variables, remappees sur l'encre, comme le schema en V4. */
+.contact-section,.cross-section:not(:has(.xb-probs)),.pol-head{
+  --d-1:var(--t-1);--d-2:var(--t-2);--d-3:var(--t-3);--rule-d:var(--rule);
+  --gold-f:var(--nav-f);--shade-d:17,34,61;
+  background:var(--paper);color:var(--t-2)}
+.pol-head .pol-title{color:var(--t-1)}
+.pol-head .pol-sub{color:var(--t-3)}
+.pol-head .container{display:grid;grid-template-columns:var(--marg) minmax(0,1fr);column-gap:var(--gapc)}
+.pol-head .pol-title,.pol-head .pol-sub{grid-column:2}
+.pol-head :focus-visible{outline-color:var(--nav)}
+.contact-section ::selection,.cross-section ::selection{background:var(--ink);color:#fff}
+.ct-k,.ct-k svg{color:var(--red)}
+a.ct-v:hover{color:var(--red)}
+.contact-section .mx-dot{fill:var(--red)}
+.contact-section .mx-ring{stroke:var(--red)}
+.contact-section .mx-t{fill:var(--red)}
+.cross-cta{background:var(--ink);color:#fff;--fr:#0B1C33;--fb:#06121F}
+.cross-cta:hover{background:var(--nav);color:#fff}
+
+/* ---------- l'en-tete du fronton : le meme filet, sur la feuille ---------- */
+.cov-pair .cp-hd{background:var(--paper);color:var(--red);border-bottom:3px double var(--ink);
+  padding:16px 26px 12px;letter-spacing:.3em}
+.cov-pair .cp-hd em{color:var(--t-3)}
+
+/* =========================================================================
+   L'EXTRAIT DE LOI (C1)
+
+   Chaque loi citee s'ouvre comme la barre des juridictions : l'onglet
+   rouge (la disposition), la bande marine (la reference et le lien),
+   puis le texte lui-meme sur papier. Dans l'extrait, les obligations sont
+   soulignees en rouge ; sur l'accueil, chacune dit ce que nous en faisons.
+   ========================================================================= */
+.auth.auth{display:flex;flex-direction:column;margin:var(--s6) 0 var(--s6);padding:0;
+  background:none;box-shadow:none}
+.auth.auth::before,.auth.auth::after{content:none}
+.auth .auth-k{order:0;position:relative;margin:0;padding:15px 22px 14px;border:0;
+  background:var(--red);color:#fff;font-family:var(--serif);font-weight:600;font-size:.95rem;
+  letter-spacing:.06em;text-transform:none;line-height:1.2}
+.auth .auth-k::after{content:'';position:absolute;left:30px;top:100%;z-index:1;
+  border:6px solid transparent;border-top-color:var(--red)}
+.auth .auth-c{order:1;margin:0;max-width:none;padding:12px 22px 11px;background:var(--ink);
+  color:#C9D4E3;font-size:10.5px;letter-spacing:.05em;line-height:1.6}
+.auth .auth-c a{color:#fff;border-bottom:1px solid rgba(255,255,255,.45)}
+.auth .auth-c a:hover{border-bottom-color:#fff}
+.auth .auth-c a:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.auth .auth-q{order:2;margin:0;max-width:none;padding:var(--s6);background:var(--leaf);
+  box-shadow:inset 0 0 0 1px var(--rule);font-size:1.16rem;line-height:1.62;color:var(--t-1)}
+.auth-q mark{background:none;color:inherit;padding:0 1px;box-shadow:inset 0 -2px 0 var(--red)}
+.auth-q sup{margin-left:2px;font-family:var(--mono);font-size:10px;color:var(--red)}
+.auth-home .auth-q{font-size:1.28rem}
+.auth-n{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s5);
+  margin:0 0 var(--s8)}
+.auth-n > div{padding-top:10px;border-top:1px solid var(--ink);font-size:1rem;line-height:1.5;
+  color:var(--t-2)}
+.auth-n b{margin-right:.6em;font-family:var(--mono);font-weight:400;font-size:10px;color:var(--red)}
+.why-section .auth-home{margin-top:0;margin-bottom:var(--s5)}
+.why-section .wy-lead:has(+ .auth-home){margin-bottom:var(--s5)}
+
+@media (max-width:900px){
+  .section-tag.section-tag.section-tag,
+  .cov-head .cov-k.cov-k{grid-template-columns:auto minmax(0,1fr);column-gap:14px;
+    margin-bottom:var(--s6)}
+  .section-tag.section-tag.section-tag::before,
+  .cov-head .cov-k.cov-k::before{padding:0;justify-self:start}
+  .section-tag.section-tag.section-tag::after,
+  .cov-head .cov-k.cov-k::after{display:none}
+  .pol-head .container{display:block}
+  .auth .auth-q{padding:var(--s5)}
+  .auth-n{grid-template-columns:1fr;gap:var(--s3)}
+}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://lexoral.org/transfrontalier/#webpage", "url": "https://lexoral.org/transfrontalier/", "name": "Transcription transfrontalière Canada–États-Unis", "description": "Un témoin canadien interrogé pour un dossier américain, une partie américaine qui dépose au Québec, des instances parallèles, des commissions rogatoires. Les deux langues telles que parlées, en une passe, selon les conventions du forum.", "inLanguage": "fr-CA", "isPartOf": {"@id": "https://lexoral.org/#website"}, "publisher": {"@id": "https://lexoral.org/#organization"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Lexoral", "item": "https://lexoral.org/fr/"}, {"@type": "ListItem", "position": 2, "name": "Transcription transfrontalière Canada–États-Unis", "item": "https://lexoral.org/transfrontalier/"}]}, {"@type": "Service", "@id": "https://lexoral.org/transfrontalier/#service", "name": "Transcription juridique transfrontalière", "serviceType": "Transcription juridique bilingue transfrontalière, procédures canadiennes et américaines", "provider": {"@id": "https://lexoral.org/#organization"}, "url": "https://lexoral.org/transfrontalier/", "inLanguage": "fr-CA", "availableLanguage": ["fr-CA", "en-CA"], "areaServed": [{"@type": "Country", "name": "Canada"}, {"@type": "Country", "name": "United States"}]}]}</script>
 </head>
