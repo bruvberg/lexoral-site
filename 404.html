@@ -1499,6 +1499,97 @@ a.ct-v:hover{color:var(--red)}
   .auth .auth-q{padding:var(--s5)}
   .auth-n{grid-template-columns:1fr;gap:var(--s3)}
 }
+
+/* =========================================================================
+   V9 — LA CARTE PASSE DANS LA COUVERTURE
+
+   Bandeau : le titre en grand et la colonne de parentheses ; plus de carte.
+   Couverture : << American files, Canadian files, and the ones that answer
+   to both. >> sur trois lignes. La derniere se prolonge en filet et devient
+   la frontiere ; la carte reste en fond, tres pale, avec les principales
+   cours en abreviations de citation (le nom complet au survol).
+   ========================================================================= */
+.hero.hero-v9{--h1fs:clamp(2.3rem,7vw,5.9rem)}
+.hero.hero-v9 > .h7{grid-template-columns:minmax(0,1fr) 64px minmax(0,.3fr)}
+.hero-v9 .hx-l:first-child{grid-template-columns:var(--hxtag) minmax(0,1fr)}
+.hero-v9 .hx-l:first-child::after{content:none}
+@media (max-width:1039px){
+  .hero.hero-v9 > .h7{grid-template-columns:minmax(0,1fr) 48px minmax(0,.16fr)}
+}
+
+/* ---------- la piece : le texte a gauche, la carte a droite ----------
+   Les mesures de la carte sont celles de son trace (652 x 424) : le 49e
+   parallele est a 19,54 % de sa largeur sous son bord haut et touche le
+   Pacifique a 3,93 % de sa largeur. Le texte et la carte se decalent l'un
+   par rapport a l'autre pour que le filet de la troisieme ligne tombe
+   exactement sur la frontiere. A droite, la carte deborde un peu dans la
+   marge de la page (--bleed), jamais jusqu'au bord de l'ecran.            */
+.cov-band{overflow-x:clip}
+.cov-head .cm{--leadw:12.9em;--liney:3.3em;
+  --bleed:clamp(0px,(100vw - 100cqw - var(--marg) - var(--gapc)) / 2 - 28px,110px);
+  --mapw:calc(100cqw - var(--leadw) + var(--bleed));
+  container-type:inline-size;display:grid;grid-template-columns:var(--leadw) minmax(0,1fr);
+  grid-template-rows:auto 1fr;align-items:start;
+  margin:0 0 var(--s5) calc(var(--marg) + var(--gapc));
+  font-size:clamp(1.4rem,2.1vw,1.85rem)}
+.cov-head .cm .cov-lead{grid-column:1;grid-row:1;margin:0;max-width:none;font-size:1em;line-height:1.3;
+  margin-top:max(0px,calc(var(--mapw) * .1954 - var(--liney)))}
+.cm-lead > span{display:block}
+.cm-lead > .cm-both{display:grid;grid-template-columns:auto minmax(0,1fr)}
+.cm-both::after{content:'';align-self:start;height:2px;background:#5F7CA6;
+  margin:calc(.74em - 1px) calc(var(--mapw) * -.03926) 0 .3em;transform-origin:0 50%}
+.cm-map{grid-column:2;grid-row:1 / span 2;justify-self:start;display:block;
+  width:var(--mapw);max-width:none;height:auto;overflow:visible;
+  margin-top:max(0px,calc(var(--liney) - var(--mapw) * .1954))}
+.cm-land{fill:rgba(17,34,61,.028);stroke:rgba(17,34,61,.16);stroke-width:1;vector-effect:non-scaling-stroke}
+.cm-line{stroke:#5F7CA6;stroke-width:2;stroke-linejoin:round;stroke-linecap:round;
+  vector-effect:non-scaling-stroke}
+.cm-rg{font-family:var(--serif);font-size:13px;letter-spacing:.55em;fill:rgba(17,34,61,.34)}
+.cm-rq{font-size:10px;letter-spacing:.42em}
+.cm-c circle{fill:var(--red);stroke:var(--paper);stroke-width:1.4px;vector-effect:non-scaling-stroke}
+.cm-c text{font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;fill:var(--t-3)}
+.cm-c:hover text{fill:var(--red)}
+.cm-key{grid-column:1;grid-row:2;align-self:start;margin:var(--s5) 0 0;
+  font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--t-3);line-height:1.4}
+.cm-key i{display:inline-block;width:6px;height:6px;margin:0 .9em .15em 1px;border-radius:50%;
+  background:var(--red);vertical-align:middle}
+@media (max-width:1180px){
+  .cm-c text{font-size:12px}
+}
+
+@media (prefers-reduced-motion:no-preference){
+  .cm-js .cm-both::after{transform:scaleX(0)}
+  .cm-js .cm-line{clip-path:inset(0 100% 0 0)}
+  .cm-js .cm-c,.cm-js .cm-rg{opacity:0}
+  .cm-js.cm-on .cm-both::after{transform:none;transition:transform .55s cubic-bezier(.4,.1,.6,1) .1s}
+  .cm-js.cm-on .cm-line{clip-path:inset(0 0 0 0);transition:clip-path 1.8s cubic-bezier(.3,.1,.3,1) .55s}
+  .cm-js.cm-on .cm-rg{opacity:1;transition:opacity 1.2s ease .4s}
+  .cm-js.cm-on .cm-c{opacity:1;transition:opacity .45s ease calc(1.4s + var(--i) * 60ms)}
+}
+
+/* sous 1100 px, la place manque a cote du texte : la phrase d'abord, la carte
+   dessous, sur toute la largeur de la colonne                            */
+@media (max-width:1100px){
+  .cov-head .cm{display:block;--bleed:0px;font-size:var(--t-lg)}
+  .cov-head .cm .cov-lead{margin-top:0}
+  .cov-head .cm .cm-lead > span,.cov-head .cm .cm-lead > .cm-both{display:inline}
+  .cm-both::after{content:none}
+  .cm-map{width:100%;max-width:720px;margin:var(--s5) 0 0}
+  .cm-key{margin-top:var(--s3)}
+  .cm-c text{font-size:9.5px}
+  .cm-rg{font-size:11px}
+  .cm-rq{font-size:8.5px}
+}
+@media (max-width:900px){
+  .cov-head .cm{margin-left:0;font-size:var(--t-md)}
+}
+@media (max-width:600px){
+  .cm-c text{display:none}
+  .cm-c circle{r:6px}
+  .cm-rg{font-size:21px;letter-spacing:.4em}
+  .cm-rq{font-size:15px}
+}
 </style>
 
 </head>
