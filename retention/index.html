@@ -1615,6 +1615,16 @@ a.ct-v:hover{color:var(--red)}
 @media (max-width:900px){
   .auth .auth-q::before{content:none}
 }
+
+/* ---------- V9 : le fronton americain tient sur un telephone ----------
+   Les lignes du fronton ne se coupent jamais (chacune face a sa parenthese) :
+   sous 600 px, le corps suit la largeur de l'ecran pour que
+   << NORTHGATE LOGISTICS INC., >> ne passe plus sur la colonne.          */
+@media (max-width:600px){
+  .cov-pair .cp-us{font-size:clamp(8.4px,3.45vw - 2.6px,13px)}
+  .cov-pair .cp-l{padding-right:8px}
+  .cov-pair .cp-r{padding-left:10px}
+}
 </style>
 
 <link rel="canonical" href="https://lexoral.org/retention/"/>

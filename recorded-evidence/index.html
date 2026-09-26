@@ -1617,6 +1617,16 @@ a.ct-v:hover{color:var(--red)}
 @media (max-width:900px){
   .auth .auth-q::before{content:none}
 }
+
+/* ---------- V9 : le fronton americain tient sur un telephone ----------
+   Les lignes du fronton ne se coupent jamais (chacune face a sa parenthese) :
+   sous 600 px, le corps suit la largeur de l'ecran pour que
+   << NORTHGATE LOGISTICS INC., >> ne passe plus sur la colonne.          */
+@media (max-width:600px){
+  .cov-pair .cp-us{font-size:clamp(8.4px,3.45vw - 2.6px,13px)}
+  .cov-pair .cp-l{padding-right:8px}
+  .cov-pair .cp-r{padding-left:10px}
+}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://lexoral.org/recorded-evidence/#webpage", "url": "https://lexoral.org/recorded-evidence/", "name": "French recordings as evidence", "description": "Forensic transcription and transcription-translation of French-language recorded evidence — intercepts, body-worn and dash camera audio, 911 calls, covert recordings, custodial interviews and voicemail. The source language is transcribed first; the translation is aligned to it, never substituted for it.", "inLanguage": "en-CA", "isPartOf": {"@id": "https://lexoral.org/#website"}, "publisher": {"@id": "https://lexoral.org/#organization"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Lexoral", "item": "https://lexoral.org/"}, {"@type": "ListItem", "position": 2, "name": "French recordings as evidence", "item": "https://lexoral.org/recorded-evidence/"}]}, {"@type": "Service", "@id": "https://lexoral.org/recorded-evidence/#service", "name": "French recordings as evidence", "serviceType": "Forensic transcription and transcription-translation of recorded evidence", "provider": {"@id": "https://lexoral.org/#organization"}, "inLanguage": "en-CA", "url": "https://lexoral.org/recorded-evidence/", "availableLanguage": ["fr-CA", "en-CA"], "areaServed": [{"@type": "Country", "name": "Canada"}, {"@type": "Country", "name": "United States"}]}]}</script>
 </head>

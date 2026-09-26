@@ -1617,6 +1617,16 @@ a.ct-v:hover{color:var(--red)}
 @media (max-width:900px){
   .auth .auth-q::before{content:none}
 }
+
+/* ---------- V9 : le fronton americain tient sur un telephone ----------
+   Les lignes du fronton ne se coupent jamais (chacune face a sa parenthese) :
+   sous 600 px, le corps suit la largeur de l'ecran pour que
+   << NORTHGATE LOGISTICS INC., >> ne passe plus sur la colonne.          */
+@media (max-width:600px){
+  .cov-pair .cp-us{font-size:clamp(8.4px,3.45vw - 2.6px,13px)}
+  .cov-pair .cp-l{padding-right:8px}
+  .cov-pair .cp-r{padding-left:10px}
+}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://lexoral.org/services-fr/#webpage", "url": "https://lexoral.org/services-fr/", "name": "Services de transcription juridique", "description": "Transcription bilingue français-anglais d’interrogatoires au préalable et de dépositions, d’arbitrage et de médiation, d’audiences administratives et de preuve enregistrée — avec la fiche technique complète de ce que porte chaque transcription.", "inLanguage": "fr-CA", "isPartOf": {"@id": "https://lexoral.org/#website"}, "publisher": {"@id": "https://lexoral.org/#organization"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Lexoral", "item": "https://lexoral.org/fr/"}, {"@type": "ListItem", "position": 2, "name": "Services de transcription juridique", "item": "https://lexoral.org/services-fr/"}]}, {"@type": "Service", "@id": "https://lexoral.org/services-fr/#service", "name": "Services de transcription juridique", "serviceType": "Transcription juridique bilingue français-anglais", "provider": {"@id": "https://lexoral.org/#organization"}, "url": "https://lexoral.org/services-fr/", "inLanguage": "fr-CA", "availableLanguage": ["fr-CA", "en-CA"], "areaServed": [{"@type": "Country", "name": "Canada"}, {"@type": "Country", "name": "United States"}]}]}</script>
 </head>

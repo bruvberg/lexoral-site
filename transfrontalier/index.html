@@ -1617,6 +1617,16 @@ a.ct-v:hover{color:var(--red)}
 @media (max-width:900px){
   .auth .auth-q::before{content:none}
 }
+
+/* ---------- V9 : le fronton americain tient sur un telephone ----------
+   Les lignes du fronton ne se coupent jamais (chacune face a sa parenthese) :
+   sous 600 px, le corps suit la largeur de l'ecran pour que
+   << NORTHGATE LOGISTICS INC., >> ne passe plus sur la colonne.          */
+@media (max-width:600px){
+  .cov-pair .cp-us{font-size:clamp(8.4px,3.45vw - 2.6px,13px)}
+  .cov-pair .cp-l{padding-right:8px}
+  .cov-pair .cp-r{padding-left:10px}
+}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://lexoral.org/transfrontalier/#webpage", "url": "https://lexoral.org/transfrontalier/", "name": "Transcription transfrontalière Canada–États-Unis", "description": "Un témoin canadien interrogé pour un dossier américain, une partie américaine qui dépose au Québec, des instances parallèles, des commissions rogatoires. Les deux langues telles que parlées, en une passe, selon les conventions du forum.", "inLanguage": "fr-CA", "isPartOf": {"@id": "https://lexoral.org/#website"}, "publisher": {"@id": "https://lexoral.org/#organization"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Lexoral", "item": "https://lexoral.org/fr/"}, {"@type": "ListItem", "position": 2, "name": "Transcription transfrontalière Canada–États-Unis", "item": "https://lexoral.org/transfrontalier/"}]}, {"@type": "Service", "@id": "https://lexoral.org/transfrontalier/#service", "name": "Transcription juridique transfrontalière", "serviceType": "Transcription juridique bilingue transfrontalière, procédures canadiennes et américaines", "provider": {"@id": "https://lexoral.org/#organization"}, "url": "https://lexoral.org/transfrontalier/", "inLanguage": "fr-CA", "availableLanguage": ["fr-CA", "en-CA"], "areaServed": [{"@type": "Country", "name": "Canada"}, {"@type": "Country", "name": "United States"}]}]}</script>
 </head>
