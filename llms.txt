@@ -7,7 +7,7 @@ Coverage: entirely American files, entirely Canadian files, or both at once. Wor
 Proceedings transcribed:
 - United States: depositions, examinations before trial, examinations under oath (EUO), arbitration hearings, recorded statements, 911 and emergency-services calls, custodial and police-station interviews, body-worn and covert recordings, wiretap and consensual recordings.
 - Canada: examinations for discovery, interrogatoires hors cour, out-of-court examinations, criminal trials and preliminary inquiries, labour and grievance arbitration, administrative tribunals, professional discipline councils, coroner's inquests, immigration hearings, commissions of inquiry.
-- Cross-border: a Canadian witness examined for a U.S. matter, a U.S. party filing in Quebec, parallel proceedings, cross-border arbitration, letters rogatory and Hague Evidence Convention examinations.
+- Cross-border: a Canadian witness examined for a U.S. matter, a U.S. party filing in Quebec, parallel proceedings, cross-border arbitration, letters rogatory and depositions of willing witnesses (Canada is not a party to the Hague Evidence Convention).
 
 Areas served: Montréal, Québec, Laval, Longueuil, Gatineau, Sherbrooke, Trois-Rivières, Ottawa, Kanata, Toronto, Moncton. Work is produced from the recording, so recordings are accepted from any jurisdiction in Canada or the United States; remote intake, no travel charge.
 
@@ -40,7 +40,7 @@ Key facts:
 - [Accueil (français)](https://lexoral.org/fr/): version française de la page d'accueil.
 - [Legal transcription services](https://lexoral.org/services/): the four kinds of proceeding transcribed (depositions and examinations, arbitration and mediation, tribunal hearings, recorded evidence), with the full datasheet of what every transcript includes and what can be requested, and a downloadable specimen transcript.
 - [Services de transcription juridique](https://lexoral.org/services-fr/): version française.
-- [Cross-border transcription, Canada and the United States](https://lexoral.org/cross-border/): a Canadian witness examined for a U.S. matter, a U.S. party filing in Quebec, parallel proceedings, cross-border arbitration, letters rogatory and Hague Evidence Convention examinations — both languages as spoken, one pass, produced to whichever set of conventions the forum requires.
+- [Cross-border transcription, Canada and the United States](https://lexoral.org/cross-border/): a Canadian witness examined for a U.S. matter, a U.S. party filing in Quebec, parallel proceedings, cross-border arbitration, letters rogatory and depositions of willing witnesses (Canada is not a party to the Hague Evidence Convention) — both languages as spoken, one pass, produced to whichever set of conventions the forum requires.
 - [Transcription transfrontalière Canada–États-Unis](https://lexoral.org/transfrontalier/): version française.
 - [Legal transcription in Quebec](https://lexoral.org/quebec/): section 133 of the Constitution Act, 1867 makes either language usable by any person in the courts of Quebec, so both languages are the record and no interpreter is involved; what a bilingual examination looks like minute by minute; per-language stenographer accreditation under CQLR c. B-1, r. 13; procedures transcribed; cities served (Montreal, Quebec City, Laval, Gatineau, Longueuil, Sherbrooke, Trois-Rivières, Saguenay, Lévis). States plainly that Lexoral is not an accredited Quebec official stenographer.
 - [Transcription juridique au Québec](https://lexoral.org/quebec-fr/): version française.
@@ -53,3 +53,11 @@ Key facts:
 - [Privacy Policy](https://lexoral.org/privacy/) · [Politique de confidentialité](https://lexoral.org/privacy-fr/): Loi 25 and GDPR compliance detail.
 - [Retention Policy](https://lexoral.org/retention/) · [Politique de conservation](https://lexoral.org/retention-fr/): file retention and deletion.
 - [Specimen transcript (PDF)](https://lexoral.org/lexoral-specimen-transcript.pdf): two-page sample in the delivered format, fictional matter.
+
+## Blog
+
+- [Blog (English)](https://lexoral.org/blog/) · [Blogue (français)](https://lexoral.org/blogue/): guides on legal transcription and a regular watch on transcription and justice in Canada and the United States. RSS: https://lexoral.org/blog/feed.xml · https://lexoral.org/blogue/feed.xml
+- [What a legal transcript is for — and who actually reads it](https://lexoral.org/blog/what-a-legal-transcript-is-for/) · [À quoi sert une transcription judiciaire ? Qui la lit, et comment](https://lexoral.org/blogue/a-quoi-sert-une-transcription-judiciaire/): A transcript is not a set of notes: it is the record. Who reads it (appeal courts, counsel, judges, witnesses), how it is cited, and why accuracy matters.
+- [Court reporter, transcriptionist, interpreter: who does what](https://lexoral.org/blog/court-reporter-transcriptionist-interpreter/) · [Sténographe, transcripteur, interprète : qui fait quoi ?](https://lexoral.org/blogue/stenographe-transcripteur-interprete/): Three jobs that get confused. In Quebec, Ontario and the U.S.: who takes the record, who transcribes it, who interprets, and what each one produces.
+- [Deposing a Canadian witness for a U.S. case](https://lexoral.org/blog/deposing-a-canadian-witness-for-a-us-case/) · [Interroger un témoin canadien pour un procès américain](https://lexoral.org/blogue/deposition-au-canada-proces-americain/): Canada is not a party to the Hague Evidence Convention. Willing witnesses, letters rogatory, and what to plan for when the witness speaks French.
+- [Record watch: transcription and justice in Canada and the U.S. — September 2026](https://lexoral.org/blog/watch-2026-09/) · [Veille : transcription et justice au Canada et aux États-Unis — septembre 2026](https://lexoral.org/blogue/veille-2026-09/): California allows recording when no court reporter is available, North Dakota moves to audio and AI, and language is back before Quebec’s Superior Court.

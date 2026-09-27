@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lexoral — Blogue</title>
+    <link>https://lexoral.org/blogue/</link>
+    <atom:link href="https://lexoral.org/blogue/feed.xml" rel="self" type="application/rss+xml"/>
+    <description>La transcription juridique au Canada et aux États-Unis : des guides, et une veille régulière sur la transcription et la justice.</description>
+    <language>fr-ca</language>
+    <lastBuildDate>Sun, 27 Sep 2026 13:00:00 +0000</lastBuildDate>
+    <item>
+      <title>À quoi sert une transcription judiciaire ? Qui la lit, et comment</title>
+      <link>https://lexoral.org/blogue/a-quoi-sert-une-transcription-judiciaire/</link>
+      <guid isPermaLink="true">https://lexoral.org/blogue/a-quoi-sert-une-transcription-judiciaire/</guid>
+      <pubDate>Sun, 27 Sep 2026 13:00:00 +0000</pubDate>
+      <category>Guide</category>
+      <description>Une transcription n’est pas une prise de notes : c’est le dossier. Qui la lit (cour d’appel, avocats, juge, témoin), comment on la cite, et pourquoi.</description>
+    </item>
+    <item>
+      <title>Sténographe, transcripteur, interprète : qui fait quoi ?</title>
+      <link>https://lexoral.org/blogue/stenographe-transcripteur-interprete/</link>
+      <guid isPermaLink="true">https://lexoral.org/blogue/stenographe-transcripteur-interprete/</guid>
+      <pubDate>Sun, 27 Sep 2026 13:00:00 +0000</pubDate>
+      <category>Guide</category>
+      <description>Trois métiers qu’on confond. Au Québec, en Ontario et aux États-Unis : qui prend le dossier, qui le transcrit, qui interprète, et ce que chacun produit.</description>
+    </item>
+    <item>
+      <title>Interroger un témoin canadien pour un procès américain</title>
+      <link>https://lexoral.org/blogue/deposition-au-canada-proces-americain/</link>
+      <guid isPermaLink="true">https://lexoral.org/blogue/deposition-au-canada-proces-americain/</guid>
+      <pubDate>Sun, 27 Sep 2026 13:00:00 +0000</pubDate>
+      <category>Transfrontalier</category>
+      <description>Le Canada n’est pas partie à la Convention de La Haye sur la preuve. Témoin consentant, commission rogatoire, et que faire quand le témoin parle français.</description>
+    </item>
+    <item>
+      <title>Veille : transcription et justice au Canada et aux États-Unis — septembre 2026</title>
+      <link>https://lexoral.org/blogue/veille-2026-09/</link>
+      <guid isPermaLink="true">https://lexoral.org/blogue/veille-2026-09/</guid>
+      <pubDate>Sun, 27 Sep 2026 13:00:00 +0000</pubDate>
+      <category>Veille</category>
+      <description>La Californie permet l’enregistrement faute de sténographes, le Dakota du Nord passe à l’audio et à l’IA, et au Québec la langue revient devant les juges.</description>
+    </item>
+  </channel>
+</rss>

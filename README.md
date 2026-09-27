@@ -21,10 +21,12 @@ section-530/          s. 530.1(g) (EN)        article-530/         (FR)
 faq/                  21 questions (EN)       faq-fr/              (FR)
 privacy/              Privacy policy (EN)     privacy-fr/          (FR)
 retention/            Retention policy (EN)   retention-fr/        (FR)
+blog/                 Blog index + posts (EN) blogue/              (FR)
+blog/feed.xml         RSS (EN)                blogue/feed.xml      RSS (FR)
 404.html              Not-found page (noindex)
 fonts/                Six woff2 faces, latin subset — see "The faces" below
 robots.txt            Crawl rules, incl. AI answer engines
-sitemap.xml           18 URLs with hreflang trios
+sitemap.xml           28 URLs with hreflang trios
 llms.txt              Plain-language summary for LLM crawlers
 og.png                1200x630 social card
 favicon.svg           Site icon        apple-touch-icon.png   180x180
@@ -44,6 +46,11 @@ mobile section index. The pages are generated from the sources described below, 
 deploys is exactly the file you are looking at.
 
 ## Editing notes
+
+- The blog (`/blog/`, `/blogue/`) is generated: each post exists in both languages, with the
+  same number (N° 01, 02…), its own hreflang pair, BlogPosting JSON-LD, and an entry in both RSS
+  feeds, the sitemap and `llms.txt`. Sources are listed at the end of every post, and every post
+  says it is general information, not legal advice.
 
 - Section anchors on the homepage: `#coverage #why #reference #practice #clients
   #contact`. The nav mixes these with page links; the mobile index and the footer
