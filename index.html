@@ -1644,6 +1644,21 @@ a.ct-v:hover{color:var(--red)}
   letter-spacing:.16em;text-transform:uppercase;text-decoration:none;--fr:var(--face-r);--fb:var(--face-b);
   transition:transform .08s,background .16s}
 .nav-index a.ni-cta:hover{background:var(--nav)}
+/* la barre francaise est plus longue (Pourquoi nous, Transfrontalier, Soumettre un dossier) :
+   les touches et le telephone ne se laissent plus ecraser, et ce sont les blancs qui cedent */
+.logo,.nav-lang,.nav-lang a,.nav-tel{flex:none}
+.nav-inner{gap:16px}
+.nav-links{gap:18px}
+.nav-side{gap:14px}
+/* en francais, les libelles sont plus longs : la barre tient en resserrant les blancs
+   et l'interlettrage des liens, jamais les touches */
+:lang(fr) .nav-inner{gap:12px}
+:lang(fr) .nav-links{gap:14px}
+:lang(fr) .nav-links a{letter-spacing:.13em}
+@media (max-width:640px){ .nav-side{gap:11px} }
+/* les plus petits telephones (360 px) : les touches gardent leur relief, avec un peu moins de marge */
+@media (max-width:400px){ .nav-inner.nav-inner{gap:10px} .nav-lang{gap:8px} .nav-lang a{padding:8px 10px}
+  .nav-menu{padding:8px 10px;gap:9px} }
 @media (min-width:641px){ .nav-index a.ni-cta{display:none} }
 @media (max-width:640px){ .nav-cta{display:none} }
 
