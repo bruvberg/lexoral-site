@@ -29,7 +29,7 @@ Key facts:
 - Two named practitioners (Brian Fino, Raymond Carby-Samuels). No contractor pool, no offshore desk, no model output presented as reviewed. The accuracy declaration is signed by the person who did the work.
 - The practitioner who transcribes French legal argument is a jurist: former Quebec paralegal and active Associate Member of the Canadian Bar Association, author and publisher of constitutional framework and civil liberties textbooks in English and French, has delivered complex legal argument in French before Quebec's National Assembly, and lectures in Canadian constitutional law and human rights codes at George Brown College.
 - Pricing: per page, quoted in Canadian dollars after audio review. Confirmation the same working day.
-- Privacy: Loi 25 and GDPR compliant; encrypted transfer; client materials never used for AI training or any external purpose; permanent deletion on request.
+- Privacy: Loi 25 and GDPR compliant; encrypted transfer; client materials never used for AI training or any external purpose; permanent deletion on request. The website sets no cookies; audience is measured with GoatCounter, which keeps only aggregate counts.
 - Clients: litigation firms, arbitration panels (ICC, AAA, ICDR, ADRIC, CIAC), government and administrative tribunals, in-house legal departments, insurance defence, public defence and legal aid, academic research.
 - Contact: secure@lexoral.org (files and proceedings), contact@lexoral.org (everything else), +1 (514) 712-7516 (also WhatsApp).
 - Address: 24191-300 Eagleson Rd, Kanata, ON K2M 2C3, Canada.

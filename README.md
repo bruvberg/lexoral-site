@@ -41,8 +41,9 @@ from 23,400. The eight content pages carry the detail, and `#reference` is the h
 at them.
 
 Every page ships as a single self-contained HTML file: CSS lives in an inline `<style>`
-block, there is no dependency to fetch, and no JavaScript beyond the FAQ accordion and the
-mobile section index. The pages are generated from the sources described below, but what
+block, and there is one outside request only: GoatCounter's cookieless counter
+(`gc.zgo.at/count.js`, account `lexoral`), described in section L. 11 of the privacy policy.
+No other JavaScript beyond the FAQ accordion, the mobile section index and the map reveal. The pages are generated from the sources described below, but what
 deploys is exactly the file you are looking at.
 
 ## Editing notes

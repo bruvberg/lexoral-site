@@ -1618,20 +1618,31 @@ a.ct-v:hover{color:var(--red)}
   font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-decoration:none}
 .skip:focus{top:12px;outline:2px solid var(--red);outline-offset:2px}
 
-.nav-cta{display:inline-flex;align-items:center;height:34px;padding:0 15px;background:var(--ink);color:#fff;
-  font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;
-  white-space:nowrap;transition:background .15s}
-.nav-cta:hover{background:var(--red);color:#fff}
-.nav-cta:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+/* le bouton de la barre : la meme touche en relief que EN / FR et Index, a l'encre,
+   avec les memes faces claires que la touche active */
+.nav-cta{--relief:4px;position:relative;display:inline-flex;align-items:center;flex:none;
+  padding:8px 14px;background:var(--ink);color:#fff;box-shadow:inset 0 0 0 1px var(--ink);
+  font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;
+  white-space:nowrap;--fr:var(--face-r);--fb:var(--face-b);transition:transform .08s,background .16s,color .16s}
+.nav-cta::before,.nav-index a.ni-cta::before{content:'';position:absolute;left:100%;top:0;width:var(--relief);height:100%;
+  background:var(--fr);transform:skewY(45deg);transform-origin:0 0;pointer-events:none}
+.nav-cta::after,.nav-index a.ni-cta::after{content:'';position:absolute;top:100%;left:0;width:100%;height:var(--relief);
+  background:var(--fb);transform:skewX(45deg);transform-origin:0 0;pointer-events:none}
+.nav-cta:hover{background:var(--nav);color:#fff;box-shadow:inset 0 0 0 1px var(--nav)}
+.nav-cta:active,.nav-index a.ni-cta:active{transform:translate(4px,4px)}
+.nav-cta:active::before,.nav-cta:active::after,
+.nav-index a.ni-cta:active::before,.nav-index a.ni-cta:active::after{opacity:0}
+.nav-cta:focus-visible{outline:2px solid var(--red);outline-offset:3px}
 .nav-cta .nc-s{display:none}
-.nav-cta{flex:none}
 /* le bouton prend la place du numero : le telephone se reduit a son icone
    (le numero reste en toutes lettres dans l'index, le contact et le pied de page) */
 .nav-tel span{display:none}
 /* sur telephone, la barre n'a pas la place : le bouton passe en tete de l'index */
-.nav-index a.ni-cta{display:block;margin:var(--s3) 0 var(--s3);padding:15px 16px 14px;border-top:0;
-  background:var(--ink);color:#fff;font-family:var(--mono);font-size:11px;letter-spacing:.16em;
-  text-transform:uppercase;text-decoration:none}
+.nav-index a.ni-cta{--relief:4px;position:relative;display:block;margin:var(--s3) 4px calc(var(--s3) + 4px) 0;
+  padding:15px 16px 14px;border-top:0;background:var(--ink);color:#fff;font-family:var(--mono);font-size:11px;
+  letter-spacing:.16em;text-transform:uppercase;text-decoration:none;--fr:var(--face-r);--fb:var(--face-b);
+  transition:transform .08s,background .16s}
+.nav-index a.ni-cta:hover{background:var(--nav)}
 @media (min-width:641px){ .nav-index a.ni-cta{display:none} }
 @media (max-width:640px){ .nav-cta{display:none} }
 
@@ -1770,5 +1781,6 @@ document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
  document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false)});
  addEventListener('resize',function(){if(innerWidth>=1180)set(false)});})();
 </script>
+<script data-goatcounter="https://lexoral.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>
