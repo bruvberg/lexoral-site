@@ -112,4 +112,28 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://lexoral.org/blog/watch-2026-09/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://lexoral.org/blogue/veille-2026-09/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://lexoral.org/blog/watch-2026-09/"/></url>
+  <url><loc>https://lexoral.org/why-lexoral/</loc><lastmod>2026-09-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lexoral.org/why-lexoral/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lexoral.org/pourquoi-lexoral/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lexoral.org/why-lexoral/"/></url>
+  <url><loc>https://lexoral.org/pourquoi-lexoral/</loc><lastmod>2026-09-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lexoral.org/why-lexoral/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lexoral.org/pourquoi-lexoral/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lexoral.org/why-lexoral/"/></url>
+  <url><loc>https://lexoral.org/practice/</loc><lastmod>2026-09-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lexoral.org/practice/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lexoral.org/cabinet/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lexoral.org/practice/"/></url>
+  <url><loc>https://lexoral.org/cabinet/</loc><lastmod>2026-09-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lexoral.org/practice/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lexoral.org/cabinet/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lexoral.org/practice/"/></url>
+  <url><loc>https://lexoral.org/reference/</loc><lastmod>2026-09-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lexoral.org/reference/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lexoral.org/reference-fr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lexoral.org/reference/"/></url>
+  <url><loc>https://lexoral.org/reference-fr/</loc><lastmod>2026-09-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lexoral.org/reference/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lexoral.org/reference-fr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lexoral.org/reference/"/></url>
 </urlset>

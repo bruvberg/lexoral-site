@@ -1771,6 +1771,600 @@ section:not(.hero):not(.pol-head),.rec-band,.cov-band{
   .cov-pair::before,.dgm::before,.auth.auth.auth::before,.rdx::before{content:none}
   .h7-left{--cw:128px;--cx:-20px;--cy:-22px}
 }
+
+/* =========================================================================
+   V13 — LES CARRES DE COULEUR
+
+   Des aplats, pas du papier : trois couleurs (le sable, le marine, le
+   bordeaux) et un seul geste, repete partout. Un grand carre sable pose sur
+   le coin d'un titre ou d'une piece, un petit carre plein sur son bord ; sur
+   les pieces (specimen, schema, extrait de loi, temoignage, caviardage), un
+   second petit carre, bordeaux, a cheval sur le coin oppose.
+   Trois endroits le poussent au bout :
+   - l'accueil : les deux langues du titre en deux carres qui se chevauchent ;
+     la ou ils se recouvrent, le bordeaux : le dossier, qui tient les deux ;
+   - LEX v. ORAL : le << v. >> (nous, entre les deux) dans un carre bordeaux ;
+   - la marge : les numeros de section dans des carres pleins.
+   ========================================================================= */
+:root{--sq:#E6DBC4;--sq-navy:#162E51;--sq-red:#8A1C1C;--sq-iv:#F3ECDD}
+.section-h2,.letter-bd,.hero-v9 .hx-h1{position:relative;isolation:isolate}
+.h7-left::before,.h7-left::after{content:none}
+
+/* ---------- le grand carre sable ---------- */
+.hero-v9 .hx-h1::before,.pol-head .pol-title::before,.cov-pair::before,.dgm::before,.auth.auth.auth::before,.rdx::before,
+.section-h2::before,.letter-bd::before{
+  content:'';position:absolute;z-index:-1;pointer-events:none;transform:none;border:0;box-shadow:none;margin:0;
+  left:var(--cx,-28px);top:var(--cy,-28px);width:var(--cw,140px);height:var(--cw,140px);background:var(--sq)}
+/* ---------- le petit carre plein, sur son bord ---------- */
+.hero-v9 .hx-h1::after,.pol-head .pol-title::after,.cov-pair::after,.dgm::after,.auth.auth.auth::after,.rdx::after,
+.section-h2::after,.letter-bd::after{
+  content:'';position:absolute;z-index:-1;pointer-events:none;transform:none;border:0;box-shadow:none;margin:0;
+  width:var(--dw,32px);height:var(--dw,32px);background:var(--dc,var(--sq-red));
+  left:calc(var(--cx,-28px) + var(--dx,-16px));top:calc(var(--cy,-28px) + var(--cw,140px) + var(--dy,-16px))}
+/* ---------- sur les pieces, un second petit carre au coin oppose ----------
+   Un seul pseudo-element peint les deux petits carres : il couvre la piece,
+   du coin du marine jusqu'au-dela du coin bas droit.                      */
+.cov-pair::after,.dgm::after,.auth.auth.auth::after,.rdx::after{
+  width:auto;height:auto;background:
+    linear-gradient(var(--dc),var(--dc)) no-repeat 0 var(--cw) / var(--dw) var(--dw),
+    linear-gradient(var(--ec),var(--ec)) no-repeat 100% 100% / var(--ew) var(--ew);
+  right:calc(var(--ew) / -2);bottom:calc(var(--ew) / -2);top:calc(var(--cy) + var(--dy))}
+
+/* ---------- sous un titre d'une ligne, le carre raccourcit ----------
+   Le titre passe au-dessus du texte qui le suit ; le carre ne descend donc
+   jamais a plus de 10 px sous la derniere ligne : il reste carre, en plus
+   petit, et le petit carre plein suit son coin.                          */
+.section-h2::before,.pol-head .pol-title::before,.hero-v9 .hx-h1::before{width:auto;aspect-ratio:1;
+  height:min(var(--cw),100% - var(--cy) + 10px)}
+.section-h2::after,.pol-head .pol-title::after,.hero-v9 .hx-h1::after{
+  top:calc(var(--cy) + min(var(--cw),100% - var(--cy) + 10px) + var(--dy))}
+
+/* ---------- les reglages de chaque piece ---------- */
+/* le carre de l'accueil suit la taille du titre, et deborde a gauche autant
+   que la marge le permet : le petit carre marine reste a 16 px au moins du
+   bord de l'ecran, et toujours hors du texte                              */
+.hero-v9 .hx-h1{--cw:calc(var(--h1fs) * 2.7);--cy:calc(var(--h1fs) * -.6);--dw:calc(var(--h1fs) * .6);
+  --cx:max(-74px,16px + var(--h1fs) * .3 - max(50vw - 550px,0px) - var(--pad));
+  --dc:var(--sq-navy);--dx:calc(var(--dw) / -2);--dy:calc(var(--dw) * -.75)}
+.section-h2{--cw:136px;--cx:-50px;--cy:-36px;--dw:30px;--dx:-15px;--dy:-15px}
+.why-section .section-h2,.contact-section .section-h2{--dc:var(--sq-navy)}
+.pol-head .pol-title{--cw:124px;--cx:-40px;--cy:-46px;--dw:30px;--dx:-15px;--dy:-15px}
+.cov-pair,.dgm,.auth.auth.auth,.rdx{--cw:168px;--cx:-34px;--cy:-34px;--dw:44px;--dc:var(--sq-navy);
+  --dx:-22px;--dy:-22px;--ew:34px;--ec:var(--sq-red)}
+.letter-bd{--cw:124px;--cx:-42px;--cy:-4px;--dw:30px;--dx:-15px;--dy:-15px}
+
+/* ---------- la marge : les numeros de section dans des carres pleins ---------- */
+.section-tag.section-tag.section-tag::before,
+.cov-head .cov-k.cov-k::before{
+  content:'0' counter(secline);display:grid;place-items:center;align-self:center;box-sizing:border-box;
+  width:30px;height:30px;padding:0;margin:0 var(--mgut) 0 0;
+  background:var(--sq-red);color:var(--sq-iv);line-height:1;letter-spacing:.06em}
+.section-tag.section-tag.section-tag.st-plain::before{background:none}
+
+/* ---------- l'accueil : les deux langues, et le dossier au milieu ---------- */
+.sqx{display:none}
+@media (min-width:901px){
+  .hero-v9 .sqx{--sqb:clamp(0px,50vw - 550px + var(--pad) - 48px,120px);
+    display:block;position:relative;z-index:0;grid-column:3;grid-row:1;align-self:center;justify-self:end;
+    width:min(100% + var(--sqb),330px);aspect-ratio:1;margin-right:calc(var(--sqb) * -1);pointer-events:none}
+  .sqx i{position:absolute;display:block;aspect-ratio:1;font-style:normal}
+  .sqx-a{left:0;top:0;width:64%;background:var(--sq)}
+  .sqx-b{right:0;bottom:0;width:58%;background:var(--sq-navy)}
+  .sqx-c{left:42%;top:42%;width:22%;background:var(--sq-red)}
+  .sqx b{position:absolute;font:400 10px/1 var(--mono);letter-spacing:.22em}
+  .sqx-a b{left:16px;top:16px;color:var(--sq-red)}
+  .sqx-b b{right:13px;bottom:16px;color:var(--sq-iv)}
+}
+@media (min-width:901px) and (prefers-reduced-motion:no-preference){
+  .sqx-a{animation:sq-a .9s cubic-bezier(.2,.7,.25,1) .1s both}
+  .sqx-b{animation:sq-b .9s cubic-bezier(.2,.7,.25,1) .25s both}
+  .sqx-c{animation:sq-c .45s cubic-bezier(.2,.9,.3,1.25) .95s both}
+}
+@keyframes sq-a{from{opacity:0;transform:translate(-22px,-22px)}to{opacity:1;transform:none}}
+@keyframes sq-b{from{opacity:0;transform:translate(22px,22px)}to{opacity:1;transform:none}}
+@keyframes sq-c{from{transform:scale(0)}to{transform:none}}
+
+/* ---------- LEX v. ORAL : le << v. >> dans un carre bordeaux ---------- */
+.nm-l.nm-vv{z-index:0;isolation:isolate;color:var(--sq-iv)}
+.nm-l.nm-vv::before{content:'';position:absolute;z-index:-1;pointer-events:none;
+  left:50%;bottom:calc(var(--nmfs) * .06);width:calc(var(--nmfs) * .72);height:calc(var(--nmfs) * .72);
+  transform:translateX(-50%);background:var(--sq-red)}
+
+/* ---------- un carre sable a cheval sur le haut du pied de page ----------
+   (et un petit bordeaux sur son coin gauche, dans la marge, loin du texte) :
+   une seule boite, deux aplats                                            */
+footer::after{content:'';position:absolute;pointer-events:none;width:138px;height:138px;
+  background:linear-gradient(var(--sq-red),var(--sq-red)) no-repeat 0 0 / 36px 36px,
+             linear-gradient(var(--sq),var(--sq)) no-repeat 100% 100% / 120px 120px;
+  left:calc(max(50% - 550px,0px) + var(--pad) + var(--marg) - 114px);top:-78px}
+
+/* ---------- les etiquettes de marge : des aplats sable ----------
+   (les pieces de la page Services aussi : EXHIBIT 01, 02...)             */
+.cov-band .cov-c,.idx-k{background:var(--sq);box-shadow:none;color:var(--red)}
+.idx-a:hover .idx-k{background:var(--red);color:#fff;box-shadow:none}
+.service-num{justify-self:end;margin:.1em var(--mgut) 0 0;padding:5px 9px 4px;
+  background:var(--sq);color:var(--red);line-height:1.3;white-space:nowrap}
+
+/* sur un ecran etroit, les pieces pleine largeur n'ont plus de marge ou deborder */
+@media (max-width:1180px){
+  .cov-pair,.dgm,.auth.auth.auth,.rdx{--cw:130px;--cx:-16px;--cy:-16px;--dw:32px;--dx:-8px;--dy:-16px;--ew:28px}
+}
+/* tablette : les deux carres de l'accueil passent en haut a droite du titre */
+@media (min-width:601px) and (max-width:900px){
+  .hero-v9 .sqx{display:block;position:absolute;right:var(--pad);top:calc(var(--h1fs) * -.2);z-index:0;
+    width:min(150px,20vw);aspect-ratio:1;pointer-events:none}
+  .sqx i{position:absolute;display:block;aspect-ratio:1}
+  .sqx-a{left:0;top:0;width:64%;background:var(--sq)}
+  .sqx-b{right:0;bottom:0;width:58%;background:var(--sq-navy)}
+  .sqx-c{left:42%;top:42%;width:22%;background:var(--sq-red)}
+  .sqx b{display:none}
+}
+@media (max-width:900px){
+  .hero-v9 .hx-h1{--cx:calc(var(--pad) * -1);--dx:0px;--dy:calc(var(--dw) * -.4)}
+  /* la marge est courte : le petit carre reste a gauche du texte et ne descend
+     pas plus bas que le grand                                              */
+  .section-h2{--cw:96px;--cx:-14px;--cy:-22px;--dw:20px;--dx:-12px;--dy:-20px}
+  .pol-head .pol-title{--cw:96px;--cx:-12px;--cy:-26px;--dw:20px;--dx:-14px;--dy:-20px}
+  .section-tag.section-tag.section-tag::before,
+  .cov-head .cov-k.cov-k::before{margin:0;width:28px;height:28px}
+  footer::after{left:calc(var(--pad) - 13px);width:97px;height:97px;top:-55px;
+    background:linear-gradient(var(--sq-red),var(--sq-red)) no-repeat 0 0 / 26px 26px,
+               linear-gradient(var(--sq),var(--sq)) no-repeat 100% 100% / 84px 84px}
+}
+@media (max-width:600px){
+  /* sur telephone, les pieces vont d'un bord a l'autre : les carres restent aux titres */
+  .cov-pair::before,.dgm::before,.auth.auth.auth::before,.rdx::before,
+  .cov-pair::after,.dgm::after,.auth.auth.auth::after,.rdx::after{content:none}
+  .letter-bd{--cw:84px;--cx:-12px;--cy:-4px;--dw:18px;--dx:-8px;--dy:-11px}
+  .section-h2{--dw:16px;--dx:-6px;--dy:-16px}
+  .pol-head .pol-title{--dw:16px;--dx:-8px;--dy:-16px}
+  .service-num{justify-self:start;margin:0 0 var(--s3)}
+}
+
+/* =========================================================================
+   V14 — LE PROCES-VERBAL : DE L'AUDIENCE AU DOSSIER
+
+   L'accueil se lit comme la chose qu'il vend : un son (I, oral), une
+   transcription (II, v.), un dossier (III, lex). Partout la regle de trois,
+   les memes motifs repetes : carres, filets doubles, numeros de marge, lettrines.
+   ========================================================================= */
+
+/* ---------- 1. LA BARRE : un papier a lettres en deux etages ----------
+   En haut la ligne d'en-tete (le nom, la raison sociale, le telephone, les
+   langues) ; dessous la bande rouge des chapitres, comme la bande des
+   juridictions. En defilant, la ligne d'en-tete s'en va (top negatif) : la
+   bande reste, avec son monogramme et la case << Soumettre >>.            */
+.nav-lh{display:none}
+.nav-links .nl-mono,.nav-links .nl-cta{display:none}
+@media (min-width:1180px){
+  nav{top:-58px;padding-bottom:51px}
+  .nav-inner.nav-inner{height:58px;gap:24px;justify-content:flex-start}
+  .nav-inner .logo{margin-right:0}
+  .nav-lh{display:block;flex:1 1 auto;min-width:0;padding-left:24px;border-left:1px solid var(--rule);
+    font-family:var(--serif);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--t-2);
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .nav-side .nav-cta{display:none}
+  .nav-links.nav-links{position:absolute;left:0;right:0;bottom:9px;height:42px;display:flex;align-items:stretch;gap:0;
+    padding-inline:calc(max(50% - 550px,0px) + var(--pad));background:var(--red);
+    box-shadow:inset 0 1px 0 rgba(0,0,0,.18)}
+  .nav-links.nav-links a{position:relative;display:flex;flex:none;align-items:center;gap:7px;padding:0 14px;
+    font-family:var(--serif);font-weight:600;font-size:11px;line-height:1;letter-spacing:.2em;text-transform:uppercase;
+    color:#fff;white-space:nowrap;
+    box-shadow:inset 1px 0 0 rgba(0,0,0,.26),inset -1px 0 0 rgba(255,255,255,.07);transition:background .15s}
+  /* les numeros restent dans l'index du telephone ; la bande n'a que les noms, comme la bande des juridictions */
+  .nav-links.nav-links a:not(.nl-mono) i{display:none}
+  .nav-links.nav-links a:hover{background:var(--red-d);color:#fff}
+  .nav-links.nav-links a.on{background:var(--red-d)}
+  .nav-links.nav-links a.on::after{content:'';position:absolute;left:50%;top:100%;margin-left:-7px;z-index:3;
+    border:7px solid transparent;border-top-color:var(--red-d)}
+  .nav-links.nav-links a:focus-visible{outline:2px solid #fff;outline-offset:-4px}
+  /* le monogramme, la ou etait le nom quand la ligne d'en-tete est partie */
+  .nav-links.nav-links .nl-mono{display:flex;padding:0 16px 0 0;margin-right:2px;box-shadow:none;
+    font-size:13px;letter-spacing:.08em;color:#F3ECDD}
+  .nav-links.nav-links .nl-mono i{font-family:var(--serif);font-style:italic;font-size:10px;letter-spacing:0;color:#F3ECDD;margin:0 1px}
+  .nav-links.nav-links .nl-mono:hover{background:none}
+  /* la case marine, au bout de la bande */
+  .nav-links.nav-links .nl-cta{display:flex;margin-left:auto;padding:0 20px;background:var(--ink);
+    font-family:var(--mono);font-weight:400;font-size:10px;letter-spacing:.2em;box-shadow:none}
+  .nav-links.nav-links .nl-cta:hover{background:var(--nav)}
+  :lang(fr) .nav-links.nav-links a{padding:0 12px;letter-spacing:.17em}
+  :lang(fr) .nav-links.nav-links .nl-cta{padding:0 16px;letter-spacing:.16em}
+}
+@media (min-width:1180px) and (max-width:1320px){
+  .nav-links.nav-links a{padding:0 11px;letter-spacing:.16em}
+  :lang(fr) .nav-links.nav-links a{padding:0 10px;letter-spacing:.13em}
+  .nav-lh{letter-spacing:.22em}
+}
+/* l'index du telephone : le chapitre ouvert en rouge */
+.nav-index a[aria-current="page"]{color:var(--red)}
+.nav-index a[aria-current="page"] span{color:var(--red)}
+/* le pied de page : l'adresse garde son interligne */
+.footer-links .fl-addr{line-height:1.55}
+@media (min-width:1180px){ .nav-tel span{display:inline} }
+.nav-links.nav-links .nl-mono i{font-size:11.5px}
+
+/* ---------- 2. LE BANDEAU : trois carres, le nom dessine comme le processus ----------
+   ORAL (sable, l'onde du son) -> v. (bordeaux, la transcription) -> LEX (marine, la
+   page reglee du proces-verbal, filet double a gauche)                         */
+@media (min-width:601px){
+  .sqx3 .sqx-a{background:var(--sq)}
+  .sqx3 .sqx-b{background:var(--sq-navy)}
+  .sqx3 .sqx-c{display:grid;place-items:center;background:var(--sq-red)}
+  .sqx3 .sqx-c em{font-family:var(--serif);font-style:italic;font-size:clamp(20px,2.6vw,34px);line-height:1;color:var(--sq-iv)}
+  .sqx3 .sqx-w{position:absolute;left:12%;right:12%;top:30%;height:30%;width:auto;fill:var(--sq-navy)}
+  /* la page du proces-verbal : lignes reglees, filet double rouge a gauche, numeros de ligne */
+  .sqx3 .sqx-p{position:absolute;left:24%;right:12%;top:30%;bottom:20%;
+    background:repeating-linear-gradient(to bottom,rgba(243,236,221,.55) 0 1px,transparent 1px 11px)}
+  .sqx3 .sqx-p::before{content:'';position:absolute;left:-10px;top:-6px;bottom:-6px;width:4px;
+    border-left:1px solid #C9534F;border-right:1px solid #C9534F}
+  .sqx3 .sqx-a b{color:var(--sq-red)}
+  .sqx3 .sqx-b b{color:var(--sq-iv)}
+  .sqx3 .sqx-b b,.sqx3 .sqx-a b{display:block}
+}
+@media (min-width:601px) and (max-width:900px){ .sqx3 .sqx-w,.sqx3 .sqx-p{display:block} }
+
+/* ---------- 3. LE MANDAT : LEX v. ORAL, en termes de palais ---------- */
+.nm-k.nm-c2 b{line-height:1.5}
+.nm-say em{font-style:normal;color:var(--red)}
+
+/* ---------- 4. LES TROIS TEMPS : I oral, II v., III lex ----------
+   Le chiffre romain dans la marge, a l'aplomb des carres numerotes ; le mot du
+   nom au-dessus du titre ; une lettrine au premier paragraphe.                   */
+.stg{padding:var(--s9) 0}
+.stg-hd{grid-column:1/-1;display:grid;grid-template-columns:var(--marg) minmax(0,1fr);column-gap:var(--gapc);
+  align-items:end;margin:0 0 var(--s6)}
+.stg-n{grid-column:1;grid-row:1 / span 2;justify-self:end;align-self:end;margin:0 var(--mgut) -.06em 0;
+  font-family:var(--serif);font-size:clamp(3.6rem,6vw,5.2rem);line-height:.8;letter-spacing:.02em;color:var(--red)}
+.stg-w{grid-column:2;margin:0 0 .4em;font-family:var(--serif);font-style:italic;font-size:1.35rem;line-height:1;color:var(--red)}
+.stg-hd .section-h2{grid-column:2;margin:0}
+.stg-lead{max-width:36em;margin:0 0 var(--s7);font-family:var(--serif);font-size:1.28rem;line-height:1.55;color:var(--t-1)}
+.drop::first-letter{float:left;margin:.07em .09em 0 -.03em;font-family:var(--serif);font-size:3.75em;line-height:.8;
+  color:var(--red)}
+
+/* I -- l'onde : chaque segment porte deja le numero de la ligne qu'il deviendra */
+.wvf{grid-column:1/-1;margin:0 0 var(--s8);padding:18px 0 0;border-top:3px double var(--ink)}
+.wv{display:block;width:100%;height:auto;overflow:visible}
+.wv-ruler line{stroke:var(--t-3);stroke-width:1}
+.wv-ruler text,.wv-n,.wv-who,.wv-ina,.wv-rec text{font-family:var(--mono);letter-spacing:.06em}
+.wv-ruler text{font-size:10px;fill:var(--t-3)}
+.wv-axis{stroke:var(--rule);stroke-width:1}
+.wv-s{fill:#D5D0C6}.wv-en{fill:var(--sq-navy)}.wv-fr{fill:var(--sq-red)}.wv-i{fill:#BDB6A9}
+.wv-n{font-size:10px;fill:var(--t-1)}
+.wv-tick{stroke:var(--t-3);stroke-width:1}
+.wv-who{font-size:9px;fill:var(--t-3);letter-spacing:.1em}
+.wv-br{fill:none;stroke:var(--t-3);stroke-width:1;stroke-dasharray:2 2}
+.wv-ina{font-size:9.5px;fill:var(--t-2)}
+.wv-head line{stroke:var(--red);stroke-width:1.2}.wv-head rect{fill:var(--red)}
+.wv-rec circle{fill:var(--red)}.wv-rec text{font-size:10px;fill:var(--red);letter-spacing:.16em}
+.wvf figcaption{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 28px;margin-top:14px;padding-top:12px;
+  border-top:1px solid var(--rule);font-family:var(--mono);font-size:10px;letter-spacing:.08em;line-height:1.6;color:var(--t-3)}
+.wv-leg{display:flex;flex-wrap:wrap;gap:6px 18px;margin:0;text-transform:uppercase;letter-spacing:.14em}
+.wv-leg span{display:inline-flex;align-items:center;gap:7px;color:var(--t-2)}
+.wv-leg i{width:10px;height:10px;display:inline-block}
+.lg-en{background:var(--sq-navy)}.lg-fr{background:var(--sq-red)}
+.lg-x{background:repeating-linear-gradient(90deg,var(--sq-navy) 0 2px,var(--sq-red) 2px 4px)}
+.lg-i{background:#BDB6A9}
+@media (prefers-reduced-motion:no-preference){
+  .wv-head{animation:wv-scan 2.6s cubic-bezier(.3,.1,.3,1) .2s both}
+}
+@keyframes wv-scan{from{transform:translateX(-380px);opacity:0}30%{opacity:1}to{transform:none}}
+
+/* I -- l'arbre de ce que nous recevons : une racine, trois branches, les feuilles */
+.tree{grid-column:1/-1}
+.tree-k{margin:0 0 16px;font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
+.tree-root{display:flex;align-items:center;gap:12px;margin:0;font-family:var(--serif);font-size:1.3rem;color:var(--t-1)}
+.tree-root i,.tree-h i{flex:none;width:14px;height:14px;display:block}
+.tree-root i{background:var(--sq-navy)}
+.tree-br{--g:32px;position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:var(--g);padding-top:36px}
+.tree-br::before{content:'';position:absolute;left:7px;top:0;width:1px;height:18px;background:var(--ink)}
+.tree-br::after{content:'';position:absolute;left:7px;top:18px;height:1px;
+  width:calc((100% - 2 * var(--g)) / 3 * 2 + 2 * var(--g));background:var(--ink)}
+.tree-b{position:relative;display:flex;flex-direction:column}
+.tree-b::before{content:'';position:absolute;left:7px;top:-18px;width:1px;height:18px;background:var(--ink)}
+.tree-h{display:flex;align-items:center;gap:12px;margin:0 0 10px;font-family:var(--serif);font-weight:600;font-size:.8rem;
+  line-height:1.2;letter-spacing:.2em;text-transform:uppercase;color:var(--t-1)}
+.tree-h i{background:var(--sq-red)}
+.tree-b ul{list-style:none;margin:0 0 16px 7px;padding:0 0 0 20px}
+.tree-b li{position:relative;padding:6px 0;font-size:1rem;line-height:1.35;color:var(--t-2)}
+.tree-b li::before{content:'';position:absolute;left:-20px;top:1.05em;width:13px;height:1px;background:var(--ink)}
+.tree-b li::after{content:'';position:absolute;left:-20px;top:0;bottom:0;width:1px;background:var(--ink)}
+.tree-b li:first-child::after{top:-10px}
+.tree-b li:last-child::after{bottom:auto;height:1.05em}
+.tree-l{margin-top:auto;padding-left:27px;font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--red);text-decoration:none}
+.tree-l:hover{text-decoration:underline;text-underline-offset:4px}
+
+/* II -- le specimen : la page telle qu'on la livre, et ses trois renvois */
+.sp14{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.75fr) minmax(0,1fr);gap:0 var(--s7);align-items:start;
+  margin:0 0 var(--s8)}
+.sp-page{position:relative;isolation:isolate;background:#fff;border:1px solid var(--rule);padding:30px 34px 18px 30px;
+  box-shadow:0 18px 40px -22px rgba(17,34,61,.38)}
+.sp-hd{margin:0 0 16px;text-align:center}
+.sp-hd b{display:block;font-family:var(--mono);font-weight:600;font-size:11px;letter-spacing:.32em;color:var(--t-1)}
+.sp-hd i{display:block;margin-top:4px;font-family:var(--serif);font-size:.9rem;color:var(--t-3)}
+.sp-meta p{display:flex;justify-content:space-between;gap:16px;margin:0;font-family:var(--mono);font-size:11px;line-height:1.75;
+  color:var(--t-2)}
+.sp-meta p span:last-child{text-align:right}
+.sp-meta i{font-style:italic}
+.sp-l{list-style:none;margin:16px 0 0;padding:14px 0 6px;border-top:1px solid var(--ink);
+  background:linear-gradient(to right,transparent 0 41px,#D98C87 41px 42px,transparent 42px 44px,#D98C87 44px 45px,transparent 45px) no-repeat}
+.sp-l li{position:relative;display:grid;grid-template-columns:34px 112px minmax(0,1fr);column-gap:14px;padding:3px 0;
+  font-family:var(--mono);font-size:12.5px;line-height:1.55;color:var(--t-1)}
+.sp-n{color:var(--t-3);text-align:right;padding-right:6px}
+.sp-w{padding-left:6px;font-weight:600;letter-spacing:.03em;white-space:nowrap}
+.sp-p .sp-t{font-style:italic;color:var(--t-2)}
+.sp-ina .sp-t{color:var(--t-3)}
+.sp-m{position:absolute;right:-44px;top:3px;width:20px;height:20px;display:grid;place-items:center;
+  background:var(--sq-red);color:var(--sq-iv);font-family:var(--mono);font-weight:400;font-size:10px;line-height:1}
+.sp-ft{margin-top:12px;padding-top:8px;border-top:1px solid var(--rule);text-align:right;font-family:var(--mono);font-size:10px;
+  letter-spacing:.14em;color:var(--t-3)}
+.sp-notes{padding-top:92px}
+.sp-notes ol{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+.sp-notes li{position:relative;display:grid;grid-template-columns:32px minmax(0,1fr);column-gap:10px;row-gap:4px;
+  padding:14px 0;border-bottom:1px solid var(--rule)}
+.sp-notes .sp-m{position:static;grid-row:1 / span 2}
+.sp-nk{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+.sp-nv{font-size:1rem;line-height:1.45;color:var(--t-2)}
+.sp-dl.sp-dl{--relief:4px;position:relative;display:inline-flex;flex-direction:column;gap:5px;margin-top:26px;padding:15px 22px 14px;
+  background:var(--ink);color:#fff;text-decoration:none;--fr:#0B1C33;--fb:#06121F}
+.sp-dl span{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+.sp-dl span::before{content:'\2193\00a0\00a0'}
+.sp-dl small{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;color:#B9C4D3;text-transform:uppercase}
+.sp-dl::before{content:'';position:absolute;left:100%;top:4px;width:var(--relief);height:100%;background:var(--fr)}
+.sp-dl::after{content:'';position:absolute;top:100%;left:4px;width:100%;height:var(--relief);background:var(--fb)}
+.sp-dl:hover{background:var(--nav)}
+.sp-dl:active{transform:translate(4px,4px)}.sp-dl:active::before,.sp-dl:active::after{display:none}
+
+/* II -- trois engagements, la regle de trois */
+.three{grid-column:1/-1;list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:0;padding:0;
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--rule)}
+.three li{display:grid;grid-template-columns:34px minmax(0,1fr);column-gap:8px;padding:22px 24px 24px 0}
+.three li + li{padding-left:24px;border-left:1px solid var(--rule)}
+.tr-n{grid-row:1 / span 2;font-family:var(--serif);font-style:italic;font-size:1.5rem;line-height:1;color:var(--red)}
+.three b{font-family:var(--serif);font-weight:400;font-size:1.3rem;line-height:1.2;color:var(--t-1)}
+.three li span:last-child{margin-top:6px;font-size:1rem;line-height:1.45;color:var(--t-2)}
+
+/* III -- la carte, puis les trois ordres juridiques (la bande des juridictions, depliee) */
+.jmap{grid-column:2;margin:0 0 var(--s6)}
+.jmap .cm-map{width:100%;max-width:860px;height:auto;margin:0}
+.jmap .cm-key{margin:8px 0 0}
+.jur{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-left:1px solid var(--rule)}
+.jur-c{display:flex;flex-direction:column;border-right:1px solid var(--rule)}
+.jur-k{position:relative;margin:0;padding:15px 10px 14px;background:var(--red);color:#fff;text-align:center;
+  font-family:var(--serif);font-weight:600;font-size:.8rem;line-height:1.2;letter-spacing:.22em;text-transform:uppercase;
+  box-shadow:inset 1px 0 0 rgba(0,0,0,.28)}
+.jur-k::after{content:'';position:absolute;left:50%;top:100%;margin-left:-6px;z-index:1;border:6px solid transparent;
+  border-top-color:var(--red)}
+.jur-s{margin:0;padding:13px 16px 12px;background:var(--ink);color:#DCE4EE;text-align:center;font-family:var(--mono);
+  font-size:10.5px;line-height:1.5;letter-spacing:.05em}
+.jur-tk{margin:22px 22px 8px;font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
+.jur-t{list-style:none;margin:0 22px;padding:0}
+.jur-t li{padding:10px 0;border-top:1px solid var(--rule)}
+.jur-t li:first-child{border-top-color:var(--ink)}
+.jur-t b{display:block;font-family:var(--mono);font-weight:400;font-size:11.5px;line-height:1.45;letter-spacing:.02em;color:var(--t-1)}
+.jur-t span{display:block;margin-top:3px;font-size:1rem;line-height:1.4;color:var(--t-2)}
+.jur-case{position:relative;isolation:isolate;margin:0 22px;padding:14px 16px 15px;background:var(--sq);font-family:var(--serif);
+  font-size:1rem;line-height:1.4;color:var(--t-1)}
+.jur-case i{font-style:italic}
+.jur-case > span:last-child{display:block;margin-top:6px;color:var(--t-2)}
+.jur-l{margin:auto 22px 0;padding:20px 0 22px;font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--red);text-decoration:none}
+.jur-l:hover{text-decoration:underline;text-underline-offset:4px}
+.jur-both{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:0;
+  border:1px solid var(--rule);border-top:0}
+.jur-both .jur-k{grid-column:1/-1;background:var(--sq-navy);box-shadow:none}
+.jur-both .jur-k::after{border-top-color:var(--sq-navy)}
+.jur-both .jur-s{grid-column:1/-1;background:var(--sq);color:var(--t-1)}
+.jur-both .jur-t{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:44px;margin-top:22px}
+.jur-both .jur-t li{border-top-color:var(--ink)}
+.jur-both .jur-case2{grid-column:1 / span 2;margin:18px 22px 0;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline}
+.jur-both .jur-case2 .jur-tk{margin:0 8px 0 0}
+.jur-both .jur-l{grid-column:3;align-self:end;justify-self:end;margin:0 22px 0 0}
+.jur-area{grid-column:1/-1;display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 24px;margin:var(--s6) 0 0;
+  padding-top:14px;border-top:1px solid var(--rule);font-family:var(--mono);font-size:10px;letter-spacing:.1em;line-height:1.6;
+  color:var(--t-3);text-transform:uppercase}
+.jur-area b{font-weight:400;color:var(--t-2)}
+
+/* ---------- 5. LA CLIENTELE : trois places dans la salle d'audience ---------- */
+.who14 .section-intro{max-width:30em}
+.who-g{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:var(--s5);
+  border-top:3px double var(--ink);border-bottom:1px solid var(--rule)}
+.who-c{padding:30px 28px 26px 0}
+.who-c + .who-c{padding-left:28px;border-left:1px solid var(--rule)}
+.who-plan{display:block;width:124px;height:auto;margin:0 0 22px}
+.who-plan rect{fill:none;stroke:var(--ink);stroke-width:1.3}
+.who-plan .pl-room{stroke:var(--rule)}
+.who-plan .on,.who-plan .on rect{fill:var(--sq-red);stroke:var(--sq-red)}
+.who-plan .pl-us{fill:var(--sq-navy);stroke:var(--sq-navy)}
+.who-r{margin:0;font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
+.who-r span{color:var(--t-3)}
+.who-h{margin:8px 0 14px;font-family:var(--serif);font-weight:400;font-size:2.1rem;line-height:1.1;color:var(--t-1)}
+.who-c ul{list-style:none;margin:0;padding:0}
+.who-c li{padding:13px 0;border-top:1px solid var(--rule)}
+.who-c li b{display:block;font-family:var(--serif);font-weight:400;font-size:1.15rem;line-height:1.3;color:var(--t-1)}
+.who-c li span{display:block;margin-top:3px;font-family:var(--mono);font-size:10.5px;line-height:1.5;letter-spacing:.06em;color:var(--t-3)}
+.who-key{grid-column:2;display:flex;align-items:center;gap:10px;margin:16px 0 0;font-family:var(--serif);font-style:italic;
+  font-size:.98rem;color:var(--t-3)}
+.who-key i{flex:none;width:10px;height:10px;background:var(--sq-navy)}
+
+/* ---------- 6. LE BORDEREAU DE TRANSMISSION ---------- */
+.ct14 .section-header{margin-bottom:var(--s6)}
+.tm{grid-column:2;position:relative;isolation:isolate;max-width:900px;background:#fff;border:1px solid var(--rule);
+  box-shadow:0 18px 40px -22px rgba(17,34,61,.38)}
+.tm-hd{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:baseline;column-gap:22px;padding:22px 30px 16px;
+  border-bottom:3px double var(--red)}
+.tm-logo{font-family:var(--serif);font-size:1.25rem;letter-spacing:.16em;text-transform:uppercase;color:var(--t-1);white-space:nowrap}
+.tm-logo i{font-style:italic;font-size:.72em;letter-spacing:0;text-transform:none;color:var(--red)}
+.tm-t{font-family:var(--serif);font-weight:600;font-size:.78rem;letter-spacing:.3em;text-transform:uppercase;color:var(--red)}
+.tm-d{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--t-3);text-align:right}
+.tm-f{list-style:none;margin:0;padding:6px 30px 0}
+.tm-f li{display:grid;grid-template-columns:34px 190px minmax(0,1fr);column-gap:12px;align-items:baseline;padding:15px 0;
+  border-bottom:1px dotted #B9B3A7}
+.tm-n{font-family:var(--mono);font-size:10px;color:var(--red)}
+.tm-f b{font-family:var(--serif);font-weight:400;font-size:1.15rem;color:var(--t-1)}
+.tm-f .tm-v{font-size:1rem;line-height:1.45;color:var(--t-2)}
+.tm-tk{margin:22px 30px 0;font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
+.tm-to{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:10px 30px 0;border-top:1px solid var(--ink)}
+.tm-to-a{display:flex;flex-direction:column;gap:6px;padding:16px 16px 18px 0;text-decoration:none}
+.tm-to-a + .tm-to-a{padding-left:18px;border-left:1px solid var(--rule)}
+.tm-to-a .tm-k{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--t-3)}
+.tm-to-a .tm-v{font-family:var(--serif);font-size:1.28rem;line-height:1.2;color:var(--t-1)}
+.tm-to-a .tm-x{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--t-3)}
+.tm-to-a:hover .tm-v{color:var(--red)}
+.tm-ft{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:12px 24px;margin-top:22px;
+  padding:16px 30px 18px;border-top:3px double var(--red)}
+.tm-sig{font-family:var(--serif);font-style:italic;font-size:1.1rem;color:var(--t-1)}
+.tm-sig small{display:block;margin-top:2px;font-family:var(--mono);font-style:normal;font-size:9.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--t-3)}
+.tm-addr{font-family:var(--serif);font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--t-2)}
+
+/* ---------- 7. LES CARRES : la page du specimen et le bordereau sont des pieces ---------- */
+.sp-page::before,.tm::before{content:'';position:absolute;z-index:-1;pointer-events:none;
+  left:var(--cx);top:var(--cy);width:var(--cw);height:var(--cw);background:var(--sq)}
+.sp-page::after,.tm::after{content:'';position:absolute;z-index:-1;pointer-events:none;
+  left:calc(var(--cx) + var(--dx));top:calc(var(--cy) + var(--dy));right:calc(var(--ew) / -2);bottom:calc(var(--ew) / -2);
+  background:linear-gradient(var(--dc),var(--dc)) no-repeat 0 var(--cw) / var(--dw) var(--dw),
+             linear-gradient(var(--ec),var(--ec)) no-repeat 100% 100% / var(--ew) var(--ew)}
+.sp-page,.tm{--cw:168px;--cx:-34px;--cy:-34px;--dw:44px;--dc:var(--sq-navy);--dx:-22px;--dy:-22px;--ew:34px;--ec:var(--sq-red)}
+@media (max-width:1180px){ .sp-page,.tm{--cw:130px;--cx:-16px;--cy:-16px;--dw:32px;--dx:-8px;--dy:-16px;--ew:28px} }
+@media (max-width:600px){ .sp-page::before,.sp-page::after,.tm::before,.tm::after{content:none} }
+
+/* ---------- 8. LES NOUVELLES PAGES ---------- */
+.pg14-p{max-width:36em;margin:0 0 var(--s6);font-family:var(--serif);font-size:1.2rem;line-height:1.55;color:var(--t-2)}
+.pg14-sec{padding:var(--s8) 0}
+.pg14-sec .cov-pair,.pg14-sec .rdx{grid-column:1/-1}
+.pg14-why{padding-top:var(--s7)}
+.pg14-rec{padding-top:var(--s7)}
+
+/* ---------- 9. PLUS ETROIT ---------- */
+@media (max-width:1100px){
+  .sp14{grid-template-columns:minmax(0,1fr)}
+  .sp-notes{padding-top:var(--s6)}
+  .sp-m{right:-14px}
+}
+@media (max-width:900px){
+  .stg{padding:var(--s8) 0}
+  .stg-hd{grid-template-columns:auto minmax(0,1fr);column-gap:18px}
+  .stg-n{margin:0;font-size:3.4rem}
+  .jmap{grid-column:1/-1}
+  .jur{grid-template-columns:minmax(0,1fr);border-left:0}
+  .jur-c{border:1px solid var(--rule);border-top:0;margin-bottom:22px}
+  .jur-both{grid-template-columns:minmax(0,1fr)}
+  .jur-both .jur-t{grid-template-columns:minmax(0,1fr)}
+  .jur-both .jur-case2,.jur-both .jur-l{grid-column:1/-1;justify-self:start}
+  .jur-both .jur-l{margin:0 22px 0;padding:18px 0 22px}
+  .who-g{grid-template-columns:minmax(0,1fr)}
+  .who-c,.who-c + .who-c{padding:26px 0;border-left:0;border-top:1px solid var(--rule)}
+  .who-c:first-child{border-top:0}
+  .who-key{grid-column:1/-1}
+  .tm{grid-column:1/-1}
+  .three{grid-template-columns:minmax(0,1fr)}
+  .three li,.three li + li{padding:18px 0;border-left:0;border-top:1px solid var(--rule)}
+  .three li:first-child{border-top:0}
+}
+@media (max-width:760px){
+  .tree-br{grid-template-columns:minmax(0,1fr);padding-top:18px}
+  .tree-br::after{content:none}
+  .tree-br::before{height:18px}
+  .tree-b::before{top:-18px;height:18px}
+  .tree-b + .tree-b{margin-top:6px}
+  .tree-b + .tree-b::before{top:-24px;height:24px}
+  .tm-hd{grid-template-columns:minmax(0,1fr);row-gap:6px}
+  .tm-d{text-align:left}
+  .tm-f li{grid-template-columns:30px minmax(0,1fr)}
+  .tm-f .tm-v{grid-column:2}
+  .tm-to{grid-template-columns:minmax(0,1fr)}
+  .tm-to-a + .tm-to-a{padding-left:0;border-left:0;border-top:1px solid var(--rule)}
+}
+@media (max-width:600px){
+  .stg-hd{grid-template-columns:minmax(0,1fr)}
+  .stg-n{grid-row:auto;justify-self:start;margin:0 0 6px;font-size:3rem}
+  .stg-lead{font-size:1.15rem}
+  .wv-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 calc(var(--pad) * -1);padding:0 var(--pad)}
+  .wv{min-width:720px}
+  .sp-page{padding:20px 14px 14px 12px}
+  .sp-l{background:none}
+  .sp-l li{grid-template-columns:28px minmax(0,1fr);column-gap:8px;font-size:12px}
+  .sp-w{grid-column:2;padding-left:0}
+  .sp-t{grid-column:2}
+  .sp-n{grid-row:1 / span 2;padding-right:0}
+  .sp-m{right:-8px}
+  .sp-meta p{flex-direction:column;gap:0}
+  .sp-meta p span:last-child{text-align:left;color:var(--t-3)}
+  .jur-tk,.jur-t,.jur-case{margin-left:16px;margin-right:16px}
+  .tm-hd,.tm-f,.tm-ft{padding-left:18px;padding-right:18px}
+  .tm-tk,.tm-to{margin-left:18px;margin-right:18px}
+}
+/* les paragraphes de ces pieces ne prennent pas la mesure du texte courant */
+.jur p,.jur-both p,.jur-area,.tree p,.sp14 p,.who-key,.tm p,.wvf p,.stg-w,.stg-hd p{max-width:none}
+.wvf figcaption{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:baseline;column-gap:32px}
+.wv-cap{text-align:right}
+.sp-meta{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);column-gap:18px}
+.sp-meta p{display:contents}
+.sp-meta p span{display:block;font-family:var(--mono);font-size:10.5px;line-height:1.75;color:var(--t-2)}
+.sp-meta p span:last-child{text-align:right}
+.sp-ft{margin:12px 0 0}
+@media (max-width:900px){ .wvf figcaption{grid-template-columns:minmax(0,1fr);row-gap:8px} .wv-cap{text-align:left} }
+@media (max-width:600px){ .sp-meta{grid-template-columns:minmax(0,1fr)} .sp-meta p span:last-child{text-align:left;color:var(--t-3)} }
+.stg-hd .section-h2{max-width:none}
+.jmap .cm-map{max-width:740px}
+.nav-links.nav-links .nl-mono i{text-transform:none;font-size:13px;margin:0 3px}
+/* les pieces pleine largeur posees sur le papier : le filet de marge passe dessous */
+.wvf,.tree,.three,.jur,.jur-both,.jur-area,.who-g{position:relative;background:var(--paper)}
+.jur-c{background:var(--paper)}
+.jur-both .jur-case2.jur-case2{display:block}
+.jur-both .jur-case2 .jur-tk{display:inline-block;margin:0 10px 0 0}
+.ct14 .section-header{margin-bottom:68px}
+@media (max-width:600px){
+  .stg-hd{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:12px}
+  .stg-n{margin:0;font-size:2.6rem;line-height:1}
+  .stg-w{margin:0}
+  .stg-hd .section-h2{flex:0 0 100%;margin-top:30px}
+}
+@media (max-width:480px){ .nm-k b{display:none} }
+/* le cabinet : l'en-tete de Samuels & Fino, comme le papier a lettres */
+.pr14{padding:var(--s7) 0 var(--s6)}
+.pr-lh{position:relative;isolation:isolate;max-width:760px;padding:30px 36px 26px;text-align:center;background:#fff;
+  border:1px solid var(--rule);box-shadow:0 18px 40px -22px rgba(17,34,61,.35)}
+.pr-lh::before,.pr-lh::after{content:'';position:absolute;left:14px;right:14px;height:9px;pointer-events:none;
+  background:var(--g-s) repeat-x 0 0/28px 7px}
+.pr-lh::before{top:12px}.pr-lh::after{bottom:12px}
+.pr-lh p{max-width:none;margin:0}
+.pr-k{margin-top:14px!important;font-family:var(--serif);font-size:2rem;letter-spacing:.24em;text-transform:uppercase;color:var(--t-1)}
+.pr-s{margin-top:4px!important;font-family:var(--serif);font-style:italic;font-size:1.05rem;color:var(--red)}
+.pr-orn{display:flex;align-items:center;justify-content:center;gap:12px;margin:14px auto 12px!important;max-width:420px}
+.pr-orn i{flex:1;height:1px;background:var(--t-2);position:relative}
+.pr-orn i::before{content:'';position:absolute;top:-3px;width:6px;height:6px;background:var(--t-1);transform:rotate(45deg)}
+.pr-orn i:first-child::before{left:-3px}.pr-orn i:last-child::before{right:-3px}
+.pr-orn b{font-family:var(--serif);font-weight:400;font-size:1.1rem;color:var(--red)}
+.pr-names{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 34px;font-family:var(--serif);font-size:.95rem;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--t-1)}
+.pr-c{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 22px;margin:10px 0 18px!important;font-family:var(--mono);
+  font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--t-3)}
+.pr-c a{color:var(--t-2);text-decoration:none}.pr-c a:hover{color:var(--red)}
+.pr-q{max-width:34em;margin:var(--s6) 0 0;font-family:var(--serif);font-style:italic;font-size:1.25rem;line-height:1.5;color:var(--t-1)}
+.pr-lh{--cw:150px;--cx:-30px;--cy:-30px;--dw:40px;--dc:var(--sq-navy);--dx:-20px;--dy:-20px}
+@media (max-width:600px){ .pr-lh{padding:28px 16px 24px} .pr-k{font-size:1.5rem} .pr-names{letter-spacing:.14em} }
+/* comme la bande de couverture de l'accueil d'ou elles viennent, ces sections rognent ce qui deborde */
+.pg14-sec{overflow-x:clip}
+/* d'un temps au suivant : le filet rouge et le carre a fleche -- le fil de la page */
+.stg-next{grid-column:1/-1;display:grid;grid-template-columns:var(--marg) auto auto minmax(0,1fr) auto;column-gap:14px;
+  align-items:center;margin:var(--s8) 0 calc(var(--s9) * -1 + var(--s5));padding:14px 0;border-top:1px solid var(--red);
+  text-decoration:none;color:var(--t-1)}
+.sn-k{grid-column:1;justify-self:end;margin-right:var(--mgut);font-family:var(--mono);font-size:10px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--red)}
+.stg-next b{font-family:var(--serif);font-weight:400;font-size:1.5rem;line-height:1;color:var(--red)}
+.sn-t{font-family:var(--serif);font-style:italic;font-size:1.25rem;color:var(--t-1)}
+.stg-next i{grid-column:5;display:grid;place-items:center;width:34px;height:34px;background:var(--red);color:var(--sq-iv);
+  font-style:normal;font-size:16px;transition:transform .2s}
+.stg-next:hover i{transform:translateY(4px)}
+.stg-next:hover .sn-t{color:var(--red)}
+.nm-k i em{font-style:normal;font-family:var(--mono);font-size:.7em;letter-spacing:.08em;color:var(--red);margin-right:.35em}
+@media (max-width:900px){ .stg-next{grid-template-columns:auto auto minmax(0,1fr) auto} .sn-k{grid-column:auto;margin:0} .stg-next i{grid-column:auto} }
+@media (max-width:600px){ .stg-next{grid-template-columns:auto minmax(0,1fr) auto;row-gap:4px} .sn-k{grid-column:1 / -1} .sn-t{font-size:1.08rem} }
+/* le bordereau porte ses carres : le titre de la section n'en a pas besoin */
+.ct14 .section-h2::before,.ct14 .section-h2::after{content:none}
+.ct14 .section-header{margin-bottom:66px}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": ["Organization", "LegalService", "LocalBusiness"], "@id": "https://lexoral.org/#org", "name": "Lexoral", "alternateName": "Lexoral Legal Transcription", "url": "https://lexoral.org", "logo": "https://lexoral.org/logo.svg", "image": "https://lexoral.org/og.png", "description": "Lexoral is an independent Canadian provider of attested bilingual French–English legal transcription. It works on United States matters, Canadian matters, and cross-border matters that answer to both, producing verbatim, line-numbered, court-ready transcripts of depositions, examinations, arbitrations, tribunal hearings and criminal proceedings, with a signed accuracy declaration and Loi 25-compliant handling.", "slogan": "One record, two jurisdictions.", "founder": [{"@id": "https://lexoral.org/#brian"}, {"@id": "https://lexoral.org/#raymond"}], "numberOfEmployees": {"@type": "QuantitativeValue", "value": 2}, "email": "secure@lexoral.org", "telephone": "+1-514-712-7516", "priceRange": "$$", "currenciesAccepted": "CAD", "address": {"@type": "PostalAddress", "streetAddress": "24191-300 Eagleson Rd", "addressLocality": "Kanata", "addressRegion": "ON", "postalCode": "K2M 2C3", "addressCountry": "CA"}, "geo": {"@type": "GeoCoordinates", "latitude": 45.3088, "longitude": -75.8983}, "areaServed": [{"@type": "Country", "name": "Canada"}, {"@type": "Country", "name": "United States"}], "knowsLanguage": [{"@type": "Language", "name": "French", "alternateName": "fr"}, {"@type": "Language", "name": "English", "alternateName": "en"}], "knowsAbout": ["legal transcription", "bilingual transcription", "French-English code-switching", "deposition transcripts", "arbitration transcripts", "administrative tribunal hearings", "cross-border litigation", "Quebec Code of Civil Procedure", "Federal Rules of Civil Procedure", "AAERT transcript formatting", "Loi 25 compliance", "evidentiary chain of custody"], "contactPoint": [{"@type": "ContactPoint", "contactType": "customer service", "email": "secure@lexoral.org", "telephone": "+1-514-712-7516", "availableLanguage": ["French", "English"], "areaServed": ["CA", "US"]}, {"@type": "ContactPoint", "contactType": "press and partnerships", "email": "contact@lexoral.org", "availableLanguage": ["French", "English"]}], "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Legal transcription services", "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Depositions & Examinations", "description": "Verbatim bilingual deposition and examination transcripts with speaker identification, timestamps, line numbering and objection notation, formatted for immediate filing or production in court."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Arbitration & Mediation", "description": "Judicial formatting for private panels and institutional arbitrations — ICC, AAA, ADRIC and CIAC proceedings accepted."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Tribunals & Regulatory Hearings", "description": "Administrative tribunals, labour commissions, immigration hearings and government proceedings, formatted to each body's documentary requirements."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Cross-Border Litigation Support", "description": "U.S. deposition standards combined with bilingual Quebec expertise: one record built to satisfy both procedural frameworks, without a second transcription or reformatting."}}]}}, {"@type": "Person", "@id": "https://lexoral.org/#raymond", "name": "Raymond Carby-Samuels", "jobTitle": "Co-founder — Quebec procedure and language rights", "worksFor": {"@id": "https://lexoral.org/#org"}, "knowsLanguage": ["fr", "en"], "description": "Former paralegal in Quebec and active Associate Member of the Canadian Bar Association. Author and publisher of constitutional framework and civil liberties textbooks in both English and French. Prepared and delivered complex legal argument in French before Quebec's National Assembly. Sessional Lecturer at George Brown College in Canadian constitutional law and human rights codes.", "knowsAbout": ["Canadian constitutional law", "human rights codes", "Quebec civil procedure", "language rights", "legal translation"], "affiliation": {"@type": "Organization", "name": "Canadian Bar Association"}, "alumniOf": {"@type": "CollegeOrUniversity", "name": "George Brown College"}}, {"@type": "Person", "@id": "https://lexoral.org/#brian", "name": "Brian Fino", "jobTitle": "Co-founder — language and verbatim discipline", "worksFor": {"@id": "https://lexoral.org/#org"}, "knowsLanguage": ["fr", "en"], "knowsAbout": ["verbatim legal transcription", "French-English code-switching", "deposition transcript formatting", "interpretation"]}, {"@type": "WebSite", "@id": "https://lexoral.org/#website", "url": "https://lexoral.org", "name": "Lexoral", "publisher": {"@id": "https://lexoral.org/#org"}, "inLanguage": ["en-CA", "fr-CA"]}, {"@type": "WebPage", "@id": "https://lexoral.org/#webpage", "url": "https://lexoral.org/", "name": "Lexoral — Bilingual French-English Legal Transcription", "isPartOf": {"@id": "https://lexoral.org/#website"}, "about": {"@id": "https://lexoral.org/#org"}, "inLanguage": "en-CA", "dateModified": "2026-09-11", "speakable": {"@type": "SpeakableSpecification", "cssSelector": [".hx-sub", ".xb-close"]}}]}</script>
 
@@ -1786,14 +2380,17 @@ section:not(.hero):not(.pol-head),.rec-band,.cov-band{
 <nav>
   <div class="container nav-inner">
     <a href="/" class="logo"><span class="lg-p">Lex</span><span class="lg-v">v.</span><span class="lg-p">Oral</span></a>
+    <span class="nav-lh">French&ndash;English legal transcription</span>
     <div class="nav-links">
-      <a href="#coverage">Coverage</a>
-      <a href="#why">Why us</a>
-      <a href="/services/">Services</a>
-      <a href="/cross-border/">Cross-border</a>
-      <a href="/blog/">Blog</a>
-      <a href="/faq/">FAQ</a>
-      <a href="#contact">Contact</a>
+      <a class="nl-mono" href="/" aria-hidden="true" tabindex="-1">L<i>v.</i>O</a>
+      <a href="#coverage"><i>01</i>Coverage</a>
+      <a href="/why-lexoral/"><i>02</i>Why us</a>
+      <a href="/services/"><i>03</i>Services</a>
+      <a href="/cross-border/"><i>04</i>Cross-border</a>
+      <a href="/practice/"><i>05</i>Practice</a>
+      <a href="/blog/"><i>06</i>Blog</a>
+      <a href="/faq/"><i>07</i>FAQ</a>
+      <a class="nl-cta" href="#contact">Submit a proceeding<span aria-hidden="true"> &rarr;</span></a>
     </div>
     <div class="nav-side">
       <div class="nav-lang">
@@ -1808,14 +2405,14 @@ section:not(.hero):not(.pol-head),.rec-band,.cov-band{
     <div class="container">
       <a href="#contact" class="ni-cta">Submit a proceeding &rarr;</a>
       <a href="#coverage"><span>01</span>Coverage</a>
-      <a href="#why"><span>02</span>Why us</a>
-      <a href="#reference"><span>03</span>Reference</a>
-      <a href="#practice"><span>04</span>Practice</a>
-      <a href="#contact"><span>05</span>Contact</a>
-      <a href="/services/"><span>06</span>Services</a>
-      <a href="/cross-border/"><span>07</span>Cross-border</a>
-      <a href="/faq/"><span>08</span>Questions</a>
-      <a href="/blog/"><span>09</span>Blog</a>
+      <a href="/why-lexoral/"><span>02</span>Why us</a>
+      <a href="/services/"><span>03</span>Services</a>
+      <a href="/cross-border/"><span>04</span>Cross-border</a>
+      <a href="/practice/"><span>05</span>Practice</a>
+      <a href="/blog/"><span>06</span>Blog</a>
+      <a href="/faq/"><span>07</span>FAQ</a>
+      <a href="/reference/"><span>08</span>Reference</a>
+      <a href="#contact"><span>09</span>Contact</a>
       <a href="tel:+15147127516" class="ni-tel"><span>Tel</span>+1 (514) 712-7516</a>
     </div>
   </div>
@@ -1824,279 +2421,60 @@ section:not(.hero):not(.pol-head),.rec-band,.cov-band{
 <section class="hero hero-v7 hero-v9" id="main">
   <div class="container h7">
     <div class="hx-rail h7-rail" aria-hidden="true"><span style="--i:0">)</span><span style="--i:1">)</span><span style="--i:2">)</span><span style="--i:3">)</span><span style="--i:4">)</span><span style="--i:5">)</span><span style="--i:6">)</span><span style="--i:7">)</span><span style="--i:8">)</span><span style="--i:9">)</span><span style="--i:10">)</span><span style="--i:11">)</span><span style="--i:12">)</span><span style="--i:13">)</span><span style="--i:14">)</span><span style="--i:15">)</span><span style="--i:16">)</span><span style="--i:17">)</span><span style="--i:18">)</span></div>
+    <div class="sqx sqx3" aria-hidden="true"><i class="sqx-a"><b>I · Oral</b><svg class="sqx-w" viewBox="0 0 212 80" preserveAspectRatio="none"><rect x="6" y="30" width="3" height="20"/><rect x="12" y="24" width="3" height="32"/><rect x="18" y="15" width="3" height="51"/><rect x="24" y="13" width="3" height="55"/><rect x="30" y="16" width="3" height="48"/><rect x="36" y="25" width="3" height="31"/><rect x="42" y="28" width="3" height="25"/><rect x="48" y="21" width="3" height="38"/><rect x="54" y="20" width="3" height="41"/><rect x="60" y="15" width="3" height="51"/><rect x="66" y="17" width="3" height="46"/><rect x="72" y="27" width="3" height="27"/><rect x="78" y="26" width="3" height="28"/><rect x="84" y="17" width="3" height="46"/><rect x="90" y="17" width="3" height="46"/><rect x="96" y="14" width="3" height="52"/><rect x="102" y="19" width="3" height="42"/><rect x="108" y="29" width="3" height="23"/><rect x="114" y="25" width="3" height="30"/><rect x="120" y="21" width="3" height="39"/><rect x="126" y="19" width="3" height="43"/><rect x="132" y="20" width="3" height="40"/><rect x="138" y="24" width="3" height="33"/><rect x="144" y="29" width="3" height="22"/><rect x="150" y="20" width="3" height="41"/><rect x="156" y="15" width="3" height="51"/><rect x="162" y="18" width="3" height="44"/><rect x="168" y="22" width="3" height="36"/><rect x="174" y="25" width="3" height="31"/><rect x="180" y="26" width="3" height="28"/><rect x="186" y="22" width="3" height="37"/><rect x="192" y="16" width="3" height="48"/><rect x="198" y="15" width="3" height="50"/><rect x="204" y="18" width="3" height="44"/></svg></i><i class="sqx-b"><b>III · Lex</b><span class="sqx-p"></span></i><i class="sqx-c"><em>v.</em></i></div>
     <div class="h7-left">
       <h1 class="hx-h1"><span class="hx-l"><i aria-hidden="true">EN</i>We&rsquo;re the record.</span><span class="hx-l" lang="fr"><i aria-hidden="true">FR</i>Nous prenons acte.</span></h1>
-      <p class="hx-sub">French&ndash;English legal transcription for Canada and the United States. Each language transcribed as spoken, never translated.</p>
+      <p class="hx-sub">Certified French–English transcripts of examinations, hearings and recorded evidence, for Canada and the United States. Each language as spoken, never translated.</p>
       <div class="hx-actions">
       <a href="#contact" class="btn-primary">Submit a proceeding</a>
-      <a href="/services/" class="btn-outline-w">Our services</a>
+      <a href="#transcript" class="btn-outline-w">Read the specimen</a>
     </div>
     </div>
   </div>
 </section>
 <div class="jx" role="navigation" aria-label="Jurisdictions"><div class="container jx-in"><a class="jx-a" href="/quebec/"><b>Quebec</b><i>s. 133, Constitution Act, 1867</i></a><a class="jx-a" href="/section-530/"><b>Canada</b><i>Criminal Code, s. 530.1(g)</i></a><a class="jx-a" href="/recorded-evidence/"><b>United States</b><i>U.S. v. Chavez (10th Cir. 2020)</i></a><a class="jx-a" href="/cross-border/"><b>Both at once</b><i>Canada Evidence Act, s. 46</i></a></div></div>
 
-<section class="name-section" id="name">
-  <div class="container">
-    <div class="section-header reveal">
-      <div class="section-tag"><span class="st-br">[</span>What we do<span class="st-br">]</span></div>
-      <h2 class="vh">What we do</h2>
-    </div>
-    <div class="nm-mark" aria-hidden="true"><span class="nm-l nm-c1">Lex</span><span class="nm-l nm-c2 nm-vv">v.</span><span class="nm-l nm-c3">Oral</span><span class="nm-k nm-c1"><i>the record</i><b>what the court reads</b></span><span class="nm-k nm-c2"><i>us</i><b>in between</b></span><span class="nm-k nm-c3"><i>the hearing</i><b>what was said</b></span></div>
-    <p class="nm-say">You have the recording. The court needs the record. <em>We turn one into the other</em>: each language transcribed as spoken, never translated.</p>
-    <div class="nm-facts"><span>French &middot; English &middot; both</span><span>Quebec &middot; Canada &middot; United States</span><a href="#contact">Submit a proceeding &rarr;</a></div>
-  </div>
-</section>
-<section class="cov-band" id="coverage" aria-label="Coverage">
-  <div class="container">
-    <div class="cov-head">
-      <span class="cov-k"><span class="st-br">[</span>Coverage<span class="st-br">]</span></span>
-      <div class="cm">
-        <p class="cov-lead cm-lead"><span>American files,</span> <span>Canadian files,</span> <span class="cm-both">and the ones that answer to both.</span></p>
-        <svg class="cm-map" viewBox="244 188 652 424" fill="none" aria-hidden="true"><defs><linearGradient id="cm-gx" gradientUnits="userSpaceOnUse" x1="244" y1="0" x2="300" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#fff" stop-opacity="1"/></linearGradient><mask id="cm-mx" maskUnits="userSpaceOnUse" x="244" y="188" width="652" height="424"><rect x="244" y="188" width="652" height="424" fill="url(#cm-gx)"/></mask><linearGradient id="cm-gy" gradientUnits="userSpaceOnUse" x1="0" y1="188" x2="0" y2="240"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#fff" stop-opacity="1"/></linearGradient><mask id="cm-my" maskUnits="userSpaceOnUse" x="244" y="188" width="652" height="424"><rect x="244" y="188" width="652" height="424" fill="url(#cm-gy)"/></mask><linearGradient id="cm-ge" gradientUnits="userSpaceOnUse" x1="850" y1="0" x2="896" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="1"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient><mask id="cm-me" maskUnits="userSpaceOnUse" x="244" y="188" width="652" height="424"><rect x="244" y="188" width="652" height="424" fill="url(#cm-ge)"/></mask></defs><g mask="url(#cm-mx)"><g mask="url(#cm-my)"><g mask="url(#cm-me)"><path class="cm-land" d="M793.7 345.0 L800.1 346.6 L808.3 346.3 L803.9 351.3 L800.6 352.1 L789.4 346.9 L787.2 342.9 L790.5 339.1 L793.7 345.0 Z M810.1 314.1 L805.8 314.3 L794.3 310.5 L786.1 304.8 L789.1 303.8 L800.8 306.8 L809.8 311.9 L810.1 314.1 Z M263.7 321.3 L259.2 323.0 L244.7 317.5 L242.0 313.2 L234.1 308.9 L232.5 305.5 L223.4 303.3 L220.0 296.7 L220.7 293.9 L230.0 296.6 L235.5 298.4 L243.8 299.7 L246.8 303.8 L251.2 309.6 L260.0 314.6 L263.7 321.3 Z M860.3 294.9 L854.5 305.5 L860.3 301.4 L866.2 304.0 L863.1 308.2 L871.0 311.6 L875.0 308.6 L883.9 312.3 L881.1 321.2 L887.3 319.1 L888.5 325.6 L891.2 333.1 L887.5 343.7 L883.5 344.2 L877.7 341.9 L879.6 332.0 L877.1 330.5 L866.8 341.0 L861.6 340.5 L867.8 334.9 L859.3 331.9 L849.8 332.6 L832.6 332.3 L831.2 328.7 L836.8 324.4 L832.9 321.1 L840.3 313.8 L849.5 294.5 L855.0 287.7 L862.7 283.5 L866.8 284.0 L865.1 287.3 L860.3 294.9 Z M182.2 254.3 L190.7 253.4 L188.0 267.1 L195.7 276.8 L192.2 276.8 L186.9 271.3 L183.6 265.7 L179.1 261.9 L177.5 256.6 L178.0 252.7 L182.2 254.3 Z M655.5 156.0 L652.0 162.4 L648.1 161.3 L645.8 157.7 L646.2 156.9 L649.6 153.3 L653.2 153.5 L655.5 156.0 Z M632.2 149.3 L621.8 156.0 L615.6 155.7 L613.6 152.5 L620.2 146.9 L632.4 147.0 L632.2 149.3 Z M603.3 113.6 L604.9 119.0 L609.5 117.1 L614.6 120.3 L624.3 124.4 L634.4 128.2 L635.2 134.0 L641.7 133.0 L648.1 137.0 L640.2 140.8 L626.4 137.9 L621.5 132.5 L612.7 138.9 L600.1 145.2 L597.0 138.1 L585.0 139.3 L592.7 133.3 L593.9 123.8 L596.9 112.7 L603.3 113.6 Z M685.6 95.6 L675.7 96.2 L673.5 90.3 L677.2 83.5 L685.3 81.8 L692.3 85.2 L692.3 90.3 L691.4 92.0 L685.6 95.6 Z M510.4 71.9 L504.9 76.1 L493.0 72.4 L485.8 73.8 L473.7 68.3 L481.5 64.6 L487.6 59.3 L497.0 62.8 L502.4 64.9 L505.0 67.2 L510.4 71.9 Z M555.6 67.1 L555.5 79.5 L567.4 70.0 L578.0 77.8 L575.3 86.8 L583.9 95.0 L593.1 86.2 L599.6 75.8 L600.1 62.5 L612.7 63.4 L625.8 65.2 L637.6 71.2 L638.2 77.2 L631.6 83.7 L637.8 90.2 L636.7 96.0 L619.4 104.5 L607.0 106.4 L597.9 102.7 L595.2 108.8 L586.7 119.0 L584.1 124.3 L573.9 132.5 L561.2 133.3 L554.2 138.4 L553.6 146.3 L543.3 147.8 L532.5 157.6 L522.9 171.3 L519.4 180.8 L518.9 194.9 L532.0 196.9 L535.9 208.2 L540.1 217.4 L552.5 215.0 L568.9 220.3 L577.8 224.9 L584.1 230.6 L595.2 233.9 L604.6 239.0 L619.2 239.7 L628.9 240.9 L627.4 251.4 L630.2 263.6 L636.6 277.1 L649.8 288.6 L656.6 284.7 L661.4 272.2 L656.7 253.1 L650.5 246.7 L664.7 241.0 L674.7 232.6 L679.6 224.1 L678.9 216.0 L672.9 205.7 L662.1 196.6 L672.6 183.9 L668.7 173.0 L665.7 154.1 L671.9 151.3 L687.1 154.6 L696.2 155.7 L703.5 152.6 L711.8 156.7 L722.7 163.7 L725.4 168.4 L741.2 169.3 L740.9 179.5 L743.9 194.8 L751.9 196.7 L758.4 203.8 L771.2 197.1 L779.7 183.7 L785.5 178.1 L792.4 188.9 L803.9 204.3 L813.7 218.9 L810.2 226.5 L822.0 233.3 L829.9 240.2 L844.0 243.4 L849.7 247.2 L853.2 257.5 L860.1 259.1 L863.7 263.6 L864.3 277.2 L857.9 281.8 L851.5 286.1 L837.0 290.4 L825.8 300.3 L810.8 302.3 L791.9 299.7 L778.6 299.6 L769.4 300.5 L762.0 309.2 L750.7 314.5 L738.0 330.5 L727.8 341.7 L735.3 339.7 L749.5 323.8 L768.1 313.7 L781.3 312.5 L789.2 318.5 L780.8 326.6 L783.6 339.7 L786.5 348.8 L798.0 354.8 L812.6 353.1 L821.5 339.5 L822.1 348.3 L827.9 352.6 L816.9 360.6 L797.3 367.8 L788.5 372.7 L778.6 381.4 L771.9 380.5 L771.5 370.3 L786.9 360.3 L772.7 360.6 L762.9 362.1 L757.1 355.3 L757.1 338.8 L753.2 335.3 L747.2 337.3 L744.3 334.1 L737.5 343.3 L734.8 352.7 L731.7 358.2 L727.9 360.1 L725.1 360.7 L724.2 363.7 L707.9 363.7 L694.4 363.8 L690.4 366.0 L681.1 374.7 L680.0 375.7 L677.1 380.4 L669.0 380.4 L660.3 380.4 L656.3 382.4 L657.8 384.7 L658.5 388.4 L658.4 389.7 L646.8 395.7 L637.7 397.6 L627.4 404.0 L625.2 404.0 L622.2 402.1 L621.2 400.4 L621.4 399.1 L623.3 394.9 L627.5 388.2 L630.1 381.1 L628.3 370.6 L626.4 359.6 L617.2 353.9 L618.3 351.7 L617.0 350.3 L614.5 350.3 L612.7 348.3 L612.3 345.5 L610.6 346.7 L608.2 346.4 L608.7 345.2 L606.7 344.0 L605.8 340.8 L598.9 336.9 L591.8 332.9 L583.1 328.2 L574.8 323.8 L566.9 327.2 L564.0 327.3 L553.1 324.2 L545.9 325.8 L537.3 322.0 L528.3 320.1 L522.1 319.3 L519.3 317.3 L517.8 310.6 L514.8 310.7 L514.7 315.4 L496.4 315.3 L466.1 315.4 L436.0 315.4 L409.4 315.4 L382.9 315.4 L356.7 315.4 L329.7 315.4 L321.0 315.4 L294.7 315.4 L269.6 315.4 L268.4 315.3 L251.3 303.4 L244.9 298.2 L228.9 293.2 L224.0 282.5 L225.2 275.0 L213.9 269.9 L212.3 260.1 L201.6 251.3 L201.4 245.1 L206.4 239.2 L206.1 231.6 L191.1 223.9 L182.0 210.1 L176.5 201.4 L168.4 195.9 L162.4 191.0 L157.7 184.7 L148.8 188.6 L140.2 195.4 L132.3 187.5 L126.1 182.2 L117.5 178.8 L108.8 178.4 L108.8 109.5 L108.9 64.5 L125.4 67.5 L139.4 73.3 L148.6 74.4 L156.4 69.4 L167.1 65.6 L180.2 67.1 L193.5 61.7 L208.0 58.7 L214.1 63.7 L220.7 60.9 L222.7 55.2 L228.8 56.5 L243.8 67.4 L255.6 59.1 L256.8 68.3 L267.6 66.3 L271.0 62.8 L281.7 63.5 L295.2 68.6 L316.0 73.0 L328.2 75.1 L336.8 74.3 L348.8 80.4 L336.3 86.5 L352.3 89.1 L376.2 87.6 L383.8 85.5 L393.2 92.8 L402.9 86.6 L393.8 81.5 L399.5 77.4 L410.3 76.8 L417.4 75.6 L424.5 78.5 L433.4 85.1 L443.3 84.1 L459.0 89.6 L472.7 87.6 L485.7 87.9 L484.6 80.4 L492.5 78.3 L506.2 82.4 L506.2 93.8 L511.8 84.2 L518.9 84.5 L522.9 72.3 L513.5 64.9 L503.1 60.0 L503.8 46.6 L514.3 37.8 L526.0 39.7 L534.9 45.1 L547.0 58.7 L539.1 64.7 L555.6 67.1 Z M346.4 23.3 L342.0 28.9 L361.7 25.3 L374.0 31.4 L384.0 25.2 L392.1 29.2 L399.3 41.1 L403.8 36.0 L397.5 23.6 L405.3 21.9 L414.1 23.8 L424.0 28.7 L429.6 40.5 L432.3 49.0 L447.2 55.0 L463.2 60.8 L462.2 66.1 L447.7 67.1 L453.3 71.7 L450.3 76.2 L434.3 74.3 L419.1 71.0 L408.8 71.7 L392.2 75.8 L369.7 77.6 L354.0 78.8 L349.2 73.1 L337.1 69.8 L329.2 71.1 L318.3 61.5 L324.2 60.3 L337.9 58.2 L350.3 58.7 L361.9 56.6 L344.8 53.8 L325.9 54.8 L313.3 54.5 L308.6 50.1 L329.2 45.2 L315.5 45.4 L300.0 42.2 L307.5 33.1 L313.6 28.3 L337.3 20.9 L346.4 23.3 Z M590.9 22.8 L597.8 30.4 L606.0 20.6 L628.5 15.6 L643.7 28.2 L642.4 36.1 L659.9 32.6 L668.2 27.8 L687.9 33.9 L700.1 39.7 L701.2 44.9 L717.7 42.2 L726.9 49.9 L748.3 54.7 L756.0 59.6 L764.4 70.9 L748.1 76.6 L769.0 84.5 L783.0 87.1 L795.8 98.3 L809.7 99.1 L806.9 107.6 L791.4 121.6 L780.5 116.4 L766.6 104.8 L755.1 106.3 L754.0 113.3 L763.3 120.3 L775.3 125.9 L779.0 129.1 L784.8 141.1 L781.7 149.8 L770.5 146.5 L748.3 136.8 L760.8 147.2 L770.1 154.5 L771.5 158.8 L747.5 153.9 L728.5 146.9 L717.7 141.0 L720.8 137.6 L707.6 131.4 L694.7 125.5 L694.9 129.0 L669.3 130.9 L661.8 126.8 L667.6 117.9 L684.2 117.6 L702.5 116.1 L699.5 111.8 L702.6 105.7 L714.1 93.9 L711.6 88.6 L708.2 84.4 L694.7 78.6 L676.7 74.4 L682.4 71.4 L673.0 63.9 L665.2 63.2 L658.2 59.0 L653.5 62.6 L637.4 64.2 L605.2 61.5 L586.5 57.9 L572.1 56.1 L564.7 51.8 L574.0 46.3 L561.4 46.3 L558.6 34.0 L565.4 23.2 L574.5 18.2 L597.4 15.0 L590.9 22.8 Z"/><path class="cm-land" d="M517.8 310.6 L519.3 317.3 L522.1 319.3 L528.3 320.1 L537.3 322.0 L545.9 325.8 L553.1 324.2 L564.0 327.3 L566.9 327.2 L574.8 323.8 L583.1 328.2 L591.8 332.9 L598.9 336.9 L605.8 340.8 L606.7 344.0 L608.7 345.2 L608.2 346.4 L610.6 346.7 L612.3 345.5 L612.7 348.3 L614.5 350.3 L617.0 350.3 L618.3 351.7 L617.2 353.9 L626.4 359.6 L628.3 370.6 L630.1 381.1 L627.5 388.2 L623.3 394.9 L621.4 399.1 L621.2 400.4 L622.2 402.1 L625.2 404.0 L627.4 404.0 L637.7 397.6 L646.8 395.7 L658.4 389.7 L658.5 388.4 L657.8 384.7 L656.3 382.4 L660.3 380.4 L669.0 380.4 L677.1 380.4 L680.0 375.7 L681.1 374.7 L690.4 366.0 L694.4 363.8 L707.9 363.7 L724.2 363.7 L725.1 360.7 L727.9 360.1 L731.7 358.2 L734.8 352.7 L737.5 343.3 L744.3 334.1 L747.2 337.3 L753.2 335.3 L757.1 338.8 L757.1 355.3 L762.9 362.1 L764.4 366.1 L755.0 372.0 L745.9 376.1 L736.5 379.7 L731.8 386.9 L730.3 389.6 L730.2 396.1 L733.2 402.5 L736.8 402.8 L735.9 398.4 L738.6 401.0 L737.9 404.5 L731.9 406.5 L727.6 406.2 L721.1 408.3 L717.2 409.0 L712.1 409.6 L704.7 413.1 L717.7 410.8 L720.3 413.1 L707.9 416.7 L702.3 416.7 L702.5 415.2 L699.8 418.6 L702.5 419.2 L700.5 427.9 L694.1 437.2 L693.4 434.1 L691.5 433.4 L688.6 430.4 L690.4 436.9 L692.6 439.1 L692.8 443.7 L689.9 448.4 L684.9 458.0 L684.1 457.6 L686.9 449.3 L682.3 444.7 L681.3 434.6 L679.6 439.9 L681.5 447.5 L675.6 445.6 L681.7 449.5 L682.1 461.1 L684.7 461.9 L685.6 466.1 L686.8 478.2 L681.2 487.2 L672.0 490.8 L666.2 497.9 L661.8 498.7 L657.3 503.1 L656.0 507.2 L646.3 515.0 L641.3 520.8 L637.1 528.0 L635.8 536.6 L637.3 545.0 L640.3 555.4 L644.2 563.9 L644.3 569.2 L648.5 583.2 L648.2 591.4 L647.8 596.1 L645.6 603.5 L643.0 605.0 L638.6 603.5 L637.2 598.2 L633.8 595.4 L629.1 585.0 L625.0 575.8 L623.7 571.0 L625.5 563.0 L623.0 556.3 L616.1 546.2 L612.7 544.3 L603.7 549.8 L602.2 549.2 L597.9 543.6 L592.3 540.6 L582.3 542.1 L574.4 540.8 L567.7 541.6 L564.0 543.5 L565.6 546.7 L565.5 551.6 L567.4 554.0 L565.7 555.6 L562.4 553.8 L559.1 556.1 L552.6 555.7 L546.0 549.3 L538.3 550.8 L531.9 548.0 L526.3 548.9 L518.9 551.7 L510.8 560.7 L502.0 565.9 L497.2 571.7 L495.2 577.1 L495.1 585.5 L495.5 591.3 L497.2 595.4 L493.7 595.8 L487.5 593.1 L480.5 589.4 L478.1 583.7 L476.1 575.2 L470.9 568.3 L467.8 561.2 L463.4 552.9 L457.1 548.1 L449.9 548.3 L444.3 557.9 L437.0 554.3 L432.4 550.6 L430.2 543.9 L427.3 537.6 L422.0 532.3 L417.5 528.5 L414.2 524.2 L398.9 524.2 L398.9 529.2 L391.8 529.2 L374.2 529.3 L354.0 520.7 L340.7 514.8 L341.5 512.5 L330.2 513.8 L320.2 514.7 L318.7 508.5 L313.0 501.6 L308.8 500.1 L307.9 496.7 L302.9 496.0 L299.7 492.8 L291.5 491.6 L289.2 489.6 L288.2 483.0 L279.6 470.8 L272.2 454.0 L272.5 451.2 L268.6 447.2 L261.7 437.0 L260.5 427.2 L255.8 420.5 L257.7 410.5 L257.4 400.1 L254.6 390.8 L258.1 379.4 L259.1 368.4 L260.2 357.4 L258.6 341.2 L255.8 330.8 L253.2 325.2 L254.3 322.9 L267.1 327.0 L271.8 338.4 L274.0 335.2 L272.6 325.3 L269.6 315.4 L294.7 315.4 L321.0 315.4 L329.7 315.4 L356.7 315.4 L382.9 315.4 L409.4 315.4 L436.0 315.4 L466.1 315.4 L496.4 315.3 L514.7 315.4 L514.8 310.7 L517.8 310.6 Z"/></g></g></g><text class="cm-rg" x="440" y="238" text-anchor="middle">CANADA</text><text class="cm-rg cm-rq" x="722" y="282" text-anchor="middle">QUEBEC</text><text class="cm-rg" x="497" y="472" text-anchor="middle">UNITED STATES</text><path class="cm-line" d="M269.6 315.4 L294.7 315.4 L321.0 315.4 L329.7 315.4 L356.7 315.4 L382.9 315.4 L409.4 315.4 L436.0 315.4 L466.1 315.4 L496.4 315.3 L514.7 315.4 L514.8 310.7 L517.8 310.6 L517.8 310.6 L519.3 317.3 L522.1 319.3 L528.3 320.1 L537.3 322.0 L545.9 325.8 L553.1 324.2 L564.0 327.3 L566.9 327.2 L574.8 323.8 L583.1 328.2 L591.8 332.9 L598.9 336.9 L605.8 340.8 L606.7 344.0 L608.7 345.2 L608.2 346.4 L610.6 346.7 L612.3 345.5 L612.7 348.3 L614.5 350.3 L617.0 350.3 L618.3 351.7 L617.2 353.9 L626.4 359.6 L628.3 370.6 L630.1 381.1 L627.5 388.2 L623.3 394.9 L621.4 399.1 L621.2 400.4 L622.2 402.1 L625.2 404.0 L627.4 404.0 L637.7 397.6 L646.8 395.7 L658.4 389.7 L658.5 388.4 L657.8 384.7 L656.3 382.4 L660.3 380.4 L669.0 380.4 L677.1 380.4 L680.0 375.7 L681.1 374.7 L690.4 366.0 L694.4 363.8 L707.9 363.7 L724.2 363.7 L725.1 360.7 L727.9 360.1 L731.7 358.2 L734.8 352.7 L737.5 343.3 L744.3 334.1 L747.2 337.3 L753.2 335.3 L757.1 338.8 L757.1 355.3 L762.9 362.1 L764.4 366.1"/><g class="cm-courts"><g class="cm-c" style="--i:0"><title>Supreme Court of Canada &#183; Ottawa</title><circle cx="686.9" cy="358.7" r="2.5"/><text x="681.9" y="351.7" text-anchor="end">SCC</text></g><g class="cm-c" style="--i:1"><title>Court of Appeal of Quebec &#183; Qu&#233;bec City</title><circle cx="726.7" cy="341.9" r="2.5"/><text x="726.7" y="331.9" text-anchor="middle">QCCA</text></g><g class="cm-c" style="--i:2"><title>Superior Court of Quebec &#183; Montr&#233;al</title><circle cx="705.9" cy="357.7" r="2.5"/><text x="705.9" y="349.7" text-anchor="middle">QCCS</text></g><g class="cm-c" style="--i:3"><title>Court of Appeal for Ontario &#183; Toronto</title><circle cx="654.3" cy="380.1" r="2.5"/><text x="654.3" y="371.1" text-anchor="middle">ONCA</text></g><g class="cm-c" style="--i:4"><title>Court of Appeal of New Brunswick &#183; Fredericton</title><circle cx="767.1" cy="352.1" r="2.5"/><text x="772.1" y="356.1" text-anchor="start">NBCA</text></g><g class="cm-c" style="--i:5"><title>Court of Appeal of Manitoba &#183; Winnipeg</title><circle cx="497.2" cy="304.6" r="2.5"/><text x="492.2" y="301.6" text-anchor="end">MBCA</text></g><g class="cm-c" style="--i:6"><title>Court of Appeal of Alberta &#183; Calgary</title><circle cx="347.3" cy="290.7" r="2.5"/><text x="352.3" y="294.7" text-anchor="start">ABCA</text></g><g class="cm-c" style="--i:7"><title>Supreme Court of the United States &#183; Washington</title><circle cx="675.4" cy="437.7" r="2.5"/><text x="680.4" y="442.7" text-anchor="start">SCOTUS</text></g><g class="cm-c" style="--i:8"><title>U.S. Court of Appeals, Second Circuit &#183; New York</title><circle cx="701.9" cy="415.7" r="2.5"/><text x="707.9" y="420.7" text-anchor="start">2d Cir.</text></g><g class="cm-c" style="--i:9"><title>U.S. Court of Appeals, First Circuit &#183; Boston</title><circle cx="728.0" cy="395.7" r="2.5"/><text x="733.0" y="399.7" text-anchor="start">1st Cir.</text></g><g class="cm-c" style="--i:10"><title>U.S. Court of Appeals, Seventh Circuit &#183; Chicago</title><circle cx="581.3" cy="401.6" r="2.5"/><text x="576.3" y="405.6" text-anchor="end">7th Cir.</text></g><g class="cm-c" style="--i:11"><title>U.S. Court of Appeals, Eleventh Circuit &#183; Atlanta</title><circle cx="610.0" cy="499.9" r="2.5"/><text x="605.0" y="503.9" text-anchor="end">11th Cir.</text></g><g class="cm-c" style="--i:12"><title>U.S. Court of Appeals, Fifth Circuit &#183; New Orleans</title><circle cx="559.7" cy="545.9" r="2.5"/><text x="554.7" y="549.9" text-anchor="end">5th Cir.</text></g><g class="cm-c" style="--i:13"><title>U.S. Court of Appeals, Tenth Circuit &#183; Denver</title><circle cx="427.7" cy="427.5" r="2.5"/><text x="432.7" y="431.5" text-anchor="start">10th Cir.</text></g><g class="cm-c" style="--i:14"><title>U.S. Court of Appeals, Ninth Circuit &#183; San Francisco</title><circle cx="273.4" cy="451.2" r="2.5"/><text x="278.4" y="455.2" text-anchor="start">9th Cir.</text></g></g></svg>
-        <p class="cm-key"><i aria-hidden="true"></i>Principal courts</p>
-      </div>
-    </div>
-    <figure class="cov-pair"><figcaption class="cp-hd"><span>One matter, two forms</span><em>Specimen &middot; fictional parties</em></figcaption><div class="cp-g"><div class="cp-us"><span class="cp-k">U.S. &middot; federal caption</span><div class="cp-court"><b>United States District Court</b><i>District of Oregon</i></div><div class="cp-cap"><div class="cp-l"><p>MARIE TREMBLAY,</p><p>&nbsp;</p><p><span class="ind">Plaintiff,</span></p><p>&nbsp;</p><p><span class="v">v.</span></p><p>&nbsp;</p><p>NORTHGATE LOGISTICS INC.,</p><p>&nbsp;</p><p><span class="ind">Defendant.</span></p><p class="rule"></p></div><div class="cp-rail" aria-hidden="true"><span>)</span><span>)</span><span>)</span><span>)</span><span>)</span><span>)</span><span>)</span><span>)</span><span>)</span><span>)</span></div><div class="cp-r"><p><b>No. 3:26-cv-00412</b></p><p>&nbsp;</p><p>DEPOSITION OF</p><p><b>MARIE TREMBLAY</b></p><p>&nbsp;</p><p>Taken in French</p><p>and in English</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p></div></div></div><div class="cp-qc" lang="fr"><span class="cp-k">Qu&eacute;bec &middot; Superior Court heading</span><div class="cp-qtop"><div><b>Canada</b><i>Province de Qu&eacute;bec</i><i>District de Montr&eacute;al</i></div><div><b>Cour sup&eacute;rieure</b><i>(Chambre civile)</i></div></div><div class="cp-no">N&deg; 500-17-000000-260</div><div class="cp-p"><b>MARIE TREMBLAY</b><i>Demanderesse</i><span class="c">c.</span><b>NORTHGATE LOGISTICS INC.</b><i>D&eacute;fenderesse</i></div></div></div></figure>
-    <div class="cov-grid">
-      <div class="cov">
-        <span class="cov-c">U.S.</span>
-        <h3>United States</h3>
-        <p>Depositions &middot; examinations before trial &middot; examinations under oath (EUO) &middot; arbitration hearings &middot; recorded statements &middot; 911 and emergency-services calls &middot; custodial and police-station interviews &middot; body-worn and covert recordings &middot; wiretap and consensual recordings.</p>
-        <p class="cov-n">Reported in English. Where the evidence is a French-language recording, the recording is the evidence and the transcript assists it. Produced to forensic transcription-translation standards, source language first.</p><a class="service-link" href="/recorded-evidence/">French recordings as evidence &rarr;</a>
-      </div>
-      <div class="cov">
-        <span class="cov-c">CAN</span>
-        <h3>Canada</h3>
-        <p>Examinations for discovery &middot; interrogatoires hors cour &middot; out-of-court examinations &middot; criminal trials and preliminary inquiries &middot; labour and grievance arbitration &middot; administrative tribunals &middot; professional discipline councils &middot; coroner&rsquo;s inquests &middot; immigration hearings &middot; commissions of inquiry.</p>
-        <p class="cov-n">Quebec, Ontario, New Brunswick and the federal courts. In each, the law puts both official languages in the record on its own terms.</p><a class="service-link" href="/section-530/">What paragraph 530.1(g) requires &rarr;</a>
-      </div>
-      <div class="cov cov-both">
-        <span class="cov-c">U.S. &plus; CAN</span>
-        <h3>Both at once</h3>
-        <p>A Canadian witness examined for a U.S. matter &middot; a U.S. party filing in Quebec &middot; cross-border arbitration &middot; parallel proceedings.</p>
-        <p class="cov-n">One sitting, both sets of conventions, one record.</p>
-      </div>
-      <div class="cov">
-        <span class="cov-c">Areas</span>
-        <h3>Areas served</h3>
-        <p>Montr&eacute;al &middot; Qu&eacute;bec &middot; Laval &middot; Longueuil &middot; Gatineau &middot; Sherbrooke &middot; Trois-Rivi&egrave;res &middot; Ottawa &middot; Kanata &middot; Toronto &middot; Moncton.</p>
-        <p class="cov-n">Work is produced from the recording, so recordings are accepted from any jurisdiction in Canada or the United States. Remote intake. No travel charge.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<section class="why-section" id="why">
-  <div class="container">
-    <div class="section-header reveal">
-      <div class="section-tag"><span class="st-br">[</span>Why Lexoral<span class="st-br">]</span></div>
-      <h2 class="section-h2">The record is the evidence.<br/>Not a version of it.</h2>
-      <p class="section-intro">Two languages, two different things in the file. One is testimony. The other is a rendering of it.</p>
-    </div>
-
-    <p class="wy-lead">Under a section 530 order the law does not ask for a readable English document. Most firms deliver one anyway. This is what it asks for:</p>
-    <div class="auth auth-home"><span class="auth-k">Criminal Code &middot; s. 530.1(g)</span><p class="auth-q">&ldquo;the record of proceedings during the preliminary inquiry or trial shall include <mark>(i) a transcript of everything that was said during those proceedings in the official language in which it was said</mark>, <mark>(ii) a transcript of any interpretation into the other official language of what was said</mark>, and <mark>(iii) any documentary evidence that was tendered during those proceedings in the official language in which it was tendered</mark>&rdquo;</p><p class="auth-c">R.S.C. 1985, c. C-46 &middot; <a href="https://laws-lois.justice.gc.ca/eng/acts/C-46/section-530.1.html" rel="noopener">laws-lois.justice.gc.ca</a></p></div><div class="auth-n"><div><b>(i)</b>What was said, in the language it was said: we transcribe it as spoken.</div><div><b>(ii)</b>The interpretation, in a separate transcript, marked for what it is.</div><div><b>(iii)</b>The exhibits, in the language they were tendered.</div></div>
-
-    
-    <figure class="dgm">
-      <figcaption class="dgm-k">One answer, three stages</figcaption>
-      <svg viewBox="0 0 920 296" role="img" aria-label="One answer, three stages">
-        <text class="dgm-h" x="270" y="16" text-anchor="middle">Spoken</text>
-        <text class="dgm-h" x="510" y="16" text-anchor="middle">Interpreted</text>
-        <text class="dgm-h" x="778" y="16" text-anchor="middle">In the record</text>
-        <line class="dgm-rule" x1="0" y1="34" x2="920" y2="34"/>
-
-        <text class="dgm-l" x="170" y="106" text-anchor="end">Usual practice</text>
-        <rect class="dgm-box" x="220" y="78" width="100" height="48"/>
-        <text class="dgm-t" x="270" y="109" text-anchor="middle">FR</text>
-        <path class="dgm-arrow" d="M334 102 H446"/><path class="dgm-arrow" d="M438 96 l8 6 -8 6"/>
-        <rect class="dgm-box" x="460" y="78" width="100" height="48"/>
-        <text class="dgm-t" x="510" y="109" text-anchor="middle">EN</text>
-        <path class="dgm-arrow" d="M574 102 H674"/><path class="dgm-arrow" d="M666 96 l8 6 -8 6"/>
-        <rect class="dgm-box" x="688" y="78" width="180" height="48"/>
-        <text class="dgm-t" x="778" y="109" text-anchor="middle">EN</text>
-        <text class="dgm-note" x="688" y="150">The French is never written down.</text>
-        <line class="dgm-sep" x1="0" y1="176" x2="920" y2="176"/>
-
-        <text class="dgm-l dgm-lg" x="170" y="234" text-anchor="end">Lexoral</text>
-        <rect class="dgm-box" x="220" y="206" width="100" height="48"/>
-        <text class="dgm-t" x="270" y="237" text-anchor="middle">FR</text>
-        <path class="dgm-arrow" d="M334 230 H446"/><path class="dgm-arrow" d="M438 224 l8 6 -8 6"/>
-        <rect class="dgm-box" x="460" y="206" width="100" height="48"/>
-        <text class="dgm-t" x="510" y="237" text-anchor="middle">EN</text>
-        <path class="dgm-arrow dgm-ag" d="M574 230 H674"/><path class="dgm-arrow dgm-ag" d="M666 224 l8 6 -8 6"/>
-        <rect class="dgm-box dgm-bg" x="688" y="206" width="180" height="48"/>
-        <text class="dgm-t dgm-tg" x="778" y="237" text-anchor="middle">FR + EN</text>
-        <text class="dgm-note dgm-ng" x="688" y="278">Both, each marked for what it is.</text>
-        <text class="dgm-ref" x="170" y="258" text-anchor="end">s. 530.1(g)</text>
-      </svg>
-    </figure>
-
-    <div class="wy-pillars">
-      <div class="wy-pill">
-        <span class="wy-pn">01</span>
-        <h3>A jurist transcribes the French</h3>
-        <p>Not a language vendor with a glossary. Where a translation is disputed the court weighs who made it. The practitioner on your file has argued in French before Quebec&rsquo;s National Assembly and written constitutional-law texts in both languages.</p>
-      </div>
-      <div class="wy-pill">
-        <span class="wy-pn">02</span>
-        <h3>One sitting, two procedural frameworks</h3>
-        <p>Quebec conventions and U.S. deposition practice from the same audio, in one pass. In Quebec both languages are already the record; in a U.S. matter the interpretation stays where the forum wants it, and what was said stays underneath.</p>
-      </div>
-      <div class="wy-pill">
-        <span class="wy-pn">03</span>
-        <h3>A signature you can telephone</h3>
-        <p>Two named practitioners. No contractor pool, no offshore desk, no model output passed off as reviewed. Whoever signs the accuracy declaration answers the phone.</p>
-      </div>
-    </div>
-
-    <a href="/services/" class="cross-cta">See how a transcript is built</a>
-  </div>
-</section>
-
-<section class="clients-section section" id="clients">
-  <div class="container">
-    <div class="section-header reveal">
-      <div class="section-tag"><span class="st-br">[</span>Who we serve<span class="st-br">]</span></div>
-      <h2 class="section-h2">For modern legal proceedings.</h2>
-    </div>
-    <div class="clients-grid">
-      <div class="client-card reveal"><svg class="cl-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18M5 7h14M8 7l-3 6a3 3 0 0 0 6 0L8 7zM16 7l-3 6a3 3 0 0 0 6 0l-3-6z"/></svg><p class="client-name">Litigation Firms</p><p class="client-desc">Quebec · Ontario · New York · Federal</p></div>
-      <div class="client-card reveal"><svg class="cl-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16M6 20V9M12 20V9M18 20V9M3 9h18L12 3 3 9z"/></svg><p class="client-name">Arbitration Panels</p><p class="client-desc">ICC · AAA · ADRIC · CIAC · Ad hoc</p></div>
-      <div class="client-card reveal"><svg class="cl-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V10M19 21V10M9 21v-6h6v6M4 10h16L12 4 4 10z"/></svg><p class="client-name">Government &amp; Tribunals</p><p class="client-desc">Administrative · Labour · Immigration</p></div>
-      <div class="client-card reveal"><svg class="cl-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V4h10v17M14 10h6v11M7 8h4M7 12h4M7 16h4M17 14h1M17 18h1"/></svg><p class="client-name">Legal Departments</p><p class="client-desc">In-house counsel · Cross-border</p></div>
-      <div class="client-card reveal"><svg class="cl-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4-3 7-7 9-4-2-7-5-7-9V6l7-3zM9 12l2 2 4-4"/></svg><p class="client-name">Insurance Defence</p><p class="client-desc">Examinations under oath · Coverage</p></div>
-      <div class="client-card reveal"><svg class="cl-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h9l4 4v14H6V3zM15 3v4h4M9 12h7M9 16h7"/></svg><p class="client-name">Civil Litigation</p><p class="client-desc">Discovery · Pre-trial · Appeal</p></div>
-      <div class="client-card reveal"><svg class="cl-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v13M12 7C10 4 6 4 4 5v13c2-1 6-1 8 2M12 7c2-3 6-3 8-2v13c-2-1-6-1-8 2"/></svg><p class="client-name">Public Defence &amp; Legal Aid</p><p class="client-desc">Criminal · Language rights</p></div>
-      <div class="client-card reveal"><svg class="cl-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8l9-4 9 4-9 4-9-4zM7 10v5c0 1.5 2.5 3 5 3s5-1.5 5-3v-5M21 8v6"/></svg><p class="client-name">Academic &amp; Research</p><p class="client-desc">Law faculties · Linguistics</p></div>
-    </div>
-  </div>
-</section>
-
-
-<section class="rec-band" id="practice" aria-label="On the record">
-  <div class="container">
-    <div class="section-tag"><span class="st-br">[</span>On the record<span class="st-br">]</span></div>
-    <div class="rec-grid">
-
-      <article class="rec">
-        <div class="rec-txt">
-          <div class="letter-hd">
-            <span class="lh-l"><a href="https://www.mpdlaw.com" target="_blank" rel="noopener">Metropolitan Public Defender<svg class="ext-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a></span>
-            <span class="lh-r">Portland, Oregon &middot; client</span>
-          </div>
-          <blockquote class="letter-bd">
-            <p>Legal transcription delivered with the level of precision and reliability high-pressure defense work demands. Fast turnaround, meticulous formatting, and exceptional professionalism throughout the process.</p>
-          </blockquote>
-          <div class="letter-ft">
-            <span class="lf-sig">Legal support staff</span>
-            <span class="lf-note">Public defence &middot; litigation support</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="rec rec-alt">
-        <div class="rec-txt">
-          <div class="letter-hd">
-            <span class="lh-l">Raymond Carby-Samuels</span>
-            <span class="lh-r">Ottawa, Ontario &middot; practitioner</span>
-          </div>
-          <p class="rec-role">Co-founder &middot; Quebec procedure &amp; language rights</p>
-          <dl class="cred-list">
-            <dt>Legal credentials</dt>
-            <dd>Former paralegal in Quebec; active Associate Member of the Canadian Bar Association.</dd>
-            <dt>Public policy &amp; translation</dt>
-            <dd>Author and publisher of constitutional framework and civil liberties textbooks in both English and French.</dd>
-            <dt>High-level presentations</dt>
-            <dd>Prepared and delivered complex legal argument in French before Quebec&rsquo;s National Assembly.</dd>
-            <dt>Educational instruction</dt>
-            <dd>Sessional Lecturer, George Brown College &mdash; Canadian constitutional law and human rights codes.</dd>
-          </dl>
-          <div class="letter-ft">
-            <span class="lf-sig">Samuels &amp; Fino</span>
-            <span class="lf-note">The practice behind the record</span>
-          </div>
-        </div>
-      </article>
-
-    </div>
-  
-      <figure class="rdx reveal"><div class="rdx-hd"><span>Specimen &middot; Tremblay v. Northgate &mdash; vol. I, p. 108</span><em>Produced redacted &middot; unredacted copy withheld</em></div><div class="rdx-b"><span class="n">108</span><span class="t">Q.   Who signed the carrier release on <span class="bar" style="--i:0;width:11ch"></span>?</span><span class="k">Redacted &mdash; personal information</span><span class="n">109</span><span class="t">&nbsp;</span><span class="k">&nbsp;</span><span class="n">110</span><span class="t">A.   <span class="bar" style="--i:1;width:14ch"></span>, le directeur du terminal.</span><span class="k">Redacted &mdash; personal information</span><span class="n">111</span><span class="t">     <i>(Interpretation: <span class="bar" style="--i:2;width:14ch"></span>, the terminal manager.)</i></span><span class="k">&nbsp;</span><span class="n">112</span><span class="t">&nbsp;</span><span class="k">&nbsp;</span><span class="n">113</span><span class="t">Q.   And the instruction came from <span class="bar" style="--i:3;width:19ch"></span>?</span><span class="k">Redacted &mdash; privileged</span><span class="n">114</span><span class="t">&nbsp;</span><span class="k">&nbsp;</span><span class="n">115</span><span class="t">A.   <span class="bar" style="--i:4;width:34ch"></span></span><span class="k">Redacted &mdash; privileged</span><span class="n">116</span><span class="t">     <span class="bar" style="--i:5;width:23ch"></span></span><span class="k">&nbsp;</span><span class="n">117</span><span class="t">&nbsp;</span><span class="k">&nbsp;</span><span class="n">118</span><span class="t">Q.   Thank you. Nothing further on that line.</span><span class="k">&nbsp;</span></div><figcaption class="rdx-n">What has to come out comes out line by line, with the ground given in the margin. The unredacted copy does not leave the file.</figcaption></figure>
-    </div>
-</section>
-
-<section class="section" id="reference">
-  <div class="container">
-    <div class="section-header reveal">
-      <div class="section-tag"><span class="st-br">[</span>Reference<span class="st-br">]</span></div>
-      <h2 class="section-h2">The rest of<br/>the file.</h2>
-      <p class="section-intro">Six pages carrying the detail this one only states. Each was written for a question someone actually arrived with.</p>
-    </div>
-    <div class="idx"><a class="idx-a" href="/quebec/"><span class="idx-k">Exh. A</span><span class="idx-b"><span class="idx-t">Legal transcription in Quebec</span><span class="idx-d">Section 133 makes both languages the record, and nobody interprets.</span><span class="idx-l">Examinations on discovery · out-of-court examinations · commercial and labour arbitration · Tribunal administratif du travail · Tribunal administratif du Québec · discipline committees · coroner’s inquests · per-language stenographer accreditation · where we work</span></span><span class="idx-g">Read &rarr;</span></a><a class="idx-a" href="/recorded-evidence/"><span class="idx-k">Exh. B</span><span class="idx-b"><span class="idx-t">French recordings as evidence</span><span class="idx-d">The recording is the evidence; the transcript is there to assist it.</span><span class="idx-l">Lawful intercepts · body-worn and in-car camera audio · 911 and emergency-services calls · custodial interviews · jail telephone calls · covert and consent recordings · voicemail · source-language transcription first, translation aligned to it</span></span><span class="idx-g">Read &rarr;</span></a><a class="idx-a" href="/section-530/"><span class="idx-k">Exh. C</span><span class="idx-b"><span class="idx-t">What paragraph 530.1(g) requires</span><span class="idx-d">Three transcripts, not one, and everyone in the room has to be bilingual.</span><span class="idx-l">Criminal Code s. 530 and s. 530.1(g) · R. v. Munkonda · Constitution Act, 1867 s. 133 · Official Languages Act s. 14 · Courts of Justice Act (Ontario) s. 126(1)</span></span><span class="idx-g">Read &rarr;</span></a><a class="idx-a" href="/services/"><span class="idx-k">Exh. D</span><span class="idx-b"><span class="idx-t">Services and specification</span><span class="idx-d">Four kinds of proceeding, four sets of conventions.</span><span class="idx-l">Depositions and examinations · arbitration and mediation · tribunal hearings · recorded evidence · the full datasheet of what is included and what can be asked for · specimen transcript</span></span><span class="idx-g">Read &rarr;</span></a><a class="idx-a" href="/cross-border/"><span class="idx-k">Exh. E</span><span class="idx-b"><span class="idx-t">Cross-border, Canada and the United States</span><span class="idx-d">One sitting, two sets of conventions, one record.</span><span class="idx-l">A Canadian witness examined for a U.S. matter · a U.S. party filing in Quebec · parallel proceedings · cross-border arbitration · letters rogatory and depositions of willing witnesses</span></span><span class="idx-g">Read &rarr;</span></a><a class="idx-a" href="/faq/"><span class="idx-k">Exh. F</span><span class="idx-b"><span class="idx-t">Twenty-one questions, answered</span><span class="idx-d">Whose words enter the record, what we attest, turnaround, pricing, confidentiality.</span><span class="idx-l">Grouped in five parts. The first six decide whether we are useful to you at all.</span></span><span class="idx-g">Read &rarr;</span></a></div>
-  </div>
-</section>
-
-<section class="contact-section" id="contact">
-  <div class="container">
-    <div class="section-header reveal">
-      <div class="section-tag"><span class="st-br">[</span>Contact<span class="st-br">]</span></div>
-      <h2 class="section-h2">Send a recording.</h2>
-      <p class="section-intro">Confirmation the same working day. A firm figure once the audio has been reviewed. Delivery in five business days, or 48 hours on priority.</p>
-    </div>
-    <div class="ct-three">
-      <div><span class="ct-k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5.5c0 4.2-2.9 7.6-7 9.5-4.1-1.9-7-5.3-7-9.5V6l7-3z"/><path d="M8.8 11.8l2.2 2.2 4.2-4.2"/></svg>Files &amp; proceedings</span>
-        <a class="ct-v" href="mailto:secure@lexoral.org">secure@lexoral.org</a>
-        <span class="ct-n">Recordings, quotations, delivery</span></div>
-      <div><span class="ct-k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="1"/><path d="M3.5 6.5L12 13l8.5-6.5"/></svg>Everything else</span>
-        <a class="ct-v" href="mailto:contact@lexoral.org">contact@lexoral.org</a>
-        <span class="ct-n">Enquiries, press, partnerships</span></div>
-      <div><span class="ct-k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3h3l1.5 4-2 1.5a12 12 0 0 0 6.5 6.5l1.5-2 4 1.5v3a2 2 0 0 1-2.2 2A17 17 0 0 1 4.5 5.2 2 2 0 0 1 6.5 3z"/></svg>Telephone</span>
-        <a class="ct-v" href="tel:+15147127516">+1 (514) 712-7516</a>
-        <span class="ct-n">Also on WhatsApp</span></div>
-    </div>
-    <div class="ct-addr">
-      <div class="ct-addr-t"><span class="ct-k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21c-4.4-4.1-6.7-7.3-6.7-10.2A6.7 6.7 0 0 1 12 4.2a6.7 6.7 0 0 1 6.7 6.6c0 2.9-2.3 6.1-6.7 10.2z"/><circle cx="12" cy="10.6" r="2.4"/></svg>Mailing address</span>
-        <span class="ct-v">24191-300 Eagleson Rd<br/>Kanata, ON K2M 2C3<br/>Canada</span></div>
-    </div>
-  </div>
-</section>
+<section class="name-section" id="name"><div class="container"><div class="section-header reveal"><div class="section-tag"><span class="st-br">[</span>The mandate<span class="st-br">]</span></div><h2 class="vh">The mandate</h2></div><div class="nm-mark" aria-hidden="true"><span class="nm-l nm-c1">Lex</span><span class="nm-l nm-c2 nm-vv">v.</span><span class="nm-l nm-c3">Oral</span><span class="nm-k nm-c1"><i><em>III</em> the record of proceedings</i><b>filed · paginated · cited</b></span><span class="nm-k nm-c2"><i><em>II</em> the transcript</i><b>verbatim<br/>bilingual<br/>certified</b></span><span class="nm-k nm-c3"><i><em>I</em> the oral evidence</i><b>testimony · hearings · recordings</b></span></div><p class="nm-say">Read it right to left: oral evidence becomes, <em>through the transcript</em>, the record of proceedings. Each language taken down as spoken, never translated.</p><div class="nm-facts"><span>French · English · both</span><span>Quebec · Canada · United States</span><a href="#contact">Submit a proceeding &rarr;</a></div></div></section>
+<section class="stg stg-1" id="oral" aria-labelledby="oral-h"><div class="container"><div class="section-tag"><span class="st-br">[</span>The oral evidence<span class="st-br">]</span></div><div class="stg-hd"><span class="stg-n" aria-hidden="true">I</span><p class="stg-w" aria-hidden="true">Oral</p><h2 class="section-h2" id="oral-h">Testimony is given once, aloud.</h2></div><p class="stg-lead drop">Witnesses answer in the official language of their choice; interpreters answer for them. Examinations, hearings and interviews are recorded, intercepts and emergency calls before anyone knows they will be evidence. We work from that recording, and from nothing else.</p><figure class="wvf"><div class="wv-scroll"><svg class="wv" viewBox="0 0 1000 222" role="img" aria-labelledby="wv-t"><title id="wv-t">Specimen · file 2024-QC-0482 · recording 2 of 3 · 48 kHz · 24-bit · each segment already carries the number of the line it will become.</title><g class="wv-ruler"><line x1="44.0" x2="44.0" y1="30" y2="40"/><text x="44.0" y="24" text-anchor="middle">00:40:30</text><line x1="122.5" x2="122.5" y1="34" y2="40"/><line x1="201.0" x2="201.0" y1="30" y2="40"/><text x="201.0" y="24" text-anchor="middle">00:40:40</text><line x1="279.5" x2="279.5" y1="34" y2="40"/><line x1="358.0" x2="358.0" y1="30" y2="40"/><text x="358.0" y="24" text-anchor="middle">00:40:50</text><line x1="436.5" x2="436.5" y1="34" y2="40"/><line x1="515.0" x2="515.0" y1="30" y2="40"/><text x="515.0" y="24" text-anchor="middle">00:41:00</text><line x1="593.5" x2="593.5" y1="34" y2="40"/><line x1="672.0" x2="672.0" y1="30" y2="40"/><text x="672.0" y="24" text-anchor="middle">00:41:10</text><line x1="750.5" x2="750.5" y1="34" y2="40"/><line x1="829.0" x2="829.0" y1="30" y2="40"/><text x="829.0" y="24" text-anchor="middle">00:41:20</text><line x1="907.5" x2="907.5" y1="34" y2="40"/><line x1="986.0" x2="986.0" y1="30" y2="40"/><text x="986.0" y="24" text-anchor="middle">00:41:30</text></g><line class="wv-axis" x1="44" x2="986" y1="128" y2="128"/><g><rect class="wv-s" x="44.0" y="127" width="3" height="2"/><rect class="wv-s" x="49.0" y="127" width="3" height="2"/><rect class="wv-s" x="54.0" y="127" width="3" height="2"/><rect class="wv-s" x="59.0" y="127" width="3" height="2"/><rect class="wv-en" x="64.0" y="107" width="3" height="43"/><rect class="wv-en" x="69.0" y="107" width="3" height="43"/><rect class="wv-en" x="74.0" y="97" width="3" height="63"/><rect class="wv-en" x="79.0" y="89" width="3" height="78"/><rect class="wv-en" x="84.0" y="91" width="3" height="74"/><rect class="wv-en" x="89.0" y="97" width="3" height="62"/><rect class="wv-en" x="94.0" y="99" width="3" height="59"/><rect class="wv-en" x="99.0" y="105" width="3" height="46"/><rect class="wv-en" x="104.0" y="103" width="3" height="50"/><rect class="wv-en" x="109.0" y="115" width="3" height="27"/><rect class="wv-s" x="114.0" y="127" width="3" height="2"/><rect class="wv-s" x="119.0" y="127" width="3" height="2"/><rect class="wv-fr" x="124.0" y="117" width="3" height="23"/><rect class="wv-fr" x="129.0" y="99" width="3" height="58"/><rect class="wv-fr" x="134.0" y="88" width="3" height="80"/><rect class="wv-fr" x="139.0" y="93" width="3" height="71"/><rect class="wv-fr" x="144.0" y="95" width="3" height="67"/><rect class="wv-fr" x="149.0" y="98" width="3" height="60"/><rect class="wv-fr" x="154.0" y="90" width="3" height="77"/><rect class="wv-fr" x="159.0" y="80" width="3" height="97"/><rect class="wv-fr" x="164.0" y="85" width="3" height="86"/><rect class="wv-fr" x="169.0" y="106" width="3" height="44"/><rect class="wv-fr" x="174.0" y="112" width="3" height="33"/><rect class="wv-fr" x="179.0" y="122" width="3" height="13"/><rect class="wv-s" x="184.0" y="127" width="3" height="2"/><rect class="wv-s" x="189.0" y="127" width="3" height="2"/><rect class="wv-en" x="194.0" y="110" width="3" height="36"/><rect class="wv-en" x="199.0" y="108" width="3" height="41"/><rect class="wv-en" x="204.0" y="95" width="3" height="66"/><rect class="wv-en" x="209.0" y="81" width="3" height="94"/><rect class="wv-en" x="214.0" y="79" width="3" height="99"/><rect class="wv-en" x="219.0" y="102" width="3" height="52"/><rect class="wv-en" x="224.0" y="113" width="3" height="30"/><rect class="wv-s" x="229.0" y="127" width="3" height="2"/><rect class="wv-s" x="234.0" y="127" width="3" height="2"/><rect class="wv-en" x="239.0" y="118" width="3" height="21"/><rect class="wv-en" x="244.0" y="101" width="3" height="54"/><rect class="wv-en" x="249.0" y="107" width="3" height="43"/><rect class="wv-en" x="254.0" y="87" width="3" height="83"/><rect class="wv-en" x="259.0" y="71" width="3" height="115"/><rect class="wv-en" x="264.0" y="81" width="3" height="95"/><rect class="wv-en" x="269.0" y="97" width="3" height="62"/><rect class="wv-en" x="274.0" y="114" width="3" height="29"/><rect class="wv-s" x="279.0" y="127" width="3" height="2"/><rect class="wv-fr" x="284.0" y="106" width="3" height="44"/><rect class="wv-fr" x="289.0" y="89" width="3" height="79"/><rect class="wv-fr" x="294.0" y="95" width="3" height="67"/><rect class="wv-fr" x="299.0" y="104" width="3" height="49"/><rect class="wv-fr" x="304.0" y="85" width="3" height="86"/><rect class="wv-fr" x="309.0" y="75" width="3" height="107"/><rect class="wv-fr" x="314.0" y="84" width="3" height="88"/><rect class="wv-fr" x="319.0" y="96" width="3" height="64"/><rect class="wv-fr" x="324.0" y="115" width="3" height="26"/><rect class="wv-s" x="329.0" y="127" width="3" height="2"/><rect class="wv-s" x="334.0" y="127" width="3" height="2"/><rect class="wv-s" x="339.0" y="127" width="3" height="2"/><rect class="wv-en" x="344.0" y="108" width="3" height="40"/><rect class="wv-en" x="349.0" y="107" width="3" height="43"/><rect class="wv-en" x="354.0" y="93" width="3" height="70"/><rect class="wv-en" x="359.0" y="89" width="3" height="78"/><rect class="wv-en" x="364.0" y="79" width="3" height="99"/><rect class="wv-en" x="369.0" y="80" width="3" height="97"/><rect class="wv-en" x="374.0" y="100" width="3" height="57"/><rect class="wv-en" x="379.0" y="92" width="3" height="73"/><rect class="wv-en" x="384.0" y="88" width="3" height="81"/><rect class="wv-en" x="389.0" y="94" width="3" height="68"/><rect class="wv-en" x="394.0" y="105" width="3" height="46"/><rect class="wv-s" x="399.0" y="127" width="3" height="2"/><rect class="wv-s" x="404.0" y="127" width="3" height="2"/><rect class="wv-s" x="409.0" y="127" width="3" height="2"/><rect class="wv-en" x="414.0" y="103" width="3" height="51"/><rect class="wv-en" x="419.0" y="88" width="3" height="80"/><rect class="wv-en" x="424.0" y="100" width="3" height="57"/><rect class="wv-en" x="429.0" y="94" width="3" height="69"/><rect class="wv-en" x="434.0" y="95" width="3" height="67"/><rect class="wv-en" x="439.0" y="102" width="3" height="52"/><rect class="wv-s" x="444.0" y="127" width="3" height="2"/><rect class="wv-s" x="449.0" y="127" width="3" height="2"/><rect class="wv-s" x="454.0" y="127" width="3" height="2"/><rect class="wv-en" x="459.0" y="102" width="3" height="52"/><rect class="wv-en" x="464.0" y="97" width="3" height="63"/><rect class="wv-en" x="469.0" y="94" width="3" height="69"/><rect class="wv-en" x="474.0" y="95" width="3" height="67"/><rect class="wv-en" x="479.0" y="99" width="3" height="59"/><rect class="wv-en" x="484.0" y="89" width="3" height="79"/><rect class="wv-en" x="489.0" y="98" width="3" height="61"/><rect class="wv-en" x="494.0" y="105" width="3" height="47"/><rect class="wv-en" x="499.0" y="119" width="3" height="18"/><rect class="wv-s" x="504.0" y="127" width="3" height="2"/><rect class="wv-s" x="509.0" y="127" width="3" height="2"/><rect class="wv-fr" x="514.0" y="113" width="3" height="30"/><rect class="wv-fr" x="519.0" y="104" width="3" height="48"/><rect class="wv-fr" x="524.0" y="108" width="3" height="41"/><rect class="wv-fr" x="529.0" y="108" width="3" height="41"/><rect class="wv-fr" x="534.0" y="87" width="3" height="82"/><rect class="wv-fr" x="539.0" y="81" width="3" height="95"/><rect class="wv-fr" x="544.0" y="92" width="3" height="72"/><rect class="wv-fr" x="549.0" y="94" width="3" height="69"/><rect class="wv-fr" x="554.0" y="101" width="3" height="55"/><rect class="wv-fr" x="559.0" y="96" width="3" height="65"/><rect class="wv-fr" x="564.0" y="81" width="3" height="95"/><rect class="wv-fr" x="569.0" y="94" width="3" height="69"/><rect class="wv-fr" x="574.0" y="101" width="3" height="55"/><rect class="wv-fr" x="579.0" y="111" width="3" height="34"/><rect class="wv-fr" x="584.0" y="113" width="3" height="30"/><rect class="wv-s" x="589.0" y="127" width="3" height="2"/><rect class="wv-fr" x="594.0" y="104" width="3" height="48"/><rect class="wv-en" x="599.0" y="104" width="3" height="49"/><rect class="wv-fr" x="604.0" y="87" width="3" height="82"/><rect class="wv-en" x="609.0" y="82" width="3" height="93"/><rect class="wv-fr" x="614.0" y="108" width="3" height="41"/><rect class="wv-en" x="619.0" y="79" width="3" height="98"/><rect class="wv-fr" x="624.0" y="75" width="3" height="107"/><rect class="wv-en" x="629.0" y="74" width="3" height="109"/><rect class="wv-fr" x="634.0" y="96" width="3" height="64"/><rect class="wv-en" x="639.0" y="80" width="3" height="96"/><rect class="wv-fr" x="644.0" y="91" width="3" height="75"/><rect class="wv-en" x="649.0" y="101" width="3" height="55"/><rect class="wv-s" x="654.0" y="127" width="3" height="2"/><rect class="wv-s" x="659.0" y="127" width="3" height="2"/><rect class="wv-en" x="664.0" y="98" width="3" height="60"/><rect class="wv-en" x="669.0" y="84" width="3" height="88"/><rect class="wv-en" x="674.0" y="86" width="3" height="84"/><rect class="wv-en" x="679.0" y="97" width="3" height="62"/><rect class="wv-en" x="684.0" y="104" width="3" height="49"/><rect class="wv-en" x="689.0" y="101" width="3" height="55"/><rect class="wv-s" x="694.0" y="127" width="3" height="2"/><rect class="wv-s" x="699.0" y="127" width="3" height="2"/><rect class="wv-i" x="704.0" y="117" width="3" height="22"/><rect class="wv-i" x="709.0" y="119" width="3" height="18"/><rect class="wv-i" x="714.0" y="122" width="3" height="12"/><rect class="wv-i" x="719.0" y="119" width="3" height="19"/><rect class="wv-i" x="724.0" y="119" width="3" height="19"/><rect class="wv-i" x="729.0" y="122" width="3" height="13"/><rect class="wv-i" x="734.0" y="119" width="3" height="18"/><rect class="wv-i" x="739.0" y="119" width="3" height="19"/><rect class="wv-i" x="744.0" y="117" width="3" height="22"/><rect class="wv-i" x="749.0" y="121" width="3" height="14"/><rect class="wv-i" x="754.0" y="119" width="3" height="19"/><rect class="wv-i" x="759.0" y="122" width="3" height="12"/><rect class="wv-i" x="764.0" y="120" width="3" height="17"/><rect class="wv-i" x="769.0" y="122" width="3" height="12"/><rect class="wv-i" x="774.0" y="121" width="3" height="14"/><rect class="wv-i" x="779.0" y="122" width="3" height="13"/><rect class="wv-i" x="784.0" y="122" width="3" height="13"/><rect class="wv-i" x="789.0" y="118" width="3" height="20"/><rect class="wv-i" x="794.0" y="123" width="3" height="10"/><rect class="wv-s" x="799.0" y="127" width="3" height="2"/><rect class="wv-s" x="804.0" y="127" width="3" height="2"/><rect class="wv-s" x="809.0" y="127" width="3" height="2"/><rect class="wv-en" x="814.0" y="117" width="3" height="23"/><rect class="wv-en" x="819.0" y="102" width="3" height="52"/><rect class="wv-en" x="824.0" y="86" width="3" height="85"/><rect class="wv-en" x="829.0" y="99" width="3" height="59"/><rect class="wv-en" x="834.0" y="105" width="3" height="46"/><rect class="wv-en" x="839.0" y="99" width="3" height="58"/><rect class="wv-en" x="844.0" y="95" width="3" height="66"/><rect class="wv-en" x="849.0" y="109" width="3" height="39"/><rect class="wv-s" x="854.0" y="127" width="3" height="2"/><rect class="wv-s" x="859.0" y="127" width="3" height="2"/><rect class="wv-fr" x="864.0" y="119" width="3" height="18"/><rect class="wv-fr" x="869.0" y="100" width="3" height="57"/><rect class="wv-fr" x="874.0" y="94" width="3" height="69"/><rect class="wv-fr" x="879.0" y="97" width="3" height="63"/><rect class="wv-fr" x="884.0" y="100" width="3" height="57"/><rect class="wv-fr" x="889.0" y="98" width="3" height="61"/><rect class="wv-fr" x="894.0" y="89" width="3" height="78"/><rect class="wv-fr" x="899.0" y="88" width="3" height="81"/><rect class="wv-fr" x="904.0" y="95" width="3" height="67"/><rect class="wv-fr" x="909.0" y="110" width="3" height="37"/><rect class="wv-fr" x="914.0" y="114" width="3" height="29"/><rect class="wv-s" x="919.0" y="127" width="3" height="2"/><rect class="wv-s" x="924.0" y="127" width="3" height="2"/><rect class="wv-s" x="929.0" y="127" width="3" height="2"/><rect class="wv-s" x="934.0" y="127" width="3" height="2"/><rect class="wv-s" x="939.0" y="127" width="3" height="2"/><rect class="wv-s" x="944.0" y="127" width="3" height="2"/><rect class="wv-s" x="949.0" y="127" width="3" height="2"/><rect class="wv-s" x="954.0" y="127" width="3" height="2"/><rect class="wv-s" x="959.0" y="127" width="3" height="2"/><rect class="wv-s" x="964.0" y="127" width="3" height="2"/><rect class="wv-s" x="969.0" y="127" width="3" height="2"/><rect class="wv-s" x="974.0" y="127" width="3" height="2"/><rect class="wv-s" x="979.0" y="127" width="3" height="2"/><rect class="wv-s" x="984.0" y="127" width="3" height="2"/></g><g class="wv-lab"><line class="wv-tick" x1="59.7" x2="59.7" y1="58" y2="66"/><text class="wv-n" x="62.7" y="54">184</text><text class="wv-who" x="62.7" y="206">WALSH</text><line class="wv-tick" x1="122.5" x2="122.5" y1="58" y2="66"/><text class="wv-n" x="125.5" y="54">185</text><text class="wv-who" x="125.5" y="206">PATEL</text><line class="wv-tick" x1="191.6" x2="191.6" y1="58" y2="66"/><text class="wv-n" x="194.6" y="54">186</text><text class="wv-who" x="194.6" y="206">WALSH</text><line class="wv-tick" x1="238.7" x2="238.7" y1="58" y2="66"/><text class="wv-n" x="241.7" y="54">187</text><text class="wv-who" x="241.7" y="206">PATEL</text><line class="wv-tick" x1="339.2" x2="339.2" y1="58" y2="66"/><text class="wv-n" x="342.2" y="54">188</text><text class="wv-who" x="342.2" y="206">TREMBLAY</text><line class="wv-tick" x1="411.4" x2="411.4" y1="58" y2="66"/><text class="wv-n" x="414.4" y="54">189</text><text class="wv-who" x="414.4" y="206">PRÉS.</text><line class="wv-tick" x1="455.3" x2="455.3" y1="58" y2="66"/><text class="wv-n" x="458.3" y="54">190</text><text class="wv-who" x="458.3" y="206">WALSH</text><line class="wv-tick" x1="511.9" x2="511.9" y1="58" y2="66"/><text class="wv-n" x="514.9" y="54">191</text><text class="wv-who" x="514.9" y="206">PATEL</text><line class="wv-tick" x1="593.5" x2="593.5" y1="58" y2="66"/><text class="wv-n" x="596.5" y="54">192</text><line class="wv-tick" x1="659.4" x2="659.4" y1="58" y2="66"/><text class="wv-n" x="662.4" y="54">194</text><text class="wv-who" x="662.4" y="206">PRÉS.</text><line class="wv-tick" x1="703.4" x2="703.4" y1="58" y2="66"/><text class="wv-n" x="706.4" y="54">195</text><text class="wv-who" x="706.4" y="206">PATEL</text><line class="wv-tick" x1="813.3" x2="813.3" y1="58" y2="66"/><text class="wv-n" x="816.3" y="54">196</text><text class="wv-who" x="816.3" y="206">WALSH</text><line class="wv-tick" x1="863.5" x2="863.5" y1="58" y2="66"/><text class="wv-n" x="866.5" y="54">197</text><text class="wv-who" x="866.5" y="206">PATEL</text><path class="wv-br" d="M703.4 98v-6h94.2v6"/><text class="wv-ina" x="711.4" y="84">[inaudible 00:41:12 &gt; 00:41:18]</text></g><g class="wv-head"><line x1="703.4" x2="703.4" y1="40" y2="214"/><rect x="699.4" y="36" width="8" height="8"/></g><g class="wv-rec"><circle cx="48" cy="5" r="3.5"/><text x="56" y="8.5">REC · 2024-QC-0482</text></g></svg></div><figcaption><p class="wv-leg"><span><i class="lg-en"></i>English</span><span><i class="lg-fr"></i>French</span><span><i class="lg-x"></i>Crosstalk</span><span><i class="lg-i"></i>Inaudible</span></p><span class="wv-cap">Specimen · file 2024-QC-0482 · recording 2 of 3 · 48 kHz · 24-bit · each segment already carries the number of the line it will become.</span></figcaption></figure><div class="tree"><p class="tree-k">What we take in</p><p class="tree-root"><i></i>The recording</p><div class="tree-br"><div class="tree-b"><p class="tree-h"><i></i>Testimony under oath</p><ul><li>Depositions (United States)</li><li>Examinations for discovery</li><li>Examinations before trial</li><li>Examinations under oath (insurance)</li><li>Cross-examinations on affidavit</li></ul><a class="tree-l" href="/services/">Services and specification &rarr;</a></div><div class="tree-b"><p class="tree-h"><i></i>Hearings</p><ul><li>Criminal trials and preliminary inquiries</li><li>Commercial, labour and grievance arbitration</li><li>Administrative tribunals</li><li>Professional discipline</li><li>Coroner’s inquests</li><li>Immigration hearings</li><li>Commissions of inquiry</li></ul><a class="tree-l" href="/quebec/">Legal transcription in Quebec &rarr;</a></div><div class="tree-b"><p class="tree-h"><i></i>Recorded evidence</p><ul><li>Lawful intercepts and wiretaps</li><li>Consensual recordings</li><li>Body-worn and in-car camera audio</li><li>911 and emergency-services calls</li><li>Custodial and police interviews</li><li>Recorded statements</li><li>Jail calls and voicemail</li></ul><a class="tree-l" href="/recorded-evidence/">French recordings as evidence &rarr;</a></div></div></div><a class="stg-next" href="#transcript"><span class="sn-k">Next</span><b>II</b><span class="sn-t">The recording becomes the transcript</span><i aria-hidden="true">&darr;</i></a></div></section>
+<section class="stg stg-2" id="transcript" aria-labelledby="transcript-h"><div class="container"><div class="section-tag"><span class="st-br">[</span>The transcript<span class="st-br">]</span></div><div class="stg-hd"><span class="stg-n" aria-hidden="true">II</span><p class="stg-w" aria-hidden="true">v.</p><h2 class="section-h2" id="transcript-h">Each language, as spoken.</h2></div><p class="stg-lead drop">What was said in French is transcribed in French; what was said in English, in English. Where an interpreter spoke, the interpretation is transcribed as well, and marked as interpretation. Nothing is translated in place of the original.</p><figure class="sp14"><div class="sp-page"><div class="sp-hd"><b>SPECIMEN TRANSCRIPT</b><i>Fictional matter prepared to illustrate format. Not a real proceeding.</i></div><div class="sp-meta"><p><span>Dossier 2024-QC-0482</span><span>Bilingual hearing, French and English</span></p><p><span>Techfin Solutions Inc. <i>v.</i> Maple Ridge Capital LLC</span><span>Recording 2 of 3</span></p><p><span>Transcribed by Lexoral</span><span>Verbatim, no translation performed</span></p></div><ol class="sp-l"><li class="sp-p"><span class="sp-n">183</span><span class="sp-w"></span><span class="sp-t">(Exhibit 14 marked for identification.)</span></li><li class="sp-en"><span class="sp-n">184</span><span class="sp-w">Me WALSH</span><span class="sp-t">Ms. Patel, do you recognise Exhibit 14?</span></li><li class="sp-fr"><span class="sp-n">185</span><span class="sp-w">Mme PATEL</span><span class="sp-t" lang="fr">Oui. C’est la lettre du douze janvier.</span><b class="sp-m">1</b></li><li class="sp-en"><span class="sp-n">186</span><span class="sp-w">Me WALSH</span><span class="sp-t">In English, for the record, please.</span></li><li class="sp-mix"><span class="sp-n">187</span><span class="sp-w">Mme PATEL</span><span class="sp-t">The letter of January twelfth. <span lang="fr">Mais l’annexe C n’y était pas jointe.</span></span></li><li class="sp-en"><span class="sp-n">188</span><span class="sp-w">Me TREMBLAY</span><span class="sp-t">Objection to form. I take the question under advisement.</span><b class="sp-m">2</b></li><li class="sp-en"><span class="sp-n">189</span><span class="sp-w">LA PRÉSIDENTE</span><span class="sp-t">Noted. Continue, Maître Walsh.</span></li><li class="sp-en"><span class="sp-n">190</span><span class="sp-w">Me WALSH</span><span class="sp-t">When did you first raise the missing annex?</span></li><li class="sp-fr"><span class="sp-n">191</span><span class="sp-w">Mme PATEL</span><span class="sp-t" lang="fr">Le jour même. J’en ai parlé à monsieur Beauchemin [phonétique].</span></li><li class="sp-p"><span class="sp-n">192</span><span class="sp-w"></span><span class="sp-t">(Voix superposées.)</span></li><li class="sp-en"><span class="sp-n">193</span><span class="sp-w">Me TREMBLAY</span><span class="sp-t">— that is not what the witness —</span></li><li class="sp-en"><span class="sp-n">194</span><span class="sp-w">LA PRÉSIDENTE</span><span class="sp-t">One at a time, please.</span></li><li class="sp-ina"><span class="sp-n">195</span><span class="sp-w">Mme PATEL</span><span class="sp-t">[inaudible 00:41:12 &gt; 00:41:18]</span><b class="sp-m">3</b></li></ol><p class="sp-ft">SPECIMEN · LEXORAL · page 1 of 2</p></div><figcaption class="sp-notes"><ol><li><b class="sp-m">1</b><span class="sp-nk">l. 185 · The language spoken</span><span class="sp-nv">The answer stays in French: no translation stands in for it.</span></li><li><b class="sp-m">2</b><span class="sp-nk">l. 188 · The objection, verbatim</span><span class="sp-nv">Taken down as made, with the reservation.</span></li><li><b class="sp-m">3</b><span class="sp-nk">l. 195 · The inaudible, timestamped</span><span class="sp-nv">Marked to the second, never reconstructed.</span></li></ol><a class="sp-dl" href="/lexoral-specimen-transcript.pdf" download><span>Download the full specimen</span><small>PDF · 2 pages · fictional parties</small></a></figcaption></figure><ol class="three"><li><span class="tr-n">i</span><b>Verbatim</b><span>Every word, in order: false starts, objections, crosstalk.</span></li><li><span class="tr-n">ii</span><b>In the language spoken</b><span>No translation in place of the original; interpretation marked as such.</span></li><li><span class="tr-n">iii</span><b>Certified</b><span>Paginated, line-numbered, signed by a named practitioner with a declaration of accuracy.</span></li></ol><a class="stg-next" href="#coverage"><span class="sn-k">Next</span><b>III</b><span class="sn-t">The transcript becomes the record</span><i aria-hidden="true">&darr;</i></a></div></section>
+<section class="stg stg-3" id="coverage" aria-labelledby="coverage-h"><div class="container"><div class="section-tag"><span class="st-br">[</span>The record<span class="st-br">]</span></div><div class="stg-hd"><span class="stg-n" aria-hidden="true">III</span><p class="stg-w" aria-hidden="true">Lex</p><h2 class="section-h2" id="coverage-h">Cited by page and line.</h2></div><p class="stg-lead drop">A transcript outlives the hearing. Opposing counsel quotes it, the trial judge relies on it, the court of appeal reads nothing else. Three legal orders set the rules it has to meet, and a fourth case brings them together.</p><div class="jmap cm"><svg class="cm-map" viewBox="244 188 652 424" fill="none" aria-hidden="true"><defs><linearGradient id="cm-gx" gradientUnits="userSpaceOnUse" x1="244" y1="0" x2="300" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#fff" stop-opacity="1"/></linearGradient><mask id="cm-mx" maskUnits="userSpaceOnUse" x="244" y="188" width="652" height="424"><rect x="244" y="188" width="652" height="424" fill="url(#cm-gx)"/></mask><linearGradient id="cm-gy" gradientUnits="userSpaceOnUse" x1="0" y1="188" x2="0" y2="240"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#fff" stop-opacity="1"/></linearGradient><mask id="cm-my" maskUnits="userSpaceOnUse" x="244" y="188" width="652" height="424"><rect x="244" y="188" width="652" height="424" fill="url(#cm-gy)"/></mask><linearGradient id="cm-ge" gradientUnits="userSpaceOnUse" x1="850" y1="0" x2="896" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="1"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient><mask id="cm-me" maskUnits="userSpaceOnUse" x="244" y="188" width="652" height="424"><rect x="244" y="188" width="652" height="424" fill="url(#cm-ge)"/></mask></defs><g mask="url(#cm-mx)"><g mask="url(#cm-my)"><g mask="url(#cm-me)"><path class="cm-land" d="M793.7 345.0 L800.1 346.6 L808.3 346.3 L803.9 351.3 L800.6 352.1 L789.4 346.9 L787.2 342.9 L790.5 339.1 L793.7 345.0 Z M810.1 314.1 L805.8 314.3 L794.3 310.5 L786.1 304.8 L789.1 303.8 L800.8 306.8 L809.8 311.9 L810.1 314.1 Z M263.7 321.3 L259.2 323.0 L244.7 317.5 L242.0 313.2 L234.1 308.9 L232.5 305.5 L223.4 303.3 L220.0 296.7 L220.7 293.9 L230.0 296.6 L235.5 298.4 L243.8 299.7 L246.8 303.8 L251.2 309.6 L260.0 314.6 L263.7 321.3 Z M860.3 294.9 L854.5 305.5 L860.3 301.4 L866.2 304.0 L863.1 308.2 L871.0 311.6 L875.0 308.6 L883.9 312.3 L881.1 321.2 L887.3 319.1 L888.5 325.6 L891.2 333.1 L887.5 343.7 L883.5 344.2 L877.7 341.9 L879.6 332.0 L877.1 330.5 L866.8 341.0 L861.6 340.5 L867.8 334.9 L859.3 331.9 L849.8 332.6 L832.6 332.3 L831.2 328.7 L836.8 324.4 L832.9 321.1 L840.3 313.8 L849.5 294.5 L855.0 287.7 L862.7 283.5 L866.8 284.0 L865.1 287.3 L860.3 294.9 Z M182.2 254.3 L190.7 253.4 L188.0 267.1 L195.7 276.8 L192.2 276.8 L186.9 271.3 L183.6 265.7 L179.1 261.9 L177.5 256.6 L178.0 252.7 L182.2 254.3 Z M655.5 156.0 L652.0 162.4 L648.1 161.3 L645.8 157.7 L646.2 156.9 L649.6 153.3 L653.2 153.5 L655.5 156.0 Z M632.2 149.3 L621.8 156.0 L615.6 155.7 L613.6 152.5 L620.2 146.9 L632.4 147.0 L632.2 149.3 Z M603.3 113.6 L604.9 119.0 L609.5 117.1 L614.6 120.3 L624.3 124.4 L634.4 128.2 L635.2 134.0 L641.7 133.0 L648.1 137.0 L640.2 140.8 L626.4 137.9 L621.5 132.5 L612.7 138.9 L600.1 145.2 L597.0 138.1 L585.0 139.3 L592.7 133.3 L593.9 123.8 L596.9 112.7 L603.3 113.6 Z M685.6 95.6 L675.7 96.2 L673.5 90.3 L677.2 83.5 L685.3 81.8 L692.3 85.2 L692.3 90.3 L691.4 92.0 L685.6 95.6 Z M510.4 71.9 L504.9 76.1 L493.0 72.4 L485.8 73.8 L473.7 68.3 L481.5 64.6 L487.6 59.3 L497.0 62.8 L502.4 64.9 L505.0 67.2 L510.4 71.9 Z M555.6 67.1 L555.5 79.5 L567.4 70.0 L578.0 77.8 L575.3 86.8 L583.9 95.0 L593.1 86.2 L599.6 75.8 L600.1 62.5 L612.7 63.4 L625.8 65.2 L637.6 71.2 L638.2 77.2 L631.6 83.7 L637.8 90.2 L636.7 96.0 L619.4 104.5 L607.0 106.4 L597.9 102.7 L595.2 108.8 L586.7 119.0 L584.1 124.3 L573.9 132.5 L561.2 133.3 L554.2 138.4 L553.6 146.3 L543.3 147.8 L532.5 157.6 L522.9 171.3 L519.4 180.8 L518.9 194.9 L532.0 196.9 L535.9 208.2 L540.1 217.4 L552.5 215.0 L568.9 220.3 L577.8 224.9 L584.1 230.6 L595.2 233.9 L604.6 239.0 L619.2 239.7 L628.9 240.9 L627.4 251.4 L630.2 263.6 L636.6 277.1 L649.8 288.6 L656.6 284.7 L661.4 272.2 L656.7 253.1 L650.5 246.7 L664.7 241.0 L674.7 232.6 L679.6 224.1 L678.9 216.0 L672.9 205.7 L662.1 196.6 L672.6 183.9 L668.7 173.0 L665.7 154.1 L671.9 151.3 L687.1 154.6 L696.2 155.7 L703.5 152.6 L711.8 156.7 L722.7 163.7 L725.4 168.4 L741.2 169.3 L740.9 179.5 L743.9 194.8 L751.9 196.7 L758.4 203.8 L771.2 197.1 L779.7 183.7 L785.5 178.1 L792.4 188.9 L803.9 204.3 L813.7 218.9 L810.2 226.5 L822.0 233.3 L829.9 240.2 L844.0 243.4 L849.7 247.2 L853.2 257.5 L860.1 259.1 L863.7 263.6 L864.3 277.2 L857.9 281.8 L851.5 286.1 L837.0 290.4 L825.8 300.3 L810.8 302.3 L791.9 299.7 L778.6 299.6 L769.4 300.5 L762.0 309.2 L750.7 314.5 L738.0 330.5 L727.8 341.7 L735.3 339.7 L749.5 323.8 L768.1 313.7 L781.3 312.5 L789.2 318.5 L780.8 326.6 L783.6 339.7 L786.5 348.8 L798.0 354.8 L812.6 353.1 L821.5 339.5 L822.1 348.3 L827.9 352.6 L816.9 360.6 L797.3 367.8 L788.5 372.7 L778.6 381.4 L771.9 380.5 L771.5 370.3 L786.9 360.3 L772.7 360.6 L762.9 362.1 L757.1 355.3 L757.1 338.8 L753.2 335.3 L747.2 337.3 L744.3 334.1 L737.5 343.3 L734.8 352.7 L731.7 358.2 L727.9 360.1 L725.1 360.7 L724.2 363.7 L707.9 363.7 L694.4 363.8 L690.4 366.0 L681.1 374.7 L680.0 375.7 L677.1 380.4 L669.0 380.4 L660.3 380.4 L656.3 382.4 L657.8 384.7 L658.5 388.4 L658.4 389.7 L646.8 395.7 L637.7 397.6 L627.4 404.0 L625.2 404.0 L622.2 402.1 L621.2 400.4 L621.4 399.1 L623.3 394.9 L627.5 388.2 L630.1 381.1 L628.3 370.6 L626.4 359.6 L617.2 353.9 L618.3 351.7 L617.0 350.3 L614.5 350.3 L612.7 348.3 L612.3 345.5 L610.6 346.7 L608.2 346.4 L608.7 345.2 L606.7 344.0 L605.8 340.8 L598.9 336.9 L591.8 332.9 L583.1 328.2 L574.8 323.8 L566.9 327.2 L564.0 327.3 L553.1 324.2 L545.9 325.8 L537.3 322.0 L528.3 320.1 L522.1 319.3 L519.3 317.3 L517.8 310.6 L514.8 310.7 L514.7 315.4 L496.4 315.3 L466.1 315.4 L436.0 315.4 L409.4 315.4 L382.9 315.4 L356.7 315.4 L329.7 315.4 L321.0 315.4 L294.7 315.4 L269.6 315.4 L268.4 315.3 L251.3 303.4 L244.9 298.2 L228.9 293.2 L224.0 282.5 L225.2 275.0 L213.9 269.9 L212.3 260.1 L201.6 251.3 L201.4 245.1 L206.4 239.2 L206.1 231.6 L191.1 223.9 L182.0 210.1 L176.5 201.4 L168.4 195.9 L162.4 191.0 L157.7 184.7 L148.8 188.6 L140.2 195.4 L132.3 187.5 L126.1 182.2 L117.5 178.8 L108.8 178.4 L108.8 109.5 L108.9 64.5 L125.4 67.5 L139.4 73.3 L148.6 74.4 L156.4 69.4 L167.1 65.6 L180.2 67.1 L193.5 61.7 L208.0 58.7 L214.1 63.7 L220.7 60.9 L222.7 55.2 L228.8 56.5 L243.8 67.4 L255.6 59.1 L256.8 68.3 L267.6 66.3 L271.0 62.8 L281.7 63.5 L295.2 68.6 L316.0 73.0 L328.2 75.1 L336.8 74.3 L348.8 80.4 L336.3 86.5 L352.3 89.1 L376.2 87.6 L383.8 85.5 L393.2 92.8 L402.9 86.6 L393.8 81.5 L399.5 77.4 L410.3 76.8 L417.4 75.6 L424.5 78.5 L433.4 85.1 L443.3 84.1 L459.0 89.6 L472.7 87.6 L485.7 87.9 L484.6 80.4 L492.5 78.3 L506.2 82.4 L506.2 93.8 L511.8 84.2 L518.9 84.5 L522.9 72.3 L513.5 64.9 L503.1 60.0 L503.8 46.6 L514.3 37.8 L526.0 39.7 L534.9 45.1 L547.0 58.7 L539.1 64.7 L555.6 67.1 Z M346.4 23.3 L342.0 28.9 L361.7 25.3 L374.0 31.4 L384.0 25.2 L392.1 29.2 L399.3 41.1 L403.8 36.0 L397.5 23.6 L405.3 21.9 L414.1 23.8 L424.0 28.7 L429.6 40.5 L432.3 49.0 L447.2 55.0 L463.2 60.8 L462.2 66.1 L447.7 67.1 L453.3 71.7 L450.3 76.2 L434.3 74.3 L419.1 71.0 L408.8 71.7 L392.2 75.8 L369.7 77.6 L354.0 78.8 L349.2 73.1 L337.1 69.8 L329.2 71.1 L318.3 61.5 L324.2 60.3 L337.9 58.2 L350.3 58.7 L361.9 56.6 L344.8 53.8 L325.9 54.8 L313.3 54.5 L308.6 50.1 L329.2 45.2 L315.5 45.4 L300.0 42.2 L307.5 33.1 L313.6 28.3 L337.3 20.9 L346.4 23.3 Z M590.9 22.8 L597.8 30.4 L606.0 20.6 L628.5 15.6 L643.7 28.2 L642.4 36.1 L659.9 32.6 L668.2 27.8 L687.9 33.9 L700.1 39.7 L701.2 44.9 L717.7 42.2 L726.9 49.9 L748.3 54.7 L756.0 59.6 L764.4 70.9 L748.1 76.6 L769.0 84.5 L783.0 87.1 L795.8 98.3 L809.7 99.1 L806.9 107.6 L791.4 121.6 L780.5 116.4 L766.6 104.8 L755.1 106.3 L754.0 113.3 L763.3 120.3 L775.3 125.9 L779.0 129.1 L784.8 141.1 L781.7 149.8 L770.5 146.5 L748.3 136.8 L760.8 147.2 L770.1 154.5 L771.5 158.8 L747.5 153.9 L728.5 146.9 L717.7 141.0 L720.8 137.6 L707.6 131.4 L694.7 125.5 L694.9 129.0 L669.3 130.9 L661.8 126.8 L667.6 117.9 L684.2 117.6 L702.5 116.1 L699.5 111.8 L702.6 105.7 L714.1 93.9 L711.6 88.6 L708.2 84.4 L694.7 78.6 L676.7 74.4 L682.4 71.4 L673.0 63.9 L665.2 63.2 L658.2 59.0 L653.5 62.6 L637.4 64.2 L605.2 61.5 L586.5 57.9 L572.1 56.1 L564.7 51.8 L574.0 46.3 L561.4 46.3 L558.6 34.0 L565.4 23.2 L574.5 18.2 L597.4 15.0 L590.9 22.8 Z"/><path class="cm-land" d="M517.8 310.6 L519.3 317.3 L522.1 319.3 L528.3 320.1 L537.3 322.0 L545.9 325.8 L553.1 324.2 L564.0 327.3 L566.9 327.2 L574.8 323.8 L583.1 328.2 L591.8 332.9 L598.9 336.9 L605.8 340.8 L606.7 344.0 L608.7 345.2 L608.2 346.4 L610.6 346.7 L612.3 345.5 L612.7 348.3 L614.5 350.3 L617.0 350.3 L618.3 351.7 L617.2 353.9 L626.4 359.6 L628.3 370.6 L630.1 381.1 L627.5 388.2 L623.3 394.9 L621.4 399.1 L621.2 400.4 L622.2 402.1 L625.2 404.0 L627.4 404.0 L637.7 397.6 L646.8 395.7 L658.4 389.7 L658.5 388.4 L657.8 384.7 L656.3 382.4 L660.3 380.4 L669.0 380.4 L677.1 380.4 L680.0 375.7 L681.1 374.7 L690.4 366.0 L694.4 363.8 L707.9 363.7 L724.2 363.7 L725.1 360.7 L727.9 360.1 L731.7 358.2 L734.8 352.7 L737.5 343.3 L744.3 334.1 L747.2 337.3 L753.2 335.3 L757.1 338.8 L757.1 355.3 L762.9 362.1 L764.4 366.1 L755.0 372.0 L745.9 376.1 L736.5 379.7 L731.8 386.9 L730.3 389.6 L730.2 396.1 L733.2 402.5 L736.8 402.8 L735.9 398.4 L738.6 401.0 L737.9 404.5 L731.9 406.5 L727.6 406.2 L721.1 408.3 L717.2 409.0 L712.1 409.6 L704.7 413.1 L717.7 410.8 L720.3 413.1 L707.9 416.7 L702.3 416.7 L702.5 415.2 L699.8 418.6 L702.5 419.2 L700.5 427.9 L694.1 437.2 L693.4 434.1 L691.5 433.4 L688.6 430.4 L690.4 436.9 L692.6 439.1 L692.8 443.7 L689.9 448.4 L684.9 458.0 L684.1 457.6 L686.9 449.3 L682.3 444.7 L681.3 434.6 L679.6 439.9 L681.5 447.5 L675.6 445.6 L681.7 449.5 L682.1 461.1 L684.7 461.9 L685.6 466.1 L686.8 478.2 L681.2 487.2 L672.0 490.8 L666.2 497.9 L661.8 498.7 L657.3 503.1 L656.0 507.2 L646.3 515.0 L641.3 520.8 L637.1 528.0 L635.8 536.6 L637.3 545.0 L640.3 555.4 L644.2 563.9 L644.3 569.2 L648.5 583.2 L648.2 591.4 L647.8 596.1 L645.6 603.5 L643.0 605.0 L638.6 603.5 L637.2 598.2 L633.8 595.4 L629.1 585.0 L625.0 575.8 L623.7 571.0 L625.5 563.0 L623.0 556.3 L616.1 546.2 L612.7 544.3 L603.7 549.8 L602.2 549.2 L597.9 543.6 L592.3 540.6 L582.3 542.1 L574.4 540.8 L567.7 541.6 L564.0 543.5 L565.6 546.7 L565.5 551.6 L567.4 554.0 L565.7 555.6 L562.4 553.8 L559.1 556.1 L552.6 555.7 L546.0 549.3 L538.3 550.8 L531.9 548.0 L526.3 548.9 L518.9 551.7 L510.8 560.7 L502.0 565.9 L497.2 571.7 L495.2 577.1 L495.1 585.5 L495.5 591.3 L497.2 595.4 L493.7 595.8 L487.5 593.1 L480.5 589.4 L478.1 583.7 L476.1 575.2 L470.9 568.3 L467.8 561.2 L463.4 552.9 L457.1 548.1 L449.9 548.3 L444.3 557.9 L437.0 554.3 L432.4 550.6 L430.2 543.9 L427.3 537.6 L422.0 532.3 L417.5 528.5 L414.2 524.2 L398.9 524.2 L398.9 529.2 L391.8 529.2 L374.2 529.3 L354.0 520.7 L340.7 514.8 L341.5 512.5 L330.2 513.8 L320.2 514.7 L318.7 508.5 L313.0 501.6 L308.8 500.1 L307.9 496.7 L302.9 496.0 L299.7 492.8 L291.5 491.6 L289.2 489.6 L288.2 483.0 L279.6 470.8 L272.2 454.0 L272.5 451.2 L268.6 447.2 L261.7 437.0 L260.5 427.2 L255.8 420.5 L257.7 410.5 L257.4 400.1 L254.6 390.8 L258.1 379.4 L259.1 368.4 L260.2 357.4 L258.6 341.2 L255.8 330.8 L253.2 325.2 L254.3 322.9 L267.1 327.0 L271.8 338.4 L274.0 335.2 L272.6 325.3 L269.6 315.4 L294.7 315.4 L321.0 315.4 L329.7 315.4 L356.7 315.4 L382.9 315.4 L409.4 315.4 L436.0 315.4 L466.1 315.4 L496.4 315.3 L514.7 315.4 L514.8 310.7 L517.8 310.6 Z"/></g></g></g><text class="cm-rg" x="440" y="238" text-anchor="middle">CANADA</text><text class="cm-rg cm-rq" x="722" y="282" text-anchor="middle">QUEBEC</text><text class="cm-rg" x="497" y="472" text-anchor="middle">UNITED STATES</text><path class="cm-line" d="M269.6 315.4 L294.7 315.4 L321.0 315.4 L329.7 315.4 L356.7 315.4 L382.9 315.4 L409.4 315.4 L436.0 315.4 L466.1 315.4 L496.4 315.3 L514.7 315.4 L514.8 310.7 L517.8 310.6 L517.8 310.6 L519.3 317.3 L522.1 319.3 L528.3 320.1 L537.3 322.0 L545.9 325.8 L553.1 324.2 L564.0 327.3 L566.9 327.2 L574.8 323.8 L583.1 328.2 L591.8 332.9 L598.9 336.9 L605.8 340.8 L606.7 344.0 L608.7 345.2 L608.2 346.4 L610.6 346.7 L612.3 345.5 L612.7 348.3 L614.5 350.3 L617.0 350.3 L618.3 351.7 L617.2 353.9 L626.4 359.6 L628.3 370.6 L630.1 381.1 L627.5 388.2 L623.3 394.9 L621.4 399.1 L621.2 400.4 L622.2 402.1 L625.2 404.0 L627.4 404.0 L637.7 397.6 L646.8 395.7 L658.4 389.7 L658.5 388.4 L657.8 384.7 L656.3 382.4 L660.3 380.4 L669.0 380.4 L677.1 380.4 L680.0 375.7 L681.1 374.7 L690.4 366.0 L694.4 363.8 L707.9 363.7 L724.2 363.7 L725.1 360.7 L727.9 360.1 L731.7 358.2 L734.8 352.7 L737.5 343.3 L744.3 334.1 L747.2 337.3 L753.2 335.3 L757.1 338.8 L757.1 355.3 L762.9 362.1 L764.4 366.1"/><g class="cm-courts"><g class="cm-c" style="--i:0"><title>Supreme Court of Canada &#183; Ottawa</title><circle cx="686.9" cy="358.7" r="2.5"/><text x="681.9" y="351.7" text-anchor="end">SCC</text></g><g class="cm-c" style="--i:1"><title>Court of Appeal of Quebec &#183; Qu&#233;bec City</title><circle cx="726.7" cy="341.9" r="2.5"/><text x="726.7" y="331.9" text-anchor="middle">QCCA</text></g><g class="cm-c" style="--i:2"><title>Superior Court of Quebec &#183; Montr&#233;al</title><circle cx="705.9" cy="357.7" r="2.5"/><text x="705.9" y="349.7" text-anchor="middle">QCCS</text></g><g class="cm-c" style="--i:3"><title>Court of Appeal for Ontario &#183; Toronto</title><circle cx="654.3" cy="380.1" r="2.5"/><text x="654.3" y="371.1" text-anchor="middle">ONCA</text></g><g class="cm-c" style="--i:4"><title>Court of Appeal of New Brunswick &#183; Fredericton</title><circle cx="767.1" cy="352.1" r="2.5"/><text x="772.1" y="356.1" text-anchor="start">NBCA</text></g><g class="cm-c" style="--i:5"><title>Court of Appeal of Manitoba &#183; Winnipeg</title><circle cx="497.2" cy="304.6" r="2.5"/><text x="492.2" y="301.6" text-anchor="end">MBCA</text></g><g class="cm-c" style="--i:6"><title>Court of Appeal of Alberta &#183; Calgary</title><circle cx="347.3" cy="290.7" r="2.5"/><text x="352.3" y="294.7" text-anchor="start">ABCA</text></g><g class="cm-c" style="--i:7"><title>Supreme Court of the United States &#183; Washington</title><circle cx="675.4" cy="437.7" r="2.5"/><text x="680.4" y="442.7" text-anchor="start">SCOTUS</text></g><g class="cm-c" style="--i:8"><title>U.S. Court of Appeals, Second Circuit &#183; New York</title><circle cx="701.9" cy="415.7" r="2.5"/><text x="707.9" y="420.7" text-anchor="start">2d Cir.</text></g><g class="cm-c" style="--i:9"><title>U.S. Court of Appeals, First Circuit &#183; Boston</title><circle cx="728.0" cy="395.7" r="2.5"/><text x="733.0" y="399.7" text-anchor="start">1st Cir.</text></g><g class="cm-c" style="--i:10"><title>U.S. Court of Appeals, Seventh Circuit &#183; Chicago</title><circle cx="581.3" cy="401.6" r="2.5"/><text x="576.3" y="405.6" text-anchor="end">7th Cir.</text></g><g class="cm-c" style="--i:11"><title>U.S. Court of Appeals, Eleventh Circuit &#183; Atlanta</title><circle cx="610.0" cy="499.9" r="2.5"/><text x="605.0" y="503.9" text-anchor="end">11th Cir.</text></g><g class="cm-c" style="--i:12"><title>U.S. Court of Appeals, Fifth Circuit &#183; New Orleans</title><circle cx="559.7" cy="545.9" r="2.5"/><text x="554.7" y="549.9" text-anchor="end">5th Cir.</text></g><g class="cm-c" style="--i:13"><title>U.S. Court of Appeals, Tenth Circuit &#183; Denver</title><circle cx="427.7" cy="427.5" r="2.5"/><text x="432.7" y="431.5" text-anchor="start">10th Cir.</text></g><g class="cm-c" style="--i:14"><title>U.S. Court of Appeals, Ninth Circuit &#183; San Francisco</title><circle cx="273.4" cy="451.2" r="2.5"/><text x="278.4" y="455.2" text-anchor="start">9th Cir.</text></g></g></svg><p class="cm-key"><i aria-hidden="true"></i>Principal courts</p></div><div class="jur"><article class="jur-c"><h3 class="jur-k"><span>Quebec</span></h3><p class="jur-s">Civil law · both languages of record</p><p class="jur-tk">The texts</p><ul class="jur-t"><li><b>Constitution Act, 1867, s. 133</b><span>English or French before the courts of Quebec.</span></li><li><b>Code of Civil Procedure, art. 221</b><span>Examination before trial, written or oral.</span></li><li><b>CQLR, c. B-1, r. 13</b><span>Stenographers accredited by language.</span></li></ul><p class="jur-tk">Leading case</p><p class="jur-case"><i>A.G. (Quebec) v. Blaikie</i>, [1979] 2 S.C.R. 1016<span>Section 133 binds the courts of Quebec.</span></p><a class="jur-l" href="/quebec/">Legal transcription in Quebec &rarr;</a></article><article class="jur-c"><h3 class="jur-k"><span>Canada</span></h3><p class="jur-s">Common law and federal · the accused’s language</p><p class="jur-tk">The texts</p><ul class="jur-t"><li><b>Criminal Code, ss. 530 and 530.1(g)</b><span>Trial in the accused’s language; a record in both.</span></li><li><b>Canadian Charter, s. 14</b><span>The right to the assistance of an interpreter.</span></li><li><b>Official Languages Act, s. 14</b><span>English or French before the federal courts.</span></li></ul><p class="jur-tk">Leading case</p><p class="jur-case"><i>R. v. Beaulac</i>, [1999] 1 S.C.R. 768<span>The choice of language belongs to the accused, whatever his fluency in the other.</span></p><a class="jur-l" href="/section-530/">What paragraph 530.1(g) requires &rarr;</a></article><article class="jur-c"><h3 class="jur-k"><span>United States</span></h3><p class="jur-s">Federal and state · the recording governs</p><p class="jur-tk">The texts</p><ul class="jur-t"><li><b>Fed. R. Civ. P. 30</b><span>Depositions by oral examination; review and errata, 30(e).</span></li><li><b>Fed. R. Evid. 604 · 28 U.S.C. § 1827</b><span>Interpreters, qualified and sworn.</span></li><li><b>28 U.S.C. § 753(b)</b><span>A certified transcript is prima facie correct.</span></li></ul><p class="jur-tk">Leading case</p><p class="jur-case"><i>United States v. Chavez</i>, 976 F.3d 1178 (10th Cir. 2020)<span>A translated transcript goes in alongside the recording, not instead of it.</span></p><a class="jur-l" href="/recorded-evidence/">French recordings as evidence &rarr;</a></article></div><article class="jur-both"><h3 class="jur-k"><span>Both at once</span></h3><p class="jur-s">Cross-border · one sitting, two records</p><ul class="jur-t"><li><b>Canada Evidence Act, s. 46</b><span>A foreign court’s request, enforced in Canada.</span></li><li><b>Fed. R. Civ. P. 28(b)</b><span>Depositions taken in a foreign country.</span></li><li><b>28 U.S.C. § 1782</b><span>U.S. evidence for proceedings abroad.</span></li></ul><p class="jur-case jur-case2"><span class="jur-tk">Leading case</span><i>Re Friction Division Products</i>, (1986), 56 O.R. (2d) 722 · <i>Intel Corp. v. Advanced Micro Devices</i>, 542 U.S. 241 (2004)</p><a class="jur-l" href="/cross-border/">Cross-border, Canada and the United States &rarr;</a></article><p class="jur-area"><b>Recordings accepted from anywhere in Canada or the United States · remote intake · no travel charge</b><span>Montréal · Québec · Laval · Longueuil · Gatineau · Sherbrooke · Trois-Rivières · Ottawa · Kanata · Toronto · Moncton</span></p><a class="stg-next" href="#clients"><span class="sn-k">Next</span><span class="sn-t">Who reads it: counsel, tribunals, institutions</span><i aria-hidden="true">&darr;</i></a></div></section>
+<section class="section who14" id="clients"><div class="container"><div class="section-header reveal"><div class="section-tag"><span class="st-br">[</span>Who we serve<span class="st-br">]</span></div><h2 class="section-h2">Counsel, tribunals, institutions.</h2><p class="section-intro">Wherever testimony is given in two languages and will have to be read again.</p></div><div class="who-g"><article class="who-c"><svg class="who-plan" viewBox="0 0 120 84" aria-hidden="true"><rect x="1" y="1" width="118" height="82" class="pl-room"/><rect x="30" y="8" width="60" height="12"/><rect x="55" y="30" width="10" height="10" class="pl-us"/><rect x="14" y="46" width="30" height="14" class="on"/><rect x="76" y="46" width="30" height="14" class="on"/><g><rect x="14" y="68" width="8" height="8"/><rect x="28" y="68" width="8" height="8"/><rect x="42" y="68" width="8" height="8"/><rect x="70" y="68" width="8" height="8"/><rect x="84" y="68" width="8" height="8"/><rect x="98" y="68" width="8" height="8"/></g></svg><p class="who-r">I <span>· At the counsel tables</span></p><h3 class="who-h">Counsel</h3><ul><li><b>Litigation firms</b><span>Discovery, trial and appeal; civil and commercial.</span></li><li><b>Insurance defence</b><span>Examinations under oath; coverage disputes.</span></li><li><b>Public defence and legal aid</b><span>Disclosure recordings; language rights.</span></li></ul></article><article class="who-c"><svg class="who-plan" viewBox="0 0 120 84" aria-hidden="true"><rect x="1" y="1" width="118" height="82" class="pl-room"/><rect x="30" y="8" width="60" height="12" class="on"/><rect x="55" y="30" width="10" height="10" class="pl-us"/><rect x="14" y="46" width="30" height="14"/><rect x="76" y="46" width="30" height="14"/><g><rect x="14" y="68" width="8" height="8"/><rect x="28" y="68" width="8" height="8"/><rect x="42" y="68" width="8" height="8"/><rect x="70" y="68" width="8" height="8"/><rect x="84" y="68" width="8" height="8"/><rect x="98" y="68" width="8" height="8"/></g></svg><p class="who-r">II <span>· On the bench</span></p><h3 class="who-h">Tribunals</h3><ul><li><b>Arbitral panels</b><span>ICC · AAA · ADRIC · ad hoc.</span></li><li><b>Administrative tribunals</b><span>Labour, immigration, professional discipline.</span></li><li><b>Commissions of inquiry</b><span>Public hearings, bilingual record.</span></li></ul></article><article class="who-c"><svg class="who-plan" viewBox="0 0 120 84" aria-hidden="true"><rect x="1" y="1" width="118" height="82" class="pl-room"/><rect x="30" y="8" width="60" height="12"/><rect x="55" y="30" width="10" height="10" class="pl-us"/><rect x="14" y="46" width="30" height="14"/><rect x="76" y="46" width="30" height="14"/><g class="on"><rect x="14" y="68" width="8" height="8"/><rect x="28" y="68" width="8" height="8"/><rect x="42" y="68" width="8" height="8"/><rect x="70" y="68" width="8" height="8"/><rect x="84" y="68" width="8" height="8"/><rect x="98" y="68" width="8" height="8"/></g></svg><p class="who-r">III <span>· In the room</span></p><h3 class="who-h">Institutions</h3><ul><li><b>Government</b><span>Ministries and agencies.</span></li><li><b>Legal departments</b><span>In-house counsel; cross-border matters.</span></li><li><b>Faculties and research</b><span>Law faculties; linguistics.</span></li></ul></article></div><p class="who-key"><i></i>The navy square at the centre is the clerk’s table. That is where the record is kept.</p></div></section>
+<section class="contact-section ct14" id="contact"><div class="container"><div class="section-header reveal"><div class="section-tag"><span class="st-br">[</span>Contact<span class="st-br">]</span></div><h2 class="section-h2">Send a recording.</h2></div><div class="tm"><div class="tm-hd"><span class="tm-logo">Lex <i>v.</i> Oral</span><span class="tm-t">Transmittal</span><span class="tm-d">Acknowledged the same working day</span></div><ol class="tm-f"><li><span class="tm-n">01</span><b>The recording</b><span class="tm-v">Audio or video, any format. Several files: one link.</span></li><li><span class="tm-n">02</span><b>The proceeding</b><span class="tm-v">Court or tribunal, file number, languages spoken.</span></li><li><span class="tm-n">03</span><b>The deadline</b><span class="tm-v">Five business days; 48 hours on priority. A firm price once the audio is reviewed.</span></li></ol><p class="tm-tk">Deliver to</p><div class="tm-to"><a class="tm-to-a" href="mailto:secure@lexoral.org"><span class="tm-k">Encrypted transfer</span><span class="tm-v">secure@lexoral.org</span><span class="tm-x">Recordings, quotations, delivery</span></a><a class="tm-to-a" href="mailto:contact@lexoral.org"><span class="tm-k">Email</span><span class="tm-v">contact@lexoral.org</span><span class="tm-x">Enquiries, press, partnerships</span></a><a class="tm-to-a" href="tel:+15147127516"><span class="tm-k">Telephone</span><span class="tm-v">+1 (514) 712-7516</span><span class="tm-x">Also on WhatsApp</span></a></div><div class="tm-ft"><span class="tm-sig">Brian Fino · Raymond Carby-Samuels<small>The practitioners who sign your transcripts</small></span><span class="tm-addr">24191-300 Eagleson Rd · Kanata, Ontario K2M 2C3 · Canada</span></div></div></div></section>
 
 <footer>
   <div class="container">
     <div class="footer-inner footer-5">
       <div>
         <div class="footer-logo"><span class="lg-p">Lex</span><span class="lg-v">v.</span><span class="lg-p">Oral</span></div>
-        <p class="footer-mission">Independent bilingual French&ndash;English legal transcription provider serving Canada and the United States &mdash; depositions, arbitrations, tribunals, cross-border litigation. Does not provide legal advice.</p>
+        <p class="footer-mission">Independent French&ndash;English legal transcription for Canada and the United States. Does not provide legal advice.</p>
       </div>
       <div>
-        <span class="footer-col-title">Sections</span>
+        <span class="footer-col-title">The work</span>
         <ul class="footer-links">
+          <li><a href="/services/">Services</a></li>
           <li><a href="#coverage">Coverage</a></li>
-          <li><a href="#why">Why us</a></li>
-          <li><a href="#reference">Reference</a></li>
-          <li><a href="#practice">Practice</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li><a href="/blog/">Blog</a></li>
-        </ul>
-      </div>
-      <div>
-        <span class="footer-col-title">Reference</span>
-        <ul class="footer-links">
-          <li><a href="/faq/">Questions</a></li>
-          <li><a href="/quebec/">Quebec</a></li>
+          <li><a href="/cross-border/">Cross-border</a></li>
           <li><a href="/recorded-evidence/">Recorded evidence</a></li>
-          <li><a href="/section-530/">Paragraph 530.1(g)</a></li>
         </ul>
       </div>
       <div>
-        <span class="footer-col-title">Compliance</span>
+        <span class="footer-col-title">The firm</span>
         <ul class="footer-links">
-          <li><a href="/privacy/">Privacy Policy</a></li>
-          <li><a href="/retention/">Retention Policy</a></li>
-          <li><a href="/privacy/">Loi 25</a></li>
-          <li><a href="/privacy/">GDPR</a></li>
+          <li><a href="/why-lexoral/">Why Lexoral</a></li>
+          <li><a href="/practice/">The practice</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="/privacy/">Privacy &middot; Loi 25</a></li>
+          <li><a href="/retention/">Retention</a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="footer-col-title">The library</span>
+        <ul class="footer-links">
+          <li><a href="/reference/">Reference</a></li>
+          <li><a href="/quebec/">Quebec</a></li>
+          <li><a href="/section-530/">Paragraph 530.1(g)</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/faq/">Questions</a></li>
         </ul>
       </div>
       <div>
@@ -2104,7 +2482,7 @@ section:not(.hero):not(.pol-head),.rec-band,.cov-band{
         <ul class="footer-links">
           <li><a href="mailto:secure@lexoral.org">secure@lexoral.org</a></li>
           <li><a href="tel:+15147127516">+1 (514) 712-7516</a></li>
-          <li style="line-height:1.55">24191-300 Eagleson Rd<br/>Kanata, ON K2M 2C3</li>
+          <li class="fl-addr">24191-300 Eagleson Rd<br/>Kanata, ON K2M 2C3</li>
         </ul>
       </div>
     </div>

@@ -54,6 +54,12 @@ Key facts:
 - [Retention Policy](https://lexoral.org/retention/) · [Politique de conservation](https://lexoral.org/retention-fr/): file retention and deletion.
 - [Specimen transcript (PDF)](https://lexoral.org/lexoral-specimen-transcript.pdf): two-page sample in the delivered format, fictional matter.
 
+## The practice
+
+- [Why Lexoral](https://lexoral.org/why-lexoral/) · [Pourquoi Lexoral](https://lexoral.org/pourquoi-lexoral/): what paragraph 530.1(g) asks for, one matter in two forms, redaction line by line.
+- [The practice](https://lexoral.org/practice/) · [Le cabinet](https://lexoral.org/cabinet/): two named practitioners, Samuels & Fino; a client letter.
+- [Reference](https://lexoral.org/reference/) · [Référence](https://lexoral.org/reference-fr/): six reference pages.
+
 ## Blog
 
 - [Blog (English)](https://lexoral.org/blog/) · [Blogue (français)](https://lexoral.org/blogue/): guides on legal transcription and a regular watch on transcription and justice in Canada and the United States. RSS: https://lexoral.org/blog/feed.xml · https://lexoral.org/blogue/feed.xml
