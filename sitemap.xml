@@ -72,14 +72,22 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://lexoral.org/retention/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://lexoral.org/retention-fr/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://lexoral.org/retention/"/></url>
-  <url><loc>https://lexoral.org/blog/</loc><lastmod>2026-09-27</lastmod><changefreq>weekly</changefreq><priority>0.8</priority>
+  <url><loc>https://lexoral.org/blog/</loc><lastmod>2026-09-30</lastmod><changefreq>weekly</changefreq><priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://lexoral.org/blog/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://lexoral.org/blogue/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://lexoral.org/blog/"/></url>
-  <url><loc>https://lexoral.org/blogue/</loc><lastmod>2026-09-27</lastmod><changefreq>weekly</changefreq><priority>0.8</priority>
+  <url><loc>https://lexoral.org/blogue/</loc><lastmod>2026-09-30</lastmod><changefreq>weekly</changefreq><priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://lexoral.org/blog/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://lexoral.org/blogue/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://lexoral.org/blog/"/></url>
+  <url><loc>https://lexoral.org/blog/watch-2026-09-30/</loc><lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lexoral.org/blog/watch-2026-09-30/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lexoral.org/blogue/veille-2026-09-30/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lexoral.org/blog/watch-2026-09-30/"/></url>
+  <url><loc>https://lexoral.org/blogue/veille-2026-09-30/</loc><lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lexoral.org/blog/watch-2026-09-30/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lexoral.org/blogue/veille-2026-09-30/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lexoral.org/blog/watch-2026-09-30/"/></url>
   <url><loc>https://lexoral.org/blog/what-a-legal-transcript-is-for/</loc><lastmod>2026-09-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://lexoral.org/blog/what-a-legal-transcript-is-for/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://lexoral.org/blogue/a-quoi-sert-une-transcription-judiciaire/"/>
@@ -104,11 +112,11 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://lexoral.org/blog/deposing-a-canadian-witness-for-a-us-case/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://lexoral.org/blogue/deposition-au-canada-proces-americain/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://lexoral.org/blog/deposing-a-canadian-witness-for-a-us-case/"/></url>
-  <url><loc>https://lexoral.org/blog/watch-2026-09/</loc><lastmod>2026-09-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+  <url><loc>https://lexoral.org/blog/watch-2026-09/</loc><lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://lexoral.org/blog/watch-2026-09/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://lexoral.org/blogue/veille-2026-09/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://lexoral.org/blog/watch-2026-09/"/></url>
-  <url><loc>https://lexoral.org/blogue/veille-2026-09/</loc><lastmod>2026-09-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+  <url><loc>https://lexoral.org/blogue/veille-2026-09/</loc><lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://lexoral.org/blog/watch-2026-09/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://lexoral.org/blogue/veille-2026-09/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://lexoral.org/blog/watch-2026-09/"/></url>

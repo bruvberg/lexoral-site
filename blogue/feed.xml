@@ -6,7 +6,15 @@
     <atom:link href="https://lexoral.org/blogue/feed.xml" rel="self" type="application/rss+xml"/>
     <description>La transcription juridique au Canada et aux États-Unis : des guides, et une veille régulière sur la transcription et la justice.</description>
     <language>fr-ca</language>
-    <lastBuildDate>Sun, 27 Sep 2026 13:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 30 Sep 2026 13:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Veille : transcription et justice au Canada et aux États-Unis — fin septembre 2026</title>
+      <link>https://lexoral.org/blogue/veille-2026-09-30/</link>
+      <guid isPermaLink="true">https://lexoral.org/blogue/veille-2026-09-30/</guid>
+      <pubDate>Wed, 30 Sep 2026 13:00:00 +0000</pubDate>
+      <category>Veille</category>
+      <description>Une transcription faite par IA devant la Cour suprême du Texas, une loi californienne sur les sténographes, un palais de justice acadien en Cour suprême.</description>
+    </item>
     <item>
       <title>À quoi sert une transcription judiciaire ? Qui la lit, et comment</title>
       <link>https://lexoral.org/blogue/a-quoi-sert-une-transcription-judiciaire/</link>
