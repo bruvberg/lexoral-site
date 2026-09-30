@@ -2364,6 +2364,174 @@ footer::after{content:'';position:absolute;pointer-events:none;width:138px;heigh
 /* le bordereau porte ses carres : le titre de la section n'en a pas besoin */
 .ct14 .section-h2::before,.ct14 .section-h2::after{content:none}
 .ct14 .section-header{margin-bottom:66px}
+
+/* =========================================================================
+   V15 — A L'ANCIENNE : LES CARRES EN TIMBRES, LA BARRE EN TOUCHES
+
+   Les memes aplats (sable, marine, bordeaux), traites comme les pieces d'un
+   vieux dossier :
+   - les grands carres sont des timbres de greffe : bord dentele, filet
+     interieur ;
+   - les petits carres pleins sont des cachets : un filet ivoire dedans ;
+   - le << v. >> (l'accueil, le nom) : un cachet a double filet ;
+   - les etiquettes (EXHIBIT 01, EXH. A, les arrets) : de petits timbres.
+   La barre du haut : des touches ivoire en relief posees sur la bande rouge,
+   comme EN / FR ; la page ouverte est la touche enfoncee.
+   ========================================================================= */
+
+/* ---------- 1. LE BORD DENTELE ----------
+   Un masque : quatre rangees de demi-trous (rayon --pr, tous les --ps) et le
+   champ plein au milieu. Le nombre de dents s'arrondit a la taille du carre. */
+.hero-v9 .hx-h1::before,.pol-head .pol-title::before,.cov-pair::before,.dgm::before,.auth.auth.auth::before,.rdx::before,
+.section-h2::before,.letter-bd::before,.sp-page::before,.tm::before,
+.sqx3 .sqx-a,.sqx3 .sqx-b,.jur-case,.cov-band .cov-c,.idx-k,.service-num{
+  --pr:3.5px;--ps:11px;
+  -webkit-mask:
+    radial-gradient(circle at 50% 0,#0000 var(--pr),#000 calc(var(--pr) + .5px)) 0 0/var(--ps) var(--pr) round no-repeat,
+    radial-gradient(circle at 50% 100%,#0000 var(--pr),#000 calc(var(--pr) + .5px)) 0 100%/var(--ps) var(--pr) round no-repeat,
+    radial-gradient(circle at 0 50%,#0000 var(--pr),#000 calc(var(--pr) + .5px)) 0 0/var(--pr) var(--ps) no-repeat round,
+    radial-gradient(circle at 100% 50%,#0000 var(--pr),#000 calc(var(--pr) + .5px)) 100% 0/var(--pr) var(--ps) no-repeat round,
+    linear-gradient(#000,#000) center/calc(100% - 2 * var(--pr)) calc(100% - 2 * var(--pr)) no-repeat;
+  mask:
+    radial-gradient(circle at 50% 0,#0000 var(--pr),#000 calc(var(--pr) + .5px)) 0 0/var(--ps) var(--pr) round no-repeat,
+    radial-gradient(circle at 50% 100%,#0000 var(--pr),#000 calc(var(--pr) + .5px)) 0 100%/var(--ps) var(--pr) round no-repeat,
+    radial-gradient(circle at 0 50%,#0000 var(--pr),#000 calc(var(--pr) + .5px)) 0 0/var(--pr) var(--ps) no-repeat round,
+    radial-gradient(circle at 100% 50%,#0000 var(--pr),#000 calc(var(--pr) + .5px)) 100% 0/var(--pr) var(--ps) no-repeat round,
+    linear-gradient(#000,#000) center/calc(100% - 2 * var(--pr)) calc(100% - 2 * var(--pr)) no-repeat}
+
+/* ---------- 2. LE FILET INTERIEUR ----------
+   Sur le sable, un filet bordeaux a 9 px du bord ; sur le marine, un filet ivoire. */
+.hero-v9 .hx-h1::before,.pol-head .pol-title::before,.cov-pair::before,.dgm::before,.auth.auth.auth::before,.rdx::before,
+.section-h2::before,.letter-bd::before,.sp-page::before,.tm::before{
+  box-shadow:inset 0 0 0 9px var(--sq),inset 0 0 0 10px rgba(138,28,28,.55)}
+.sqx3 .sqx-a{--pr:4.5px;--ps:14px;box-shadow:inset 0 0 0 12px var(--sq),inset 0 0 0 13px rgba(138,28,28,.55)}
+.sqx3 .sqx-b{--pr:4.5px;--ps:14px;box-shadow:inset 0 0 0 12px var(--sq-navy),inset 0 0 0 13px rgba(243,236,221,.5)}
+/* les legendes des deux timbres rentrent dans leur filet */
+@media (min-width:901px){ .sqx3 .sqx-a b{left:21px;top:21px} .sqx3 .sqx-b b{right:21px;bottom:21px} }
+/* l'arret de principe, dans sa colonne de juridiction : un timbre en long */
+.jur-case{--pr:2.5px;--ps:9px;box-shadow:inset 0 0 0 7px var(--sq),inset 0 0 0 8px rgba(138,28,28,.45);padding:17px 20px 18px}
+/* les etiquettes de marge : de petits timbres */
+.cov-band .cov-c,.idx-k,.service-num{--pr:2px;--ps:6px;
+  box-shadow:inset 0 0 0 4px var(--sq),inset 0 0 0 5px rgba(138,28,28,.45)!important}
+.idx-a:hover .idx-k{box-shadow:inset 0 0 0 4px var(--red),inset 0 0 0 5px rgba(243,236,221,.6)!important}
+.service-num{padding:7px 11px 6px}
+
+/* ---------- 3. LES CACHETS : un filet ivoire dans chaque petit carre plein ---------- */
+.hero-v9 .hx-h1::after,.pol-head .pol-title::after,.section-h2::after,.letter-bd::after{
+  box-shadow:inset 0 0 0 3px var(--dc,var(--sq-red)),inset 0 0 0 4px rgba(243,236,221,.75)}
+/* les numeros de section : des cachets, chiffres en romain */
+.section-tag.section-tag.section-tag:not(.st-plain)::before,.cov-head .cov-k.cov-k::before{
+  box-shadow:inset 0 0 0 3px var(--sq-red),inset 0 0 0 4px rgba(243,236,221,.75);
+  font-family:var(--serif);font-size:12.5px;letter-spacing:.02em}
+/* sur les pieces, les deux petits carres (un seul ::after) ont chacun leur filet */
+.cov-pair::after,.dgm::after,.auth.auth.auth::after,.rdx::after,.sp-page::after,.tm::after{background:
+  linear-gradient(var(--dc),var(--dc)) no-repeat 4px calc(var(--cw) + 4px)/calc(var(--dw) - 8px) calc(var(--dw) - 8px),
+  linear-gradient(rgba(243,236,221,.75),rgba(243,236,221,.75)) no-repeat 3px calc(var(--cw) + 3px)/calc(var(--dw) - 6px) calc(var(--dw) - 6px),
+  linear-gradient(var(--dc),var(--dc)) no-repeat 0 var(--cw)/var(--dw) var(--dw),
+  linear-gradient(var(--ec),var(--ec)) no-repeat calc(100% - 4px) calc(100% - 4px)/calc(var(--ew) - 8px) calc(var(--ew) - 8px),
+  linear-gradient(rgba(243,236,221,.75),rgba(243,236,221,.75)) no-repeat calc(100% - 3px) calc(100% - 3px)/calc(var(--ew) - 6px) calc(var(--ew) - 6px),
+  linear-gradient(var(--ec),var(--ec)) no-repeat 100% 100%/var(--ew) var(--ew)}
+/* d'un temps au suivant : le carre a fleche aussi */
+.stg-next i{box-shadow:inset 0 0 0 3px var(--red),inset 0 0 0 4px rgba(243,236,221,.7)}
+/* le << v. >> : le cachet a double filet qui tient les deux timbres */
+.sqx3 .sqx-c{box-shadow:inset 0 0 0 5px var(--sq-red),inset 0 0 0 6px rgba(243,236,221,.75),
+  inset 0 0 0 8px var(--sq-red),inset 0 0 0 9px rgba(243,236,221,.75)}
+/* dans le nom, la lettre pose sur le filet du bas, comme sur la ligne de base de LEX et ORAL */
+.nm-l.nm-vv::before{box-shadow:inset 0 0 0 3px var(--sq-red),inset 0 0 0 4px rgba(243,236,221,.75)}
+
+/* ---------- 4. LE PIED DE PAGE : le timbre sable et son cachet bordeaux ----------
+   Une seule boite pour les deux : le masque dentele le sable seulement.        */
+footer::after{background:
+  linear-gradient(var(--sq-red),var(--sq-red)) no-repeat 4px 4px/28px 28px,
+  linear-gradient(rgba(243,236,221,.75),rgba(243,236,221,.75)) no-repeat 3px 3px/30px 30px,
+  linear-gradient(var(--sq-red),var(--sq-red)) no-repeat 0 0/36px 36px,
+  linear-gradient(var(--sq),var(--sq)) no-repeat calc(100% - 10px) calc(100% - 10px)/100px 100px,
+  linear-gradient(rgba(138,28,28,.55),rgba(138,28,28,.55)) no-repeat calc(100% - 9px) calc(100% - 9px)/102px 102px,
+  linear-gradient(var(--sq),var(--sq)) no-repeat 100% 100%/120px 120px;
+  -webkit-mask:
+    linear-gradient(#000,#000) 0 0/36px 36px no-repeat,
+    linear-gradient(#000,#000) 21.5px 21.5px/113px 113px no-repeat,
+    radial-gradient(circle at 50% 0,#0000 3.5px,#000 4px) 18px 18px/12px 3.5px repeat-x,
+    radial-gradient(circle at 50% 100%,#0000 3.5px,#000 4px) 18px 100%/12px 3.5px repeat-x,
+    radial-gradient(circle at 0 50%,#0000 3.5px,#000 4px) 18px 18px/3.5px 12px repeat-y,
+    radial-gradient(circle at 100% 50%,#0000 3.5px,#000 4px) 100% 18px/3.5px 12px repeat-y;
+  mask:
+    linear-gradient(#000,#000) 0 0/36px 36px no-repeat,
+    linear-gradient(#000,#000) 21.5px 21.5px/113px 113px no-repeat,
+    radial-gradient(circle at 50% 0,#0000 3.5px,#000 4px) 18px 18px/12px 3.5px repeat-x,
+    radial-gradient(circle at 50% 100%,#0000 3.5px,#000 4px) 18px 100%/12px 3.5px repeat-x,
+    radial-gradient(circle at 0 50%,#0000 3.5px,#000 4px) 18px 18px/3.5px 12px repeat-y,
+    radial-gradient(circle at 100% 50%,#0000 3.5px,#000 4px) 100% 18px/3.5px 12px repeat-y}
+
+/* ---------- 5. PLUS PETITS : tablette et telephone ---------- */
+@media (max-width:900px){
+  .hero-v9 .hx-h1::before,.pol-head .pol-title::before,.section-h2::before,.letter-bd::before{--pr:3px;--ps:10px;
+    box-shadow:inset 0 0 0 7px var(--sq),inset 0 0 0 8px rgba(138,28,28,.55)}
+  .sqx3 .sqx-a{--pr:3px;--ps:10px;box-shadow:inset 0 0 0 7px var(--sq),inset 0 0 0 8px rgba(138,28,28,.55)}
+  .sqx3 .sqx-b{--pr:3px;--ps:10px;box-shadow:inset 0 0 0 7px var(--sq-navy),inset 0 0 0 8px rgba(243,236,221,.5)}
+  .sqx3 .sqx-c{box-shadow:inset 0 0 0 3px var(--sq-red),inset 0 0 0 4px rgba(243,236,221,.75)}
+  footer::after{background:
+    linear-gradient(var(--sq-red),var(--sq-red)) no-repeat 4px 4px/18px 18px,
+    linear-gradient(rgba(243,236,221,.75),rgba(243,236,221,.75)) no-repeat 3px 3px/20px 20px,
+    linear-gradient(var(--sq-red),var(--sq-red)) no-repeat 0 0/26px 26px,
+    linear-gradient(var(--sq),var(--sq)) no-repeat calc(100% - 8px) calc(100% - 8px)/68px 68px,
+    linear-gradient(rgba(138,28,28,.55),rgba(138,28,28,.55)) no-repeat calc(100% - 7px) calc(100% - 7px)/70px 70px,
+    linear-gradient(var(--sq),var(--sq)) no-repeat 100% 100%/84px 84px;
+    -webkit-mask:
+      linear-gradient(#000,#000) 0 0/26px 26px no-repeat,
+      linear-gradient(#000,#000) 16px 16px/78px 78px no-repeat,
+      radial-gradient(circle at 50% 0,#0000 3px,#000 3.5px) 13px 13px/12px 3px repeat-x,
+      radial-gradient(circle at 50% 100%,#0000 3px,#000 3.5px) 13px 100%/12px 3px repeat-x,
+      radial-gradient(circle at 0 50%,#0000 3px,#000 3.5px) 13px 13px/3px 12px repeat-y,
+      radial-gradient(circle at 100% 50%,#0000 3px,#000 3.5px) 100% 13px/3px 12px repeat-y;
+    mask:
+      linear-gradient(#000,#000) 0 0/26px 26px no-repeat,
+      linear-gradient(#000,#000) 16px 16px/78px 78px no-repeat,
+      radial-gradient(circle at 50% 0,#0000 3px,#000 3.5px) 13px 13px/12px 3px repeat-x,
+      radial-gradient(circle at 50% 100%,#0000 3px,#000 3.5px) 13px 100%/12px 3px repeat-x,
+      radial-gradient(circle at 0 50%,#0000 3px,#000 3.5px) 13px 13px/3px 12px repeat-y,
+      radial-gradient(circle at 100% 50%,#0000 3px,#000 3.5px) 100% 13px/3px 12px repeat-y}
+}
+@media (max-width:600px){
+  .hero-v9 .hx-h1::before,.pol-head .pol-title::before,.section-h2::before,.letter-bd::before{--pr:2.5px;--ps:9px;
+    box-shadow:inset 0 0 0 6px var(--sq),inset 0 0 0 7px rgba(138,28,28,.5)}
+  .section-h2::after,.pol-head .pol-title::after,.letter-bd::after{box-shadow:inset 0 0 0 2px var(--dc,var(--sq-red)),inset 0 0 0 3px rgba(243,236,221,.75)}
+  .jur-case{--pr:2px;--ps:8px;box-shadow:inset 0 0 0 6px var(--sq),inset 0 0 0 7px rgba(138,28,28,.45)}
+}
+
+/* ---------- 6. LA BARRE : DES TOUCHES IVOIRE SUR LA BANDE ROUGE ----------
+   Le relief de EN / FR (une face a droite, une dessous, a 45 degres) ;
+   la page ouverte est la touche enfoncee, en sable, comme les carres.        */
+@media (min-width:1180px){
+  .nav-links.nav-links{gap:10px;align-items:center}
+  .nav-links.nav-links a{--relief:4px;height:27px;margin-top:-4px;padding:0 11px;background:#F3ECDD;color:var(--red);
+    box-shadow:none;--fr:#561111;--fb:#3B0B0B;transition:transform .08s,background .15s,color .15s}
+  .nav-links.nav-links a::before{content:'';position:absolute;left:100%;top:0;width:var(--relief);height:100%;margin:0;border:0;
+    background:var(--fr);transform:skewY(45deg);transform-origin:0 0;pointer-events:none}
+  .nav-links.nav-links a::after,.nav-links.nav-links a.on::after{content:'';position:absolute;top:100%;left:0;width:100%;
+    height:var(--relief);margin:0;border:0;background:var(--fb);transform:skewX(45deg);transform-origin:0 0;pointer-events:none;z-index:auto}
+  .nav-links.nav-links a:hover{background:#fff;color:var(--red)}
+  .nav-links.nav-links a:active,.nav-links.nav-links a.on{transform:translate(var(--relief),var(--relief))}
+  .nav-links.nav-links a:active::before,.nav-links.nav-links a:active::after,
+  .nav-links.nav-links a.on::before,.nav-links.nav-links a.on::after{opacity:0}
+  .nav-links.nav-links a.on,.nav-links.nav-links a.on:hover{background:var(--sq);color:var(--t-1)}
+  .nav-links.nav-links a:focus-visible{outline:2px solid #fff;outline-offset:3px}
+  /* le monogramme reste grave dans la bande, sans touche */
+  .nav-links.nav-links .nl-mono{height:auto;margin-top:0;background:none;color:#F3ECDD;transform:none}
+  .nav-links.nav-links .nl-mono:hover{background:none;color:#F3ECDD}
+  .nav-links.nav-links .nl-mono::before,.nav-links.nav-links .nl-mono::after{content:none}
+  /* << Soumettre >> : la touche marine, au bout de la rangee */
+  .nav-links.nav-links .nl-cta{background:var(--ink);color:#fff;--fr:#0B1C33;--fb:#050E1A}
+  .nav-links.nav-links .nl-cta:hover{background:var(--nav);color:#fff}
+  :lang(fr) .nav-links.nav-links a:not(.nl-cta){padding:0 9px;letter-spacing:.12em}
+}
+@media (min-width:1180px) and (max-width:1320px){
+  .nav-links.nav-links a:not(.nl-cta){padding:0 9px;letter-spacing:.13em}
+  :lang(fr) .nav-links.nav-links{gap:7px}
+  :lang(fr) .nav-links.nav-links a:not(.nl-cta){padding:0 7px;letter-spacing:.08em}
+  :lang(fr) .nav-links.nav-links .nl-cta{padding:0 12px;letter-spacing:.1em}
+}
+@media (min-width:1180px) and (prefers-reduced-motion:reduce){ .nav-links.nav-links a{transition:none} }
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://lexoral.org/reference-fr/#page", "url": "https://lexoral.org/reference-fr/", "name": "Référence : six pièces du dossier", "description": "Six pages de référence : le Québec, la preuve enregistrée, l’alinéa 530.1g), les services, le transfrontalier et vingt et une questions.", "inLanguage": "fr-CA", "isPartOf": {"@id": "https://lexoral.org/#website"}, "about": {"@id": "https://lexoral.org/#org"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Lexoral", "item": "https://lexoral.org/fr/"}, {"@type": "ListItem", "position": 2, "name": "Référence", "item": "https://lexoral.org/reference-fr/"}]}]}</script>
 </head>

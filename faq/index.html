@@ -2364,6 +2364,174 @@ footer::after{content:'';position:absolute;pointer-events:none;width:138px;heigh
 /* le bordereau porte ses carres : le titre de la section n'en a pas besoin */
 .ct14 .section-h2::before,.ct14 .section-h2::after{content:none}
 .ct14 .section-header{margin-bottom:66px}
+
+/* =========================================================================
+   V15 — A L'ANCIENNE : LES CARRES EN TIMBRES, LA BARRE EN TOUCHES
+
+   Les memes aplats (sable, marine, bordeaux), traites comme les pieces d'un
+   vieux dossier :
+   - les grands carres sont des timbres de greffe : bord dentele, filet
+     interieur ;
+   - les petits carres pleins sont des cachets : un filet ivoire dedans ;
+   - le << v. >> (l'accueil, le nom) : un cachet a double filet ;
+   - les etiquettes (EXHIBIT 01, EXH. A, les arrets) : de petits timbres.
+   La barre du haut : des touches ivoire en relief posees sur la bande rouge,
+   comme EN / FR ; la page ouverte est la touche enfoncee.
+   ========================================================================= */
+
+/* ---------- 1. LE BORD DENTELE ----------
+   Un masque : quatre rangees de demi-trous (rayon --pr, tous les --ps) et le
+   champ plein au milieu. Le nombre de dents s'arrondit a la taille du carre. */
+.hero-v9 .hx-h1::before,.pol-head .pol-title::before,.cov-pair::before,.dgm::before,.auth.auth.auth::before,.rdx::before,
+.section-h2::before,.letter-bd::before,.sp-page::before,.tm::before,
+.sqx3 .sqx-a,.sqx3 .sqx-b,.jur-case,.cov-band .cov-c,.idx-k,.service-num{
+  --pr:3.5px;--ps:11px;
+  -webkit-mask:
+    radial-gradient(circle at 50% 0,#0000 var(--pr),#000 calc(var(--pr) + .5px)) 0 0/var(--ps) var(--pr) round no-repeat,
+    radial-gradient(circle at 50% 100%,#0000 var(--pr),#000 calc(var(--pr) + .5px)) 0 100%/var(--ps) var(--pr) round no-repeat,
+    radial-gradient(circle at 0 50%,#0000 var(--pr),#000 calc(var(--pr) + .5px)) 0 0/var(--pr) var(--ps) no-repeat round,
+    radial-gradient(circle at 100% 50%,#0000 var(--pr),#000 calc(var(--pr) + .5px)) 100% 0/var(--pr) var(--ps) no-repeat round,
+    linear-gradient(#000,#000) center/calc(100% - 2 * var(--pr)) calc(100% - 2 * var(--pr)) no-repeat;
+  mask:
+    radial-gradient(circle at 50% 0,#0000 var(--pr),#000 calc(var(--pr) + .5px)) 0 0/var(--ps) var(--pr) round no-repeat,
+    radial-gradient(circle at 50% 100%,#0000 var(--pr),#000 calc(var(--pr) + .5px)) 0 100%/var(--ps) var(--pr) round no-repeat,
+    radial-gradient(circle at 0 50%,#0000 var(--pr),#000 calc(var(--pr) + .5px)) 0 0/var(--pr) var(--ps) no-repeat round,
+    radial-gradient(circle at 100% 50%,#0000 var(--pr),#000 calc(var(--pr) + .5px)) 100% 0/var(--pr) var(--ps) no-repeat round,
+    linear-gradient(#000,#000) center/calc(100% - 2 * var(--pr)) calc(100% - 2 * var(--pr)) no-repeat}
+
+/* ---------- 2. LE FILET INTERIEUR ----------
+   Sur le sable, un filet bordeaux a 9 px du bord ; sur le marine, un filet ivoire. */
+.hero-v9 .hx-h1::before,.pol-head .pol-title::before,.cov-pair::before,.dgm::before,.auth.auth.auth::before,.rdx::before,
+.section-h2::before,.letter-bd::before,.sp-page::before,.tm::before{
+  box-shadow:inset 0 0 0 9px var(--sq),inset 0 0 0 10px rgba(138,28,28,.55)}
+.sqx3 .sqx-a{--pr:4.5px;--ps:14px;box-shadow:inset 0 0 0 12px var(--sq),inset 0 0 0 13px rgba(138,28,28,.55)}
+.sqx3 .sqx-b{--pr:4.5px;--ps:14px;box-shadow:inset 0 0 0 12px var(--sq-navy),inset 0 0 0 13px rgba(243,236,221,.5)}
+/* les legendes des deux timbres rentrent dans leur filet */
+@media (min-width:901px){ .sqx3 .sqx-a b{left:21px;top:21px} .sqx3 .sqx-b b{right:21px;bottom:21px} }
+/* l'arret de principe, dans sa colonne de juridiction : un timbre en long */
+.jur-case{--pr:2.5px;--ps:9px;box-shadow:inset 0 0 0 7px var(--sq),inset 0 0 0 8px rgba(138,28,28,.45);padding:17px 20px 18px}
+/* les etiquettes de marge : de petits timbres */
+.cov-band .cov-c,.idx-k,.service-num{--pr:2px;--ps:6px;
+  box-shadow:inset 0 0 0 4px var(--sq),inset 0 0 0 5px rgba(138,28,28,.45)!important}
+.idx-a:hover .idx-k{box-shadow:inset 0 0 0 4px var(--red),inset 0 0 0 5px rgba(243,236,221,.6)!important}
+.service-num{padding:7px 11px 6px}
+
+/* ---------- 3. LES CACHETS : un filet ivoire dans chaque petit carre plein ---------- */
+.hero-v9 .hx-h1::after,.pol-head .pol-title::after,.section-h2::after,.letter-bd::after{
+  box-shadow:inset 0 0 0 3px var(--dc,var(--sq-red)),inset 0 0 0 4px rgba(243,236,221,.75)}
+/* les numeros de section : des cachets, chiffres en romain */
+.section-tag.section-tag.section-tag:not(.st-plain)::before,.cov-head .cov-k.cov-k::before{
+  box-shadow:inset 0 0 0 3px var(--sq-red),inset 0 0 0 4px rgba(243,236,221,.75);
+  font-family:var(--serif);font-size:12.5px;letter-spacing:.02em}
+/* sur les pieces, les deux petits carres (un seul ::after) ont chacun leur filet */
+.cov-pair::after,.dgm::after,.auth.auth.auth::after,.rdx::after,.sp-page::after,.tm::after{background:
+  linear-gradient(var(--dc),var(--dc)) no-repeat 4px calc(var(--cw) + 4px)/calc(var(--dw) - 8px) calc(var(--dw) - 8px),
+  linear-gradient(rgba(243,236,221,.75),rgba(243,236,221,.75)) no-repeat 3px calc(var(--cw) + 3px)/calc(var(--dw) - 6px) calc(var(--dw) - 6px),
+  linear-gradient(var(--dc),var(--dc)) no-repeat 0 var(--cw)/var(--dw) var(--dw),
+  linear-gradient(var(--ec),var(--ec)) no-repeat calc(100% - 4px) calc(100% - 4px)/calc(var(--ew) - 8px) calc(var(--ew) - 8px),
+  linear-gradient(rgba(243,236,221,.75),rgba(243,236,221,.75)) no-repeat calc(100% - 3px) calc(100% - 3px)/calc(var(--ew) - 6px) calc(var(--ew) - 6px),
+  linear-gradient(var(--ec),var(--ec)) no-repeat 100% 100%/var(--ew) var(--ew)}
+/* d'un temps au suivant : le carre a fleche aussi */
+.stg-next i{box-shadow:inset 0 0 0 3px var(--red),inset 0 0 0 4px rgba(243,236,221,.7)}
+/* le << v. >> : le cachet a double filet qui tient les deux timbres */
+.sqx3 .sqx-c{box-shadow:inset 0 0 0 5px var(--sq-red),inset 0 0 0 6px rgba(243,236,221,.75),
+  inset 0 0 0 8px var(--sq-red),inset 0 0 0 9px rgba(243,236,221,.75)}
+/* dans le nom, la lettre pose sur le filet du bas, comme sur la ligne de base de LEX et ORAL */
+.nm-l.nm-vv::before{box-shadow:inset 0 0 0 3px var(--sq-red),inset 0 0 0 4px rgba(243,236,221,.75)}
+
+/* ---------- 4. LE PIED DE PAGE : le timbre sable et son cachet bordeaux ----------
+   Une seule boite pour les deux : le masque dentele le sable seulement.        */
+footer::after{background:
+  linear-gradient(var(--sq-red),var(--sq-red)) no-repeat 4px 4px/28px 28px,
+  linear-gradient(rgba(243,236,221,.75),rgba(243,236,221,.75)) no-repeat 3px 3px/30px 30px,
+  linear-gradient(var(--sq-red),var(--sq-red)) no-repeat 0 0/36px 36px,
+  linear-gradient(var(--sq),var(--sq)) no-repeat calc(100% - 10px) calc(100% - 10px)/100px 100px,
+  linear-gradient(rgba(138,28,28,.55),rgba(138,28,28,.55)) no-repeat calc(100% - 9px) calc(100% - 9px)/102px 102px,
+  linear-gradient(var(--sq),var(--sq)) no-repeat 100% 100%/120px 120px;
+  -webkit-mask:
+    linear-gradient(#000,#000) 0 0/36px 36px no-repeat,
+    linear-gradient(#000,#000) 21.5px 21.5px/113px 113px no-repeat,
+    radial-gradient(circle at 50% 0,#0000 3.5px,#000 4px) 18px 18px/12px 3.5px repeat-x,
+    radial-gradient(circle at 50% 100%,#0000 3.5px,#000 4px) 18px 100%/12px 3.5px repeat-x,
+    radial-gradient(circle at 0 50%,#0000 3.5px,#000 4px) 18px 18px/3.5px 12px repeat-y,
+    radial-gradient(circle at 100% 50%,#0000 3.5px,#000 4px) 100% 18px/3.5px 12px repeat-y;
+  mask:
+    linear-gradient(#000,#000) 0 0/36px 36px no-repeat,
+    linear-gradient(#000,#000) 21.5px 21.5px/113px 113px no-repeat,
+    radial-gradient(circle at 50% 0,#0000 3.5px,#000 4px) 18px 18px/12px 3.5px repeat-x,
+    radial-gradient(circle at 50% 100%,#0000 3.5px,#000 4px) 18px 100%/12px 3.5px repeat-x,
+    radial-gradient(circle at 0 50%,#0000 3.5px,#000 4px) 18px 18px/3.5px 12px repeat-y,
+    radial-gradient(circle at 100% 50%,#0000 3.5px,#000 4px) 100% 18px/3.5px 12px repeat-y}
+
+/* ---------- 5. PLUS PETITS : tablette et telephone ---------- */
+@media (max-width:900px){
+  .hero-v9 .hx-h1::before,.pol-head .pol-title::before,.section-h2::before,.letter-bd::before{--pr:3px;--ps:10px;
+    box-shadow:inset 0 0 0 7px var(--sq),inset 0 0 0 8px rgba(138,28,28,.55)}
+  .sqx3 .sqx-a{--pr:3px;--ps:10px;box-shadow:inset 0 0 0 7px var(--sq),inset 0 0 0 8px rgba(138,28,28,.55)}
+  .sqx3 .sqx-b{--pr:3px;--ps:10px;box-shadow:inset 0 0 0 7px var(--sq-navy),inset 0 0 0 8px rgba(243,236,221,.5)}
+  .sqx3 .sqx-c{box-shadow:inset 0 0 0 3px var(--sq-red),inset 0 0 0 4px rgba(243,236,221,.75)}
+  footer::after{background:
+    linear-gradient(var(--sq-red),var(--sq-red)) no-repeat 4px 4px/18px 18px,
+    linear-gradient(rgba(243,236,221,.75),rgba(243,236,221,.75)) no-repeat 3px 3px/20px 20px,
+    linear-gradient(var(--sq-red),var(--sq-red)) no-repeat 0 0/26px 26px,
+    linear-gradient(var(--sq),var(--sq)) no-repeat calc(100% - 8px) calc(100% - 8px)/68px 68px,
+    linear-gradient(rgba(138,28,28,.55),rgba(138,28,28,.55)) no-repeat calc(100% - 7px) calc(100% - 7px)/70px 70px,
+    linear-gradient(var(--sq),var(--sq)) no-repeat 100% 100%/84px 84px;
+    -webkit-mask:
+      linear-gradient(#000,#000) 0 0/26px 26px no-repeat,
+      linear-gradient(#000,#000) 16px 16px/78px 78px no-repeat,
+      radial-gradient(circle at 50% 0,#0000 3px,#000 3.5px) 13px 13px/12px 3px repeat-x,
+      radial-gradient(circle at 50% 100%,#0000 3px,#000 3.5px) 13px 100%/12px 3px repeat-x,
+      radial-gradient(circle at 0 50%,#0000 3px,#000 3.5px) 13px 13px/3px 12px repeat-y,
+      radial-gradient(circle at 100% 50%,#0000 3px,#000 3.5px) 100% 13px/3px 12px repeat-y;
+    mask:
+      linear-gradient(#000,#000) 0 0/26px 26px no-repeat,
+      linear-gradient(#000,#000) 16px 16px/78px 78px no-repeat,
+      radial-gradient(circle at 50% 0,#0000 3px,#000 3.5px) 13px 13px/12px 3px repeat-x,
+      radial-gradient(circle at 50% 100%,#0000 3px,#000 3.5px) 13px 100%/12px 3px repeat-x,
+      radial-gradient(circle at 0 50%,#0000 3px,#000 3.5px) 13px 13px/3px 12px repeat-y,
+      radial-gradient(circle at 100% 50%,#0000 3px,#000 3.5px) 100% 13px/3px 12px repeat-y}
+}
+@media (max-width:600px){
+  .hero-v9 .hx-h1::before,.pol-head .pol-title::before,.section-h2::before,.letter-bd::before{--pr:2.5px;--ps:9px;
+    box-shadow:inset 0 0 0 6px var(--sq),inset 0 0 0 7px rgba(138,28,28,.5)}
+  .section-h2::after,.pol-head .pol-title::after,.letter-bd::after{box-shadow:inset 0 0 0 2px var(--dc,var(--sq-red)),inset 0 0 0 3px rgba(243,236,221,.75)}
+  .jur-case{--pr:2px;--ps:8px;box-shadow:inset 0 0 0 6px var(--sq),inset 0 0 0 7px rgba(138,28,28,.45)}
+}
+
+/* ---------- 6. LA BARRE : DES TOUCHES IVOIRE SUR LA BANDE ROUGE ----------
+   Le relief de EN / FR (une face a droite, une dessous, a 45 degres) ;
+   la page ouverte est la touche enfoncee, en sable, comme les carres.        */
+@media (min-width:1180px){
+  .nav-links.nav-links{gap:10px;align-items:center}
+  .nav-links.nav-links a{--relief:4px;height:27px;margin-top:-4px;padding:0 11px;background:#F3ECDD;color:var(--red);
+    box-shadow:none;--fr:#561111;--fb:#3B0B0B;transition:transform .08s,background .15s,color .15s}
+  .nav-links.nav-links a::before{content:'';position:absolute;left:100%;top:0;width:var(--relief);height:100%;margin:0;border:0;
+    background:var(--fr);transform:skewY(45deg);transform-origin:0 0;pointer-events:none}
+  .nav-links.nav-links a::after,.nav-links.nav-links a.on::after{content:'';position:absolute;top:100%;left:0;width:100%;
+    height:var(--relief);margin:0;border:0;background:var(--fb);transform:skewX(45deg);transform-origin:0 0;pointer-events:none;z-index:auto}
+  .nav-links.nav-links a:hover{background:#fff;color:var(--red)}
+  .nav-links.nav-links a:active,.nav-links.nav-links a.on{transform:translate(var(--relief),var(--relief))}
+  .nav-links.nav-links a:active::before,.nav-links.nav-links a:active::after,
+  .nav-links.nav-links a.on::before,.nav-links.nav-links a.on::after{opacity:0}
+  .nav-links.nav-links a.on,.nav-links.nav-links a.on:hover{background:var(--sq);color:var(--t-1)}
+  .nav-links.nav-links a:focus-visible{outline:2px solid #fff;outline-offset:3px}
+  /* le monogramme reste grave dans la bande, sans touche */
+  .nav-links.nav-links .nl-mono{height:auto;margin-top:0;background:none;color:#F3ECDD;transform:none}
+  .nav-links.nav-links .nl-mono:hover{background:none;color:#F3ECDD}
+  .nav-links.nav-links .nl-mono::before,.nav-links.nav-links .nl-mono::after{content:none}
+  /* << Soumettre >> : la touche marine, au bout de la rangee */
+  .nav-links.nav-links .nl-cta{background:var(--ink);color:#fff;--fr:#0B1C33;--fb:#050E1A}
+  .nav-links.nav-links .nl-cta:hover{background:var(--nav);color:#fff}
+  :lang(fr) .nav-links.nav-links a:not(.nl-cta){padding:0 9px;letter-spacing:.12em}
+}
+@media (min-width:1180px) and (max-width:1320px){
+  .nav-links.nav-links a:not(.nl-cta){padding:0 9px;letter-spacing:.13em}
+  :lang(fr) .nav-links.nav-links{gap:7px}
+  :lang(fr) .nav-links.nav-links a:not(.nl-cta){padding:0 7px;letter-spacing:.08em}
+  :lang(fr) .nav-links.nav-links .nl-cta{padding:0 12px;letter-spacing:.1em}
+}
+@media (min-width:1180px) and (prefers-reduced-motion:reduce){ .nav-links.nav-links a{transition:none} }
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://lexoral.org/faq/#webpage", "url": "https://lexoral.org/faq/", "name": "Frequently asked questions", "description": "21 answers on French–English legal transcription: what goes into the record, what we attest, turnaround, pricing and confidentiality.", "inLanguage": "en-CA", "isPartOf": {"@id": "https://lexoral.org/#website"}, "publisher": {"@id": "https://lexoral.org/#org"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Lexoral", "item": "https://lexoral.org/"}, {"@type": "ListItem", "position": 2, "name": "Frequently asked questions", "item": "https://lexoral.org/faq/"}]}, {"@type": "FAQPage", "@id": "https://lexoral.org/faq/#faq", "inLanguage": "en-CA", "mainEntity": [{"@type": "Question", "name": "A witness answers in French at a deposition. Whose words end up in the transcript?", "acceptedAnswer": {"@type": "Answer", "text": "The interpreter's. In U.S. practice the reporter takes down the English interpretation and nothing else. Official court-reporting guidance is explicit that the foreign language is not transcribed, that it is marked only as the witness speaking in a foreign language, and that correcting an interpretation is not the reporter's function. Most federal circuits will still treat that English as the witness's own statement under the language-conduit rule, but the Eleventh Circuit has rejected that rule and the others apply a multi-factor test that asks who supplied the interpreter and how qualified they were. The attribution holds until someone contests it. What we do is transcribe the French sitting in the audio, so that if it is ever contested you are answering with a document rather than an argument."}}, {"@type": "Question", "name": "What exactly do you certify?", "acceptedAnswer": {"@type": "Answer", "text": "Every Lexoral transcript carries a signed accuracy declaration attesting that the transcript is a faithful and complete account of the audio provided, signed by the practitioner who produced it. Forums differ on the form of attestation they expect, and the form that satisfies a Quebec filing is not the one a U.S. filing expects. Tell us where the transcript is going and we will confirm what your filing needs."}}, {"@type": "Question", "name": "Can you handle genuinely bilingual hearings with mid-sentence code-switching?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. This is the specialization. Counsel examines in English, the witness answers in French and crosses back mid-answer; we transcribe each language verbatim as spoken, without translating or paraphrasing, with the switch marked where the convention of the forum calls for it. Quebec French register, courthouse usage and legal terminology are handled by a practitioner who works in the law in both languages, not by a glossary applied afterwards."}}, {"@type": "Question", "name": "How does a transcript of a recording hold up as evidence?", "acceptedAnswer": {"@type": "Answer", "text": "Transcripts of recordings are a well-established category of evidence in their own right. For foreign-language recordings, U.S. federal model jury instructions treat the English transcript as the evidence the jury works from where accuracy is not in issue; where accuracy is disputed, the jury decides between competing transcripts by weighing the qualifications of whoever prepared each one, the clarity of the recording, and how the transcript was produced. That is why ours are produced and signed by a named practitioner with published credentials, why every transcript ships with a conventions page, and why uncertain passages are marked and timestamped instead of smoothed over."}}, {"@type": "Question", "name": "In Quebec, can counsel examine in English while the witness answers in French?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, and no interpreter is needed for it. Under section 133 of the Constitution Act, 1867 either official language may be used before Quebec's courts, and each participant chooses independently: counsel may put the question in English and the witness may answer in French in the same breath. Both are the record. The transcript reproduces each language as it was spoken, with no translation, because nothing is being translated. This is the opposite of the U.S. model, and it is the situation we are built for."}}, {"@type": "Question", "name": "Do you work on criminal matters, and what does the Criminal Code require for the record?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Where an accused is tried in the official language of their choice under section 530 of the Criminal Code, section 530.1(g) requires the record of the preliminary inquiry or trial to include a transcript of everything that was said in the official language in which it was said, a transcript of any interpretation of it into the other official language, and documentary evidence in the language in which it was tendered. A dual-language verbatim record is not a preference in that setting; it is what the statute asks for. The same principle runs wider: a transcript that silently converts a proceeding into one language can undercut the very right being asserted. We produce records that keep the two languages distinct and attributable."}}, {"@type": "Question", "name": "The interpretation at our deposition was wrong. What can we do now?", "acceptedAnswer": {"@type": "Answer", "text": "Order the audio or video and have the original-language answers transcribed and line-matched against the official English transcript, so the divergences are documented rather than asserted. That record supports errata, a motion to correct, or cross-examination on the point. Move quickly: U.S. courts have penalised parties who raised an interpretation problem late, in some cases treating the objection as waived, so this belongs on delivery of the transcript and not on the eve of trial."}}, {"@type": "Question", "name": "Why are your practitioners' credentials on the website?", "acceptedAnswer": {"@type": "Answer", "text": "Because when a translation is disputed the court does not weigh the vendor. It weighs the person who made it. Model instructions direct jurors to consider the qualifications of the translator, the clarity of the recording and how the transcript was produced. A transcript from an anonymous pool has nothing to put in that column. Ours is produced by a practitioner who has delivered legal argument in French before Quebec's National Assembly and written constitutional-law texts in both languages, and who can say so under oath."}}, {"@type": "Question", "name": "How do you mark overlapping speech, inaudible passages and non-verbal events?", "acceptedAnswer": {"@type": "Answer", "text": "By convention, visibly, and never by guessing. Overlapping speech is marked as such (voix superposées / simultaneous speakers) rather than invented into clean sentences. Inaudible passages carry a timestamp — [inaudible 00:14:22] — so you can go to the audio yourself. Uncertain proper nouns are marked [phonetic]. Silences of evidentiary length are timed. Every transcript ships with a conventions page so opposing counsel reads the same marks the same way."}}, {"@type": "Question", "name": "Do you transcribe 911 and emergency-services calls?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Emergency-services audio, custodial and police-station interviews, and body-worn recordings are regular work, including for public-defence offices. This is difficult audio — crosstalk, radio traffic, distress, background noise — and it is quoted after we have heard it, not from a duration estimate."}}, {"@type": "Question", "name": "How are exhibits handled in the transcript?", "acceptedAnswer": {"@type": "Answer", "text": "Exhibits are carried into the transcript as they are marked on the record, with the announcing speaker attributed. Where a cross-border matter runs Quebec pièce numbering on one side and U.S. Exhibit numbering on the other, both are carried in the same record so neither set of counsel has to translate references by hand."}}, {"@type": "Question", "name": "Why not use AI transcription tools like Whisper or Otter?", "acceptedAnswer": {"@type": "Answer", "text": "AI transcription fails precisely in the conditions that define bilingual legal proceedings: mid-sentence code-switching, overlapping speakers, legal terminology, proper nouns and Quebec French register. It also invents fluent text where the audio is unclear, which is the single worst failure mode in an evidentiary record. More fundamentally, a model cannot maintain a chain of custody, cannot be cross-examined, and cannot sign an accuracy declaration."}}, {"@type": "Question", "name": "Who actually does the work on my file?", "acceptedAnswer": {"@type": "Answer", "text": "Two named practitioners: language and verbatim discipline on one side, Quebec procedure and jurisdiction on the other. Files are not distributed to a contractor pool or an offshore desk, and nothing is delivered as reviewed that was not in fact reviewed by a person. The name on the declaration is the person who did the work."}}, {"@type": "Question", "name": "How long does a transcript take?", "acceptedAnswer": {"@type": "Answer", "text": "Five business days as standard, forty-eight hours on priority. Multi-day proceedings are scheduled individually, and where a hearing runs over consecutive days we can deliver day-by-day so counsel is not waiting on the full record to prepare the next morning."}}, {"@type": "Question", "name": "What does bilingual legal transcription cost?", "acceptedAnswer": {"@type": "Answer", "text": "Per page, quoted in Canadian dollars, after we have heard the recording. Length alone does not set the price: overlapping speech, poor audio and sustained code-switching change the work considerably, so a firm figure follows the audio review rather than preceding it. Confirmation of receipt is the same working day."}}, {"@type": "Question", "name": "How is a transcript delivered?", "acceptedAnswer": {"@type": "Answer", "text": "Searchable PDF and editable Word, line-numbered and paginated, with speaker identification, a conventions page and the signed accuracy declaration. Delivery is by encrypted transfer. Formatting corrections are made at no charge."}}, {"@type": "Question", "name": "What if we disagree with a passage after delivery?", "acceptedAnswer": {"@type": "Answer", "text": "Tell us the page and line. The passage is re-audited against the source recording. Where the audio does not support what was transcribed, it is corrected and the declaration re-issued at no charge. Where the audio does support it, we tell you that plainly and mark the passage as disputed rather than quietly changing the record. A transcript that moves on request is not evidence."}}, {"@type": "Question", "name": "What audio quality and formats do you accept?", "acceptedAnswer": {"@type": "Answer", "text": "Most audio and video formats, including MP3, WAV, M4A and MP4. If a recording is difficult in places we say so before quoting, not after delivering, and we identify which passages carry risk so you know where the record is soft."}}, {"@type": "Question", "name": "Do you provide transcripts with line numbering?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Continuous line numbering, structured pagination and speaker identification, formatted for direct reference in pleadings and briefs, so a citation made once holds for the life of the matter."}}, {"@type": "Question", "name": "Are you compliant with Loi 25 and Quebec privacy law?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Files are handled through restricted-access workflows in compliance with Loi 25, transferred by encrypted protocols, stored in restricted-access environments, and never disclosed to third parties except where you instruct us to involve one. Clients may request permanent deletion of recordings and transcripts at any time."}}, {"@type": "Question", "name": "Are recordings used for training or any external purpose?", "acceptedAnswer": {"@type": "Answer", "text": "No. Client materials are used exclusively for the transcription assignment. They are never shared, repurposed, sold, or used to train or develop any model or system, internal or external."}}]}]}</script>
 </head>
