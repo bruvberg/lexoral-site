@@ -3040,55 +3040,36 @@ section.section.who14{background:var(--ultra-d) linear-gradient(180deg,var(--ult
 .who14 .who-c li b{font-size:1.12rem}
 section.section.who14 > .container::after{opacity:.4}
 
-/* ---------- 9. LE CONTACT : l'adresse d'abord, et le courriel qui s'ecrit tout seul ---------- */
-.ct23 .cx{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:var(--s7);align-items:start}
-.ct23 .cx-main,.ct23 .cx-build{min-width:0}
-.ct23 .cx,.ct23 .cx-mail{grid-column:2}
-.cx-mail{justify-self:start;display:inline-block;max-width:100%;margin:0 0 var(--s6);font-family:var(--serif);font-weight:600;font-size:clamp(2rem,8.6vw,5.6rem);line-height:1;
-  letter-spacing:-.01em;color:var(--ultra);text-decoration:none;overflow-wrap:anywhere;
-  background:linear-gradient(var(--verm),var(--verm)) no-repeat 0 100%/0 3px;padding-bottom:6px;transition:background-size .35s ease}
-.cx-mail:hover,.cx-mail:focus-visible{background-size:100% 3px;outline:none}
-.cx-note{margin:0;max-width:30em;font-size:1.05rem;line-height:1.55;color:var(--t-2)}
-.cx-acts{display:flex;flex-wrap:wrap;align-items:center;gap:18px 22px;margin:var(--s6) 0 0}
-.cx-key{display:inline-flex;align-items:center;gap:8px;padding:15px 24px;font-family:var(--mono);font-size:var(--t-xs);
+/* ---------- 9. LE CONTACT (V24) : celui d'un cabinet, sobre ----------
+   Brian : « just redo normal, like a law firm ». Un chapeau, ce qu'il faut joindre, un bouton ;
+   l'annuaire a droite, comme au bas d'une lettre d'avocat ; les praticiens dessous. */
+.ct24 .lf,.ct24 .lf-sig{grid-column:2}
+.lf{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:var(--s8);align-items:start;margin-top:var(--s2)}
+.lf-lead{margin:0;max-width:32em;font-size:1.2rem;line-height:1.6;color:var(--t-1)}
+.lf-lead a{color:var(--ultra);text-decoration:none;border-bottom:1px solid rgba(35,64,142,.35)}
+.lf-lead a:hover{border-bottom-color:var(--ultra)}
+.lf-k{margin:var(--s6) 0 var(--s3);font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--verm)}
+.lf-inc{margin:0;padding:0;list-style:none;counter-reset:lf}
+.lf-inc li{counter-increment:lf;display:grid;grid-template-columns:2.2em minmax(0,1fr);padding:6px 0;font-size:1.05rem;line-height:1.55;color:var(--t-2)}
+.lf-inc li::before{content:counter(lf,lower-roman) '.';font-family:var(--serif);color:var(--verm)}
+.lf-inc b{font-weight:600;color:var(--t-1)}
+.lf-cta{display:inline-flex;align-items:center;gap:8px;margin-top:var(--s6);padding:15px 24px;font-family:var(--mono);font-size:var(--t-xs);
   letter-spacing:.16em;text-transform:uppercase;text-decoration:none;white-space:nowrap}
-.cx-copy.ok{--k1:#F1F6EC;--k2:#E3EDD9}
-.cx-live{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.cx-more{list-style:none;margin:var(--s7) 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,max-content));gap:6px 40px}
-.cx-more li{display:flex;flex-direction:column;gap:4px}
-.cx-more span{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--t-3)}
-.cx-more a{font-size:1.25rem;color:var(--t-1);text-decoration:none}
-.cx-more a:hover{color:var(--verm)}
-.cx-sig{margin:var(--s6) 0 0;font-size:1.05rem;color:var(--t-1)}
-.cx-sig small{display:block;margin-top:4px;font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--t-3)}
-.cx-addr{margin:10px 0 0;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--t-3)}
-/* le courriel qui s'ecrit */
-.cx-build{padding-left:var(--s6);border-left:1px solid rgba(35,64,142,.25)}
-.cx-k{margin:0;font-family:var(--serif);font-weight:600;font-size:1.35rem;color:var(--t-1)}
-.cx-p{margin:4px 0 var(--s5);font-size:1rem;color:var(--t-3)}
-.cx-g{margin:0 0 14px;padding:0;border:0;min-width:0}
-.cx-g legend{display:flex;align-items:baseline;gap:10px;margin:0 0 8px;padding:0;font-family:var(--mono);font-size:10px;letter-spacing:.16em;
-  text-transform:uppercase;color:var(--t-2)}
-.cx-g legend b{font-weight:400;color:var(--verm)}
-.cx-chips{display:flex;flex-wrap:wrap;gap:8px}
-.cx-chip{position:relative;cursor:pointer}
-.cx-chip input{position:absolute;opacity:0;width:1px;height:1px;margin:0}
-.cx-chip span{display:inline-block;padding:8px 13px;background:#fff;color:var(--t-1);font-size:.98rem;
-  box-shadow:inset 0 0 0 1px rgba(35,64,142,.3);transition:background .15s,color .15s,box-shadow .15s}
-.cx-chip:hover span{box-shadow:inset 0 0 0 1px var(--ultra)}
-.cx-chip input:checked + span{background:var(--ultra);color:#fff;box-shadow:inset 0 0 0 1px var(--ultra)}
-.cx-chip input:focus-visible + span{outline:2px solid var(--gold);outline-offset:2px}
-.cx-mailbox{margin-top:var(--s5);padding:18px 20px 16px;background:#fff;box-shadow:inset 3px 0 0 var(--verm),0 1px 2px rgba(16,30,71,.06)}
-.cx-mailbox.pulse{animation:cx-pulse .6s ease}
-@keyframes cx-pulse{0%{box-shadow:inset 3px 0 0 var(--verm),0 0 0 0 rgba(176,48,42,.3)}100%{box-shadow:inset 3px 0 0 var(--verm),0 0 0 10px rgba(176,48,42,0)}}
-.cx-row{display:grid;grid-template-columns:5.5em minmax(0,1fr);gap:10px;margin:0;padding:6px 0;border-bottom:1px solid var(--rule)}
-.cx-row span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--t-3);padding-top:3px}
-.cx-row b{font-weight:600;font-size:1rem;color:var(--t-1);overflow-wrap:anywhere}
-.cx-body{margin:12px 0 0;font-family:var(--mono);font-size:12px;line-height:1.65;color:var(--t-2);white-space:pre-wrap}
-@media (max-width:1100px){ .ct23 .cx{grid-template-columns:1fr;gap:var(--s7)} .cx-build{padding-left:0;border-left:0;padding-top:var(--s6);border-top:1px solid rgba(35,64,142,.25)} }
-@media (max-width:900px){ .ct23 .cx,.ct23 .cx-mail{grid-column:1} }
-@media (max-width:600px){ .cx-more{grid-template-columns:1fr;gap:14px} .cx-key{padding:14px 18px} .cx-acts{gap:16px} }
-@media (prefers-reduced-motion:reduce){ .cx-mailbox.pulse{animation:none} .cx-mail{transition:none} }
+.lf-dir{margin:0;padding:4px 0 0 var(--s6);border-left:1px solid rgba(35,64,142,.28)}
+.lf-e{margin:0 0 var(--s5)}
+.lf-e:last-child{margin-bottom:0}
+.lf-dir dt{margin:0 0 6px;font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--t-3)}
+.lf-dir dd{margin:0;font-size:1.28rem;line-height:1.35;color:var(--t-1)}
+.lf-dir dd a{color:var(--ultra);text-decoration:none}
+.lf-dir dd a:hover{color:var(--verm)}
+.lf-dir dd small{display:block;margin-top:4px;font-size:.95rem;color:var(--t-3)}
+.lf-addr{display:block;font-size:1.1rem;line-height:1.5}
+.ct24 .lf-sig{max-width:none;margin:var(--s7) 0 0;padding-top:var(--s5);border-top:1px solid var(--rule);
+  font-family:var(--serif);font-size:1.15rem;letter-spacing:0;text-transform:none;color:var(--t-1)}
+.ct24 .lf-sig small{display:block;margin-top:5px;font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--t-3)}
+@media (max-width:1100px){ .lf{grid-template-columns:1fr;gap:var(--s7)} .lf-dir{padding-left:0;border-left:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s5) var(--s6)} .lf-e{margin:0} }
+@media (max-width:900px){ .ct24 .lf,.ct24 .lf-sig{grid-column:1} }
+@media (max-width:600px){ .lf-dir{grid-template-columns:1fr} .lf-lead{font-size:1.1rem} }
 
 /* ---------- 10. LE PIED : plus de dessin sous le texte ; le nom, en grand ---------- */
 footer{background:var(--ultra-d) linear-gradient(180deg,var(--ultra-d),var(--ultra-dd))}
