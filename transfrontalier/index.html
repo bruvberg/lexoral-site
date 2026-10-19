@@ -3100,6 +3100,89 @@ footer{background:var(--ultra-d) linear-gradient(180deg,var(--ultra-d),var(--ult
 @media (max-width:900px){ .jm-map .cm-key{top:12px;bottom:auto} }
 /* la clientele : sans les filets entre les lignes */
 .who14 .who-c li{border-top-color:transparent}
+
+/* =========================================================================
+   V25 — LE STENOGRAPHE OFFICIEL (Brian, 2 oct. 2026 : << mets stenographer ds la homepage >>)
+   1. le bandeau : une ligne sous les deux boutons, qui mene a la page certifiee ;
+   2. l'accueil : sous << i Integrale · ii Langue originale · iii Attestee >>, la piece suivante,
+      << Certifiee par un stenographe officiel >> : un papier blanc pose dans la colonne du texte,
+      l'etiquette dans la marge, comme << Ensuite >> ;
+   3. la page certifiee : les trois etapes, les questions ;
+   4. les liens poses dans les tableaux (services, transfrontalier).
+   ========================================================================= */
+
+/* ---------- 1. le bandeau ---------- */
+.hx-cert{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:baseline;column-gap:14px;
+  width:fit-content;max-width:min(100%,600px);margin-top:var(--s6);padding:13px 2px 0 0;border-top:1px solid var(--rule);
+  text-decoration:none;color:var(--t-1)}
+.hx-cert .hc-k{font-family:var(--mono);font-size:var(--mlabel);letter-spacing:.2em;text-transform:uppercase;color:var(--red);
+  white-space:nowrap}
+.hx-cert .hc-t{font-family:var(--serif);font-size:1.08rem;line-height:1.4;color:var(--ultra)}
+.hx-cert i{font-style:normal;font-family:var(--serif);color:var(--red);transition:transform .2s ease}
+.hx-cert:hover .hc-t,.hx-cert:focus-visible .hc-t{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.hx-cert:hover i{transform:translateX(4px)}
+@media (max-width:600px){
+  .hx-cert{grid-template-columns:minmax(0,1fr) auto;row-gap:6px;margin-top:var(--s5)}
+  .hx-cert .hc-k{grid-column:1/-1}
+  .hx-cert .hc-t{font-size:1.02rem}
+}
+@media (prefers-reduced-motion:reduce){ .hx-cert i{transition:none} }
+
+/* ---------- 2. l'accueil : la piece << certifiee >> ---------- */
+.c25{grid-column:1/-1;display:grid;grid-template-columns:var(--marg) minmax(0,1fr);column-gap:var(--gapc);
+  margin-top:var(--s8);position:relative}
+.c25-k{grid-column:1;margin:0 22px 0 0;justify-self:end;text-align:right;padding-top:calc(var(--s5) + 9px);
+  font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--red);line-height:1.5}
+.c25-b{grid-column:2;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);column-gap:var(--s7);row-gap:var(--s4);
+  align-items:start;padding:calc(var(--s5) + 9px) var(--cp) var(--s5);background-color:#fff;
+  background-image:linear-gradient(var(--ultra),var(--ultra)),linear-gradient(var(--ultra),var(--ultra));
+  background-repeat:no-repeat;background-size:100% 1px,100% 1px;background-position:0 0,0 3px;
+  box-shadow:0 1px 0 var(--rule),0 22px 40px -30px rgba(var(--shade),.5)}
+.c25-h{grid-column:1;margin:0;font-family:var(--serif);font-weight:400;font-size:clamp(1.55rem,2.5vw,2.05rem);line-height:1.12;
+  color:var(--t-1);letter-spacing:-.005em}
+.c25-p{grid-column:1;margin:0;font-size:1.04rem;line-height:1.6;color:var(--t-2)}
+.c25-s{grid-column:2;grid-row:1/span 3;margin:0;padding:0 0 0 var(--s5);list-style:none;counter-reset:c25;
+  border-left:1px solid var(--rule)}
+.c25-s li{counter-increment:c25;display:grid;grid-template-columns:30px minmax(0,1fr);column-gap:6px;padding:11px 0 12px;
+  font-size:.98rem;line-height:1.45;color:var(--t-2)}
+.c25-s li + li{border-top:1px solid var(--rule)}
+.c25-s li::before{content:counter(c25,lower-roman) '.';font-family:var(--serif);font-size:1.08rem;line-height:1.35;color:var(--red)}
+.c25-a{grid-column:1;justify-self:start;margin-top:4px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ultra);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:3px}
+.c25-a:hover,.c25-a:focus-visible{color:var(--red)}
+@media (max-width:1100px){ .c25-b{column-gap:var(--s6)} }
+@media (max-width:900px){
+  .c25{grid-template-columns:minmax(0,1fr);margin-top:var(--s7)}
+  .c25-k{grid-column:1;justify-self:start;text-align:left;margin:0;padding:0 0 var(--s3)}
+  .c25-b{grid-column:1;grid-template-columns:minmax(0,1fr);row-gap:var(--s4)}
+  .c25-s{grid-column:1;grid-row:auto;padding:var(--s2) 0 0;border-left:0;border-top:1px solid var(--rule)}
+  .c25-a{grid-row:auto}
+}
+
+/* ---------- 3. la page certifiee ---------- */
+.pol-body .steps25{list-style:none;margin:var(--s4) 0 var(--s5);padding:0;counter-reset:st25;border-top:1px solid var(--rule);max-width:600px}
+.pol-body .steps25 li{counter-increment:st25;position:relative;padding:var(--s4) 0 var(--s4) 46px;margin:0;
+  border-bottom:1px solid var(--rule);font-size:16px;line-height:1.68;color:var(--t-2)}
+.pol-body .steps25 li::before{content:counter(st25,lower-roman) '.';position:absolute;left:0;top:calc(var(--s4) + 1px);
+  font-family:var(--serif);font-size:1.25rem;line-height:1.3;color:var(--red)}
+.pol-body .steps25 li b{display:block;font-family:var(--serif);font-weight:400;font-size:1.18rem;line-height:1.3;
+  color:var(--t-1);margin-bottom:4px}
+.pol-body .qa25{margin:var(--s3) 0 0;border-top:1px solid var(--rule);max-width:600px}
+.pol-body .qa25 > div{padding:var(--s4) 0;border-bottom:1px solid var(--rule)}
+.pol-body .qa25 dt{font-family:var(--serif);font-size:1.18rem;line-height:1.35;color:var(--t-1);margin:0 0 6px}
+.pol-body .qa25 dd{margin:0;font-size:16px;line-height:1.68;color:var(--t-2);max-width:42em}
+
+/* ---------- 4. les liens dans les tableaux ---------- */
+.ssr a:not([class]),.xbt-row a:not([class]),.fit-honest a:not([class]){color:var(--ultra);text-decoration:underline;
+  text-decoration-thickness:1px;text-underline-offset:3px}
+.ssr a:not([class]):hover,.xbt-row a:not([class]):hover,.fit-honest a:not([class]):hover{color:var(--red)}
+
+/* =========================================================================
+   V26 — LA PAGE IMMIGRATION ET REFUGIES (19 oct. 2026)
+   le lien pose dans la liste des tribunaux de la page Services
+   ========================================================================= */
+.service-p a:not([class]){color:var(--ultra);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.service-p a:not([class]):hover,.service-p a:not([class]):focus-visible{color:var(--red)}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://lexoral.org/transfrontalier/#webpage", "url": "https://lexoral.org/transfrontalier/", "name": "Transcription transfrontalière Canada–États-Unis", "description": "Transcription transfrontalière Canada–États-Unis : témoins canadiens pour des dossiers américains, commissions rogatoires. Attestée, langue originale.", "inLanguage": "fr-CA", "isPartOf": {"@id": "https://lexoral.org/#website"}, "publisher": {"@id": "https://lexoral.org/#org"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Lexoral", "item": "https://lexoral.org/fr/"}, {"@type": "ListItem", "position": 2, "name": "Transcription transfrontalière Canada–États-Unis", "item": "https://lexoral.org/transfrontalier/"}]}, {"@type": "Service", "@id": "https://lexoral.org/transfrontalier/#service", "name": "Transcription juridique transfrontalière", "serviceType": "Transcription juridique bilingue transfrontalière, procédures canadiennes et américaines", "provider": {"@id": "https://lexoral.org/#org"}, "url": "https://lexoral.org/transfrontalier/", "inLanguage": "fr-CA", "availableLanguage": ["fr-CA", "en-CA"], "areaServed": [{"@type": "Country", "name": "Canada"}, {"@type": "Country", "name": "United States"}]}]}</script>
 </head>
@@ -3192,7 +3275,7 @@ footer{background:var(--ultra-d) linear-gradient(180deg,var(--ultra-d),var(--ult
       <div class="xbt-row"><span class="xbt-k">Langue du dossier</span><span>Fran&ccedil;ais et anglais</span><span>Anglais&nbsp;; interpr&egrave;te pour le fran&ccedil;ais</span></div>
       <div class="xbt-row"><span class="xbt-k">Mise en forme</span><span>Conventions de la Cour sup&eacute;rieure</span><span>Pratique AAERT</span></div>
       <div class="xbt-row"><span class="xbt-k">Attestation</span><span>D&eacute;claration d&rsquo;exactitude sign&eacute;e</span><span>Certificat du <i>certified reporter</i></span></div>
-      <div class="xbt-row"><span class="xbt-k">D&eacute;p&ocirc;t en preuve</span><span>St&eacute;nographe officiel requis</span><span>Certificat du st&eacute;nographe accept&eacute;</span></div>
+      <div class="xbt-row"><span class="xbt-k">D&eacute;p&ocirc;t en preuve</span><span>St&eacute;nographe officiel requis&nbsp;: <a href="/transcription-certifiee/">certifi&eacute;e par notre partenaire</a></span><span>Certificat du st&eacute;nographe accept&eacute;</span></div>
     </div>
 
     <p class="xb-close">Un dossier entre. Un document sort. Con&ccedil;u pour le forum auquel il est destin&eacute;.</p>
@@ -3210,6 +3293,8 @@ footer{background:var(--ultra-d) linear-gradient(180deg,var(--ultra-d),var(--ult
         <span class="footer-col-title">Le travail</span>
         <ul class="footer-links">
           <li><a href="/services-fr/">Services</a></li>
+          <li><a href="/transcription-certifiee/">Transcription certifi&eacute;e</a></li>
+          <li><a href="/transcription-immigration-refugies/">Immigration et r&eacute;fugi&eacute;s</a></li>
           <li><a href="/fr/#coverage">Couverture</a></li>
           <li><a href="/transfrontalier/">Transfrontalier</a></li>
           <li><a href="/preuve-enregistree/">Preuve enregistr&eacute;e</a></li>
