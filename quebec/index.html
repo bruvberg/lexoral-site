@@ -4,17 +4,17 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Legal transcription in Quebec — Lexoral</title>
-<meta name="description" content="Bilingual legal transcription in Quebec: examinations, arbitrations, tribunal hearings in Montreal, Quebec City and Gatineau. Certified, original language."/>
+<meta name="description" content="Bilingual legal transcription in Quebec: examinations, arbitrations, tribunal hearings in Montreal, Quebec City and Gatineau. Attested, original language."/>
 <link rel="canonical" href="https://lexoral.org/quebec/"/>
 <link rel="alternate" hreflang="en" href="https://lexoral.org/quebec/"/>
 <link rel="alternate" hreflang="fr" href="https://lexoral.org/quebec-fr/"/>
 <link rel="alternate" hreflang="x-default" href="https://lexoral.org/quebec/"/>
 <link rel="alternate" type="application/rss+xml" title="Lexoral — Blog" href="https://lexoral.org/blog/feed.xml"/>
 <meta property="og:title" content="Legal transcription in Quebec — Lexoral"/>
-<meta property="og:description" content="Bilingual legal transcription in Quebec: examinations, arbitrations, tribunal hearings in Montreal, Quebec City and Gatineau. Certified, original language."/>
+<meta property="og:description" content="Bilingual legal transcription in Quebec: examinations, arbitrations, tribunal hearings in Montreal, Quebec City and Gatineau. Attested, original language."/>
 <meta property="og:url" content="https://lexoral.org/quebec/"/>
 <meta name="twitter:title" content="Legal transcription in Quebec — Lexoral"/>
-<meta name="twitter:description" content="Bilingual legal transcription in Quebec: examinations, arbitrations, tribunal hearings in Montreal, Quebec City and Gatineau. Certified, original language."/>
+<meta name="twitter:description" content="Bilingual legal transcription in Quebec: examinations, arbitrations, tribunal hearings in Montreal, Quebec City and Gatineau. Attested, original language."/>
 
 <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large"/>
 <meta name="theme-color" content="#FFFFFF"/>
@@ -3100,8 +3100,91 @@ footer{background:var(--ultra-d) linear-gradient(180deg,var(--ultra-d),var(--ult
 @media (max-width:900px){ .jm-map .cm-key{top:12px;bottom:auto} }
 /* la clientele : sans les filets entre les lignes */
 .who14 .who-c li{border-top-color:transparent}
+
+/* =========================================================================
+   V25 — LE STENOGRAPHE OFFICIEL (Brian, 2 oct. 2026 : << mets stenographer ds la homepage >>)
+   1. le bandeau : une ligne sous les deux boutons, qui mene a la page certifiee ;
+   2. l'accueil : sous << i Integrale · ii Langue originale · iii Attestee >>, la piece suivante,
+      << Certifiee par un stenographe officiel >> : un papier blanc pose dans la colonne du texte,
+      l'etiquette dans la marge, comme << Ensuite >> ;
+   3. la page certifiee : les trois etapes, les questions ;
+   4. les liens poses dans les tableaux (services, transfrontalier).
+   ========================================================================= */
+
+/* ---------- 1. le bandeau ---------- */
+.hx-cert{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:baseline;column-gap:14px;
+  width:fit-content;max-width:min(100%,600px);margin-top:var(--s6);padding:13px 2px 0 0;border-top:1px solid var(--rule);
+  text-decoration:none;color:var(--t-1)}
+.hx-cert .hc-k{font-family:var(--mono);font-size:var(--mlabel);letter-spacing:.2em;text-transform:uppercase;color:var(--red);
+  white-space:nowrap}
+.hx-cert .hc-t{font-family:var(--serif);font-size:1.08rem;line-height:1.4;color:var(--ultra)}
+.hx-cert i{font-style:normal;font-family:var(--serif);color:var(--red);transition:transform .2s ease}
+.hx-cert:hover .hc-t,.hx-cert:focus-visible .hc-t{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.hx-cert:hover i{transform:translateX(4px)}
+@media (max-width:600px){
+  .hx-cert{grid-template-columns:minmax(0,1fr) auto;row-gap:6px;margin-top:var(--s5)}
+  .hx-cert .hc-k{grid-column:1/-1}
+  .hx-cert .hc-t{font-size:1.02rem}
+}
+@media (prefers-reduced-motion:reduce){ .hx-cert i{transition:none} }
+
+/* ---------- 2. l'accueil : la piece << certifiee >> ---------- */
+.c25{grid-column:1/-1;display:grid;grid-template-columns:var(--marg) minmax(0,1fr);column-gap:var(--gapc);
+  margin-top:var(--s8);position:relative}
+.c25-k{grid-column:1;margin:0 22px 0 0;justify-self:end;text-align:right;padding-top:calc(var(--s5) + 9px);
+  font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--red);line-height:1.5}
+.c25-b{grid-column:2;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);column-gap:var(--s7);row-gap:var(--s4);
+  align-items:start;padding:calc(var(--s5) + 9px) var(--cp) var(--s5);background-color:#fff;
+  background-image:linear-gradient(var(--ultra),var(--ultra)),linear-gradient(var(--ultra),var(--ultra));
+  background-repeat:no-repeat;background-size:100% 1px,100% 1px;background-position:0 0,0 3px;
+  box-shadow:0 1px 0 var(--rule),0 22px 40px -30px rgba(var(--shade),.5)}
+.c25-h{grid-column:1;margin:0;font-family:var(--serif);font-weight:400;font-size:clamp(1.55rem,2.5vw,2.05rem);line-height:1.12;
+  color:var(--t-1);letter-spacing:-.005em}
+.c25-p{grid-column:1;margin:0;font-size:1.04rem;line-height:1.6;color:var(--t-2)}
+.c25-s{grid-column:2;grid-row:1/span 3;margin:0;padding:0 0 0 var(--s5);list-style:none;counter-reset:c25;
+  border-left:1px solid var(--rule)}
+.c25-s li{counter-increment:c25;display:grid;grid-template-columns:30px minmax(0,1fr);column-gap:6px;padding:11px 0 12px;
+  font-size:.98rem;line-height:1.45;color:var(--t-2)}
+.c25-s li + li{border-top:1px solid var(--rule)}
+.c25-s li::before{content:counter(c25,lower-roman) '.';font-family:var(--serif);font-size:1.08rem;line-height:1.35;color:var(--red)}
+.c25-a{grid-column:1;justify-self:start;margin-top:4px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ultra);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:3px}
+.c25-a:hover,.c25-a:focus-visible{color:var(--red)}
+@media (max-width:1100px){ .c25-b{column-gap:var(--s6)} }
+@media (max-width:900px){
+  .c25{grid-template-columns:minmax(0,1fr);margin-top:var(--s7)}
+  .c25-k{grid-column:1;justify-self:start;text-align:left;margin:0;padding:0 0 var(--s3)}
+  .c25-b{grid-column:1;grid-template-columns:minmax(0,1fr);row-gap:var(--s4)}
+  .c25-s{grid-column:1;grid-row:auto;padding:var(--s2) 0 0;border-left:0;border-top:1px solid var(--rule)}
+  .c25-a{grid-row:auto}
+}
+
+/* ---------- 3. la page certifiee ---------- */
+.pol-body .steps25{list-style:none;margin:var(--s4) 0 var(--s5);padding:0;counter-reset:st25;border-top:1px solid var(--rule);max-width:600px}
+.pol-body .steps25 li{counter-increment:st25;position:relative;padding:var(--s4) 0 var(--s4) 46px;margin:0;
+  border-bottom:1px solid var(--rule);font-size:16px;line-height:1.68;color:var(--t-2)}
+.pol-body .steps25 li::before{content:counter(st25,lower-roman) '.';position:absolute;left:0;top:calc(var(--s4) + 1px);
+  font-family:var(--serif);font-size:1.25rem;line-height:1.3;color:var(--red)}
+.pol-body .steps25 li b{display:block;font-family:var(--serif);font-weight:400;font-size:1.18rem;line-height:1.3;
+  color:var(--t-1);margin-bottom:4px}
+.pol-body .qa25{margin:var(--s3) 0 0;border-top:1px solid var(--rule);max-width:600px}
+.pol-body .qa25 > div{padding:var(--s4) 0;border-bottom:1px solid var(--rule)}
+.pol-body .qa25 dt{font-family:var(--serif);font-size:1.18rem;line-height:1.35;color:var(--t-1);margin:0 0 6px}
+.pol-body .qa25 dd{margin:0;font-size:16px;line-height:1.68;color:var(--t-2);max-width:42em}
+
+/* ---------- 4. les liens dans les tableaux ---------- */
+.ssr a:not([class]),.xbt-row a:not([class]),.fit-honest a:not([class]){color:var(--ultra);text-decoration:underline;
+  text-decoration-thickness:1px;text-underline-offset:3px}
+.ssr a:not([class]):hover,.xbt-row a:not([class]):hover,.fit-honest a:not([class]):hover{color:var(--red)}
+
+/* =========================================================================
+   V26 — LA PAGE IMMIGRATION ET REFUGIES (19 oct. 2026)
+   le lien pose dans la liste des tribunaux de la page Services
+   ========================================================================= */
+.service-p a:not([class]){color:var(--ultra);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.service-p a:not([class]):hover,.service-p a:not([class]):focus-visible{color:var(--red)}
 </style>
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://lexoral.org/quebec/#webpage", "url": "https://lexoral.org/quebec/", "name": "Legal transcription in Quebec", "description": "Bilingual legal transcription in Quebec: examinations, arbitrations, tribunal hearings in Montreal, Quebec City and Gatineau. Certified, original language.", "inLanguage": "en-CA", "isPartOf": {"@id": "https://lexoral.org/#website"}, "publisher": {"@id": "https://lexoral.org/#org"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Lexoral", "item": "https://lexoral.org/"}, {"@type": "ListItem", "position": 2, "name": "Legal transcription in Quebec", "item": "https://lexoral.org/quebec/"}]}, {"@type": "Service", "@id": "https://lexoral.org/quebec/#service", "name": "Legal transcription in Quebec", "serviceType": "Bilingual French-English legal transcription", "provider": {"@id": "https://lexoral.org/#org"}, "inLanguage": "en-CA", "url": "https://lexoral.org/quebec/", "availableLanguage": ["fr-CA", "en-CA"], "areaServed": [{"@type": "AdministrativeArea", "name": "Quebec"}, {"@type": "City", "name": "Montreal"}, {"@type": "City", "name": "Quebec City"}, {"@type": "City", "name": "Laval"}, {"@type": "City", "name": "Gatineau"}, {"@type": "City", "name": "Longueuil"}, {"@type": "City", "name": "Sherbrooke"}, {"@type": "City", "name": "Trois-Rivieres"}, {"@type": "City", "name": "Saguenay"}, {"@type": "City", "name": "Levis"}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://lexoral.org/quebec/#webpage", "url": "https://lexoral.org/quebec/", "name": "Legal transcription in Quebec", "description": "Bilingual legal transcription in Quebec: examinations, arbitrations, tribunal hearings in Montreal, Quebec City and Gatineau. Attested, original language.", "inLanguage": "en-CA", "isPartOf": {"@id": "https://lexoral.org/#website"}, "publisher": {"@id": "https://lexoral.org/#org"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Lexoral", "item": "https://lexoral.org/"}, {"@type": "ListItem", "position": 2, "name": "Legal transcription in Quebec", "item": "https://lexoral.org/quebec/"}]}, {"@type": "Service", "@id": "https://lexoral.org/quebec/#service", "name": "Legal transcription in Quebec", "serviceType": "Bilingual French-English legal transcription", "provider": {"@id": "https://lexoral.org/#org"}, "inLanguage": "en-CA", "url": "https://lexoral.org/quebec/", "availableLanguage": ["fr-CA", "en-CA"], "areaServed": [{"@type": "AdministrativeArea", "name": "Quebec"}, {"@type": "City", "name": "Montreal"}, {"@type": "City", "name": "Quebec City"}, {"@type": "City", "name": "Laval"}, {"@type": "City", "name": "Gatineau"}, {"@type": "City", "name": "Longueuil"}, {"@type": "City", "name": "Sherbrooke"}, {"@type": "City", "name": "Trois-Rivieres"}, {"@type": "City", "name": "Saguenay"}, {"@type": "City", "name": "Levis"}]}]}</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -3160,11 +3243,11 @@ languages it covers.</p>
 this reason; a stenographer authorised in both appears twice. The province has, in other words, already
 decided that taking a record in French and taking one in English are two different competences.</p>
 <div class="fit-honest"><span class="fh-k">How the work divides</span>
-<p>Quebec reserves the official record to accredited stenographers, and the attestation is granted by language, which is why only a minority of the roll can carry a bilingual proceeding alone. We produce the other half: attested transcripts from the recording, in both languages, including the part an official transcript of a bilingual hearing leaves undone. The official stenographer&rsquo;s certificate is a separate document; we work from the recording, which means the firm can engage us directly and so can the accredited stenographer on the file.</p></div></div></div></div></section><section class="pol"><div class="container"><div class="pol-in"><span class="pol-n">L. 04</span><div class="pol-body"><h2 class="pol-h">What we transcribe here</h2><p>Raw list, no qualifiers.</p>
+<p>Quebec reserves the official record to accredited stenographers, and the attestation is granted by language, which is why only a minority of the roll can carry a bilingual proceeding alone. We produce the other half: attested transcripts from the recording, in both languages, including the part an official transcript of a bilingual hearing leaves undone. The official stenographer&rsquo;s certificate is a separate document. Where your filing needs one, our partner official stenographer, accredited in French and in English, checks our transcript against the recording and certifies it, on one quote and one invoice: see <a href="/certified-transcripts/">certified transcripts</a>. And because we work from the recording, a stenographer already on the file can engage us too.</p></div></div></div></div></section><section class="pol"><div class="container"><div class="pol-in"><span class="pol-n">L. 04</span><div class="pol-body"><h2 class="pol-h">What we transcribe here</h2><p>Raw list, no qualifiers.</p>
 <p class="fit-note">Examinations on discovery · out-of-court examinations · examinations on affidavit ·
 examinations after defence · depositions taken in Quebec for use in U.S. proceedings · commercial and
 labour arbitration · mediation sessions where a record is kept · Tribunal administratif du travail ·
-Tribunal administratif du Québec · Régie du logement hearings · professional discipline committees ·
+Tribunal administratif du Québec · Tribunal administratif du logement hearings · professional discipline committees ·
 coroner’s inquests · municipal and Superior Court proceedings · Small Claims · CNESST hearings ·
 class-action certification hearings · recorded evidence filed in any of the above</p>
 <div class="svc-spec"><div class="ssr ssr-head"><span></span><span>Included</span><span>On request</span></div><div class="ssr"><span class="ssr-k">Languages</span><span>French and English in the original language, in a single document</span><span>Parallel-column presentation of original and interpretation</span></div><div class="ssr"><span class="ssr-k">Register</span><span>Quebec French, courthouse usage and legal terminology handled by a practitioner who works in the law in both languages</span><span>Glossary of recurring terms, agreed with counsel before delivery</span></div><div class="ssr"><span class="ssr-k">Code-switching</span><span>Marked at the point of the switch, in the convention of the forum</span><span>Language-of-utterance tagging on every line</span></div><div class="ssr"><span class="ssr-k">Attestation</span><span>Signed accuracy declaration, named practitioner</span><span class="ssr-nil">&mdash;</span></div><div class="ssr"><span class="ssr-k">Numbering</span><span>Continuous line numbering, structured pagination</span><span class="ssr-nil">&mdash;</span></div><div class="ssr"><span class="ssr-k">Delivery</span><span>Searchable PDF, editable Word</span><span>ASCII, e-transcript, RTF, condensed four-up, word index</span></div><div class="ssr"><span class="ssr-k">Turnaround</span><span>Five business days</span><span>Forty-eight hours</span></div></div></div></div></div></section><section class="pol"><div class="container"><div class="pol-in"><span class="pol-n">L. 05</span><div class="pol-body"><h2 class="pol-h">Where</h2><p>We work from recordings, so the room can be anywhere. Most of our Quebec files come from
@@ -3186,6 +3269,8 @@ transcript comes back signed.</p></div></div></div></section><section class="cro
         <span class="footer-col-title">The work</span>
         <ul class="footer-links">
           <li><a href="/services/">Services</a></li>
+          <li><a href="/certified-transcripts/">Certified transcripts</a></li>
+          <li><a href="/immigration-refugee-transcripts/">Immigration &amp; refugee</a></li>
           <li><a href="/#coverage">Coverage</a></li>
           <li><a href="/cross-border/">Cross-border</a></li>
           <li><a href="/recorded-evidence/">Recorded evidence</a></li>
