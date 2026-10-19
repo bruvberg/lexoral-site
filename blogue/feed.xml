@@ -6,7 +6,23 @@
     <atom:link href="https://lexoral.org/blogue/feed.xml" rel="self" type="application/rss+xml"/>
     <description>La transcription juridique au Canada et aux États-Unis : des guides, et une veille régulière sur la transcription et la justice.</description>
     <language>fr-ca</language>
-    <lastBuildDate>Wed, 30 Sep 2026 13:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 12 Oct 2026 13:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Veille : transcription et justice au Canada et aux États-Unis — mi-octobre 2026</title>
+      <link>https://lexoral.org/blogue/veille-2026-10-12/</link>
+      <guid isPermaLink="true">https://lexoral.org/blogue/veille-2026-10-12/</guid>
+      <pubDate>Mon, 12 Oct 2026 13:00:00 +0000</pubDate>
+      <category>Veille</category>
+      <description>Transcription par IA devant la Cour suprême du Texas, enregistrement des audiences en Oklahoma, et les deux langues officielles dans l’IA fédérale.</description>
+    </item>
+    <item>
+      <title>Veille : transcription et justice au Canada et aux États-Unis — début octobre 2026</title>
+      <link>https://lexoral.org/blogue/veille-2026-10-05/</link>
+      <guid isPermaLink="true">https://lexoral.org/blogue/veille-2026-10-05/</guid>
+      <pubDate>Mon, 05 Oct 2026 13:00:00 +0000</pubDate>
+      <category>Veille</category>
+      <description>Un bulletin du NCSC sur la transcription assistée par l’IA dans les tribunaux, et un arrêt ontarien sur le français face aux avocats de la province.</description>
+    </item>
     <item>
       <title>Veille : transcription et justice au Canada et aux États-Unis — fin septembre 2026</title>
       <link>https://lexoral.org/blogue/veille-2026-09-30/</link>
