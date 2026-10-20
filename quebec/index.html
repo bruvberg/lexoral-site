@@ -3183,6 +3183,220 @@ footer{background:var(--ultra-d) linear-gradient(180deg,var(--ultra-d),var(--ult
    ========================================================================= */
 .service-p a:not([class]){color:var(--ultra);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
 .service-p a:not([class]):hover,.service-p a:not([class]):focus-visible{color:var(--red)}
+/* =========================================================================
+   V27 — L'EPOQUE MAVERICKS, EN INSPIRATION (Brian, 19 et 20 octobre 2026)
+
+   19 oct. : « le design un peu 3D, tous les elements un peu a l'ancienne, genre les boutons ».
+   20 oct. : « attention, je veux pas un systeme d'exploitation en design, juste inspire-toi ».
+
+   Donc rien qui imite le Mac (ni fenetres, ni feux, ni noms de fichiers, ni Lucida, ni Dock).
+   On garde ce que cette epoque avait de beau, la matiere, dans le vocabulaire du dossier :
+     - le papier : le specimen en liasse, tenu par un trombone ; les formats et les schemas
+       sur des fiches, avec une etiquette d'onglet comme dans un classeur de pieces ;
+     - l'enregistrement dans un cadran en creux, la lecture sur une touche rouge en gel ;
+     - les commandes en relief : le gel sur les touches, la barre en degrade, EN/FR et les
+       forums en commande segmentee, des boutons ronds, des triangles, un bouton a chevron ;
+     - les listes : en-tetes en degrade, lignes zebrees ; le contact sur une carte en relief ;
+       les badges du pied dans des creux.
+   Garamond, Courier, l'outremer, le vermillon, le creme, les filets rouges : inchanges.
+   ========================================================================= */
+
+:root{
+  --mv-gel:linear-gradient(180deg,rgba(255,255,255,.30) 0,rgba(255,255,255,.11) 47%,rgba(255,255,255,0) 52%,rgba(255,255,255,0) 78%,rgba(255,255,255,.10) 100%);
+  --mv-push:linear-gradient(180deg,#FFFFFF,#EAE7E1);
+  --mv-push-h:linear-gradient(180deg,#FFFFFF,#F3F1EC);
+  --mv-push-a:linear-gradient(180deg,#D9D5CE,#EBE8E2);
+  --mv-ring:rgba(40,34,26,.24);
+  --mv-push-sh:inset 0 0 0 1px rgba(60,48,36,.3),inset 0 1px 0 #fff,0 1px 1px rgba(40,34,26,.14);
+  --mv-push-ash:inset 0 0 0 1px rgba(60,48,36,.38),inset 0 1px 3px rgba(40,34,26,.28);
+  /* une liasse : la feuille, deux feuilles dessous, l'ombre portee */
+  --mv-stack:0 0 0 1px rgba(40,34,26,.12),0 1px 2px rgba(40,34,26,.10),
+    5px 5px 0 -1px #FBF9F4,5px 5px 0 0 rgba(40,34,26,.13),
+    10px 10px 0 -1px #F5F2EA,10px 10px 0 0 rgba(40,34,26,.11),
+    0 28px 44px -24px rgba(22,30,58,.5);
+  --mv-card:0 0 0 1px rgba(40,34,26,.13),0 1px 2px rgba(40,34,26,.08),
+    4px 4px 0 -1px #FAF8F3,4px 4px 0 0 rgba(40,34,26,.10),0 18px 30px -20px rgba(22,30,58,.42);
+  /* l'etiquette d'onglet, couleur chemise kraft */
+  --mv-tab:#EEE4CF;--mv-tab-g:linear-gradient(180deg,#F6EFDF,#E8DCC2);--mv-tab-t:#5E4C2F;
+}
+
+/* ---------- 0. la selection et le focus, aux couleurs de la maison ---------- */
+::selection{background:rgba(35,64,142,.17);color:inherit}
+:focus-visible{outline-color:var(--ultra)!important}
+footer :focus-visible,.tk :focus-visible,.who14 :focus-visible,.nav-links :focus-visible,.nav-index :focus-visible{outline-color:var(--gold)!important}
+
+/* ---------- 1. LE PAPIER ---------- */
+/* le specimen : une liasse, et un trombone qui la tient */
+.sp14 .sp-page{border:0;border-radius:2px;box-shadow:var(--mv-stack)}
+.sp14 .sp-hd{position:relative}
+.sp14 .sp-hd::before{content:'';position:absolute;left:-12px;top:-50px;width:22px;height:64px;pointer-events:none;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1'%3E%3Cstop offset='0' stop-color='%23E6E8EC'/%3E%3Cstop offset='.45' stop-color='%23959AA3'/%3E%3Cstop offset='.7' stop-color='%23D4D7DC'/%3E%3Cstop offset='1' stop-color='%23878C95'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M7 16v32a4 4 0 0 0 8 0V9a6 6 0 0 0-12 0v42a8 8 0 0 0 16 0V20' fill='none' stroke='url(%23g)' stroke-width='2.3' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat;
+  filter:drop-shadow(1px 2px 1px rgba(30,24,16,.28))}
+@media (max-width:600px){ .sp14 .sp-hd::before{left:-6px;top:-34px;width:16px;height:46px;background-size:contain} }
+
+/* les formats (services) : une fiche, et son etiquette d'onglet qui pend du bord */
+.tsp.tsp{margin-top:var(--s6);padding:0;border:0;border-radius:4px;background:#fff;box-shadow:var(--mv-card)}
+.tsp .tsp-k.tsp-k,.dgm .dgm-k.dgm-k{
+  display:block;width:max-content;max-width:calc(100% - 24px);box-sizing:border-box;position:relative;z-index:1;transform:none;border:0;border-radius:0 0 6px 6px;
+  padding:9px 15px 7px;background:var(--mv-tab) var(--mv-tab-g);color:var(--mv-tab-t);text-shadow:0 1px 0 rgba(255,255,255,.65);
+  box-shadow:inset 1px 0 0 rgba(120,96,56,.16),inset -1px 0 0 rgba(120,96,56,.16),inset 0 -1px 0 rgba(120,96,56,.28),0 3px 4px -2px rgba(70,50,20,.3)}
+.tsp .tsp-k.tsp-k::before,.tsp .tsp-k.tsp-k::after,.dgm .dgm-k.dgm-k::before,.dgm .dgm-k.dgm-k::after{content:none}
+.tsp .tsp-k.tsp-k{margin:0 0 0 20px}
+.tsp .tsp-b.tsp-b{padding:14px 20px 18px;border:0;border-radius:0 0 4px 4px;
+  /* l'ombre au bord qui a encore du texte a montrer, sur la fiche blanche */
+  background:linear-gradient(to right,#fff 55%,rgba(255,255,255,0)) left center/40px 100% no-repeat local,
+    linear-gradient(to left,#fff 55%,rgba(255,255,255,0)) right center/40px 100% no-repeat local,
+    linear-gradient(to right,rgba(40,34,26,.2),rgba(40,34,26,0)) left center/14px 100% no-repeat scroll,
+    linear-gradient(to left,rgba(40,34,26,.2),rgba(40,34,26,0)) right center/14px 100% no-repeat scroll,#fff}
+
+/* les schemas : la meme fiche ; l'etiquette pend du bord superieur, quel que soit le cadre */
+.dgm.dgm,.why-section .dgm.dgm,.cross-section:has(.xb-probs) .dgm.dgm,.pol-body .dgm.dgm{border-radius:4px;box-shadow:var(--mv-card)}
+.dgm .dgm-k.dgm-k{margin:0 0 var(--s5)}
+.why-section .dgm .dgm-k.dgm-k,.cross-section:has(.xb-probs) .dgm .dgm-k.dgm-k{margin-top:calc(-1 * var(--s6))}
+.pol-body .dgm .dgm-k.dgm-k{margin-top:calc(-7px - var(--s5))}
+@media (max-width:900px){ .why-section .dgm.dgm,.cross-section:has(.xb-probs) .dgm.dgm{border-radius:0} }
+
+/* ---------- 2. L'ENREGISTREMENT : un cadran en creux ---------- */
+.wvf.wvf{padding:18px 22px 0;border-top:0;border-radius:9px;background:#F8F6F1 linear-gradient(180deg,#FBFAF7,#F2EEE6);
+  box-shadow:inset 0 2px 4px rgba(40,34,26,.16),inset 0 0 0 1px rgba(40,34,26,.13),0 1px 0 #fff}
+.wvf.wvf > figcaption{margin:14px -22px 0;padding:12px 22px 14px;border-top:0;border-radius:0 0 9px 9px;
+  background:linear-gradient(180deg,rgba(255,255,255,.75),rgba(255,255,255,.25));box-shadow:inset 0 1px 0 rgba(40,34,26,.10)}
+.wvf .wv-play.wv-play{border-radius:14px;padding:6px 15px 6px 12px;color:#fff;
+  background-color:#A92D27;background-image:var(--mv-gel),linear-gradient(180deg,#C63E33,#A92D27);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.3),inset 0 0 0 1px rgba(94,23,20,.45),0 2px 5px -2px rgba(94,23,20,.55);
+  text-shadow:0 -1px 0 rgba(70,14,12,.4)}
+.wvf .wv-play.wv-play:hover{color:#fff;background-color:#B0302A;background-image:var(--mv-gel),linear-gradient(180deg,#CF4639,#B0302A)}
+.wvf .wv-play.wv-play:active{background-image:linear-gradient(180deg,rgba(0,0,0,.1),rgba(255,255,255,.05)),linear-gradient(180deg,#A92D27,#C63E33);
+  box-shadow:inset 0 1px 3px rgba(60,10,8,.55),inset 0 0 0 1px rgba(94,23,20,.5)}
+@media (max-width:600px){
+  .wvf.wvf{padding:12px 12px 0}
+  .wvf.wvf > figcaption{margin:12px -12px 0;padding:10px 12px 12px}
+}
+
+/* ---------- 3. LES TOUCHES : le gel sur la face ---------- */
+.btn-primary.btn-primary.btn-primary,.nav-cta.nav-cta.nav-cta,.nav-index a.ni-cta.ni-cta,.cx-key.cx-compose.cx-compose,
+.btn-outline-w.btn-outline-w.btn-outline-w,.nav-menu.nav-menu.nav-menu,.cx-key.cx-copy.cx-copy,
+.sp-dl.sp-dl.sp-dl,.spec-dl.spec-dl.spec-dl,.cross-cta.cross-cta.cross-cta,.faq-btn.faq-btn.faq-btn,
+.btn-primary.btn-primary.btn-primary:hover,.nav-cta.nav-cta.nav-cta:hover,.nav-index a.ni-cta.ni-cta:hover,.cx-key.cx-compose.cx-compose:hover,
+.btn-outline-w.btn-outline-w.btn-outline-w:hover,.nav-menu.nav-menu.nav-menu:hover,.cx-key.cx-copy.cx-copy:hover,
+.sp-dl.sp-dl.sp-dl:hover,.spec-dl.spec-dl.spec-dl:hover,.cross-cta.cross-cta.cross-cta:hover,.faq-btn.faq-btn.faq-btn:hover{
+  background-image:var(--mv-gel),linear-gradient(180deg,var(--k1),var(--k2))}
+.btn-primary.btn-primary.btn-primary:active,.nav-cta.nav-cta.nav-cta:active,.cx-key.cx-compose.cx-compose:active,
+.btn-outline-w.btn-outline-w.btn-outline-w:active,.cx-key.cx-copy.cx-copy:active,.sp-dl.sp-dl.sp-dl:active,
+.spec-dl.spec-dl.spec-dl:active,.cross-cta.cross-cta.cross-cta:active,.faq-btn.faq-btn.faq-btn:active{
+  background-image:linear-gradient(180deg,rgba(0,0,0,.08),rgba(255,255,255,.06)),linear-gradient(180deg,var(--k2),var(--k1))}
+
+/* ---------- 4. LA BARRE : un degrade, la page ouverte reste la touche enfoncee ---------- */
+@media (min-width:1180px){
+  .nav-links.nav-links{background:linear-gradient(180deg,#3051A6 0,#26459A 50%,#1F3B88 100%);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.2),inset 0 -1px 0 rgba(6,14,40,.55)}
+  .nav-links.nav-links a:not(.nl-mono){background-image:var(--mv-gel),linear-gradient(180deg,#3557AA,#2A4A9B)}
+  .nav-links.nav-links a:not(.nl-mono):hover{background-image:var(--mv-gel),linear-gradient(180deg,#3B5EB3,#2E4FA2)}
+  .nav-links.nav-links a.nl-cta{background-image:var(--mv-gel),linear-gradient(180deg,#C63E33,#A92D27)}
+  .nav-links.nav-links a.nl-cta:hover{background-image:var(--mv-gel),linear-gradient(180deg,#CF4639,#B0302A)}
+  .nav-links.nav-links a.on:not(.nl-cta),.nav-links.nav-links a.on:not(.nl-cta):hover{background-image:linear-gradient(180deg,#1A3271,#1F3B82)}
+}
+
+/* ---------- 5. EN / FR : une commande segmentee ---------- */
+.nav-lang.nav-lang{display:inline-flex;gap:0;padding:0;border-radius:5px;background:var(--mv-push);
+  box-shadow:inset 0 0 0 1px var(--mv-ring),0 1px 0 rgba(255,255,255,.9),0 1px 2px rgba(40,34,26,.12)}
+.nav-lang.nav-lang a{position:relative;padding:5px 11px;border-radius:0;background:none;box-shadow:none;color:var(--t-2);text-shadow:0 1px 0 #fff}
+.nav-lang.nav-lang a::before,.nav-lang.nav-lang a::after{content:none}
+.nav-lang.nav-lang a + a{box-shadow:inset 1px 0 0 rgba(40,34,26,.2)}
+.nav-lang.nav-lang a:first-child{border-radius:5px 0 0 5px}
+.nav-lang.nav-lang a:last-child{border-radius:0 5px 5px 0}
+.nav-lang.nav-lang a:hover{color:var(--ultra);background:rgba(255,255,255,.7)}
+.nav-lang.nav-lang a.active,.nav-lang.nav-lang a.active:hover{color:#fff;font-weight:700;text-shadow:0 -1px 0 rgba(8,16,40,.45);
+  background:#23408E linear-gradient(180deg,#1B3576,#2A4A9B);box-shadow:inset 0 1px 3px rgba(5,12,32,.55),inset 0 0 0 1px rgba(10,22,58,.6)}
+@media (max-width:600px){ .nav-lang.nav-lang a{padding:7px 11px} }
+
+/* ---------- 6. LES ONGLETS DES FORUMS : une commande segmentee ---------- */
+.jm-tabs.jm-tabs{gap:0;border-radius:7px;background:var(--mv-push);
+  box-shadow:inset 0 0 0 1px var(--mv-ring),0 1px 2px rgba(40,34,26,.12),0 14px 28px -18px rgba(22,30,58,.5)}
+.jm-tabs.jm-tabs .jm-tab{background:none;border-radius:0;transform:none;box-shadow:inset -1px 0 0 rgba(40,34,26,.16)}
+.jm-tabs.jm-tabs .jm-tab:first-child{border-radius:7px 0 0 7px}
+.jm-tabs.jm-tabs .jm-tab:last-child{border-radius:0 7px 7px 0;box-shadow:none}
+.jm-tabs.jm-tabs .jm-tab:hover{transform:none;background:rgba(255,255,255,.75)}
+.jm-tabs.jm-tabs .jm-tab[aria-selected="true"]{transform:none;background:#23408E linear-gradient(180deg,#1B3576,#2A4A9B);
+  box-shadow:inset 0 2px 5px rgba(5,12,32,.55),inset 0 0 0 1px rgba(10,22,58,.6)}
+.jm-tabs.jm-tabs .jm-tab[aria-selected="true"]::after{left:50%;margin-left:-8px}
+@media (max-width:1100px){
+  .jm-tabs.jm-tabs .jm-tab:nth-child(1){border-radius:7px 0 0 0;box-shadow:inset -1px 0 0 rgba(40,34,26,.16),inset 0 -1px 0 rgba(40,34,26,.16)}
+  .jm-tabs.jm-tabs .jm-tab:nth-child(2){border-radius:0 7px 0 0;box-shadow:inset 0 -1px 0 rgba(40,34,26,.16)}
+  .jm-tabs.jm-tabs .jm-tab:nth-child(3){border-radius:0 0 0 7px;box-shadow:inset -1px 0 0 rgba(40,34,26,.16)}
+  .jm-tabs.jm-tabs .jm-tab:nth-child(4){border-radius:0 0 7px 0;box-shadow:none}
+  .jm-tabs.jm-tabs .jm-tab[aria-selected="true"]{box-shadow:inset 0 2px 5px rgba(5,12,32,.55),inset 0 0 0 1px rgba(10,22,58,.6)}
+}
+@media (max-width:600px){ .jm-tabs.jm-tabs{gap:0} }
+
+/* ---------- 7. LES BOUTONS RONDS ---------- */
+.stg-next.stg-next i,.jm-arrows.jm-arrows button{border-radius:50%;background:var(--mv-push);
+  box-shadow:inset 0 0 0 1px rgba(60,48,36,.32),inset 0 2px 0 rgba(255,255,255,.9),0 1px 2px rgba(40,34,26,.2),0 4px 9px -5px rgba(40,34,26,.4)}
+.stg-next.stg-next i{color:var(--red)}
+.jm-arrows.jm-arrows button{color:var(--ultra)}
+.stg-next.stg-next:hover i,.jm-arrows.jm-arrows button:hover{background:var(--mv-push-h);color:var(--ultra)}
+.stg-next.stg-next:active i,.jm-arrows.jm-arrows button:active{background:var(--mv-push-a);box-shadow:var(--mv-push-ash)}
+
+/* ---------- 8. LES TRIANGLES ET LE BOUTON A CHEVRON ---------- */
+.js .tree-more.tree-more i{order:-1;width:0;height:0;margin:0;border:0;border-style:solid;border-width:4.5px 0 4.5px 7px;
+  border-color:transparent transparent transparent #7A766D;transform:none;transition:transform .16s ease}
+.js .tree-more.tree-more[aria-expanded="true"] i{transform:rotate(90deg)}
+.js .tree-more.tree-more{gap:7px}
+
+.faq-item:nth-child(even){background:rgba(35,64,142,.028)}
+.faq-q:hover{background:rgba(35,64,142,.045)}
+.faq-item.open > .faq-q{background:linear-gradient(180deg,rgba(35,64,142,.085),rgba(35,64,142,.05))}
+.faq-q:focus-visible{outline:2px solid var(--ultra);outline-offset:-2px}
+.faq-toggle.faq-toggle,.faq-item.open .faq-toggle.faq-toggle{position:relative;width:21px;height:21px;align-self:center;font-size:0;line-height:0;color:transparent;
+  border-radius:5px;transform:none;background:var(--mv-push);box-shadow:var(--mv-push-sh)}
+.faq-toggle.faq-toggle::before{content:'';position:absolute;left:50%;top:50%;width:5px;height:5px;margin:-4.5px 0 0 -3px;
+  border-right:1.6px solid #5B574F;border-bottom:1.6px solid #5B574F;transform:rotate(45deg);transition:transform .18s ease}
+.faq-item.open .faq-toggle.faq-toggle{background:var(--mv-push-a);box-shadow:var(--mv-push-ash)}
+.faq-item.open .faq-toggle.faq-toggle::before{transform:translateY(2.5px) rotate(-135deg)}
+@media (prefers-reduced-motion:reduce){ .faq-toggle::before,.tree-more i{transition:none!important} }
+
+/* ---------- 9. LES PETITS BOUTONS POUSSOIRS ---------- */
+.service-link.service-link{display:inline-flex;align-items:center;height:28px;padding:0 15px;border:0;border-radius:5px;
+  text-decoration:none;color:var(--red);background:#F5F3EF var(--mv-push);box-shadow:var(--mv-push-sh);text-shadow:0 1px 0 #fff}
+.service-link.service-link:hover{color:var(--red);background:var(--mv-push-h)}
+.service-link.service-link:active{background:var(--mv-push-a);box-shadow:var(--mv-push-ash)}
+
+/* ---------- 10. LES LISTES : en-tete en degrade, lignes zebrees ---------- */
+.pol-table,.pol-body table{border-collapse:separate;border-spacing:0;border-radius:5px;overflow:hidden;background:#fff;
+  box-shadow:0 0 0 1px rgba(40,34,26,.2),0 8px 20px -16px rgba(22,30,58,.4)}
+.pol-table th,.pol-body th{padding-left:14px;background:linear-gradient(180deg,#FBFAF8,#E8E5DF);color:#4A4741;text-shadow:0 1px 0 #fff;
+  box-shadow:inset 0 1px 0 #fff,inset 0 -1px 0 #B8B2A6,inset -1px 0 0 rgba(40,34,26,.1);border:0}
+.pol-table td,.pol-body td{padding-left:14px;border:0;box-shadow:inset 0 -1px 0 rgba(40,34,26,.06)}
+.pol-table tbody tr:nth-child(even) td,.pol-body tbody tr:nth-child(even) td{background:#F3F6FA}
+.xb-table.xb-table{border-top:0;border-radius:5px;overflow:hidden;background:#fff;
+  box-shadow:0 0 0 1px rgba(40,34,26,.2),0 10px 24px -18px rgba(22,30,58,.45)}
+.xb-table .xbt-row{border-top:0;border-bottom:0}
+.xb-table .xbt-row:nth-child(odd):not(.xbt-head){background:#F3F6FA}
+.xb-table .xbt-head{background:linear-gradient(180deg,#FBFAF8,#E8E5DF);box-shadow:inset 0 1px 0 #fff,inset 0 -1px 0 #B8B2A6;text-shadow:0 1px 0 #fff}
+
+/* ---------- 11. LE CONTACT : une carte en relief ---------- */
+.lf-dir.lf-dir{padding:22px 26px 24px;border-left:0;border-radius:6px;background:#FFFEFB linear-gradient(180deg,#FFFFFF,#FBF8F2);
+  box-shadow:0 0 0 1px rgba(40,34,26,.13),inset 0 1px 0 #fff,inset 0 3px 0 var(--ultra),0 1px 2px rgba(40,34,26,.08),0 18px 34px -22px rgba(22,30,58,.5)}
+.lf-dir.lf-dir .lf-e + .lf-e{padding-top:var(--s5);box-shadow:inset 0 1px 0 rgba(40,34,26,.08)}
+@media (max-width:1180px){ .lf-dir.lf-dir .lf-e + .lf-e{padding-top:0;box-shadow:none} }
+
+/* ---------- 12. LE PIED : les badges dans des creux ---------- */
+.footer-badges.footer-badges{gap:10px}
+.footer-badge.footer-badge{padding:5px 11px 4px;border-radius:11px;background:rgba(0,0,0,.22);
+  box-shadow:inset 0 1px 2px rgba(0,0,0,.5),0 1px 0 rgba(255,255,255,.09)}
+
+/* ---------- 13. LE BANDEAU DES TEXTES, sur telephone : rien ne deborde, des filets horizontaux ---------- */
+@media (max-width:600px){
+  .tk .tk-a{white-space:normal;flex-wrap:wrap;justify-content:center;text-align:center;row-gap:3px;width:100%;border-right:0}
+  .tk .tk-a + .tk-a{border-top:1px solid rgba(201,165,92,.16)}
+}
+
+/* ---------- 14. sur telephone ---------- */
+@media (max-width:600px){
+  .tsp .tsp-k.tsp-k{margin-left:12px}
+  .tsp .tsp-b.tsp-b{padding:12px 12px 14px}
+  .lf-dir.lf-dir{padding:18px 18px 20px}
+}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://lexoral.org/quebec/#webpage", "url": "https://lexoral.org/quebec/", "name": "Legal transcription in Quebec", "description": "Bilingual legal transcription in Quebec: examinations, arbitrations, tribunal hearings in Montreal, Quebec City and Gatineau. Attested, original language.", "inLanguage": "en-CA", "isPartOf": {"@id": "https://lexoral.org/#website"}, "publisher": {"@id": "https://lexoral.org/#org"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Lexoral", "item": "https://lexoral.org/"}, {"@type": "ListItem", "position": 2, "name": "Legal transcription in Quebec", "item": "https://lexoral.org/quebec/"}]}, {"@type": "Service", "@id": "https://lexoral.org/quebec/#service", "name": "Legal transcription in Quebec", "serviceType": "Bilingual French-English legal transcription", "provider": {"@id": "https://lexoral.org/#org"}, "inLanguage": "en-CA", "url": "https://lexoral.org/quebec/", "availableLanguage": ["fr-CA", "en-CA"], "areaServed": [{"@type": "AdministrativeArea", "name": "Quebec"}, {"@type": "City", "name": "Montreal"}, {"@type": "City", "name": "Quebec City"}, {"@type": "City", "name": "Laval"}, {"@type": "City", "name": "Gatineau"}, {"@type": "City", "name": "Longueuil"}, {"@type": "City", "name": "Sherbrooke"}, {"@type": "City", "name": "Trois-Rivieres"}, {"@type": "City", "name": "Saguenay"}, {"@type": "City", "name": "Levis"}]}]}</script>
 </head>
@@ -3240,7 +3454,7 @@ Accreditation is granted by the Barreau’s Comité sur la sténographie, and th
 languages it covers.</p>
 <div class="auth"><span class="auth-k">B-1, r. 13</span><p class="auth-q">“The accreditation is valid for the methods and languages indicated thereon.”</p><p class="auth-c">Regulation respecting the training, skill and knowledge evaluation, accreditation and discipline of stenographers, CQLR c. B-1, r. 13, s. 1 · enabling Act: Stenographers’ Act, CQLR c. S-33, s. 3</p></div>
 <p>The Barreau’s published roll of official stenographers carries a <em>langue</em> column for exactly
-this reason; a stenographer authorised in both appears twice. The province has, in other words, already
+this reason; a stenographer authorized in both appears twice. The province has, in other words, already
 decided that taking a record in French and taking one in English are two different competences.</p>
 <div class="fit-honest"><span class="fh-k">How the work divides</span>
 <p>Quebec reserves the official record to accredited stenographers, and the attestation is granted by language, which is why only a minority of the roll can carry a bilingual proceeding alone. We produce the other half: attested transcripts from the recording, in both languages, including the part an official transcript of a bilingual hearing leaves undone. The official stenographer&rsquo;s certificate is a separate document. Where your filing needs one, our partner official stenographer, accredited in French and in English, checks our transcript against the recording and certifies it, on one quote and one invoice: see <a href="/certified-transcripts/">certified transcripts</a>. And because we work from the recording, a stenographer already on the file can engage us too.</p></div></div></div></div></section><section class="pol"><div class="container"><div class="pol-in"><span class="pol-n">L. 04</span><div class="pol-body"><h2 class="pol-h">What we transcribe here</h2><p>Raw list, no qualifiers.</p>
