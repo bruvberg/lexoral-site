@@ -3185,6 +3185,220 @@ footer{background:var(--ultra-d) linear-gradient(180deg,var(--ultra-d),var(--ult
    ========================================================================= */
 .service-p a:not([class]){color:var(--ultra);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
 .service-p a:not([class]):hover,.service-p a:not([class]):focus-visible{color:var(--red)}
+/* =========================================================================
+   V27 — L'EPOQUE MAVERICKS, EN INSPIRATION (Brian, 19 et 20 octobre 2026)
+
+   19 oct. : « le design un peu 3D, tous les elements un peu a l'ancienne, genre les boutons ».
+   20 oct. : « attention, je veux pas un systeme d'exploitation en design, juste inspire-toi ».
+
+   Donc rien qui imite le Mac (ni fenetres, ni feux, ni noms de fichiers, ni Lucida, ni Dock).
+   On garde ce que cette epoque avait de beau, la matiere, dans le vocabulaire du dossier :
+     - le papier : le specimen en liasse, tenu par un trombone ; les formats et les schemas
+       sur des fiches, avec une etiquette d'onglet comme dans un classeur de pieces ;
+     - l'enregistrement dans un cadran en creux, la lecture sur une touche rouge en gel ;
+     - les commandes en relief : le gel sur les touches, la barre en degrade, EN/FR et les
+       forums en commande segmentee, des boutons ronds, des triangles, un bouton a chevron ;
+     - les listes : en-tetes en degrade, lignes zebrees ; le contact sur une carte en relief ;
+       les badges du pied dans des creux.
+   Garamond, Courier, l'outremer, le vermillon, le creme, les filets rouges : inchanges.
+   ========================================================================= */
+
+:root{
+  --mv-gel:linear-gradient(180deg,rgba(255,255,255,.30) 0,rgba(255,255,255,.11) 47%,rgba(255,255,255,0) 52%,rgba(255,255,255,0) 78%,rgba(255,255,255,.10) 100%);
+  --mv-push:linear-gradient(180deg,#FFFFFF,#EAE7E1);
+  --mv-push-h:linear-gradient(180deg,#FFFFFF,#F3F1EC);
+  --mv-push-a:linear-gradient(180deg,#D9D5CE,#EBE8E2);
+  --mv-ring:rgba(40,34,26,.24);
+  --mv-push-sh:inset 0 0 0 1px rgba(60,48,36,.3),inset 0 1px 0 #fff,0 1px 1px rgba(40,34,26,.14);
+  --mv-push-ash:inset 0 0 0 1px rgba(60,48,36,.38),inset 0 1px 3px rgba(40,34,26,.28);
+  /* une liasse : la feuille, deux feuilles dessous, l'ombre portee */
+  --mv-stack:0 0 0 1px rgba(40,34,26,.12),0 1px 2px rgba(40,34,26,.10),
+    5px 5px 0 -1px #FBF9F4,5px 5px 0 0 rgba(40,34,26,.13),
+    10px 10px 0 -1px #F5F2EA,10px 10px 0 0 rgba(40,34,26,.11),
+    0 28px 44px -24px rgba(22,30,58,.5);
+  --mv-card:0 0 0 1px rgba(40,34,26,.13),0 1px 2px rgba(40,34,26,.08),
+    4px 4px 0 -1px #FAF8F3,4px 4px 0 0 rgba(40,34,26,.10),0 18px 30px -20px rgba(22,30,58,.42);
+  /* l'etiquette d'onglet, couleur chemise kraft */
+  --mv-tab:#EEE4CF;--mv-tab-g:linear-gradient(180deg,#F6EFDF,#E8DCC2);--mv-tab-t:#5E4C2F;
+}
+
+/* ---------- 0. la selection et le focus, aux couleurs de la maison ---------- */
+::selection{background:rgba(35,64,142,.17);color:inherit}
+:focus-visible{outline-color:var(--ultra)!important}
+footer :focus-visible,.tk :focus-visible,.who14 :focus-visible,.nav-links :focus-visible,.nav-index :focus-visible{outline-color:var(--gold)!important}
+
+/* ---------- 1. LE PAPIER ---------- */
+/* le specimen : une liasse, et un trombone qui la tient */
+.sp14 .sp-page{border:0;border-radius:2px;box-shadow:var(--mv-stack)}
+.sp14 .sp-hd{position:relative}
+.sp14 .sp-hd::before{content:'';position:absolute;left:-12px;top:-50px;width:22px;height:64px;pointer-events:none;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1'%3E%3Cstop offset='0' stop-color='%23E6E8EC'/%3E%3Cstop offset='.45' stop-color='%23959AA3'/%3E%3Cstop offset='.7' stop-color='%23D4D7DC'/%3E%3Cstop offset='1' stop-color='%23878C95'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M7 16v32a4 4 0 0 0 8 0V9a6 6 0 0 0-12 0v42a8 8 0 0 0 16 0V20' fill='none' stroke='url(%23g)' stroke-width='2.3' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat;
+  filter:drop-shadow(1px 2px 1px rgba(30,24,16,.28))}
+@media (max-width:600px){ .sp14 .sp-hd::before{left:-6px;top:-34px;width:16px;height:46px;background-size:contain} }
+
+/* les formats (services) : une fiche, et son etiquette d'onglet qui pend du bord */
+.tsp.tsp{margin-top:var(--s6);padding:0;border:0;border-radius:4px;background:#fff;box-shadow:var(--mv-card)}
+.tsp .tsp-k.tsp-k,.dgm .dgm-k.dgm-k{
+  display:block;width:max-content;max-width:calc(100% - 24px);box-sizing:border-box;position:relative;z-index:1;transform:none;border:0;border-radius:0 0 6px 6px;
+  padding:9px 15px 7px;background:var(--mv-tab) var(--mv-tab-g);color:var(--mv-tab-t);text-shadow:0 1px 0 rgba(255,255,255,.65);
+  box-shadow:inset 1px 0 0 rgba(120,96,56,.16),inset -1px 0 0 rgba(120,96,56,.16),inset 0 -1px 0 rgba(120,96,56,.28),0 3px 4px -2px rgba(70,50,20,.3)}
+.tsp .tsp-k.tsp-k::before,.tsp .tsp-k.tsp-k::after,.dgm .dgm-k.dgm-k::before,.dgm .dgm-k.dgm-k::after{content:none}
+.tsp .tsp-k.tsp-k{margin:0 0 0 20px}
+.tsp .tsp-b.tsp-b{padding:14px 20px 18px;border:0;border-radius:0 0 4px 4px;
+  /* l'ombre au bord qui a encore du texte a montrer, sur la fiche blanche */
+  background:linear-gradient(to right,#fff 55%,rgba(255,255,255,0)) left center/40px 100% no-repeat local,
+    linear-gradient(to left,#fff 55%,rgba(255,255,255,0)) right center/40px 100% no-repeat local,
+    linear-gradient(to right,rgba(40,34,26,.2),rgba(40,34,26,0)) left center/14px 100% no-repeat scroll,
+    linear-gradient(to left,rgba(40,34,26,.2),rgba(40,34,26,0)) right center/14px 100% no-repeat scroll,#fff}
+
+/* les schemas : la meme fiche ; l'etiquette pend du bord superieur, quel que soit le cadre */
+.dgm.dgm,.why-section .dgm.dgm,.cross-section:has(.xb-probs) .dgm.dgm,.pol-body .dgm.dgm{border-radius:4px;box-shadow:var(--mv-card)}
+.dgm .dgm-k.dgm-k{margin:0 0 var(--s5)}
+.why-section .dgm .dgm-k.dgm-k,.cross-section:has(.xb-probs) .dgm .dgm-k.dgm-k{margin-top:calc(-1 * var(--s6))}
+.pol-body .dgm .dgm-k.dgm-k{margin-top:calc(-7px - var(--s5))}
+@media (max-width:900px){ .why-section .dgm.dgm,.cross-section:has(.xb-probs) .dgm.dgm{border-radius:0} }
+
+/* ---------- 2. L'ENREGISTREMENT : un cadran en creux ---------- */
+.wvf.wvf{padding:18px 22px 0;border-top:0;border-radius:9px;background:#F8F6F1 linear-gradient(180deg,#FBFAF7,#F2EEE6);
+  box-shadow:inset 0 2px 4px rgba(40,34,26,.16),inset 0 0 0 1px rgba(40,34,26,.13),0 1px 0 #fff}
+.wvf.wvf > figcaption{margin:14px -22px 0;padding:12px 22px 14px;border-top:0;border-radius:0 0 9px 9px;
+  background:linear-gradient(180deg,rgba(255,255,255,.75),rgba(255,255,255,.25));box-shadow:inset 0 1px 0 rgba(40,34,26,.10)}
+.wvf .wv-play.wv-play{border-radius:14px;padding:6px 15px 6px 12px;color:#fff;
+  background-color:#A92D27;background-image:var(--mv-gel),linear-gradient(180deg,#C63E33,#A92D27);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.3),inset 0 0 0 1px rgba(94,23,20,.45),0 2px 5px -2px rgba(94,23,20,.55);
+  text-shadow:0 -1px 0 rgba(70,14,12,.4)}
+.wvf .wv-play.wv-play:hover{color:#fff;background-color:#B0302A;background-image:var(--mv-gel),linear-gradient(180deg,#CF4639,#B0302A)}
+.wvf .wv-play.wv-play:active{background-image:linear-gradient(180deg,rgba(0,0,0,.1),rgba(255,255,255,.05)),linear-gradient(180deg,#A92D27,#C63E33);
+  box-shadow:inset 0 1px 3px rgba(60,10,8,.55),inset 0 0 0 1px rgba(94,23,20,.5)}
+@media (max-width:600px){
+  .wvf.wvf{padding:12px 12px 0}
+  .wvf.wvf > figcaption{margin:12px -12px 0;padding:10px 12px 12px}
+}
+
+/* ---------- 3. LES TOUCHES : le gel sur la face ---------- */
+.btn-primary.btn-primary.btn-primary,.nav-cta.nav-cta.nav-cta,.nav-index a.ni-cta.ni-cta,.cx-key.cx-compose.cx-compose,
+.btn-outline-w.btn-outline-w.btn-outline-w,.nav-menu.nav-menu.nav-menu,.cx-key.cx-copy.cx-copy,
+.sp-dl.sp-dl.sp-dl,.spec-dl.spec-dl.spec-dl,.cross-cta.cross-cta.cross-cta,.faq-btn.faq-btn.faq-btn,
+.btn-primary.btn-primary.btn-primary:hover,.nav-cta.nav-cta.nav-cta:hover,.nav-index a.ni-cta.ni-cta:hover,.cx-key.cx-compose.cx-compose:hover,
+.btn-outline-w.btn-outline-w.btn-outline-w:hover,.nav-menu.nav-menu.nav-menu:hover,.cx-key.cx-copy.cx-copy:hover,
+.sp-dl.sp-dl.sp-dl:hover,.spec-dl.spec-dl.spec-dl:hover,.cross-cta.cross-cta.cross-cta:hover,.faq-btn.faq-btn.faq-btn:hover{
+  background-image:var(--mv-gel),linear-gradient(180deg,var(--k1),var(--k2))}
+.btn-primary.btn-primary.btn-primary:active,.nav-cta.nav-cta.nav-cta:active,.cx-key.cx-compose.cx-compose:active,
+.btn-outline-w.btn-outline-w.btn-outline-w:active,.cx-key.cx-copy.cx-copy:active,.sp-dl.sp-dl.sp-dl:active,
+.spec-dl.spec-dl.spec-dl:active,.cross-cta.cross-cta.cross-cta:active,.faq-btn.faq-btn.faq-btn:active{
+  background-image:linear-gradient(180deg,rgba(0,0,0,.08),rgba(255,255,255,.06)),linear-gradient(180deg,var(--k2),var(--k1))}
+
+/* ---------- 4. LA BARRE : un degrade, la page ouverte reste la touche enfoncee ---------- */
+@media (min-width:1180px){
+  .nav-links.nav-links{background:linear-gradient(180deg,#3051A6 0,#26459A 50%,#1F3B88 100%);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.2),inset 0 -1px 0 rgba(6,14,40,.55)}
+  .nav-links.nav-links a:not(.nl-mono){background-image:var(--mv-gel),linear-gradient(180deg,#3557AA,#2A4A9B)}
+  .nav-links.nav-links a:not(.nl-mono):hover{background-image:var(--mv-gel),linear-gradient(180deg,#3B5EB3,#2E4FA2)}
+  .nav-links.nav-links a.nl-cta{background-image:var(--mv-gel),linear-gradient(180deg,#C63E33,#A92D27)}
+  .nav-links.nav-links a.nl-cta:hover{background-image:var(--mv-gel),linear-gradient(180deg,#CF4639,#B0302A)}
+  .nav-links.nav-links a.on:not(.nl-cta),.nav-links.nav-links a.on:not(.nl-cta):hover{background-image:linear-gradient(180deg,#1A3271,#1F3B82)}
+}
+
+/* ---------- 5. EN / FR : une commande segmentee ---------- */
+.nav-lang.nav-lang{display:inline-flex;gap:0;padding:0;border-radius:5px;background:var(--mv-push);
+  box-shadow:inset 0 0 0 1px var(--mv-ring),0 1px 0 rgba(255,255,255,.9),0 1px 2px rgba(40,34,26,.12)}
+.nav-lang.nav-lang a{position:relative;padding:5px 11px;border-radius:0;background:none;box-shadow:none;color:var(--t-2);text-shadow:0 1px 0 #fff}
+.nav-lang.nav-lang a::before,.nav-lang.nav-lang a::after{content:none}
+.nav-lang.nav-lang a + a{box-shadow:inset 1px 0 0 rgba(40,34,26,.2)}
+.nav-lang.nav-lang a:first-child{border-radius:5px 0 0 5px}
+.nav-lang.nav-lang a:last-child{border-radius:0 5px 5px 0}
+.nav-lang.nav-lang a:hover{color:var(--ultra);background:rgba(255,255,255,.7)}
+.nav-lang.nav-lang a.active,.nav-lang.nav-lang a.active:hover{color:#fff;font-weight:700;text-shadow:0 -1px 0 rgba(8,16,40,.45);
+  background:#23408E linear-gradient(180deg,#1B3576,#2A4A9B);box-shadow:inset 0 1px 3px rgba(5,12,32,.55),inset 0 0 0 1px rgba(10,22,58,.6)}
+@media (max-width:600px){ .nav-lang.nav-lang a{padding:7px 11px} }
+
+/* ---------- 6. LES ONGLETS DES FORUMS : une commande segmentee ---------- */
+.jm-tabs.jm-tabs{gap:0;border-radius:7px;background:var(--mv-push);
+  box-shadow:inset 0 0 0 1px var(--mv-ring),0 1px 2px rgba(40,34,26,.12),0 14px 28px -18px rgba(22,30,58,.5)}
+.jm-tabs.jm-tabs .jm-tab{background:none;border-radius:0;transform:none;box-shadow:inset -1px 0 0 rgba(40,34,26,.16)}
+.jm-tabs.jm-tabs .jm-tab:first-child{border-radius:7px 0 0 7px}
+.jm-tabs.jm-tabs .jm-tab:last-child{border-radius:0 7px 7px 0;box-shadow:none}
+.jm-tabs.jm-tabs .jm-tab:hover{transform:none;background:rgba(255,255,255,.75)}
+.jm-tabs.jm-tabs .jm-tab[aria-selected="true"]{transform:none;background:#23408E linear-gradient(180deg,#1B3576,#2A4A9B);
+  box-shadow:inset 0 2px 5px rgba(5,12,32,.55),inset 0 0 0 1px rgba(10,22,58,.6)}
+.jm-tabs.jm-tabs .jm-tab[aria-selected="true"]::after{left:50%;margin-left:-8px}
+@media (max-width:1100px){
+  .jm-tabs.jm-tabs .jm-tab:nth-child(1){border-radius:7px 0 0 0;box-shadow:inset -1px 0 0 rgba(40,34,26,.16),inset 0 -1px 0 rgba(40,34,26,.16)}
+  .jm-tabs.jm-tabs .jm-tab:nth-child(2){border-radius:0 7px 0 0;box-shadow:inset 0 -1px 0 rgba(40,34,26,.16)}
+  .jm-tabs.jm-tabs .jm-tab:nth-child(3){border-radius:0 0 0 7px;box-shadow:inset -1px 0 0 rgba(40,34,26,.16)}
+  .jm-tabs.jm-tabs .jm-tab:nth-child(4){border-radius:0 0 7px 0;box-shadow:none}
+  .jm-tabs.jm-tabs .jm-tab[aria-selected="true"]{box-shadow:inset 0 2px 5px rgba(5,12,32,.55),inset 0 0 0 1px rgba(10,22,58,.6)}
+}
+@media (max-width:600px){ .jm-tabs.jm-tabs{gap:0} }
+
+/* ---------- 7. LES BOUTONS RONDS ---------- */
+.stg-next.stg-next i,.jm-arrows.jm-arrows button{border-radius:50%;background:var(--mv-push);
+  box-shadow:inset 0 0 0 1px rgba(60,48,36,.32),inset 0 2px 0 rgba(255,255,255,.9),0 1px 2px rgba(40,34,26,.2),0 4px 9px -5px rgba(40,34,26,.4)}
+.stg-next.stg-next i{color:var(--red)}
+.jm-arrows.jm-arrows button{color:var(--ultra)}
+.stg-next.stg-next:hover i,.jm-arrows.jm-arrows button:hover{background:var(--mv-push-h);color:var(--ultra)}
+.stg-next.stg-next:active i,.jm-arrows.jm-arrows button:active{background:var(--mv-push-a);box-shadow:var(--mv-push-ash)}
+
+/* ---------- 8. LES TRIANGLES ET LE BOUTON A CHEVRON ---------- */
+.js .tree-more.tree-more i{order:-1;width:0;height:0;margin:0;border:0;border-style:solid;border-width:4.5px 0 4.5px 7px;
+  border-color:transparent transparent transparent #7A766D;transform:none;transition:transform .16s ease}
+.js .tree-more.tree-more[aria-expanded="true"] i{transform:rotate(90deg)}
+.js .tree-more.tree-more{gap:7px}
+
+.faq-item:nth-child(even){background:rgba(35,64,142,.028)}
+.faq-q:hover{background:rgba(35,64,142,.045)}
+.faq-item.open > .faq-q{background:linear-gradient(180deg,rgba(35,64,142,.085),rgba(35,64,142,.05))}
+.faq-q:focus-visible{outline:2px solid var(--ultra);outline-offset:-2px}
+.faq-toggle.faq-toggle,.faq-item.open .faq-toggle.faq-toggle{position:relative;width:21px;height:21px;align-self:center;font-size:0;line-height:0;color:transparent;
+  border-radius:5px;transform:none;background:var(--mv-push);box-shadow:var(--mv-push-sh)}
+.faq-toggle.faq-toggle::before{content:'';position:absolute;left:50%;top:50%;width:5px;height:5px;margin:-4.5px 0 0 -3px;
+  border-right:1.6px solid #5B574F;border-bottom:1.6px solid #5B574F;transform:rotate(45deg);transition:transform .18s ease}
+.faq-item.open .faq-toggle.faq-toggle{background:var(--mv-push-a);box-shadow:var(--mv-push-ash)}
+.faq-item.open .faq-toggle.faq-toggle::before{transform:translateY(2.5px) rotate(-135deg)}
+@media (prefers-reduced-motion:reduce){ .faq-toggle::before,.tree-more i{transition:none!important} }
+
+/* ---------- 9. LES PETITS BOUTONS POUSSOIRS ---------- */
+.service-link.service-link{display:inline-flex;align-items:center;height:28px;padding:0 15px;border:0;border-radius:5px;
+  text-decoration:none;color:var(--red);background:#F5F3EF var(--mv-push);box-shadow:var(--mv-push-sh);text-shadow:0 1px 0 #fff}
+.service-link.service-link:hover{color:var(--red);background:var(--mv-push-h)}
+.service-link.service-link:active{background:var(--mv-push-a);box-shadow:var(--mv-push-ash)}
+
+/* ---------- 10. LES LISTES : en-tete en degrade, lignes zebrees ---------- */
+.pol-table,.pol-body table{border-collapse:separate;border-spacing:0;border-radius:5px;overflow:hidden;background:#fff;
+  box-shadow:0 0 0 1px rgba(40,34,26,.2),0 8px 20px -16px rgba(22,30,58,.4)}
+.pol-table th,.pol-body th{padding-left:14px;background:linear-gradient(180deg,#FBFAF8,#E8E5DF);color:#4A4741;text-shadow:0 1px 0 #fff;
+  box-shadow:inset 0 1px 0 #fff,inset 0 -1px 0 #B8B2A6,inset -1px 0 0 rgba(40,34,26,.1);border:0}
+.pol-table td,.pol-body td{padding-left:14px;border:0;box-shadow:inset 0 -1px 0 rgba(40,34,26,.06)}
+.pol-table tbody tr:nth-child(even) td,.pol-body tbody tr:nth-child(even) td{background:#F3F6FA}
+.xb-table.xb-table{border-top:0;border-radius:5px;overflow:hidden;background:#fff;
+  box-shadow:0 0 0 1px rgba(40,34,26,.2),0 10px 24px -18px rgba(22,30,58,.45)}
+.xb-table .xbt-row{border-top:0;border-bottom:0}
+.xb-table .xbt-row:nth-child(odd):not(.xbt-head){background:#F3F6FA}
+.xb-table .xbt-head{background:linear-gradient(180deg,#FBFAF8,#E8E5DF);box-shadow:inset 0 1px 0 #fff,inset 0 -1px 0 #B8B2A6;text-shadow:0 1px 0 #fff}
+
+/* ---------- 11. LE CONTACT : une carte en relief ---------- */
+.lf-dir.lf-dir{padding:22px 26px 24px;border-left:0;border-radius:6px;background:#FFFEFB linear-gradient(180deg,#FFFFFF,#FBF8F2);
+  box-shadow:0 0 0 1px rgba(40,34,26,.13),inset 0 1px 0 #fff,inset 0 3px 0 var(--ultra),0 1px 2px rgba(40,34,26,.08),0 18px 34px -22px rgba(22,30,58,.5)}
+.lf-dir.lf-dir .lf-e + .lf-e{padding-top:var(--s5);box-shadow:inset 0 1px 0 rgba(40,34,26,.08)}
+@media (max-width:1180px){ .lf-dir.lf-dir .lf-e + .lf-e{padding-top:0;box-shadow:none} }
+
+/* ---------- 12. LE PIED : les badges dans des creux ---------- */
+.footer-badges.footer-badges{gap:10px}
+.footer-badge.footer-badge{padding:5px 11px 4px;border-radius:11px;background:rgba(0,0,0,.22);
+  box-shadow:inset 0 1px 2px rgba(0,0,0,.5),0 1px 0 rgba(255,255,255,.09)}
+
+/* ---------- 13. LE BANDEAU DES TEXTES, sur telephone : rien ne deborde, des filets horizontaux ---------- */
+@media (max-width:600px){
+  .tk .tk-a{white-space:normal;flex-wrap:wrap;justify-content:center;text-align:center;row-gap:3px;width:100%;border-right:0}
+  .tk .tk-a + .tk-a{border-top:1px solid rgba(201,165,92,.16)}
+}
+
+/* ---------- 14. sur telephone ---------- */
+@media (max-width:600px){
+  .tsp .tsp-k.tsp-k{margin-left:12px}
+  .tsp .tsp-b.tsp-b{padding:12px 12px 14px}
+  .lf-dir.lf-dir{padding:18px 18px 20px}
+}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "@id": "https://lexoral.org/blogue/veille-2026-10-12/#article", "mainEntityOfPage": "https://lexoral.org/blogue/veille-2026-10-12/", "url": "https://lexoral.org/blogue/veille-2026-10-12/", "headline": "Veille : transcription et justice au Canada et aux États-Unis — mi-octobre 2026", "description": "Transcription par IA devant la Cour suprême du Texas, enregistrement des audiences en Oklahoma, et les deux langues officielles dans l’IA fédérale.", "inLanguage": "fr-CA", "datePublished": "2026-10-12", "dateModified": "2026-10-12", "author": {"@type": "Organization", "@id": "https://lexoral.org/#org", "name": "Lexoral", "url": "https://lexoral.org/", "logo": "https://lexoral.org/logo.svg"}, "publisher": {"@type": "Organization", "@id": "https://lexoral.org/#org", "name": "Lexoral", "url": "https://lexoral.org/", "logo": "https://lexoral.org/logo.svg"}, "image": "https://lexoral.org/og.png", "isPartOf": {"@type": "Blog", "@id": "https://lexoral.org/blogue/#blog", "url": "https://lexoral.org/blogue/"}, "articleSection": "Veille", "citation": ["https://news.bloomberglaw.com/litigation/ai-transcription-savings-may-outweigh-errors-texas-justices-say", "https://www.courthousenews.com/texas-high-court-toys-with-ai-transcripts-for-witness-depositions/", "https://www.newsfromthestates.com/node/431236", "https://okcfox.com/news/local/court-reporter-shortage-prompts-push-for-video-in-oklahoma-courtrooms", "https://www.newswire.ca/news-releases/2025-2026-annual-report-turning-commitment-into-action-838838590.html", "https://www.lesoleil.com/actualites/politique/2026/10/08/air-canada-redevient-le-cancre-des-langues-officielles-GMDJFL356FE3ZJSDCZ4LQAPBRU/", "https://courdappelduquebec.ca/fileadmin/dossiers_civils/avis_et_formulaires/LignesDirectricesUtilisationIntelligenceArtificielle-31aout2026.pdf"]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Lexoral", "item": "https://lexoral.org/fr/"}, {"@type": "ListItem", "position": 2, "name": "Blogue", "item": "https://lexoral.org/blogue/"}, {"@type": "ListItem", "position": 3, "name": "Veille : transcription et justice au Canada et aux États-Unis — mi-octobre 2026", "item": "https://lexoral.org/blogue/veille-2026-10-12/"}]}]}</script>
 </head>
@@ -3226,7 +3440,7 @@ footer{background:var(--ultra-d) linear-gradient(180deg,var(--ultra-d),var(--ult
     </div>
   </div>
 </nav>
-<main id="main"><section class="pol-head"><div class="container"><div class="section-tag"><span class="st-br">[</span><a href="/blogue/">Blogue</a><span class="st-br">]</span></div><h1 class="pol-title">Veille : transcription et justice au Canada et aux États-Unis — mi-octobre 2026</h1><p class="pol-sub">Au Texas, plusieurs juges de la Cour suprême de l’État semblent ouverts à une transcription faite avec l’IA ; l’Oklahoma étudie l’enregistrement de ses audiences faute de sténographes ; et la commissaire aux langues officielles veut que l’IA fédérale respecte les deux langues.</p><p class="bl-meta"><time datetime="2026-10-12">12 octobre 2026</time> · Veille · 4 min de lecture</p></div></section><section class="pol"><div class="container"><div class="pol-in"><span class="pol-n">§ 1</span><div class="pol-body"><h2 class="pol-h">Texas : la Cour suprême de l’État entend l’affaire de la transcription faite avec l’IA</h2><p>Le 6 octobre 2026, la Cour suprême du Texas a entendu l’affaire <i>In re Hughey</i> (n<sup>o</sup>&nbsp;25&#8209;0463), dont nous parlions dans <a href="/blogue/veille-2026-09-30/">notre veille de fin septembre</a>. Patrick Hughey poursuit son ancien employeur, Reddico Construction, pour congédiement abusif. Il a enregistré la déposition d’un représentant de l’entreprise avec Skribe.ai, un logiciel qui la transcrit à l’aide de l’intelligence artificielle, sans sténographe. Le tribunal du comté de Montgomery a écarté cette transcription en avril 2025, faute d’avoir été préparée par un sténographe certifié, et la cour d’appel a refusé d’intervenir. Selon Bloomberg Law, plusieurs juges ont laissé entendre que les économies permises par l’IA pourraient l’emporter sur le risque d’erreurs ; le juge Evan Young a rappelé que l’enregistrement vidéo permet de vérifier la transcription et qu’un tribunal peut toujours exiger un sténographe certifié. La juge Jane Bland a posé la question inverse, rapporte Courthouse News : qui se porte garant d’une transcription qu’on veut utiliser comme si une personne l’avait attestée ? La décision est attendue.</p><p><strong>Pourquoi ça compte :</strong> la question de la juge Bland est celle que tous les tribunaux finiront par poser ; une transcription vaut ce que vaut la personne qui en répond.</p></div></div></div></section><section class="pol"><div class="container"><div class="pol-in"><span class="pol-n">§ 2</span><div class="pol-body"><h2 class="pol-h">Oklahoma : enregistrer les audiences faute de sténographes</h2><p>Le 7 octobre 2026, la sénatrice Christi Gillespie et le représentant Derrick Hildebrant ont tenu, à l’Assemblée législative de l’Oklahoma, une séance d’étude sur l’enregistrement audio et vidéo des audiences. Selon le juge en chef Dustin Rowe, 75 des 198 postes de sténographe judiciaire de l’État sont vacants ; dans certains comtés, un seul sténographe sert plusieurs juges. Le projet discuté : un projet pilote de trois ans dans 12 salles d’audience, équipées d’appareils d’enregistrement fixes, au coût estimé de 2,3 millions de dollars américains. Selon la sénatrice, il ne s’agit pas de diffuser les audiences en direct, et un sténographe certifié continuerait de certifier toute transcription officielle. Le juge en chef a mis en garde contre des extraits détournés sur les réseaux sociaux ; Laura Griffin, sténographe depuis 37 ans, a soutenu que les enregistrements « ne devraient pas remplacer le gardien du dossier » (notre traduction). Un projet de loi en ce sens n’avait pas été adopté par le Sénat à la dernière session ; les élus poursuivent leur examen.</p><p><strong>Pourquoi ça compte :</strong> même là où l’on enregistre faute de sténographes, une personne certifie encore la transcription ; l’enregistrement préserve la preuve, il ne la met pas par écrit.</p></div></div></div></section><section class="pol"><div class="container"><div class="pol-in"><span class="pol-n">§ 3</span><div class="pol-body"><h2 class="pol-h">Ottawa : les deux langues officielles dans l’IA fédérale</h2><p>Le 8 octobre 2026, la commissaire aux langues officielles, Kelly Burke, a déposé au Parlement le rapport annuel 2025-2026 de son commissariat, qui porte sur la dernière année du mandat de son prédécesseur, Raymond Théberge. Le commissariat a reçu 4&nbsp;110 plaintes recevables, dont 3&nbsp;632 sur les communications avec le public et la prestation des services. La commissaire recommande que, d’ici le 31 mars 2027, le Secrétariat du Conseil du Trésor intègre les langues officielles à la stratégie d’intelligence artificielle de la fonction publique fédérale et à son guide sur l’IA générative. Selon Le Droit, elle a souligné que l’IA peut comporter des biais linguistiques et culturels, et qu’elle ne doit jamais faire baisser la qualité des services dans l’une ou l’autre langue.</p><p><strong>Pourquoi ça compte :</strong> un outil d’IA n’est pas neutre entre le français et l’anglais ; une transcription bilingue doit être aussi juste dans une langue que dans l’autre, et cela se vérifie à l’écoute.</p></div></div></div></section><section class="pol"><div class="container"><div class="pol-in"><span class="pol-n">§ 4</span><div class="pol-body"><h2 class="pol-h">Ce qu’on en retient</h2><p>Trois endroits, une même ligne de partage. Au Texas, on se demande qui répond d’une transcription produite par une machine ; en Oklahoma, on enregistrerait, mais un sténographe certifierait ; à Ottawa, on demande que l’IA respecte les deux langues. Au Québec, les lignes directrices sur l’IA générative signées le 31 août par les juges en chef des tribunaux québécois déconseillent déjà aux juges de soumettre des enregistrements à un tel outil, tant qu’aucun outil de transcription n’a fait l’objet d’une évaluation institutionnelle. C’est notre façon de travailler : l’enregistrement d’abord, puis une personne qui l’écoute, transcrit chaque langue telle qu’elle a été parlée, et signe.</p></div></div></div></section><section class="pol"><div class="container"><div class="pol-in"><span class="pol-n">Réf.</span><div class="pol-body"><h2 class="pol-h">Sources</h2><ol class="bl-src"><li><a href="https://news.bloomberglaw.com/litigation/ai-transcription-savings-may-outweigh-errors-texas-justices-say" rel="noopener">Bloomberg Law, « AI Transcription Savings May Outweigh Errors, Texas Justices Say » (6 oct. 2026)</a></li><li><a href="https://www.courthousenews.com/texas-high-court-toys-with-ai-transcripts-for-witness-depositions/" rel="noopener">Courthouse News Service, « Texas high court toys with AI transcripts for witness depositions » (6 oct. 2026)</a></li><li><a href="https://www.newsfromthestates.com/node/431236" rel="noopener">Oklahoma Voice (repris par News From The States), « Lawmakers consider introducing recording to Oklahoma courtrooms to assist operations » (7 oct. 2026)</a></li><li><a href="https://okcfox.com/news/local/court-reporter-shortage-prompts-push-for-video-in-oklahoma-courtrooms" rel="noopener">KOKH Fox 25, « Court reporter shortage prompts push for video in Oklahoma courtrooms » (9 oct. 2026)</a></li><li><a href="https://www.newswire.ca/news-releases/2025-2026-annual-report-turning-commitment-into-action-838838590.html" rel="noopener">Commissariat aux langues officielles, communiqué sur le rapport annuel 2025-2026 (8 oct. 2026, en anglais)</a></li><li><a href="https://www.lesoleil.com/actualites/politique/2026/10/08/air-canada-redevient-le-cancre-des-langues-officielles-GMDJFL356FE3ZJSDCZ4LQAPBRU/" rel="noopener">Le Droit (repris par Le Soleil), « Air Canada redevient le cancre des langues officielles » (8 oct. 2026)</a></li><li><a href="https://courdappelduquebec.ca/fileadmin/dossiers_civils/avis_et_formulaires/LignesDirectricesUtilisationIntelligenceArtificielle-31aout2026.pdf" rel="noopener">Juges en chef du Québec, « Lignes directrices sur l’utilisation de l’intelligence artificielle générative par les juges » (31 août 2026)</a></li></ol><p class="bl-disc">Information générale, pas un avis juridique. Les règles changent et varient d’un forum à l’autre : vérifiez le texte en vigueur et ce que votre forum exige.</p></div></div></div></section><section class="pol"><div class="container"><div class="pol-in"><span class="pol-n">Voir</span><div class="pol-body"><h2 class="pol-h">À lire aussi</h2><ul class="bl-also"><li><a href="/blogue/a-quoi-sert-une-transcription-judiciaire/">À quoi sert une transcription judiciaire ? Qui la lit, et comment</a></li><li><a href="/blogue/stenographe-transcripteur-interprete/">Sténographe, transcripteur, interprète : qui fait quoi ?</a></li><li><a href="/blogue/veille-2026-10-05/">Veille : transcription et justice au Canada et aux États-Unis — début octobre 2026</a></li></ul></div></div></div></section><section class="cross-section"><div class="container"><div class="section-header"><div class="section-tag st-plain"><span class="st-br">[</span>La suite<span class="st-br">]</span></div></div><p class="xb-close">Un enregistrement ou une procédure en français, en anglais ou dans les deux langues ? Envoyez-nous la procédure, les langues et l’échéance.</p><a href="/fr/#contact" class="cross-cta">Soumettre un dossier &rarr;</a></div></section></main>
+<main id="main"><section class="pol-head"><div class="container"><div class="section-tag"><span class="st-br">[</span><a href="/blogue/">Blogue</a><span class="st-br">]</span></div><h1 class="pol-title">Veille : transcription et justice au Canada et aux États-Unis — mi-octobre 2026</h1><p class="pol-sub">Au Texas, plusieurs juges de la Cour suprême de l’État semblent ouverts à une transcription faite avec l’IA ; l’Oklahoma étudie l’enregistrement de ses audiences faute de sténographes ; et la commissaire aux langues officielles veut que l’IA fédérale respecte les deux langues.</p><p class="bl-meta"><time datetime="2026-10-12">12 octobre 2026</time> · Veille · 4 min de lecture</p></div></section><section class="pol"><div class="container"><div class="pol-in"><span class="pol-n">§ 1</span><div class="pol-body"><h2 class="pol-h">Texas : la Cour suprême de l’État entend l’affaire de la transcription faite avec l’IA</h2><p>Le 6 octobre 2026, la Cour suprême du Texas a entendu l’affaire <i>In re Hughey</i> (n<sup>o</sup>&nbsp;25&#8209;0463), dont nous parlions dans <a href="/blogue/veille-2026-09-30/">notre veille de fin septembre</a>. Patrick Hughey poursuit son ancien employeur, Reddico Construction, pour congédiement abusif. Il a enregistré la déposition d’un représentant de l’entreprise avec Skribe.ai, un logiciel qui la transcrit à l’aide de l’intelligence artificielle, sans sténographe. Le tribunal du comté de Montgomery a écarté cette transcription en avril 2025, faute d’avoir été préparée par un sténographe certifié, et la cour d’appel a refusé d’intervenir. Selon Bloomberg Law, plusieurs juges ont laissé entendre que les économies permises par l’IA pourraient l’emporter sur le risque d’erreurs ; le juge Evan Young a rappelé que l’enregistrement vidéo permet de vérifier la transcription et qu’un tribunal peut toujours exiger un sténographe certifié. La juge Jane Bland a posé la question inverse, rapporte Courthouse News : qui se porte garant d’une transcription qu’on veut utiliser comme si une personne l’avait attestée ? La décision est attendue.</p><p><strong>Pourquoi ça compte :</strong> la question de la juge Bland est celle que tous les tribunaux finiront par poser ; une transcription vaut ce que vaut la personne qui en répond.</p></div></div></div></section><section class="pol"><div class="container"><div class="pol-in"><span class="pol-n">§ 2</span><div class="pol-body"><h2 class="pol-h">Oklahoma : enregistrer les audiences faute de sténographes</h2><p>Le 7 octobre 2026, la sénatrice Christi Gillespie et le représentant Derrick Hildebrant ont tenu, à l’Assemblée législative de l’Oklahoma, une séance d’étude sur l’enregistrement audio et vidéo des audiences. Selon le juge en chef Dustin Rowe, 75 des 198 postes de sténographe judiciaire de l’État sont vacants ; dans certains comtés, un seul sténographe sert plusieurs juges. Le projet discuté : un projet pilote de trois ans dans 12 salles d’audience, équipées d’appareils d’enregistrement fixes, au coût estimé de 2,3 millions de dollars américains. Selon la sénatrice, il ne s’agit pas de diffuser les audiences en direct, et un sténographe certifié continuerait de certifier toute transcription officielle. Le juge en chef a mis en garde contre des extraits détournés sur les réseaux sociaux ; Laura Griffin, sténographe depuis 37 ans, a soutenu que les enregistrements « ne devraient pas remplacer le gardien du dossier » (notre traduction). Un projet de loi en ce sens n’avait pas été adopté par le Sénat à la dernière session ; les élus poursuivent leur examen.</p><p><strong>Pourquoi ça compte :</strong> même là où l’on enregistre faute de sténographes, une personne certifie encore la transcription ; l’enregistrement préserve la preuve, il ne la met pas par écrit.</p></div></div></div></section><section class="pol"><div class="container"><div class="pol-in"><span class="pol-n">§ 3</span><div class="pol-body"><h2 class="pol-h">Ottawa : les deux langues officielles dans l’IA fédérale</h2><p>Le 8 octobre 2026, la commissaire aux langues officielles, Kelly Burke, a déposé au Parlement le rapport annuel 2025-2026 de son commissariat, qui porte sur la dernière année du mandat de son prédécesseur, Raymond Théberge. Le commissariat a reçu 4&nbsp;110 plaintes recevables, dont 3&nbsp;632 sur les communications avec le public et la prestation des services. La commissaire recommande que, d’ici le 31 mars 2027, le Secrétariat du Conseil du Trésor intègre les langues officielles à la stratégie d’intelligence artificielle de la fonction publique fédérale et à son guide sur l’IA générative. Selon Le Droit, elle a souligné que l’IA peut comporter des biais linguistiques et culturels, et qu’elle ne doit jamais faire baisser la qualité des services dans l’une ou l’autre langue.</p><p><strong>Pourquoi ça compte :</strong> un outil d’IA n’est pas neutre entre le français et l’anglais ; une transcription bilingue doit être aussi juste dans une langue que dans l’autre, et cela se vérifie à l’écoute.</p></div></div></div></section><section class="pol"><div class="container"><div class="pol-in"><span class="pol-n">§ 4</span><div class="pol-body"><h2 class="pol-h">Ce qu’on en retient</h2><p>Trois endroits, une même ligne de partage. Au Texas, on se demande qui répond d’une transcription produite par une machine ; en Oklahoma, on enregistrerait, mais un sténographe certifierait ; à Ottawa, on demande que l’IA respecte les deux langues. Au Québec, les lignes directrices sur l’IA générative signées le 31 août par les juges en chef des tribunaux québécois déconseillent déjà aux juges de soumettre des enregistrements à un tel outil, tant qu’aucun outil de transcription n’a fait l’objet d’une évaluation institutionnelle. C’est notre façon de travailler : l’enregistrement d’abord, puis une personne qui l’écoute, transcrit chaque langue telle qu’elle a été parlée, et signe.</p></div></div></div></section><section class="pol"><div class="container"><div class="pol-in"><span class="pol-n">Réf.</span><div class="pol-body"><h2 class="pol-h">Sources</h2><ol class="bl-src"><li><a href="https://news.bloomberglaw.com/litigation/ai-transcription-savings-may-outweigh-errors-texas-justices-say" rel="noopener">Bloomberg Law, « AI Transcription Savings May Outweigh Errors, Texas Justices Say » (6 oct. 2026)</a></li><li><a href="https://www.courthousenews.com/texas-high-court-toys-with-ai-transcripts-for-witness-depositions/" rel="noopener">Courthouse News Service, « Texas high court toys with AI transcripts for witness depositions » (6 oct. 2026)</a></li><li><a href="https://www.newsfromthestates.com/node/431236" rel="noopener">Oklahoma Voice (repris par News From The States), « Lawmakers consider introducing recording to Oklahoma courtrooms to assist operations » (7 oct. 2026)</a></li><li><a href="https://okcfox.com/news/local/court-reporter-shortage-prompts-push-for-video-in-oklahoma-courtrooms" rel="noopener">KOKH Fox 25, « Court reporter shortage prompts push for video in Oklahoma courtrooms » (9 oct. 2026)</a></li><li><a href="https://www.newswire.ca/news-releases/2025-2026-annual-report-turning-commitment-into-action-838838590.html" rel="noopener">Commissariat aux langues officielles, communiqué sur le rapport annuel 2025-2026 (8 oct. 2026, en anglais)</a></li><li><a href="https://www.lesoleil.com/actualites/politique/2026/10/08/air-canada-redevient-le-cancre-des-langues-officielles-GMDJFL356FE3ZJSDCZ4LQAPBRU/" rel="noopener">Le Droit (repris par Le Soleil), « Air Canada redevient le cancre des langues officielles » (8 oct. 2026)</a></li><li><a href="https://courdappelduquebec.ca/fileadmin/dossiers_civils/avis_et_formulaires/LignesDirectricesUtilisationIntelligenceArtificielle-31aout2026.pdf" rel="noopener">Juges en chef du Québec, « Lignes directrices sur l’utilisation de l’intelligence artificielle générative par les juges » (31 août 2026)</a></li></ol><p class="bl-disc">Information générale, pas un avis juridique. Les règles changent et varient d’un forum à l’autre : vérifiez le texte en vigueur et ce que votre forum exige.</p></div></div></div></section><section class="pol"><div class="container"><div class="pol-in"><span class="pol-n">Voir</span><div class="pol-body"><h2 class="pol-h">À lire aussi</h2><ul class="bl-also"><li><a href="/blogue/a-quoi-sert-une-transcription-judiciaire/">À quoi sert une transcription judiciaire ? Qui la lit, et comment</a></li><li><a href="/blogue/stenographe-transcripteur-interprete/">Sténographe, transcripteur, interprète : qui fait quoi ?</a></li><li><a href="/blogue/veille-2026-10-19/">Veille : transcription et justice au Canada et aux États-Unis — semaine du 12 octobre 2026</a></li></ul></div></div></div></section><section class="cross-section"><div class="container"><div class="section-header"><div class="section-tag st-plain"><span class="st-br">[</span>La suite<span class="st-br">]</span></div></div><p class="xb-close">Un enregistrement ou une procédure en français, en anglais ou dans les deux langues ? Envoyez-nous la procédure, les langues et l’échéance.</p><a href="/fr/#contact" class="cross-cta">Soumettre un dossier &rarr;</a></div></section></main>
 <footer>
   <div class="container">
     <div class="footer-inner footer-5">
