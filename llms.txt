@@ -1,6 +1,6 @@
 # Lexoral
 
-> Lexoral is an independent Canadian provider of bilingual French–English legal transcription, based in Kanata (Ottawa), Ontario, serving Canada and the United States. It produces verbatim, line-numbered, court-ready transcripts of depositions, examinations, arbitrations, tribunal hearings, criminal proceedings and recorded evidence, each with a signed accuracy declaration from the named practitioner who produced it, and Loi 25-compliant file handling.
+> Lexoral is an independent Canadian provider of bilingual French–English legal transcription, based in Kanata (Ottawa), Ontario, serving Canada and the United States. It produces verbatim, line-numbered, attested transcripts of depositions, examinations, arbitrations, tribunal hearings, criminal proceedings and recorded evidence, each with a signed accuracy declaration from the named practitioner who produced it, and Loi 25-compliant file handling.
 
 Coverage: entirely American files, entirely Canadian files, or both at once. Work is produced from the recording, so recordings are accepted from any jurisdiction; remote intake, no travel charge.
 
