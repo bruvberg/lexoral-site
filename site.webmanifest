@@ -3,8 +3,8 @@
  "short_name": "Lexoral",
  "start_url": "/",
  "display": "browser",
- "background_color": "#FDFCF7",
- "theme_color": "#E8E1CD",
+ "background_color": "#FFFEFB",
+ "theme_color": "#F3F1EB",
  "icons": [
   {
    "src": "/icon-192.png",
