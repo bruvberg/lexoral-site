@@ -3311,7 +3311,7 @@ section.hero.hx33 .hx33-in{position:relative;z-index:1;display:grid;grid-templat
 .hx33-ep .w{flex:none;width:33ch;white-space:pre;color:#635B47}
 .hx33-ep .t{color:#1F1D17}
 .hx33-h1{grid-column:1/-1;margin:clamp(20px,2.2vw,30px) 0 0;max-width:none;
- font:400 clamp(58px,9.2vw,138px)/.94 var(--serif,"EB Garamond",serif);letter-spacing:-.022em!important;color:#1F1D17;text-wrap:balance}
+ font:400 clamp(58px,9.2vw,138px)/.94 var(--serif,"EB Garamond",serif);letter-spacing:-.03em!important;color:#1F1D17;text-wrap:balance}
 .hx33-deck{grid-column:1/-1;margin:clamp(14px,1.6vw,22px) 0 0;max-width:none;
  font:italic 400 clamp(24px,2.7vw,40px)/1.2 var(--serif,"EB Garamond",serif);letter-spacing:-.01em;color:#9A4950}
 .hx33-row{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;margin:clamp(44px,4.8vw,70px) 0 0}
@@ -3703,6 +3703,61 @@ section.section.who14.who31{background:none!important;background-color:#E8E1CD!i
  width:min(330px,25vw);aspect-ratio:900/560;background:url(/img/lettre-or.svg) center/contain no-repeat;opacity:.5}
 .contact-section{position:relative;isolation:isolate}
 @media (max-width:900px){.contact-section > .container::after{display:none}}
+/* ===== V37 : la minute, le cachet, la clientèle au trait ===== */
+/* la minute : des couleurs franches */
+.mn31-h b{font:700 14px/1.3 var(--ui)!important;letter-spacing:.12em!important;color:#9A4950!important}
+.mn31-bar{height:56px!important;gap:4px!important}
+.mn31-s{border-radius:3px!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.22),inset 0 -3px 0 rgba(0,0,0,.2),0 3px 6px -3px rgba(22,30,36,.45)!important;
+ transition:transform .2s ease,box-shadow .2s ease}
+.mn31-s[data-l="en"]{background-color:#2F6688!important}
+.mn31-s[data-l="fr"]{background-color:#A44E56!important}
+.mn31-s[data-l="mix"]{background-image:linear-gradient(90deg,#2F6688 0 50%,#A44E56 50% 100%)!important}
+.mn31-s.on{transform:translateY(-6px)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.25),inset 0 -3px 0 rgba(0,0,0,.2),0 0 0 3px #C2A464,0 10px 16px -6px rgba(22,30,36,.55)!important}
+.mn31-s span{font-size:11.5px!important}
+.mn31-lines li[data-l="en"]{box-shadow:inset 5px 0 0 #2F6688!important}
+.mn31-lines li[data-l="fr"]{box-shadow:inset 5px 0 0 #A44E56!important}
+.mn31-lines li[data-l="mix"]{box-shadow:inset 5px 0 0 #5B4A66!important}
+.mn31-lines li.on{background-color:rgba(47,102,136,.2)!important}
+.mn31-lines li.on[data-l="fr"]{background-color:rgba(164,78,86,.2)!important}
+.mn31-lines li.on[data-l="mix"]{background-color:rgba(91,74,102,.18)!important}
+.mn31-lines li.on[data-l="x"],.mn31-lines li.on[data-l="i"]{background-color:rgba(194,164,100,.3)!important}
+.mn31-lines li.on[data-l="en"] .mn31-who{color:#2F6688!important;font-weight:700}
+.mn31-lines li.on[data-l="fr"] .mn31-who{color:#74323A!important;font-weight:700}
+.mn31-js .mn31-lines li.prev,.mn31-js .mn31-lines li.next{opacity:.55!important}
+.mn31-leg{font-size:11.5px!important}
+.mn31-leg i{width:14px!important;height:14px!important;border-radius:2px;box-shadow:inset 0 -2px 0 rgba(0,0,0,.18)}
+.mn31-leg i.en{background-color:#2F6688!important}
+.mn31-leg i.mix{background-image:linear-gradient(90deg,#2F6688 0 50%,#A44E56 50% 100%)!important}
+.mn31-leg i.fr{background-color:#A44E56!important}
+@media (prefers-reduced-motion:reduce){.mn31-s{transition:none}}
+
+/* la pièce « certifiée » : le sceau rose, en cachet, en haut à droite de la carte */
+.c25-b .c36-wm{right:30px!important;bottom:26px!important;top:auto!important;width:clamp(120px,12vw,160px)!important;
+ background-image:url(/img/sceau-rose.svg)!important;opacity:.8!important;transform:rotate(-10deg);z-index:2!important}
+@media (max-width:900px){.c25-b .c36-wm{width:96px!important;top:14px!important;bottom:auto!important;right:14px!important;opacity:.55!important}.c25-b .c25-h{padding-right:92px}}
+
+/* la clientèle au trait : pas de fond, pas de cadre (Brian : « supprime carrément les lignes de couleur »),
+   le plan et la gravure en couleur, des filets neutres entre les lignes */
+.who31 .who-g .who-c,.who31 .who-g .who-c + .who-c{--acc:#2F6688;background:transparent!important;color:#1F1D17!important;border-radius:0!important;
+ box-shadow:none!important}
+.who31 .who-g .who-c:nth-child(2){--acc:#9A4950}
+.who31 .who-g .who-c:nth-child(3){--acc:#1B3D51}
+.who31 .who-g .who-c::before{content:none!important}
+.who31 .who-g .who-c:hover{box-shadow:none!important}
+.who31 .who-g .who-c .who-r,.who31 .who-g .who-c .who-r span{color:var(--acc)!important}
+.who31 .who-g .who-c .who-h{color:#1F1D17!important}
+.who31 .who-g .who-c li{border-top-color:rgba(31,29,23,.14)!important}
+.who31 .who-g .who-c li b{color:#1F1D17!important}
+.who31 .who-g .who-c li span{color:#423D30!important}
+.who31 .who-g .who-c .who-plan{filter:none!important;background:transparent!important}
+.who31 .who-g .who-c .who-plan rect{stroke:var(--acc)!important}
+.who31 .who-g .who-c .who-plan .pl-room{stroke:color-mix(in srgb,var(--acc) 40%,transparent)!important}
+.who31 .who-g .who-c .who-plan .on,.who31 .who-g .who-c .who-plan .on rect{stroke:var(--acc)!important;stroke-width:2.6!important}
+.who31 .who-g .who-c .who-plan .pl-us{fill:#C2A464!important;stroke:#C2A464!important}
+.who31 .who-g .who-c::after{opacity:.3!important}
+.who31 .who-g .who-c:nth-child(1)::after{background-image:url(/img/livres-bl.svg)!important}
+.who31 .who-g .who-c:nth-child(2)::after{background-image:url(/img/balance-ro.svg)!important}
+.who31 .who-g .who-c:nth-child(3)::after{background-image:url(/img/dome-bl.svg)!important}
 /* ===== V34 : deux familles ===== */
 :root{--mono:var(--ui)}
 .sp-page,.mn31-doc,.nm31-tape,.rdx-b,.tsp-b,.cp-g,pre,code{--mono:"Courier Prime","Courier New",Courier,monospace}
@@ -3732,24 +3787,13 @@ section.section.who14.who31{background:none!important;background-color:#E8E1CD!i
 .sp-page.sp32{box-shadow:0 1px 1px rgba(0,0,0,.10),0 2px 0 rgba(120,108,80,.18),0 22px 44px -24px rgba(22,30,36,.5)!important}
 /* ===== V35 : une seule police ===== */
 @font-face{font-family:"Inter Tight";font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/inter-tight-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:"Lex Text";font-style:normal;font-weight:400;font-display:swap;size-adjust:86%;src:url(/fonts/inter-tight-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:"Lex Text";font-style:normal;font-weight:500;font-display:swap;size-adjust:86%;src:url(/fonts/inter-tight-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:"Lex Text";font-style:normal;font-weight:600;font-display:swap;size-adjust:86%;src:url(/fonts/inter-tight-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 @font-face{font-family:"Inter Tight";font-style:italic;font-weight:400;font-display:swap;src:url(/fonts/inter-tight-latin-400-italic.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:"Lex Text";font-style:italic;font-weight:400;font-display:swap;size-adjust:86%;src:url(/fonts/inter-tight-latin-400-italic.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 @font-face{font-family:"Inter Tight";font-style:italic;font-weight:500;font-display:swap;src:url(/fonts/inter-tight-latin-500-italic.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:"Lex Text";font-style:italic;font-weight:500;font-display:swap;size-adjust:86%;src:url(/fonts/inter-tight-latin-500-italic.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 @font-face{font-family:"Inter Tight";font-style:italic;font-weight:600;font-display:swap;src:url(/fonts/inter-tight-latin-600-italic.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:"Lex Text";font-style:italic;font-weight:600;font-display:swap;size-adjust:86%;src:url(/fonts/inter-tight-latin-600-italic.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-:root{--serif:"Lex Text","Inter Tight","Helvetica Neue",Helvetica,Arial,sans-serif}
-/* le nom seul garde son Garamond : c'est le logo */
-.logo,.footer-logo,.nm-mark .nm-l,.nm31-w,.nl-mono{--serif:"EB Garamond",Georgia,"Times New Roman",serif}
-.logo .lg-p,.logo .lg-v,.footer-logo .lg-p,.footer-logo .lg-v{font-family:"EB Garamond",Georgia,serif!important}
-/* Inter Tight se lit serrée : les titres un peu moins serrés que le Garamond, le texte un peu plus aéré */
-h1,h2,h3,.section-h2,.pol-title,.ot33-h{letter-spacing:-.01em!important}
-body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
-/* le pied de page et les touches du contact : la police de la barre */
+/* V37 : retour au Garamond pour la voix (Brian : « je préfère la police d'avant ») ; restent dans la police
+   de la barre, comme demandé : les liens du pied de page et les touches du contact */
 .footer-links a,.footer-links li{font-family:var(--ui)!important;font-weight:500!important;font-size:14.5px!important;letter-spacing:.01em!important}
+.c31-k b{font-family:var(--ui)!important;font-weight:500!important;font-size:clamp(17px,1.5vw,20px)!important;letter-spacing:0!important}
 /* les filigranes des titres de page reviennent */
 .pol-head .pol-title.pol-title::after{content:''!important;display:block!important}
 /* ===== V36 : le pied de page vert ===== */
@@ -3819,7 +3863,6 @@ footer .footer-inner > div:nth-child(5) .footer-col-title::before{background:#EF
     <p class="hx33-ep" lang="en"><span class="n" aria-hidden="true">1</span><span class="w">THE COURT: [00:02 --&gt; 00:04]</span><span class="t">We’re on the record.</span></p>
     <i class="hx33-bar" aria-hidden="true"></i>
     <h1 class="hx33-h1">Le dossier, c’est nous.</h1>
-    <p class="hx33-deck">Nous prenons acte.</p>
     <div class="hx33-row"><p class="hx33-leg"><span><i aria-hidden="true"></i>Anglais</span><span><i class="fr" aria-hidden="true"></i>Français</span><span><svg class="hx33-mk" viewBox="0 0 40 26" aria-hidden="true" focusable="false"><circle cx="13" cy="13" r="12" fill="#3F7193"/><circle cx="27" cy="13" r="12" fill="#9A4950"/><path d="M20 3.25a12 12 0 0 1 0 19.5a12 12 0 0 1 0-19.5z" fill="#C2A464"/></svg>Les deux, un seul dossier</span></p>
       <div class="hx33-main"><p class="hx33-sub">Transcription intégrale d’audiences, d’interrogatoires et de preuves enregistrées, pour les dossiers canadiens, américains et transfrontaliers.</p>
       <ul class="hx33-kinds"><li><a class="hx33-key" href="/services-fr/">Attestée<i aria-hidden="true">&rarr;</i></a><span>Signée par le praticien</span></li><li><a class="hx33-key" href="/transcription-certifiee/">Certifiée<i aria-hidden="true">&rarr;</i></a><span>Tribunaux du Québec · par un sténographe officiel</span></li></ul>
