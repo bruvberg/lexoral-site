@@ -3301,12 +3301,32 @@ footer::before{background:var(--guil)!important}
 .section-tag.section-tag.section-tag::after,.cov-head .cov-k.cov-k::after{content:none!important;display:none!important}
 /* les trois qualités : chaque colonne part du haut, sans vide entre le titre et le texte */
 .three li{align-content:start}
-/* le grand § en filigrane derrière les titres de page : il chevauchait les titres longs */
-.pol-head .pol-title.pol-title::after{content:none!important;display:none!important}
 /* les chiffres clés sont des titres : Garamond, comme les titres */
 .kf-v{font-family:var(--serif)!important;font-weight:400!important;letter-spacing:-.01em!important}
 /* une seule feuille sous le spécimen */
 .sp-page.sp32{box-shadow:0 1px 1px rgba(0,0,0,.10),0 2px 0 rgba(120,108,80,.18),0 22px 44px -24px rgba(22,30,36,.5)!important}
+/* ===== V35 : une seule police ===== */
+@font-face{font-family:"Inter Tight";font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/inter-tight-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Lex Text";font-style:normal;font-weight:400;font-display:swap;size-adjust:86%;src:url(/fonts/inter-tight-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Lex Text";font-style:normal;font-weight:500;font-display:swap;size-adjust:86%;src:url(/fonts/inter-tight-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Lex Text";font-style:normal;font-weight:600;font-display:swap;size-adjust:86%;src:url(/fonts/inter-tight-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Inter Tight";font-style:italic;font-weight:400;font-display:swap;src:url(/fonts/inter-tight-latin-400-italic.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Lex Text";font-style:italic;font-weight:400;font-display:swap;size-adjust:86%;src:url(/fonts/inter-tight-latin-400-italic.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Inter Tight";font-style:italic;font-weight:500;font-display:swap;src:url(/fonts/inter-tight-latin-500-italic.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Lex Text";font-style:italic;font-weight:500;font-display:swap;size-adjust:86%;src:url(/fonts/inter-tight-latin-500-italic.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Inter Tight";font-style:italic;font-weight:600;font-display:swap;src:url(/fonts/inter-tight-latin-600-italic.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Lex Text";font-style:italic;font-weight:600;font-display:swap;size-adjust:86%;src:url(/fonts/inter-tight-latin-600-italic.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{--serif:"Lex Text","Inter Tight","Helvetica Neue",Helvetica,Arial,sans-serif}
+/* le nom seul garde son Garamond : c'est le logo */
+.logo,.footer-logo,.nm-mark .nm-l,.nm31-w,.nl-mono{--serif:"EB Garamond",Georgia,"Times New Roman",serif}
+.logo .lg-p,.logo .lg-v,.footer-logo .lg-p,.footer-logo .lg-v{font-family:"EB Garamond",Georgia,serif!important}
+/* Inter Tight se lit serrée : les titres un peu moins serrés que le Garamond, le texte un peu plus aéré */
+h1,h2,h3,.section-h2,.pol-title,.ot33-h{letter-spacing:-.01em!important}
+body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+/* le pied de page et les touches du contact : la police de la barre */
+.footer-links a,.footer-links li{font-family:var(--ui)!important;font-weight:500!important;font-size:14.5px!important;letter-spacing:.01em!important}
+/* les filigranes des titres de page reviennent */
+.pol-head .pol-title.pol-title::after{content:''!important;display:block!important}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://lexoral.org/services-fr/#webpage", "url": "https://lexoral.org/services-fr/", "name": "Services de transcription juridique", "description": "Transcription juridique français-anglais d’interrogatoires, de dépositions, d’arbitrages, d’audiences et de preuve enregistrée, avec la fiche technique.", "inLanguage": "fr-CA", "isPartOf": {"@id": "https://lexoral.org/#website"}, "publisher": {"@id": "https://lexoral.org/#org"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Lexoral", "item": "https://lexoral.org/fr/"}, {"@type": "ListItem", "position": 2, "name": "Services de transcription juridique", "item": "https://lexoral.org/services-fr/"}]}, {"@type": "Service", "@id": "https://lexoral.org/services-fr/#service", "name": "Services de transcription juridique", "serviceType": "Transcription juridique bilingue français-anglais", "provider": {"@id": "https://lexoral.org/#org"}, "url": "https://lexoral.org/services-fr/", "inLanguage": "fr-CA", "availableLanguage": ["fr-CA", "en-CA"], "areaServed": [{"@type": "Country", "name": "Canada"}, {"@type": "Country", "name": "United States"}]}]}</script>
 </head>
