@@ -3278,6 +3278,35 @@ footer::before{background:var(--guil)!important}
   .logo::before{width:1.2em;height:.8em;margin-right:.08em}}
 @media (max-width:374px){.logo.logo{font-size:17.5px!important;letter-spacing:.08em!important}}
 @media (max-width:340px){.logo.logo{font-size:15.5px!important}}
+/* ===== V34 : deux familles ===== */
+:root{--mono:var(--ui)}
+.sp-page,.mn31-doc,.nm31-tape,.rdx-b,.tsp-b,.cp-g,pre,code{--mono:"Courier Prime","Courier New",Courier,monospace}
+/* les étiquettes en Inter Tight : au plus 0,14 em d'approche, jamais plus maigre que 500 */
+.section-tag,.section-tag a{font-family:var(--ui)!important;font-weight:600!important;font-size:12.5px!important;letter-spacing:.14em!important}
+.section-tag .st-br{font-family:var(--ui)!important;font-weight:500!important}
+.nav-lh{font-family:var(--ui)!important;font-weight:500!important;font-size:11px!important;letter-spacing:.16em!important}
+.tk .tk-a b{font-family:var(--ui)!important;font-weight:600!important;font-size:12.5px!important;letter-spacing:.1em!important}
+.tk .tk-a i{font-weight:500!important;font-size:13px!important;letter-spacing:.02em!important}
+.tree-h{font-family:var(--ui)!important;font-weight:600!important;font-size:12.5px!important;letter-spacing:.1em!important}
+.cp-hd span{font-family:var(--ui)!important;font-weight:600!important;letter-spacing:.12em!important}
+.footer-col-title{font-weight:600!important;letter-spacing:.12em!important}
+.footer-badge,.footer-legal{font-weight:500!important;letter-spacing:.1em!important}
+/* plus de boutons ronds : des touches */
+.stg-next i{border-radius:3px!important;background:#FBF9F2 linear-gradient(180deg,#FBF9F2,#ECE6D6)!important;color:var(--verm)!important;
+ box-shadow:inset 0 1px 0 #FBF9F2,0 2px 0 rgba(31,29,23,.28),0 6px 12px -6px rgba(22,30,36,.45)!important}
+.jm-arrows button{border-radius:3px!important;background:#FBF9F2 linear-gradient(180deg,#FBF9F2,#ECE6D6)!important;
+ box-shadow:inset 0 1px 0 #FBF9F2,0 2px 0 rgba(31,29,23,.28),0 6px 12px -6px rgba(22,30,36,.45)!important}
+.jm-arrows button:active{transform:translateY(2px);box-shadow:inset 0 1px 0 #FBF9F2,0 0 0 rgba(31,29,23,.28)!important}
+/* la rubrique ne répète plus « Lexoral · transcription juridique » à droite : c'est déjà l'en-tête */
+.section-tag.section-tag.section-tag::after,.cov-head .cov-k.cov-k::after{content:none!important;display:none!important}
+/* les trois qualités : chaque colonne part du haut, sans vide entre le titre et le texte */
+.three li{align-content:start}
+/* le grand § en filigrane derrière les titres de page : il chevauchait les titres longs */
+.pol-head .pol-title.pol-title::after{content:none!important;display:none!important}
+/* les chiffres clés sont des titres : Garamond, comme les titres */
+.kf-v{font-family:var(--serif)!important;font-weight:400!important;letter-spacing:-.01em!important}
+/* une seule feuille sous le spécimen */
+.sp-page.sp32{box-shadow:0 1px 1px rgba(0,0,0,.10),0 2px 0 rgba(120,108,80,.18),0 22px 44px -24px rgba(22,30,36,.5)!important}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://lexoral.org/transcription-immigration-refugies/#webpage", "url": "https://lexoral.org/transcription-immigration-refugies/", "name": "Transcription des audiences de la CISR", "description": "Enregistrements d’audiences de la CISR transcrits en français et en anglais, avec la déclaration signée du transcripteur pour la SAR, ou un affidavit.", "inLanguage": "fr-CA", "isPartOf": {"@id": "https://lexoral.org/#website"}, "publisher": {"@id": "https://lexoral.org/#org"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Lexoral", "item": "https://lexoral.org/fr/"}, {"@type": "ListItem", "position": 2, "name": "Transcription des audiences de la CISR", "item": "https://lexoral.org/transcription-immigration-refugies/"}]}, {"@type": "Service", "@id": "https://lexoral.org/transcription-immigration-refugies/#service", "name": "Transcription des audiences de la CISR", "serviceType": "Transcription of Immigration and Refugee Board hearing recordings", "description": "Enregistrements d’audiences de la CISR transcrits en français et en anglais, avec la déclaration signée du transcripteur pour la SAR, ou un affidavit.", "provider": {"@id": "https://lexoral.org/#org"}, "inLanguage": "fr-CA", "url": "https://lexoral.org/transcription-immigration-refugies/", "availableLanguage": ["fr-CA", "en-CA"], "areaServed": [{"@type": "Country", "name": "Canada"}]}, {"@type": "FAQPage", "@id": "https://lexoral.org/transcription-immigration-refugies/#faq", "inLanguage": "fr-CA", "mainEntity": [{"@type": "Question", "name": "Votre déclaration répond-elle aux Règles de la Section d’appel des réfugiés ?", "acceptedAnswer": {"@type": "Answer", "text": "Elle indique le nom du transcripteur et atteste que la transcription est fidèle, ce que prévoit l’alinéa 3(3)b) des Règles. S’il faut davantage pour votre appel, c’est à vous d’en juger ; nous ne donnons pas d’avis juridique."}}, {"@type": "Question", "name": "Le transcripteur peut-il souscrire un affidavit pour la Cour fédérale ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui. Sur demande, il souscrit un affidavit devant un commissaire, sous serment ou par affirmation solennelle, la transcription jointe en pièce."}}, {"@type": "Question", "name": "Transcrivez-vous la langue du demandeur ?", "acceptedAnswer": {"@type": "Answer", "text": "Seulement le français et l’anglais. Quand un demandeur témoigne dans une autre langue par l’intermédiaire d’un interprète, nous transcrivons l’interprétation et indiquons où le demandeur parle."}}, {"@type": "Question", "name": "En combien de temps ?", "acceptedAnswer": {"@type": "Answer", "text": "Cinq jours ouvrables, ou quarante-huit heures sur demande. Dites-nous quand votre dossier est dû : nous confirmons la date avant de commencer."}}, {"@type": "Question", "name": "Travaillez-vous avec les bureaux d’aide juridique ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui. Chaque dossier est facturé séparément, à votre numéro de dossier, pour que le débours soit simple à approuver."}}]}]}</script>
 </head>
