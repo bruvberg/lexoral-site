@@ -3253,20 +3253,29 @@ footer :focus-visible,.tk :focus-visible,.who14 :focus-visible,.nav-links :focus
 /* le guilloché rouge : sous la barre, sous les en-têtes, en tête du pied de page */
 footer::before{background:var(--guil)!important}
 
-/* le pied de page : le nom à sa taille, une marque de carrés, des colonnes nettes */
+/* le pied de page : le nom à sa taille, la marque (V33 : deux cercles, bleu l’anglais, rose le français,
+   l’or où ils se recoupent), des colonnes nettes */
 .footer-logo.footer-logo{font-size:clamp(1.9rem,3.2vw,2.7rem)!important;line-height:1!important;letter-spacing:.16em!important;
   display:flex!important;align-items:center;white-space:nowrap}
-.footer-logo.footer-logo::before{content:"";flex:none;width:.62em;height:.62em;margin-right:.55em;
-  background:linear-gradient(var(--verm),var(--verm)) 0 0/48% 48% no-repeat,
-             linear-gradient(var(--ultra-l),var(--ultra-l)) 100% 0/48% 48% no-repeat,
-             linear-gradient(var(--gold),var(--gold)) 0 100%/48% 48% no-repeat}
+.footer-logo.footer-logo::before{content:"";flex:none;width:1.05em;height:.7em;margin-right:.5em;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-1 -1 42 28'%3E%3Ccircle cx='13' cy='13' r='12' fill='%233F7193'/%3E%3Ccircle cx='27' cy='13' r='12' fill='%239A4950'/%3E%3Cpath d='M20 3.25a12 12 0 0 1 0 19.5a12 12 0 0 1 0-19.5z' fill='%23C2A464'/%3E%3C/svg%3E") center/contain no-repeat}
 .footer-col-title{display:flex!important;align-items:center;gap:10px}
-.footer-col-title::before{content:"";flex:none;width:8px;height:8px;background:var(--verm)}
+.footer-col-title::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--verm)}
 .footer-inner > div:nth-child(3) .footer-col-title::before{background:var(--ultra-l)}
 .footer-inner > div:nth-child(4) .footer-col-title::before{background:var(--gold)}
 .footer-inner > div:nth-child(5) .footer-col-title::before{background:#F5F0E4}
 .footer-badge{display:inline-flex;align-items:center;gap:8px}
-.footer-badge::before{content:"";width:5px;height:5px;background:var(--verm)}
+.footer-badge::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--verm)}
+
+/* V33 (27 oct. 2026) : la marque devant le nom, en tête de chaque page, et seule dans la barre */
+.logo::before{content:"";flex:none;align-self:center;width:1.32em;height:.88em;margin-right:.12em;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-1 -1 42 28'%3E%3Ccircle cx='13' cy='13' r='12' fill='%233F7193'/%3E%3Ccircle cx='27' cy='13' r='12' fill='%239A4950'/%3E%3Cpath d='M20 3.25a12 12 0 0 1 0 19.5a12 12 0 0 1 0-19.5z' fill='%23C2A464'/%3E%3C/svg%3E") center/contain no-repeat}
+.nl-mono.nl-mono{font-size:0!important;letter-spacing:0!important}
+.nl-mono.nl-mono i{display:none!important}
+.nl-mono.nl-mono::before{content:"";display:block;width:30px;height:20px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-1 -1 42 28'%3E%3Ccircle cx='13' cy='13' r='12' fill='%233F7193' stroke='%23F3EEE2' stroke-width='1.4'/%3E%3Ccircle cx='27' cy='13' r='12' fill='%239A4950' stroke='%23F3EEE2' stroke-width='1.4'/%3E%3Cpath d='M20 3.25a12 12 0 0 1 0 19.5a12 12 0 0 1 0-19.5z' fill='%23C2A464'/%3E%3C/svg%3E") center/contain no-repeat}
+/* la marque prend de la place : au téléphone, le nom un peu plus petit pour que l'Index garde sa largeur */
+@media (max-width:480px){.logo.logo{font-size:19.5px!important;letter-spacing:.1em!important;gap:.2em!important}
+  .logo::before{width:1.2em;height:.8em;margin-right:.08em}}
+@media (max-width:374px){.logo.logo{font-size:17.5px!important;letter-spacing:.08em!important}}
+@media (max-width:340px){.logo.logo{font-size:15.5px!important}}
 </style>
 
 <link rel="canonical" href="https://lexoral.org/privacy-fr/"/>
