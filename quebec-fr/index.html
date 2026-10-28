@@ -3630,6 +3630,76 @@ html body .v40-k.v40-k{font-family:var(--ui)!important;font-weight:500!important
 @media (min-width:1340px){html[lang="fr"] body > nav .nav-links.nav-links a:not(.nl-mono):not(.nl-cta){padding:0 7px!important;letter-spacing:.03em!important;font-size:11.5px!important}}
 @media (min-width:1340px) and (max-width:1499px){html[lang="fr"] body > nav .nav-links.nav-links a:not(.nl-mono):not(.nl-cta){padding:0 5px!important;font-size:11px!important}
  html[lang="fr"] body > nav .nav-inner.nav-inner{gap:10px!important;padding:0 22px!important}}
+/* ===== V47 : le système Tschichold ===== */
+:root{--tk:#1B1A17;--tk2:#4A453A;--tk3:#6B6455;--tr:#9A4950;--tp:#F3F1EB}
+html body{font-feature-settings:"kern" 1,"liga" 1;text-rendering:optimizeLegibility}
+
+/* ---------- 1. la tête de section : filet anglais, numéro rouge dans la marge, mention espacée ---------- */
+html body .section-tag.section-tag.section-tag.section-tag{position:relative;display:grid!important;grid-template-columns:var(--marg,128px) minmax(0,1fr);
+ column-gap:var(--gapc,24px);align-items:end;margin-top:0;border:0!important;padding:30px 0 0!important;background:linear-gradient(#1B1A17,#1B1A17) 0 0/100% 7px no-repeat,linear-gradient(#1B1A17,#1B1A17) 0 11px/100% 1px no-repeat!important;
+ font:500 11px/1.1 var(--ui)!important;letter-spacing:.34em!important;text-transform:uppercase!important;color:#9A4950!important}
+html body .section-tag.section-tag.section-tag.section-tag::before{content:none!important;display:none!important}
+html body .section-tag.section-tag.section-tag.section-tag::after{content:counter(secline,decimal-leading-zero)!important;display:block!important;grid-column:1;grid-row:1;
+ justify-self:end;font:700 clamp(46px,4.6vw,70px)/.74 var(--ui)!important;letter-spacing:-.05em!important;color:#9A4950!important;
+ font-variant-numeric:tabular-nums;text-transform:none!important}
+html body .section-tag.section-tag.section-tag.st-plain::before,html body .section-tag.section-tag.section-tag.st-plain::after,
+html body main > .cross-section:first-child:last-of-type .section-tag.section-tag.section-tag.section-tag::after,
+html body .pol-head .section-tag.section-tag.section-tag.section-tag::before,html body .pol-head .section-tag.section-tag.section-tag.section-tag::after,
+html body .services-section .section-tag.section-tag.section-tag.section-tag::before,html body .services-section .section-tag.section-tag.section-tag.section-tag::after{content:none!important;display:none!important}
+html body .section-tag.section-tag.section-tag.st-plain,html body .pol-head .section-tag.section-tag.section-tag.section-tag,
+html body .services-section .section-tag.section-tag.section-tag.section-tag{padding-top:22px!important}
+html body .pol-head .section-tag.section-tag.section-tag.section-tag,html body .services-section .section-tag.section-tag.section-tag.section-tag,
+html body .section-tag.section-tag.section-tag.st-plain,html body main > .cross-section:first-child:last-of-type .section-tag.section-tag.section-tag.section-tag{display:block!important;padding-left:calc(var(--marg,128px) + var(--gapc,24px))!important}
+@media (max-width:900px){html body .pol-head .section-tag.section-tag.section-tag.section-tag,html body .services-section .section-tag.section-tag.section-tag.section-tag,html body .section-tag.section-tag.section-tag.st-plain{padding-left:0!important}}
+@media (max-width:900px){
+ html body .section-tag.section-tag.section-tag.section-tag{grid-template-columns:auto minmax(0,1fr);column-gap:18px;padding-top:26px!important}
+ html body .section-tag.section-tag.section-tag.section-tag::after{font-size:42px!important}
+ }
+
+/* ---------- 2. les titres : une échelle (quarte), en drapeau, serrés ---------- */
+html body h1.pol-title.pol-title{font:400 clamp(50px,6.4vw,100px)/.98 var(--serif)!important;letter-spacing:-.026em!important;color:#1B1A17!important;
+ text-wrap:balance;max-width:14em!important;margin-top:clamp(26px,3vw,40px)!important}
+html body .pol-head .pol-sub.pol-sub{font:italic 400 clamp(19px,1.6vw,22px)/1.45 var(--serif)!important;color:#4A453A!important;max-width:34em}
+html body section h2.section-h2.section-h2,html body h1.section-h2.section-h2{font-size:clamp(40px,4.7vw,70px)!important;line-height:1.03!important;letter-spacing:-.022em!important;text-wrap:balance}
+html body h2.pol-h.pol-h{font:400 clamp(28px,2.7vw,40px)/1.08 var(--serif)!important;letter-spacing:-.014em!important;color:#1B1A17!important;text-wrap:balance}
+/* plus de filigranes dans la marge de droite */
+html body .pol-head .pol-title.pol-title.pol-title::after,html body .pg14-head .pol-title.pol-title.pol-title::after,html body main > .services-section.services-section > .container::after,
+html body main > .cross-section.cross-section:first-child > .container::after{content:none!important;display:none!important;background:none!important}
+
+/* ---------- 3. les sections de page : filet maigre, numéro rouge dans la marge ---------- */
+html body .pol .pol-in.pol-in{border-top:1px solid rgba(27,26,23,.85)!important;background:none!important}
+html body .pol:first-of-type .pol-in.pol-in{background:linear-gradient(#1B1A17,#1B1A17) 0 0/100% 7px no-repeat,linear-gradient(#1B1A17,#1B1A17) 0 11px/100% 1px no-repeat!important;border-top:0!important;padding-top:calc(var(--s6,48px) + 12px)!important}
+html body .pol-n.pol-n{font:700 clamp(30px,2.7vw,42px)/.8 var(--ui)!important;letter-spacing:-.045em!important;color:#9A4950!important;text-align:right;
+ font-variant-numeric:tabular-nums;padding-top:.2em!important}
+html body .pol-n.pol-n small{display:block;margin:0 0 7px;font:400 10px/1 "Courier Prime","Courier New",monospace;letter-spacing:0;color:#6B6455}
+html body .pol-body.pol-body > p{font-size:clamp(17.5px,1.3vw,19px)!important;line-height:1.62!important;color:#4A453A}
+html body .pol-body.pol-body > .pol-ul li{font-size:clamp(17px,1.25vw,18.5px)!important;line-height:1.55!important}
+
+/* ---------- 4. les bandes photo : le texte dans un aplat, en bas à gauche ---------- */
+html body figure.v40-ph .v40-ph-t.v40-ph-t{background:none!important}
+html body figure.v40-ph .v40-ph-t .container{display:block;width:fit-content;max-width:min(640px,calc(100% - 2 * var(--pad,20px)));
+ margin:0 0 0 max(var(--pad,20px),calc(50% - 522px))!important;padding:30px 38px 32px!important;background:#F3F1EB;box-shadow:inset 0 7px 0 #1B1A17;color:#1B1A17}
+html body figure.v40-ph .v40-k.v40-k{color:#9A4950!important;margin-bottom:14px}
+html body figure.v40-ph .v40-h.v40-h{color:#1B1A17!important;font-size:clamp(30px,3.1vw,48px)!important;line-height:1.04!important;max-width:none!important}
+html body figure.v40-ph .v40-s.v40-s{color:#4A453A!important;font-size:clamp(17px,1.3vw,19px)!important;max-width:28em}
+html body figure.v40-ph .v40-go{color:#9A4950!important}
+/* la Cour suprême : un aplat rouge */
+html body figure.v40-ph-scc .v40-ph-t .container{background:#9A4950!important;box-shadow:inset 0 7px 0 #1B1A17;color:#FFFEFB}
+html body figure.v40-ph-scc .v40-k.v40-k{color:#F6E2B8!important}
+html body figure.v40-ph-scc .v40-h.v40-h{color:#FFFEFB!important}
+@media (max-width:760px){
+ html body figure.v40-ph .v40-ph-t.v40-ph-t{position:static!important;display:block!important;padding:0!important}
+ html body figure.v40-ph .v40-ph-t .container{max-width:none;margin:0!important;padding:24px var(--pad,20px) 26px!important}
+ html body figure.v40-ph .v40-ph-i{height:clamp(240px,62vw,420px)!important}
+}
+
+/* ---------- 5. le bandeau d'appel des pages intérieures ---------- */
+html body section.cross-section .xb-close.xb-close{font:400 clamp(24px,2.3vw,32px)/1.32 var(--serif)!important;color:#1B1A17!important;max-width:24em!important;
+ margin:clamp(26px,3vw,38px) 0 clamp(26px,3vw,36px)!important}
+
+/* ---------- 6. le détail : chiffres elzéviriens dans le texte, souligné fin ---------- */
+html body .pol-body > p,html body .stg-lead,html body .v43-lead,html body .section-intro{font-variant-numeric:oldstyle-nums proportional-nums}
+html body .pol-body a:not([class]),html body .stg-lead a:not([class]){text-decoration-thickness:1px;text-underline-offset:.18em}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://lexoral.org/quebec-fr/#webpage", "url": "https://lexoral.org/quebec-fr/", "name": "Transcription juridique au Québec", "description": "Transcription juridique bilingue au Québec : interrogatoires, arbitrages et audiences à Montréal, Québec et Gatineau. Attestée, dans la langue originale.", "inLanguage": "fr-CA", "isPartOf": {"@id": "https://lexoral.org/#website"}, "publisher": {"@id": "https://lexoral.org/#org"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Lexoral", "item": "https://lexoral.org/fr/"}, {"@type": "ListItem", "position": 2, "name": "Transcription juridique au Québec", "item": "https://lexoral.org/quebec-fr/"}]}, {"@type": "Service", "@id": "https://lexoral.org/quebec-fr/#service", "name": "Transcription juridique au Québec", "serviceType": "Bilingual French-English legal transcription", "provider": {"@id": "https://lexoral.org/#org"}, "inLanguage": "fr-CA", "url": "https://lexoral.org/quebec-fr/", "availableLanguage": ["fr-CA", "en-CA"], "areaServed": [{"@type": "AdministrativeArea", "name": "Quebec"}, {"@type": "City", "name": "Montreal"}, {"@type": "City", "name": "Quebec City"}, {"@type": "City", "name": "Laval"}, {"@type": "City", "name": "Gatineau"}, {"@type": "City", "name": "Longueuil"}, {"@type": "City", "name": "Sherbrooke"}, {"@type": "City", "name": "Trois-Rivieres"}, {"@type": "City", "name": "Saguenay"}, {"@type": "City", "name": "Levis"}]}]}</script>
 </head>
@@ -3671,29 +3741,29 @@ html body .v40-k.v40-k{font-family:var(--ui)!important;font-weight:500!important
     </div>
   </div>
 </nav>
-<main id="main"><section class="pol-head"><div class="container"><div class="section-tag"><span class="st-br">[</span>Québec<span class="st-br">]</span></div><h1 class="pol-title">Au Québec, les deux langues sont le dossier</h1><p class="pol-sub">Personne n’interprète. L’avocat pose la question en anglais, le témoin répond en français, et la transcription doit porter les deux. C’est le cas ordinaire ici, pas le cas difficile.</p></div></section><section class="pol"><div class="container"><div class="pol-in"><span class="pol-n">L. 01</span><div class="pol-body"><h2 class="pol-h">La règle</h2><p>L’article 133 de la <em>Loi constitutionnelle de 1867</em> régit la langue des tribunaux québécois
+<main id="main"><section class="pol-head"><div class="container"><div class="section-tag"><span class="st-br">[</span>Québec<span class="st-br">]</span></div><h1 class="pol-title">Au Québec, les deux langues sont le dossier</h1><p class="pol-sub">Personne n’interprète. L’avocat pose la question en anglais, le témoin répond en français, et la transcription doit porter les deux. C’est le cas ordinaire ici, pas le cas difficile.</p></div></section><section class="pol"><div class="container"><div class="pol-in"><span class="pol-n"><small>L.</small>01</span><div class="pol-body"><h2 class="pol-h">La règle</h2><p>L’article 133 de la <em>Loi constitutionnelle de 1867</em> régit la langue des tribunaux québécois
 depuis plus d’un siècle et demi, et il est rédigé comme un choix personnel plutôt que comme une règle
 visant l’instance.</p>
 <div class="auth"><span class="auth-k">Art. 133, 1867</span><p class="auth-q">“either of those Languages may be used by any Person or in any Pleading or Process in or issuing from any Court of Canada established under this Act, and in or from all or any of the Courts of Quebec.”</p><p class="auth-c">Loi constitutionnelle de 1867 (R.-U.), 30 &amp; 31 Vict., ch. 3, art. 133. Cité dans sa version anglaise : l’article n’a pas de version française officielle. · <a href="https://laws-lois.justice.gc.ca/fra/const/index.html" rel="noopener">laws-lois.justice.gc.ca</a></p></div>
 <p>Chaque participant choisit indépendamment et peut changer en cours d’audience. Personne n’a à
 justifier son choix, personne n’est désigné pour faire le pont, et aucune traduction n’est produite. La
 conséquence pour la transcription est directe : il n’existe pas de langue unique du dossier sur laquelle
-se rabattre. Les deux sont le dossier.</p></div></div></div></section><section class="pol"><div class="container"><div class="pol-in"><span class="pol-n">L. 02</span><div class="pol-body"><h2 class="pol-h">À quoi ça ressemble</h2><p>Voici à quoi ressemble réellement une heure d’interrogatoire bilingue lorsqu’on trace qui parle quelle
+se rabattre. Les deux sont le dossier.</p></div></div></div></section><section class="pol"><div class="container"><div class="pol-in"><span class="pol-n"><small>L.</small>02</span><div class="pol-body"><h2 class="pol-h">À quoi ça ressemble</h2><p>Voici à quoi ressemble réellement une heure d’interrogatoire bilingue lorsqu’on trace qui parle quelle
 langue. Ce ne sont pas deux blocs. C’est une tresse, et elle peut basculer à l’intérieur d’une même
 réponse.</p>
 <figure class="dgm"><figcaption class="dgm-k">Qui parle quoi</figcaption><svg viewBox="0 0 760 246" role="img" aria-label="Une audience, minute par minute"><text class="dgm-h" x="0" y="14">Une audience, minute par minute</text><text class="dgm-h" x="760" y="14" text-anchor="end">00:00 — 01:00</text><line class="dgm-rule" x1="0" y1="30" x2="760" y2="30"/><text class="dgm-l" x="150" y="67" text-anchor="end">Le tribunal</text><line class="dgm-sep" x1="180" y1="62" x2="744" y2="62" opacity=".45"/><rect class="dgm-tg" x="180" y="50" width="47" height="24"/><rect class="dgm-box" x="594" y="50" width="37" height="24"/><text class="dgm-l" x="150" y="107" text-anchor="end">L’avocat</text><line class="dgm-sep" x1="180" y1="102" x2="744" y2="102" opacity=".45"/><rect class="dgm-box" x="227" y="90" width="75" height="24"/><rect class="dgm-box" x="406" y="90" width="56" height="24"/><rect class="dgm-tg" x="631" y="90" width="47" height="24"/><text class="dgm-l" x="150" y="147" text-anchor="end">Le témoin</text><line class="dgm-sep" x1="180" y1="142" x2="744" y2="142" opacity=".45"/><rect class="dgm-tg" x="302" y="130" width="75" height="24"/><rect class="dgm-box" x="377" y="130" width="29" height="24"/><rect class="dgm-tg" x="462" y="130" width="75" height="24"/><rect class="dgm-tg" x="678" y="130" width="66" height="24"/><text class="dgm-l" x="150" y="187" text-anchor="end">Pièce lue</text><line class="dgm-sep" x1="180" y1="182" x2="744" y2="182" opacity=".45"/><rect class="dgm-tg" x="537" y="170" width="57" height="24"/><line class="dgm-rule" x1="0" y1="206" x2="760" y2="206"/><rect class="dgm-tg" x="0" y="222" width="20" height="11"/><text class="dgm-s" x="30" y="232">Français, tel que dit</text><rect class="dgm-box" x="261" y="222" width="20" height="11"/><text class="dgm-s" x="291" y="232">Anglais, tel que dit</text></svg><p class="dgm-cap">Plein pour le français, contour pour l’anglais. Aucun interprète n’apparaît dans cette heure, et sous l’article 133, aucun n’est requis.</p></figure>
 <p>Un transcripteur qui travaille avec un lexique ne peut pas faire ça. Les passages qui comptent sont
 généralement ceux où le registre tombe, là où le témoin cesse de témoigner et se met à parler. Le
-français québécois à ce moment-là n’est pas celui d’une mémoire de traduction.</p></div></div></div></section><section class="pol"><div class="container"><div class="pol-in"><span class="pol-n">L. 03</span><div class="pol-body"><h2 class="pol-h">Les sténographes officiels</h2><p>Le Québec encadre les personnes qui prennent le dossier, et il les encadre <strong>par langue</strong>.
+français québécois à ce moment-là n’est pas celui d’une mémoire de traduction.</p></div></div></div></section><section class="pol"><div class="container"><div class="pol-in"><span class="pol-n"><small>L.</small>03</span><div class="pol-body"><h2 class="pol-h">Les sténographes officiels</h2><p>Le Québec encadre les personnes qui prennent le dossier, et il les encadre <strong>par langue</strong>.
 L’attestation est délivrée par le Comité sur la sténographie du Barreau, et elle indique les langues
 qu’elle couvre.</p>
-<div class="auth"><span class="auth-k">B-1, r. 13</span><p class="auth-q">« L’attestation vaut pour chacune des méthodes et des langues qui y sont indiquées. »</p><p class="auth-c">Règlement sur la formation, le contrôle de la compétence, la délivrance d’une attestation et la discipline des sténographes, RLRQ ch. B-1, r. 13, art. 1 · loi habilitante : Loi sur les sténographes, RLRQ ch. S-33, art. 3</p></div>
+<div class="auth"><span class="auth-k">B-1, r. 13</span><p class="auth-q">« L’attestation vaut pour chacune des méthodes et des langues qui y sont indiquées. »</p><p class="auth-c">Règlement sur la formation, le contrôle de la compétence, la délivrance d’une attestation et la discipline des sténographes, RLRQ ch. B-1, r. 13, art. 1 · loi habilitante : Loi sur les sténographes, RLRQ ch. S-33, art. 3</p></div>
 <p>Le tableau des sténographes officiels publié par le Barreau comporte une colonne <em>langue</em>
-précisément pour cette raison ; un sténographe autorisé dans les deux y figure deux fois. La province a
+précisément pour cette raison ; un sténographe autorisé dans les deux y figure deux fois. La province a
 donc déjà tranché : prendre un dossier en français et le prendre en anglais sont deux compétences
 distinctes.</p>
 <div class="fit-honest"><span class="fh-k">Comment le travail se divise</span>
-<p>Le Québec réserve le dossier officiel aux sténographes accrédités, et l’attestation est délivrée par langue : une minorité seulement du tableau peut donc porter seule une procédure bilingue. Nous produisons l’autre moitié, des transcriptions attestées à partir de l’enregistrement, dans les deux langues, y compris la part qu’une transcription officielle d’audience bilingue laisse à faire. Le certificat du sténographe officiel est un autre document. Lorsque votre dépôt l’exige, un sténographe officiel accrédité par le Barreau du Québec détient le mandat dès le départ, et Lexoral travaille en collaboration avec l’un d’eux, accrédité en français et en anglais : voir la <a href="/transcription-certifiee/">transcription certifiée</a>. Lexoral prépare la transcription bilingue sous le mandat du sténographe.</p></div></div></div></div></section><section class="pol"><div class="container"><div class="pol-in"><span class="pol-n">L. 04</span><div class="pol-body"><h2 class="pol-h">Ce que nous transcrivons ici</h2><p>Liste brute, sans enrobage.</p>
+<p>Le Québec réserve le dossier officiel aux sténographes accrédités, et l’attestation est délivrée par langue : une minorité seulement du tableau peut donc porter seule une procédure bilingue. Nous produisons l’autre moitié, des transcriptions attestées à partir de l’enregistrement, dans les deux langues, y compris la part qu’une transcription officielle d’audience bilingue laisse à faire. Le certificat du sténographe officiel est un autre document. Lorsque votre dépôt l’exige, un sténographe officiel accrédité par le Barreau du Québec détient le mandat dès le départ, et Lexoral travaille en collaboration avec l’un d’eux, accrédité en français et en anglais : voir la <a href="/transcription-certifiee/">transcription certifiée</a>. Lexoral prépare la transcription bilingue sous le mandat du sténographe.</p></div></div></div></div></section><section class="pol"><div class="container"><div class="pol-in"><span class="pol-n"><small>L.</small>04</span><div class="pol-body"><h2 class="pol-h">Ce que nous transcrivons ici</h2><p>Liste brute, sans enrobage.</p>
 <p class="fit-note">Interrogatoires au préalable · interrogatoires hors cour · interrogatoires sur
 affidavit · interrogatoires après défense · dépositions prises au Québec pour une procédure américaine ·
 arbitrage commercial et de griefs · séances de médiation avec dossier · Tribunal administratif du travail ·
@@ -3701,7 +3771,7 @@ Tribunal administratif du Québec · audiences du Tribunal administratif du loge
 professionnelle · enquêtes du coroner · instances municipales et de la Cour supérieure · Division des
 petites créances · audiences de la CNESST · autorisation d’action collective · preuve enregistrée déposée
 dans l’une ou l’autre</p>
-<div class="svc-spec"><div class="ssr ssr-head"><span></span><span>Inclus</span><span>Sur demande</span></div><div class="ssr"><span class="ssr-k">Langues</span><span>Français et anglais dans la langue originale, en un seul document</span><span>Présentation en colonnes parallèles de l’original et de l’interprétation</span></div><div class="ssr"><span class="ssr-k">Registre</span><span>Français québécois, usage du palais et terminologie juridique traités par un praticien qui exerce dans les deux langues</span><span>Lexique des termes récurrents, convenu avec l’avocat avant livraison</span></div><div class="ssr"><span class="ssr-k">Alternance</span><span>Marquée au point du changement, selon la convention du forum</span><span>Étiquetage de la langue d’énonciation sur chaque ligne</span></div><div class="ssr"><span class="ssr-k">Attestation</span><span>Déclaration d’exactitude signée, praticien nommé</span><span class="ssr-nil">&mdash;</span></div><div class="ssr"><span class="ssr-k">Pagination</span><span>Numérotation continue des lignes, pagination structurée</span><span class="ssr-nil">&mdash;</span></div><div class="ssr"><span class="ssr-k">Livraison</span><span>PDF interrogeable, Word modifiable</span><span>ASCII, e-transcript, RTF, condensé quatre par page, index</span></div><div class="ssr"><span class="ssr-k">Délai</span><span>Cinq jours ouvrables</span><span>Quarante-huit heures</span></div></div></div></div></div></section><section class="pol"><div class="container"><div class="pol-in"><span class="pol-n">L. 05</span><div class="pol-body"><h2 class="pol-h">Où</h2><p>Nous travaillons à partir d’enregistrements : la salle peut être n’importe où. La plupart de nos
+<div class="svc-spec"><div class="ssr ssr-head"><span></span><span>Inclus</span><span>Sur demande</span></div><div class="ssr"><span class="ssr-k">Langues</span><span>Français et anglais dans la langue originale, en un seul document</span><span>Présentation en colonnes parallèles de l’original et de l’interprétation</span></div><div class="ssr"><span class="ssr-k">Registre</span><span>Français québécois, usage du palais et terminologie juridique traités par un praticien qui exerce dans les deux langues</span><span>Lexique des termes récurrents, convenu avec l’avocat avant livraison</span></div><div class="ssr"><span class="ssr-k">Alternance</span><span>Marquée au point du changement, selon la convention du forum</span><span>Étiquetage de la langue d’énonciation sur chaque ligne</span></div><div class="ssr"><span class="ssr-k">Attestation</span><span>Déclaration d’exactitude signée, praticien nommé</span><span class="ssr-nil">&mdash;</span></div><div class="ssr"><span class="ssr-k">Pagination</span><span>Numérotation continue des lignes, pagination structurée</span><span class="ssr-nil">&mdash;</span></div><div class="ssr"><span class="ssr-k">Livraison</span><span>PDF interrogeable, Word modifiable</span><span>ASCII, e-transcript, RTF, condensé quatre par page, index</span></div><div class="ssr"><span class="ssr-k">Délai</span><span>Cinq jours ouvrables</span><span>Quarante-huit heures</span></div></div></div></div></div></section><section class="pol"><div class="container"><div class="pol-in"><span class="pol-n"><small>L.</small>05</span><div class="pol-body"><h2 class="pol-h">Où</h2><p>Nous travaillons à partir d’enregistrements : la salle peut être n’importe où. La plupart de nos
 dossiers québécois viennent de <strong>Montréal</strong> et du Palais de justice de Montréal, ainsi que de
 <strong>Québec</strong>, <strong>Laval</strong>, <strong>Gatineau</strong>, <strong>Longueuil</strong>,
 <strong>Sherbrooke</strong>, <strong>Trois-Rivières</strong>, <strong>Saguenay</strong> et

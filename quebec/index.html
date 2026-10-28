@@ -3630,6 +3630,76 @@ html body .v40-k.v40-k{font-family:var(--ui)!important;font-weight:500!important
 @media (min-width:1340px){html[lang="fr"] body > nav .nav-links.nav-links a:not(.nl-mono):not(.nl-cta){padding:0 7px!important;letter-spacing:.03em!important;font-size:11.5px!important}}
 @media (min-width:1340px) and (max-width:1499px){html[lang="fr"] body > nav .nav-links.nav-links a:not(.nl-mono):not(.nl-cta){padding:0 5px!important;font-size:11px!important}
  html[lang="fr"] body > nav .nav-inner.nav-inner{gap:10px!important;padding:0 22px!important}}
+/* ===== V47 : le système Tschichold ===== */
+:root{--tk:#1B1A17;--tk2:#4A453A;--tk3:#6B6455;--tr:#9A4950;--tp:#F3F1EB}
+html body{font-feature-settings:"kern" 1,"liga" 1;text-rendering:optimizeLegibility}
+
+/* ---------- 1. la tête de section : filet anglais, numéro rouge dans la marge, mention espacée ---------- */
+html body .section-tag.section-tag.section-tag.section-tag{position:relative;display:grid!important;grid-template-columns:var(--marg,128px) minmax(0,1fr);
+ column-gap:var(--gapc,24px);align-items:end;margin-top:0;border:0!important;padding:30px 0 0!important;background:linear-gradient(#1B1A17,#1B1A17) 0 0/100% 7px no-repeat,linear-gradient(#1B1A17,#1B1A17) 0 11px/100% 1px no-repeat!important;
+ font:500 11px/1.1 var(--ui)!important;letter-spacing:.34em!important;text-transform:uppercase!important;color:#9A4950!important}
+html body .section-tag.section-tag.section-tag.section-tag::before{content:none!important;display:none!important}
+html body .section-tag.section-tag.section-tag.section-tag::after{content:counter(secline,decimal-leading-zero)!important;display:block!important;grid-column:1;grid-row:1;
+ justify-self:end;font:700 clamp(46px,4.6vw,70px)/.74 var(--ui)!important;letter-spacing:-.05em!important;color:#9A4950!important;
+ font-variant-numeric:tabular-nums;text-transform:none!important}
+html body .section-tag.section-tag.section-tag.st-plain::before,html body .section-tag.section-tag.section-tag.st-plain::after,
+html body main > .cross-section:first-child:last-of-type .section-tag.section-tag.section-tag.section-tag::after,
+html body .pol-head .section-tag.section-tag.section-tag.section-tag::before,html body .pol-head .section-tag.section-tag.section-tag.section-tag::after,
+html body .services-section .section-tag.section-tag.section-tag.section-tag::before,html body .services-section .section-tag.section-tag.section-tag.section-tag::after{content:none!important;display:none!important}
+html body .section-tag.section-tag.section-tag.st-plain,html body .pol-head .section-tag.section-tag.section-tag.section-tag,
+html body .services-section .section-tag.section-tag.section-tag.section-tag{padding-top:22px!important}
+html body .pol-head .section-tag.section-tag.section-tag.section-tag,html body .services-section .section-tag.section-tag.section-tag.section-tag,
+html body .section-tag.section-tag.section-tag.st-plain,html body main > .cross-section:first-child:last-of-type .section-tag.section-tag.section-tag.section-tag{display:block!important;padding-left:calc(var(--marg,128px) + var(--gapc,24px))!important}
+@media (max-width:900px){html body .pol-head .section-tag.section-tag.section-tag.section-tag,html body .services-section .section-tag.section-tag.section-tag.section-tag,html body .section-tag.section-tag.section-tag.st-plain{padding-left:0!important}}
+@media (max-width:900px){
+ html body .section-tag.section-tag.section-tag.section-tag{grid-template-columns:auto minmax(0,1fr);column-gap:18px;padding-top:26px!important}
+ html body .section-tag.section-tag.section-tag.section-tag::after{font-size:42px!important}
+ }
+
+/* ---------- 2. les titres : une échelle (quarte), en drapeau, serrés ---------- */
+html body h1.pol-title.pol-title{font:400 clamp(50px,6.4vw,100px)/.98 var(--serif)!important;letter-spacing:-.026em!important;color:#1B1A17!important;
+ text-wrap:balance;max-width:14em!important;margin-top:clamp(26px,3vw,40px)!important}
+html body .pol-head .pol-sub.pol-sub{font:italic 400 clamp(19px,1.6vw,22px)/1.45 var(--serif)!important;color:#4A453A!important;max-width:34em}
+html body section h2.section-h2.section-h2,html body h1.section-h2.section-h2{font-size:clamp(40px,4.7vw,70px)!important;line-height:1.03!important;letter-spacing:-.022em!important;text-wrap:balance}
+html body h2.pol-h.pol-h{font:400 clamp(28px,2.7vw,40px)/1.08 var(--serif)!important;letter-spacing:-.014em!important;color:#1B1A17!important;text-wrap:balance}
+/* plus de filigranes dans la marge de droite */
+html body .pol-head .pol-title.pol-title.pol-title::after,html body .pg14-head .pol-title.pol-title.pol-title::after,html body main > .services-section.services-section > .container::after,
+html body main > .cross-section.cross-section:first-child > .container::after{content:none!important;display:none!important;background:none!important}
+
+/* ---------- 3. les sections de page : filet maigre, numéro rouge dans la marge ---------- */
+html body .pol .pol-in.pol-in{border-top:1px solid rgba(27,26,23,.85)!important;background:none!important}
+html body .pol:first-of-type .pol-in.pol-in{background:linear-gradient(#1B1A17,#1B1A17) 0 0/100% 7px no-repeat,linear-gradient(#1B1A17,#1B1A17) 0 11px/100% 1px no-repeat!important;border-top:0!important;padding-top:calc(var(--s6,48px) + 12px)!important}
+html body .pol-n.pol-n{font:700 clamp(30px,2.7vw,42px)/.8 var(--ui)!important;letter-spacing:-.045em!important;color:#9A4950!important;text-align:right;
+ font-variant-numeric:tabular-nums;padding-top:.2em!important}
+html body .pol-n.pol-n small{display:block;margin:0 0 7px;font:400 10px/1 "Courier Prime","Courier New",monospace;letter-spacing:0;color:#6B6455}
+html body .pol-body.pol-body > p{font-size:clamp(17.5px,1.3vw,19px)!important;line-height:1.62!important;color:#4A453A}
+html body .pol-body.pol-body > .pol-ul li{font-size:clamp(17px,1.25vw,18.5px)!important;line-height:1.55!important}
+
+/* ---------- 4. les bandes photo : le texte dans un aplat, en bas à gauche ---------- */
+html body figure.v40-ph .v40-ph-t.v40-ph-t{background:none!important}
+html body figure.v40-ph .v40-ph-t .container{display:block;width:fit-content;max-width:min(640px,calc(100% - 2 * var(--pad,20px)));
+ margin:0 0 0 max(var(--pad,20px),calc(50% - 522px))!important;padding:30px 38px 32px!important;background:#F3F1EB;box-shadow:inset 0 7px 0 #1B1A17;color:#1B1A17}
+html body figure.v40-ph .v40-k.v40-k{color:#9A4950!important;margin-bottom:14px}
+html body figure.v40-ph .v40-h.v40-h{color:#1B1A17!important;font-size:clamp(30px,3.1vw,48px)!important;line-height:1.04!important;max-width:none!important}
+html body figure.v40-ph .v40-s.v40-s{color:#4A453A!important;font-size:clamp(17px,1.3vw,19px)!important;max-width:28em}
+html body figure.v40-ph .v40-go{color:#9A4950!important}
+/* la Cour suprême : un aplat rouge */
+html body figure.v40-ph-scc .v40-ph-t .container{background:#9A4950!important;box-shadow:inset 0 7px 0 #1B1A17;color:#FFFEFB}
+html body figure.v40-ph-scc .v40-k.v40-k{color:#F6E2B8!important}
+html body figure.v40-ph-scc .v40-h.v40-h{color:#FFFEFB!important}
+@media (max-width:760px){
+ html body figure.v40-ph .v40-ph-t.v40-ph-t{position:static!important;display:block!important;padding:0!important}
+ html body figure.v40-ph .v40-ph-t .container{max-width:none;margin:0!important;padding:24px var(--pad,20px) 26px!important}
+ html body figure.v40-ph .v40-ph-i{height:clamp(240px,62vw,420px)!important}
+}
+
+/* ---------- 5. le bandeau d'appel des pages intérieures ---------- */
+html body section.cross-section .xb-close.xb-close{font:400 clamp(24px,2.3vw,32px)/1.32 var(--serif)!important;color:#1B1A17!important;max-width:24em!important;
+ margin:clamp(26px,3vw,38px) 0 clamp(26px,3vw,36px)!important}
+
+/* ---------- 6. le détail : chiffres elzéviriens dans le texte, souligné fin ---------- */
+html body .pol-body > p,html body .stg-lead,html body .v43-lead,html body .section-intro{font-variant-numeric:oldstyle-nums proportional-nums}
+html body .pol-body a:not([class]),html body .stg-lead a:not([class]){text-decoration-thickness:1px;text-underline-offset:.18em}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://lexoral.org/quebec/#webpage", "url": "https://lexoral.org/quebec/", "name": "Legal transcription in Quebec", "description": "Bilingual legal transcription in Quebec: examinations, arbitrations, tribunal hearings in Montreal, Quebec City and Gatineau. Attested, original language.", "inLanguage": "en-CA", "isPartOf": {"@id": "https://lexoral.org/#website"}, "publisher": {"@id": "https://lexoral.org/#org"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Lexoral", "item": "https://lexoral.org/"}, {"@type": "ListItem", "position": 2, "name": "Legal transcription in Quebec", "item": "https://lexoral.org/quebec/"}]}, {"@type": "Service", "@id": "https://lexoral.org/quebec/#service", "name": "Legal transcription in Quebec", "serviceType": "Bilingual French-English legal transcription", "provider": {"@id": "https://lexoral.org/#org"}, "inLanguage": "en-CA", "url": "https://lexoral.org/quebec/", "availableLanguage": ["fr-CA", "en-CA"], "areaServed": [{"@type": "AdministrativeArea", "name": "Quebec"}, {"@type": "City", "name": "Montreal"}, {"@type": "City", "name": "Quebec City"}, {"@type": "City", "name": "Laval"}, {"@type": "City", "name": "Gatineau"}, {"@type": "City", "name": "Longueuil"}, {"@type": "City", "name": "Sherbrooke"}, {"@type": "City", "name": "Trois-Rivieres"}, {"@type": "City", "name": "Saguenay"}, {"@type": "City", "name": "Levis"}]}]}</script>
 </head>
@@ -3671,18 +3741,18 @@ html body .v40-k.v40-k{font-family:var(--ui)!important;font-weight:500!important
     </div>
   </div>
 </nav>
-<main id="main"><section class="pol-head"><div class="container"><div class="section-tag"><span class="st-br">[</span>Quebec<span class="st-br">]</span></div><h1 class="pol-title">In Quebec, both languages are the record</h1><p class="pol-sub">Nobody interprets. Counsel puts the question in English, the witness answers in French, and the transcript has to carry both. That is the ordinary case here, not the difficult one.</p></div></section><section class="pol"><div class="container"><div class="pol-in"><span class="pol-n">L. 01</span><div class="pol-body"><h2 class="pol-h">The rule</h2><p>Section 133 of the <em>Constitution Act, 1867</em> has governed the language of Quebec’s courts for
+<main id="main"><section class="pol-head"><div class="container"><div class="section-tag"><span class="st-br">[</span>Quebec<span class="st-br">]</span></div><h1 class="pol-title">In Quebec, both languages are the record</h1><p class="pol-sub">Nobody interprets. Counsel puts the question in English, the witness answers in French, and the transcript has to carry both. That is the ordinary case here, not the difficult one.</p></div></section><section class="pol"><div class="container"><div class="pol-in"><span class="pol-n"><small>L.</small>01</span><div class="pol-body"><h2 class="pol-h">The rule</h2><p>Section 133 of the <em>Constitution Act, 1867</em> has governed the language of Quebec’s courts for
 more than a century and a half, and it is drafted as a personal choice rather than a rule about the
 proceeding.</p>
 <div class="auth"><span class="auth-k">S. 133, 1867</span><p class="auth-q">“either of those Languages may be used by any Person or in any Pleading or Process in or issuing from any Court of Canada established under this Act, and in or from all or any of the Courts of Quebec.”</p><p class="auth-c">Constitution Act, 1867 (U.K.), 30 &amp; 31 Vict., c. 3, s. 133 · <a href="https://laws-lois.justice.gc.ca/eng/const/section-133.html" rel="noopener">laws-lois.justice.gc.ca</a></p></div>
 <p>Each participant chooses independently and can change mid-hearing. No one has to justify the choice,
 nobody is appointed to bridge it, and no translation is produced. The consequence for the transcript is
-direct: there is no single language of the record to fall back on. Both are the record.</p></div></div></div></section><section class="pol"><div class="container"><div class="pol-in"><span class="pol-n">L. 02</span><div class="pol-body"><h2 class="pol-h">What that looks like</h2><p>This is what an hour of a bilingual examination actually looks like when you plot who is speaking
+direct: there is no single language of the record to fall back on. Both are the record.</p></div></div></div></section><section class="pol"><div class="container"><div class="pol-in"><span class="pol-n"><small>L.</small>02</span><div class="pol-body"><h2 class="pol-h">What that looks like</h2><p>This is what an hour of a bilingual examination actually looks like when you plot who is speaking
 which language. It is not two blocks. It is a braid, and it can switch inside a single answer.</p>
 <figure class="dgm"><figcaption class="dgm-k">Who is speaking what</figcaption><svg viewBox="0 0 760 246" role="img" aria-label="One hearing, minute by minute"><text class="dgm-h" x="0" y="14">One hearing, minute by minute</text><text class="dgm-h" x="760" y="14" text-anchor="end">00:00 — 01:00</text><line class="dgm-rule" x1="0" y1="30" x2="760" y2="30"/><text class="dgm-l" x="150" y="67" text-anchor="end">The court</text><line class="dgm-sep" x1="180" y1="62" x2="744" y2="62" opacity=".45"/><rect class="dgm-tg" x="180" y="50" width="47" height="24"/><rect class="dgm-box" x="594" y="50" width="37" height="24"/><text class="dgm-l" x="150" y="107" text-anchor="end">Counsel</text><line class="dgm-sep" x1="180" y1="102" x2="744" y2="102" opacity=".45"/><rect class="dgm-box" x="227" y="90" width="75" height="24"/><rect class="dgm-box" x="406" y="90" width="56" height="24"/><rect class="dgm-tg" x="631" y="90" width="47" height="24"/><text class="dgm-l" x="150" y="147" text-anchor="end">Witness</text><line class="dgm-sep" x1="180" y1="142" x2="744" y2="142" opacity=".45"/><rect class="dgm-tg" x="302" y="130" width="75" height="24"/><rect class="dgm-box" x="377" y="130" width="29" height="24"/><rect class="dgm-tg" x="462" y="130" width="75" height="24"/><rect class="dgm-tg" x="678" y="130" width="66" height="24"/><text class="dgm-l" x="150" y="187" text-anchor="end">Exhibit read in</text><line class="dgm-sep" x1="180" y1="182" x2="744" y2="182" opacity=".45"/><rect class="dgm-tg" x="537" y="170" width="57" height="24"/><line class="dgm-rule" x1="0" y1="206" x2="760" y2="206"/><rect class="dgm-tg" x="0" y="222" width="20" height="11"/><text class="dgm-s" x="30" y="232">French, as spoken</text><rect class="dgm-box" x="225" y="222" width="20" height="11"/><text class="dgm-s" x="255" y="232">English, as spoken</text></svg><p class="dgm-cap">Solid is French, outline is English. No interpreter appears anywhere in this hour, and under section 133, none is required.</p></figure>
 <p>A transcriptionist working from a glossary cannot do this. The passages that matter are usually the
 ones where the register drops, where a witness stops giving evidence and starts talking. Quebec French
-at that moment is not the French of a translation memory.</p></div></div></div></section><section class="pol"><div class="container"><div class="pol-in"><span class="pol-n">L. 03</span><div class="pol-body"><h2 class="pol-h">Official stenographers</h2><p>Quebec regulates the people who take the record, and it regulates them <strong>by language</strong>.
+at that moment is not the French of a translation memory.</p></div></div></div></section><section class="pol"><div class="container"><div class="pol-in"><span class="pol-n"><small>L.</small>03</span><div class="pol-body"><h2 class="pol-h">Official stenographers</h2><p>Quebec regulates the people who take the record, and it regulates them <strong>by language</strong>.
 Accreditation is granted by the Barreau’s Comité sur la sténographie, and the certificate says which
 languages it covers.</p>
 <div class="auth"><span class="auth-k">B-1, r. 13</span><p class="auth-q">“The accreditation is valid for the methods and languages indicated thereon.”</p><p class="auth-c">Regulation respecting the training, skill and knowledge evaluation, accreditation and discipline of stenographers, CQLR c. B-1, r. 13, s. 1 · enabling Act: Stenographers’ Act, CQLR c. S-33, s. 3</p></div>
@@ -3690,14 +3760,14 @@ languages it covers.</p>
 this reason; a stenographer authorized in both appears twice. The province has, in other words, already
 decided that taking a record in French and taking one in English are two different competences.</p>
 <div class="fit-honest"><span class="fh-k">How the work divides</span>
-<p>Quebec reserves the official record to accredited stenographers, and the attestation is granted by language, which is why only a minority of the roll can carry a bilingual proceeding alone. We produce the other half: attested transcripts from the recording, in both languages, including the part an official transcript of a bilingual hearing leaves undone. The official stenographer&rsquo;s certificate is a separate document. Where your filing needs one, an official stenographer accredited by the Barreau du Québec holds the mandate from the start, and Lexoral works in collaboration with one, accredited in French and English: see <a href="/certified-transcripts/">certified transcripts</a>. Lexoral prepares the bilingual transcript under the stenographer’s mandate.</p></div></div></div></div></section><section class="pol"><div class="container"><div class="pol-in"><span class="pol-n">L. 04</span><div class="pol-body"><h2 class="pol-h">What we transcribe here</h2><p>Raw list, no qualifiers.</p>
+<p>Quebec reserves the official record to accredited stenographers, and the attestation is granted by language, which is why only a minority of the roll can carry a bilingual proceeding alone. We produce the other half: attested transcripts from the recording, in both languages, including the part an official transcript of a bilingual hearing leaves undone. The official stenographer&rsquo;s certificate is a separate document. Where your filing needs one, an official stenographer accredited by the Barreau du Québec holds the mandate from the start, and Lexoral works in collaboration with one, accredited in French and English: see <a href="/certified-transcripts/">certified transcripts</a>. Lexoral prepares the bilingual transcript under the stenographer’s mandate.</p></div></div></div></div></section><section class="pol"><div class="container"><div class="pol-in"><span class="pol-n"><small>L.</small>04</span><div class="pol-body"><h2 class="pol-h">What we transcribe here</h2><p>Raw list, no qualifiers.</p>
 <p class="fit-note">Examinations on discovery · out-of-court examinations · examinations on affidavit ·
 examinations after defence · depositions taken in Quebec for use in U.S. proceedings · commercial and
 labour arbitration · mediation sessions where a record is kept · Tribunal administratif du travail ·
 Tribunal administratif du Québec · Tribunal administratif du logement hearings · professional discipline committees ·
 coroner’s inquests · municipal and Superior Court proceedings · Small Claims · CNESST hearings ·
 class-action certification hearings · recorded evidence filed in any of the above</p>
-<div class="svc-spec"><div class="ssr ssr-head"><span></span><span>Included</span><span>On request</span></div><div class="ssr"><span class="ssr-k">Languages</span><span>French and English in the original language, in a single document</span><span>Parallel-column presentation of original and interpretation</span></div><div class="ssr"><span class="ssr-k">Register</span><span>Quebec French, courthouse usage and legal terminology handled by a practitioner who works in the law in both languages</span><span>Glossary of recurring terms, agreed with counsel before delivery</span></div><div class="ssr"><span class="ssr-k">Code-switching</span><span>Marked at the point of the switch, in the convention of the forum</span><span>Language-of-utterance tagging on every line</span></div><div class="ssr"><span class="ssr-k">Attestation</span><span>Signed accuracy declaration, named practitioner</span><span class="ssr-nil">&mdash;</span></div><div class="ssr"><span class="ssr-k">Numbering</span><span>Continuous line numbering, structured pagination</span><span class="ssr-nil">&mdash;</span></div><div class="ssr"><span class="ssr-k">Delivery</span><span>Searchable PDF, editable Word</span><span>ASCII, e-transcript, RTF, condensed four-up, word index</span></div><div class="ssr"><span class="ssr-k">Turnaround</span><span>Five business days</span><span>Forty-eight hours</span></div></div></div></div></div></section><section class="pol"><div class="container"><div class="pol-in"><span class="pol-n">L. 05</span><div class="pol-body"><h2 class="pol-h">Where</h2><p>We work from recordings, so the room can be anywhere. Most of our Quebec files come from
+<div class="svc-spec"><div class="ssr ssr-head"><span></span><span>Included</span><span>On request</span></div><div class="ssr"><span class="ssr-k">Languages</span><span>French and English in the original language, in a single document</span><span>Parallel-column presentation of original and interpretation</span></div><div class="ssr"><span class="ssr-k">Register</span><span>Quebec French, courthouse usage and legal terminology handled by a practitioner who works in the law in both languages</span><span>Glossary of recurring terms, agreed with counsel before delivery</span></div><div class="ssr"><span class="ssr-k">Code-switching</span><span>Marked at the point of the switch, in the convention of the forum</span><span>Language-of-utterance tagging on every line</span></div><div class="ssr"><span class="ssr-k">Attestation</span><span>Signed accuracy declaration, named practitioner</span><span class="ssr-nil">&mdash;</span></div><div class="ssr"><span class="ssr-k">Numbering</span><span>Continuous line numbering, structured pagination</span><span class="ssr-nil">&mdash;</span></div><div class="ssr"><span class="ssr-k">Delivery</span><span>Searchable PDF, editable Word</span><span>ASCII, e-transcript, RTF, condensed four-up, word index</span></div><div class="ssr"><span class="ssr-k">Turnaround</span><span>Five business days</span><span>Forty-eight hours</span></div></div></div></div></div></section><section class="pol"><div class="container"><div class="pol-in"><span class="pol-n"><small>L.</small>05</span><div class="pol-body"><h2 class="pol-h">Where</h2><p>We work from recordings, so the room can be anywhere. Most of our Quebec files come from
 <strong>Montreal</strong> and the Palais de justice de Montréal, and from <strong>Quebec City</strong>,
 <strong>Laval</strong>, <strong>Gatineau</strong>, <strong>Longueuil</strong>,
 <strong>Sherbrooke</strong>, <strong>Trois-Rivières</strong>, <strong>Saguenay</strong> and
