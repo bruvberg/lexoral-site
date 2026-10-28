@@ -4505,6 +4505,90 @@ html body section.v43-ct + footer .footer-inner.footer-inner{grid-template-colum
 @media (max-width:520px){html body .v43-w img{width:64px;height:64px}html body .v43-w{padding:22px 6px}html body .v43-w b{font-size:16.5px}}
 @media (prefers-reduced-motion:reduce){html body .v43-w img,html body .v43-d summary i::before,html body .v43-d summary i::after{transition:none}}
 html body .v43-sr{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;white-space:nowrap!important}
+/* ===== V44 : Helvetica, et les petits titres à la Tschichold ===== */@font-face{font-family:"Lexoral Heros";font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/lexoral-heros-regular.woff2) format("woff2")}@font-face{font-family:"Lexoral Heros";font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/lexoral-heros-bold.woff2) format("woff2")}@font-face{font-family:"Lexoral Heros";font-style:italic;font-weight:400;font-display:swap;src:url(/fonts/lexoral-heros-italic.woff2) format("woff2")}
+:root{--ui:"Helvetica Neue",Helvetica,"Lexoral Heros",Arial,sans-serif}
+html body{font-feature-settings:"kern" 1}
+/* ---------- les têtes de section : double filet, grille (ligne | titre) ---------- */
+html body .section-tag.section-tag.section-tag.section-tag{display:grid!important;grid-template-columns:var(--marg,128px) minmax(0,1fr);column-gap:var(--gapc,24px);
+ align-items:baseline;background:none!important;border:0!important;border-top:3px double rgba(31,29,23,.78)!important;padding:13px 0 0!important;
+ font:500 11px/1.3 var(--ui)!important;letter-spacing:.34em!important;text-transform:uppercase!important;color:#9A4950!important}
+html body .section-tag.section-tag.section-tag.section-tag::before{font:400 11px/1.3 "Courier Prime","Courier New",monospace!important;letter-spacing:.04em!important;text-transform:none;
+ color:#6B6455!important;margin:0!important;text-align:left}
+html body .section-tag.section-tag.section-tag.section-tag .st-br{display:none!important}
+html body .section-tag.section-tag.section-tag.st-plain{grid-template-columns:minmax(0,1fr)}
+@media (max-width:900px){html body .section-tag.section-tag.section-tag.section-tag{grid-template-columns:auto minmax(0,1fr);column-gap:22px}}
+/* ---------- les rubriques : capitales espacées, rouge ; les légendes : capitales espacées, gris ---------- */
+html body .tree-k.tree-k,html body .jm-k.jm-k,html body .jm-sub.jm-sub,html body .who-r.who-r > span,html body .ot33-k.ot33-k,html body .c25-k.c25-k,html body .mn31-h.mn31-h > b,html body .v43-ck.v43-ck,html body .cov-k.cov-k.cov-k.cov-k{font-family:var(--ui)!important;font-weight:500!important;font-size:10.5px!important;line-height:1.35!important;letter-spacing:.3em!important;
+ text-transform:uppercase!important;color:#9A4950!important}
+html body .sp32-cap.sp32-cap,html body .mn31-h.mn31-h > span,html body .cm-key.cm-key,html body .who-key.who-key{font-family:var(--ui)!important;font-weight:400!important;font-size:10.5px!important;letter-spacing:.2em!important;text-transform:uppercase!important;color:#6B6455!important}
+html body .v40-k.v40-k{font-family:var(--ui)!important;font-weight:500!important;letter-spacing:.32em!important}
+/* l'Helvetica est plus large qu'Inter Tight : l'en-tête sur une ligne se resserre entre 1180 et 1299 px */
+@media (min-width:1180px) and (max-width:1299px){
+ html body > nav .nav-links.nav-links a:not(.nl-mono):not(.nl-cta){padding:0 5px!important;font-size:11px!important;letter-spacing:.04em!important}
+ html body > nav .nav-links.nav-links a.nl-cta{padding:0 14px!important;font-size:11px!important}
+ html body > nav .nav-inner.nav-inner{gap:10px!important;padding:0 22px!important}}
+@media (min-width:1340px){html[lang="fr"] body > nav .nav-links.nav-links a:not(.nl-mono):not(.nl-cta){padding:0 7px!important;letter-spacing:.03em!important;font-size:11.5px!important}}
+@media (min-width:1340px) and (max-width:1499px){html[lang="fr"] body > nav .nav-links.nav-links a:not(.nl-mono):not(.nl-cta){padding:0 5px!important;font-size:11px!important}
+ html[lang="fr"] body > nav .nav-inner.nav-inner{gap:10px!important;padding:0 22px!important}}
+/* ===== V44 : ce que nous recevons, le dossier, à la Tschichold ===== */
+/* ---------- ce que nous recevons ---------- */
+html body .tree.tree{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));text-align:center;padding:clamp(34px,3.6vw,48px) 0 clamp(30px,3.2vw,44px);
+ border-top:3px double rgba(31,29,23,.78);border-bottom:1px solid rgba(31,29,23,.3)}
+html body .tree.tree > *{grid-column:1/-1}
+html body .tree .tree-k.tree-k{display:flex;align-items:center;justify-content:center;gap:16px;margin:0 0 22px;padding-left:.3em}
+html body .tree .tree-k.tree-k::before,html body .tree .tree-k.tree-k::after{content:"";width:40px;border-top:1px solid currentColor;opacity:.7}
+html body .tree .tree-root.tree-root{display:flex;flex-direction:column;align-items:center;gap:6px;margin:0;font:400 clamp(26px,2.4vw,32px)/1.1 var(--serif);color:#1F1D17}
+html body .tree .tree-root.tree-root > i.v43-i{display:block!important;width:60px!important;height:60px!important;margin:0!important;vertical-align:0}
+html body .tree .tree-br.tree-br{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:0;padding-top:50px;position:relative}
+html body .tree .tree-br::before,html body .tree .tree-br::after,html body .tree .tree-b::before,html body .tree .tree-b::after,
+html body .tree .tree-b li::before,html body .tree .tree-b li::after{content:none!important;display:none!important}
+/* l'accolade : la tige qui descend de l'enregistrement, le filet horizontal, les trois amorces */
+html body .tree .tree-br.tree-br::before{content:""!important;display:block!important;position:absolute;left:16.667%;right:16.667%;top:24px;width:auto;height:26px;
+ background:none!important;border:1px solid rgba(31,29,23,.55);border-bottom:0}
+html body .tree .tree-br.tree-br::after{content:""!important;display:block!important;position:absolute;left:50%;top:0;width:1px;height:50px;background:rgba(31,29,23,.55)!important}
+html body .tree .tree-b.tree-b{display:flex;flex-direction:column;align-items:center;padding:20px clamp(14px,2vw,28px) 4px}
+html body .tree .tree-b.tree-b + .tree-b{border-left:1px solid rgba(31,29,23,.16)}
+html body .tree .tree-h.tree-h{display:flex;flex-direction:column;align-items:center;gap:10px;width:100%;margin:0 0 12px;padding:0 0 14px;border-bottom:1px solid rgba(31,29,23,.3);
+ font-family:var(--ui)!important;font-weight:500!important;font-size:11.5px!important;letter-spacing:.26em!important;text-transform:uppercase;color:#1F1D17}
+html body .tree .tree-h.tree-h > i.v43-i{display:block!important;width:64px!important;height:64px!important;margin:0!important;vertical-align:0}
+html body .tree .tree-b.tree-b ul{margin:0;padding:0;list-style:none}
+html body .tree .tree-b.tree-b li{padding:5px 0;font:400 18px/1.4 var(--serif);color:#4A453A}
+html body .tree .tree-b.tree-b ul{flex:1 0 auto}
+html body .tree .tree-more.tree-more{margin:14px auto 0!important}
+html body .tree .tree-l.tree-l{margin:18px 0 0;font:500 10.5px/1.4 var(--ui)!important;letter-spacing:.16em!important;text-transform:uppercase;text-decoration:none;
+ border-bottom:1px solid rgba(42,91,123,.4);padding-bottom:4px}
+html body .tree .tree-l.tree-l:hover{border-color:#2A5B7B}
+@media (max-width:760px){
+ html body .tree.tree,html body .tree .tree-br.tree-br{grid-template-columns:minmax(0,1fr)}
+ html body .tree .tree-br.tree-br{padding-top:24px}
+ html body .tree .tree-br.tree-br::before{display:none!important}
+ html body .tree .tree-br.tree-br::after{height:24px}
+ html body .tree .tree-b.tree-b + .tree-b{border-left:0;border-top:1px solid rgba(31,29,23,.16);margin-top:20px}
+}
+
+/* ---------- notre clientèle : sur la grille, sans décor (Brian, 5 h 58 : « pourquoi le dessin à droite ? l'espace n'est pas
+   utilisé ») : plus de palais en filigrane, plus de vignettes derrière les colonnes, plus de décalage de la colonne du
+   milieu ; trois colonnes alignées, séparées par des filets ---------- */
+html body .who31 > .container::after,html body .who31 .who-c::after,html body .who31 .who-c::before{content:none!important;display:none!important}
+html body .who31 .who-g .who-c{transform:none!important;padding:28px clamp(18px,2.2vw,32px) 8px!important}
+html body .who31 .who-g .who-c:first-child{padding-left:0!important}
+html body .who31 .who-g .who-c + .who-c{border-left:1px solid rgba(31,29,23,.16)}
+html body .who31 .who-g{border-top:1px solid rgba(31,29,23,.45)!important}
+@media (max-width:900px){html body .who31 .who-g .who-c{padding-left:0!important}html body .who31 .who-g .who-c + .who-c{border-left:0;border-top:1px solid rgba(31,29,23,.16)}}
+/* le sceau en filigrane du dépôt au Québec chevauchait le texte : retiré */
+html body .c25 .c36-wm{display:none!important}
+
+/* ---------- le dossier : les textes en grille, la bande des villes centrée ---------- */
+html body .jm-t.jm-t li{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);column-gap:24px;align-items:baseline;padding:13px 0!important;
+ border-bottom:1px solid rgba(31,29,23,.16)!important}
+html body .jm-t.jm-t li:first-child{border-top:1px solid rgba(31,29,23,.45)!important}
+html body .jm-t.jm-t li b{font:500 12.5px/1.45 var(--ui)!important;letter-spacing:.03em!important}
+html body .jm-t.jm-t li span{font:400 17.5px/1.45 var(--serif)!important}
+html body .jm-case.jm-case{font-family:var(--serif)!important}
+html body .jur-area.jur-area{display:grid;justify-items:center;gap:8px;text-align:center;background:none!important;margin-top:clamp(28px,3vw,40px)!important;
+ padding:18px 0 16px!important;border:0!important;border-top:3px double rgba(31,29,23,.78)!important;border-bottom:1px solid rgba(31,29,23,.3)!important}
+html body .jur-area.jur-area b{font:500 10.5px/1.5 var(--ui)!important;letter-spacing:.24em!important;text-transform:uppercase;color:#1F1D17!important}
+html body .jur-area.jur-area span{font:italic 400 17px/1.5 var(--serif)!important;letter-spacing:0!important;text-transform:none!important;color:#4A453A!important}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": ["Organization", "LegalService", "LocalBusiness"], "@id": "https://lexoral.org/#org", "name": "Lexoral", "sameAs": ["https://www.linkedin.com/company/lexoral/"], "alternateName": "Lexoral Legal Transcription", "url": "https://lexoral.org", "logo": "https://lexoral.org/logo.svg", "image": "https://lexoral.org/og.png", "description": "Lexoral produit des transcriptions juridiques bilingues français–anglais attestées : dossiers américains, dossiers canadiens et dossiers transfrontaliers. Transcriptions verbatim, lignes numérotées, attestées, pour dépositions, interrogatoires, arbitrages, audiences de tribunaux et affaires criminelles, avec déclaration d'exactitude signée et traitement conforme à la Loi 25.", "slogan": "Un seul dossier, deux juridictions.", "founder": [{"@id": "https://lexoral.org/#brian"}, {"@id": "https://lexoral.org/#raymond"}], "numberOfEmployees": {"@type": "QuantitativeValue", "value": 2}, "email": "secure@lexoral.org", "telephone": "+1-514-712-7516", "priceRange": "$$", "currenciesAccepted": "CAD", "address": {"@type": "PostalAddress", "streetAddress": "24191-300 Eagleson Rd", "addressLocality": "Kanata", "addressRegion": "ON", "postalCode": "K2M 2C3", "addressCountry": "CA"}, "geo": {"@type": "GeoCoordinates", "latitude": 45.3088, "longitude": -75.8983}, "areaServed": [{"@type": "Country", "name": "Canada"}, {"@type": "Country", "name": "&Eacute;tats-Unis"}], "knowsLanguage": [{"@type": "Language", "name": "French", "alternateName": "fr"}, {"@type": "Language", "name": "English", "alternateName": "en"}], "knowsAbout": ["legal transcription", "bilingual transcription", "French-English code-switching", "deposition transcripts", "arbitration transcripts", "administrative tribunal hearings", "cross-border litigation", "Quebec Code de proc&eacute;dure civile", "Federal Rules of Civil Proc&eacute;dure", "AAERT transcript formatting", "Loi 25 compliance", "evidentiary chain of custody", "Quebec official stenographer certification", "Immigration and Refugee Board hearing transcripts"], "contactPoint": [{"@type": "ContactPoint", "contactType": "customer service", "email": "secure@lexoral.org", "telephone": "+1-514-712-7516", "availableLanguage": ["French", "English"], "areaServed": ["CA", "US"]}, {"@type": "ContactPoint", "contactType": "press and partnerships", "email": "contact@lexoral.org", "availableLanguage": ["French", "English"]}], "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Legal transcription services", "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Dépositions et interrogatoires", "description": "Transcriptions bilingues verbatim avec identification des locuteurs, horodatage, numérotation des lignes et notation des objections."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Arbitrage et médiation", "description": "Mise en forme judiciaire pour formations privées et arbitrages institutionnels — CCI, AAA, ADRIC, CIAC."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Tribunaux et audiences réglementaires", "description": "Tribunaux administratifs, commissions du travail, audiences en immigration et procédures gouvernementales."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Soutien au litige transfrontalier", "description": "Normes américaines de déposition combinées à une expertise québécoise bilingue, en une seule passe."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Transcription certifiée (sténographe officiel)", "description": "Pour un dépôt devant un tribunal québécois : une transcription préparée et certifiée par un sténographe officiel accrédité par le Barreau du Québec, qui détient le mandat. Transcription bilingue préparée par Lexoral en collaboration avec un sténographe officiel accrédité en français et en anglais.", "url": "https://lexoral.org/transcription-certifiee/"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Transcription des audiences de la CISR", "description": "Transcription des enregistrements d’audiences de la CISR en français et en anglais, avec la déclaration signée du transcripteur ou un affidavit.", "url": "https://lexoral.org/transcription-immigration-refugies/"}}]}}, {"@type": "Person", "@id": "https://lexoral.org/#raymond", "name": "Raymond Carby-Samuels", "jobTitle": "Cofondateur — procédure québécoise et droits linguistiques", "worksFor": {"@id": "https://lexoral.org/#org"}, "knowsLanguage": ["fr", "en"], "description": "Ancien parajuriste au Québec et membre associé actif de l'Association du Barreau canadien. Auteur et éditeur de manuels sur le cadre constitutionnel et les libertés civiles en anglais et en français. A préparé et présenté une argumentation juridique complexe en français devant l'Assemblée nationale du Québec. Chargé de cours au George Brown College en droit constitutionnel canadien et codes des droits de la personne.", "knowsAbout": ["Canadian constitutional law", "human rights codes", "Quebec civil procedure", "language rights", "legal translation"], "affiliation": {"@type": "Organization", "name": "Canadian Bar Association"}, "alumniOf": {"@type": "CollegeOrUniversity", "name": "George Brown College"}}, {"@type": "Person", "@id": "https://lexoral.org/#brian", "name": "Brian Fino", "jobTitle": "Cofondateur — langue et discipline du verbatim", "worksFor": {"@id": "https://lexoral.org/#org"}, "knowsLanguage": ["fr", "en"], "knowsAbout": ["verbatim legal transcription", "French-English code-switching", "deposition transcript formatting", "interpretation"]}, {"@type": "WebSite", "@id": "https://lexoral.org/#website", "url": "https://lexoral.org", "name": "Lexoral", "publisher": {"@id": "https://lexoral.org/#org"}, "inLanguage": ["en-CA", "fr-CA"]}, {"@type": "WebPage", "@id": "https://lexoral.org/fr/#webpage", "url": "https://lexoral.org/fr/", "name": "Transcription juridique bilingue FR–EN, Canada et É.-U. — Lexoral", "isPartOf": {"@id": "https://lexoral.org/#website"}, "about": {"@id": "https://lexoral.org/#org"}, "inLanguage": "fr-CA", "dateModified": "2026-09-12", "speakable": {"@type": "SpeakableSpecification", "cssSelector": [".hx-sub", ".xb-close"]}}]}</script>
 
