@@ -36,21 +36,30 @@
 .hx-facts > div:nth-child(2) dt::before{background:var(--fr)}
 .hx-facts > div:nth-child(3) dt::before{background:var(--gold)}
 .hx-facts dd{margin:7px 0 0 18px;font-size:13.5px;line-height:1.3;color:var(--ink-2)}
-/* sous 1100 px, le chapeau et les repères s'empilent ; sous 900 px, la scène se redresse et la suite du titre et les
-   touches descendent sur le marbre clair */
+/* Sous 1100 px, le chapeau et les repères s'empilent. Sous 900 px, la suite du titre et les touches passent sous le mot :
+   sur une tablette, sous la photo (sur le papier) ; sur un téléphone, en bas de la photo, sur le marbre clair.
+   La scène n'a jamais de marge latérale : ses unités cqw valent 1 % de toute la largeur, comme la photo. */
 @media (max-width:1099px){.hx-lead,.hx-facts{grid-column:1/-1}}
+@media (max-width:760px){.hx-k2{display:none}}   /* la rubrique tient sur une ligne ; le Canada et les États-Unis sont dans le chapeau */
 @media (max-width:899px){
- .hx-st{--ar:20/17;--bx:0%;--by:50%;--wf:26cqw;--wy:7.4cqw;display:flex;flex-direction:column;justify-content:flex-end;padding:0 4cqw 5cqw;color:var(--ink)}
- .hx-k{top:3.4cqw}
- .hx-h{margin:0;width:auto;max-width:62cqw;padding:0;font-size:3.6cqw}
+ .hx-st{--wx:3.7cqw;display:flex;flex-direction:column;justify-content:flex-end;color:var(--ink)}
+ .hx-h{margin:0 4cqw;width:auto;padding:0}
  .hx-s{color:#2A2D34}   /* sur le marbre : 6:1 au pire endroit */
  .hx-s b{color:var(--ink)}
- .hx-cta{width:auto;margin:3.2cqw 0 0}
+ .hx-cta{width:auto;margin:3.2cqw 4cqw 0}
 }
-@media (max-width:699px){
- .hx-st{--ar:39/60;--bx:14%;--wf:35cqw;--wy:20cqw;padding-bottom:6cqw}
- .hx-k{top:5.6cqw}
- .hx-h{max-width:none;font-size:5.7cqw}
+@media (min-width:481px) and (max-width:899px){
+ .hx-st{--bx:0%;--by:50%;--wf:23.9cqw;--wy:6.8cqw;aspect-ratio:auto;display:block;padding-bottom:30px;background:var(--paper)}
+ .hx-st::before{content:"";display:block;height:85cqw;margin-bottom:26px}
+ .hx-ph,.hx-fg{bottom:auto;height:85cqw}
+ .hx-k{top:3.1cqw}
+ .hx-h{font-size:clamp(20px,3.4cqw,28px)}
+ .hx-cta{margin-top:18px}
+}
+@media (max-width:480px){
+ .hx-st{--ar:39/60;--bx:14%;--by:50%;--wf:32.2cqw;--wy:18.4cqw;padding-bottom:5.5cqw}
+ .hx-k{top:5.15cqw}
+ .hx-h{font-size:5.25cqw}
  .hx-cta .key{flex:1 1 0;justify-content:space-between;padding-left:14px;padding-right:12px}
  .hx-facts{grid-template-columns:1fr;gap:18px}
 }
