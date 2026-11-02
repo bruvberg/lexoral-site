@@ -1,4 +1,5 @@
 /* Lexoral — V50 : l'accueil */
+/* V59 : le papier, partout — une seule feuille sous le site, les aplats tirés dessus (v59/css.py) */
 /* V58 : la campagne — six annonces construites comme l'ouverture (v50_home.py) */
 /* V54 : l'Helvetica pour tout ce qui se lit, la Courier seulement dans les fac-similés (v54/type.py) */
 /* V51 palette : papier crème, encre chaude, vermillon, or moutarde, bleu canard (v51/palette.py) */
@@ -10,15 +11,15 @@
    Calques : l'aplat (.hx-blk) → le mot (.hx-w, z 1) → la main (.hx-hand, z 2 : un fond vermillon masqué par la silhouette,
    l'encre masquée par la trame) → le grain du papier (z 4) → les textes et les touches (z 5).
    Tout se mesure en cqw : la composition est la même à toutes les largeurs d'un palier. */
-.hx{position:relative;background:url(/img/grain-lt.svg) var(--paper);border-bottom:1.5px solid var(--ink)}
+.hx{position:relative;background:transparent;border-bottom:1.5px solid var(--ink)}
 .hx-st{--wx:4cqw;--wy:6cqw;--wf:22cqw;--bx:50cqw;--by:13cqw;--hx:54cqw;--hy:4.5cqw;--hw:49cqw;
- position:relative;display:flow-root;aspect-ratio:16/9;container-type:inline-size;overflow:hidden;background:var(--paper)}
-.hx-st::after{content:"";position:absolute;inset:0;z-index:4;pointer-events:none;background:url(/img/grain.svg);opacity:.42;mix-blend-mode:multiply}
+ position:relative;display:flow-root;aspect-ratio:16/9;container-type:inline-size;overflow:hidden;background:transparent}
+
 .hx-pic{position:absolute;inset:0;overflow:hidden;pointer-events:none}
-.hx-blk{position:absolute;left:var(--bx);top:var(--by);right:0;bottom:0;background:var(--red-hi);overflow:hidden}
+.hx-blk{position:absolute;left:var(--bx);top:var(--by);right:0;bottom:0;background:url(/img/papier.jpg) 0 0/640px var(--red-hi);background-blend-mode:multiply;overflow:hidden}
 .hx-hand{position:absolute;z-index:2;left:var(--hx);top:var(--hy);width:var(--hw);aspect-ratio:1320/1690}
 .hx-hand i{position:absolute;inset:0}
-.hx-hb{background:var(--red-hi);-webkit-mask:url(/img/hand-sil.png) 0 0/100% 100% no-repeat;mask:url(/img/hand-sil.png) 0 0/100% 100% no-repeat}
+.hx-hb{background:url(/img/papier.jpg) 0 0/640px var(--red-hi);background-blend-mode:multiply;-webkit-mask:url(/img/hand-sil.png) 0 0/100% 100% no-repeat;mask:url(/img/hand-sil.png) 0 0/100% 100% no-repeat}
 .hx-hi{background:var(--ink);-webkit-mask:url(/img/hand-ink.png) 0 0/100% 100% no-repeat;mask:url(/img/hand-ink.png) 0 0/100% 100% no-repeat}
 @supports not ((-webkit-mask-size:cover) or (mask-size:cover)){.hx-hand{display:none}}
 .hx-k{position:absolute;z-index:5;left:var(--wx);right:18cqw;top:2.4cqw}
@@ -78,13 +79,12 @@
    clarté L* ≈ 50 : le noir s'y lit pareil) ; le rouge et le bleu ne se touchent pas ; ce qui passe devant le mot est
    rempli (de papier, ou de la couleur de l'aplat, ses tailles à l'encre) ; le grain du papier passe sur tout. */
 .hm > section{overflow:hidden}
-.ad{position:relative;border-top:1.5px solid var(--ink);background:url(/img/grain-lt.svg) var(--paper)}
+.ad{position:relative;border-top:1.5px solid var(--ink)}
 .ad-st{position:relative;container-type:inline-size;aspect-ratio:16/9;overflow:hidden}
-.ad-st::after{content:"";position:absolute;inset:0;z-index:4;pointer-events:none;background:url(/img/grain.svg);opacity:.42;mix-blend-mode:multiply}
 .ad-st > *{position:absolute;margin:0}
 .ad-k{left:4cqw;top:2.4cqw;z-index:6}
-.ad-blk{left:var(--bx);top:var(--by);right:var(--br,0);bottom:var(--bb,0);background:var(--red-hi);z-index:0}
-.ad-blk.b{background:var(--slate)}
+.ad-blk{left:var(--bx);top:var(--by);right:var(--br,0);bottom:var(--bb,0);background:url(/img/papier.jpg) 0 0/640px var(--red-hi);background-blend-mode:multiply;z-index:0}
+.ad-blk.b{background-color:var(--slate)}
 .ad-w{left:var(--wx);top:var(--wy);z-index:1;font:700 var(--wf)/.8 var(--sans);letter-spacing:-.05em;white-space:nowrap;color:var(--ink);pointer-events:none}
 .ad-d{left:var(--dx,4cqw);top:var(--dy);width:var(--dw,27cqw);z-index:5}
 .ad-pos{display:block;font:400 1.15cqw/1 var(--mono);letter-spacing:.02em;color:var(--ribbon)}
@@ -119,8 +119,8 @@
 /* Both. — le français (vermillon) et l'anglais (bleu) ; le noir où ils se rencontrent : un seul dossier */
 .sq-w{left:37cqw;top:8.5cqw;width:49cqw;height:47.75cqw;z-index:0}
 .sq-w > *{position:absolute;margin:0}
-.sq-en{left:0;top:36.6%;width:61.2%;height:63.4%;background:var(--slate)}
-.sq-fr{left:34.7%;top:0;width:65.3%;height:67%;background:var(--red-hi)}
+.sq-en{left:0;top:36.6%;width:61.2%;height:63.4%;background:url(/img/papier.jpg) 0 0/640px var(--slate);background-blend-mode:multiply}
+.sq-fr{left:34.7%;top:0;width:65.3%;height:67%;background:url(/img/papier.jpg) 0 0/640px var(--red-hi);background-blend-mode:multiply}
 .sq-x{left:34.7%;top:36.6%;width:26.5%;height:30.4%;padding:1.1cqw;background:var(--ink);color:#F4EEE2}
 .sq-x b{display:block;font:700 1.25cqw/1 var(--sans);letter-spacing:.14em}
 .sq-x span{display:block;margin-top:.5cqw;font:400 1.15cqw/1.2 var(--sans)}
@@ -132,7 +132,7 @@
 /* Certified. — le fronton, gravé comme la main : la silhouette de la couleur de l'aplat, les tailles à l'encre ; le tampon */
 .ce-o{left:26cqw;top:11.25cqw;width:80cqw;aspect-ratio:1500/844;z-index:2}
 .ce-o i{position:absolute;inset:0}
-.ce-s{background:var(--red-hi);-webkit-mask:url(/img/fronton-sil.png) 0 0/100% 100% no-repeat;mask:url(/img/fronton-sil.png) 0 0/100% 100% no-repeat}
+.ce-s{background:url(/img/papier.jpg) 0 0/640px var(--red-hi);background-blend-mode:multiply;-webkit-mask:url(/img/fronton-sil.png) 0 0/100% 100% no-repeat;mask:url(/img/fronton-sil.png) 0 0/100% 100% no-repeat}
 .ce-i{background:var(--ink);-webkit-mask:url(/img/fronton-ink.png) 0 0/100% 100% no-repeat;mask:url(/img/fronton-ink.png) 0 0/100% 100% no-repeat}
 @supports not ((-webkit-mask-size:cover) or (mask-size:cover)){.ce-o{display:none}}
 .stamp.ce{left:19cqw;top:40.5cqw;width:17cqw;transform:rotate(-8deg)}

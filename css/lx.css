@@ -1,6 +1,7 @@
 /* Lexoral — V50, refait à neuf (1er nov. 2026, d'après Brian, 17 h 44)
    Peu de couleurs, Helvetica partout, Courier pour ce qui est de la transcription, une grille de 12 colonnes,
    des carrés de couleur (bleu : anglais ; rouge : français ; or : les deux), le guilloché, des touches de sténotype. */
+/* V59 : le papier, partout — une seule feuille sous le site, les aplats tirés dessus (v59/css.py) */
 /* V58 : la palette de la campagne, le tapé au bleu du ruban, le pied de page « Send. » et l'index (v58/css_lx.py) */
 /* V55 : les touches carrées, l'affiche partout, le pied de page et l'index refaits (v55/css_lx.py) */
 /* V54 : l'Helvetica pour tout ce qui se lit, la Courier seulement dans les fac-similés (v54/type.py) */
@@ -31,7 +32,7 @@
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:96px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
-body{margin:0;background:var(--paper);color:var(--ink);font:400 var(--fs-body)/1.55 var(--sans);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+body{margin:0;background:url(/img/papier.jpg) 0 0/640px var(--paper);background-blend-mode:multiply;color:var(--ink);font:400 var(--fs-body)/1.55 var(--sans);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
  text-rendering:optimizeLegibility;font-kerning:normal;overflow-x:clip}
 img,svg,video{display:block;max-width:100%}
 img{height:auto}
@@ -151,7 +152,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 /* ---------- la page intérieure : l'en-tête ---------- */
 main{display:block}
 .pol-head,main > .services-section:first-child > .container > .section-header,main > .cross-section:first-child .section-header{position:relative}
-.pol-head{padding:clamp(56px,8vw,128px) 0 clamp(40px,5vw,72px);background:var(--paper);border-bottom:1px solid var(--rule);overflow:hidden}
+.pol-head{padding:clamp(56px,8vw,128px) 0 clamp(40px,5vw,72px);background:transparent;border-bottom:1px solid var(--rule);overflow:hidden}
 .pol-head > .container{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);position:relative}
 .pol-head > .container > *{grid-column:1/span 10}
 .pol-head .pol-title{margin:22px 0 0;font:700 clamp(44px,6.6vw,112px)/.92 var(--sans);letter-spacing:-.048em}
@@ -162,15 +163,15 @@ main{display:block}
 main > .services-section:first-child,main > .cross-section:first-child{overflow:hidden}
 main > .services-section:first-child .section-header .section-h2,main > .cross-section:first-child .section-header .section-h2{position:relative;isolation:isolate}
 main > .services-section:first-child .section-header .section-h2::before,main > .cross-section:first-child .section-header .section-h2::before{content:"";position:absolute;z-index:-1;
- left:46%;right:-100vw;top:.26em;bottom:-.14em;background:var(--red-hi);pointer-events:none}
+ left:46%;right:-100vw;top:.26em;bottom:-.14em;background:url(/img/papier.jpg) 0 0/640px var(--red-hi);background-blend-mode:multiply;pointer-events:none}
 .pol-head{isolation:isolate}
-.pol-head::before{content:"";position:absolute;z-index:-1;left:44%;right:0;top:calc(clamp(56px,8vw,128px) + 62px);bottom:0;background:var(--red-hi);pointer-events:none}
+.pol-head::before{content:"";position:absolute;z-index:-1;left:44%;right:0;top:calc(clamp(56px,8vw,128px) + 62px);bottom:0;background:url(/img/papier.jpg) 0 0/640px var(--red-hi);background-blend-mode:multiply;pointer-events:none}
 @media (max-width:900px){.pol-head > .container > *,.pol-head .pol-sub{grid-column:1/-1}.pol-head::before{display:none}
  .pol-head .pol-title{position:relative;isolation:isolate}
- .pol-head .pol-title::before{content:"";position:absolute;z-index:-1;left:46%;right:calc((100% - 100vw) / 2);top:.26em;bottom:-.14em;background:var(--red-hi)}}
+ .pol-head .pol-title::before{content:"";position:absolute;z-index:-1;left:46%;right:calc((100% - 100vw) / 2);top:.26em;bottom:-.14em;background:url(/img/papier.jpg) 0 0/640px var(--red-hi);background-blend-mode:multiply}}
 
 /* les sections numérotées (§, L., N°) : le numéro à gauche, le texte au centre */
-.pol{padding:clamp(40px,5vw,72px) 0;border-top:1px solid var(--rule);background:var(--paper)}
+.pol{padding:clamp(40px,5vw,72px) 0;border-top:1px solid var(--rule);background:transparent}
 .pol + .pol{border-top:1px solid var(--rule)}
 .pol-in{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap)}
 .pol-n{grid-column:1/span 2;font:700 clamp(26px,2.5vw,40px)/1 var(--sans);letter-spacing:-.045em;color:var(--fr)}
@@ -283,7 +284,7 @@ main > .services-section:first-child .section-header .section-h2::before,main > 
 @media (max-width:900px){.lx-next .xb-close{grid-column:1/-1}.lx-next .cross-cta{grid-column:1/-1;justify-self:start;margin-top:26px}}
 
 /* ---------- les services ---------- */
-.services-section{padding:clamp(56px,8vw,128px) 0 clamp(48px,6vw,96px);background:var(--paper)}
+.services-section{padding:clamp(56px,8vw,128px) 0 clamp(48px,6vw,96px);background:transparent}
 .section-header{margin:0 0 clamp(36px,4vw,64px)}
 .section-header .section-h2{margin:22px 0 0;font:700 clamp(44px,6.6vw,112px)/.92 var(--sans);letter-spacing:-.048em;max-width:12em}
 .section-intro{margin:clamp(20px,2.2vw,30px) 0 0;max-width:34em;font-size:clamp(18px,1.55vw,23px);line-height:1.45;color:var(--ink-2)}
@@ -316,7 +317,7 @@ main > .services-section:first-child .section-header .section-h2::before,main > 
 .service-card,.tsp,.tsp-b{min-width:0;max-width:100%}
 
 /* ---------- pourquoi Lexoral ---------- */
-.why-section,.pg14-sec,.pg14-ref,.pr14,.rec-band,.faq-section{padding:clamp(48px,6vw,96px) 0;background:var(--paper)}
+.why-section,.pg14-sec,.pg14-ref,.pr14,.rec-band,.faq-section{padding:clamp(48px,6vw,96px) 0;background:transparent}
 .pg14-sec + .pg14-sec{border-top:1px solid var(--rule)}
 .wy-lead,.pg14-p{max-width:36em;margin:0 0 clamp(28px,3vw,44px);font-size:clamp(19px,1.6vw,24px);line-height:1.45;color:var(--ink)}
 .pg14-sec .section-tag{margin:0 0 22px}
@@ -429,7 +430,7 @@ main > .services-section:first-child .section-header .section-h2::before,main > 
 @media (max-width:560px){.faq-q{grid-template-columns:48px minmax(0,1fr) 28px}.faq-a{grid-template-columns:48px minmax(0,1fr);padding-right:0}}
 
 /* ---------- le transfrontalier ---------- */
-main > .cross-section:first-child{position:relative;padding:clamp(56px,8vw,128px) 0 clamp(48px,6vw,96px);background:var(--paper);overflow:hidden}
+main > .cross-section:first-child{position:relative;padding:clamp(56px,8vw,128px) 0 clamp(48px,6vw,96px);background:transparent;overflow:hidden}
 .xb-map{position:absolute;right:-10%;top:0;width:min(1100px,90vw);height:auto;opacity:.5;pointer-events:none}
 .xb-land{fill:none;stroke:rgba(28,26,23,.1);stroke-width:1;vector-effect:non-scaling-stroke}
 .xb-line{fill:none;stroke:var(--fr);stroke-width:1.6;vector-effect:non-scaling-stroke;opacity:.6}
@@ -496,10 +497,10 @@ main > .cross-section:first-child .xb-close{max-width:22em;margin:0 0 24px;font:
 
 /* ---------- le pied de page (V58) : la huitième annonce, « Send. » — le mot qui déborde sur l'aplat vermillon ; la feuille
    LX-1 posée dessus, le tampon « reçu » ; à gauche, la définition et les coordonnées, tapées à la machine ---------- */
-.lx-foot{position:relative;background:url(/img/grain-lt.svg) var(--paper);color:var(--ink);padding:0 0 30px;border-top:1.5px solid var(--ink);overflow:hidden}
+.lx-foot{position:relative;background:transparent;color:var(--ink);padding:0 0 30px;border-top:1.5px solid var(--ink);overflow:hidden}
 .lx-fgrid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);row-gap:clamp(96px,10vw,160px);padding-top:clamp(36px,4vw,64px)}
 .lx-req{grid-column:1/-1;position:relative;isolation:isolate;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);align-items:start}
-.lx-req::before{content:"";position:absolute;z-index:-1;left:40%;right:calc((100% - 100vw) / 2);top:clamp(120px,12.6vw,210px);bottom:-64px;background:var(--red-hi);pointer-events:none}
+.lx-req::before{content:"";position:absolute;z-index:-1;left:40%;right:calc((100% - 100vw) / 2);top:clamp(120px,12.6vw,210px);bottom:-64px;background:url(/img/papier.jpg) 0 0/640px var(--red-hi);background-blend-mode:multiply;pointer-events:none}
 .lx-req .lab{grid-column:1/-1}
 .lx-fh{grid-column:1/-1;margin:clamp(12px,1.4vw,22px) 0 0 -.045em;font:700 clamp(96px,26vw,400px)/.8 var(--sans);letter-spacing:-.055em;color:var(--ink);white-space:nowrap}
 html[lang="fr"] .lx-fh{font-size:clamp(72px,19.6vw,300px)}
@@ -576,7 +577,7 @@ label.sq input:focus-visible{outline:2px solid var(--ribbon);outline-offset:2px}
 /* l'index (V58) : le grand mot « Index. » qui déborde sur l'aplat bleu ; la page d'index, en papier, posée dessus —
    le numéro, le titre, la flèche au survol */
 .lx-index{grid-column:1/-1;position:relative;isolation:isolate}
-.lx-index::before{content:"";position:absolute;z-index:-1;left:calc((100% - 100vw) / 2);right:36%;top:clamp(58px,6.2vw,104px);bottom:-48px;background:var(--slate);pointer-events:none}
+.lx-index::before{content:"";position:absolute;z-index:-1;left:calc((100% - 100vw) / 2);right:36%;top:clamp(58px,6.2vw,104px);bottom:-48px;background:url(/img/papier.jpg) 0 0/640px var(--slate);background-blend-mode:multiply;pointer-events:none}
 .lx-ix-t{position:relative;z-index:1;margin:0 0 -.3em -.045em;font:700 clamp(88px,15vw,240px)/.8 var(--sans);letter-spacing:-.06em;color:var(--ink);pointer-events:none}
 .ix-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:clamp(24px,3vw,56px);row-gap:34px;margin-left:clamp(40px,10vw,170px);
  padding:clamp(76px,7.6vw,128px) clamp(20px,2.8vw,44px) clamp(26px,3vw,44px);background:#FBF8F1;border:1px solid rgba(28,26,23,.3);
