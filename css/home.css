@@ -1,5 +1,5 @@
 /* Lexoral — V50 : l'accueil */
-/* V55 : chaque section en affiche, la minute retirée, les institutions, la lettre (refonte des sections) */
+/* V58 : la campagne — six annonces construites comme l'ouverture (v50_home.py) */
 /* V54 : l'Helvetica pour tout ce qui se lit, la Courier seulement dans les fac-similés (v54/type.py) */
 /* V51 palette : papier crème, encre chaude, vermillon, or moutarde, bleu canard (v51/palette.py) */
 
@@ -44,7 +44,7 @@
 .hx-facts{grid-column:8/span 5;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap);margin:0}
 .hx-facts > div{padding-top:12px;border-top:1.5px solid var(--ink)}
 .hx-facts dt{display:flex;align-items:center;gap:9px;font:700 clamp(22px,1.9vw,30px)/1 var(--sans);letter-spacing:-.04em}
-.hx-facts dt::before{content:"";flex:none;width:9px;height:9px;background:var(--en)}
+.hx-facts dt::before{content:none}
 .hx-facts > div:nth-child(2) dt::before{background:var(--fr)}
 .hx-facts > div:nth-child(3) dt::before{background:var(--gold)}
 .hx-facts dd{margin:7px 0 0 18px;font-size:13.5px;line-height:1.3;color:var(--ink-2)}
@@ -73,171 +73,123 @@
  .hx-facts{grid-template-columns:1fr;gap:16px}
 }
 
-/* ---------- V55 : chaque section en affiche — l'aplat, et le grand titre qui le déborde (.af, dans lx.css) ---------- */
-/* le numéro de pièce, en haut à droite de chaque section (comme « Nº 001 » sur l'affiche) */
-.sx-no{margin:0;font:700 12px/1 var(--sans);letter-spacing:.06em;color:var(--ink);justify-self:end;text-align:right}
-.sx-no::after{content:"";display:block;width:0;height:0;margin:7px 0 0 auto;border:5px solid transparent;border-top:7px solid currentColor;border-bottom:0}
-/* l'étiquette de pièce à conviction, collée de travers sur une image */
-.exh{position:absolute;right:-12px;top:-14px;z-index:2;padding:8px 12px 7px;background:#E9CF7A;border:1px solid rgba(28,26,23,.45);border-radius:2px;
- font:700 11.5px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--ink);transform:rotate(3.5deg);box-shadow:0 8px 12px -8px rgba(0,0,0,.5)}
-.af .lab{grid-column:1/span 8;grid-row:1}
-.af .sx-no{grid-column:9/-1;grid-row:1}
-.af .af-h{grid-column:1/-1;grid-row:2;margin-top:clamp(24px,2.6vw,40px)}
+/* ---------- V58 : la campagne — six annonces construites comme l'ouverture ----------
+   Le mot reste NOIR et surimprime l'aplat ; l'aplat est d'un ton moyen (vermillon #C9502B ou bleu ardoise #6175AB, même
+   clarté L* ≈ 50 : le noir s'y lit pareil) ; le rouge et le bleu ne se touchent pas ; ce qui passe devant le mot est
+   rempli (de papier, ou de la couleur de l'aplat, ses tailles à l'encre) ; le grain du papier passe sur tout. */
 .hm > section{overflow:hidden}
+.ad{position:relative;border-top:1.5px solid var(--ink);background:url(/img/grain-lt.svg) var(--paper)}
+.ad-st{position:relative;container-type:inline-size;aspect-ratio:16/9;overflow:hidden}
+.ad-st::after{content:"";position:absolute;inset:0;z-index:4;pointer-events:none;background:url(/img/grain.svg);opacity:.42;mix-blend-mode:multiply}
+.ad-st > *{position:absolute;margin:0}
+.ad-k{left:4cqw;top:2.4cqw;z-index:6}
+.ad-blk{left:var(--bx);top:var(--by);right:var(--br,0);bottom:var(--bb,0);background:var(--red-hi);z-index:0}
+.ad-blk.b{background:var(--slate)}
+.ad-w{left:var(--wx);top:var(--wy);z-index:1;font:700 var(--wf)/.8 var(--sans);letter-spacing:-.05em;white-space:nowrap;color:var(--ink);pointer-events:none}
+.ad-d{left:var(--dx,4cqw);top:var(--dy);width:var(--dw,27cqw);z-index:5}
+.ad-pos{display:block;font:400 1.15cqw/1 var(--mono);letter-spacing:.02em;color:var(--ribbon)}
+.ad-blk.b ~ .ad-d .ad-pos{color:var(--ink)}
+.ad-def{display:block;margin-top:.9cqw;font:italic 400 2cqw/1.24 var(--serif);text-wrap:pretty}
+.ad-s{display:block;margin-top:1.6cqw;font:700 2.3cqw/1.1 var(--sans);letter-spacing:-.03em}
+.ad-fg{z-index:3;pointer-events:none}
+.ad-bar{border-top:1px solid var(--rule-2)}
+.ad-bg{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:28px var(--gap);padding-top:clamp(28px,3vw,48px);padding-bottom:clamp(34px,3.6vw,56px)}
+.ad-cols{flex:1 1 640px;display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));gap:var(--gap)}
+.ad-cols .n{display:flex;align-items:center;min-height:13px;margin-bottom:8px;font:700 12.5px/1 var(--sans);letter-spacing:.1em;color:var(--red-dk)}
+.ad-cols .n .flag{width:22px;height:11px}
+.ad-cols b{display:block;margin-bottom:5px;font-size:17px;letter-spacing:-.02em}
+.ad-cols p{margin:0;font-size:15px;line-height:1.5;color:var(--ink-2)}
+.ad-cta{display:flex;flex-wrap:wrap;gap:12px;margin:0}
+.stamp{z-index:5;color:var(--red)}
 
-/* ---------- la norme : le titre sur l'aplat moutarde, la photo posée dessus ---------- */
-.st{position:relative;background:url(/img/grain-lt.svg) var(--paper);padding:clamp(72px,8vw,136px) 0 clamp(64px,7vw,120px);border-bottom:1.5px solid var(--ink)}
-.st-hd{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);align-items:start;--bx:58%;--bt:clamp(62px,6.2vw,96px);--bb:-60px}
-.st-h em{font:italic 400 1.06em/.9 var(--serif);letter-spacing:-.025em;color:var(--red-dk)}
-.st-sub{grid-column:1/span 6;grid-row:3;margin:clamp(28px,2.8vw,44px) 0 0;font-size:clamp(18px,1.5vw,22px);line-height:1.45;color:var(--ink-2)}
-.st-ph{grid-column:8/-1;grid-row:3;position:relative;margin:clamp(34px,3.4vw,54px) 0 0}
-.st-ph img{width:100%;aspect-ratio:3/2;object-fit:cover;object-position:50% 55%;border:1.5px solid var(--ink)}
-.st-ph figcaption{margin-top:10px;font:700 13px/1.35 var(--sans);color:var(--ink)}
-.st-sq{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));list-style:none;margin:clamp(88px,8vw,132px) 0 0;padding:0;border-top:1.5px solid var(--ink)}
-.st-sq li{display:flex;flex-direction:column;gap:10px;min-width:0;padding:clamp(20px,2.2vw,32px) clamp(18px,2vw,30px) 0;border-left:1px solid var(--rule-2)}
-.st-sq li:first-child{border-left:0;padding-left:0}
-.st-big{display:flex;align-items:flex-end;height:clamp(96px,10.5vw,178px);font:700 clamp(112px,12.6vw,214px)/.76 var(--sans);letter-spacing:-.075em}
-.st-big span{mix-blend-mode:multiply}
-.st-big .e{color:var(--en)}.st-big .f{color:var(--fr)}
-.st-sq .b .st-big .f{margin-left:-.34em}
-.st-sq b{margin-top:16px;font:700 clamp(22px,2vw,30px)/1.05 var(--sans);letter-spacing:-.035em}
-.st-p{font-size:16px;line-height:1.45;color:var(--ink-2);max-width:24em}
-.st-tx{display:grid;grid-template-columns:2.2em 2.1em minmax(0,1fr);margin-top:14px;padding:11px 14px 12px;background:#FBF8F1;border:1px solid rgba(28,26,23,.22);box-shadow:3px 3px 0 rgba(28,26,23,.08);font:400 14.5px/1.5 var(--mono);color:var(--ink)}
-.st-tx i{font-style:normal;color:var(--ink-2)}
-.st-tx em{font-style:normal;font-weight:700}
-.st-tx .t-fr{color:var(--red-dk)}
-@media (max-width:1099px){.st-sub{grid-column:1/span 9}.st-ph{grid-column:1/span 6;grid-row:4;margin-top:40px}.st-ph img{aspect-ratio:3/2}.st-sq{margin-top:64px}}
-@media (max-width:760px){.st-sub,.st-ph{grid-column:1/-1}.st-sq{grid-template-columns:1fr}.st-sq li,.st-sq li:first-child{padding:26px 0 30px;border-left:0;border-bottom:1px solid var(--rule-2)}}
+/* Verbatim. — la bande de sténotype devant le mot ; les filets, à l'encre ; la page de transcription, sur l'aplat bleu */
+.vb{left:0;top:0;width:100%;height:100%}
+.vb-tape{fill:#F8F3E6;stroke:rgba(28,26,23,.35);stroke-width:.08}
+.vb-fold{stroke:rgba(28,26,23,.28);stroke-width:.07;stroke-dasharray:.25 .3}
+.vb-tn{font:700 .7px var(--mono);fill:var(--ink-3)}
+.vb-s{font:700 .8px var(--mono);fill:var(--ribbon);white-space:pre}
+.vb-l path{fill:none;stroke:var(--ink);stroke-width:.08}
+.vb-pr{fill:#FBF8F1;stroke:rgba(28,26,23,.35);stroke-width:.08}
+.vb-ph{font:700 .78px var(--sans);letter-spacing:.14px;fill:var(--ink-2)}
+.vb-m{stroke:#B8401F;stroke-width:.07}
+.vb-n{font:400 1px var(--mono);fill:var(--ink-3)}
+.vb-t{font:400 1.22px var(--mono);fill:var(--ribbon);white-space:pre}
+.vb-ts{font:400 .85px var(--mono);fill:var(--ink-3)}
 
-/* ---------- ce que nous livrons : le titre sur l'aplat bleu canard, les trois fiches à cheval sur son bord ---------- */
-.dl{background:url(/img/grain-lt.svg) var(--white);padding:clamp(72px,9vw,144px) 0;border-bottom:1.5px solid var(--ink)}
-.dl-hd{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);--bx:56%;--bt:clamp(62px,6.2vw,96px);--bb:-110px}
-.dl-g{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px;background:var(--ink);border:2px solid var(--ink);margin-top:clamp(56px,5.6vw,92px)}
-.dl-c{display:flex;flex-direction:column;align-items:flex-start;gap:14px;padding:clamp(24px,2.6vw,40px);background:var(--white)}
-.dl-n{font:700 clamp(72px,8vw,136px)/.78 var(--sans);letter-spacing:-.07em;color:var(--en)}
-.dl-c.c2 .dl-n{color:var(--fr)}.dl-c.c3 .dl-n{color:var(--gold)}
-.dl-k{margin:22px 0 0;font:700 11.5px/1.2 var(--sans);letter-spacing:.14em;text-transform:uppercase}
-.dl-c h3{font-size:clamp(24px,2.2vw,32px);letter-spacing:-.035em}
-.dl-c p{margin:0;color:var(--ink-2);font-size:16px;max-width:26em}
-.dl-c .key{margin-top:auto}
-.dl-c > p:last-of-type{margin-bottom:22px}
-@media (max-width:1099px){.dl-g{grid-template-columns:1fr}}
+/* Both. — le français (vermillon) et l'anglais (bleu) ; le noir où ils se rencontrent : un seul dossier */
+.sq-w{left:37cqw;top:8.5cqw;width:49cqw;height:47.75cqw;z-index:0}
+.sq-w > *{position:absolute;margin:0}
+.sq-en{left:0;top:36.6%;width:61.2%;height:63.4%;background:var(--slate)}
+.sq-fr{left:34.7%;top:0;width:65.3%;height:67%;background:var(--red-hi)}
+.sq-x{left:34.7%;top:36.6%;width:26.5%;height:30.4%;padding:1.1cqw;background:var(--ink);color:#F4EEE2}
+.sq-x b{display:block;font:700 1.25cqw/1 var(--sans);letter-spacing:.14em}
+.sq-x span{display:block;margin-top:.5cqw;font:400 1.15cqw/1.2 var(--sans)}
+.sq-l{font:700 4.2cqw/1 var(--sans);letter-spacing:-.04em;color:var(--ink)}
+.sq-l.en{left:1.6cqw;bottom:1.4cqw}.sq-l.fr{right:1.6cqw;top:1.4cqw}
+.sq-t{font:400 1.12cqw/1.5 var(--mono);color:var(--ink);white-space:pre}
+.sq-t.en{left:1.6cqw;top:calc(67% + 1.4cqw)}.sq-t.fr{left:calc(61.2% + 1.4cqw);top:calc(36.6% + 1cqw)}
 
-/* ---------- le déroulement : le titre sur l'aplat vermillon ; quatre carrés reliés par un filet, l'œil suit la flèche ---------- */
-.fl{background:url(/img/grain-lt.svg) var(--paper-2);padding:clamp(72px,8vw,136px) 0;border-bottom:1.5px solid var(--ink)}
-.fl-hd{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);--bx:52%;--bt:clamp(62px,6.2vw,96px);--bb:-44px}
-.fl-s{--ic:84px;position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--gap);list-style:none;margin:clamp(76px,7.4vw,120px) 0 0;padding:0}
-.fl-s::before{content:"";position:absolute;left:calc(var(--ic) / 2);right:calc((100% - 3 * var(--gap)) / 4 - var(--ic) / 2);top:calc(var(--ic) / 2 - 1px);height:2px;
- background:repeating-linear-gradient(90deg,var(--ink) 0 10px,transparent 10px 16px);transform-origin:left;transform:scaleX(var(--tr,1));transition:transform 1.6s cubic-bezier(.2,.7,.2,1)}
-.fl-s.io:not(.in){--tr:0}
-.fl-s li{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:10px;min-width:0}
-.fl-s li:not(:last-child)::after{content:"";position:absolute;top:calc(var(--ic) / 2 - 8px);left:calc(50% + var(--gap) / 2 + var(--ic) / 2 - 8px);width:0;height:0;
- border:8px solid transparent;border-left:12px solid var(--ink);border-right:0;opacity:var(--ao,1);transition:opacity .4s 1s}
-.fl-s.io:not(.in) li::after{--ao:0}
-.fl-ic{position:relative;z-index:1;display:grid;place-items:center;width:var(--ic);height:var(--ic);border:1.5px solid var(--ink);background:#FAF6EE;color:var(--ink);
- box-shadow:6px 6px 0 var(--ink)}
-.fl-ic svg{width:44px;height:44px}
-.fl-s .n{margin-top:22px;font:700 13px/1 var(--sans);font-variant-numeric:tabular-nums;letter-spacing:.08em;color:var(--red-dk)}
-.fl-s b{font:700 clamp(22px,2vw,30px)/1.05 var(--sans);letter-spacing:-.035em}
-.fl-p{font-size:16px;line-height:1.45;color:var(--ink-2);max-width:22em}
-@media (max-width:860px){
- .fl-s{--ic:72px;grid-template-columns:1fr;row-gap:44px}
- .fl-s::before{left:calc(var(--ic) / 2 - 1px);right:auto;top:calc(var(--ic) / 2);bottom:90px;width:2px;height:auto;
-  background:repeating-linear-gradient(180deg,var(--ink) 0 10px,transparent 10px 16px);transform-origin:top;transform:scaleY(var(--tr,1))}
- .fl-s li{display:grid;grid-template-columns:var(--ic) minmax(0,1fr);column-gap:24px;row-gap:6px;align-items:start}
- .fl-s li > :not(.fl-ic){grid-column:2}
- .fl-ic{grid-row:1/span 3}
- .fl-ic svg{width:36px;height:36px}
- .fl-s .n{margin-top:6px}
- .fl-s li:not(:last-child)::after{left:calc(var(--ic) / 2 - 8px);top:auto;bottom:-30px;border:8px solid transparent;border-top:12px solid var(--ink);border-bottom:0}
-}
+/* Certified. — le fronton, gravé comme la main : la silhouette de la couleur de l'aplat, les tailles à l'encre ; le tampon */
+.ce-o{left:26cqw;top:11.25cqw;width:80cqw;aspect-ratio:1500/844;z-index:2}
+.ce-o i{position:absolute;inset:0}
+.ce-s{background:var(--red-hi);-webkit-mask:url(/img/fronton-sil.png) 0 0/100% 100% no-repeat;mask:url(/img/fronton-sil.png) 0 0/100% 100% no-repeat}
+.ce-i{background:var(--ink);-webkit-mask:url(/img/fronton-ink.png) 0 0/100% 100% no-repeat;mask:url(/img/fronton-ink.png) 0 0/100% 100% no-repeat}
+@supports not ((-webkit-mask-size:cover) or (mask-size:cover)){.ce-o{display:none}}
+.stamp.ce{left:19cqw;top:40.5cqw;width:17cqw;transform:rotate(-8deg)}
 
-/* ---------- pour les institutions : le titre sur l'aplat bleu canard ; le sténographe officiel, en grand, sur le vermillon ---------- */
-.inst{background:url(/img/grain-lt.svg) var(--paper);padding:clamp(72px,8vw,136px) 0;border-bottom:1.5px solid var(--ink)}
-.in-hd{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);--bx:54%;--bt:clamp(62px,6.2vw,96px);--bb:-44px}
-.in-g{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);row-gap:clamp(40px,4.4vw,72px);margin-top:clamp(72px,7vw,112px)}
-.in-lead{grid-column:1/span 6;grid-row:1}
-.in-p{margin:0;font-size:clamp(19px,1.6vw,24px);line-height:1.42;color:var(--ink);max-width:30em}
-.in-who{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:28px 0 0;padding:0}
-.in-who li{padding:8px 11px 7px;border:1.5px solid var(--ink);font:700 11.5px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--ink);background:#FAF6EE}
-.in-st{grid-column:8/-1;grid-row:1/span 2;display:flex;flex-direction:column;gap:16px;padding:clamp(24px,2.8vw,44px);background:var(--red);color:#FAF6EE;
- box-shadow:10px 10px 0 var(--ink)}
-.in-st-k{margin:0;font:700 11.5px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase}
-.in-st h3{margin:0;font:700 clamp(32px,3.3vw,54px)/.94 var(--sans);letter-spacing:-.045em;color:#FAF6EE}
-.in-st p{margin:0;font-size:17px;line-height:1.5;color:#FAF6EE;max-width:30em}
-.in-st .key{align-self:flex-start;margin-top:10px}
-.in-pts{grid-column:1/-1;grid-row:3;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2px;list-style:none;margin:0;padding:0;background:var(--ink);border:2px solid var(--ink)}
-.in-pts li{display:flex;flex-direction:column;gap:10px;padding:clamp(20px,2.2vw,30px);background:var(--white)}
-.in-pts .n{font:700 13px/1 var(--sans);font-variant-numeric:tabular-nums;letter-spacing:.08em;color:var(--red-dk)}
-.in-pts b{margin-top:6px;font:700 clamp(21px,1.8vw,27px)/1.05 var(--sans);letter-spacing:-.03em}
-.in-pts span{font-size:15.5px;line-height:1.45;color:var(--ink-2)}
-.in-cta{grid-column:1/span 6;grid-row:2;align-self:end;display:flex;flex-wrap:wrap;gap:14px;margin:0}
-@media (max-width:1099px){.in-lead{grid-column:1/-1}.in-st{grid-column:1/-1;grid-row:3}.in-cta{grid-column:1/-1;grid-row:2}.in-pts{grid-row:4;grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:560px){.in-pts{grid-template-columns:1fr}.in-cta .key{flex:1 1 100%}.in-st{box-shadow:6px 6px 0 var(--ink)}}
+/* Vendor. — l'aplat bleu à gauche ; la gravure épinglée sur l'aplat, devant le mot, avec sa pièce P-1 */
+.vd-img{left:19cqw;top:var(--py,17.5cqw);width:28cqw;z-index:3;padding:.7cqw;background:#FBF8F1;box-shadow:0 2cqw 3cqw -1.6cqw rgba(0,0,0,.55);transform:rotate(-2deg)}
+.vd-img img{width:100%}
+.vd-img .exh{position:absolute;right:-1.6cqw;top:-2.6cqw;margin:0;z-index:4;padding:.75cqw 1cqw .6cqw;background:#FBF8F1;border:1.5px solid var(--ink);transform:rotate(7deg);
+ font:700 .8cqw/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--ink);text-align:center;box-shadow:0 .6cqw 1cqw -.6cqw rgba(0,0,0,.5)}
+.vd-img .exh b{display:block;margin-top:.35cqw;font-size:2.1cqw;letter-spacing:-.02em}
+.vd-cta{left:var(--dx);top:var(--cy,43cqw);z-index:5;display:flex;gap:1cqw}
+.vd-cta .key{min-width:15cqw;min-height:6.2cqw;font-size:1.15cqw;padding:1cqw 1cqw .9cqw 1.1cqw;gap:1cqw}
+.vd-cta .key .ar{width:1.6cqw;height:1.6cqw}
 
-/* ---------- la couverture : le titre sur l'aplat moutarde, la carte imprimée posée dessus ---------- */
-.cv{position:relative;background:url(/img/grain-lt.svg) var(--paper);padding:clamp(72px,8vw,136px) 0 clamp(72px,8vw,128px);border-bottom:1.5px solid var(--ink)}
-.cv-hd{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);align-items:start;--bx:37%;--bt:clamp(62px,6.2vw,96px);--bb:-56px}
-.cv-hd .af-h{max-width:13.5em}
-.cv-tx{grid-column:1/span 4;grid-row:3;margin-top:clamp(44px,4.4vw,72px)}
-.cv-s{margin:0;font:700 12px/1.3 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--ink)}
-.cv-d{display:grid;grid-template-columns:1fr;margin:18px 0 0;border-top:1.5px solid var(--ink);max-width:380px}
-.cv-d > div{padding:14px 0 15px;border-bottom:1px solid var(--rule-2)}
-.cv-d dt{display:flex;align-items:center;font:700 11.5px/1.2 var(--sans);letter-spacing:.12em;text-transform:uppercase}
-.cv-d dt .flag{margin-right:9px}
-.cv-d dd{margin:6px 0 0;font-size:15.5px;line-height:1.45;color:var(--ink-2)}
-.cv-map{grid-column:5/-1;grid-row:3;width:calc(100% + 2vw);max-width:none;height:auto;margin:clamp(30px,3vw,50px) 0 0;pointer-events:none;overflow:visible}
+/* Anywhere. — la carte, sur l'aplat vermillon */
+.cv-map{left:33cqw;top:12.5cqw;width:67cqw;height:auto;overflow:visible;z-index:3}
 .cv-ca,.cv-us{fill:#F4EEE2;stroke:var(--ink);stroke-width:1.3;stroke-linejoin:round}
 .cv-usd{fill:url(#cv-dots);stroke:none}
 #cv-dots circle{fill:var(--ink)}
-.cv-tag-r{fill:#FAF6EE;stroke:var(--ink);stroke-width:1.5}
+.cv-tag-r{fill:#FBF8F1;stroke:var(--ink);stroke-width:1.5}
 .cv-tag-t{font:700 17px var(--sans);letter-spacing:.16em;fill:var(--ink)}
 .cv-tag-s{font:700 13.5px var(--sans);fill:var(--ink)}
-.cv-pin{fill:var(--red);stroke:var(--ink);stroke-width:1.3}
-.cv-lead{fill:none;stroke:var(--ink);stroke-width:.9}
+.cv-pin{fill:var(--red);stroke:var(--ink);stroke-width:1.4}
+.cv-lead{fill:none;stroke:var(--ink);stroke-width:1}
 .cv-lt{font:700 15px var(--sans);fill:var(--ink)}
-@media (max-width:1099px){
- .cv-tx{grid-column:1/-1;max-width:560px}
- .cv-map{grid-column:1/-1;grid-row:4;width:100%;margin:36px 0 0;background:var(--gold);border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)}
- .cv-lead,.cv-lt{display:none}
- .cv-pin{stroke-width:2}
-}
 
-/* ---------- les références : « En leurs mots. » sur l'aplat bleu canard ; la référence tapée à la machine, sur papier à
-   en-tête de Lexoral, d'après la lettre de 1930 que Brian aime (le papier bis, l'encre bleue du ruban, deux plis) ---------- */
-.rf{position:relative;background:url(/img/grain-lt.svg) var(--paper);padding:clamp(72px,8vw,136px) 0;border-bottom:1.5px solid var(--ink)}
-.rf-hd{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);align-items:start;--bx:47%;--bt:clamp(62px,6.2vw,96px);--bb:clamp(70px,8vw,130px)}
-.rf-hd .af-h{font-size:clamp(56px,11.4vw,184px);line-height:.84}
-.rf-l{position:relative;grid-column:2/span 6;grid-row:3;margin:clamp(44px,4.4vw,72px) 0 0;padding:clamp(26px,3vw,46px) clamp(24px,3.4vw,56px) clamp(38px,3.8vw,62px);
- background:
-  linear-gradient(180deg,transparent 0 calc(33.4% - 1px),rgba(92,62,28,.2) calc(33.4% - 1px) 33.4%,rgba(255,250,238,.55) 33.4% calc(33.4% + 1.5px),transparent calc(33.4% + 1.5px) calc(66.7% - 1px),
-   rgba(92,62,28,.2) calc(66.7% - 1px) 66.7%,rgba(255,250,238,.55) 66.7% calc(66.7% + 1.5px),transparent calc(66.7% + 1.5px)),
-  radial-gradient(120% 95% at 50% 40%,rgba(255,246,226,0) 52%,rgba(140,96,48,.3) 100%),url(/img/grain-lt.svg),#EAD5B2;
- box-shadow:0 34px 44px -30px rgba(0,0,0,.6),0 1px 0 rgba(0,0,0,.06);transform:rotate(-1.3deg);color:#2A3B8C}
-.rf-lh{display:grid;justify-items:center;gap:2px;margin:0 0 clamp(22px,2.4vw,34px);color:#4A3A29;text-align:center}
-.rf-seal{display:block;width:clamp(58px,5vw,74px);height:auto;margin:0 0 10px;color:#5E4630;overflow:visible}
-.rf-seal-t{font:400 7.6px var(--serif);letter-spacing:.06em}
-.rf-lh p{margin:0;font:400 11.5px/1.45 var(--serif);letter-spacing:.2em;text-transform:uppercase}
-.rf-lh p:nth-of-type(1){font-size:14.5px;letter-spacing:.32em}
-.rf-lk{display:grid;gap:2px;margin:0 0 clamp(20px,2.2vw,30px);color:#4A3A29;font:400 10.5px/1.35 var(--serif);letter-spacing:.18em;text-transform:uppercase}
-.rf-lk span:last-child{font-size:9.5px}
-.rf-ty{margin:0;font:400 clamp(15px,1.22vw,18.5px)/1.45 var(--mono);color:#2A3B8C;text-shadow:0 0 .7px rgba(42,59,140,.5)}
-.rf-to{display:grid;grid-template-columns:8ch minmax(0,1fr);margin:0 0 clamp(14px,1.6vw,22px)}
-.rf-to a{color:inherit;text-decoration:none}
-.rf-to a:hover{text-decoration:underline}
-.rf-l blockquote{margin:clamp(8px,1.2vw,18px) 0 0}
-.rf-l blockquote p{margin:0;text-indent:5ch}
-.rf-tr{grid-column:9/-1;grid-row:4;margin:36px 0 0;font:italic 400 clamp(19px,1.5vw,23px)/1.35 var(--serif);color:var(--ink-2)}
-.rf-tr span{display:block;margin-bottom:6px;font:700 11px/1 var(--sans);font-style:normal;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)}
-.rf-p{grid-column:9/-1;grid-row:3;position:relative;margin:clamp(96px,9vw,150px) 0 0;padding:52px 22px 24px;background:
- linear-gradient(transparent 0 38px,rgba(184,64,31,.7) 38px 39.5px,transparent 39.5px),
- repeating-linear-gradient(transparent 0 23px,rgba(45,102,112,.28) 23px 24px),#FBF8F1;
- background-position:0 0,0 39px,0 0;border:1px solid rgba(28,26,23,.25);box-shadow:0 26px 34px -24px rgba(0,0,0,.5);transform:rotate(1.4deg)}
-.rf-p p{margin:0}
-.rf-k{position:absolute;left:22px;top:13px;font:700 11px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--red-dk)}
-.rf-n{font:700 22px/24px var(--sans);letter-spacing:-.03em}
-.rf-r{margin-top:0;font:400 13.5px/24px var(--sans);color:var(--ink-2)}
-.rf-t{font:400 14.5px/24px var(--sans);color:var(--ink)}
-.rf-p .key{margin-top:22px}
-@media (max-width:1099px){.rf-l{grid-column:1/span 9}.rf-p{grid-column:3/span 8;grid-row:5;margin-top:56px}.rf-tr{grid-column:1/span 9;grid-row:4}}
-@media (max-width:640px){.rf-l{grid-column:1/-1;transform:rotate(-.8deg);padding:24px 20px 32px}.rf-to{grid-template-columns:1fr}.rf-p{grid-column:1/-1}.rf-tr{grid-column:1/-1}}
+/* Reliable. — l'aplat bleu à gauche (la définition) ; à droite, sur le papier, la citation sur un grand guillemet bleu */
+.rl-mk{left:50.5cqw;top:var(--my,19.5cqw);z-index:0;font:italic 400 36cqw/.8 var(--serif);color:var(--slate);pointer-events:none}
+.rl-q{left:55cqw;top:var(--qy,27cqw);width:40cqw;z-index:5}
+.rl-q blockquote{margin:0}
+.rl-q p{margin:0;font:700 2.45cqw/1.08 var(--sans);letter-spacing:-.03em;color:var(--ink);text-wrap:pretty}
+.rl-q p + p{margin-top:1.3cqw;font:400 1.4cqw/1.4 var(--sans);letter-spacing:0;color:var(--ink-2)}
+.rl-q figcaption{display:inline-block;margin-top:2cqw;padding:.8cqw 1cqw .7cqw;background:var(--ink);color:#F4EEE2;font:700 .9cqw/1.4 var(--sans);letter-spacing:.14em;text-transform:uppercase}
+.rl-q figcaption a{color:inherit;text-decoration:none}
+
+/* ---------- tablette et téléphone : l'annonce se lit de haut en bas ; l'aplat ne double plus que le bas du mot ---------- */
+@media (max-width:1099px){
+ .ad-st{aspect-ratio:auto;padding:max(64px,12cqw) 5cqw 8cqw}
+ .ad-st > *{position:relative;left:auto;top:auto}
+ .ad-k{position:absolute;left:5cqw;top:max(24px,4cqw)}
+ .ad-w{display:block;font-size:var(--mwf,19cqw)}
+ .ad-blk{position:absolute;left:var(--mbx,42cqw);right:var(--mbr,0);top:calc(max(64px,12cqw) + var(--mwf,19cqw) * .36);height:calc(var(--mwf,19cqw) * .62);bottom:auto;z-index:0}
+ .ad-blk.b ~ .ad-d .ad-pos{color:var(--ribbon)}
+ .ad-fg,.vb,.cv-map,.ce-o,.vd-img,.rl-q,.vd-cta,.sq-w{position:relative;left:auto;top:auto;width:100%;margin-top:7cqw;max-width:760px}
+ .stamp,.stamp.ce{position:relative;left:auto;top:auto;width:46cqw;max-width:260px;margin:6cqw 0 0 auto}
+ .ad-d{width:auto;max-width:640px;margin-top:7cqw}
+ .ad-pos{font-size:12px}.ad-def{margin-top:8px;font-size:21px}.ad-s{margin-top:12px;font-size:23px}
+ .vb{width:143%;max-width:none;margin-left:-43%;aspect-ratio:16/9;height:auto}
+ .sq-w{height:auto;aspect-ratio:49/47.75}
+ .sq-l{font-size:9cqw}.sq-t{font-size:2.6cqw}.sq-x{padding:2.2cqw}.sq-x b{font-size:2.6cqw}.sq-x span{font-size:2.6cqw;margin-top:1cqw}
+ .sq-t.en{top:calc(67% + 3cqw)}
+ .ce-o{width:130%;max-width:none;margin-left:-30%}
+ .vd-img{transform:none;padding:6px}
+ .vd-img .exh{right:10px;top:-16px;font-size:10px;padding:8px 10px 7px}.vd-img .exh b{font-size:22px}
+ .vd-cta{display:flex;flex-wrap:wrap;gap:10px}.vd-cta .key{min-width:0;flex:1 1 100%;min-height:76px;font-size:16px;padding:14px;gap:16px}.vd-cta .key .ar{width:22px;height:22px}
+ .rl-mk{display:none}
+ .rl-q p{font-size:24px}.rl-q p + p{font-size:16px}.rl-q figcaption{font-size:11px;padding:8px 10px}
+ .cv-lead,.cv-lt{display:none}
+ .ad-cols{grid-template-columns:1fr}
+}
