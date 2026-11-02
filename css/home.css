@@ -190,7 +190,7 @@
  background:linear-gradient(90deg,transparent 0 60px,rgba(184,64,31,.75) 60px 61px,transparent 61px 64px,rgba(184,64,31,.75) 64px 65px,transparent 65px calc(100% - 18px),rgba(28,26,23,.25) calc(100% - 18px) calc(100% - 17px),transparent calc(100% - 17px))}
 .dp-lines{list-style:none;margin:0;padding:10px 0 18px;transition:transform .55s cubic-bezier(.2,.7,.2,1)}
 .dp-lines li{display:grid;grid-template-columns:60px auto minmax(0,1fr) 64px;column-gap:12px;align-items:baseline;padding:3px 26px 3px 0;font:400 15px/1.9 var(--mono);color:var(--ink)}
-.dp-n{justify-self:end;padding-right:0;font-size:12.5px;color:var(--ink-3);margin-right:-4px;width:46px;text-align:right}
+.dp-n{justify-self:end;padding-right:0;font-size:12.5px;color:var(--ink-3);margin-right:8px;width:46px;text-align:right}
 .dp-lines li .dp-who{grid-column:2;padding-left:14px;font-weight:700;white-space:nowrap}
 .dp-t{grid-column:3}
 .dp-t[lang="fr"],.dp-t [lang="fr"]{color:var(--red)}
