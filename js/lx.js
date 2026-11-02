@@ -34,3 +34,8 @@ if(f&&window.fetch&&window.FormData){
   .then(function(r){return r.json()}).then(function(j){if(j&&String(j.success)==='true')done();else throw new Error('no')})
   .catch(function(){btn.disabled=false;bt.textContent=lbl;st.textContent=L.ko+' ';var a=d.createElement('a');a.href=mail(x);a.textContent=L.m;st.appendChild(a)})});}
 })();
+/* V52 : ce qui s'anime à l'arrivée dans l'écran (.io → .in) — le filet du déroulement, par exemple */
+(function(){var els=document.querySelectorAll('.io');if(!els.length)return;
+if(!('IntersectionObserver' in window)||(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)){[].forEach.call(els,function(e){e.classList.add('in')});return}
+var o=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');o.unobserve(e.target)}})},{threshold:.35});
+[].forEach.call(els,function(e){o.observe(e)})})();
