@@ -38,11 +38,12 @@
 <link rel="alternate" hreflang="fr" href="https://lexoral.org/fr/"/>
 <link rel="alternate" hreflang="x-default" href="https://lexoral.org/"/>
 <link rel="alternate" type="application/rss+xml" title="Lexoral — Blogue" href="https://lexoral.org/blogue/feed.xml"/>
-<link rel="preload" href="/img/hero-gavel.avif" as="image" type="image/avif" fetchpriority="high"/>
+<link rel="preload" href="/img/hand-sil.png" as="image" crossorigin fetchpriority="high"/>
+<link rel="preload" href="/img/hand-ink.png" as="image" crossorigin/>
 <link rel="preload" href="/fonts/lexoral-heros-bold.woff2" as="font" type="font/woff2" crossorigin/>
 <link rel="preload" href="/fonts/lexoral-heros-regular.woff2" as="font" type="font/woff2" crossorigin/>
-<link rel="stylesheet" href="/css/lx.css?v=50"/>
-<link rel="stylesheet" href="/css/home.css?v=50"/>
+<link rel="stylesheet" href="/css/lx.css?v=51"/>
+<link rel="stylesheet" href="/css/home.css?v=51"/>
 </head>
 <!-- V50 -->
 <body>
@@ -52,11 +53,12 @@
 <main id="main" class="hm">
 <section class="hx" aria-labelledby="hx-h">
 <div class="hx-st">
-<div class="hx-ph" aria-hidden="true"></div>
+<div class="hx-pic" aria-hidden="true"><div class="hx-blk"></div><div class="hx-hand"><i class="hx-hb"></i><i class="hx-hi"></i></div></div>
 <p class="lab hx-k"><span>Transcription juridique français–anglais<span class="hx-k2"> · Canada · États-Unis</span></span></p>
-<h1 class="hx-h" id="hx-h"><span class="hx-w">Exact.<span class="caret" aria-hidden="true"></span></span> <span class="hx-s"><b>Le dossier, c’est nous.</b> Français, anglais, les deux — à la ligne près.</span></h1>
-<div class="hx-fg" aria-hidden="true"></div>
-<p class="hx-cta"><a class="key key--gold" href="#request">Soumettre un dossier<span class="ar" aria-hidden="true">&rarr;</span></a><a class="key key--white" href="#proof">Une minute d’audience<span class="ar" aria-hidden="true">&rarr;</span></a></p>
+<p class="hx-no" aria-hidden="true">Nº 001</p>
+<p class="hx-vt" aria-hidden="true">Lex v. Oral — le droit et la parole</p>
+<h1 class="hx-h" id="hx-h"><span class="hx-w">Exact.</span> <span class="hx-d"><span class="hx-pos" aria-hidden="true">[adj.]</span> <span class="hx-def">Fidèle au dossier, mot pour mot et ligne pour ligne — en français, en anglais, ou les deux.</span> <b class="hx-s">Le dossier, c’est nous.</b></span></h1>
+<p class="hx-cta"><a class="key key--red key--lg" href="#request">Soumettre un dossier<span class="ar" aria-hidden="true">&rarr;</span></a><a class="key key--white key--lg" href="#proof">Une minute d’audience<span class="ar" aria-hidden="true">&rarr;</span></a></p>
 </div>
 <div class="hx-bar"><div class="wrap hx-bg"><p class="hx-lead">Lexoral transcrit audiences, interrogatoires et preuves enregistrées pour les avocats, les tribunaux et les institutions, au Canada et aux États-Unis — selon l’exigence d’un tribunal, pour chaque enregistrement.</p><dl class="hx-facts"><div><dt>5 jours</dt><dd>Délai standard</dd></div><div><dt>48 h</dt><dd>En priorité</dd></div><div><dt>FR · EN</dt><dd>Un seul dossier</dd></div></dl></div></div>
 </section>
@@ -139,6 +141,6 @@ var tm=0,cur=null;
 function check(){var t=mn.querySelector('.mn31-lines li.typing');if(t&&t!==cur){cur=t;clearInterval(tm);var lg=t.getAttribute('data-l')||'en',n=0;
 tm=setInterval(function(){chord(lg==='mix'?(n++%2?'fr':'en'):lg)},230)}else if(!t&&cur){cur=null;clearInterval(tm)}}
 var mo=new MutationObserver(check);[].forEach.call(mn.querySelectorAll('.mn31-lines li'),function(li){mo.observe(li,{attributes:true,attributeFilter:['class']})});})();</script>
-<script src="/js/lx.js?v=50" defer></script>
+<script src="/js/lx.js?v=51" defer></script>
 </body>
 </html>

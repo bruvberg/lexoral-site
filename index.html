@@ -38,11 +38,12 @@
 <link rel="alternate" hreflang="fr" href="https://lexoral.org/fr/"/>
 <link rel="alternate" hreflang="x-default" href="https://lexoral.org/"/>
 <link rel="alternate" type="application/rss+xml" title="Lexoral — Blog" href="https://lexoral.org/blog/feed.xml"/>
-<link rel="preload" href="/img/hero-gavel.avif" as="image" type="image/avif" fetchpriority="high"/>
+<link rel="preload" href="/img/hand-sil.png" as="image" crossorigin fetchpriority="high"/>
+<link rel="preload" href="/img/hand-ink.png" as="image" crossorigin/>
 <link rel="preload" href="/fonts/lexoral-heros-bold.woff2" as="font" type="font/woff2" crossorigin/>
 <link rel="preload" href="/fonts/lexoral-heros-regular.woff2" as="font" type="font/woff2" crossorigin/>
-<link rel="stylesheet" href="/css/lx.css?v=50"/>
-<link rel="stylesheet" href="/css/home.css?v=50"/>
+<link rel="stylesheet" href="/css/lx.css?v=51"/>
+<link rel="stylesheet" href="/css/home.css?v=51"/>
 </head>
 <!-- V50 -->
 <body>
@@ -52,11 +53,12 @@
 <main id="main" class="hm">
 <section class="hx" aria-labelledby="hx-h">
 <div class="hx-st">
-<div class="hx-ph" aria-hidden="true"></div>
+<div class="hx-pic" aria-hidden="true"><div class="hx-blk"></div><div class="hx-hand"><i class="hx-hb"></i><i class="hx-hi"></i></div></div>
 <p class="lab hx-k"><span>French–English legal transcription<span class="hx-k2"> · Canada · United States</span></span></p>
-<h1 class="hx-h" id="hx-h"><span class="hx-w">Exact.<span class="caret" aria-hidden="true"></span></span> <span class="hx-s"><b>We’re the record.</b> French, English, both — to the line.</span></h1>
-<div class="hx-fg" aria-hidden="true"></div>
-<p class="hx-cta"><a class="key key--gold" href="#request">Submit a proceeding<span class="ar" aria-hidden="true">&rarr;</span></a><a class="key key--white" href="#proof">One minute of hearing<span class="ar" aria-hidden="true">&rarr;</span></a></p>
+<p class="hx-no" aria-hidden="true">Nº 001</p>
+<p class="hx-vt" aria-hidden="true">Lex v. Oral — the law and the spoken word</p>
+<h1 class="hx-h" id="hx-h"><span class="hx-w">Exact.</span> <span class="hx-d"><span class="hx-pos" aria-hidden="true">[adj.]</span> <span class="hx-def">True to the record, word for word and line for line — in French, in English, or both.</span> <b class="hx-s">We’re the record.</b></span></h1>
+<p class="hx-cta"><a class="key key--red key--lg" href="#request">Submit a proceeding<span class="ar" aria-hidden="true">&rarr;</span></a><a class="key key--white key--lg" href="#proof">One minute of hearing<span class="ar" aria-hidden="true">&rarr;</span></a></p>
 </div>
 <div class="hx-bar"><div class="wrap hx-bg"><p class="hx-lead">Lexoral transcribes hearings, examinations and recorded evidence for counsel, tribunals and institutions in Canada and the United States — to the standard of the court, for every recording.</p><dl class="hx-facts"><div><dt>5 days</dt><dd>Standard turnaround</dd></div><div><dt>48 h</dt><dd>Priority</dd></div><div><dt>FR · EN</dt><dd>One record</dd></div></dl></div></div>
 </section>
@@ -139,6 +141,6 @@ var tm=0,cur=null;
 function check(){var t=mn.querySelector('.mn31-lines li.typing');if(t&&t!==cur){cur=t;clearInterval(tm);var lg=t.getAttribute('data-l')||'en',n=0;
 tm=setInterval(function(){chord(lg==='mix'?(n++%2?'fr':'en'):lg)},230)}else if(!t&&cur){cur=null;clearInterval(tm)}}
 var mo=new MutationObserver(check);[].forEach.call(mn.querySelectorAll('.mn31-lines li'),function(li){mo.observe(li,{attributes:true,attributeFilter:['class']})});})();</script>
-<script src="/js/lx.js?v=50" defer></script>
+<script src="/js/lx.js?v=51" defer></script>
 </body>
 </html>
