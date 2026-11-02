@@ -1,6 +1,7 @@
 /* Lexoral — V50, refait à neuf (1er nov. 2026, d'après Brian, 17 h 44)
    Peu de couleurs, Helvetica partout, Courier pour ce qui est de la transcription, une grille de 12 colonnes,
    des carrés de couleur (bleu : anglais ; rouge : français ; or : les deux), le guilloché, des touches de sténotype. */
+/* V55 : les touches carrées, l'affiche partout, le pied de page et l'index refaits (v55/css_lx.py) */
 /* V54 : l'Helvetica pour tout ce qui se lit, la Courier seulement dans les fac-similés (v54/type.py) */
 /* V51 palette : papier crème, encre chaude, vermillon, or moutarde, bleu canard (v51/palette.py) */
 
@@ -49,48 +50,65 @@ button,input,select,textarea{font:inherit;color:inherit}
 .reveal{opacity:1!important;transform:none!important}
 .st-br{display:none}
 
-/* ---------- l'étiquette (Tschichold) : capitales, interlettrées, précédées des trois carrés ---------- */
+/* ---------- l'étiquette (Tschichold) : capitales, interlettrées (V55 : sans les trois carrés) ---------- */
 .lab,.section-tag{display:flex;align-items:center;gap:12px;margin:0;font:700 12px/1.2 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--ink)}
-.section-tag::before,.lab::before{content:"";flex:none;width:30px;height:10px;
- background:linear-gradient(90deg,var(--en) 0 10px,var(--fr) 10px 20px,var(--gold) 20px 30px)}
+.section-tag::before,.lab::before{content:none}
 .section-tag a{text-decoration:none}
 .lab--plain::before{display:none}
 .on-dark .lab,.on-dark .section-tag{color:#FAF6EE}
 
-/* ---------- les touches (V52 : « plus en 3D, à l'ancienne ») : des touches de caisse enregistreuse — une face d'émail un peu
-   bombée, une jupe épaisse cerclée d'encre, une ombre portée ; la flèche est une petite touche de machine à écrire (une
-   pastille ronde, sa bague de métal). Un clic enfonce la touche dans son socle. ---------- */
+/* ---------- les touches (V55, Brian : « des carrés de couleur, une flèche en bas à droite… simple mais moderne ») :
+   un aplat franc, sans arrondi ni relief ; le libellé en haut à gauche, la flèche en bas à droite. Au survol, l'aplat fonce
+   et la flèche avance d'un cran dans sa direction. ---------- */
 .key,.cross-cta,.btn-primary,.btn-outline-w,.service-link,.spec-dl,.v47-key{
- --face:#FAF6EE;--skirt:#CFC3AC;--ink:#1C1A17;--line:#1C1A17;--lift:5px;
- position:relative;display:inline-flex;align-items:center;justify-content:space-between;gap:14px;min-height:50px;
- padding:12px 14px 12px 20px;border:1.5px solid var(--line);border-radius:7px;
- background:linear-gradient(180deg,rgba(255,255,255,.4) 0%,rgba(255,255,255,0) 52%,rgba(0,0,0,.035) 100%),var(--face);
- color:var(--ink);font:700 14.5px/1.15 var(--sans);letter-spacing:-.005em;text-decoration:none;text-align:left;cursor:pointer;
- box-shadow:inset 0 1px 0 rgba(255,255,255,.65),inset 0 -2px 0 rgba(0,0,0,.07),0 var(--lift) 0 0 var(--skirt),0 var(--lift) 0 1.5px var(--line),
-  0 calc(var(--lift) + 6px) 12px -5px rgba(28,26,23,.42);
- transform:translateY(0);transition:transform .09s ease,box-shadow .09s ease;-webkit-tap-highlight-color:transparent}
-.key:hover,.cross-cta:hover,.btn-primary:hover,.btn-outline-w:hover,.service-link:hover,.spec-dl:hover,.v47-key:hover{transform:translateY(-1px);
- box-shadow:inset 0 1px 0 rgba(255,255,255,.65),inset 0 -2px 0 rgba(0,0,0,.07),0 calc(var(--lift) + 1px) 0 0 var(--skirt),0 calc(var(--lift) + 1px) 0 1.5px var(--line),
-  0 calc(var(--lift) + 8px) 14px -5px rgba(28,26,23,.42)}
-.key:active,.cross-cta:active,.btn-primary:active,.btn-outline-w:active,.service-link:active,.spec-dl:active,.v47-key:active,
-.key[aria-current],.key[aria-pressed="true"],.key[aria-expanded="true"]{transform:translateY(var(--lift));
- box-shadow:inset 0 2px 4px rgba(0,0,0,.22),0 0 0 0 var(--skirt),0 0 0 1.5px var(--line),0 2px 5px -3px rgba(28,26,23,.4)}
-.key--navy,.key--red,.cross-cta,.btn-primary,.v47-key{--face:var(--red);--skirt:#7E2810;--ink:#FAF6EE;text-shadow:0 -1px 0 rgba(0,0,0,.22)}
-.key--gold,.spec-dl{--face:var(--gold);--skirt:#8C6A26}
+ --face:#FAF6EE;--hov:#EDE3CF;--ink:#1C1A17;--line:#1C1A17;
+ position:relative;display:inline-flex;flex-direction:column;align-items:flex-start;justify-content:space-between;gap:16px;
+ min-width:184px;min-height:78px;padding:13px 13px 11px 16px;border:1.5px solid var(--line);border-radius:0;background:var(--face);
+ color:var(--ink);font:700 15px/1.15 var(--sans);letter-spacing:-.01em;text-decoration:none;text-align:left;cursor:pointer;
+ transition:background-color .15s ease;-webkit-tap-highlight-color:transparent}
+.key:hover,.cross-cta:hover,.btn-primary:hover,.btn-outline-w:hover,.service-link:hover,.spec-dl:hover,.v47-key:hover{background:var(--hov)}
+.key:active,.cross-cta:active,.btn-primary:active,.btn-outline-w:active,.service-link:active,.spec-dl:active,.v47-key:active{transform:translateY(1px)}
+.key[aria-current],.key[aria-pressed="true"],.key[aria-expanded="true"]{--face:#1C1A17;--hov:#000;--ink:#FAF6EE;--line:#1C1A17}
+.key--navy,.key--red,.cross-cta,.btn-primary,.v47-key{--face:var(--red);--hov:var(--red-dk);--ink:#FAF6EE;--line:transparent}
+.key--gold,.spec-dl{--face:var(--gold);--hov:#B08A3C;--line:transparent}
+.key--teal{--face:var(--teal);--hov:#22525A;--ink:#FAF6EE;--line:transparent}
 .key--white,.btn-outline-w{--face:#FAF6EE}
-.key--grey{--face:var(--paper-2);--skirt:#BFB39D}
-.key--dark{--face:#2C2925;--skirt:#0B0A09;--ink:#FAF6EE;--line:#0B0A09}
+.key--grey{--face:var(--paper-2)}
+.key--dark{--face:#1C1A17;--hov:#000;--ink:#FAF6EE;--line:transparent}
 .key--wide{min-width:clamp(200px,15vw,240px)}
-.key .ar,.cross-cta .ar,.btn-primary .ar,.v47-key .ar,.spec-dl .ar{display:grid;place-items:center;flex:none;width:26px;height:26px;margin:0 0 0 2px;border-radius:50%;
- background:#1C1A17;color:#FAF6EE;font:400 14px/1 var(--sans);text-shadow:none;box-shadow:0 0 0 2px var(--skirt),0 0 0 3.5px var(--line)}
-.key--navy .ar,.key--red .ar,.cross-cta .ar,.btn-primary .ar,.v47-key .ar{background:#FAF6EE;color:var(--red)}
-.key--dark .ar{background:var(--red);color:#FAF6EE;box-shadow:0 0 0 2px var(--skirt),0 0 0 3.5px #FAF6EE}
-.key--lg,.cross-cta,.btn-primary,.v47-key{min-height:56px;padding:14px 16px 14px 22px;font-size:15.5px}
-.key--lg .ar,.cross-cta .ar,.btn-primary .ar,.v47-key .ar{width:30px;height:30px;font-size:15px}
-.key--sm{--lift:3px;min-height:34px;padding:6px 10px;border-width:1px;border-radius:5px;font-size:13px;font-weight:400;gap:8px}
-.key--sm .ar{width:20px;height:20px;font-size:12px}
-.key--sm[aria-current]{--face:#1C1A17;--ink:#FAF6EE;--line:#1C1A17;--skirt:#0B0A09}
-@media (prefers-reduced-motion:reduce){.key,.cross-cta,.btn-primary,.v47-key{transition:none}}
+/* la flèche : dessinée (le glyphe « → » varie d'une fonte à l'autre), tournée selon sa direction */
+:root{--arr:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M2.5 12H20M13.4 5.3 20.1 12l-6.7 6.7' fill='none' stroke='%23000' stroke-width='2.5'/%3E%3C/svg%3E")}
+.key .ar,.cross-cta .ar,.btn-primary .ar,.v47-key .ar,.spec-dl .ar,.service-link .ar{display:block;flex:none;align-self:flex-end;width:22px;height:22px;margin:0 -1px -1px 0;
+ font-size:0;line-height:0;color:inherit}
+.key .ar::before,.cross-cta .ar::before,.btn-primary .ar::before,.v47-key .ar::before,.spec-dl .ar::before,.service-link .ar::before{content:"";display:block;width:100%;height:100%;
+ background:currentColor;-webkit-mask:var(--arr) center/contain no-repeat;mask:var(--arr) center/contain no-repeat;transition:translate .2s cubic-bezier(.2,.7,.2,1)}
+.ar--d::before{rotate:90deg}
+.ar--ne::before{rotate:-45deg}
+:is(.key,.cross-cta,.btn-primary,.v47-key,.spec-dl,.service-link):hover .ar::before{translate:4px 0}
+:is(.key,.cross-cta,.btn-primary,.v47-key,.spec-dl,.service-link):hover .ar--d::before{translate:0 4px}
+:is(.key,.cross-cta,.btn-primary,.v47-key,.spec-dl,.service-link):hover .ar--ne::before{translate:3px -3px}
+.key--lg,.cross-cta,.btn-primary,.v47-key{min-width:232px;min-height:96px;padding:15px 15px 13px 18px;font-size:17px}
+.key--lg .ar,.cross-cta .ar,.btn-primary .ar,.v47-key .ar{width:26px;height:26px}
+.key--sm{flex-direction:row;align-items:center;gap:8px;min-width:0;min-height:34px;padding:6px 10px;border-width:1px;font-size:13px;font-weight:400}
+.key--sm .ar{width:15px;height:15px;align-self:center}
+@media (prefers-reduced-motion:reduce){.key,.cross-cta,.btn-primary,.v47-key,.key .ar::before{transition:none}}
+
+/* ---------- l'affiche (V55, Brian : « fais comme l'ouverture, partout ») : un aplat franc, et le grand titre qui le déborde,
+   comme « Exact. » sur le vermillon. L'aplat court jusqu'au bord de l'écran ; sous 1100 px, il ne double plus que le titre. ---------- */
+.af{position:relative;isolation:isolate;--bc:var(--red-hi);--bx:54%;--bt:56px;--bb:-40px}
+.af::before{content:"";position:absolute;z-index:-1;top:var(--bt);bottom:var(--bb);background:var(--bc);pointer-events:none}
+.af-r::before{left:var(--bx);right:calc((100% - 100vw) / 2)}
+.af-l::before{left:calc((100% - 100vw) / 2);right:var(--bx)}
+.af-red{--bc:var(--red-hi)}.af-gold{--bc:var(--gold)}.af-teal{--bc:var(--teal)}
+.af-h{margin:0;font:700 clamp(46px,7.6vw,124px)/.9 var(--sans);letter-spacing:-.055em;color:var(--ink);text-wrap:balance}
+@media (max-width:1099px){
+ .af::before{display:none}
+ .af-h{position:relative;isolation:isolate}
+ .af-h::before{content:"";position:absolute;z-index:-1;top:.26em;bottom:-.14em;background:var(--bc);pointer-events:none}
+ .af-r .af-h::before{left:var(--hx,46%);right:calc((100% - 100vw) / 2)}
+ .af-l .af-h::before{left:calc((100% - 100vw) / 2);right:var(--hx,46%)}
+}
+.flag{display:inline-block;vertical-align:-1px;margin-right:6px;box-shadow:0 0 0 1px rgba(28,26,23,.22)}
 
 /* ---------- l'en-tête (V51) : une manchette suisse — le filet d'encre, le menu en texte numéroté ---------- */
 .lx-top{position:sticky;top:0;z-index:60;background:rgba(239,232,218,.95);-webkit-backdrop-filter:saturate(1.2) blur(10px);backdrop-filter:saturate(1.2) blur(10px);
@@ -100,19 +118,19 @@ button,input,select,textarea{font:inherit;color:inherit}
 .lx-logo img{width:44px;height:29px}
 .lx-keys{display:flex;gap:2px;list-style:none;margin:0 auto;padding:0;counter-reset:lxn}
 .lx-keys li{display:flex;counter-increment:lxn}
-.lx-keys .key{--lift:0px;min-height:0;padding:8px 9px;border:0;border-radius:0;background:none;box-shadow:none;transform:none;font:400 14px/1 var(--sans);color:var(--ink);gap:0}
+.lx-keys .key{flex-direction:row;align-items:center;min-width:0;min-height:0;padding:8px 9px;border:0;border-radius:0;background:none;box-shadow:none;transform:none;font:400 14px/1 var(--sans);color:var(--ink);gap:0}
 .lx-keys .key::before{content:counter(lxn,decimal-leading-zero);margin:-.55em 4px 0 0;font:400 10px/1 var(--sans);font-variant-numeric:tabular-nums;color:var(--ink-2)}
 .lx-keys .key:hover{transform:none;box-shadow:none;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:7px}
 .lx-keys .key[aria-current]{--ink:#1C1A17;color:#1C1A17;transform:none;box-shadow:none;background:none;font-weight:700;text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:7px;text-decoration-color:var(--red)}
 .lx-side{display:flex;align-items:center;gap:10px;margin-left:auto}
 .lx-lang{display:flex;border:1px solid var(--ink)}
-.lx-lang .key{--lift:0px;min-height:32px;min-width:34px;justify-content:center;padding:6px 8px;border:0;border-radius:0;box-shadow:none;transform:none;background:transparent;font:700 12px/1 var(--sans);letter-spacing:.06em}
+.lx-lang .key{flex-direction:row;align-items:center;min-height:32px;min-width:34px;justify-content:center;padding:6px 8px;border:0;border-radius:0;box-shadow:none;transform:none;background:transparent;font:700 12px/1 var(--sans);letter-spacing:.06em}
 .lx-lang .key:hover{transform:none;box-shadow:none;background:var(--paper-2)}
 .lx-lang .key[aria-current]{background:#1C1A17;color:#FAF6EE}
 .lx-tel svg{width:18px;height:18px}
 .lx-tel{justify-content:center;padding:6px 9px}
-.lx-cta{min-height:40px;padding:7px 9px 7px 14px;font-size:13.5px;white-space:nowrap}
-.lx-cta .ar{width:22px;height:22px;font-size:12px}
+.lx-cta{flex-direction:row;align-items:flex-end;gap:22px;min-width:0;min-height:44px;padding:8px 10px 9px 13px;font-size:13.5px;white-space:nowrap}
+.lx-cta .ar{width:16px;height:16px}
 .lx-mbtn{display:none}
 .lx-mbtn i{display:grid;gap:3px;width:14px;margin-right:8px}
 .lx-mbtn i b{display:block;height:2px;background:currentColor}
@@ -123,10 +141,11 @@ button,input,select,textarea{font:inherit;color:inherit}
 .lx-drop[hidden]{display:none}
 .lx-drop-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px 14px;padding:22px 0 28px}
 .lx-drop-g .key{justify-content:space-between;padding:14px 16px;font-weight:700}
-.lx-drop-g .key small{font:400 12.5px/1.2 var(--sans);color:var(--ink-2)}
+.lx-drop-g .key small{align-self:flex-end;font:400 12.5px/1.2 var(--sans);color:var(--ink-2)}
 .lx-drop-g .key[aria-current] small{color:rgba(250,246,238,.7)}
 .lx-drop-g .key[aria-current]{--face:#1C1A17;--ink:#FAF6EE;--line:#1C1A17}
 .lx-drop-f{display:flex;flex-wrap:wrap;gap:14px;padding:0 0 26px}
+.lx-drop-f .key svg{width:20px;height:20px}
 
 /* ---------- la page intérieure : l'en-tête ---------- */
 main{display:block}
@@ -135,12 +154,19 @@ main{display:block}
 .pol-head > .container{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);position:relative}
 .pol-head > .container > *{grid-column:1/span 10}
 .pol-head .pol-title{margin:22px 0 0;font:700 clamp(44px,6.6vw,112px)/.92 var(--sans);letter-spacing:-.048em}
-.pol-head .pol-sub{grid-column:1/span 7;margin:clamp(22px,2.4vw,34px) 0 0;font-size:clamp(18px,1.55vw,23px);line-height:1.45;color:var(--ink-2);max-width:34em}
-.pol-head .bl-meta{grid-column:1/span 7;margin:16px 0 0;font:400 15px/1.45 var(--sans);color:var(--ink-2)}
+.pol-head .pol-sub{grid-column:1/span 5;margin:clamp(22px,2.4vw,34px) 0 0;font-size:clamp(18px,1.55vw,23px);line-height:1.45;color:var(--ink-2);max-width:34em}
+.pol-head .bl-meta{grid-column:1/span 5;margin:16px 0 0;font:400 15px/1.45 var(--sans);color:var(--ink-2)}
 .pol-head .bl-meta a{color:var(--ink)}
-.pol-head > .container::after{content:"";position:absolute;right:var(--pad);bottom:0;width:clamp(120px,14vw,220px);aspect-ratio:1;
- background:url(/img/gl-rosette-ink.svg) center/contain no-repeat;opacity:.9;pointer-events:none}
-@media (max-width:900px){.pol-head > .container > *,.pol-head .pol-sub{grid-column:1/-1}.pol-head > .container::after{display:none}}
+/* V55 : l'en-tête des pages intérieures en affiche — l'aplat vermillon à droite, le titre qui le déborde */
+main > .services-section:first-child,main > .cross-section:first-child{overflow:hidden}
+main > .services-section:first-child .section-header .section-h2,main > .cross-section:first-child .section-header .section-h2{position:relative;isolation:isolate}
+main > .services-section:first-child .section-header .section-h2::before,main > .cross-section:first-child .section-header .section-h2::before{content:"";position:absolute;z-index:-1;
+ left:46%;right:-100vw;top:.26em;bottom:-.14em;background:var(--red-hi);pointer-events:none}
+.pol-head{isolation:isolate}
+.pol-head::before{content:"";position:absolute;z-index:-1;left:44%;right:0;top:calc(clamp(56px,8vw,128px) + 62px);bottom:0;background:var(--red-hi);pointer-events:none}
+@media (max-width:900px){.pol-head > .container > *,.pol-head .pol-sub{grid-column:1/-1}.pol-head::before{display:none}
+ .pol-head .pol-title{position:relative;isolation:isolate}
+ .pol-head .pol-title::before{content:"";position:absolute;z-index:-1;left:46%;right:calc((100% - 100vw) / 2);top:.26em;bottom:-.14em;background:var(--red-hi)}}
 
 /* les sections numérotées (§, L., N°) : le numéro à gauche, le texte au centre */
 .pol{padding:clamp(40px,5vw,72px) 0;border-top:1px solid var(--rule);background:var(--paper)}
@@ -467,24 +493,30 @@ main > .cross-section:first-child .xb-close{max-width:22em;margin:0 0 24px;font:
 .nf-acts{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
 .btn-outline-w{--face:#FAF6EE;--edge:#CBC0AB;--hi:rgba(255,255,255,0)}
 
-/* ---------- le pied de page : la demande (formulaire LX-1) et la sténotype ---------- */
-.lx-foot{position:relative;background:url(/img/grain-lt.svg) #DCCFB5;color:var(--ink);padding:0 0 30px;border-top:1.5px solid var(--ink)}
+/* ---------- le pied de page (V55) : l'affiche de la demande — le grand titre qui déborde sur l'aplat vermillon, la feuille
+   LX-1 posée dessus ; à gauche, quatre carrés de couleur pour joindre Lexoral ---------- */
+.lx-foot{position:relative;background:url(/img/grain-lt.svg) #DCCFB5;color:var(--ink);padding:0 0 30px;border-top:1.5px solid var(--ink);overflow:hidden}
 .lx-foot::before{content:"";display:block;height:14px;background:url(/img/gl-band.svg) repeat-x 0 1px/48px 12px,var(--navy-2)}
-.lx-fgrid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);row-gap:clamp(44px,5vw,80px);padding-top:clamp(56px,7vw,112px)}
-.lx-fhead{grid-column:1/span 4;display:flex;flex-direction:column;gap:22px}
-.lx-fhead .lab{color:var(--ink)}
-.lx-fhead h2{font:700 clamp(40px,4.6vw,76px)/.92 var(--sans);letter-spacing:-.05em;color:var(--ink)}
-.lx-fhead p{margin:0;color:var(--ink-2);max-width:24em}
-.lx-direct{display:grid;gap:14px;list-style:none;margin:6px 0 0}
-.lx-direct .key{width:100%;justify-content:space-between;font-weight:400}
-.lx-direct .key b{font-weight:700}
-.lx-direct .key small{font:700 10.5px/1.3 var(--sans);letter-spacing:.12em;color:var(--ink-2);text-transform:uppercase;text-align:right}
+.lx-fgrid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);row-gap:clamp(72px,8vw,128px);padding-top:clamp(56px,7vw,112px)}
+.lx-req{grid-column:1/-1;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);align-items:start;--bx:47%;--bt:clamp(96px,9.4vw,156px);--bb:-52px}
+.lx-req .lab{grid-column:1/-1}
+.lx-fh{grid-column:1/-1;margin:clamp(18px,2vw,30px) 0 0;font-size:clamp(48px,9vw,148px);line-height:.86}
+.lx-fhead{grid-column:1/span 5;display:flex;flex-direction:column;gap:20px;margin-top:clamp(36px,3.8vw,60px)}
+.lx-fhead > p:first-child{margin:0;color:var(--ink-2);font-size:clamp(17px,1.3vw,19px);line-height:1.45;max-width:26em}
+.lx-direct{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;list-style:none;margin:4px 0 0;padding:0}
+.lx-direct li{display:flex;min-width:0}
+.lx-direct .key{flex:1;display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto 1fr;align-items:end;column-gap:10px;row-gap:18px;
+ min-width:0;min-height:0;aspect-ratio:1/1;padding:15px 15px 14px 17px}
+.lx-direct .key small{grid-column:1/-1;align-self:start;font:700 10.5px/1.3 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.lx-direct .key b{grid-column:1;font:700 clamp(15px,1.2vw,18px)/1.15 var(--sans);letter-spacing:-.015em;overflow-wrap:anywhere}
+.lx-direct .key .ar{grid-column:2}
+@media (max-width:1099px){.lx-direct .key{aspect-ratio:auto;min-height:128px}}
+@media (max-width:600px){.lx-direct{grid-template-columns:1fr}.lx-direct .key{min-height:96px;row-gap:12px}}
 .lx-rec{display:flex;align-items:center;gap:10px;margin:0;font:700 11px/1.35 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2)}
 .lx-rec i{flex:none;width:9px;height:9px;border-radius:50%;background:#857A67}
 .lx-rec.on i{background:#D24A26;box-shadow:0 0 0 4px rgba(210,74,38,.25);animation:lxrec 1.6s ease-in-out infinite}
 @keyframes lxrec{50%{box-shadow:0 0 0 7px rgba(210,74,38,0)}}
-
-.lx-sheet{grid-column:5/span 8;position:relative;padding:clamp(22px,2.4vw,34px) clamp(20px,2.6vw,38px) clamp(24px,2.6vw,36px) clamp(92px,7.4vw,112px);
+.lx-sheet{grid-column:6/span 7;margin-top:clamp(44px,4.6vw,76px);position:relative;padding:clamp(22px,2.4vw,34px) clamp(20px,2.6vw,38px) clamp(24px,2.6vw,36px) clamp(92px,7.4vw,112px);
  background:linear-gradient(90deg,transparent 0 calc(clamp(92px,7.4vw,112px) - 22px),rgba(184,64,31,.75) 0 calc(clamp(92px,7.4vw,112px) - 21px),transparent 0 calc(clamp(92px,7.4vw,112px) - 18px),rgba(184,64,31,.75) 0 calc(clamp(92px,7.4vw,112px) - 17px),transparent 0),#FBF8F1;
  color:var(--ink);border:1px solid rgba(28,26,23,.3);box-shadow:9px 9px 0 -1px #F1EADC,9px 9px 0 0 rgba(28,26,23,.28),0 40px 54px -34px rgba(0,0,0,.55)}
 .lx-sheet::before{content:"1\A 2\A 3\A 4\A 5\A 6\A 7\A 8\A 9\A 10\A 11\A 12\A 13\A 14\A 15\A 16\A 17\A 18\A 19\A 20\A 21\A 22\A 23\A 24\A 25";
@@ -536,20 +568,26 @@ label.sq input:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 @media (max-width:640px){.lx-cells .c,.lx-cells .c-4,.lx-cells .c-8{grid-column:span 12}.lx-sheet{padding-left:58px;background:linear-gradient(90deg,transparent 0 40px,rgba(184,64,31,.75) 40px 41px,transparent 41px 44px,rgba(184,64,31,.75) 44px 45px,transparent 45px),#FBF8F1}.lx-sheet::before{display:none}.lx-holes{left:10px}.lx-holes b{width:13px;height:13px}
  .lx-sh-hd{grid-template-columns:1fr}.lx-sh-no{grid-column:1;grid-row:auto;text-align:left}}
 
-/* l'index des pages, comme l'index d'une transcription : le titre espacé, des points de conduite, le numéro de page */
-.lx-index{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:clamp(24px,3vw,56px);row-gap:28px;padding-top:clamp(36px,4vw,60px);border-top:1.5px solid var(--ink)}
-.lx-ix-t{grid-column:1/-1;margin:0 0 6px;font:700 clamp(26px,2.6vw,40px)/1 var(--sans);letter-spacing:.5em;text-transform:uppercase;text-align:center;padding-left:.5em}
+/* l'index (V55) : le grand mot « Index » qui déborde sur l'aplat moutarde, comme « Exact. » ; dessous, trois colonnes de
+   renvois numérotés — le numéro, le titre, la flèche au survol ; plus de points de conduite */
+.lx-index{grid-column:1/-1;position:relative}
+.lx-ix-t{position:relative;z-index:1;margin:0 0 -.3em -.04em;font:700 clamp(88px,15vw,240px)/.8 var(--sans);letter-spacing:-.06em;color:var(--ink);pointer-events:none}
+.ix-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:clamp(24px,3vw,56px);row-gap:34px;margin-left:clamp(40px,10vw,170px);
+ padding:clamp(76px,7.6vw,128px) clamp(20px,2.8vw,44px) clamp(26px,3vw,44px);background:var(--gold)}
+.ix-h{margin:0 0 4px;padding-bottom:9px;border-bottom:2px solid var(--ink);font:700 11.5px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
 .ix-c ol{list-style:none;margin:0;padding:0}
-.ix-h{display:flex;justify-content:space-between;margin:0 0 8px;padding-bottom:7px;border-bottom:1.5px solid var(--ink);font:700 11px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase}
-.ix-c a{display:flex;align-items:baseline;gap:8px;padding:6px 0;text-decoration:none;color:var(--ink);font:400 15.5px/1.3 var(--sans)}
-.ix-t{flex:0 1 auto;min-width:0}
-.ix-d{flex:1 1 20px;min-width:20px;border-bottom:1.5px dotted rgba(28,26,23,.4);transform:translateY(-4px)}
-.ix-n{flex:none;font-weight:700;font-variant-numeric:tabular-nums}
-.ix-c a:hover .ix-t{text-decoration:underline;text-decoration-color:var(--red);text-decoration-thickness:2px;text-underline-offset:4px}
-.ix-c a[aria-current] .ix-t{font-weight:700}
-.ix-c a[aria-current] .ix-n{color:var(--red-dk)}
-@media (max-width:900px){.lx-index{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:560px){.lx-index{grid-template-columns:1fr}}
+.ix-c a{display:grid;grid-template-columns:2.7em minmax(0,1fr) 14px;align-items:baseline;column-gap:4px;padding:9px 2px 9px 0;border-bottom:1px solid rgba(28,26,23,.32);
+ text-decoration:none;color:var(--ink);font:400 16.5px/1.25 var(--sans)}
+.ix-n{font:700 12.5px/1 var(--sans);font-variant-numeric:tabular-nums;letter-spacing:.04em}
+.ix-t{min-width:0}
+.ix-c a::after{content:"";width:14px;height:14px;align-self:center;background:currentColor;-webkit-mask:var(--arr) center/contain no-repeat;mask:var(--arr) center/contain no-repeat;
+ opacity:0;translate:-6px 0;transition:opacity .15s,translate .2s}
+.ix-c a:hover::after,.ix-c a:focus-visible::after{opacity:1;translate:0 0}
+.ix-c a:hover .ix-t{text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:4px}
+.ix-c a[aria-current]{font-weight:700}
+.ix-c a[aria-current] .ix-n{justify-self:start;padding:3px 4px 2px;margin:-3px 0 -2px -4px;background:var(--ink);color:var(--gold)}
+@media (max-width:900px){.ix-cols{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.ix-cols{grid-template-columns:1fr;margin-left:20px}}
 
 .lx-legal{grid-column:1/-1;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:end;gap:18px 32px;padding-top:30px;border-top:1.5px solid var(--ink)}
 .lx-legal .lx-logo{color:var(--ink);font-size:clamp(34px,3.6vw,56px);margin:0}
