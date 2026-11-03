@@ -1,244 +1,158 @@
-/* Lexoral — V50 : l'accueil */
-/* V62 : le bleu et le rouge de la Madone, les éléments gravés qui touchent le mot, la profondeur (v62/css.py) */
-/* V59 : le papier, partout — une seule feuille sous le site, les aplats tirés dessus (v59/css.py) */
-/* V61 : le Lexique — chaque section, une entrée de dictionnaire composée en affiche (v50_home.py) */
-/* V54 : l'Helvetica pour tout ce qui se lit, la Courier seulement dans les fac-similés (v54/type.py) */
-/* V51 palette : papier crème, encre chaude, vermillon, or moutarde, bleu canard (v51/palette.py) */
+/* Lexoral — l'accueil. V63 (3 nov. 2026) : la séance au dossier — la règle des tiers, la grille suisse, une seule ligne.
+   Douze colonnes, trois tiers de quatre. Le grand mot en gras : à l'ouverture seulement. Partout ailleurs, la même section :
+   le titre courant (le numéro au premier tiers, la rubrique au deuxième, la page au troisième) ; le titre et le chapeau au
+   premier tiers ; la figure et le texte sur les deux autres, sous un filet gras. Une colonne vertébrale, entre le premier
+   tiers et le reste : l'onde de l'enregistrement (lx.js). Encres : papier, encre, vermillon, bleu nuit, bleu du tapé. */
 
-/* ---------- l'ouverture (V51) : l'affiche ----------
-   D'après les images de Brian (2 nov.) : l'affiche Mad Men (l'aplat vermillon, la photo en trame noire qui le déborde),
-   les fiches de dictionnaire « Serendipity », « Epiphany » (le mot en Helvetica grasse, [nom], la définition en italique).
-   L'effet « profondeur » de l'iPhone demeure : le marteau passe DEVANT le grand mot, détaché par un filet vermillon.
-   Calques : l'aplat (.hx-blk) → le mot (.hx-w, z 1) → la main (.hx-hand, z 2 : un fond vermillon masqué par la silhouette,
-   l'encre masquée par la trame) → le grain du papier (z 4) → les textes et les touches (z 5).
-   Tout se mesure en cqw : la composition est la même à toutes les largeurs d'un palier. */
-.hx{position:relative;background:transparent;border-bottom:1.5px solid var(--ink)}
-.hx-st{--wx:4cqw;--wy:6cqw;--wf:22cqw;--bx:50cqw;--by:13cqw;--hx:54cqw;--hy:4.5cqw;--hw:49cqw;
+/* ---------- l'ouverture : l'affiche, en tiers ----------
+   16:10. Le mot « Exact. » dans le tiers du haut, sa ligne de base sur la première ligne de tiers ; l'aplat vermillon
+   occupe le tiers de droite, depuis cette ligne ; le marteau sort de l'aplat à l'intersection et touche le « t. ».
+   Au premier tiers : la définition, la devise, les touches ; au deuxième : une page de déposition. */
+.hx{position:relative;background:transparent;border-bottom:1px solid var(--ink)}
+.hx-st{--wx:4cqw;--wy:2.17cqw;--wf:20.5cqw;--bx:66.667cqw;--by:18.75cqw;--hx:53.6cqw;--hy:2.6cqw;--hw:42cqw;
  position:relative;display:flow-root;aspect-ratio:16/9;container-type:inline-size;overflow:hidden;background:transparent}
-
 .hx-pic{position:absolute;inset:0;overflow:hidden;pointer-events:none}
-.hx-blk{position:absolute;left:var(--bx);top:var(--by);right:0;bottom:0;background:url(/img/papier.jpg) 0 0/640px var(--red-hi);background-blend-mode:multiply;overflow:hidden}
-.hx-hand{position:absolute;z-index:2;left:var(--hx);top:var(--hy);width:var(--hw);aspect-ratio:1320/1690}
+.hx-blk{position:absolute;left:var(--bx);top:var(--by);right:0;bottom:0;background:url(/img/papier.jpg) 0 0/640px var(--red-hi);background-blend-mode:multiply;overflow:hidden;
+ box-shadow:0 1cqw 2.4cqw -.6cqw rgba(14,10,6,.4)}
+.hx-hand{position:absolute;z-index:2;left:var(--hx);top:var(--hy);width:var(--hw);aspect-ratio:1320/1690;filter:drop-shadow(.25cqw .6cqw .6cqw rgba(30,8,0,.36))}
 .hx-hand i{position:absolute;inset:0}
 .hx-hb{background:url(/img/papier.jpg) 0 0/640px var(--red-hi);background-blend-mode:multiply;-webkit-mask:url(/img/hand-sil.png) 0 0/100% 100% no-repeat;mask:url(/img/hand-sil.png) 0 0/100% 100% no-repeat}
 .hx-hi{background:var(--ink);-webkit-mask:url(/img/hand-ink.png) 0 0/100% 100% no-repeat;mask:url(/img/hand-ink.png) 0 0/100% 100% no-repeat}
 @supports not ((-webkit-mask-size:cover) or (mask-size:cover)){.hx-hand{display:none}}
-.hx-k{position:absolute;z-index:5;left:var(--wx);right:18cqw;top:2.4cqw}
-.hx-no{position:absolute;z-index:5;right:4cqw;top:2.4cqw;margin:0;font:700 12px/1 var(--sans);letter-spacing:.06em;color:var(--ink)}
-.hx-no::after{content:"";display:block;width:0;height:0;margin:7px 0 0 auto;border:5px solid transparent;border-top:7px solid currentColor;border-bottom:0}
-.hx-vt{position:absolute;z-index:5;left:calc(var(--bx) - 2.4cqw);bottom:2.6cqw;margin:0;writing-mode:vertical-rl;transform:rotate(180deg);
- font:700 10.5px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--ink);white-space:nowrap}
-/* le mot : 0,8 d'interligne → la capitale commence à 0,076 em du haut, la ligne de base est à 0,805 em */
-.hx-w{position:absolute;z-index:1;left:var(--wx);top:var(--wy);font:700 var(--wf)/.8 var(--sans);letter-spacing:-.05em;white-space:nowrap;color:var(--ink);pointer-events:none}
-/* la définition, sous le mot, comme dans un dictionnaire */
-.hx-h{margin:0 0 0 var(--wx);width:42cqw;padding-top:27cqw;font-weight:400;letter-spacing:0}
-.hx-d{position:relative;z-index:5;display:block}
-.hx-pos{display:block;font:400 1.15cqw/1 var(--mono);letter-spacing:.02em;color:var(--ink-2)}
-.hx-def{display:block;margin-top:.9cqw;font:italic 400 2cqw/1.24 var(--serif);color:var(--ink);text-wrap:pretty}
-.hx-s{display:block;margin-top:1.7cqw;font:700 2.3cqw/1.1 var(--sans);letter-spacing:-.03em}
-.hx-cta{position:relative;z-index:5;display:flex;flex-wrap:wrap;gap:12px 14px;width:44cqw;margin:2.2cqw 0 0 var(--wx)}
-.hx-cta .key{min-height:clamp(70px,5.8cqw,88px);min-width:clamp(200px,16cqw,236px)}
+.hx-k{position:absolute;z-index:5;left:var(--wx);right:36cqw;top:1.5cqw;margin:0}
 .hx-k .flag{width:20px;height:10px}
-/* sous l'affiche : le chapeau et les trois repères, en colonnes de petit texte */
+.hx-w{position:absolute;z-index:1;left:var(--wx);top:var(--wy);font:700 var(--wf)/.8 "Lexoral Heros",Helvetica,Arial,sans-serif;letter-spacing:-.05em;white-space:nowrap;color:var(--ink);pointer-events:none}
+.hx-h{margin:0 0 0 var(--wx);width:28.6cqw;padding-top:23.4cqw;font-weight:400;letter-spacing:0}
+.hx-d{position:relative;z-index:5;display:block}
+.hx-pos{display:block;font:400 max(12px,1cqw)/1 var(--mono);letter-spacing:.02em;color:var(--ink-2)}
+.hx-def{display:block;margin-top:.9cqw;font:italic 400 max(19px,1.75cqw)/1.28 var(--serif);color:var(--ink);text-wrap:pretty}
+.hx-s{display:block;margin-top:1.5cqw;font:700 max(22px,2.15cqw)/1.1 var(--sans);letter-spacing:-.03em}
+.hx-cta{position:relative;z-index:5;display:flex;gap:12px;width:28.6cqw;margin:2.2cqw 0 0 var(--wx)}
+.hx-cta .key{flex:1 1 0;min-width:0}
+/* la page de déposition : le numéro de page, les numéros de ligne, la double marge, les répliques tapées */
+.hx-dp{position:absolute;z-index:5;left:calc(33.333cqw + 2.2cqw);top:23.4cqw;width:29cqw;margin:0;color:var(--typed);font:400 max(11.5px,.9cqw)/1.85 var(--mono)}
+.dp-pg{margin:0 0 .6cqw;padding-bottom:.5cqw;border-bottom:1px solid var(--rule-2);text-align:right;font:700 max(10.5px,.78cqw)/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)}
+.dp-l{position:relative;list-style:none;margin:0;padding:0 0 0 4.6em}
+.dp-l::before{content:"";position:absolute;left:3.3em;top:.15em;bottom:.15em;border-left:3px double var(--rule-2)}
+.dp-l li{position:relative;display:grid;grid-template-columns:2.4em minmax(0,1fr)}
+.dp-n{position:absolute;left:-4.6em;width:2.4em;text-align:right;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.dp-q{font-weight:700;color:var(--ink)}
+.dp-t{min-width:0}
+.dp-by{color:var(--ink)}
+.dp-par{color:var(--ink-2)}
+.dp-l li:has(.dp-by) .dp-q,.dp-l li:has(.dp-par) .dp-q{display:none}
+.dp-l li:has(.dp-by) .dp-t,.dp-l li:has(.dp-par) .dp-t{grid-column:1/-1}
+/* sous l'affiche : le chapeau (deux tiers) et les trois repères (le dernier tiers) */
 .hx-bg{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);row-gap:28px;align-items:start;
- padding-top:clamp(30px,3.4vw,52px);padding-bottom:clamp(34px,3.8vw,60px)}
-.hx-lead{grid-column:1/span 6;margin:0;font-size:clamp(17px,1.4vw,21px);line-height:1.45;color:var(--ink)}
-.hx-facts{grid-column:8/span 5;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap);margin:0}
-.hx-facts > div{padding-top:12px;border-top:1.5px solid var(--ink)}
-.hx-facts dt{display:flex;align-items:center;gap:9px;font:700 clamp(22px,1.9vw,30px)/1 var(--sans);letter-spacing:-.04em}
-.hx-facts dt::before{content:none}
-.hx-facts > div:nth-child(2) dt::before{background:var(--fr)}
-.hx-facts > div:nth-child(3) dt::before{background:var(--gold)}
-.hx-facts dd{margin:7px 0 0 18px;font-size:13.5px;line-height:1.3;color:var(--ink-2)}
+ padding-top:clamp(30px,3.2vw,48px);padding-bottom:clamp(34px,3.6vw,56px)}
+.hx-lead{grid-column:1/span 7;margin:0;font:400 clamp(17px,1.35vw,20px)/1.5 var(--sans);color:var(--ink)}
+.hx-facts{grid-column:9/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap);margin:0}
+.hx-facts > div{padding-top:12px;border-top:1px solid var(--ink)}
+.hx-facts dt{font:700 clamp(20px,1.7vw,26px)/1 var(--sans);letter-spacing:-.035em}
+.hx-facts dd{margin:7px 0 0;font-size:13px;line-height:1.3;color:var(--ink-2)}
 @media (max-width:1099px){.hx-lead,.hx-facts{grid-column:1/-1}}
-@media (max-width:760px){.hx-k2{display:none}}   /* la rubrique tient sur une ligne ; le Canada et les États-Unis sont dans le chapeau */
-/* Sous 1100 px, l'affiche se recadre et la définition, la devise et les touches passent dessous, sur le papier. */
+@media (max-width:760px){.hx-k2{display:none}}
+/* sous 1100 px : l'affiche se recadre ; la définition, la devise, les touches et la page passent dessous */
 @media (max-width:1099px){
- .hx-st{aspect-ratio:auto;padding-bottom:36px}
+ .hx-st{aspect-ratio:auto;padding-bottom:40px}
  .hx-st::before{content:"";display:block;height:var(--ph)}
  .hx-pic{bottom:auto;height:var(--ph)}
  .hx-h{margin:22px var(--wx) 0;width:auto;max-width:640px;padding:0}
  .hx-pos{font-size:13px}
  .hx-def{margin-top:8px;font-size:clamp(21px,3.2cqw,28px)}
  .hx-s{margin-top:14px;font-size:clamp(22px,3.4cqw,30px)}
- .hx-cta{width:auto;margin:22px var(--wx) 0}
- .hx-vt{display:none}
+ .hx-cta{width:auto;max-width:520px;margin:22px var(--wx) 0}
+ .hx-dp{position:relative;left:auto;top:auto;width:auto;max-width:560px;margin:34px var(--wx) 0;font-size:13px}
 }
-@media (min-width:601px) and (max-width:1099px){.hx-st{--ph:47cqw}}
+@media (min-width:601px) and (max-width:1099px){.hx-st{--ph:52cqw;--wy:5cqw;--by:24cqw;--hx:50cqw;--hy:8cqw;--hw:46cqw}}
 @media (max-width:600px){
  .hx-st{--ph:125.6cqw;--wf:29cqw;--wy:14cqw;--bx:0cqw;--by:52cqw;--hx:24cqw;--hy:31cqw;--hw:76cqw}
  .hx-k{top:5cqw;right:var(--wx);font-size:10.5px;letter-spacing:.1em}
  .hx-k .flag{width:18px;height:9px;margin:0 0 0 4px}
- .hx-no{display:none}
- .hx-cta{gap:12px}
+ .hx-cta{flex-wrap:wrap}
  .hx-cta .key{flex:1 1 100%}
+ .hx-dp{font-size:12px}
  .hx-facts{grid-template-columns:1fr;gap:16px}
 }
 
-/* ---------- V61 : le Lexique — chaque section est une entrée d'un dictionnaire bilingue du dossier, composée en affiche ----------
-   L'anatomie ne bouge pas : le titre courant (le numéro, la rubrique ; le mot dans l'autre langue) ; le mot, en haut à
-   gauche, qui surimprime l'aplat ; sa nature, sa définition, la devise ; la figure, sous un filet gras ; le texte, en
-   Garamond, têtes en vermillon. Le champ change : papier, vermillon, encre. Quatre encres : le papier, le noir, le
-   vermillon, le bleu du ruban (le tapé, et lui seul). Pas d'ombre, pas d'accessoire. */
-.hm > section{overflow:hidden}
-.ad{--fg:var(--ink);--pos:var(--ribbon);--typed:var(--ribbon);position:relative;container-type:inline-size;border-top:1.5px solid var(--ink);color:var(--fg)}
-/* sur le vermillon, l'encre est poussée au noir pur : 4,7:1 (l'encre #1C1A17 n'y donnerait que 3,9:1) */
-.ad--red .ad-st{--fg:#000;--pos:#000;--typed:#000;background:url(/img/papier.jpg) 0 0/640px var(--red-hi);background-blend-mode:multiply}
-/* V62 : le champ bleu (le manteau de la Madone, le navire gravé) — le mot, la définition, le texte en blanc */
-.ad--blue{--fg:var(--blanc);--pos:var(--blanc);--typed:var(--blanc);background:url(/img/papier.jpg) 0 0/640px var(--azur);background-blend-mode:multiply;border-top-color:var(--azur)}
-.ad-st{position:relative;aspect-ratio:16/9;overflow:hidden;color:var(--fg)}
-.ad-st > *{position:absolute;margin:0}
-/* le titre courant : le numéro et la rubrique ; à droite, le mot dans l'autre langue */
-.ad-rh{left:4cqw;right:4cqw;top:2.3cqw;z-index:6;display:flex;justify-content:space-between;align-items:baseline;gap:2cqw;padding-bottom:.8cqw;border-bottom:1px solid currentColor;
- font:700 max(11px,.8cqw)/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--fg)}
-.ad-rh b{margin-right:1.6em;font-variant-numeric:tabular-nums;color:var(--red-dk)}
-.ad--red .ad-rh b,.ad--blue .ad-rh b{color:inherit}
-.ad-tr{font:italic 400 max(15px,1.15cqw)/1 var(--serif);letter-spacing:0;text-transform:none}
-.ad-tr i{margin-right:.55em;font:700 max(11px,.8cqw)/1 var(--sans);font-style:normal;letter-spacing:.14em}
-/* l'aplat, le mot, la définition */
-/* le carré : du papier de couleur posé sur la page — il porte une ombre (V62 : « de la profondeur ») */
-.ad-blk,.ad-kw{left:var(--bx);top:var(--by);right:var(--br,0);bottom:var(--bb,0);z-index:0;background:url(/img/papier.jpg) 0 0/640px var(--red-hi);background-blend-mode:multiply}
-.ad-blk{box-shadow:0 1.1cqw 2.6cqw -.5cqw rgba(14,10,6,.46),0 .2cqw .45cqw rgba(14,10,6,.22)}
-.ad-blk--blue{background-color:var(--azur)}
-/* la fenêtre : le même carré, au-dessus du mot, qui le recompose dans l'encre du carré (blanc sur le bleu, noir sur le rouge) */
-.ad-kw{z-index:2;overflow:hidden;pointer-events:none}
-.ad-kt{position:absolute;left:calc(var(--wx) - var(--bx));top:calc(var(--wy) - var(--by));margin:0;font:700 var(--wf)/.8 "Lexoral Heros",Helvetica,Arial,sans-serif;letter-spacing:-.05em;white-space:nowrap;color:var(--blanc)}
-.ad-kw:not(.ad-blk--blue) .ad-kt{color:#000}
-/* V62 : les grands mots, dans la fonte du site sur tous les écrans (mesurés au glyphe près : la plume, le carré s'y calent) */
-.ad-w{left:var(--wx);top:var(--wy);z-index:1;font:700 var(--wf)/.8 "Lexoral Heros",Helvetica,Arial,sans-serif;letter-spacing:-.05em;white-space:nowrap;color:var(--fg);pointer-events:none}
-.ad-d{left:4cqw;top:var(--dy);width:var(--dw);z-index:5;color:var(--fg)}
-.ad-pos{display:block;font:400 1.15cqw/1 var(--mono);letter-spacing:.02em;color:var(--pos)}
-.ad-def{display:block;margin-top:.9cqw;font:italic 400 2cqw/1.24 var(--serif);text-wrap:pretty}
-.ad-s{display:block;margin-top:1.6cqw;font:700 2.3cqw/1.1 var(--sans);letter-spacing:-.03em}
-.ad-fg{z-index:3}
-/* la figure, posée sous un filet gras (Tschichold) */
-.fig{border-top:.42cqw solid var(--fg);padding-top:1.3cqw}
+/* ---------- la section : une seule anatomie, en tiers ---------- */
+.hm{position:relative}
+.sx{position:relative;padding:clamp(26px,2.4vw,38px) 0 clamp(104px,9.5vw,156px);container-type:inline-size}
+.sx-g{position:relative;z-index:1;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);align-items:start}
+/* le titre courant : le numéro au premier tiers, la rubrique au deuxième, la page au troisième */
+.sx-rh{grid-column:1/-1;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);align-items:baseline;margin:0 0 clamp(54px,5.4vw,92px);
+ padding-bottom:12px;border-bottom:1px solid currentColor;font:700 11.5px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase}
+.sx-n{grid-column:1/span 4;font:400 13px/1 var(--mono);letter-spacing:.04em}
+.sx-k{grid-column:5/span 4}
+.sx-p{grid-column:9/-1;justify-self:end;font:400 13px/1 var(--mono);letter-spacing:.04em;text-transform:none}
+/* le premier tiers : le titre, le chapeau, l'action */
+.sx-h{grid-column:1/span 4;padding-right:clamp(0px,2vw,28px)}
+.sx-t{margin:0;font:700 clamp(36px,3.75vw,56px)/1.02 "Lexoral Heros",Helvetica,Arial,sans-serif;letter-spacing:-.035em;text-wrap:balance}
+.sx-l{margin:24px 0 0;max-width:24em;font:italic 400 clamp(19px,1.5vw,22px)/1.42 var(--serif);color:var(--ink-2);text-wrap:pretty}
+.sx-l i{font-style:normal}
+.sx-cta{display:flex;flex-wrap:wrap;gap:12px;margin:34px 0 0;max-width:440px}
+.sx-cta .key{flex:1 1 200px}
+/* les deux autres tiers : la figure, sous un filet gras ; le texte dessous, en deux colonnes de tiers */
+.sx-b{grid-column:5/-1;min-width:0}
+.sx-b > :first-child{border-top:4px solid currentColor;padding-top:clamp(20px,1.9vw,30px)}
+.nt{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:var(--gap);row-gap:22px;margin-top:clamp(40px,3.6vw,60px);padding-top:22px;border-top:1px solid var(--rule-2)}
+.nt p{margin:0;font:400 clamp(17px,1.32vw,19.5px)/1.5 var(--serif);text-wrap:pretty}
+.nt b{margin-right:.45em;font:700 11.5px/1 var(--sans);letter-spacing:.13em;text-transform:uppercase;color:var(--red-dk)}
 
-/* 02 Verbatim. — trois rangs, mot pour mot : l'onde de l'enregistrement, l'accord de sténotypie, le mot tapé */
-.pv{left:4cqw;top:var(--ty);display:grid;grid-template-columns:var(--pc);column-gap:1.7cqw;row-gap:1cqw;align-items:end}
-.pv-k{align-self:center;font:700 max(10px,.78cqw)/1.25 var(--sans);letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
-.pv-k b{display:block;margin-bottom:.3em;color:var(--red-dk);font-variant-numeric:tabular-nums}
-.pv-w{display:block;width:100%;height:3.4cqw;fill:var(--fg)}
-.pv-s{font:700 1cqw/1 var(--mono);letter-spacing:.06em;white-space:nowrap}
-.pv-t{font:400 2.8cqw/1 var(--mono);color:var(--typed);white-space:nowrap}
-.pv-t.q{font-weight:700}
+/* 02 — la bande : chaque mot, avec son onde au-dessus et son accord en gris (on devine la sténotypie sans la nommer) */
+.rb{display:grid;row-gap:clamp(22px,2.4vw,36px)}
+.rb-r{display:flex;flex-wrap:wrap;align-items:flex-end;column-gap:1cqw;row-gap:16px;margin:0}
+.rb-l{align-self:flex-end;margin:0 4px .35em 0;padding:.32em .3em .28em .44em;border:1px solid currentColor;font:700 10px/1 var(--sans);letter-spacing:.14em}
+.rb-r[lang="fr"] .rb-l{background:var(--ink);border-color:var(--ink);color:var(--white)}
+/* l'onde est posée au-dessus du mot, hors du calcul de la largeur : la cellule a la largeur du mot (ou de l'accord) */
+.rb-c{position:relative;display:inline-grid;row-gap:7px;padding-top:calc(2.2cqw + 8px)}
+.rb-w{position:absolute;left:0;top:0;display:block;width:100%;height:2.2cqw;fill:var(--ink)}
+.rb-s{font:700 max(8px,.62cqw)/1 var(--mono);letter-spacing:.06em;color:var(--ink-3);white-space:nowrap}
+.rb-t{font:400 1.8cqw/1 var(--mono);color:var(--typed);white-space:nowrap}
+.rb-t.q{font-weight:700;color:var(--ink)}
 
-/* 03 Both. — champ vermillon ; l'extrait : un seul dossier, chaque passage dans sa langue */
-.bx{left:var(--xx);top:var(--xy,var(--dy));width:var(--xw);display:grid;grid-template-columns:auto auto minmax(0,1fr);column-gap:1.3cqw;row-gap:.55cqw;align-items:baseline}
-/* la langue, en touche — comme le sélecteur EN | FR de l'en-tête : l'anglais au trait, le français en réserve */
-.bx-l{padding:.32em .3em .28em .44em;border:1px solid currentColor;font:700 max(10px,.8cqw)/1 var(--sans);letter-spacing:.14em;text-align:center}
-.bx-l.fr{background:#000;border-color:#000;color:var(--blanc)}
-.bx-q{font:700 1.5cqw/1.3 var(--mono)}
-.bx-t{font:400 1.5cqw/1.3 var(--mono)}
+/* 03 — le certificat : deux pages signées */
+.cts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:var(--gap)}
+.ct{display:flex;flex-direction:column;margin:0}
+.ct-k{margin:0 0 14px;font:700 11.5px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--red-dk)}
+.ct-x{flex:1;margin:0;font:400 clamp(18px,1.45vw,21px)/1.5 var(--serif);text-wrap:pretty}
+.ct-s{margin:clamp(34px,3.2vw,52px) 0 0;font:400 12.5px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
+.ct-l{display:block;width:78%;margin-bottom:10px;border-top:1px solid var(--ink)}
 
-/* 04 Certified. — le fronton gravé, tiré comme la main de l'ouverture : la silhouette au vermillon, les tailles à l'encre */
-.ce-o{left:29cqw;top:11.25cqw;width:80cqw;aspect-ratio:1500/844;z-index:2}
-.ce-o i{position:absolute;inset:0}
-.ce-s{background:url(/img/papier.jpg) 0 0/640px var(--red-hi);background-blend-mode:multiply;-webkit-mask:url(/img/fronton-sil.png) 0 0/100% 100% no-repeat;mask:url(/img/fronton-sil.png) 0 0/100% 100% no-repeat}
-.ce-i{background:var(--ink);-webkit-mask:url(/img/fronton-ink.png) 0 0/100% 100% no-repeat;mask:url(/img/fronton-ink.png) 0 0/100% 100% no-repeat}
-@supports not ((-webkit-mask-size:cover) or (mask-size:cover)){.ce-o{display:none}}
+/* 04 — les comparutions : la seule bande en bleu nuit */
+.sx--navy{background:url(/img/papier.jpg) 0 0/640px var(--nuit);background-blend-mode:multiply;color:var(--white)}
+.sx--navy .sx-l{color:rgba(252,250,246,.78)}
+.sx--navy .nt{border-top-color:rgba(252,250,246,.28)}
+.sx--navy .nt b{color:var(--white)}
+.ap-k{margin:0 0 12px;font:400 13px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:rgba(252,250,246,.72)}
+.ap-l{columns:2;column-gap:var(--gap);margin:0;padding:0;list-style:none}
+.ap-l li{break-inside:avoid;padding:11px 0 10px;border-bottom:1px solid rgba(252,250,246,.24);font:700 clamp(19px,1.6vw,24px)/1.15 var(--sans);letter-spacing:-.02em}
 
-/* 05 Vendor. — champ encre ; l'aplat vermillon à droite porte la liste, à l'encre */
-.vd-l{left:calc(var(--bx) + 3cqw);right:4cqw;top:var(--ly);z-index:3;list-style:none;padding:0;border-top:.42cqw solid var(--ink)}
-.vd-l li{padding:.72cqw 0 .66cqw;border-bottom:1px solid var(--ink);font:700 2cqw/1.05 var(--sans);letter-spacing:-.025em;color:#000}
-.vd-cta{left:4cqw;top:var(--cy);z-index:5;display:flex;gap:1cqw}
-.vd-cta .key{min-width:15cqw;min-height:6.2cqw;font-size:1.15cqw;padding:1cqw 1cqw .9cqw 1.1cqw;gap:1cqw}
-.vd-cta .key .ar{width:1.6cqw;height:1.6cqw}
+/* 05 — la pièce : la citation, cotée comme une pièce */
+.ex{margin:0}
+.ex-k{margin:0 0 18px;font:400 13px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--red-dk)}
+.ex blockquote{margin:0}
+.ex blockquote p{margin:0;font:400 clamp(26px,2.4vw,36px)/1.25 var(--serif);text-wrap:pretty}
+.ex blockquote p + p{margin-top:16px;font-style:italic;font-size:clamp(19px,1.5vw,22px);color:var(--ink-2)}
+.ex figcaption{margin-top:22px;font:700 11.5px/1.4 var(--sans);letter-spacing:.14em;text-transform:uppercase}
+.ex figcaption a{color:inherit;text-decoration:none}
+.ex figcaption a:hover{text-decoration:underline}
 
-/* 06 Anywhere. — la carte en planche, sur l'aplat (la mer) : les terres au papier, les États-Unis hachurés, les villes */
-.cv-map{left:var(--mpx,33cqw);top:var(--mpy,12.5cqw);width:var(--mpw,67cqw);height:auto;overflow:visible;z-index:3}
-.cv-ca,.cv-us{fill:var(--blanc);stroke:var(--ink);stroke-width:1.3;stroke-linejoin:round}
-.cv-ush{fill:url(#cv-h);stroke:none}
-#cv-h line{stroke:var(--ink);stroke-width:1.05}
-.cv-n{font:700 17px var(--sans);letter-spacing:.3em;fill:var(--ink);paint-order:stroke;stroke:var(--blanc);stroke-width:8px;stroke-linejoin:round}
-.cv-pin{fill:var(--ink)}
+/* ---------- la colonne vertébrale : l'onde de l'enregistrement (lx.js la trace) ---------- */
+.spine{position:absolute;left:0;top:0;width:100%;pointer-events:none;z-index:0;overflow:visible}
+.spine path{fill:none;stroke-width:1;stroke-linecap:butt;shape-rendering:crispEdges}
+.spine .sp-ink{stroke:rgba(25,23,20,.3)}
+.spine .sp-wh{stroke:rgba(252,250,246,.34)}
 
-/* 07 Reliable. — un guillemet vermillon géant, que le mot surimprime ; la citation, composée comme une manchette */
-.rl-mk{left:48.5cqw;top:-2cqw;z-index:0;font:italic 400 40cqw/1 var(--serif);color:var(--red-hi);pointer-events:none}
-.rl-q{left:53cqw;top:var(--qy);width:42cqw;z-index:5}
-.rl-q blockquote{margin:0}
-.rl-q p{margin:0;font:700 2.35cqw/1.1 var(--sans);letter-spacing:-.03em;text-wrap:pretty}
-.rl-q p + p{margin-top:1.2cqw;font:italic 400 1.75cqw/1.35 var(--serif);letter-spacing:0}
-.rl-q figcaption{margin-top:1.9cqw;padding-top:.9cqw;border-top:.42cqw solid var(--ink);font:700 max(11px,.85cqw)/1.4 var(--sans);letter-spacing:.14em;text-transform:uppercase}
-.rl-q figcaption a{color:inherit;text-decoration:none}
-
-/* le texte : Garamond, têtes en vermillon (Tschichold : le noir et le rouge), en colonnes ; une seule action */
-.ad-bc{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:2cqw;row-gap:20px;align-items:start;margin:0 4cqw;padding:max(22px,2.2cqw) 0 max(48px,4.6cqw);
- border-top:1px solid currentColor;color:var(--fg)}
-.ad--red .ad-bc{--fg:var(--ink)}
-.ad-bt{grid-column:1/span 8;columns:var(--c,2);column-gap:2.6cqw}
-.ad-bc > .ad-bt:only-child{grid-column:1/-1}
-.ad-bt p{margin:0 0 .7em;font:400 19.5px/1.45 var(--serif);color:var(--fg);break-inside:avoid;text-wrap:pretty}
-.ad-bt b{margin-right:.4em;font:700 11.5px/1 var(--sans);letter-spacing:.13em;text-transform:uppercase;color:var(--red-dk)}
-.ad--blue .ad-bt b{color:var(--blanc)}
-.ad-bt b .flag{margin-right:7px;vertical-align:-1px}
-.ad-cta{grid-column:9/-1;display:flex;flex-wrap:nowrap;justify-content:flex-end;gap:12px;margin:0}
-.ad-cta .key{flex:1 1 0;min-width:0;max-width:236px}
-
-/* ---------- tablette et téléphone : l'entrée se lit de haut en bas ; l'aplat ne double plus que le bas du mot ---------- */
+/* ---------- tablette et téléphone : une colonne ; le titre, puis la figure, puis le texte ---------- */
 @media (max-width:1099px){
- .ad-st{aspect-ratio:auto;display:flex;flex-direction:column;align-items:flex-start;padding:max(76px,12cqw) 5cqw 9cqw}
- .ad-st > *{position:relative;left:auto;right:auto;top:auto}
- .ad-rh{position:absolute;left:5cqw;right:5cqw;top:max(24px,4cqw)}
- .ad-w{order:1;font-size:var(--mwf)}
- .ad-d{order:2;width:auto;max-width:640px;margin-top:var(--mdm,6cqw)}
- .ad-fg,.vd-cta,.rl-q{order:3;margin-top:8cqw;width:100%;max-width:760px}
- .ad-st > .ad-blk,.ad-st > .ad-kw{position:absolute;left:var(--mbx,40cqw);right:var(--mbr,0);top:calc(max(76px,12cqw) + var(--mbt,calc(var(--mwf) * .36)));height:var(--mbh,calc(var(--mwf) * .62));bottom:auto}
- .ad-kt{left:calc(5cqw - var(--mbx,40cqw));top:calc(-1 * var(--mbt,calc(var(--mwf) * .36)));font-size:var(--mwf)}
- .ad-st > .ad-el{position:absolute;left:var(--mex);top:calc(max(76px,12cqw) + var(--mey));width:var(--mew)}
- .ad-pos{font-size:12px}.ad-def{margin-top:8px;font-size:21px}.ad-s{margin-top:12px;font-size:23px}
- .fig{border-top-width:4px;padding-top:14px}
- .pv{grid-template-columns:var(--pm);column-gap:8px;row-gap:8px}
- .pv-k{visibility:hidden;overflow:hidden}
- .pv-w{height:26px}.pv-s{font-size:9px}.pv-t{font-size:14px}
- .bx{column-gap:10px;row-gap:6px;width:100%;max-width:640px}.bx-l{font-size:10px}.bx-q,.bx-t{font-size:15px}
- .ce-o{width:130%;max-width:none;margin-left:-30%}
- .vd-l{border-top-color:var(--fg)}.vd-l li{font-size:clamp(20px,4.6cqw,30px);padding:10px 0 9px;color:var(--fg);border-bottom-color:rgba(244,238,226,.35)}
- .vd-cta{display:flex;flex-wrap:wrap;gap:10px}.vd-cta .key{min-width:0;flex:1 1 100%;min-height:76px;font-size:16px;padding:14px;gap:16px}.vd-cta .key .ar{width:22px;height:22px}
- .cv-map{width:100%}
- .rl-mk{display:none}
- .rl-q p{font-size:24px}.rl-q p + p{font-size:19px}.rl-q figcaption{font-size:11px}
- .ad-bc{grid-template-columns:1fr;margin:0 5cqw}
- .ad-bt,.ad-bc > .ad-bt:only-child{grid-column:1/-1;columns:1}
- .ad-cta{grid-column:1/-1;justify-content:flex-start;flex-wrap:wrap}.ad-cta .key{flex:1 1 220px;max-width:none}
+ .rb-t{font-size:clamp(14px,2.4cqw,22px)}.rb-s{font-size:8px}.rb-w{height:22px}.rb-c{padding-top:30px}
+ .sx-h,.sx-b{grid-column:1/-1}
+ .sx-h{padding:0;margin-bottom:40px}
+ .sx-rh .sx-n{grid-column:1/span 2}.sx-rh .sx-k{grid-column:3/span 7}.sx-rh .sx-p{grid-column:10/-1}
 }
-/* tablette (760–1099 px) : les trois rangs de Verbatim reprennent les proportions du grand format (la figure ne rapetisse plus) */
-@media (min-width:760px) and (max-width:1099px){.pv{grid-template-columns:var(--pc);column-gap:1.7cqw;row-gap:1cqw}.pv-k{visibility:visible;overflow:visible}
- .pv-w{height:3.4cqw}.pv-s{font-size:max(8.5px,1cqw)}.pv-t{font-size:2.8cqw}}
-@media (max-width:600px){.ad-tr{display:none}}
-
-/* ---------- V62 : les éléments gravés, qui touchent le mot (la plume, la fleur de lys) ----------
-   Comme la main de l'ouverture : deux masques — la silhouette (le fond du carré, avec sa réserve : elle cache le mot là où
-   l'élément passe devant) et la gravure (le blanc). Une ombre portée : l'élément est posé sur le carré, au-dessus du mot. */
-.ad-el{left:var(--ex);top:var(--ey);width:var(--ew);z-index:3;pointer-events:none;filter:drop-shadow(.3cqw .7cqw .7cqw rgba(6,10,26,.5))}
-.ad-el i{position:absolute;inset:0}
-.el-s{background:var(--azur)}
-.el-i{background:var(--blanc)}
-.el-quill .el-s{-webkit-mask:url(/img/quill-sil.png) 0 0/100% 100% no-repeat;mask:url(/img/quill-sil.png) 0 0/100% 100% no-repeat}
-.el-quill .el-i{-webkit-mask:url(/img/quill-ink.png) 0 0/100% 100% no-repeat;mask:url(/img/quill-ink.png) 0 0/100% 100% no-repeat}
-.el-lys .el-s{-webkit-mask:url(/img/lys-sil.png) 0 0/100% 100% no-repeat;mask:url(/img/lys-sil.png) 0 0/100% 100% no-repeat}
-.el-lys .el-i{-webkit-mask:url(/img/lys-ink.png) 0 0/100% 100% no-repeat;mask:url(/img/lys-ink.png) 0 0/100% 100% no-repeat}
-@supports not ((-webkit-mask-size:cover) or (mask-size:cover)){.ad-el{display:none}}
-/* la profondeur, à l'ouverture aussi : l'aplat posé sur le papier, la main posée sur l'aplat */
-.hx-blk{box-shadow:0 1.1cqw 2.6cqw -.5cqw rgba(14,10,6,.46),0 .2cqw .45cqw rgba(14,10,6,.22)}
-.hx-hand{filter:drop-shadow(.3cqw .7cqw .7cqw rgba(30,8,0,.42))}
-/* V62 : la planche — la figure sort de l'affiche et ouvre le texte, sous son filet gras (Verbatim : les trois rangs, pleine
-   largeur) ; ou se met en regard du texte, à gauche (Both : l'extrait du dossier, EN/FR, tapé au bleu du ruban) */
-.ad-bc--plate{border-top:0;padding-top:max(14px,1.4cqw)}
-.ad-pl{grid-column:1/-1;margin:0 0 max(26px,2.6cqw)}
-.ad-pl > .fig{position:static}
-.ad-bc--plate .ad-bt{grid-column:1/-1}
-.ad-bc--side{row-gap:28px}
-.ad-pl--side > .fig{border-top:0;padding-top:.3cqw}
-.ad-pl--side{grid-column:1/span 5;margin:0}
-.ad-bc--side .ad-bt{grid-column:7/-1}
-.ad-pl .bx{width:auto;column-gap:1.1cqw;row-gap:.6cqw}
-.ad-pl .bx-q,.ad-pl .bx-t{font-size:max(14px,1.32cqw)}
-.ad-pl .bx-l{font-size:max(9.5px,.72cqw)}
-.ad-pl .bx-t{color:var(--ribbon)}
-@media (max-width:1099px){
- .ad-pl,.ad-pl--side{grid-column:1/-1;margin:0 0 6px}
- .ad-bc--side .ad-bt{grid-column:1/-1}
- .ad-pl > .fig{margin-top:0;max-width:none}
- .ad-pl .bx-q,.ad-pl .bx-t{font-size:15px}
+@media (max-width:640px){
+ .nt,.cts{grid-template-columns:1fr;row-gap:26px}
+ .ap-l{columns:1}
+ .ct-s{margin-top:28px}
 }
