@@ -521,11 +521,6 @@ html[lang="fr"] .lx-fh{font-size:clamp(72px,19.6vw,300px)}
 .lx-rec i{flex:none;width:9px;height:9px;border-radius:50%;background:#857A67}
 .lx-rec.on i{background:#D24A26;box-shadow:0 0 0 4px rgba(210,74,38,.25);animation:lxrec 1.6s ease-in-out infinite}
 @keyframes lxrec{50%{box-shadow:0 0 0 7px rgba(210,74,38,0)}}
-/* le tampon (un caoutchouc encré : deux cadres, trois lignes ; le filtre lui donne l'encre inégale) */
-.lx-stamp{position:absolute;z-index:2;right:clamp(14px,2.2vw,34px);bottom:clamp(-38px,-2.6vw,-22px);width:clamp(150px,13vw,200px);color:var(--red);transform:rotate(-7deg);pointer-events:none}
-.stamp-a{font:700 40px var(--sans);letter-spacing:4px;fill:currentColor}
-.stamp-b{font:700 13px var(--sans);letter-spacing:2.6px;fill:currentColor}
-.stamp-c{font:700 10.5px var(--sans);letter-spacing:2.2px;fill:currentColor}
 .lx-sheet{grid-column:6/span 7;position:relative;margin-top:clamp(40px,4.2vw,70px);padding:clamp(22px,2.4vw,36px) clamp(20px,2.6vw,40px) clamp(30px,3vw,46px);background:#FBF8F1;
  color:var(--ink);border:1px solid rgba(28,26,23,.3);box-shadow:12px 12px 0 -1px #E6DCC9,12px 12px 0 0 rgba(28,26,23,.3),0 40px 54px -34px rgba(0,0,0,.55)}
 .lx-holes,.lx-vert,.lx-tab{display:none}
@@ -572,7 +567,7 @@ label.sq input:focus-visible{outline:2px solid var(--ribbon);outline-offset:2px}
  .lx-sheet{margin-top:44px}}
 @media (max-width:640px){.lx-cells .c,.lx-cells .c-4,.lx-cells .c-8{grid-column:span 12}.lx-sheet{padding:22px 18px 34px}
  .lx-sh-hd{grid-template-columns:1fr}.lx-sh-no{grid-column:1;grid-row:auto;text-align:left}
- .lx-direct a{grid-template-columns:6.6em minmax(0,1fr) 16px}.lx-stamp{width:150px;bottom:-30px}}
+ .lx-direct a{grid-template-columns:6.6em minmax(0,1fr) 16px}}
 
 /* l'index (V58) : le grand mot « Index. » qui déborde sur l'aplat bleu ; la page d'index, en papier, posée dessus —
    le numéro, le titre, la flèche au survol */

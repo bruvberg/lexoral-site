@@ -100,21 +100,17 @@
 .ad-cols b{display:block;margin-bottom:5px;font-size:17px;letter-spacing:-.02em}
 .ad-cols p{margin:0;font-size:15px;line-height:1.5;color:var(--ink-2)}
 .ad-cta{display:flex;flex-wrap:wrap;gap:12px;margin:0}
-.stamp{z-index:5;color:var(--red)}
 
-/* Verbatim. — la bande de sténotype devant le mot ; les filets, à l'encre ; la page de transcription, sur l'aplat bleu */
-.vb{left:0;top:0;width:100%;height:100%}
-.vb-tape{fill:#F8F3E6;stroke:rgba(28,26,23,.35);stroke-width:.08}
-.vb-fold{stroke:rgba(28,26,23,.28);stroke-width:.07;stroke-dasharray:.25 .3}
-.vb-tn{font:700 .7px var(--mono);fill:var(--ink-3)}
-.vb-s{font:700 .8px var(--mono);fill:var(--ribbon);white-space:pre}
-.vb-l path{fill:none;stroke:var(--ink);stroke-width:.08}
-.vb-pr{fill:#FBF8F1;stroke:rgba(28,26,23,.35);stroke-width:.08}
-.vb-ph{font:700 .78px var(--sans);letter-spacing:.14px;fill:var(--ink-2)}
-.vb-m{stroke:#B8401F;stroke-width:.07}
-.vb-n{font:400 1px var(--mono);fill:var(--ink-3)}
-.vb-t{font:400 1.22px var(--mono);fill:var(--ribbon);white-space:pre}
-.vb-ts{font:400 .85px var(--mono);fill:var(--ink-3)}
+/* Verbatim. — la preuve, en typographie (Tschichold) : sous un filet gras, un tableau à deux lignes ; chaque accord de
+   sténotype au-dessus de son mot. L'aplat bleu s'arrête au-dessus du filet. */
+.vb-p{left:4cqw;top:var(--ty,43cqw);width:92cqw;z-index:3;display:grid;grid-template-columns:14cqw repeat(var(--n),auto);justify-content:start;column-gap:2.4cqw;
+ border-top:.55cqw solid var(--ink)}
+.vb-p > span{padding:1.25cqw 0 1.1cqw;white-space:nowrap}
+.vb-pk{align-self:center;font:700 .95cqw/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--ink)}
+.vb-pk.r1,.vb-ps{border-bottom:1px solid var(--ink)}
+.vb-ps{font:700 2.05cqw/1 var(--mono);color:var(--ribbon)}
+.vb-pt{font:400 2.05cqw/1 var(--mono);color:var(--ink)}
+.vb-pt.q{font-weight:700}
 
 /* Both. — le français (vermillon) et l'anglais (bleu) ; le noir où ils se rencontrent : un seul dossier */
 .sq-w{left:37cqw;top:8.5cqw;width:49cqw;height:47.75cqw;z-index:0}
@@ -135,14 +131,10 @@
 .ce-s{background:url(/img/papier.jpg) 0 0/640px var(--red-hi);background-blend-mode:multiply;-webkit-mask:url(/img/fronton-sil.png) 0 0/100% 100% no-repeat;mask:url(/img/fronton-sil.png) 0 0/100% 100% no-repeat}
 .ce-i{background:var(--ink);-webkit-mask:url(/img/fronton-ink.png) 0 0/100% 100% no-repeat;mask:url(/img/fronton-ink.png) 0 0/100% 100% no-repeat}
 @supports not ((-webkit-mask-size:cover) or (mask-size:cover)){.ce-o{display:none}}
-.stamp.ce{left:19cqw;top:40.5cqw;width:17cqw;transform:rotate(-8deg)}
 
-/* Vendor. — l'aplat bleu à gauche ; la gravure épinglée sur l'aplat, devant le mot, avec sa pièce P-1 */
-.vd-img{left:19cqw;top:var(--py,17.5cqw);width:28cqw;z-index:3;padding:.7cqw;background:#FBF8F1;box-shadow:0 2cqw 3cqw -1.6cqw rgba(0,0,0,.55);transform:rotate(-2deg)}
-.vd-img img{width:100%}
-.vd-img .exh{position:absolute;right:-1.6cqw;top:-2.6cqw;margin:0;z-index:4;padding:.75cqw 1cqw .6cqw;background:#FBF8F1;border:1.5px solid var(--ink);transform:rotate(7deg);
- font:700 .8cqw/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--ink);text-align:center;box-shadow:0 .6cqw 1cqw -.6cqw rgba(0,0,0,.5)}
-.vd-img .exh b{display:block;margin-top:.35cqw;font-size:2.1cqw;letter-spacing:-.02em}
+/* Vendor. — l'aplat bleu à gauche ; dessus, la liste de ceux que Lexoral sert, en grand, sous un filet gras (typographie suisse) */
+.vd-l{left:4cqw;top:var(--ly,28cqw);width:42cqw;z-index:3;list-style:none;margin:0;padding:0;border-top:.55cqw solid var(--ink)}
+.vd-l li{padding:.8cqw 0 .72cqw;border-bottom:1px solid var(--ink);font:700 2.35cqw/1.05 var(--sans);letter-spacing:-.025em;color:var(--ink)}
 .vd-cta{left:var(--dx);top:var(--cy,43cqw);z-index:5;display:flex;gap:1cqw}
 .vd-cta .key{min-width:15cqw;min-height:6.2cqw;font-size:1.15cqw;padding:1cqw 1cqw .9cqw 1.1cqw;gap:1cqw}
 .vd-cta .key .ar{width:1.6cqw;height:1.6cqw}
@@ -176,17 +168,16 @@
  .ad-w{display:block;font-size:var(--mwf,19cqw)}
  .ad-blk{position:absolute;left:var(--mbx,42cqw);right:var(--mbr,0);top:calc(max(64px,12cqw) + var(--mwf,19cqw) * .36);height:calc(var(--mwf,19cqw) * .62);bottom:auto;z-index:0}
  .ad-blk.b ~ .ad-d .ad-pos{color:var(--ribbon)}
- .ad-fg,.vb,.cv-map,.ce-o,.vd-img,.rl-q,.vd-cta,.sq-w{position:relative;left:auto;top:auto;width:100%;margin-top:7cqw;max-width:760px}
- .stamp,.stamp.ce{position:relative;left:auto;top:auto;width:46cqw;max-width:260px;margin:6cqw 0 0 auto}
+ .ad-fg,.cv-map,.ce-o,.vd-l,.rl-q,.vd-cta,.sq-w,.vb-p{position:relative;left:auto;top:auto;width:100%;margin-top:7cqw;max-width:760px}
  .ad-d{width:auto;max-width:640px;margin-top:7cqw}
  .ad-pos{font-size:12px}.ad-def{margin-top:8px;font-size:21px}.ad-s{margin-top:12px;font-size:23px}
- .vb{width:143%;max-width:none;margin-left:-43%;aspect-ratio:16/9;height:auto}
+ .vb-p{grid-template-columns:repeat(var(--n),auto);column-gap:2.2cqw;overflow-x:auto}.vb-pk{grid-column:1/-1;padding:3cqw 0 1cqw;font-size:10px}
+ .vb-ps,.vb-pt{font-size:3.1cqw}.vb-pk.r1{border-bottom:0}
  .sq-w{height:auto;aspect-ratio:49/47.75}
  .sq-l{font-size:9cqw}.sq-t{font-size:2.6cqw}.sq-x{padding:2.2cqw}.sq-x b{font-size:2.6cqw}.sq-x span{font-size:2.6cqw;margin-top:1cqw}
  .sq-t.en{top:calc(67% + 3cqw)}
  .ce-o{width:130%;max-width:none;margin-left:-30%}
- .vd-img{transform:none;padding:6px}
- .vd-img .exh{right:10px;top:-16px;font-size:10px;padding:8px 10px 7px}.vd-img .exh b{font-size:22px}
+ .vd-l li{font-size:clamp(20px,4.4cqw,30px);padding:10px 0 9px}
  .vd-cta{display:flex;flex-wrap:wrap;gap:10px}.vd-cta .key{min-width:0;flex:1 1 100%;min-height:76px;font-size:16px;padding:14px;gap:16px}.vd-cta .key .ar{width:22px;height:22px}
  .rl-mk{display:none}
  .rl-q p{font-size:24px}.rl-q p + p{font-size:16px}.rl-q figcaption{font-size:11px;padding:8px 10px}
