@@ -1,6 +1,6 @@
 /* Lexoral — V50 : l'accueil */
 /* V59 : le papier, partout — une seule feuille sous le site, les aplats tirés dessus (v59/css.py) */
-/* V58 : la campagne — six annonces construites comme l'ouverture (v50_home.py) */
+/* V61 : le Lexique — chaque section, une entrée de dictionnaire composée en affiche (v50_home.py) */
 /* V54 : l'Helvetica pour tout ce qui se lit, la Courier seulement dans les fac-similés (v54/type.py) */
 /* V51 palette : papier crème, encre chaude, vermillon, or moutarde, bleu canard (v51/palette.py) */
 
@@ -74,113 +74,123 @@
  .hx-facts{grid-template-columns:1fr;gap:16px}
 }
 
-/* ---------- V58 : la campagne — six annonces construites comme l'ouverture ----------
-   Le mot reste NOIR et surimprime l'aplat ; l'aplat est d'un ton moyen (vermillon #C9502B ou bleu ardoise #6175AB, même
-   clarté L* ≈ 50 : le noir s'y lit pareil) ; le rouge et le bleu ne se touchent pas ; ce qui passe devant le mot est
-   rempli (de papier, ou de la couleur de l'aplat, ses tailles à l'encre) ; le grain du papier passe sur tout. */
+/* ---------- V61 : le Lexique — chaque section est une entrée d'un dictionnaire bilingue du dossier, composée en affiche ----------
+   L'anatomie ne bouge pas : le titre courant (le numéro, la rubrique ; le mot dans l'autre langue) ; le mot, en haut à
+   gauche, qui surimprime l'aplat ; sa nature, sa définition, la devise ; la figure, sous un filet gras ; le texte, en
+   Garamond, têtes en vermillon. Le champ change : papier, vermillon, encre. Quatre encres : le papier, le noir, le
+   vermillon, le bleu du ruban (le tapé, et lui seul). Pas d'ombre, pas d'accessoire. */
 .hm > section{overflow:hidden}
-.ad{position:relative;border-top:1.5px solid var(--ink)}
-.ad-st{position:relative;container-type:inline-size;aspect-ratio:16/9;overflow:hidden}
+.ad{--fg:var(--ink);--pos:var(--ribbon);--typed:var(--ribbon);position:relative;container-type:inline-size;border-top:1.5px solid var(--ink);color:var(--fg)}
+/* sur le vermillon, l'encre est poussée au noir pur : 4,7:1 (l'encre #1C1A17 n'y donnerait que 3,9:1) */
+.ad--red .ad-st{--fg:#000;--pos:#000;--typed:#000;background:url(/img/papier.jpg) 0 0/640px var(--red-hi);background-blend-mode:multiply}
+.ad--ink{--fg:#F4EEE2;--pos:#F4EEE2;--typed:#F4EEE2;background:var(--ink);border-top-color:var(--ink)}
+.ad-st{position:relative;aspect-ratio:16/9;overflow:hidden;color:var(--fg)}
 .ad-st > *{position:absolute;margin:0}
-.ad-k{left:4cqw;top:2.4cqw;z-index:6}
-.ad-blk{left:var(--bx);top:var(--by);right:var(--br,0);bottom:var(--bb,0);background:url(/img/papier.jpg) 0 0/640px var(--red-hi);background-blend-mode:multiply;z-index:0}
-.ad-blk.b{background-color:var(--slate)}
-.ad-w{left:var(--wx);top:var(--wy);z-index:1;font:700 var(--wf)/.8 var(--sans);letter-spacing:-.05em;white-space:nowrap;color:var(--ink);pointer-events:none}
-.ad-d{left:var(--dx,4cqw);top:var(--dy);width:var(--dw,27cqw);z-index:5}
-.ad-pos{display:block;font:400 1.15cqw/1 var(--mono);letter-spacing:.02em;color:var(--ribbon)}
-.ad-blk.b ~ .ad-d .ad-pos{color:var(--ink)}
+/* le titre courant : le numéro et la rubrique ; à droite, le mot dans l'autre langue */
+.ad-rh{left:4cqw;right:4cqw;top:2.3cqw;z-index:6;display:flex;justify-content:space-between;align-items:baseline;gap:2cqw;padding-bottom:.8cqw;border-bottom:1px solid currentColor;
+ font:700 max(11px,.8cqw)/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--fg)}
+.ad-rh b{margin-right:1.6em;font-variant-numeric:tabular-nums;color:var(--red-dk)}
+.ad--red .ad-rh b,.ad--ink .ad-rh b{color:inherit}
+.ad-tr{font:italic 400 max(15px,1.15cqw)/1 var(--serif);letter-spacing:0;text-transform:none}
+.ad-tr i{margin-right:.55em;font:700 max(11px,.8cqw)/1 var(--sans);font-style:normal;letter-spacing:.14em}
+/* l'aplat, le mot, la définition */
+.ad-blk{left:var(--bx);top:var(--by);right:var(--br,0);bottom:var(--bb,0);z-index:0;background:url(/img/papier.jpg) 0 0/640px var(--red-hi);background-blend-mode:multiply}
+.ad-w{left:var(--wx);top:var(--wy);z-index:1;font:700 var(--wf)/.8 var(--sans);letter-spacing:-.05em;white-space:nowrap;color:var(--fg);pointer-events:none}
+.ad-d{left:4cqw;top:var(--dy);width:var(--dw);z-index:5;color:var(--fg)}
+.ad-pos{display:block;font:400 1.15cqw/1 var(--mono);letter-spacing:.02em;color:var(--pos)}
 .ad-def{display:block;margin-top:.9cqw;font:italic 400 2cqw/1.24 var(--serif);text-wrap:pretty}
 .ad-s{display:block;margin-top:1.6cqw;font:700 2.3cqw/1.1 var(--sans);letter-spacing:-.03em}
-.ad-fg{z-index:3;pointer-events:none}
-.ad-bar{border-top:1px solid var(--rule-2)}
-.ad-bg{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:28px var(--gap);padding-top:clamp(28px,3vw,48px);padding-bottom:clamp(34px,3.6vw,56px)}
-.ad-cols{flex:1 1 640px;display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));gap:var(--gap)}
-.ad-cols .n{display:flex;align-items:center;min-height:13px;margin-bottom:8px;font:700 12.5px/1 var(--sans);letter-spacing:.1em;color:var(--red-dk)}
-.ad-cols .n .flag{width:22px;height:11px}
-.ad-cols b{display:block;margin-bottom:5px;font-size:17px;letter-spacing:-.02em}
-.ad-cols p{margin:0;font-size:15px;line-height:1.5;color:var(--ink-2)}
-.ad-cta{display:flex;flex-wrap:wrap;gap:12px;margin:0}
+.ad-fg{z-index:3}
+/* la figure, posée sous un filet gras (Tschichold) */
+.fig{border-top:.42cqw solid var(--fg);padding-top:1.3cqw}
 
-/* Verbatim. — la preuve, en typographie (Tschichold) : sous un filet gras, un tableau à deux lignes ; chaque accord de
-   sténotype au-dessus de son mot. L'aplat bleu s'arrête au-dessus du filet. */
-.vb-p{left:4cqw;top:var(--ty,43cqw);width:92cqw;z-index:3;display:grid;grid-template-columns:14cqw repeat(var(--n),auto);justify-content:start;column-gap:2.4cqw;
- border-top:.55cqw solid var(--ink)}
-.vb-p > span{padding:1.25cqw 0 1.1cqw;white-space:nowrap}
-.vb-pk{align-self:center;font:700 .95cqw/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--ink)}
-.vb-pk.r1,.vb-ps{border-bottom:1px solid var(--ink)}
-.vb-ps{font:700 2.05cqw/1 var(--mono);color:var(--ribbon)}
-.vb-pt{font:400 2.05cqw/1 var(--mono);color:var(--ink)}
-.vb-pt.q{font-weight:700}
+/* 02 Verbatim. — trois rangs, mot pour mot : l'onde de l'enregistrement, l'accord de sténotypie, le mot tapé */
+.pv{left:4cqw;top:var(--ty);display:grid;grid-template-columns:var(--pc);column-gap:1.7cqw;row-gap:1cqw;align-items:end}
+.pv-k{align-self:center;font:700 max(10px,.78cqw)/1.25 var(--sans);letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
+.pv-k b{display:block;margin-bottom:.3em;color:var(--red-dk);font-variant-numeric:tabular-nums}
+.pv-w{display:block;width:100%;height:3.4cqw;fill:var(--fg)}
+.pv-s{font:700 1cqw/1 var(--mono);letter-spacing:.06em;white-space:nowrap}
+.pv-t{font:400 2.8cqw/1 var(--mono);color:var(--typed);white-space:nowrap}
+.pv-t.q{font-weight:700}
 
-/* Both. — le français (vermillon) et l'anglais (bleu) ; le noir où ils se rencontrent : un seul dossier */
-.sq-w{left:37cqw;top:8.5cqw;width:49cqw;height:47.75cqw;z-index:0}
-.sq-w > *{position:absolute;margin:0}
-.sq-en{left:0;top:36.6%;width:61.2%;height:63.4%;background:url(/img/papier.jpg) 0 0/640px var(--slate);background-blend-mode:multiply}
-.sq-fr{left:34.7%;top:0;width:65.3%;height:67%;background:url(/img/papier.jpg) 0 0/640px var(--red-hi);background-blend-mode:multiply}
-.sq-x{left:34.7%;top:36.6%;width:26.5%;height:30.4%;padding:1.1cqw;background:var(--ink);color:#F4EEE2}
-.sq-x b{display:block;font:700 1.25cqw/1 var(--sans);letter-spacing:.14em}
-.sq-x span{display:block;margin-top:.5cqw;font:400 1.15cqw/1.2 var(--sans)}
-.sq-l{font:700 4.2cqw/1 var(--sans);letter-spacing:-.04em;color:var(--ink)}
-.sq-l.en{left:1.6cqw;bottom:1.4cqw}.sq-l.fr{right:1.6cqw;top:1.4cqw}
-.sq-t{font:400 1.12cqw/1.5 var(--mono);color:var(--ink);white-space:pre}
-.sq-t.en{left:1.6cqw;top:calc(67% + 1.4cqw)}.sq-t.fr{left:calc(61.2% + 1.4cqw);top:calc(36.6% + 1cqw)}
+/* 03 Both. — champ vermillon ; l'extrait : un seul dossier, chaque passage dans sa langue */
+.bx{left:var(--xx);top:var(--dy);width:var(--xw);display:grid;grid-template-columns:auto auto minmax(0,1fr);column-gap:1.3cqw;row-gap:.55cqw;align-items:baseline}
+/* la langue, en touche — comme le sélecteur EN | FR de l'en-tête : l'anglais au trait, le français en réserve */
+.bx-l{padding:.32em .3em .28em .44em;border:1px solid currentColor;font:700 max(10px,.8cqw)/1 var(--sans);letter-spacing:.14em;text-align:center}
+.bx-l.fr{background:#000;border-color:#000;color:#F4EEE2}
+.bx-q{font:700 1.8cqw/1.3 var(--mono)}
+.bx-t{font:400 1.8cqw/1.3 var(--mono)}
 
-/* Certified. — le fronton, gravé comme la main : la silhouette de la couleur de l'aplat, les tailles à l'encre ; le tampon */
+/* 04 Certified. — le fronton gravé, tiré comme la main de l'ouverture : la silhouette au vermillon, les tailles à l'encre */
 .ce-o{left:26cqw;top:11.25cqw;width:80cqw;aspect-ratio:1500/844;z-index:2}
 .ce-o i{position:absolute;inset:0}
 .ce-s{background:url(/img/papier.jpg) 0 0/640px var(--red-hi);background-blend-mode:multiply;-webkit-mask:url(/img/fronton-sil.png) 0 0/100% 100% no-repeat;mask:url(/img/fronton-sil.png) 0 0/100% 100% no-repeat}
 .ce-i{background:var(--ink);-webkit-mask:url(/img/fronton-ink.png) 0 0/100% 100% no-repeat;mask:url(/img/fronton-ink.png) 0 0/100% 100% no-repeat}
 @supports not ((-webkit-mask-size:cover) or (mask-size:cover)){.ce-o{display:none}}
 
-/* Vendor. — l'aplat bleu à gauche ; dessus, la liste de ceux que Lexoral sert, en grand, sous un filet gras (typographie suisse) */
-.vd-l{left:4cqw;top:var(--ly,28cqw);width:42cqw;z-index:3;list-style:none;margin:0;padding:0;border-top:.55cqw solid var(--ink)}
-.vd-l li{padding:.8cqw 0 .72cqw;border-bottom:1px solid var(--ink);font:700 2.35cqw/1.05 var(--sans);letter-spacing:-.025em;color:var(--ink)}
-.vd-cta{left:var(--dx);top:var(--cy,43cqw);z-index:5;display:flex;gap:1cqw}
+/* 05 Vendor. — champ encre ; l'aplat vermillon à droite porte la liste, à l'encre */
+.vd-l{left:calc(var(--bx) + 3cqw);right:4cqw;top:var(--ly);z-index:3;list-style:none;padding:0;border-top:.42cqw solid var(--ink)}
+.vd-l li{padding:.72cqw 0 .66cqw;border-bottom:1px solid var(--ink);font:700 2cqw/1.05 var(--sans);letter-spacing:-.025em;color:#000}
+.vd-cta{left:4cqw;top:var(--cy);z-index:5;display:flex;gap:1cqw}
 .vd-cta .key{min-width:15cqw;min-height:6.2cqw;font-size:1.15cqw;padding:1cqw 1cqw .9cqw 1.1cqw;gap:1cqw}
 .vd-cta .key .ar{width:1.6cqw;height:1.6cqw}
 
-/* Anywhere. — la carte, sur l'aplat vermillon */
+/* 06 Anywhere. — la carte en planche, sur l'aplat (la mer) : les terres au papier, les États-Unis hachurés, les villes */
 .cv-map{left:33cqw;top:12.5cqw;width:67cqw;height:auto;overflow:visible;z-index:3}
 .cv-ca,.cv-us{fill:#F4EEE2;stroke:var(--ink);stroke-width:1.3;stroke-linejoin:round}
-.cv-usd{fill:url(#cv-dots);stroke:none}
-#cv-dots circle{fill:var(--ink)}
-.cv-tag-r{fill:#FBF8F1;stroke:var(--ink);stroke-width:1.5}
-.cv-tag-t{font:700 17px var(--sans);letter-spacing:.16em;fill:var(--ink)}
-.cv-tag-s{font:700 13.5px var(--sans);fill:var(--ink)}
-.cv-pin{fill:var(--red);stroke:var(--ink);stroke-width:1.4}
-.cv-lead{fill:none;stroke:var(--ink);stroke-width:1}
-.cv-lt{font:700 15px var(--sans);fill:var(--ink)}
+.cv-ush{fill:url(#cv-h);stroke:none}
+#cv-h line{stroke:var(--ink);stroke-width:1.05}
+.cv-n{font:700 17px var(--sans);letter-spacing:.3em;fill:var(--ink);paint-order:stroke;stroke:#F4EEE2;stroke-width:8px;stroke-linejoin:round}
+.cv-pin{fill:var(--ink)}
 
-/* Reliable. — l'aplat bleu à gauche (la définition) ; à droite, sur le papier, la citation sur un grand guillemet bleu */
-.rl-mk{left:50.5cqw;top:var(--my,19.5cqw);z-index:0;font:italic 400 36cqw/.8 var(--serif);color:var(--slate);pointer-events:none}
-.rl-q{left:55cqw;top:var(--qy,27cqw);width:40cqw;z-index:5}
+/* 07 Reliable. — un guillemet vermillon géant, que le mot surimprime ; la citation, composée comme une manchette */
+.rl-mk{left:48.5cqw;top:-2cqw;z-index:0;font:italic 400 40cqw/1 var(--serif);color:var(--red-hi);pointer-events:none}
+.rl-q{left:53cqw;top:var(--qy);width:42cqw;z-index:5}
 .rl-q blockquote{margin:0}
-.rl-q p{margin:0;font:700 2.45cqw/1.08 var(--sans);letter-spacing:-.03em;color:var(--ink);text-wrap:pretty}
-.rl-q p + p{margin-top:1.3cqw;font:400 1.4cqw/1.4 var(--sans);letter-spacing:0;color:var(--ink-2)}
-.rl-q figcaption{display:inline-block;margin-top:2cqw;padding:.8cqw 1cqw .7cqw;background:var(--ink);color:#F4EEE2;font:700 .9cqw/1.4 var(--sans);letter-spacing:.14em;text-transform:uppercase}
+.rl-q p{margin:0;font:700 2.35cqw/1.1 var(--sans);letter-spacing:-.03em;text-wrap:pretty}
+.rl-q p + p{margin-top:1.2cqw;font:italic 400 1.75cqw/1.35 var(--serif);letter-spacing:0}
+.rl-q figcaption{margin-top:1.9cqw;padding-top:.9cqw;border-top:.42cqw solid var(--ink);font:700 max(11px,.85cqw)/1.4 var(--sans);letter-spacing:.14em;text-transform:uppercase}
 .rl-q figcaption a{color:inherit;text-decoration:none}
 
-/* ---------- tablette et téléphone : l'annonce se lit de haut en bas ; l'aplat ne double plus que le bas du mot ---------- */
+/* le texte : Garamond, têtes en vermillon (Tschichold : le noir et le rouge), en colonnes ; une seule action */
+.ad-bc{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:2cqw;row-gap:20px;align-items:start;margin:0 4cqw;padding:max(22px,2.2cqw) 0 max(48px,4.6cqw);
+ border-top:1px solid currentColor;color:var(--fg)}
+.ad--red .ad-bc{--fg:var(--ink)}
+.ad-bt{grid-column:1/span 8;columns:var(--c,2);column-gap:2.6cqw}
+.ad-bc > .ad-bt:only-child{grid-column:1/-1}
+.ad-bt p{margin:0 0 .7em;font:400 19.5px/1.45 var(--serif);color:var(--fg);break-inside:avoid;text-wrap:pretty}
+.ad-bt b{margin-right:.4em;font:700 11.5px/1 var(--sans);letter-spacing:.13em;text-transform:uppercase;color:var(--red-dk)}
+.ad--ink .ad-bt b{color:#F4EEE2}
+.ad-bt b .flag{margin-right:7px;vertical-align:-1px}
+.ad-cta{grid-column:9/-1;display:flex;flex-wrap:nowrap;justify-content:flex-end;gap:12px;margin:0}
+.ad-cta .key{flex:1 1 0;min-width:0;max-width:236px}
+
+/* ---------- tablette et téléphone : l'entrée se lit de haut en bas ; l'aplat ne double plus que le bas du mot ---------- */
 @media (max-width:1099px){
- .ad-st{aspect-ratio:auto;padding:max(64px,12cqw) 5cqw 8cqw}
- .ad-st > *{position:relative;left:auto;top:auto}
- .ad-k{position:absolute;left:5cqw;top:max(24px,4cqw)}
- .ad-w{display:block;font-size:var(--mwf,19cqw)}
- .ad-blk{position:absolute;left:var(--mbx,42cqw);right:var(--mbr,0);top:calc(max(64px,12cqw) + var(--mwf,19cqw) * .36);height:calc(var(--mwf,19cqw) * .62);bottom:auto;z-index:0}
- .ad-blk.b ~ .ad-d .ad-pos{color:var(--ribbon)}
- .ad-fg,.cv-map,.ce-o,.vd-l,.rl-q,.vd-cta,.sq-w,.vb-p{position:relative;left:auto;top:auto;width:100%;margin-top:7cqw;max-width:760px}
- .ad-d{width:auto;max-width:640px;margin-top:7cqw}
+ .ad-st{aspect-ratio:auto;display:flex;flex-direction:column;align-items:flex-start;padding:max(76px,12cqw) 5cqw 9cqw}
+ .ad-st > *{position:relative;left:auto;right:auto;top:auto}
+ .ad-rh{position:absolute;left:5cqw;right:5cqw;top:max(24px,4cqw)}
+ .ad-w{order:1;font-size:var(--mwf)}
+ .ad-d{order:2;width:auto;max-width:640px;margin-top:6cqw}
+ .ad-fg,.vd-cta,.rl-q{order:3;margin-top:8cqw;width:100%;max-width:760px}
+ .ad-blk{position:absolute;left:var(--mbx,40cqw);right:var(--mbr,0);top:calc(max(76px,12cqw) + var(--mwf) * .36);height:calc(var(--mwf) * .62);bottom:auto}
  .ad-pos{font-size:12px}.ad-def{margin-top:8px;font-size:21px}.ad-s{margin-top:12px;font-size:23px}
- .vb-p{grid-template-columns:repeat(var(--n),auto);column-gap:2.2cqw;overflow-x:auto}.vb-pk{grid-column:1/-1;padding:3cqw 0 1cqw;font-size:10px}
- .vb-ps,.vb-pt{font-size:3.1cqw}.vb-pk.r1{border-bottom:0}
- .sq-w{height:auto;aspect-ratio:49/47.75}
- .sq-l{font-size:9cqw}.sq-t{font-size:2.6cqw}.sq-x{padding:2.2cqw}.sq-x b{font-size:2.6cqw}.sq-x span{font-size:2.6cqw;margin-top:1cqw}
- .sq-t.en{top:calc(67% + 3cqw)}
+ .fig{border-top-width:4px;padding-top:14px}
+ .pv{grid-template-columns:var(--pm);column-gap:8px;row-gap:8px}
+ .pv-k{visibility:hidden;overflow:hidden}
+ .pv-w{height:26px}.pv-s{font-size:9px}.pv-t{font-size:14px}
+ .bx{column-gap:10px;row-gap:6px}.bx-l{font-size:10px}.bx-q,.bx-t{font-size:15px}
  .ce-o{width:130%;max-width:none;margin-left:-30%}
- .vd-l li{font-size:clamp(20px,4.4cqw,30px);padding:10px 0 9px}
+ .vd-l{border-top-color:var(--fg)}.vd-l li{font-size:clamp(20px,4.6cqw,30px);padding:10px 0 9px;color:var(--fg);border-bottom-color:rgba(244,238,226,.35)}
  .vd-cta{display:flex;flex-wrap:wrap;gap:10px}.vd-cta .key{min-width:0;flex:1 1 100%;min-height:76px;font-size:16px;padding:14px;gap:16px}.vd-cta .key .ar{width:22px;height:22px}
+ .cv-map{width:100%}
  .rl-mk{display:none}
- .rl-q p{font-size:24px}.rl-q p + p{font-size:16px}.rl-q figcaption{font-size:11px;padding:8px 10px}
- .cv-lead,.cv-lt{display:none}
- .ad-cols{grid-template-columns:1fr}
+ .rl-q p{font-size:24px}.rl-q p + p{font-size:19px}.rl-q figcaption{font-size:11px}
+ .ad-bc{grid-template-columns:1fr;margin:0 5cqw}
+ .ad-bt,.ad-bc > .ad-bt:only-child{grid-column:1/-1;columns:1}
+ .ad-cta{grid-column:1/-1;justify-content:flex-start;flex-wrap:wrap}.ad-cta .key{flex:1 1 220px;max-width:none}
 }
+/* tablette (760–1099 px) : les trois rangs de Verbatim reprennent les proportions du grand format (la figure ne rapetisse plus) */
+@media (min-width:760px) and (max-width:1099px){.pv{grid-template-columns:var(--pc);column-gap:1.7cqw;row-gap:1cqw}.pv-k{visibility:visible;overflow:visible}
+ .pv-w{height:3.4cqw}.pv-s{font-size:max(8.5px,1cqw)}.pv-t{font-size:2.8cqw}}
+@media (max-width:600px){.ad-tr{display:none}}
