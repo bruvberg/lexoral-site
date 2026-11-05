@@ -1,6 +1,6 @@
 # Lexoral
 
-> Lexoral is an independent Canadian provider of bilingual French–English legal transcription, based in Kanata (Ottawa), Ontario, serving Canada and the United States. It produces verbatim, line-numbered, attested transcripts of depositions, examinations, arbitrations, tribunal hearings, criminal proceedings and recorded evidence, each with a signed accuracy declaration from the named practitioner who produced it, and Loi 25-compliant file handling.
+> Lexoral is an independent Canadian provider of bilingual French–English legal transcription, based in Kanata (Ottawa), Ontario, serving Canada and the United States. It produces verbatim, line-numbered, attested transcripts of depositions, examinations, arbitrations, tribunal hearings, criminal proceedings and recorded evidence, each with a signed accuracy declaration from Lexoral, and Loi 25-compliant file handling.
 
 Coverage: entirely American files, entirely Canadian files, or both at once. Work is produced from the recording, so recordings are accepted from any jurisdiction; remote intake, no travel charge.
 
@@ -21,12 +21,12 @@ Three situations where the work matters:
 
 Why a bilingual reporter is not optional: in R. v. Munkonda, 2015 ONCA 309, the Court of Appeal for Ontario quashed a committal for trial after a bilingual preliminary inquiry; among the breaches identified was that the court reporter was not bilingual. In Quebec, stenographer accreditation is granted per language: under the Regulation respecting the training, skill and knowledge evaluation, accreditation and discipline of stenographers, CQLR c. B-1, r. 13, s. 1, "the accreditation is valid for the methods and languages indicated thereon", and the Barreau du Québec's published roll carries a language column for that reason.
 
-Every transcript: verbatim with each language transcribed as spoken; continuous line numbering and structured pagination; speaker identification and objection notation; timestamps at speaker changes; conventions page; signed accuracy declaration from the named practitioner; searchable PDF and editable Word; five business days.
+Every transcript: verbatim with each language transcribed as spoken; continuous line numbering and structured pagination; speaker identification and objection notation; timestamps at speaker changes; conventions page; signed accuracy declaration from Lexoral; searchable PDF and editable Word; five business days.
 
 On request: forty-eight hour priority; condensed (four-up) and word index; original language and interpretation in parallel; line-matched comparison against an official transcript; rough draft before certification; ASCII, e-transcript and RTF; exhibit scanning and hyperlinking; produced to a named forum's own conventions.
 
 Key facts:
-- Two named practitioners (Brian Fino, Raymond Carby-Samuels). No contractor pool, no offshore desk, no model output presented as reviewed. The accuracy declaration is signed by the person who did the work.
+- Led by its two founders: Brian Fino (principal) and Raymond Carby-Samuels. No contractor pool, no offshore desk, no model output presented as reviewed. The accuracy declaration is signed by the person who did the work.
 - The practitioner who transcribes French legal argument is a jurist: former Quebec paralegal and active Associate Member of the Canadian Bar Association, author and publisher of constitutional framework and civil liberties textbooks in English and French, has delivered complex legal argument in French before Quebec's National Assembly, and lectures in Canadian constitutional law and human rights codes at George Brown College.
 - Pricing: per page, quoted in Canadian dollars after audio review. Confirmation the same working day.
 - Privacy: Loi 25 and GDPR compliant; encrypted transfer; client materials never used for AI training or any external purpose; permanent deletion on request. The website sets no cookies; audience is measured with GoatCounter, which keeps only aggregate counts.
@@ -44,7 +44,7 @@ Key facts:
 - [Transcription transfrontalière Canada–États-Unis](https://lexoral.org/transfrontalier/): version française.
 - [Legal transcription in Quebec](https://lexoral.org/quebec/): section 133 of the Constitution Act, 1867 makes either language usable by any person in the courts of Quebec, so both languages are the record and no interpreter is involved; what a bilingual examination looks like minute by minute; per-language stenographer accreditation under CQLR c. B-1, r. 13; procedures transcribed; cities served (Montreal, Quebec City, Laval, Gatineau, Longueuil, Sherbrooke, Trois-Rivières, Saguenay, Lévis). States plainly that Lexoral is not an accredited Quebec official stenographer; where a Quebec filing needs an official stenographer's certificate, Lexoral works with official stenographers accredited by the Barreau du Québec (see Certified transcripts below).
 - [Transcription juridique au Québec](https://lexoral.org/quebec-fr/): version française.
-- [Certified transcripts for Quebec courts](https://lexoral.org/certified-transcripts/): for Quebec court filings, a transcript is prepared and certified by an official stenographer accredited by the Barreau du Québec, who holds the mandate and bills at the official tariff; Lexoral is not an official stenographer; it works with official stenographers accredited in French and English, preparing the bilingual transcript under the stenographer’s mandate.
+- [Certified transcripts for Quebec courts](https://lexoral.org/certified-transcripts/): for Quebec court filings, a transcript is certified by an official stenographer accredited by the Barreau du Québec; Lexoral is not an official stenographer — it handles the request from start to finish with official stenographers accredited in French and English, and prepares the bilingual transcript.
 - [Transcription certifiée par un sténographe officiel](https://lexoral.org/transcription-certifiee/): version française.
 - [IRB hearing transcripts for appeals and judicial review](https://lexoral.org/immigration-refugee-transcripts/): transcripts of Immigration and Refugee Board hearing recordings in French and English, each language as spoken; testimony and interpretation both transcribed where the claimant testified in French or English through an interpreter; a declaration signed by the named transcriber (Refugee Appeal Division Rules, para. 3(3)(b)) or, on request, a sworn affidavit for the Federal Court; one invoice per file.
 - [Transcription des audiences de la CISR](https://lexoral.org/transcription-immigration-refugies/): version française.
@@ -61,7 +61,7 @@ Key facts:
 ## The practice
 
 - [Why Lexoral](https://lexoral.org/why-lexoral/) · [Pourquoi Lexoral](https://lexoral.org/pourquoi-lexoral/): what paragraph 530.1(g) asks for, one matter in two forms, redaction line by line.
-- [The practice](https://lexoral.org/practice/) · [Le cabinet](https://lexoral.org/cabinet/): two named practitioners, Samuels & Fino; a client letter.
+- [The practice](https://lexoral.org/practice/) · [Le cabinet](https://lexoral.org/cabinet/): its two founders, Brian Fino and Raymond Carby-Samuels; a client letter.
 - [Reference](https://lexoral.org/reference/) · [Référence](https://lexoral.org/reference-fr/): six reference pages.
 
 ## Blog

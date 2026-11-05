@@ -1,26 +1,32 @@
 /* Lexoral — l'accueil. V63 (3 nov. 2026) : la séance au dossier — la règle des tiers, la grille suisse, une seule ligne.
    Douze colonnes, trois tiers de quatre. Le grand mot en gras : à l'ouverture seulement. Partout ailleurs, la même section :
    le titre courant (le numéro au premier tiers, la rubrique au deuxième, la page au troisième) ; le titre et le chapeau au
-   premier tiers ; la figure et le texte sur les deux autres, sous un filet gras. Une colonne vertébrale, entre le premier
-   tiers et le reste : l'onde de l'enregistrement (lx.js). Encres : papier, encre, vermillon, bleu nuit, bleu du tapé. */
+   premier tiers ; la figure et le texte sur les deux autres, sous un filet gras. Entre deux sections, un filet guilloché (V64). Encres : papier, encre, vermillon, bleu nuit, bleu du tapé. */
+/* V64 : le papier uni, le filet guilloché, la ligne suisse (v64/css.py) */
 
 /* ---------- l'ouverture : l'affiche, en tiers ----------
    16:10. Le mot « Exact. » dans le tiers du haut, sa ligne de base sur la première ligne de tiers ; l'aplat vermillon
    occupe le tiers de droite, depuis cette ligne ; le marteau sort de l'aplat à l'intersection et touche le « t. ».
    Au premier tiers : la définition, la devise, les touches ; au deuxième : une page de déposition. */
-.hx{position:relative;background:transparent;border-bottom:1px solid var(--ink)}
-.hx-st{--wx:4cqw;--wy:2.17cqw;--wf:20.5cqw;--bx:66.667cqw;--by:18.75cqw;--hx:53.6cqw;--hy:2.6cqw;--hw:42cqw;
+.hx{position:relative;background:transparent}
+.hx-st{--wx:4cqw;--wy:3.05cqw;--wf:19.4cqw;--bx:66.667cqw;--by:18.75cqw;--hx:52.4cqw;--hy:3.2cqw;--hw:41cqw;
  position:relative;display:flow-root;aspect-ratio:16/9;container-type:inline-size;overflow:hidden;background:transparent}
 .hx-pic{position:absolute;inset:0;overflow:hidden;pointer-events:none}
-.hx-blk{position:absolute;left:var(--bx);top:var(--by);right:0;bottom:0;background:url(/img/papier.jpg) 0 0/640px var(--red-hi);background-blend-mode:multiply;overflow:hidden;
+.hx-blk{position:absolute;left:var(--bx);top:var(--by);right:0;bottom:0;background:var(--red-hi);overflow:hidden;
  box-shadow:0 1cqw 2.4cqw -.6cqw rgba(14,10,6,.4)}
 .hx-hand{position:absolute;z-index:2;left:var(--hx);top:var(--hy);width:var(--hw);aspect-ratio:1320/1690;filter:drop-shadow(.25cqw .6cqw .6cqw rgba(30,8,0,.36))}
 .hx-hand i{position:absolute;inset:0}
-.hx-hb{background:url(/img/papier.jpg) 0 0/640px var(--red-hi);background-blend-mode:multiply;-webkit-mask:url(/img/hand-sil.png) 0 0/100% 100% no-repeat;mask:url(/img/hand-sil.png) 0 0/100% 100% no-repeat}
+.hx-hb{background:var(--red-hi);-webkit-mask:url(/img/hand-sil.png) 0 0/100% 100% no-repeat;mask:url(/img/hand-sil.png) 0 0/100% 100% no-repeat}
 .hx-hi{background:var(--ink);-webkit-mask:url(/img/hand-ink.png) 0 0/100% 100% no-repeat;mask:url(/img/hand-ink.png) 0 0/100% 100% no-repeat}
 @supports not ((-webkit-mask-size:cover) or (mask-size:cover)){.hx-hand{display:none}}
-.hx-k{position:absolute;z-index:5;left:var(--wx);right:36cqw;top:1.5cqw;margin:0}
-.hx-k .flag{width:20px;height:10px}
+/* V64 : le titre courant de l'ouverture, en trois tiers — ce que nous faisons, en quelles langues, où */
+.hx-rh{position:absolute;z-index:5;left:4cqw;right:4cqw;top:1.2cqw;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:var(--gap);margin:0;
+ padding-bottom:9px;border-bottom:1px solid var(--ink);font:700 max(10.5px,.78cqw)/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
+.hx-rh span{display:flex;align-items:center;gap:8px;white-space:nowrap}
+.hx-rh span:nth-child(2){padding-left:calc(var(--gap) * .5)}
+.hx-rh span:last-child{justify-content:flex-end}
+.hx-rh i{font-style:normal;margin:0 2px}
+.hx-rh .flag{width:18px;height:9px}
 .hx-w{position:absolute;z-index:1;left:var(--wx);top:var(--wy);font:700 var(--wf)/.8 "Lexoral Heros",Helvetica,Arial,sans-serif;letter-spacing:-.05em;white-space:nowrap;color:var(--ink);pointer-events:none}
 .hx-h{margin:0 0 0 var(--wx);width:28.6cqw;padding-top:23.4cqw;font-weight:400;letter-spacing:0}
 .hx-d{position:relative;z-index:5;display:block}
@@ -29,29 +35,23 @@
 .hx-s{display:block;margin-top:1.5cqw;font:700 max(22px,2.15cqw)/1.1 var(--sans);letter-spacing:-.03em}
 .hx-cta{position:relative;z-index:5;display:flex;gap:12px;width:28.6cqw;margin:2.2cqw 0 0 var(--wx)}
 .hx-cta .key{flex:1 1 0;min-width:0}
-/* la page de déposition : le numéro de page, les numéros de ligne, la double marge, les répliques tapées */
-.hx-dp{position:absolute;z-index:5;left:calc(33.333cqw + 2.2cqw);top:23.4cqw;width:29cqw;margin:0;color:var(--typed);font:400 max(11.5px,.9cqw)/1.85 var(--mono)}
-.dp-pg{margin:0 0 .6cqw;padding-bottom:.5cqw;border-bottom:1px solid var(--rule-2);text-align:right;font:700 max(10.5px,.78cqw)/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)}
-.dp-l{position:relative;list-style:none;margin:0;padding:0 0 0 4.6em}
-.dp-l::before{content:"";position:absolute;left:3.3em;top:.15em;bottom:.15em;border-left:3px double var(--rule-2)}
-.dp-l li{position:relative;display:grid;grid-template-columns:2.4em minmax(0,1fr)}
-.dp-n{position:absolute;left:-4.6em;width:2.4em;text-align:right;color:var(--ink-3);font-variant-numeric:tabular-nums}
-.dp-q{font-weight:700;color:var(--ink)}
-.dp-t{min-width:0}
-.dp-by{color:var(--ink)}
-.dp-par{color:var(--ink-2)}
-.dp-l li:has(.dp-by) .dp-q,.dp-l li:has(.dp-par) .dp-q{display:none}
-.dp-l li:has(.dp-by) .dp-t,.dp-l li:has(.dp-par) .dp-t{grid-column:1/-1}
-/* sous l'affiche : le chapeau (deux tiers) et les trois repères (le dernier tiers) */
-.hx-bg{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);row-gap:28px;align-items:start;
- padding-top:clamp(30px,3.2vw,48px);padding-bottom:clamp(34px,3.6vw,56px)}
-.hx-lead{grid-column:1/span 7;margin:0;font:400 clamp(17px,1.35vw,20px)/1.5 var(--sans);color:var(--ink)}
-.hx-facts{grid-column:9/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap);margin:0}
-.hx-facts > div{padding-top:12px;border-top:1px solid var(--ink)}
-.hx-facts dt{font:700 clamp(20px,1.7vw,26px)/1 var(--sans);letter-spacing:-.035em}
-.hx-facts dd{margin:7px 0 0;font-size:13px;line-height:1.3;color:var(--ink-2)}
-@media (max-width:1099px){.hx-lead,.hx-facts{grid-column:1/-1}}
-@media (max-width:760px){.hx-k2{display:none}}
+/* V64 : les trois chiffres, au deuxième tiers — l'Helvetica grasse en grand, l'unité en petit, la légende en capitales */
+.hx-n{position:absolute;z-index:5;left:calc(33.333cqw + 1.2cqw);top:23.4cqw;width:29.6cqw;margin:0;border-top:1px solid var(--ink)}
+.hx-n > div{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:baseline;column-gap:1cqw;padding:1.05cqw 0 1.15cqw;border-bottom:1px solid var(--rule-2)}
+.hx-n dt{display:flex;align-items:baseline;gap:max(7px,.6cqw);margin:0;white-space:nowrap}
+.hx-n dt b{font:700 max(44px,5.2cqw)/.82 "Lexoral Heros",Helvetica,Arial,sans-serif;letter-spacing:-.05em;font-variant-numeric:tabular-nums}
+.hx-n dt span{font:700 max(15px,1.25cqw)/1 var(--sans);letter-spacing:-.02em}
+.hx-n dd{margin:0;text-align:right;font:700 max(10.5px,.78cqw)/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)}
+/* V64 : sous l'affiche — la déclaration, en grand, sur deux tiers ; les exigences, en liste, au dernier tiers */
+.hx-bg{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);row-gap:34px;align-items:start;
+ padding-top:clamp(40px,4.2vw,68px);padding-bottom:clamp(56px,5.6vw,92px)}
+.hx-lead{grid-column:1/span 8;margin:0;max-width:30em;font:400 clamp(22px,2.05vw,31px)/1.32 var(--sans);letter-spacing:-.012em;color:var(--ink);text-wrap:pretty}
+.hx-std{grid-column:9/-1;margin:0}
+.hx-std-k{margin:0 0 4px;padding-bottom:10px;border-bottom:1px solid var(--ink);font:700 11.5px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase}
+.hx-std ul{list-style:none;margin:0;padding:0}
+.hx-std li{display:flex;gap:12px;padding:10px 0 9px;border-bottom:1px solid var(--rule-2);font:400 15.5px/1.3 var(--sans)}
+.hx-std li::before{content:"";flex:none;width:7px;height:7px;margin-top:.45em;background:var(--red)}
+@media (max-width:1099px){.hx-lead,.hx-std{grid-column:1/-1}}
 /* sous 1100 px : l'affiche se recadre ; la définition, la devise, les touches et la page passent dessous */
 @media (max-width:1099px){
  .hx-st{aspect-ratio:auto;padding-bottom:40px}
@@ -62,17 +62,16 @@
  .hx-def{margin-top:8px;font-size:clamp(21px,3.2cqw,28px)}
  .hx-s{margin-top:14px;font-size:clamp(22px,3.4cqw,30px)}
  .hx-cta{width:auto;max-width:520px;margin:22px var(--wx) 0}
- .hx-dp{position:relative;left:auto;top:auto;width:auto;max-width:560px;margin:34px var(--wx) 0;font-size:13px}
+ .hx-n{position:relative;left:auto;top:auto;width:auto;max-width:640px;margin:34px var(--wx) 0}
+ .hx-n dt b{font-size:clamp(44px,9cqw,72px)}
+ .hx-rh{top:0;left:var(--wx);right:var(--wx);padding:14px 0 9px;font-size:10px}
 }
 @media (min-width:601px) and (max-width:1099px){.hx-st{--ph:52cqw;--wy:5cqw;--by:24cqw;--hx:50cqw;--hy:8cqw;--hw:46cqw}}
 @media (max-width:600px){
  .hx-st{--ph:125.6cqw;--wf:29cqw;--wy:14cqw;--bx:0cqw;--by:52cqw;--hx:24cqw;--hy:31cqw;--hw:76cqw}
- .hx-k{top:5cqw;right:var(--wx);font-size:10.5px;letter-spacing:.1em}
- .hx-k .flag{width:18px;height:9px;margin:0 0 0 4px}
+ .hx-rh{grid-template-columns:1fr auto;font-size:9.5px;letter-spacing:.1em}.hx-rh span:nth-child(2){display:none}
  .hx-cta{flex-wrap:wrap}
  .hx-cta .key{flex:1 1 100%}
- .hx-dp{font-size:12px}
- .hx-facts{grid-template-columns:1fr;gap:16px}
 }
 
 /* ---------- la section : une seule anatomie, en tiers ---------- */
@@ -95,21 +94,29 @@
 /* les deux autres tiers : la figure, sous un filet gras ; le texte dessous, en deux colonnes de tiers */
 .sx-b{grid-column:5/-1;min-width:0}
 .sx-b > :first-child{border-top:4px solid currentColor;padding-top:clamp(20px,1.9vw,30px)}
+.sx-b > .dp{border-top-color:var(--ink)}
 .nt{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:var(--gap);row-gap:22px;margin-top:clamp(40px,3.6vw,60px);padding-top:22px;border-top:1px solid var(--rule-2)}
 .nt p{margin:0;font:400 clamp(17px,1.32vw,19.5px)/1.5 var(--serif);text-wrap:pretty}
 .nt b{margin-right:.45em;font:700 11.5px/1 var(--sans);letter-spacing:.13em;text-transform:uppercase;color:var(--red-dk)}
 
-/* 02 — la bande : chaque mot, avec son onde au-dessus et son accord en gris (on devine la sténotypie sans la nommer) */
-.rb{display:grid;row-gap:clamp(22px,2.4vw,36px)}
-.rb-r{display:flex;flex-wrap:wrap;align-items:flex-end;column-gap:1cqw;row-gap:16px;margin:0}
-.rb-l{align-self:flex-end;margin:0 4px .35em 0;padding:.32em .3em .28em .44em;border:1px solid currentColor;font:700 10px/1 var(--sans);letter-spacing:.14em}
-.rb-r[lang="fr"] .rb-l{background:var(--ink);border-color:var(--ink);color:var(--white)}
-/* l'onde est posée au-dessus du mot, hors du calcul de la largeur : la cellule a la largeur du mot (ou de l'accord) */
-.rb-c{position:relative;display:inline-grid;row-gap:7px;padding-top:calc(2.2cqw + 8px)}
-.rb-w{position:absolute;left:0;top:0;display:block;width:100%;height:2.2cqw;fill:var(--ink)}
-.rb-s{font:700 max(8px,.62cqw)/1 var(--mono);letter-spacing:.06em;color:var(--ink-3);white-space:nowrap}
-.rb-t{font:400 1.8cqw/1 var(--mono);color:var(--typed);white-space:nowrap}
-.rb-t.q{font-weight:700;color:var(--ink)}
+/* 02 — le dossier : la page de déposition, composée comme la page — le titre et le numéro de page, les numéros de ligne,
+   la double marge, les répliques au bleu du tapé, la langue de chaque réplique dans la marge de droite */
+.dp{margin:0;color:var(--typed);font:400 max(14px,1.24cqw)/2.05 var(--mono)}
+.dp-pg{display:flex;justify-content:space-between;gap:20px;margin:0 0 10px;padding-bottom:10px;border-bottom:1px solid var(--rule-2);
+ font:700 11.5px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)}
+.dp-l{position:relative;list-style:none;margin:0;padding:0}
+.dp-l::before{content:"";position:absolute;left:3.6em;top:.3em;bottom:.3em;border-left:3px double var(--rule-2)}
+.dp-l::after{content:"";position:absolute;right:3.2em;top:.3em;bottom:.3em;border-left:1px solid var(--rule-2)}
+.dp-l li{display:grid;grid-template-columns:2.6em 1.9em 3em minmax(0,1fr) 3.2em;align-items:baseline}
+.dp-n{grid-column:1;text-align:right;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.dp-q{grid-column:3;font-weight:700;color:var(--ink)}
+.dp-t{grid-column:4;min-width:0}
+.dp-lg{grid-column:5;justify-self:end;font:700 10px/1 var(--sans);letter-spacing:.14em;color:var(--ink-3)}
+.dp-by{color:var(--ink)}
+.dp-par{color:var(--ink-2)}
+.dp-l li:has(.dp-by) .dp-q,.dp-l li:has(.dp-par) .dp-q{display:none}
+.dp-l li:has(.dp-by) .dp-t,.dp-l li:has(.dp-par) .dp-t{grid-column:3/5}
+@media (max-width:640px){.dp{font-size:13px;line-height:1.85}.dp-l li{grid-template-columns:2em 1em 2.2em minmax(0,1fr) 2.2em}.dp-l::before{left:2.6em}.dp-l::after{right:2.2em}}
 
 /* 03 — le certificat : deux pages signées */
 .cts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:var(--gap)}
@@ -120,7 +127,7 @@
 .ct-l{display:block;width:78%;margin-bottom:10px;border-top:1px solid var(--ink)}
 
 /* 04 — les comparutions : la seule bande en bleu nuit */
-.sx--navy{background:url(/img/papier.jpg) 0 0/640px var(--nuit);background-blend-mode:multiply;color:var(--white)}
+.sx--navy{background:var(--nuit);color:var(--white)}
 .sx--navy .sx-l{color:rgba(252,250,246,.78)}
 .sx--navy .nt{border-top-color:rgba(252,250,246,.28)}
 .sx--navy .nt b{color:var(--white)}
@@ -138,15 +145,11 @@
 .ex figcaption a{color:inherit;text-decoration:none}
 .ex figcaption a:hover{text-decoration:underline}
 
-/* ---------- la colonne vertébrale : l'onde de l'enregistrement (lx.js la trace) ---------- */
-.spine{position:absolute;left:0;top:0;width:100%;pointer-events:none;z-index:0;overflow:visible}
-.spine path{fill:none;stroke-width:1;stroke-linecap:butt;shape-rendering:crispEdges}
-.spine .sp-ink{stroke:rgba(25,23,20,.3)}
-.spine .sp-wh{stroke:rgba(252,250,246,.34)}
+/* V64 : le filet guilloché entre deux sections (lx.css : .gl-rule) */
+.gl-w{display:block}
 
 /* ---------- tablette et téléphone : une colonne ; le titre, puis la figure, puis le texte ---------- */
 @media (max-width:1099px){
- .rb-t{font-size:clamp(14px,2.4cqw,22px)}.rb-s{font-size:8px}.rb-w{height:22px}.rb-c{padding-top:30px}
  .sx-h,.sx-b{grid-column:1/-1}
  .sx-h{padding:0;margin-bottom:40px}
  .sx-rh .sx-n{grid-column:1/span 2}.sx-rh .sx-k{grid-column:3/span 7}.sx-rh .sx-p{grid-column:10/-1}
