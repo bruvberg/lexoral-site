@@ -1,161 +1,143 @@
-/* Lexoral — l'accueil. V63 (3 nov. 2026) : la séance au dossier — la règle des tiers, la grille suisse, une seule ligne.
-   Douze colonnes, trois tiers de quatre. Le grand mot en gras : à l'ouverture seulement. Partout ailleurs, la même section :
-   le titre courant (le numéro au premier tiers, la rubrique au deuxième, la page au troisième) ; le titre et le chapeau au
-   premier tiers ; la figure et le texte sur les deux autres, sous un filet gras. Entre deux sections, un filet guilloché (V64). Encres : papier, encre, vermillon, bleu nuit, bleu du tapé. */
-/* V64 : le papier uni, le filet guilloché, la ligne suisse (v64/css.py) */
+/* Lexoral — V65 : l'accueil dans le système OCI (Outsource Consultants, Buzzworthy — DESIGN.md).
+   L'os pour toile, l'encre pour le texte, un seul indigo ; Geist de 10 à 160 px, Geist Mono pour les annotations.
+   Pas d'ombre, pas d'arrondi, pas de carte : des filets d'un pixel. Une seule bande indigo. */
 
-/* ---------- l'ouverture : l'affiche, en tiers ----------
-   16:10. Le mot « Exact. » dans le tiers du haut, sa ligne de base sur la première ligne de tiers ; l'aplat vermillon
-   occupe le tiers de droite, depuis cette ligne ; le marteau sort de l'aplat à l'intersection et touche le « t. ».
-   Au premier tiers : la définition, la devise, les touches ; au deuxième : une page de déposition. */
-.hx{position:relative;background:transparent}
-.hx-st{--wx:4cqw;--wy:3.05cqw;--wf:19.4cqw;--bx:66.667cqw;--by:18.75cqw;--hx:52.4cqw;--hy:3.2cqw;--hw:41cqw;
- position:relative;display:flow-root;aspect-ratio:16/9;container-type:inline-size;overflow:hidden;background:transparent}
-.hx-pic{position:absolute;inset:0;overflow:hidden;pointer-events:none}
-.hx-blk{position:absolute;left:var(--bx);top:var(--by);right:0;bottom:0;background:var(--red-hi);overflow:hidden;
- box-shadow:0 1cqw 2.4cqw -.6cqw rgba(14,10,6,.4)}
-.hx-hand{position:absolute;z-index:2;left:var(--hx);top:var(--hy);width:var(--hw);aspect-ratio:1320/1690;filter:drop-shadow(.25cqw .6cqw .6cqw rgba(30,8,0,.36))}
-.hx-hand i{position:absolute;inset:0}
-.hx-hb{background:var(--red-hi);-webkit-mask:url(/img/hand-sil.png) 0 0/100% 100% no-repeat;mask:url(/img/hand-sil.png) 0 0/100% 100% no-repeat}
-.hx-hi{background:var(--ink);-webkit-mask:url(/img/hand-ink.png) 0 0/100% 100% no-repeat;mask:url(/img/hand-ink.png) 0 0/100% 100% no-repeat}
-@supports not ((-webkit-mask-size:cover) or (mask-size:cover)){.hx-hand{display:none}}
-/* V64 : le titre courant de l'ouverture, en trois tiers — ce que nous faisons, en quelles langues, où */
-.hx-rh{position:absolute;z-index:5;left:4cqw;right:4cqw;top:1.2cqw;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:var(--gap);margin:0;
- padding-bottom:9px;border-bottom:1px solid var(--ink);font:700 max(10.5px,.78cqw)/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
-.hx-rh span{display:flex;align-items:center;gap:8px;white-space:nowrap}
-.hx-rh span:nth-child(2){padding-left:calc(var(--gap) * .5)}
-.hx-rh span:last-child{justify-content:flex-end}
-.hx-rh i{font-style:normal;margin:0 2px}
-.hx-rh .flag{width:18px;height:9px}
-.hx-w{position:absolute;z-index:1;left:var(--wx);top:var(--wy);font:700 var(--wf)/.8 "Lexoral Heros",Helvetica,Arial,sans-serif;letter-spacing:-.05em;white-space:nowrap;color:var(--ink);pointer-events:none}
-.hx-h{margin:0 0 0 var(--wx);width:28.6cqw;padding-top:23.4cqw;font-weight:400;letter-spacing:0}
-.hx-d{position:relative;z-index:5;display:block}
-.hx-pos{display:block;font:400 max(12px,1cqw)/1 var(--mono);letter-spacing:.02em;color:var(--ink-2)}
-.hx-def{display:block;margin-top:.9cqw;font:italic 400 max(19px,1.75cqw)/1.28 var(--serif);color:var(--ink);text-wrap:pretty}
-.hx-s{display:block;margin-top:1.5cqw;font:700 max(22px,2.15cqw)/1.1 var(--sans);letter-spacing:-.03em}
-.hx-cta{position:relative;z-index:5;display:flex;gap:12px;width:28.6cqw;margin:2.2cqw 0 0 var(--wx)}
-.hx-cta .key{flex:1 1 0;min-width:0}
-/* V64 : les trois chiffres, au deuxième tiers — l'Helvetica grasse en grand, l'unité en petit, la légende en capitales */
-.hx-n{position:absolute;z-index:5;left:calc(33.333cqw + 1.2cqw);top:23.4cqw;width:29.6cqw;margin:0;border-top:1px solid var(--ink)}
-.hx-n > div{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:baseline;column-gap:1cqw;padding:1.05cqw 0 1.15cqw;border-bottom:1px solid var(--rule-2)}
-.hx-n dt{display:flex;align-items:baseline;gap:max(7px,.6cqw);margin:0;white-space:nowrap}
-.hx-n dt b{font:700 max(44px,5.2cqw)/.82 "Lexoral Heros",Helvetica,Arial,sans-serif;letter-spacing:-.05em;font-variant-numeric:tabular-nums}
-.hx-n dt span{font:700 max(15px,1.25cqw)/1 var(--sans);letter-spacing:-.02em}
-.hx-n dd{margin:0;text-align:right;font:700 max(10.5px,.78cqw)/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)}
-/* V64 : sous l'affiche — la déclaration, en grand, sur deux tiers ; les exigences, en liste, au dernier tiers */
-.hx-bg{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);row-gap:34px;align-items:start;
- padding-top:clamp(40px,4.2vw,68px);padding-bottom:clamp(56px,5.6vw,92px)}
-.hx-lead{grid-column:1/span 8;margin:0;max-width:30em;font:400 clamp(22px,2.05vw,31px)/1.32 var(--sans);letter-spacing:-.012em;color:var(--ink);text-wrap:pretty}
-.hx-std{grid-column:9/-1;margin:0}
-.hx-std-k{margin:0 0 4px;padding-bottom:10px;border-bottom:1px solid var(--ink);font:700 11.5px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase}
-.hx-std ul{list-style:none;margin:0;padding:0}
-.hx-std li{display:flex;gap:12px;padding:10px 0 9px;border-bottom:1px solid var(--rule-2);font:400 15.5px/1.3 var(--sans)}
-.hx-std li::before{content:"";flex:none;width:7px;height:7px;margin-top:.45em;background:var(--red)}
-@media (max-width:1099px){.hx-lead,.hx-std{grid-column:1/-1}}
-/* sous 1100 px : l'affiche se recadre ; la définition, la devise, les touches et la page passent dessous */
-@media (max-width:1099px){
- .hx-st{aspect-ratio:auto;padding-bottom:40px}
- .hx-st::before{content:"";display:block;height:var(--ph)}
- .hx-pic{bottom:auto;height:var(--ph)}
- .hx-h{margin:22px var(--wx) 0;width:auto;max-width:640px;padding:0}
- .hx-pos{font-size:13px}
- .hx-def{margin-top:8px;font-size:clamp(21px,3.2cqw,28px)}
- .hx-s{margin-top:14px;font-size:clamp(22px,3.4cqw,30px)}
- .hx-cta{width:auto;max-width:520px;margin:22px var(--wx) 0}
- .hx-n{position:relative;left:auto;top:auto;width:auto;max-width:640px;margin:34px var(--wx) 0}
- .hx-n dt b{font-size:clamp(44px,9cqw,72px)}
- .hx-rh{top:0;left:var(--wx);right:var(--wx);padding:14px 0 9px;font-size:10px}
+/* ---------- 01 — l'ouverture : le titre à 160 px, l'étiquette tournée, la planche ---------- */
+.oc-hero{position:relative;padding-top:clamp(18px,2.2vw,32px)}
+.oc-hero .oc-g{position:relative;align-items:end}
+.oc-hero-rh{border-top:0;padding-top:0}
+.oc-hero-h{grid-column:1/12;margin:clamp(40px,6.4vw,96px) 0 0;color:#000}
+.oc-hero-h span{display:block}
+.oc-hero .oc-side{top:clamp(64px,8.4vw,128px)}
+.oc-hero-l{grid-column:1/span 4;margin:clamp(36px,3.6vw,56px) 0 0;font:400 18px/1.5 var(--sans);text-wrap:pretty}
+.oc-hero-c{grid-column:9/-1;display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px;margin:clamp(36px,3.6vw,56px) 0 0}
+.oc-plate{margin:clamp(40px,4.4vw,64px) 0 0}
+.oc-plate-i{position:relative;overflow:hidden;aspect-ratio:2/1;background:#0D1355}
+.oc-plate-i img{width:100%;height:100%;object-fit:cover;object-position:50% 34%}
+.oc-plate-i canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.oc-plate figcaption{padding-left:var(--gut);padding-right:var(--gut);border-top:0}
+
+/* ---------- 02 — le dossier : la légende centrée, l'énoncé, les chiffres ---------- */
+.oc-cap--c{grid-column:5/span 4;margin:clamp(48px,5vw,72px) 0;color:#1925AA;text-align:center;letter-spacing:.02em}
+.oc-rec .oc-h2{grid-column:1/span 8}
+.oc-figs{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));column-gap:var(--gap);margin:clamp(56px,6vw,96px) 0 0}
+.oc-figs>div{padding:14px 0 0;border-top:1px solid rgba(0,0,0,.12)}
+.oc-figs dt{display:flex;align-items:baseline;gap:10px;margin:0}
+.oc-figs dt b{font:400 clamp(64px,8.33vw,120px)/.94 var(--sans);letter-spacing:-.03em;color:#1925AA}
+.oc-figs dt span{font:400 18px/1 var(--sans)}
+.oc-figs dd{margin:14px 0 0;max-width:22ch;font:400 10px/1.5 var(--mono);letter-spacing:.02em;text-transform:uppercase}
+
+/* ---------- 03 — les services : les deux mots aux deux bords, puis l'accordéon ---------- */
+.oc-svc .oc-lead{grid-column:1/span 4}
+.oc-accs{grid-column:1/-1;margin:clamp(40px,4.4vw,64px) 0 0;border-top:1px solid rgba(0,0,0,.12)}
+.oc-acc{border-bottom:1px solid rgba(0,0,0,.12);color:#1925AA}
+.oc-acc summary{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);align-items:baseline;padding:20px 0 19px;cursor:pointer;list-style:none}
+.oc-acc summary::-webkit-details-marker{display:none}
+.oc-acc-n{grid-column:1;font:400 10px/1 var(--mono);letter-spacing:.02em}
+.oc-acc-t{grid-column:2/span 6;font:500 24px/1.2 var(--sans);letter-spacing:-.01em}
+.oc-acc-l{grid-column:8/span 4;font:400 10px/1.5 var(--mono);letter-spacing:.02em;text-transform:uppercase;color:#000}
+.oc-acc-x{grid-column:12;justify-self:end;position:relative;width:18px;height:18px;align-self:center}
+.oc-acc-x::before,.oc-acc-x::after{content:"";position:absolute;left:0;top:50%;width:100%;height:1.5px;margin-top:-.75px;background:currentColor;transition:transform .25s cubic-bezier(.2,.7,.2,1)}
+.oc-acc-x::after{transform:rotate(90deg)}
+.oc-acc[open] .oc-acc-x::before{transform:rotate(45deg)}
+.oc-acc[open] .oc-acc-x::after{transform:rotate(135deg)}
+.oc-acc summary:hover .oc-acc-t{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.16em}
+.oc-acc-d{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);padding:0 0 28px}
+.oc-acc-d>*{grid-column:2/span 6}
+.oc-acc-d p{margin:0 0 14px;max-width:62ch;font:400 12px/1.6 var(--mono);letter-spacing:-.01em}
+.oc-acc-d .oc-acc-f{color:#000;text-transform:uppercase;font-size:10px;letter-spacing:.02em}
+.oc-acc-d .oc-brk{justify-self:start;margin-top:4px}
+@media (prefers-reduced-motion:reduce){.oc-acc-x::before,.oc-acc-x::after{transition:none}}
+
+/* ---------- 04 — la bande indigo (une seule par page) ---------- */
+.oc-band{position:relative;background:#1925AA;color:#E8E6E0}
+.oc-band .oc-rh{border-top-color:rgba(232,230,224,.3)}
+.oc-band .oc-h2{grid-column:1/span 8;color:#E8E6E0}
+.oc-band .oc-side{top:clamp(96px,9vw,140px)}
+.oc-who,.oc-notes>div{padding-top:14px;border-top:1px solid rgba(232,230,224,.3)}
+.oc-who{grid-column:1/span 4;margin-top:clamp(56px,6vw,96px)}
+.oc-who ul{list-style:none;margin:12px 0 0;padding:0;font:400 18px/1.45 var(--sans)}
+.oc-notes{grid-column:5/-1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:var(--gap);row-gap:40px;margin-top:clamp(56px,6vw,96px)}
+.oc-notes h3{margin:0 0 10px;font:400 10px/1.5 var(--mono);letter-spacing:.02em;text-transform:uppercase}
+.oc-notes p{margin:0;max-width:40ch;font:400 18px/1.45 var(--sans)}
+.oc-band .oc-more{margin-top:clamp(48px,5vw,72px)}
+.oc-band .oc-brk{color:#E8E6E0}
+
+/* ---------- 05 — les témoignages ---------- */
+.oc-tes .oc-h2{grid-column:1/span 8}
+.oc-tes-f{grid-column:9/-1;align-self:end;margin:0;font:400 16px/1.5 var(--sans)}
+.oc-tes-f .oc-brk{margin-top:12px}
+.oc-qs{grid-column:1/-1;margin-top:clamp(48px,5vw,80px)}
+.oc-q{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);margin:0;padding:22px 0 clamp(40px,4vw,64px);border-top:1px solid rgba(0,0,0,.12)}
+.oc-q figcaption{grid-column:1/span 4;display:flex;flex-direction:column;gap:6px}
+.oc-q figcaption b{font:500 18px/1.3 var(--sans)}
+.oc-q figcaption b a{text-decoration:none}
+.oc-q figcaption b a:hover{text-decoration:underline}
+.oc-q figcaption span{font:400 10px/1.5 var(--mono);letter-spacing:.02em;text-transform:uppercase}
+.oc-q-b{grid-column:5/-1}
+.oc-q blockquote{margin:0}
+.oc-q blockquote p{margin:0 0 16px;max-width:52ch;font:400 18px/1.5 var(--sans)}
+.oc-q blockquote .oc-q-p{max-width:30ch;margin-bottom:22px;font:400 clamp(26px,2.5vw,36px)/1.15 var(--sans);letter-spacing:-.015em;color:#1925AA;text-indent:-.4em}
+.oc-tr{margin-top:8px;max-width:52ch}
+.oc-tr summary{display:inline-flex;gap:8px;cursor:pointer;list-style:none;font:400 11px/1 var(--mono);letter-spacing:.02em;text-transform:uppercase;color:#1925AA}
+.oc-tr summary::-webkit-details-marker{display:none}
+.oc-tr summary::before{content:"["}
+.oc-tr summary::after{content:"+ ]"}
+.oc-tr[open] summary::after{content:"× ]"}
+.oc-tr p{margin:14px 0 0;font:400 16px/1.5 var(--sans);color:#3B3A37}
+
+/* ---------- 06 — les nouvelles : les billets du blogue ---------- */
+.oc-posts{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:clamp(40px,4.4vw,64px);border-top:1px solid rgba(0,0,0,.12)}
+.oc-post{display:flex;flex-direction:column;gap:14px;padding:18px var(--gap) 8px 0}
+.oc-post+.oc-post{padding-left:var(--gap);border-left:1px solid rgba(0,0,0,.12)}
+.oc-post-k{display:flex;justify-content:space-between;gap:12px;margin:0;font:400 10px/1.5 var(--mono);letter-spacing:.02em;text-transform:uppercase}
+.oc-post-k span{color:#1925AA}
+.oc-post h3{margin:clamp(24px,3vw,48px) 0 0;font:400 24px/1.3 var(--sans);letter-spacing:-.01em;text-wrap:balance}
+.oc-post h3 a{text-decoration:none}
+.oc-post h3 a:hover{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.14em}
+.oc-post-x{margin:0;max-width:44ch;font:400 16px/1.5 var(--sans);color:#3B3A37}
+.oc-post .oc-brk{margin-top:auto;padding-top:10px}
+
+/* ---------- le téléphone et la tablette ---------- */
+@media (max-width:1100px){
+ .oc-hero-l{grid-column:1/span 6}
+ .oc-hero-c{grid-column:7/-1}
+ .oc-figs{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:40px}
+ .oc-acc-t{grid-column:2/span 7}
+ .oc-acc-l{grid-column:9/span 3}
+ .oc-acc-d>*{grid-column:2/span 9}
+ .oc-who{grid-column:1/-1}
+ .oc-notes{grid-column:1/-1;margin-top:48px}
+ .oc-tes .oc-h2,.oc-tes-f{grid-column:1/-1}
+ .oc-tes-f{margin-top:24px}
+ .oc-q figcaption{grid-column:1/-1;margin-bottom:22px}
+ .oc-q-b{grid-column:1/-1}
 }
-@media (min-width:601px) and (max-width:1099px){.hx-st{--ph:52cqw;--wy:5cqw;--by:24cqw;--hx:50cqw;--hy:8cqw;--hw:46cqw}}
-@media (max-width:600px){
- .hx-st{--ph:125.6cqw;--wf:29cqw;--wy:14cqw;--bx:0cqw;--by:52cqw;--hx:24cqw;--hy:31cqw;--hw:76cqw}
- .hx-rh{grid-template-columns:1fr auto;font-size:9.5px;letter-spacing:.1em}.hx-rh span:nth-child(2){display:none}
- .hx-cta{flex-wrap:wrap}
- .hx-cta .key{flex:1 1 100%}
+@media (max-width:760px){
+ .oc-hero-h{grid-column:1/-1;margin-top:44px}
+ .oc-hero .oc-side{display:none}
+ .oc-hero-l,.oc-hero-c{grid-column:1/-1}
+ .oc-hero-c{margin-top:28px}
+ .oc-plate-i{aspect-ratio:4/3}
+ .oc-plate-i img{object-position:35% 40%}
+ .oc-plate figcaption span:nth-child(3){display:none}
+ .oc-cap--c{grid-column:1/-1}
+ .oc-rec .oc-h2,.oc-band .oc-h2{grid-column:1/-1}
+ .oc-figs dt b{font-size:64px}
+ .oc-svc .oc-lead{grid-column:1/-1}
+ .oc-acc summary{grid-template-columns:28px minmax(0,1fr) 18px;column-gap:12px;padding:18px 0 17px}
+ .oc-acc-n{grid-column:1}.oc-acc-t{grid-column:2;font-size:20px}.oc-acc-x{grid-column:3}
+ .oc-acc-l{grid-column:2;grid-row:2;margin-top:8px}
+ .oc-acc-d{grid-template-columns:28px minmax(0,1fr);column-gap:12px}
+ .oc-acc-d>*{grid-column:2}
+ .oc-band .oc-side{display:none}
+ .oc-notes{grid-template-columns:minmax(0,1fr);row-gap:28px}
+ .oc-posts{grid-template-columns:minmax(0,1fr)}
+ .oc-post{padding:18px 0 28px}
+ .oc-post+.oc-post{padding-left:0;border-left:0;border-top:1px solid rgba(0,0,0,.12)}
+ .oc-post h3{margin-top:18px}
 }
-
-/* ---------- la section : une seule anatomie, en tiers ---------- */
-.hm{position:relative}
-.sx{position:relative;padding:clamp(26px,2.4vw,38px) 0 clamp(104px,9.5vw,156px);container-type:inline-size}
-.sx-g{position:relative;z-index:1;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);align-items:start}
-/* le titre courant : le numéro au premier tiers, la rubrique au deuxième, la page au troisième */
-.sx-rh{grid-column:1/-1;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);align-items:baseline;margin:0 0 clamp(54px,5.4vw,92px);
- padding-bottom:12px;border-bottom:1px solid currentColor;font:700 11.5px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase}
-.sx-n{grid-column:1/span 4;font:400 13px/1 var(--mono);letter-spacing:.04em}
-.sx-k{grid-column:5/span 4}
-.sx-p{grid-column:9/-1;justify-self:end;font:400 13px/1 var(--mono);letter-spacing:.04em;text-transform:none}
-/* le premier tiers : le titre, le chapeau, l'action */
-.sx-h{grid-column:1/span 4;padding-right:clamp(0px,2vw,28px)}
-.sx-t{margin:0;font:700 clamp(36px,3.75vw,56px)/1.02 "Lexoral Heros",Helvetica,Arial,sans-serif;letter-spacing:-.035em;text-wrap:balance}
-.sx-l{margin:24px 0 0;max-width:24em;font:italic 400 clamp(19px,1.5vw,22px)/1.42 var(--serif);color:var(--ink-2);text-wrap:pretty}
-.sx-l i{font-style:normal}
-.sx-cta{display:flex;flex-wrap:wrap;gap:12px;margin:34px 0 0;max-width:440px}
-.sx-cta .key{flex:1 1 200px}
-/* les deux autres tiers : la figure, sous un filet gras ; le texte dessous, en deux colonnes de tiers */
-.sx-b{grid-column:5/-1;min-width:0}
-.sx-b > :first-child{border-top:4px solid currentColor;padding-top:clamp(20px,1.9vw,30px)}
-.sx-b > .dp{border-top-color:var(--ink)}
-.nt{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:var(--gap);row-gap:22px;margin-top:clamp(40px,3.6vw,60px);padding-top:22px;border-top:1px solid var(--rule-2)}
-.nt p{margin:0;font:400 clamp(17px,1.32vw,19.5px)/1.5 var(--serif);text-wrap:pretty}
-.nt b{margin-right:.45em;font:700 11.5px/1 var(--sans);letter-spacing:.13em;text-transform:uppercase;color:var(--red-dk)}
-
-/* 02 — le dossier : la page de déposition, composée comme la page — le titre et le numéro de page, les numéros de ligne,
-   la double marge, les répliques au bleu du tapé, la langue de chaque réplique dans la marge de droite */
-.dp{margin:0;color:var(--typed);font:400 max(14px,1.24cqw)/2.05 var(--mono)}
-.dp-pg{display:flex;justify-content:space-between;gap:20px;margin:0 0 10px;padding-bottom:10px;border-bottom:1px solid var(--rule-2);
- font:700 11.5px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)}
-.dp-l{position:relative;list-style:none;margin:0;padding:0}
-.dp-l::before{content:"";position:absolute;left:3.6em;top:.3em;bottom:.3em;border-left:3px double var(--rule-2)}
-.dp-l::after{content:"";position:absolute;right:3.2em;top:.3em;bottom:.3em;border-left:1px solid var(--rule-2)}
-.dp-l li{display:grid;grid-template-columns:2.6em 1.9em 3em minmax(0,1fr) 3.2em;align-items:baseline}
-.dp-n{grid-column:1;text-align:right;color:var(--ink-3);font-variant-numeric:tabular-nums}
-.dp-q{grid-column:3;font-weight:700;color:var(--ink)}
-.dp-t{grid-column:4;min-width:0}
-.dp-lg{grid-column:5;justify-self:end;font:700 10px/1 var(--sans);letter-spacing:.14em;color:var(--ink-3)}
-.dp-by{color:var(--ink)}
-.dp-par{color:var(--ink-2)}
-.dp-l li:has(.dp-by) .dp-q,.dp-l li:has(.dp-par) .dp-q{display:none}
-.dp-l li:has(.dp-by) .dp-t,.dp-l li:has(.dp-par) .dp-t{grid-column:3/5}
-@media (max-width:640px){.dp{font-size:13px;line-height:1.85}.dp-l li{grid-template-columns:2em 1em 2.2em minmax(0,1fr) 2.2em}.dp-l::before{left:2.6em}.dp-l::after{right:2.2em}}
-
-/* 03 — le certificat : deux pages signées */
-.cts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:var(--gap)}
-.ct{display:flex;flex-direction:column;margin:0}
-.ct-k{margin:0 0 14px;font:700 11.5px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--red-dk)}
-.ct-x{flex:1;margin:0;font:400 clamp(18px,1.45vw,21px)/1.5 var(--serif);text-wrap:pretty}
-.ct-s{margin:clamp(34px,3.2vw,52px) 0 0;font:400 12.5px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
-.ct-l{display:block;width:78%;margin-bottom:10px;border-top:1px solid var(--ink)}
-
-/* 04 — les comparutions : la seule bande en bleu nuit */
-.sx--navy{background:var(--nuit);color:var(--white)}
-.sx--navy .sx-l{color:rgba(252,250,246,.78)}
-.sx--navy .nt{border-top-color:rgba(252,250,246,.28)}
-.sx--navy .nt b{color:var(--white)}
-.ap-k{margin:0 0 12px;font:400 13px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:rgba(252,250,246,.72)}
-.ap-l{columns:2;column-gap:var(--gap);margin:0;padding:0;list-style:none}
-.ap-l li{break-inside:avoid;padding:11px 0 10px;border-bottom:1px solid rgba(252,250,246,.24);font:700 clamp(19px,1.6vw,24px)/1.15 var(--sans);letter-spacing:-.02em}
-
-/* 05 — la pièce : la citation, cotée comme une pièce */
-.ex{margin:0}
-.ex-k{margin:0 0 18px;font:400 13px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--red-dk)}
-.ex blockquote{margin:0}
-.ex blockquote p{margin:0;font:400 clamp(26px,2.4vw,36px)/1.25 var(--serif);text-wrap:pretty}
-.ex blockquote p + p{margin-top:16px;font-style:italic;font-size:clamp(19px,1.5vw,22px);color:var(--ink-2)}
-.ex figcaption{margin-top:22px;font:700 11.5px/1.4 var(--sans);letter-spacing:.14em;text-transform:uppercase}
-.ex figcaption a{color:inherit;text-decoration:none}
-.ex figcaption a:hover{text-decoration:underline}
-
-/* V64 : le filet guilloché entre deux sections (lx.css : .gl-rule) */
-.gl-w{display:block}
-
-/* ---------- tablette et téléphone : une colonne ; le titre, puis la figure, puis le texte ---------- */
-@media (max-width:1099px){
- .sx-h,.sx-b{grid-column:1/-1}
- .sx-h{padding:0;margin-bottom:40px}
- .sx-rh .sx-n{grid-column:1/span 2}.sx-rh .sx-k{grid-column:3/span 7}.sx-rh .sx-p{grid-column:10/-1}
-}
-@media (max-width:640px){
- .nt,.cts{grid-template-columns:1fr;row-gap:26px}
- .ap-l{columns:1}
- .ct-s{margin-top:28px}
+@media (max-width:440px){
+ .oc-figs{grid-template-columns:minmax(0,1fr)}
+ .oc-q blockquote .oc-q-p{font-size:24px}
 }
