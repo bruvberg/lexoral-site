@@ -1,17 +1,47 @@
-/* Lexoral — V65 : le peu de JavaScript du site. Sans lui, tout reste lisible et le formulaire s'envoie quand même. */
+/* Lexoral — V66 : le peu de JavaScript du site (réplique d'OCI). Sans lui, tout reste lisible : les panneaux de
+   l'accordéon restent ouverts, le premier témoignage s'affiche, et le formulaire s'envoie quand même. */
 (function(){
-var d=document,h=d.documentElement,fr=h.lang==='fr';
+var d=document,h=d.documentElement,fr=h.lang==='fr';h.classList.add('js');
 
-/* le menu : la bande indigo plein écran (le bouton MENU / FERMER) */
-var mb=d.querySelector('.oc-mbtn'),dp=d.getElementById('lx-menu');
-if(mb&&dp){var set=function(o,back){mb.setAttribute('aria-expanded',String(o));dp.hidden=!o;h.classList.toggle('oc-open',o);
+/* l'en-tête : les colonnes de liens s'effacent dès qu'on descend */
+var oh=d.querySelector('[data-oh]');
+if(oh){var sc=function(){oh.classList.toggle('is-scrolled',window.scrollY>40)};sc();window.addEventListener('scroll',sc,{passive:true});}
+
+/* le menu : le panneau blanc */
+var mb=d.querySelector('.oh-menu'),dp=d.getElementById('lx-menu');
+if(mb&&dp){var set=function(o,back){mb.setAttribute('aria-expanded',String(o));dp.hidden=!o;h.classList.toggle('oh-open',o);
   if(o){var f=dp.querySelector('a');if(f)f.focus({preventScroll:true})}else if(back)mb.focus()};
  mb.addEventListener('click',function(){set(mb.getAttribute('aria-expanded')!=='true',true)});
  dp.addEventListener('click',function(e){if(e.target.closest('a'))set(false)});
  d.addEventListener('keydown',function(e){if(e.key==='Escape'&&!dp.hidden)set(false,true)});
- window.addEventListener('resize',function(){if(!dp.hidden&&window.innerWidth>4000)set(false)});}
+ d.addEventListener('click',function(e){if(!dp.hidden&&!e.target.closest('.oh-panel,.oh-menu'))set(false)});}
 
-/* les questions : une réponse s'ouvre */
+/* l'accordéon des services : un seul ouvert ; la page-type de gauche suit */
+var acc=d.querySelector('.xa');
+if(acc){var items=[].slice.call(acc.querySelectorAll('.xa-i')),cards=[].slice.call(d.querySelectorAll('.xs-card'));
+ var show=function(i){cards.forEach(function(c){c.classList.toggle('is-active',+c.dataset.i===i)})};
+ var open=function(it){var will=!it.classList.contains('is-open');
+  items.forEach(function(x){var on=x===it&&will;x.classList.toggle('is-open',on);x.querySelector('.xa-b').setAttribute('aria-expanded',String(on))});
+  if(will)show(+it.dataset.i)};
+ items.forEach(function(it){var b=it.querySelector('.xa-b');b.addEventListener('click',function(){open(it)});
+  it.addEventListener('mouseenter',function(){show(+it.dataset.i)});b.addEventListener('focus',function(){show(+it.dataset.i)})});
+ acc.addEventListener('mouseleave',function(){var o=acc.querySelector('.xa-i.is-open');if(o)show(+o.dataset.i)});}
+
+/* les témoignages : précédent, suivant ; la citation, le nom et le compteur se relaient */
+var xt=d.querySelector('.xt');
+if(xt){var qs=[].slice.call(xt.querySelectorAll('.xt-q')),inf=[].slice.call(xt.querySelectorAll('.xt-info')),tr=[].slice.call(xt.querySelectorAll('.xt-tr-in [data-i]')),
+  ci=xt.querySelector('.xt-i'),k=0,n=qs.length;
+ var go=function(j){k=(j+n)%n;[qs,inf,tr].forEach(function(l){l.forEach(function(e){e.classList.toggle('is-active',+e.dataset.i===k)})});
+  qs.forEach(function(q){q.setAttribute('aria-hidden',String(+q.dataset.i!==k))});if(ci)ci.textContent=(k<9?'0':'')+(k+1)};
+ go(0);[].forEach.call(xt.querySelectorAll('.xt-btn'),function(b){b.addEventListener('click',function(){go(k+(+b.dataset.d))})});}
+
+/* les nouvelles : l'image carrée suit le billet survolé */
+var xn=d.querySelector('.xn');
+if(xn){var im=[].slice.call(xn.querySelectorAll('.xn-img'));
+ [].forEach.call(xn.querySelectorAll('.xn-post'),function(p){var f=function(){im.forEach(function(e){e.classList.toggle('is-active',e.dataset.i===p.dataset.i)})};
+  p.addEventListener('mouseenter',f);p.addEventListener('focusin',f)});}
+
+/* les questions (l'ancienne FAQ) */
 window.toggleFaq=function(el){var o=el.parentElement.classList.toggle('open');el.setAttribute('aria-expanded',String(o))};
 
 /* au dossier / hors dossier : les heures de bureau, à l'heure de l'Est */
@@ -36,13 +66,8 @@ if(f&&window.fetch&&window.FormData){
   .then(function(r){return r.json()}).then(function(j){if(j&&String(j.success)==='true')done();else throw new Error('no')})
   .catch(function(){btn.disabled=false;bt.textContent=lbl;st.textContent=L.ko+' ';var a=d.createElement('a');a.href=mail(x);a.textContent=L.m;st.appendChild(a)})});}
 })();
-/* ce qui s'anime à l'arrivée dans l'écran (.io → .in) */
-(function(){var els=document.querySelectorAll('.io');if(!els.length)return;
-if(!('IntersectionObserver' in window)||(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)){[].forEach.call(els,function(e){e.classList.add('in')});return}
-var o=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');o.unobserve(e.target)}})},{threshold:.35});
-[].forEach.call(els,function(e){o.observe(e)})})();
-/* la planche de l'ouverture : la loupe — au passage de la souris, l'image se bombe et ondule sous le curseur (WebGL ; la
-   réplique sobre des distorsions d'OCI). Rien sur écran tactile, rien si l'on a demandé moins de mouvement : l'image reste. */
+/* l'ouverture : la loupe — au passage de la souris, la photo se bombe et ondule sous le curseur (WebGL, la réplique
+   sobre des distorsions d'OCI). Rien sur écran tactile, rien si l'on a demandé moins de mouvement : la photo reste. */
 (function(){var box=document.querySelector('[data-gl]');if(!box)return;
 var mq=window.matchMedia;if(!mq||!mq('(hover:hover) and (pointer:fine)').matches||mq('(prefers-reduced-motion: reduce)').matches)return;
 var img=box.querySelector('img');if(!img)return;
@@ -58,8 +83,8 @@ var pr=gl.createProgram();gl.attachShader(pr,vs);gl.attachShader(pr,fs);gl.linkP
 var b=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,b);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
 var ap=gl.getAttribLocation(pr,'p');gl.enableVertexAttribArray(ap);gl.vertexAttribPointer(ap,2,gl.FLOAT,false,0,0);
 var U={};['res','im','m','pos','s','tm'].forEach(function(k){U[k]=gl.getUniformLocation(pr,k)});
-var tx=gl.createTexture(),ok=false,mx=.5,my=.5,tx_=.5,ty_=.5,S=0,T=0,on=false,raf=0,t0=0;
-function size(){var r=box.getBoundingClientRect(),d=Math.min(window.devicePixelRatio||1,2);cv.width=Math.round(r.width*d);cv.height=Math.round(r.height*d);gl.viewport(0,0,cv.width,cv.height);
+var tx=gl.createTexture(),ok=false,mx=.5,my=.5,tx_=.5,ty_=.5,S=0,T=0,on=false,raf=0,t0=0,area=box.parentElement||box;
+function size(){var r=box.getBoundingClientRect(),dpr=Math.min(window.devicePixelRatio||1,2);cv.width=Math.round(r.width*dpr);cv.height=Math.round(r.height*dpr);gl.viewport(0,0,cv.width,cv.height);
  var cs=getComputedStyle(img).objectPosition.split(' ');gl.uniform2f(U.pos,(parseFloat(cs[0])||50)/100,(parseFloat(cs[1])||50)/100);draw()}
 function draw(){if(!ok)return;gl.uniform2f(U.res,cv.width,cv.height);gl.uniform2f(U.m,mx,my);gl.uniform1f(U.s,S);gl.uniform1f(U.tm,T);gl.drawArrays(gl.TRIANGLE_STRIP,0,4)}
 function loop(t){raf=0;if(!t0)t0=t;T=(t-t0)/1000;mx+=(tx_-mx)*.12;my+=(ty_-my)*.12;S+=((on?1:0)-S)*.08;draw();
@@ -71,8 +96,8 @@ function load(){var src=new Image();src.decoding='async';src.onload=function(){g
   gl.texImage2D(gl.TEXTURE_2D,0,gl.RGB,gl.RGB,gl.UNSIGNED_BYTE,src);gl.uniform2f(U.im,src.naturalWidth,src.naturalHeight);ok=true;
   cv.setAttribute('aria-hidden','true');box.appendChild(cv);size();box.classList.add('gl-on')};src.src=img.currentSrc||img.src}
 if(img.complete&&img.naturalWidth)load();else img.addEventListener('load',load,{once:true});
-box.addEventListener('pointerenter',function(){on=true;go()});
-box.addEventListener('pointerleave',function(){on=false;go()});
-box.addEventListener('pointermove',function(e){var r=box.getBoundingClientRect();tx_=(e.clientX-r.left)/r.width;ty_=(e.clientY-r.top)/r.height;if(!on){on=true}go()});
+area.addEventListener('pointerenter',function(){on=true;go()});
+area.addEventListener('pointerleave',function(){on=false;go()});
+area.addEventListener('pointermove',function(e){var r=box.getBoundingClientRect();tx_=(e.clientX-r.left)/r.width;ty_=(e.clientY-r.top)/r.height;if(!on){on=true}go()});
 var rt;window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(size,120)});
 })();
