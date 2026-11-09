@@ -1,5 +1,5 @@
 /* Lexoral — V67 : l'accueil, réplique d'OCI (sans l'animation d'ouverture ni les projets). Mêmes mesures qu'OCI,
-   en rem fluides (v67/oci.css) : 1/16 rem = 1 px à 1440 px de large. V67 : la photo en sérigraphie, sans loupe ; la
+   en rem fluides (v67/oci.css) : 1/16 rem = 1 px à 1440 px de large. V67 : l'illustration noir et blanc, sans loupe ; la
    page de transcription des services en Courier New ; le déroulement tapé et suivi ; le nom sur le filet. */
 
 /* ---------- 1. l'ouverture : la photo plein écran, le titre au pied, les filets ---------- */
@@ -7,14 +7,15 @@
 .xh-img{position:absolute;inset:0;overflow:hidden}
 .xh-img img{width:100%;height:100%;object-fit:cover;object-position:34% 40%}
 .xh-img::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
- background:linear-gradient(180deg,rgba(7,8,24,.34) 0%,rgba(7,8,24,.12) 34%,rgba(7,8,24,.16) 60%,rgba(7,8,24,.62) 100%)}
+ background:linear-gradient(90deg,rgba(7,8,24,.34) 0%,rgba(7,8,24,0) 58%),
+  linear-gradient(180deg,rgba(7,8,24,.32) 0%,rgba(7,8,24,.08) 30%,rgba(7,8,24,.3) 56%,rgba(7,8,24,.72) 100%)}
 .xh-g{position:relative;z-index:2;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));column-gap:var(--gap);height:100%;align-content:end;padding-bottom:calc(var(--s) * 62)}
 .xh-t{color:#FFFFFF;font:500 3.25rem/1.2 var(--pp);letter-spacing:0}
 .xh-tm{grid-column:1/-1;grid-row:2}
 .xh-t1,.xh-t2,.xh-l{display:none}
 .xh-tag{grid-column:3/-1;grid-row:1;margin:0 0 calc(var(--s) * 100);color:#FFFFFF;font:400 1.5rem/1 var(--pp);letter-spacing:0}
 .xh-tag i{font-style:italic}
-/* la phrase passe sur les bobines (l'os de la sérigraphie) : un halo d'encre derrière elle, pour la lire */
+/* la phrase passe sur le magnétophone (gris clair) : un halo d'encre derrière elle, pour la lire */
 .xh-tag{position:relative;isolation:isolate;justify-self:start;width:max-content;max-width:100%}
 .xh-tag::before{content:"";position:absolute;z-index:-1;inset:-1.6em -2.2em;pointer-events:none;
  background:radial-gradient(closest-side,rgba(7,8,24,.5),rgba(7,8,24,.3) 55%,rgba(7,8,24,0))}
