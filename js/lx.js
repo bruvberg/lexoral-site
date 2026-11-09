@@ -1,6 +1,6 @@
 /* Lexoral — V67 : le peu de JavaScript du site (réplique d'OCI). Sans lui, tout reste lisible : les panneaux de
-   l'accordéon restent ouverts, le premier témoignage s'affiche, le titre du déroulement est là, la balance est de niveau,
-   et le formulaire s'envoie quand même. V67 : plus de loupe sur l'ouverture. */
+   l'accordéon restent ouverts, le premier témoignage s'affiche, le titre du déroulement est là, et le formulaire s'envoie
+   quand même. V67 : plus de loupe sur l'ouverture. */
 (function(){
 var d=document,h=d.documentElement,fr=h.lang==='fr';h.classList.add('js');
 var calm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -31,9 +31,6 @@ if(acc){var items=[].slice.call(acc.querySelectorAll('.xa-i')),cards=[].slice.ca
   it.addEventListener('mouseenter',function(){show(+it.dataset.i)});b.addEventListener('focus',function(){show(+it.dataset.i)})});
  acc.addEventListener('mouseleave',function(){var o=acc.querySelector('.xa-i.is-open');if(o)show(+o.dataset.i)});}
 
-/* la balance : penchée tant qu'on ne la voit pas ; à l'apparition, elle oscille une fois et s'arrête de niveau */
-var xs=d.querySelector('.xs');
-if(xs&&d.querySelector('.xs-bal')&&!calm){xs.classList.add('bal-armed');seen(d.querySelector('.xs-bal'),function(){xs.classList.add('is-in')},{threshold:.6});}
 
 /* le déroulement : le titre tapé à la machine, puis les fiches qui s'allument au fil du défilement */
 var xh=d.querySelector('.xp-h');

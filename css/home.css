@@ -1,6 +1,6 @@
 /* Lexoral — V67 : l'accueil, réplique d'OCI (sans l'animation d'ouverture ni les projets). Mêmes mesures qu'OCI,
    en rem fluides (v67/oci.css) : 1/16 rem = 1 px à 1440 px de large. V67 : la photo en sérigraphie, sans loupe ; la
-   balance des services ; la page de transcription en Courier New ; le déroulement tapé et suivi ; le nom sur le filet. */
+   page de transcription des services en Courier New ; le déroulement tapé et suivi ; le nom sur le filet. */
 
 /* ---------- 1. l'ouverture : la photo plein écran, le titre au pied, les filets ---------- */
 .xh{position:relative;height:100vh;height:100svh;min-height:32rem;padding:0 var(--gx);overflow:hidden;color:#FFFFFF;background:#0D1355}
@@ -54,30 +54,13 @@
  .xi-st{grid-column:1/7;height:calc(var(--s) * 140);width:calc(var(--k) / 3 * 100% + .9375rem)}
 }
 
-/* ---------- 3. « Services | to scale. » : le titre en deux, le filet, la balance, la page de transcription, l'accordéon ---------- */
+/* ---------- 3. « Services | to scale. » : le titre en deux, le filet, la page de transcription, l'accordéon ---------- */
 .xs{position:relative;padding:calc(var(--s) * 50) var(--gx) 0;min-height:100svh}
 .xs-g{grid-template-rows:repeat(2,auto);align-content:start}
 .xs-line{display:none}
 .xs-t{grid-column:1/-1;grid-row:1;display:flex;flex-wrap:wrap;justify-content:space-between;gap:0 var(--gap);color:#1925AA;font:500 4.25rem/1 var(--pp);letter-spacing:0}
 .xs-t div:last-child{margin-left:auto}
-.xs-left{grid-column:1/-1;display:flex;flex-direction:column;align-items:center;margin-top:calc(var(--s) * 40)}
-.xs-bal{width:64%;margin:0;color:#1925AA;text-align:center}
-.xs-bal svg{display:block;width:100%;height:auto;overflow:visible}
-.xs-bal figcaption{margin-top:calc(var(--s) * 16)}
-.bal-t{fill:currentColor;stroke:none;font:400 17px/1 var(--gta);letter-spacing:.04em}
-.bal-b,.bal-l,.bal-r{transform-box:view-box}
-.bal-b{transform-origin:210px 70px}
-/* la balance : le fléau penche du côté du français, oscille une fois et s'arrête de niveau (FR = EN) */
-.xs.bal-armed:not(.is-in) .bal-b{transform:rotate(-7deg)}
-.xs.bal-armed:not(.is-in) .bal-l{transform:translateY(19.7px)}
-.xs.bal-armed:not(.is-in) .bal-r{transform:translateY(-19.7px)}
-.xs.is-in .bal-b{animation:bal-b 2.8s cubic-bezier(.33,.66,.4,1) .2s both}
-.xs.is-in .bal-l{animation:bal-l 2.8s cubic-bezier(.33,.66,.4,1) .2s both}
-.xs.is-in .bal-r{animation:bal-r 2.8s cubic-bezier(.33,.66,.4,1) .2s both}
-@keyframes bal-b{0%{transform:rotate(-7deg)}30%{transform:rotate(4.5deg)}56%{transform:rotate(-2.2deg)}78%{transform:rotate(.9deg)}100%{transform:rotate(0)}}
-@keyframes bal-l{0%{transform:translateY(19.7px)}30%{transform:translateY(-12.7px)}56%{transform:translateY(6.2px)}78%{transform:translateY(-2.5px)}100%{transform:none}}
-@keyframes bal-r{0%{transform:translateY(-19.7px)}30%{transform:translateY(12.7px)}56%{transform:translateY(-6.2px)}78%{transform:translateY(2.5px)}100%{transform:none}}
-@media (prefers-reduced-motion:reduce){.xs .bal-b,.xs .bal-l,.xs .bal-r{animation:none!important;transform:none!important}}
+.xs-left{grid-column:1/-1;display:flex;flex-direction:column;align-items:center}
 .xs-cards{display:none}
 .xs-acc{grid-column:1/-1;margin-top:calc(var(--s) * 50);padding-bottom:calc(var(--s) * 15)}
 .xs-end{grid-column:1/-1;border-bottom:1px solid #1925AA}
@@ -109,8 +92,7 @@
  .xs-t{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);margin-top:calc(var(--s) * 70);font-size:10rem;line-height:.9375}
  .xs-t div:first-child{grid-column:1/span 6}
  .xs-t div:last-child{grid-column:7/span 6;margin-left:0;padding-left:calc(var(--s) * 15)}
- .xs-left{grid-column:1/span 6;grid-row:2;gap:calc(var(--s) * 60);margin-top:calc(var(--s) * 96);padding:0 calc(var(--s) * 30) calc(var(--s) * 80) 0}
- .xs-bal{width:25rem}
+ .xs-left{grid-column:1/span 6;grid-row:2;margin-top:calc(var(--s) * 110);padding:0 calc(var(--s) * 30) calc(var(--s) * 80) 0}
  .xs-cards{display:grid;grid-template-areas:"stack";width:27rem}
  .xs-card{grid-area:stack;opacity:0;visibility:hidden;transition:opacity .45s,visibility .45s}
  .xs-card.is-active{opacity:1;visibility:visible}
