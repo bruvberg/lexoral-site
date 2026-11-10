@@ -56,7 +56,7 @@ Key facts:
 - [Questions fréquentes](https://lexoral.org/faq-fr/): version française.
 - [Privacy Policy](https://lexoral.org/privacy/) · [Politique de confidentialité](https://lexoral.org/privacy-fr/): Loi 25 and GDPR compliance detail.
 - [Retention Policy](https://lexoral.org/retention/) · [Politique de conservation](https://lexoral.org/retention-fr/): file retention and deletion.
-- [Specimen transcript (PDF)](https://lexoral.org/lexoral-specimen-transcript.pdf): two-page sample in the delivered format, fictional matter.
+- [Specimen transcript (PDF)](https://lexoral.org/lexoral-specimen-transcript.pdf): sample attested transcript in the delivered format (Quebec standard page, 25 numbered lines, times at each change of speaker, signed accuracy declaration), fictional matter.
 
 ## The firm
 
