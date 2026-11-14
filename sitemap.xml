@@ -184,4 +184,12 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://lexoral.org/immigration-refugee-transcripts/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://lexoral.org/transcription-immigration-refugies/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://lexoral.org/immigration-refugee-transcripts/"/></url>
+  <url><loc>https://lexoral.org/the-firm/</loc><lastmod>2026-11-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lexoral.org/the-firm/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lexoral.org/le-cabinet/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lexoral.org/the-firm/"/></url>
+  <url><loc>https://lexoral.org/le-cabinet/</loc><lastmod>2026-11-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lexoral.org/the-firm/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lexoral.org/le-cabinet/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lexoral.org/the-firm/"/></url>
 </urlset>

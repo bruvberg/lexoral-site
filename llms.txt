@@ -1,6 +1,6 @@
 # Lexoral
 
-> Lexoral is an independent Canadian provider of bilingual French–English legal transcription, based in Kanata (Ottawa), Ontario, serving Canada and the United States. It produces verbatim, line-numbered, attested transcripts of depositions, examinations, arbitrations, tribunal hearings, criminal proceedings and recorded evidence, each with a signed accuracy declaration from Lexoral, and Loi 25-compliant file handling.
+> Lexoral is an independent bilingual (French–English) litigation support firm, based in Kanata (Ottawa), Ontario, serving Quebec, the rest of Canada and the United States: examinations taken by official stenographers, hearing transcripts, certification, certified translation and recorded evidence. Lexoral is not a law firm and gives no legal advice. It produces verbatim, line-numbered, attested transcripts of depositions, examinations, arbitrations, tribunal hearings, criminal proceedings and recorded evidence, each with a signed accuracy declaration from Lexoral, and Loi 25-compliant file handling.
 
 Coverage: entirely American files, entirely Canadian files, or both at once. Work is produced from the recording, so recordings are accepted from any jurisdiction; remote intake, no travel charge.
 
@@ -37,6 +37,8 @@ Key facts:
 
 ## Pages
 
+- [The firm](https://lexoral.org/the-firm/): who Lexoral is (a bilingual litigation support firm founded and led by Brian Fino and Raymond Carby-Samuels), its six services, its partners (official stenographers on the Barreau du Québec's roll of stenographers, certified translators who are members of the OTTIAQ), what it does not do (no legal advice, no representation; not a law firm, not an official stenographer, not a certified translator), and how files are protected.
+- [Le cabinet](https://lexoral.org/le-cabinet/): version française.
 - [Home (English)](https://lexoral.org/): coverage, the argument, the reference index to the six content pages, the practitioners, contact.
 - [Accueil (français)](https://lexoral.org/fr/): version française de la page d'accueil.
 - [Legal transcription services](https://lexoral.org/services/): depositions and examinations (taken in Quebec by an official stenographer Lexoral works with), hearings and arbitrations, tribunal hearings, recorded evidence, certified transcripts, cross-border matters and certified translation, with the full datasheet of what every transcript includes and what can be requested, and a downloadable specimen transcript.

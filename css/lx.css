@@ -1252,3 +1252,4 @@ b,strong{font-weight:500}
  .sv-d{grid-template-columns:2.4em minmax(0,1fr)}.sv-d > *{grid-column:2}}
 
 .xc-q{margin:calc(var(--s) * 20) 0 0;color:#000;font:400 1rem/1.5 var(--pp)}
+.sv-d p+p{margin-top:.75em}
