@@ -96,3 +96,6 @@ if(f&&window.fetch&&window.FormData){
   .then(function(r){return r.json()}).then(function(j){if(j&&String(j.success)==='true'){btn.disabled=false;bt.textContent=lbl;done()}else throw new Error('no')})
   .catch(function(){btn.disabled=false;bt.textContent=lbl;st.textContent=L.ko+' ';var a=d.createElement('a');a.href=mail(x);a.textContent=L.m;st.appendChild(a)})});}
 })();
+
+/* V69 : un service ouvert par son ancre (/services/#translation) ; l'échéance ne peut pas être passée */
+(function(){var o=function(){var h=location.hash.slice(1);if(!h)return;var e=document.getElementById(h);if(e&&e.tagName==='DETAILS'){e.open=true;e.scrollIntoView()}};o();addEventListener('hashchange',o);var d=document.getElementById('v47-due');if(d)d.min=new Date().toISOString().slice(0,10)})();
