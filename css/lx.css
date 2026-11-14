@@ -1250,3 +1250,5 @@ b,strong{font-weight:500}
 .tsp-b{font:400 .8125rem/1.7 var(--gta)}
 @media (max-width:1023px){.sv-i summary{grid-template-columns:2.4em minmax(0,1fr) 18px}.sv-t{grid-column:2;font-size:1.5rem}.sv-l{grid-column:2}.sv-x{grid-row:1;grid-column:3}
  .sv-d{grid-template-columns:2.4em minmax(0,1fr)}.sv-d > *{grid-column:2}}
+
+.xc-q{margin:calc(var(--s) * 20) 0 0;color:#000;font:400 1rem/1.5 var(--pp)}

@@ -7,6 +7,7 @@ Coverage: entirely American files, entirely Canadian files, or both at once. Wor
 Proceedings transcribed:
 - United States: depositions, examinations before trial, examinations under oath (EUO), arbitration hearings, recorded statements, 911 and emergency-services calls, custodial and police-station interviews, body-worn and covert recordings, wiretap and consensual recordings.
 - Canada: examinations for discovery, interrogatoires hors cour, out-of-court examinations, criminal trials and preliminary inquiries, labour and grievance arbitration, administrative tribunals, professional discipline councils, coroner's inquests, immigration hearings, commissions of inquiry.
+- Examinations in Quebec: taken by an official stenographer Lexoral works with, virtually anywhere in Quebec or in person depending on the file; Lexoral prepares the transcript and the stenographer certifies it.
 - Cross-border: a Canadian witness examined for a U.S. matter, a U.S. party filing in Quebec, parallel proceedings, cross-border arbitration, letters rogatory and depositions of willing witnesses (Canada is not a party to the Hague Evidence Convention).
 
 Areas served: Montréal, Québec, Laval, Longueuil, Gatineau, Sherbrooke, Trois-Rivières, Ottawa, Kanata, Toronto, Moncton. Work is produced from the recording, so recordings are accepted from any jurisdiction in Canada or the United States; remote intake, no travel charge.
@@ -23,7 +24,7 @@ Why a bilingual reporter is not optional: in R. v. Munkonda, 2015 ONCA 309, the 
 
 Every transcript: verbatim with each language transcribed as spoken; continuous line numbering and structured pagination; speaker identification and objection notation; timestamps at speaker changes; conventions page; signed accuracy declaration from Lexoral; searchable PDF and editable Word; five business days.
 
-On request: forty-eight hour priority; condensed (four-up) and word index; original language and interpretation in parallel; line-matched comparison against an official transcript; rough draft before certification; ASCII, e-transcript and RTF; exhibit scanning and hyperlinking; produced to a named forum's own conventions.
+On request: certified translation, French to English or English to French, by a certified translator who is a member of the Ordre des traducteurs, terminologues et interprètes agréés du Québec (OTTIAQ), with the translator's affidavit for a court filing (Lexoral is not a certified translator: it prepares the transcript and coordinates); a strictly descriptive summary of a recording, separate from the transcript; forty-eight hour priority; condensed (four-up) and word index; original language and interpretation in parallel; line-matched comparison against an official transcript; rough draft before certification; ASCII, e-transcript and RTF; exhibit scanning and hyperlinking; produced to a named forum's own conventions.
 
 Key facts:
 - Led by its two founders: Brian Fino (principal) and Raymond Carby-Samuels. No contractor pool, no offshore desk, no model output presented as reviewed. The accuracy declaration is signed by the person who did the work.
@@ -38,7 +39,7 @@ Key facts:
 
 - [Home (English)](https://lexoral.org/): coverage, the argument, the reference index to the six content pages, the practitioners, contact.
 - [Accueil (français)](https://lexoral.org/fr/): version française de la page d'accueil.
-- [Legal transcription services](https://lexoral.org/services/): the four kinds of proceeding transcribed (depositions and examinations, arbitration and mediation, tribunal hearings, recorded evidence), with the full datasheet of what every transcript includes and what can be requested, and a downloadable specimen transcript.
+- [Legal transcription services](https://lexoral.org/services/): depositions and examinations (taken in Quebec by an official stenographer Lexoral works with), hearings and arbitrations, tribunal hearings, recorded evidence, certified transcripts, cross-border matters and certified translation, with the full datasheet of what every transcript includes and what can be requested, and a downloadable specimen transcript.
 - [Services de transcription juridique](https://lexoral.org/services-fr/): version française.
 - [Cross-border transcription, Canada and the United States](https://lexoral.org/cross-border/): a Canadian witness examined for a U.S. matter, a U.S. party filing in Quebec, parallel proceedings, cross-border arbitration, letters rogatory and depositions of willing witnesses (Canada is not a party to the Hague Evidence Convention) — both languages as spoken, one pass, produced to whichever set of conventions the forum requires.
 - [Transcription transfrontalière Canada–États-Unis](https://lexoral.org/transfrontalier/): version française.
@@ -52,7 +53,7 @@ Key facts:
 - [La preuve enregistrée en français](https://lexoral.org/preuve-enregistree/): version française.
 - [What paragraph 530.1(g) requires](https://lexoral.org/section-530/): Criminal Code s. 530 gives an accused a trial in their own official language; paragraph 530.1(g) requires the record to include a transcript of everything said in the language it was said, a transcript of any interpretation into the other official language, and documentary evidence in the language it was tendered — three transcripts, not one. R. v. Munkonda, 2015 ONCA 309 (committal quashed, costs awarded; the court reporter was unilingual anglophone). Also covers Constitution Act, 1867 s. 133, Official Languages Act s. 14, and Courts of Justice Act (Ontario) s. 126(1).
 - [Ce qu'exige l'alinéa 530.1g)](https://lexoral.org/article-530/): version française.
-- [Frequently asked questions](https://lexoral.org/faq/): twenty-one answers grouped into what ends up in the record, attestation and admissibility, method, engaging us, confidentiality.
+- [Frequently asked questions](https://lexoral.org/faq/): twenty-four answers grouped into what ends up in the record, attestation and admissibility, method, engaging us, confidentiality.
 - [Questions fréquentes](https://lexoral.org/faq-fr/): version française.
 - [Privacy Policy](https://lexoral.org/privacy/) · [Politique de confidentialité](https://lexoral.org/privacy-fr/): Loi 25 and GDPR compliance detail.
 - [Retention Policy](https://lexoral.org/retention/) · [Politique de conservation](https://lexoral.org/retention-fr/): file retention and deletion.
