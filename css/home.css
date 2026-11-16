@@ -319,3 +319,9 @@
 
 /* l'ouverture : le même bleu profond que la suite */
 .xh{background:#0C152A}
+
+/* V79 : une nuance de bleu par section — du plus profond au plus clair, puis l'indigo */
+#record.xi{background:#0E1740}
+.xr-s{background:#101A5C}
+.xn{background:#DCE0F0}
+.xn-bg span{background:#DCE0F0}
