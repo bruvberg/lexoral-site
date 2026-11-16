@@ -120,3 +120,8 @@ S.forEach(function(s){if(s.getBoundingClientRect().top<W.innerHeight*.82)return;
 if(!('IntersectionObserver' in window)){c.forEach(function(e){e.classList.add('go')});return}
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){io.unobserve(e.target);e.target.classList.add('go')}})},{rootMargin:'0px 0px -12% 0px'});
 c.forEach(function(e){io.observe(e)})})();
+/* V81 : les pages intérieures — chaque bloc monte une fois, quand il entre dans la fenêtre */
+(function(){var d=document,W=window;if(!d.querySelector('.xph'))return;
+if(!('IntersectionObserver' in W)||(W.matchMedia&&W.matchMedia('(prefers-reduced-motion: reduce)').matches))return;
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;var t=e.target;io.unobserve(t);t.classList.add('rw-in');setTimeout(function(){t.classList.remove('rw','rw-in')},1100)})},{rootMargin:'0px 0px -10% 0px'});
+[].forEach.call(d.querySelectorAll('.pol-in,.wr,.sv-i,.faq-part,.mp-fig,.idx>*,.fora-g>*'),function(e){if(e.getBoundingClientRect().top<W.innerHeight*.92)return;e.classList.add('rw');io.observe(e)})})();

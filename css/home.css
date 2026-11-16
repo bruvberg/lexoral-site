@@ -364,3 +364,35 @@
  .xn-post{min-height:17rem;padding:calc(var(--s) * 22) calc(var(--s) * 22) calc(var(--s) * 26)}
 }
 @media (prefers-reduced-motion:reduce){.js .xp-c,.js .xp-c::before,.js .xp-c::after,.js .xp-no{transition:none}}
+
+/* ───── V81 : chaque service s'ouvre sur place (plus de page Services) ───── */
+.xr{display:block;padding:0;scroll-margin-top:6rem}
+.xr-su{display:grid;grid-template-columns:1fr auto;gap:.9rem var(--gap);align-items:start;padding:calc(var(--s) * 20) 0 calc(var(--s) * 24);cursor:pointer;list-style:none}
+.xr-su::-webkit-details-marker{display:none}
+.xr-su:focus-visible{outline:2px solid #E8E6E0;outline-offset:4px}
+.xr-su .xr-t{grid-column:1;grid-row:1}
+.xr-su .xr-b{grid-column:1/-1;grid-row:2;padding-top:0}
+.xr-su .xr-a{grid-column:2;grid-row:1;position:relative;width:22px;height:22px;margin-top:1.75rem;padding:0;justify-self:end;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.xr-a::before,.xr-a::after{content:"";position:absolute;left:0;top:50%;width:100%;height:1px;background:currentColor}
+.xr-a::after{transform:rotate(90deg)}
+.xr:hover .xr-a,.xr:focus-visible .xr-a{transform:none}
+.xr[open] .xr-a{transform:rotate(45deg)}
+.xr-d{display:grid;grid-template-columns:1fr;gap:calc(var(--s) * 24) var(--gap);padding:0 0 calc(var(--s) * 36)}
+.xr-dd p{margin:0 0 1em;color:rgba(255,255,255,.86);font:400 1rem/1.55 var(--pp)}
+.xr-dd p:last-child{margin-bottom:0}
+.xr-dd strong{color:#FFFFFF;font-weight:500}
+.xr-dl{display:flex;flex-direction:column;align-items:flex-start;gap:.9rem}
+.xr-dl a{padding-bottom:.3em;border-bottom:1px solid rgba(232,230,224,.5);color:#E8E6E0;font:400 .75rem/1.2 var(--gta);text-transform:uppercase;text-decoration:none}
+.xr-dl a:hover,.xr-dl a:focus-visible{border-bottom-color:#E8E6E0}
+.xr[open] .xr-d{animation:xr-open .55s cubic-bezier(.2,.7,.2,1)}
+@keyframes xr-open{from{opacity:0;transform:translateY(-.6rem)}}
+@media (min-width:1024px){
+ .xr-su{grid-template-columns:repeat(8,minmax(0,1fr));row-gap:0;padding:calc(var(--s) * 22) 0 calc(var(--s) * 30)}
+ .xr-su .xr-t{grid-column:1/span 4}
+ .xr-su .xr-b{grid-column:5/span 3;grid-row:1;padding-top:1.4rem}
+ .xr-su .xr-a{grid-column:8}
+ .xr-d{grid-template-columns:repeat(8,minmax(0,1fr))}
+ .xr-dl{grid-column:1/span 4;grid-row:1}
+ .xr-dd{grid-column:5/span 4;grid-row:1}
+}
+@media (prefers-reduced-motion:reduce){.xr[open] .xr-d{animation:none}.xr-su .xr-a{transition:none}}
