@@ -1283,3 +1283,13 @@ b,strong{font-weight:500}
 .rw.rw-in{opacity:1;transform:none;transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
 @media (prefers-reduced-motion:reduce){.xph-t{animation:none}}
 @media print{.rw{opacity:1!important;transform:none!important}}
+
+/* V82 : plus de numéro flottant dans l'intro des pages ; les questions en bas de page se déplient */
+.xpi-n{display:none}
+.qa-acc{margin-top:calc(var(--s) * 10);border-bottom:1px solid #1925AA}
+.qa-i{border-top:1px solid #1925AA}
+.qa-i summary{display:flex;justify-content:space-between;gap:1.5rem;align-items:baseline;padding:1rem 0;color:#1925AA;font:400 1.1875rem/1.25 var(--pp);cursor:pointer;list-style:none}
+.qa-i summary::-webkit-details-marker{display:none}
+.qa-i summary::after{content:"+";flex:none;font:400 1.25rem/1 var(--gta);transition:transform .3s}
+.qa-i[open] summary::after{transform:rotate(45deg)}
+.qa-i>div{max-width:44rem;padding:0 0 1.25rem;color:#000;font:400 1rem/1.55 var(--pp)}
