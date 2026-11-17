@@ -1293,3 +1293,10 @@ b,strong{font-weight:500}
 .qa-i summary::after{content:"+";flex:none;font:400 1.25rem/1 var(--gta);transition:transform .3s}
 .qa-i[open] summary::after{transform:rotate(45deg)}
 .qa-i>div{max-width:44rem;padding:0 0 1.25rem;color:#000;font:400 1rem/1.55 var(--pp)}
+
+/* V82 : la durée en deux cases, heures et minutes, l'unité après chacune (fini le « 7 » sans unité) */
+.xc-r .lx-cells .v47-dur{flex-wrap:wrap}
+.xc-r .lx-cells .v47-dur input[type=number]{flex:none;width:3.4em;padding:0 .3em;border:1px solid rgba(25,37,170,.35);text-align:right;-moz-appearance:textfield;appearance:textfield}
+.xc-r .lx-cells .v47-dur input[type=number]:focus{border-color:#1925AA}
+.xc-r .lx-cells .v47-dur input[type=number]::-webkit-outer-spin-button,.xc-r .lx-cells .v47-dur input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.xc-r .lx-cells .v47-u{flex:none;color:#000;font:400 1rem/1.3 var(--pp)}

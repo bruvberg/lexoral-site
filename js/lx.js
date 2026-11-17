@@ -89,7 +89,12 @@ if(f&&window.fetch&&window.FormData){
  var mail=function(x){var b='';Object.keys(x).forEach(function(k){if(k.charAt(0)!=='_'&&x[k])b+=k+': '+x[k]+'\n'});
   return 'mailto:secure@lexoral.org?subject='+encodeURIComponent(x._subject||'Lexoral')+'&body='+encodeURIComponent(b)};
  var done=function(){f.classList.add('sent');st.textContent=L.ok;try{f.reset()}catch(e){}st.setAttribute('tabindex','-1');st.focus()};
- f.addEventListener('submit',function(e){e.preventDefault();var x={},lbl=bt.textContent;new FormData(f).forEach(function(v,k){x[k]=v});
+ /* V82 : la durée arrive en deux cases (heures, minutes) ; le courriel n'en garde qu'une ligne, à sa place : « Duration: 2 h 30 min » */
+ var DH='Duration (hours)',DM='Duration (minutes)';
+ f.addEventListener('submit',function(e){e.preventDefault();var x={},lbl=bt.textContent;new FormData(f).forEach(function(v,k){
+   if(k===DH||k===DM){if(!('Duration' in x)){var h=String(f.elements[DH].value).trim(),m=String(f.elements[DM].value).trim(),t=Math.round((parseFloat(h)||0)*60+(parseFloat(m)||0));
+     if(h||m)x.Duration=Math.floor(t/60)+' h '+('0'+t%60).slice(-2)+' min'}return}
+   x[k]=v});
   if(x._honey){done();return}delete x._honey;delete x._next;x._captcha='false';if(x.email)x._replyto=x.email;
   btn.disabled=true;bt.textContent=L.s;st.textContent='';
   fetch('https://formsubmit.co/ajax/secure@lexoral.org',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(x)})
